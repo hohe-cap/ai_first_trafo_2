@@ -13,11 +13,32 @@ Leitprinzipien:
 
 ---
 
-## 1) Mess-Architektur: 3 Sensor-Typen
+## 0) Voraussetzung: Context Assessment (einmalig)
+
+Vor dem ersten Pulse Check wird einmalig das **CRAFT Context Assessment** (→ `craft-context-assessment.md`) durch den Engagement Lead ausgefüllt. Es erfasst:
+- Projekt-/Org-Rahmenbedingungen (Größe, Phase, Typ)
+- Business & Compliance (Branche, Regulierung, Vertragsmodell, BR)
+- Tech Stack & Arbeitsweise (Sprachen, IDE, Legacy, Methodik, Deployment, Zusammenarbeitsmodell)
+- Kultur & Budget (Fehlerkultur, AI-Budget, Timeline, Betriebsrat)
+
+Das Context-Profil steuert:
+- **Adaptive Filterung** der Pulse-Check-Fragen (irrelevante ausblenden, branchenspezifische ergänzen)
+- **Maturity-Ceiling** pro Dimension (was ist unter den gegebenen Rahmenbedingungen realistisch?)
+- **Priorisierung** der CRAFT-Dimensionen für den ersten Zyklus
+
+---
+
+## 1) Mess-Architektur: 3 Sensor-Typen + Context
+
+### Context Assessment (einmalig, Engagement-Start)
+- Erfasst **Rahmenbedingungen**, die sich selten ändern.
+- 19 Fragen, ~10 Minuten, ausgefüllt durch Engagement Lead.
+- Details → `craft-context-assessment.md`
 
 ### Sensor A — Pulse Check (anonym, quartalsweise)
 - Erfasst **Wahrnehmung, Readiness, Blocker**, Dinge die Tool-Daten nicht zeigen.
-- 15 Minuten, 3–4 Fragen je Dimension + 3–6 Segment-Felder (nicht-identifizierend).
+- 15 Minuten, 1 Maturity-Frage + 1–2 MC je Dimension + Segment-Felder.
+- **Context-adaptiv:** Fragen und MC-Optionen werden durch das Context-Profil gefiltert.
 
 ### Sensor B — Delivery/Flow Telemetrie (kontinuierlich, team-/repo-aggregiert)
 - DORA + value-stream-nahe Durchlaufzeiten (PR Review Time, Queue Times, Cycle Time je Stage).
@@ -60,7 +81,13 @@ Empfohlen pro Team/Cluster:
 
 ## 4) Dimensionen messen: Minimal-Set (Start), dann ausbauen
 
-### Querschnitt: AI Usage Mode Maturity (U) — „WIE“ wird GenAI genutzt?
+Jede Dimension wird über **zwei Kanäle** gemessen:
+- **Pulse Check (Sensor A):** 1 Maturity-Level-Frage (Spider-Score 1–5) + MC-Diagnostik pro Dimension. Details → `pulse-check-question-bank-v1.md`
+- **Telemetrie/Tracking (Sensor B+C):** objektive Metriken aus CI/CD, Plattform, Governance-Systemen.
+
+Der **Spider-Score** (Median der Maturity-Antworten) ist der primäre Steuerungswert pro Dimension. Die objektiven Metriken validieren und ergänzen das Bild.
+
+### Querschnitt: AI Usage Mode Maturity (U) — „WIE" wird GenAI genutzt?
 
 Dieser Aspekt ist wichtig, aber er ist keine eigene CRAFT-Dimension. Er gehört
 - in **A (Adoption & Usage)** als *tatsächlich gelebter Nutzungsmodus* und
@@ -73,12 +100,15 @@ Dieser Aspekt ist wichtig, aber er ist keine eigene CRAFT-Dimension. Er gehört
 4. **Agentic (single):** teilautonome Agenten erledigen Teilaufgaben (mit Review/Gates)
 5. **Multi-agent / Org-agentic:** mehrere Agenten koordinieren Aufgaben end-to-end (starkes Governance/Controls nötig)
 
-Hinweis: Stufe 4–5 ist nicht „immer besser“; sie erhöht Hebel *und* Risiko (Governance, Fehlerrisiko, Nachvollziehbarkeit).
+Hinweis: Stufe 4–5 ist nicht „immer besser"; sie erhöht Hebel *und* Risiko (Governance, Fehlerrisiko, Nachvollziehbarkeit).
 
 ### D1 — C: Compliance & Governance
-**Zielbild:** „Klarheit + Geschwindigkeit“ (erlaubt/unerlaubt ist eindeutig, und blockiert nicht unnötig).
+**Zielbild:** „Klarheit + Geschwindigkeit" (erlaubt/unerlaubt ist eindeutig, und blockiert nicht unnötig).
 
-Start-Metriken (team-/org-aggregiert):
+Pulse (Spider-Score): **Maturity-Stufe C** (1–5, von „keine Policy bekannt" bis „Compliance in Workflow integriert")
+MC-Diagnostik: größter Blocker, gewünschte Policy-Änderung
+
+Objektive Metriken (Sensor B+C, team-/org-aggregiert):
 - **Policy Coverage:** existiert eine klare Policy je Sicherheitsstufe (ja/nein + Aktualität)
 - **Decision Latency:** Median Zeit bis Freigabe/Antwort auf AI‑Request (Tage)
 - **Exception Rate:** # Ausnahmen / Monat (und Gründe-Cluster)
@@ -88,13 +118,14 @@ Typische Verbesserungshebel:
 - Datenklassifizierungs-Entscheidungsbaum, Standard-Setups pro Sicherheitsstufe, BR-Kommunikationspaket.
 
 ### D2 — R: Readiness (Human & Cultural)
-**Zielbild:** „Können + Wollen + Sicherheit“ (psychologisch und praktisch).
+**Zielbild:** „Können + Wollen + Sicherheit" (psychologisch und praktisch).
 
-Start-Metriken (Pulse-getrieben):
-- **Self‑Efficacy Index:** „Ich kann AI in meinem Alltag sinnvoll nutzen“ (Likert)
-- **Psychological Safety (AI):** „Ich kann offen über AI‑Nutzung/Fehler sprechen“
-- **Role Clarity:** „Ich verstehe, wie sich meine Rolle verändert“
+Pulse (Spider-Score): **Maturity-Stufe R** (1–5, von „kein Verständnis" bis „Champion-Rolle, gestalte proaktiv")
+MC-Diagnostik: stärkster Enablement-Hebel, größte Hemmung
+
+Objektive Metriken (Sensor C):
 - **Learning Reach:** % Teammitglieder mit min. 1 Enablement‑Session pro Quartal
+- **Champion Coverage:** # aktive Champions / Team bzw. Cluster
 
 Hebel:
 - Champion-Netzwerk mit Zeitbudget, Safety Workshop, Rollenbilder, Lernpfade.
@@ -102,20 +133,24 @@ Hebel:
 ### D3 — A: Adoption & Usage
 **Zielbild:** reale Nutzung in relevanten SDLC‑Phasen, ohne Shadow‑AI‑Risiken.
 
-Start-Metriken (mix aus Pulse + aggregierter Telemetrie):
-- **Adoption Rate (self‑report):** % die AI mind. wöchentlich nutzen (anonym)
-- **Usage Mode Index (UMI):** Median der Usage-Mode-Stufe (1–5) + Verteilung (anonym)
-- **Breadth (SDLC):** # SDLC‑Phasen mit AI‑Unterstützung (Selbstangabe)
-- **Shadow AI Rate (self‑report):** % die nicht-freigegebene Tools nutzen (Trend zählt)
-- **Usefulness:** „AI spart mir messbar Zeit/Qualität“ (Likert)
+Pulse (Spider-Score): **Maturity-Stufe A** (1–5, von „keine Nutzung" bis „durchgängig integriert, optimiere aktiv")
+MC-Diagnostik: Usage Mode (1–5), SDLC-Phasen (Mehrfachauswahl), Shadow-AI-Rate
+
+Objektive Metriken (Sensor B, aggregiert):
+- **Usage Mode Index (UMI):** Median der Usage-Mode-Stufe (1–5) + Verteilung (aus Pulse MC)
+- **Breadth (SDLC):** # SDLC‑Phasen mit AI‑Unterstützung (aus Pulse MC)
+- **Shadow AI Trend:** Richtung der Shadow-AI-Rate (aus Pulse MC, nur Trend)
 
 Hebel:
-- Prompt Libraries, „golden workflows“ (z.B. PR Pre‑Review), Onboarding, schnelleres Tooling.
+- Prompt Libraries, „golden workflows" (z.B. PR Pre‑Review), Onboarding, schnelleres Tooling.
 
 ### D4 — F: Flow & Process Integration
 **Zielbild:** AI ist Teil des Workflows (nicht Add‑on), Bottlenecks sinken.
 
-Start-Metriken (Delivery/Flow):
+Pulse (Spider-Score): **Maturity-Stufe F** (1–5, von „keine Workflow-Integration" bis „systematisch in Wertschöpfungskette integriert")
+MC-Diagnostik: größter Bottleneck, gewünschte AI-Intervention
+
+Objektive Metriken (Sensor B, Delivery/Flow):
 - **PR Review Time:** Median + P85
 - **Queue Time:** Zeit in Warte-States (PR, QA, CAB)
 - **Flow Efficiency:** aktiv vs. wartend (aus VSM + Tool-Daten)
@@ -127,10 +162,12 @@ Hebel:
 ### D5 — T: Technical Enablement
 **Zielbild:** AI ist verfügbar, performant, integriert, verlässlich.
 
-Start-Metriken (platform):
+Pulse (Spider-Score): **Maturity-Stufe T** (1–5, von „kein Zugang" bis „vollständig integriert, Self-Service, automatisierte Guardrails")
+MC-Diagnostik: offiziell unterstützter Usage-Mode, größte technische Reibung
+
+Objektive Metriken (Sensor B+C, platform):
 - **Availability:** Tool verfügbar (SLO) + Ausfallminuten
 - **Latency/Throughput:** grobe Latenz-Buckets (z.B. <2s/<10s/>)
-- **Integration Depth:** Standalone → IDE → Workflow (Score 1–3)
 - **Supported Mode Level:** höchster offiziell unterstützter Usage-Mode (1–5) + Guardrails je Level
 - **Access Friction:** SSO/Provisioning Zeit (Median)
 
@@ -175,5 +212,6 @@ Regeln:
 ---
 
 ## 8) Praktischer Start (MVP in 2 Zyklen)
-- Zyklus 1: Metrik-Set festziehen (Minimal-Set), Baselines ziehen, 1 Workflow-Intervention (z.B. PR Pre‑Review).
-- Zyklus 2: Pulse Check v1 + Segmentierung, zweite Intervention (z.B. Testdaten), erstes Readiness Gate mit Sponsor.
+- **Woche 0 (Kickoff):** Context Assessment ausfüllen (Engagement Lead, ~10 Min). Context-Profil generieren, CRAFT-Priorisierung ableiten.
+- **Zyklus 1:** Context-adaptiven Pulse Check v1 durchführen, Baselines ziehen, 1 Workflow-Intervention (z.B. PR Pre‑Review).
+- **Zyklus 2:** Pulse Check v2 + Segmentierung, zweite Intervention (z.B. Testdaten), erstes Readiness Gate mit Sponsor.
