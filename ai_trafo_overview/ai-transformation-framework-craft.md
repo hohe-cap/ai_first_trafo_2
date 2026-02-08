@@ -505,9 +505,9 @@ flowchart TB
 |-----------|----------|--------------|
 | C – Compliance | Governance Compliance Score, Policy-Abdeckung pro Sicherheitsstufe, BR/EU AI Act Freigabestatus | Pulse Check + Governance-Tracking |
 | R – Readiness | Skill Self-Rating, Prompt Quality Score (anonymisiert), Anteil Teammitglieder mit AI-Schulung, Vertrauensindex, Champion-Meldungen, Workshop-Teilnahme | Pulse Check + Tool-Daten |
-| A – Adoption | Daily Active Users / Team Size, AI-assisted Commits (%), Nutzungsverteilung über SDLC-Phasen, Shadow AI Rate (sinkend = positiv) | Automatisch aus Tool-Telemetrie |
+| A – Adoption | Daily Active Users / Team Size, AI-assisted Commits (%), Nutzungsverteilung über SDLC-Phasen, **Usage Mode Maturity** (Chat → integriert → agentisch), Shadow AI Rate (sinkend = positiv) | Automatisch aus Tool-Telemetrie + Pulse Check |
 | F – Flow | Anteil SDLC-Phasen mit definierten AI-Interventionen, Flow Efficiency (aktiv vs. Wartezeit), CI/CD-Integration | Pulse Check + Pipeline-Daten |
-| T – Technical | Tool Availability Score, Integration Depth (standalone vs. IDE-integriert vs. Workflow-integriert), Modellabdeckung pro SDLC-Phase | Automatisch + Pulse Check |
+| T – Technical | Tool Availability Score, Integration Depth (standalone vs. IDE-integriert vs. Workflow-integriert), Modellabdeckung pro SDLC-Phase, **supported usage mode** (welche Modi sind offiziell/technisch möglich) | Automatisch + Pulse Check |
 
 #### Schicht 3: Business Impact (für Sponsoren)
 
