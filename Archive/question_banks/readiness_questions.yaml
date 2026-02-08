@@ -1,0 +1,757 @@
+# Readiness Assessment Question Bank
+# ===================================
+# This file contains questions for the Pre-Readiness Assessment.
+# Diagnoses transformation readiness across 4 dimensions before full maturity assessment.
+#
+# Version: 2.0
+# Last Updated: 2025-12-22
+# Total Questions: 16 (all default)
+
+version: "2.0"
+assessment_type: "readiness"
+description: "Diagnose AI transformation readiness across Leadership, Skills, Infrastructure, and Culture"
+
+categories:
+  - key: "leadership"
+    name:
+      de: "Leadership & Commitment"
+      en: "Leadership & Commitment"
+    description:
+      de: "Executive Sponsorship, Budget, Timeline, Change Management"
+      en: "Executive Sponsorship, Budget, Timeline, Change Management"
+    
+  - key: "skills"
+    name:
+      de: "Skills & Capability"
+      en: "Skills & Capability"
+    description:
+      de: "AI Exposure, Learning Culture, Training, Technical Literacy"
+      en: "AI Exposure, Learning Culture, Training, Technical Literacy"
+    
+  - key: "infrastructure"
+    name:
+      de: "Infrastructure & Tools"
+      en: "Infrastructure & Tools"
+    description:
+      de: "API Access, Tool Flexibility, Data Classification, Security"
+      en: "API Access, Tool Flexibility, Data Classification, Security"
+    
+  - key: "culture"
+    name:
+      de: "Kultur & Mindset"
+      en: "Culture & Mindset"
+    description:
+      de: "Failure Tolerance, Innovation Time, Collaboration, Process Flexibility"
+      en: "Failure Tolerance, Innovation Time, Collaboration, Process Flexibility"
+
+  - key: "processes"
+    name:
+      de: "Prozesse & Workflows"
+      en: "Processes & Workflows"
+    description:
+      de: "Workflow-Effizienz, Bottleneck-Identifikation, Prozess-Optimierung"
+      en: "Workflow efficiency, bottleneck identification, process optimization"
+
+questions:
+  # ========== LEADERSHIP & COMMITMENT ==========
+  
+  - question_key: "executive_sponsorship"
+    is_default: true
+    category: "leadership"
+    question_text:
+      de: "Gibt es einen C-Level Executive (CEO, CTO, CDO), der aktiv die AI-Transformation vorantreibt?"
+      en: "Is there a C-level executive (CEO, CTO, CDO) actively championing AI transformation?"
+    description:
+      de: "Executive Sponsorship ist kritisch für Ressourcen und Change Management"
+      en: "Executive sponsorship is critical for resources and change management"
+    why_important:
+      de: "Ohne Top-Level Support scheitern 70% aller Transformationsprojekte innerhalb des ersten Jahres"
+      en: "Without top-level support, 70% of transformation projects fail within the first year"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "full_commitment"
+        order: 1
+        score: 100
+        de: "Ja, mit dedizierter Zeit und Budget"
+        en: "Yes, with dedicated time and budget"
+      - key: "verbal_support"
+        order: 2
+        score: 60
+        de: "Ja, aber nur verbale Unterstützung"
+        en: "Yes, but only verbal support"
+      - key: "middle_management"
+        order: 3
+        score: 30
+        de: "Nein, aber Middle Management ist interessiert"
+        en: "No, but middle management interested"
+      - key: "no_sponsorship"
+        order: 4
+        score: 0
+        de: "Keine Unterstützung"
+        en: "No sponsorship"
+    order: 1
+    weight: 1.5
+
+  - question_key: "budget_allocation"
+    is_default: true
+    category: "leadership"
+    question_text:
+      de: "Welcher Prozentsatz des IT/R&D-Budgets ist für AI-Experimente allokiert?"
+      en: "What percentage of IT/R&D budget is allocated to AI experimentation?"
+    description:
+      de: "Budget-Allocation zeigt echtes Commitment"
+      en: "Budget allocation shows real commitment"
+    why_important:
+      de: "AI-Transformation erfordert Investment in Tools, Training und Experimente"
+      en: "AI transformation requires investment in tools, training and experimentation"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "high_budget"
+        order: 1
+        score: 100
+        de: ">10% des Budgets"
+        en: ">10% of budget"
+      - key: "medium_budget"
+        order: 2
+        score: 80
+        de: "5-10%"
+        en: "5-10%"
+      - key: "low_budget"
+        order: 3
+        score: 50
+        de: "1-5%"
+        en: "1-5%"
+      - key: "minimal_budget"
+        order: 4
+        score: 0
+        de: "<1% oder kein Budget"
+        en: "<1% or no budget"
+    order: 2
+    weight: 1.2
+
+  - question_key: "readiness_transformation_timeline"
+    is_default: true
+    category: "leadership"
+    question_text:
+      de: "Was ist der realistische Timeline für erste AI-Adoption?"
+      en: "What is the realistic timeline for initial AI adoption?"
+    description:
+      de: "Dringlichkeit treibt Momentum"
+      en: "Urgency drives momentum"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "urgent"
+        order: 1
+        score: 100
+        de: "Dringend, innerhalb 3 Monate"
+        en: "Urgent, within 3 months"
+      - key: "short_term"
+        order: 2
+        score: 80
+        de: "3-6 Monate"
+        en: "3-6 months"
+      - key: "medium_term"
+        order: 3
+        score: 50
+        de: "6-12 Monate"
+        en: "6-12 months"
+      - key: "long_term"
+        order: 4
+        score: 20
+        de: ">12 Monate oder kein Timeline"
+        en: ">12 months or no timeline"
+    order: 3
+    weight: 1.0
+
+  - question_key: "change_management"
+    is_default: true
+    category: "leadership"
+    question_text:
+      de: "Sind Ressourcen für Change Management (Training, Kommunikation, Coaching) allokiert?"
+      en: "Are resources allocated for change management (training, communication, coaching)?"
+    description:
+      de: "Change Management ist der Schlüssel zur Adoption"
+      en: "Change management is key to adoption"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "dedicated_team"
+        order: 1
+        score: 100
+        de: "Dediziertes Team mit Budget"
+        en: "Dedicated team with budget"
+      - key: "partial"
+        order: 2
+        score: 60
+        de: "Teilweise allokiert"
+        en: "Partial allocation"
+      - key: "adhoc"
+        order: 3
+        score: 20
+        de: "Ad-hoc, kein Budget"
+        en: "Ad-hoc, no budget"
+      - key: "none"
+        order: 4
+        score: 0
+        de: "Keine Ressourcen"
+        en: "None"
+    order: 4
+    weight: 1.3
+
+  # ========== SKILLS & CAPABILITY ==========
+
+  - question_key: "ai_exposure"
+    is_default: true
+    category: "skills"
+    question_text:
+      de: "Welcher Prozentsatz des Teams hat AI Coding Assistants (GitHub Copilot, ChatGPT) bereits genutzt?"
+      en: "What percentage of team has used AI coding assistants (GitHub Copilot, ChatGPT)?"
+    description:
+      de: "Aktuelle Exposure bestimmt Startpunkt"
+      en: "Current exposure determines starting point"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "high_exposure"
+        order: 1
+        score: 100
+        de: ">75% des Teams"
+        en: ">75% of team"
+      - key: "medium_exposure"
+        order: 2
+        score: 80
+        de: "50-75%"
+        en: "50-75%"
+      - key: "low_exposure"
+        order: 3
+        score: 50
+        de: "25-50%"
+        en: "25-50%"
+      - key: "minimal_exposure"
+        order: 4
+        score: 20
+        de: "<25%"
+        en: "<25%"
+    order: 5
+    weight: 1.2
+
+  - question_key: "learning_culture"
+    is_default: true
+    category: "skills"
+    question_text:
+      de: "Wie geht das Team mit neuen Tools um?"
+      en: "How does the team approach learning new tools?"
+    description:
+      de: "Lernkultur bestimmt Adoptionsgeschwindigkeit"
+      en: "Learning culture determines adoption speed"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "self_learners"
+        order: 1
+        score: 100
+        de: "Selbstlerner, experimentierfreudig"
+        en: "Self-learners, eager to experiment"
+      - key: "open_training"
+        order: 2
+        score: 70
+        de: "Offen für Training"
+        en: "Open to training"
+      - key: "resistant_willing"
+        order: 3
+        score: 40
+        de: "Resistent aber willig"
+        en: "Resistant but willing"
+      - key: "strong_resistance"
+        order: 4
+        score: 0
+        de: "Starke Resistenz"
+        en: "Strong resistance"
+    order: 6
+    weight: 1.4
+
+  - question_key: "training_capacity"
+    is_default: true
+    category: "skills"
+    question_text:
+      de: "Kann das Team 2-4 Stunden/Woche für AI-Training aufbringen?"
+      en: "Can the team dedicate 2-4 hours/week for AI training?"
+    description:
+      de: "Training-Zeit ist Investment in Zukunft"
+      en: "Training time is investment in future"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "high_capacity"
+        order: 1
+        score: 100
+        de: "Ja, >4 Stunden/Woche"
+        en: "Yes, >4 hours/week"
+      - key: "medium_capacity"
+        order: 2
+        score: 70
+        de: "Ja, 2-4 Stunden"
+        en: "Yes, 2-4 hours"
+      - key: "low_capacity"
+        order: 3
+        score: 30
+        de: "Schwierig, <2 Stunden"
+        en: "Difficult, <2 hours"
+      - key: "no_capacity"
+        order: 4
+        score: 0
+        de: "Keine Zeit verfügbar"
+        en: "No time available"
+    order: 7
+    weight: 1.0
+
+  - question_key: "technical_literacy"
+    is_default: true
+    category: "skills"
+    question_text:
+      de: "Wie ist die technische Grundkompetenz im Team?"
+      en: "What is the technical literacy level in the team?"
+    description:
+      de: "Baseline-Skills bestimmen Einstiegshürde"
+      en: "Baseline skills determine entry barrier"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "high_literacy"
+        order: 1
+        score: 100
+        de: "Hoch: Cloud, APIs, moderne Dev-Tools vertraut"
+        en: "High: Familiar with cloud, APIs, modern dev tools"
+      - key: "medium_literacy"
+        order: 2
+        score: 70
+        de: "Mittel: Grundkenntnisse vorhanden"
+        en: "Medium: Basic knowledge present"
+      - key: "low_literacy"
+        order: 3
+        score: 30
+        de: "Niedrig: Traditional IT, wenig Cloud"
+        en: "Low: Traditional IT, little cloud"
+      - key: "minimal_literacy"
+        order: 4
+        score: 0
+        de: "Sehr niedrig: Wenig Tech-Exposure"
+        en: "Very low: Little tech exposure"
+    order: 8
+    weight: 1.1
+
+  # ========== INFRASTRUCTURE & TOOLS ==========
+
+  - question_key: "api_access"
+    is_default: true
+    category: "infrastructure"
+    question_text:
+      de: "Haben Entwickler Zugang zu Cloud-APIs (OpenAI, Azure OpenAI, etc.)?"
+      en: "Do developers have access to cloud APIs (OpenAI, Azure OpenAI, etc.)?"
+    description:
+      de: "API-Zugang ist technische Grundvoraussetzung"
+      en: "API access is technical prerequisite"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "full_access"
+        order: 1
+        score: 100
+        de: "Ja, uneingeschränkt"
+        en: "Yes, unrestricted"
+      - key: "restricted_access"
+        order: 2
+        score: 60
+        de: "Ja, aber eingeschränkt/genehmigungspflichtig"
+        en: "Yes, but restricted/approval required"
+      - key: "planned_access"
+        order: 3
+        score: 30
+        de: "Geplant, aber noch nicht verfügbar"
+        en: "Planned, but not yet available"
+      - key: "no_access"
+        order: 4
+        score: 0
+        de: "Nein, blockiert"
+        en: "No, blocked"
+    order: 9
+    weight: 1.5
+
+  - question_key: "tool_flexibility"
+    is_default: true
+    category: "infrastructure"
+    question_text:
+      de: "Können Teams selbständig neue AI-Tools installieren/testen?"
+      en: "Can teams independently install/test new AI tools?"
+    description:
+      de: "Tool-Flexibilität ermöglicht Experimente"
+      en: "Tool flexibility enables experiments"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "full_flexibility"
+        order: 1
+        score: 100
+        de: "Ja, volle Freiheit"
+        en: "Yes, full freedom"
+      - key: "managed_flexibility"
+        order: 2
+        score: 70
+        de: "Ja, mit Whitelist"
+        en: "Yes, with whitelist"
+      - key: "approval_required"
+        order: 3
+        score: 30
+        de: "Nur nach Genehmigung"
+        en: "Only after approval"
+      - key: "locked_down"
+        order: 4
+        score: 0
+        de: "Komplett gesperrt"
+        en: "Completely locked down"
+    order: 10
+    weight: 1.2
+
+  - question_key: "readiness_data_classification"
+    is_default: true
+    category: "infrastructure"
+    question_text:
+      de: "Sind Datenklassifizierungen klar definiert (öffentlich, intern, vertraulich)?"
+      en: "Are data classifications clearly defined (public, internal, confidential)?"
+    description:
+      de: "Klare Klassifizierung ermöglicht sichere AI-Nutzung"
+      en: "Clear classification enables safe AI usage"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "well_defined"
+        order: 1
+        score: 100
+        de: "Ja, klar dokumentiert und kommuniziert"
+        en: "Yes, clearly documented and communicated"
+      - key: "partially_defined"
+        order: 2
+        score: 60
+        de: "Teilweise, nicht durchgängig"
+        en: "Partially, not consistent"
+      - key: "unclear"
+        order: 3
+        score: 20
+        de: "Unklar oder inkonsistent"
+        en: "Unclear or inconsistent"
+      - key: "not_defined"
+        order: 4
+        score: 0
+        de: "Nicht definiert"
+        en: "Not defined"
+    order: 11
+    weight: 1.3
+
+  - question_key: "security_posture"
+    is_default: true
+    category: "infrastructure"
+    question_text:
+      de: "Welche Security-Haltung hat die Organisation gegenüber Cloud-AI-Services?"
+      en: "What is the organization's security posture towards cloud AI services?"
+    description:
+      de: "Security-Mindset beeinflusst Adoptionsstrategie"
+      en: "Security mindset influences adoption strategy"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "risk_managed"
+        order: 1
+        score: 100
+        de: "Risk-Managed: Pragmatisch, datenklassifiziert"
+        en: "Risk-Managed: Pragmatic, data-classified"
+      - key: "cautious"
+        order: 2
+        score: 60
+        de: "Vorsichtig: Nur mit Whitelisting"
+        en: "Cautious: Only with whitelisting"
+      - key: "restrictive"
+        order: 3
+        score: 20
+        de: "Restriktiv: Nur on-premise"
+        en: "Restrictive: Only on-premise"
+      - key: "blocked"
+        order: 4
+        score: 0
+        de: "Blockiert: Keine Cloud-AI erlaubt"
+        en: "Blocked: No cloud AI allowed"
+    order: 12
+    weight: 1.4
+
+  # ========== CULTURE & MINDSET ==========
+
+  - question_key: "failure_tolerance"
+    is_default: true
+    category: "culture"
+    question_text:
+      de: "Wie geht die Organisation mit Fehlern bei Experimenten um?"
+      en: "How does the organization handle failures in experiments?"
+    description:
+      de: "Fehlertoleranz ist Basis für Innovation"
+      en: "Failure tolerance is basis for innovation"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "learning_culture"
+        order: 1
+        score: 100
+        de: "Lernkultur: Fehler werden gefeiert"
+        en: "Learning culture: Failures are celebrated"
+      - key: "tolerant"
+        order: 2
+        score: 70
+        de: "Tolerant: Fehler sind ok bei Experimenten"
+        en: "Tolerant: Failures ok in experiments"
+      - key: "risk_averse"
+        order: 3
+        score: 30
+        de: "Risikoavers: Fehler werden vermieden"
+        en: "Risk-averse: Failures are avoided"
+      - key: "blame_culture"
+        order: 4
+        score: 0
+        de: "Blame-Culture: Fehler werden bestraft"
+        en: "Blame culture: Failures are punished"
+    order: 13
+    weight: 1.5
+
+  - question_key: "innovation_time"
+    is_default: true
+    category: "culture"
+    question_text:
+      de: "Haben Mitarbeiter Zeit für Innovation/Experimente?"
+      en: "Do employees have time for innovation/experiments?"
+    description:
+      de: "Innovation-Time ermöglicht Exploration"
+      en: "Innovation time enables exploration"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "dedicated_time"
+        order: 1
+        score: 100
+        de: "Ja, dedizierte Innovation-Zeit (z.B. 20%)"
+        en: "Yes, dedicated innovation time (e.g. 20%)"
+      - key: "encouraged"
+        order: 2
+        score: 70
+        de: "Ja, wird ermutigt wenn möglich"
+        en: "Yes, encouraged when possible"
+      - key: "limited"
+        order: 3
+        score: 30
+        de: "Kaum, nur in Freizeit"
+        en: "Limited, only in free time"
+      - key: "none"
+        order: 4
+        score: 0
+        de: "Nein, 100% operative Auslastung"
+        en: "No, 100% operational workload"
+    order: 14
+    weight: 1.2
+
+  - question_key: "cross_functional"
+    is_default: true
+    category: "culture"
+    question_text:
+      de: "Wie gut funktioniert cross-funktionale Zusammenarbeit?"
+      en: "How well does cross-functional collaboration work?"
+    description:
+      de: "AI-Transformation erfordert Silos zu überwinden"
+      en: "AI transformation requires breaking silos"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "excellent"
+        order: 1
+        score: 100
+        de: "Exzellent: Teams arbeiten nahtlos zusammen"
+        en: "Excellent: Teams work seamlessly together"
+      - key: "good"
+        order: 2
+        score: 70
+        de: "Gut: Collaboration funktioniert meist"
+        en: "Good: Collaboration works mostly"
+      - key: "limited"
+        order: 3
+        score: 30
+        de: "Begrenzt: Silos vorhanden"
+        en: "Limited: Silos present"
+      - key: "poor"
+        order: 4
+        score: 0
+        de: "Schlecht: Stark isolierte Teams"
+        en: "Poor: Highly isolated teams"
+    order: 15
+    weight: 1.1
+
+  - question_key: "process_flexibility"
+    is_default: true
+    category: "culture"
+    question_text:
+      de: "Wie flexibel sind Prozesse bzgl. neuer Arbeitsweisen?"
+      en: "How flexible are processes regarding new ways of working?"
+    description:
+      de: "Prozess-Flexibilität beschleunigt Adoption"
+      en: "Process flexibility accelerates adoption"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "highly_flexible"
+        order: 1
+        score: 100
+        de: "Hoch flexibel: Prozesse werden angepasst"
+        en: "Highly flexible: Processes are adapted"
+      - key: "moderately_flexible"
+        order: 2
+        score: 70
+        de: "Moderat: Änderungen möglich"
+        en: "Moderate: Changes possible"
+      - key: "rigid"
+        order: 3
+        score: 30
+        de: "Starr: Schwierige Änderungen"
+        en: "Rigid: Difficult to change"
+      - key: "inflexible"
+        order: 4
+        score: 0
+        de: "Unflexibel: Keine Änderungen"
+        en: "Inflexible: No changes"
+    order: 16
+    weight: 1.0
+
+  # ========== PROCESSES & WORKFLOWS ==========
+
+  - question_key: "workflow_bottlenecks"
+    is_default: true
+    category: "processes"
+    question_text:
+      de: "Wo entstehen typischerweise Verzögerungen in Ihren Entwicklungsprozessen? (Mehrfachauswahl möglich)"
+      en: "Where do typical delays occur in your development processes? (Multiple selections possible)"
+    description:
+      de: "Identifikation von Bottlenecks hilft, AI-Einsatz gezielt zu planen"
+      en: "Identifying bottlenecks helps to plan AI deployment strategically"
+    why_important:
+      de: "AI kann gezielt Bottlenecks adressieren - z.B. Code Reviews beschleunigen, Dokumentation automatisieren, Testing optimieren"
+      en: "AI can specifically address bottlenecks - e.g. accelerate code reviews, automate documentation, optimize testing"
+    answer_type: "multiple_choice"
+    allow_multiple: true
+    answer_options:
+      - key: "code_review"
+        order: 1
+        score: 25
+        de: "Code Reviews (Wartezeiten, Reviewer-Kapazität)"
+        en: "Code Reviews (waiting times, reviewer capacity)"
+      - key: "testing"
+        order: 2
+        score: 25
+        de: "Testing (Schreiben, Ausführen, Debugging)"
+        en: "Testing (writing, executing, debugging)"
+      - key: "documentation"
+        order: 3
+        score: 25
+        de: "Dokumentation (technisch, fachlich, API-Docs)"
+        en: "Documentation (technical, business, API docs)"
+      - key: "requirements"
+        order: 4
+        score: 25
+        de: "Anforderungs-Klärung (Missverständnisse, unklare Specs)"
+        en: "Requirements clarification (misunderstandings, unclear specs)"
+      - key: "deployment"
+        order: 5
+        score: 25
+        de: "Deployment-Prozesse (Konfiguration, Rollouts)"
+        en: "Deployment processes (configuration, rollouts)"
+      - key: "knowledge_transfer"
+        order: 6
+        score: 25
+        de: "Wissenstransfer (Onboarding, Legacy-Code-Verständnis)"
+        en: "Knowledge transfer (onboarding, legacy code understanding)"
+      - key: "no_bottlenecks"
+        order: 7
+        score: 0
+        de: "Keine signifikanten Verzögerungen"
+        en: "No significant delays"
+    order: 17
+    weight: 1.5
+
+  - question_key: "time_distribution"
+    is_default: true
+    category: "processes"
+    question_text:
+      de: "Wofür verwendet Ihr Team die meiste Zeit? (Mehrfachauswahl möglich)"
+      en: "What does your team spend most time on? (Multiple selections possible)"
+    description:
+      de: "Zeitverteilung zeigt Optimierungspotenzial für AI-Einsatz"
+      en: "Time distribution shows optimization potential for AI deployment"
+    why_important:
+      de: "AI kann repetitive, zeitintensive Aufgaben automatisieren und so Kapazität für Wertschöpfung schaffen"
+      en: "AI can automate repetitive, time-consuming tasks and create capacity for value creation"
+    answer_type: "multiple_choice"
+    allow_multiple: true
+    answer_options:
+      - key: "feature_development"
+        order: 1
+        score: 30
+        de: "Feature-Entwicklung (neue Funktionen)"
+        en: "Feature development (new functionality)"
+      - key: "bug_fixing"
+        order: 2
+        score: 20
+        de: "Bug-Fixing & Wartung"
+        en: "Bug fixing & maintenance"
+      - key: "meetings_coordination"
+        order: 3
+        score: 15
+        de: "Meetings & Koordination"
+        en: "Meetings & coordination"
+      - key: "documentation_writing"
+        order: 4
+        score: 20
+        de: "Dokumentation schreiben"
+        en: "Writing documentation"
+      - key: "legacy_code"
+        order: 5
+        score: 15
+        de: "Legacy-Code verstehen/refactoren"
+        en: "Understanding/refactoring legacy code"
+      - key: "deployment_ops"
+        order: 6
+        score: 20
+        de: "Deployment & Operations"
+        en: "Deployment & operations"
+      - key: "knowledge_search"
+        order: 7
+        score: 15
+        de: "Wissenssuche (Stack Overflow, Docs, interne Wikis)"
+        en: "Knowledge search (Stack Overflow, docs, internal wikis)"
+    order: 18
+    weight: 1.3
+
+  - question_key: "process_documentation"
+    is_default: true
+    category: "processes"
+    question_text:
+      de: "Wie gut sind Ihre Entwicklungsprozesse dokumentiert und verstanden?"
+      en: "How well are your development processes documented and understood?"
+    description:
+      de: "Dokumentierte Prozesse erleichtern AI-Integration"
+      en: "Documented processes facilitate AI integration"
+    why_important:
+      de: "Gut dokumentierte Prozesse können einfacher durch AI optimiert werden - AI kann Best Practices automatisieren und enforzen"
+      en: "Well-documented processes can be more easily optimized by AI - AI can automate and enforce best practices"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "well_documented"
+        order: 1
+        score: 100
+        de: "Exzellent dokumentiert: Runbooks, SOPs, alle verstehen die Prozesse"
+        en: "Excellently documented: Runbooks, SOPs, everyone understands processes"
+      - key: "partially_documented"
+        order: 2
+        score: 70
+        de: "Teilweise dokumentiert: Kern-Prozesse sind klar, Details fehlen"
+        en: "Partially documented: Core processes clear, details missing"
+      - key: "implicit_knowledge"
+        order: 3
+        score: 30
+        de: "Implizites Wissen: Prozesse existieren, aber nicht dokumentiert"
+        en: "Implicit knowledge: Processes exist but not documented"
+      - key: "tribal_knowledge"
+        order: 4
+        score: 0
+        de: "Tribal Knowledge: Nur wenige wissen, wie Dinge funktionieren"
+        en: "Tribal knowledge: Only few know how things work"
+    order: 19
+    weight: 1.2

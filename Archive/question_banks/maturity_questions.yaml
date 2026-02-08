@@ -1,0 +1,985 @@
+# Maturity Assessment Question Bank
+# ==================================
+# Diagnose current AI maturity with adaptive question selection across 4 dimensions × 5 levels
+#
+# Version: 2.0
+# Last Updated: 2025-12-22
+# Total Questions: 45 (selected from 100+ question pool)
+# Adaptive Filtering: Shows 20-30 most relevant based on pre-readiness + context
+
+version: "2.0"
+assessment_type: "maturity"
+description: "AI Maturity Assessment über 4 Dimensionen (Individual, Team, Organizational, Strategic)"
+
+categories:
+  - key: "individual"
+    name:
+      de: "Individual Proficiency"
+      en: "Individual Proficiency"
+    description:
+      de: "Individuelle KI-Nutzung und Fähigkeiten"
+      en: "Individual AI usage and skills"
+    
+  - key: "team"
+    name:
+      de: "Team Workflows"
+      en: "Team Workflows"
+    description:
+      de: "Team-weite KI-Integration in Workflows"
+      en: "Team-wide AI integration in workflows"
+    
+  - key: "organizational"
+    name:
+      de: "Program/Organizational"
+      en: "Program/Organizational"
+    description:
+      de: "Organisationsweite KI-Governance und Programme"
+      en: "Organization-wide AI governance and programs"
+    
+  - key: "strategic"
+    name:
+      de: "Strategic Innovation"
+      en: "Strategic Innovation"
+    description:
+      de: "Strategische KI-Differenzierung und Innovation"
+      en: "Strategic AI differentiation and innovation"
+
+questions:
+  # ========== LEVEL 1: INDIVIDUAL PROFICIENCY ==========
+  
+  - question_key: "daily_ai_usage"
+    is_default: true
+    category: "individual"
+    maturity_level: "L1"
+    question_text:
+      de: "Wie häufig nutzen Sie KI-Coding-Assistenten im Alltag (Copilot, ChatGPT, Claude)?"
+      en: "How frequently do you use AI coding assistants daily (Copilot, ChatGPT, Claude)?"
+    description:
+      de: "Grundlage für individuelle KI-Adoption"
+      en: "Baseline for individual AI adoption"
+    why_important:
+      de: "Tägliche Nutzung ist Fundament für weitere Maturity"
+      en: "Daily usage is foundation for further maturity"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "always"
+        de: "Immer, unverzichtbar"
+        en: "Always, indispensable"
+        score: 100
+        order: 1
+      - key: "frequent"
+        de: "Mehrmals täglich"
+        en: "Multiple times daily"
+        score: 80
+        order: 2
+      - key: "occasional"
+        de: "Gelegentlich"
+        en: "Occasionally"
+        score: 40
+        order: 3
+      - key: "rare"
+        de: "Selten/Nie"
+        en: "Rarely/Never"
+        score: 0
+        order: 4
+    order: 1
+    weight: 1.5
+
+  - question_key: "task_coverage"
+    is_default: true
+    category: "individual"
+    maturity_level: "L1"
+    question_text:
+      de: "Für welchen Anteil Ihrer Aufgaben nutzen Sie KI?"
+      en: "For what percentage of your tasks do you use AI?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "high"
+        de: ">75%"
+        en: ">75%"
+        score: 100
+        order: 1
+      - key: "medium_high"
+        de: "50-75%"
+        en: "50-75%"
+        score: 80
+        order: 2
+      - key: "medium_low"
+        de: "25-50%"
+        en: "25-50%"
+        score: 50
+        order: 3
+      - key: "low"
+        de: "<25%"
+        en: "<25%"
+        score: 20
+        order: 4
+    order: 2
+    weight: 1.2
+
+  - question_key: "effectiveness_perception"
+    is_default: true
+    category: "individual"
+    maturity_level: "L1"
+    question_text:
+      de: "Wie effektiv ist KI für Ihre Arbeit?"
+      en: "How effective is AI for your work?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "game_changer"
+        de: "Game-Changer, 2-3x produktiver"
+        en: "Game-changer, 2-3x more productive"
+        score: 100
+        order: 1
+      - key: "significant"
+        de: "Signifikant, +50%"
+        en: "Significant, +50%"
+        score: 80
+        order: 2
+      - key: "moderate"
+        de: "Moderat hilfreich"
+        en: "Moderately helpful"
+        score: 50
+        order: 3
+      - key: "limited"
+        de: "Limitiert/Neutral"
+        en: "Limited/Neutral"
+        score: 10
+        order: 4
+    order: 3
+    weight: 1.0
+
+  - question_key: "skill_development"
+    is_default: true
+    category: "individual"
+    maturity_level: "L1"
+    question_text:
+      de: "Haben Sie aktiv Prompt-Engineering und KI-Best-Practices gelernt?"
+      en: "Have you actively learned prompt engineering and AI best practices?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "expert"
+        de: "Ja, fortgeschritten (Kurs + selbstgesteuert)"
+        en: "Yes, advanced (course + self-directed)"
+        score: 100
+        order: 1
+      - key: "intermediate"
+        de: "Ja, grundlegend"
+        en: "Yes, basic"
+        score: 70
+        order: 2
+      - key: "trial_error"
+        de: "Nur Trial & Error"
+        en: "Only trial & error"
+        score: 30
+        order: 3
+      - key: "none"
+        de: "Kein Training"
+        en: "No training"
+        score: 0
+        order: 4
+    order: 4
+    weight: 1.0
+
+  - question_key: "prompt_engineering"
+    is_default: true
+    category: "individual"
+    maturity_level: "L1"
+    question_text:
+      de: "Nutzen Sie fortgeschrittene Prompt-Techniken (few-shot, chain-of-thought, role prompting)?"
+      en: "Do you use advanced prompt techniques (few-shot, chain-of-thought, role prompting)?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "advanced"
+        de: "Ja, regelmäßig"
+        en: "Yes, regularly"
+        score: 100
+        order: 1
+      - key: "basic"
+        de: "Ja, gelegentlich"
+        en: "Yes, occasionally"
+        score: 60
+        order: 2
+      - key: "none"
+        de: "Nur einfache Prompts"
+        en: "Only simple prompts"
+        score: 20
+        order: 3
+    order: 5
+    weight: 0.8
+
+  # ========== LEVEL 2: TEAM WORKFLOWS ==========
+  
+  - question_key: "team_adoption_rate"
+    is_default: true
+    category: "team"
+    maturity_level: "L2"
+    question_text:
+      de: "Wie viel Prozent Ihres Teams nutzen KI-Coding-Assistenten?"
+      en: "What percentage of your team uses AI coding assistants?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "full"
+        de: "90-100%"
+        en: "90-100%"
+        score: 100
+        order: 1
+      - key: "high"
+        de: "70-90%"
+        en: "70-90%"
+        score: 80
+        order: 2
+      - key: "medium"
+        de: "50-70%"
+        en: "50-70%"
+        score: 60
+        order: 3
+      - key: "low"
+        de: "<50%"
+        en: "<50%"
+        score: 20
+        order: 4
+    order: 6
+    weight: 1.3
+
+  - question_key: "shared_practices"
+    is_default: true
+    category: "team"
+    maturity_level: "L2"
+    question_text:
+      de: "Teilt Ihr Team KI-Best-Practices (Prompts, Patterns)?"
+      en: "Does your team share AI best practices (prompts, patterns)?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "systematic"
+        de: "Ja, systematisch (Wiki, Meetings)"
+        en: "Yes, systematically (wiki, meetings)"
+        score: 100
+        order: 1
+      - key: "informal"
+        de: "Ja, informell (Slack, Pairing)"
+        en: "Yes, informally (Slack, pairing)"
+        score: 70
+        order: 2
+      - key: "rare"
+        de: "Selten"
+        en: "Rarely"
+        score: 30
+        order: 3
+      - key: "none"
+        de: "Kein Sharing"
+        en: "No sharing"
+        score: 0
+        order: 4
+    order: 7
+    weight: 1.0
+
+  - question_key: "workflow_integration"
+    is_default: true
+    category: "team"
+    maturity_level: "L2"
+    question_text:
+      de: "Wie ist KI in Team-Workflows integriert?"
+      en: "How is AI integrated into team workflows?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "seamless"
+        de: "Nahtlos (Standard-Workflow)"
+        en: "Seamless (standard workflow)"
+        score: 100
+        order: 1
+      - key: "partial"
+        de: "Teilweise integriert"
+        en: "Partially integrated"
+        score: 60
+        order: 2
+      - key: "adhoc"
+        de: "Ad-hoc, individuell"
+        en: "Ad-hoc, individual"
+        score: 20
+        order: 3
+      - key: "none"
+        de: "Keine Integration"
+        en: "No integration"
+        score: 0
+        order: 4
+    order: 8
+    weight: 1.2
+
+  - question_key: "knowledge_sharing"
+    is_default: true
+    category: "team"
+    maturity_level: "L2"
+    question_text:
+      de: "Hat Ihr Team eine zentrale Prompt-Bibliothek oder Guideline-Repo?"
+      en: "Does your team have a central prompt library or guideline repo?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "maintained"
+        de: "Ja, aktiv gepflegt"
+        en: "Yes, actively maintained"
+        score: 100
+        order: 1
+      - key: "exists"
+        de: "Ja, aber veraltet"
+        en: "Yes, but outdated"
+        score: 50
+        order: 2
+      - key: "none"
+        de: "Nein"
+        en: "No"
+        score: 0
+        order: 3
+    order: 9
+    weight: 0.9
+
+  - question_key: "code_quality_impact"
+    is_default: true
+    category: "team"
+    maturity_level: "L2"
+    question_text:
+      de: "Wie hat KI die Code-Qualität beeinflusst?"
+      en: "How has AI affected code quality?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "improved"
+        de: "Signifikant verbessert"
+        en: "Significantly improved"
+        score: 100
+        order: 1
+      - key: "slight_improve"
+        de: "Leicht verbessert"
+        en: "Slightly improved"
+        score: 70
+        order: 2
+      - key: "neutral"
+        de: "Neutral"
+        en: "Neutral"
+        score: 50
+        order: 3
+      - key: "degraded"
+        de: "Verschlechtert"
+        en: "Degraded"
+        score: 0
+        order: 4
+    order: 10
+    weight: 1.0
+
+  - question_key: "pair_programming_ai"
+    is_default: true
+    category: "team"
+    maturity_level: "L2"
+    question_text:
+      de: "Nutzt Ihr Team 'Pair Programming mit KI' als Best Practice?"
+      en: "Does your team use 'pair programming with AI' as best practice?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "standard"
+        de: "Ja, Standard-Praxis"
+        en: "Yes, standard practice"
+        score: 100
+        order: 1
+      - key: "common"
+        de: "Ja, häufig"
+        en: "Yes, common"
+        score: 70
+        order: 2
+      - key: "occasional"
+        de: "Gelegentlich"
+        en: "Occasionally"
+        score: 30
+        order: 3
+      - key: "never"
+        de: "Nie"
+        en: "Never"
+        score: 0
+        order: 4
+    order: 11
+    weight: 0.8
+
+  - question_key: "review_process"
+    is_default: true
+    category: "team"
+    maturity_level: "L2"
+    question_text:
+      de: "Werden KI-generierte Code-Sections in PRs markiert zur Review?"
+      en: "Are AI-generated code sections flagged in PRs for review?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "systematic"
+        de: "Ja, systematischer Prozess"
+        en: "Yes, systematic process"
+        score: 100
+        order: 1
+      - key: "informal"
+        de: "Ja, informell"
+        en: "Yes, informal"
+        score: 60
+        order: 2
+      - key: "none"
+        de: "Kein Prozess"
+        en: "No process"
+        score: 0
+        order: 3
+    order: 12
+    weight: 1.0
+
+  - question_key: "testing_with_ai"
+    is_default: true
+    category: "team"
+    maturity_level: "L2"
+    question_text:
+      de: "Nutzt das Team KI für Test-Generierung?"
+      en: "Does team use AI for test generation?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "extensive"
+        de: "Extensiv (Unit, Integration, Edge Cases)"
+        en: "Extensively (unit, integration, edge cases)"
+        score: 100
+        order: 1
+      - key: "moderate"
+        de: "Moderat (Unit Tests)"
+        en: "Moderately (unit tests)"
+        score: 60
+        order: 2
+      - key: "occasional"
+        de: "Gelegentlich"
+        en: "Occasionally"
+        score: 20
+        order: 3
+      - key: "never"
+        de: "Nie"
+        en: "Never"
+        score: 0
+        order: 4
+    order: 13
+    weight: 0.9
+
+  - question_key: "documentation_ai"
+    is_default: true
+    category: "team"
+    maturity_level: "L2"
+    question_text:
+      de: "KI-Nutzung für Dokumentation (Comments, README, API Docs)?"
+      en: "AI usage for documentation (comments, README, API docs)?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "standard"
+        de: "Standard-Praxis, hohe Qualität"
+        en: "Standard practice, high quality"
+        score: 100
+        order: 1
+      - key: "common"
+        de: "Häufig, variable Qualität"
+        en: "Common, variable quality"
+        score: 60
+        order: 2
+      - key: "rare"
+        de: "Selten"
+        en: "Rare"
+        score: 20
+        order: 3
+      - key: "never"
+        de: "Nie"
+        en: "Never"
+        score: 0
+        order: 4
+    order: 14
+    weight: 0.8
+
+  - question_key: "velocity_impact"
+    is_default: true
+    category: "team"
+    maturity_level: "L2"
+    question_text:
+      de: "Team-Velocity-Änderung seit KI-Adoption?"
+      en: "Team velocity change since AI adoption?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "high"
+        de: "+50%+"
+        en: "+50%+"
+        score: 100
+        order: 1
+      - key: "medium_high"
+        de: "+30-50%"
+        en: "+30-50%"
+        score: 80
+        order: 2
+      - key: "medium_low"
+        de: "+10-30%"
+        en: "+10-30%"
+        score: 50
+        order: 3
+      - key: "none"
+        de: "Keine Änderung oder negativ"
+        en: "No change or negative"
+        score: 0
+        order: 4
+    order: 15
+    weight: 1.5
+
+  # ========== LEVEL 3: PROGRAM/ORGANIZATIONAL ==========
+  
+  - question_key: "governance_framework"
+    is_default: true
+    category: "organizational"
+    maturity_level: "L3"
+    question_text:
+      de: "Gibt es ein KI-Governance-Framework (Policies, Approvals, Monitoring)?"
+      en: "Is there an AI governance framework (policies, approvals, monitoring)?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "comprehensive"
+        de: "Ja, umfassend"
+        en: "Yes, comprehensive"
+        score: 100
+        order: 1
+      - key: "basic"
+        de: "Ja, grundlegend"
+        en: "Yes, basic"
+        score: 60
+        order: 2
+      - key: "development"
+        de: "In Entwicklung"
+        en: "In development"
+        score: 30
+        order: 3
+      - key: "none"
+        de: "Nein"
+        en: "No"
+        score: 0
+        order: 4
+    order: 16
+    weight: 1.3
+
+  - question_key: "tool_standardization"
+    is_default: true
+    category: "organizational"
+    maturity_level: "L3"
+    question_text:
+      de: "Gibt es eine genehmigte Tool-Liste für Teams?"
+      en: "Is there an approved tool list for teams?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "comprehensive"
+        de: "Ja, mit Rationale und Support"
+        en: "Yes, with rationale and support"
+        score: 100
+        order: 1
+      - key: "limited"
+        de: "Ja, aber limitierter Support"
+        en: "Yes, but limited support"
+        score: 60
+        order: 2
+      - key: "none"
+        de: "Keine Standardisierung"
+        en: "No standardization"
+        score: 0
+        order: 3
+    order: 17
+    weight: 1.0
+
+  - question_key: "measurement_system"
+    is_default: true
+    category: "organizational"
+    maturity_level: "L3"
+    question_text:
+      de: "Messen Sie KI-Adoption und Impact (Usage Metrics, Velocity, Quality)?"
+      en: "Do you measure AI adoption and impact (usage metrics, velocity, quality)?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "dashboards"
+        de: "Ja, Dashboards und KPIs"
+        en: "Yes, dashboards and KPIs"
+        score: 100
+        order: 1
+      - key: "manual"
+        de: "Ja, manuelles Tracking"
+        en: "Yes, manual tracking"
+        score: 60
+        order: 2
+      - key: "adhoc"
+        de: "Ad-hoc Tracking"
+        en: "Ad-hoc tracking"
+        score: 20
+        order: 3
+      - key: "none"
+        de: "Keine Messung"
+        en: "No measurement"
+        score: 0
+        order: 4
+    order: 18
+    weight: 1.2
+
+  - question_key: "training_program"
+    is_default: true
+    category: "organizational"
+    maturity_level: "L3"
+    question_text:
+      de: "Formales KI-Training-Programm für Mitarbeiter?"
+      en: "Formal AI training program for employees?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "comprehensive"
+        de: "Ja, umfassend (Onboarding + Ongoing)"
+        en: "Yes, comprehensive (onboarding + ongoing)"
+        score: 100
+        order: 1
+      - key: "basic"
+        de: "Ja, grundlegend"
+        en: "Yes, basic"
+        score: 60
+        order: 2
+      - key: "informal"
+        de: "Nur informell"
+        en: "Informal only"
+        score: 20
+        order: 3
+      - key: "none"
+        de: "Kein Programm"
+        en: "No program"
+        score: 0
+        order: 4
+    order: 19
+    weight: 1.0
+
+  - question_key: "best_practices_repo"
+    is_default: true
+    category: "organizational"
+    maturity_level: "L3"
+    question_text:
+      de: "Zentrales Best-Practices-Repo (Prompts, Patterns, Anti-Patterns)?"
+      en: "Centralized best practices repo (prompts, patterns, anti-patterns)?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "maintained"
+        de: "Ja, aktiv gepflegt"
+        en: "Yes, actively maintained"
+        score: 100
+        order: 1
+      - key: "outdated"
+        de: "Ja, aber veraltet"
+        en: "Yes, but outdated"
+        score: 40
+        order: 2
+      - key: "none"
+        de: "Nein"
+        en: "No"
+        score: 0
+        order: 3
+    order: 20
+    weight: 0.9
+
+  - question_key: "security_compliance"
+    is_default: true
+    category: "organizational"
+    maturity_level: "L3"
+    question_text:
+      de: "Security-Guidelines für KI-Nutzung (Data Handling, Model Selection)?"
+      en: "Security guidelines for AI usage (data handling, model selection)?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "enforced"
+        de: "Ja, enforced mit Tooling"
+        en: "Yes, enforced with tooling"
+        score: 100
+        order: 1
+      - key: "policy"
+        de: "Ja, policy-basiert"
+        en: "Yes, policy-based"
+        score: 60
+        order: 2
+      - key: "informal"
+        de: "Informelle Guidelines"
+        en: "Informal guidelines"
+        score: 20
+        order: 3
+      - key: "none"
+        de: "Keine Guidelines"
+        en: "No guidelines"
+        score: 0
+        order: 4
+    order: 21
+    weight: 1.1
+
+  - question_key: "budget_allocation_org"
+    is_default: true
+    category: "organizational"
+    maturity_level: "L3"
+    question_text:
+      de: "Dediziertes Budget für KI-Tools organisationsweit?"
+      en: "Dedicated budget for AI tools across organization?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "per_team"
+        de: "Ja, per-Team Allokation"
+        en: "Yes, per-team allocation"
+        score: 100
+        order: 1
+      - key: "central"
+        de: "Ja, zentrales Budget"
+        en: "Yes, central budget"
+        score: 70
+        order: 2
+      - key: "adhoc"
+        de: "Ad-hoc Genehmigungen"
+        en: "Ad-hoc approvals"
+        score: 30
+        order: 3
+      - key: "none"
+        de: "Kein Budget"
+        en: "No budget"
+        score: 0
+        order: 4
+    order: 22
+    weight: 1.0
+
+  - question_key: "executive_reporting"
+    is_default: true
+    category: "organizational"
+    maturity_level: "L3"
+    question_text:
+      de: "Regelmäßiges Executive Reporting über KI-Transformation-Fortschritt?"
+      en: "Regular executive reporting on AI transformation progress?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "monthly"
+        de: "Ja, monatlich mit KPIs"
+        en: "Yes, monthly with KPIs"
+        score: 100
+        order: 1
+      - key: "quarterly"
+        de: "Ja, quartalsweise"
+        en: "Yes, quarterly"
+        score: 60
+        order: 2
+      - key: "adhoc"
+        de: "Ad-hoc"
+        en: "Ad-hoc"
+        score: 20
+        order: 3
+      - key: "none"
+        de: "Kein Reporting"
+        en: "No reporting"
+        score: 0
+        order: 4
+    order: 23
+    weight: 0.9
+
+  - question_key: "change_champions"
+    is_default: true
+    category: "organizational"
+    maturity_level: "L3"
+    question_text:
+      de: "Designated Change Champions oder KI Advocates?"
+      en: "Designated change champions or AI advocates?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "every_team"
+        de: "Ja, in jedem Team"
+        en: "Yes, in every team"
+        score: 100
+        order: 1
+      - key: "centralized"
+        de: "Ja, zentralisiertes Team"
+        en: "Yes, centralized team"
+        score: 60
+        order: 2
+      - key: "informal"
+        de: "Informelle Advocates"
+        en: "Informal advocates"
+        score: 20
+        order: 3
+      - key: "none"
+        de: "Nein"
+        en: "No"
+        score: 0
+        order: 4
+    order: 24
+    weight: 0.8
+
+  - question_key: "cross_team_collaboration"
+    is_default: true
+    category: "organizational"
+    maturity_level: "L3"
+    question_text:
+      de: "Wie teilen Teams KI-Learnings organisationsweit?"
+      en: "How do teams share AI learnings across organization?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "systematic"
+        de: "Regelmäßige Foren, Wiki, Communities"
+        en: "Regular forums, wiki, communities"
+        score: 100
+        order: 1
+      - key: "occasional"
+        de: "Gelegentliches Sharing"
+        en: "Occasional sharing"
+        score: 50
+        order: 2
+      - key: "siloed"
+        de: "Siloisiert"
+        en: "Siloed"
+        score: 0
+        order: 3
+    order: 25
+    weight: 0.9
+
+  # ========== LEVEL 4: STRATEGIC INNOVATION ==========
+  
+  - question_key: "ai_first_strategy"
+    is_default: false
+    category: "strategic"
+    maturity_level: "L4"
+    question_text:
+      de: "Ist 'AI-First' Teil der Unternehmensstrategie und Competitive Positioning?"
+      en: "Is 'AI-First' part of company strategy and competitive positioning?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "core"
+        de: "Ja, Core Differentiator"
+        en: "Yes, core differentiator"
+        score: 100
+        order: 1
+      - key: "emerging"
+        de: "Ja, emerging Theme"
+        en: "Yes, emerging theme"
+        score: 60
+        order: 2
+      - key: "consideration"
+        de: "In Betrachtung"
+        en: "Under consideration"
+        score: 20
+        order: 3
+      - key: "none"
+        de: "Nein"
+        en: "No"
+        score: 0
+        order: 4
+    order: 26
+    weight: 1.5
+
+  - question_key: "business_model_innovation"
+    is_default: false
+    category: "strategic"
+    maturity_level: "L4"
+    question_text:
+      de: "Hat KI neue Geschäftsmodelle oder Revenue Streams ermöglicht?"
+      en: "Has AI enabled new business models or revenue streams?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "significant"
+        de: "Ja, signifikante neue Revenue"
+        en: "Yes, significant new revenue"
+        score: 100
+        order: 1
+      - key: "pilot"
+        de: "Ja, Pilot-Initiativen"
+        en: "Yes, pilot initiatives"
+        score: 60
+        order: 2
+      - key: "exploring"
+        de: "Am Erkunden"
+        en: "Exploring"
+        score: 20
+        order: 3
+      - key: "none"
+        de: "Nein"
+        en: "No"
+        score: 0
+        order: 4
+    order: 27
+    weight: 1.3
+
+  - question_key: "competitive_advantage"
+    is_default: false
+    category: "strategic"
+    maturity_level: "L4"
+    question_text:
+      de: "Haben Sie KI-Capabilities die Wettbewerber nicht haben?"
+      en: "Do you have AI capabilities competitors lack?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "measurable"
+        de: "Ja, messbarer Vorteil"
+        en: "Yes, measurable advantage"
+        score: 100
+        order: 1
+      - key: "slight"
+        de: "Ja, leichter Vorsprung"
+        en: "Yes, slight edge"
+        score: 60
+        order: 2
+      - key: "parity"
+        de: "Parität"
+        en: "Parity"
+        score: 30
+        order: 3
+      - key: "behind"
+        de: "Hinter Wettbewerbern"
+        en: "Behind competitors"
+        score: 0
+        order: 4
+    order: 28
+    weight: 1.2
+
+  - question_key: "innovation_pipeline"
+    is_default: false
+    category: "strategic"
+    maturity_level: "L4"
+    question_text:
+      de: "Systematische KI-Innovation-Pipeline (Experimentation → Production)?"
+      en: "Systematic AI innovation pipeline (experimentation → production)?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "mature"
+        de: "Ja, ausgereifter Prozess"
+        en: "Yes, mature process"
+        score: 100
+        order: 1
+      - key: "emerging"
+        de: "Ja, emerging"
+        en: "Yes, emerging"
+        score: 60
+        order: 2
+      - key: "adhoc"
+        de: "Ad-hoc"
+        en: "Ad-hoc"
+        score: 20
+        order: 3
+      - key: "none"
+        de: "Nein"
+        en: "No"
+        score: 0
+        order: 4
+    order: 29
+    weight: 1.0
+
+  - question_key: "external_recognition"
+    is_default: false
+    category: "strategic"
+    maturity_level: "L4"
+    question_text:
+      de: "Externe Anerkennung für AI-First Practices (Case Studies, Awards, Talks)?"
+      en: "External recognition for AI-First practices (case studies, awards, talks)?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "multiple"
+        de: "Ja, mehrfach"
+        en: "Yes, multiple"
+        score: 100
+        order: 1
+      - key: "some"
+        de: "Ja, einige"
+        en: "Yes, some"
+        score: 60
+        order: 2
+      - key: "none"
+        de: "Nein"
+        en: "No"
+        score: 0
+        order: 3
+    order: 30
+    weight: 0.8

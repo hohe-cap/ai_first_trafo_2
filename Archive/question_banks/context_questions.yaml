@@ -1,0 +1,91 @@
+version: '2.0'
+assessment_type: context
+description: Systematische Erfassung des Projekt-Kontexts als Foundation für adaptive
+  Assessment-Workflows
+categories:
+- key: project_basics
+  name:
+    de: Projekt-Basics
+    en: Project Basics
+  description:
+    de: Grundlegende Projekt-Parameter wie Team-Größe, Laufzeit und Phase
+    en: Basic project parameters like team size, duration and phase
+  why_important:
+    de: Diese Faktoren bestimmen den Skalierungs-Ansatz, die Change-Komplexität und
+      welche Assessment-Dimensionen relevant sind.
+    en: These factors determine the scaling approach, change complexity, and which
+      assessment dimensions are relevant.
+  order: 1
+- key: business_context
+  name:
+    de: Business-Kontext & Compliance
+    en: Business Context & Compliance
+  description:
+    de: Geschäftliche Rahmenbedingungen, Branche, Regulierung und Vertragsmodelle
+    en: Business framework, industry, regulation and contract models
+  why_important:
+    de: Regulatorische Anforderungen und Vertragsmodelle definieren die Grenzen des
+      Möglichen bei KI-Einsatz. Hochregulierte Branchen brauchen andere Strategien
+      als Startups.
+    en: Regulatory requirements and contract models define the boundaries of what's
+      possible with AI. Highly regulated industries need different strategies than
+      startups.
+  order: 2
+- key: tech_stack
+  name:
+    de: Tech-Stack
+    en: Tech Stack
+  description:
+    de: Technologie-Landschaft, Infrastruktur, Legacy-Constraints und Code-Qualität
+    en: Technology landscape, infrastructure, legacy constraints and code quality
+  why_important:
+    de: Der Tech-Stack bestimmt welche KI-Tools sofort einsetzbar sind, wo technische
+      Schulden erst abgebaut werden müssen, und welche Infrastruktur-Investitionen
+      nötig sind.
+    en: The tech stack determines which AI tools can be used immediately, where technical
+      debt must be addressed first, and which infrastructure investments are needed.
+  order: 3
+- key: working_method
+  name:
+    de: Arbeitsweise
+    en: Working Method
+  description:
+    de: Entwicklungs-Methodik, Sprint-Rhythmus, Deployment-Frequenz und Team-Kollaboration
+    en: Development methodology, sprint rhythm, deployment frequency and team collaboration
+  why_important:
+    de: Die Arbeitsweise zeigt wie experimentierfreudig das Team ist und wie schnell
+      neue Tools adoptiert werden können. Wasserfall-Teams brauchen andere Change-Strategien
+      als DevOps-Teams.
+    en: Working methods show how experimental the team is and how quickly new tools
+      can be adopted. Waterfall teams need different change strategies than DevOps
+      teams.
+  order: 4
+- key: goals_timeline
+  name:
+    de: Ziele & Timeline
+    en: Goals & Timeline
+  description:
+    de: Budget, Vertragsmodell, Umsatz-Impact und strategische Ziele
+    en: Budget, contract model, revenue impact and strategic goals
+  why_important:
+    de: Zeitliche und finanzielle Constraints definieren welche Quick Wins realistisch
+      sind und wo langfristige Investments nötig sind. Fixed-Price-Projekte haben
+      andere Spielräume als T&M.
+    en: Time and financial constraints define which quick wins are realistic and where
+      long-term investments are needed. Fixed-price projects have different room for
+      maneuver than T&M.
+  order: 5
+questions:
+- question_key: smoke_import_test
+  question_text:
+    de: Import Test
+    en: Import Test
+  category: project_basics
+  answer_type: multiple_choice
+  answer_options:
+  - key: opt1
+    de: Option 1
+    en: Option 1
+    order: 0
+  order: 1000
+  weight: 1.0
