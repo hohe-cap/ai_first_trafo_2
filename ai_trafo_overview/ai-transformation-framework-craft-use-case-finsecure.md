@@ -1,6 +1,6 @@
 # USE CASE: FinSecure AG – Schadensmeldungs-Plattform
 
-**AI Value Stream Transformer – Anwendungsbeispiel**
+**AI Transformation Framework (CRAFT) – Anwendungsbeispiel**
 
 Ein vollständiger Durchlauf über 2 Iterationszyklen (8 Wochen), alle 5 Dimensionen
 
@@ -133,21 +133,21 @@ Jan und Ayşe ziehen die Delivery-Metriken aus Jenkins, Azure DevOps und Datadog
 | PR Review Time | 3,2 Tage (Median) | Azure DevOps PR Analytics | Der größte Pain Point |
 | Flow Efficiency | ~18% | Geschätzt: aktive Bearbeitung vs. Gesamtzeit | Viel Wartezeit (PR-Queue, QA-Queue, CAB-Queue) |
 
-**Donnerstag – Erster Pulse Check (THASC)**
+**Donnerstag – Erster Pulse Check (CRAFT)**
 Jan verteilt den Pulse-Check-Fragebogen (Google Forms, 15 Minuten) an alle 12 Teammitglieder.
 
 Ergebnisse (Skala 1–5):
 
-| THASC-Dimension | Score | Einordnung |
+| CRAFT-Dimension | Score | Einordnung |
 |-----------------|-------|------------|
-| **T** – Technical Enablement | 1,3 | Exploring. Kein offizielles Tooling verfügbar. |
-| **H** – Human Capability | 2,1 | Exploring/Experimenting. Privat-Erfahrung vorhanden, aber nicht transferiert. |
+| **C** – Compliance & Governance | 1,2 | Exploring. Keine Freigabe, keine Policies, Betriebsrat nicht eingebunden. |
+| **R** – Readiness (Human & Cultural) | 2,3 | Experimenting. Privat-Erfahrung vorhanden, Stimmung gemischt: 5 offen, 3 neutral, 4 skeptisch/ängstlich. |
 | **A** – Adoption & Usage | 1,0 | Exploring. Offiziell: null. Shadow AI wird nicht gezählt. |
-| **S** – Systemic Integration | 1,0 | Exploring. Kein AI-Tool in irgendeinem Workflow integriert. |
-| **C** – Cultural Readiness | 2,4 | Experimenting. Gemischt: 5 Personen offen, 3 neutral, 4 skeptisch/ängstlich. |
-| **Gesamt (Durchschnitt)** | **1,6** | **Exploring** |
+| **F** – Flow & Process Integration | 1,0 | Exploring. Kein AI-Tool in irgendeinem Workflow integriert. |
+| **T** – Technical Enablement | 1,3 | Exploring. Kein offizielles Tooling verfügbar. |
+| **Gesamt (Durchschnitt)** | **1,4** | **Exploring** |
 
-> **Beobachtung:** Die Diskrepanz zwischen H (2,1) und A (1,0) zeigt den Shadow-AI-Effekt: Die Menschen können mehr als die Organisation erlaubt. Das ist typisch und ein Hebel – nicht ein Problem.
+> **Beobachtung:** Die Diskrepanz zwischen R (2,3) und A (1,0) zeigt den Shadow-AI-Effekt: Die Menschen können mehr als die Organisation erlaubt. Das ist typisch und ein Hebel – nicht ein Problem.
 
 **Freitag – Vorbereitung Zyklus 1**
 Jan erstellt den Zyklus-1-Plan, stimmt ihn mit Dr. Kessler und Florian ab.
@@ -164,11 +164,11 @@ Jan erstellt den Zyklus-1-Plan, stimmt ihn mit Dr. Kessler und Florian ab.
 
 | Dimension | Intensität | Schwerpunkt |
 |-----------|------------|-------------|
-| D1 Discover & Navigate | ✅ Aktiv | Baseline abgeschlossen, erstes THASC-Radar geteilt |
-| D2 Value Stream Optimization | 🔥 Hoch | Value Stream Mapping Workshop, Bottleneck-Priorisierung |
-| D3 Governance & Compliance | ✅ Aktiv | Governance-Freigabe für Stufe-2-Tooling sicherstellen |
-| D4 Human Transformation | 🔥 Hoch | Shadow AI Amnestie, Psychological Safety Workshop |
-| D5 Technical Enablement | ⚡ Startend | Azure OpenAI provisioniert, erste IDE-Integration vorbereitet |
+| D1 **C** – Compliance & Governance | ✅ Aktiv | Governance-Freigabe für Stufe-2-Tooling sicherstellen |
+| D2 **R** – Readiness (Human & Cultural) | 🔥 Hoch | Shadow AI Amnestie, Psychological Safety Workshop |
+| D3 **A** – Adoption & Usage | 📊 Monitoring | Baseline abgeschlossen, erstes CRAFT-Radar geteilt |
+| D4 **F** – Flow & Process Integration | 🔥 Hoch | Value Stream Mapping Workshop, Bottleneck-Priorisierung |
+| D5 **T** – Technical Enablement | ⚡ Startend | Azure OpenAI provisioniert, erste IDE-Integration vorbereitet |
 
 ---
 
@@ -178,7 +178,7 @@ Jan erstellt den Zyklus-1-Plan, stimmt ihn mit Dr. Kessler und Florian ab.
 
 **Agenda:**
 1. Jan stellt sich und das Vorhaben vor – bewusst kein PowerPoint-Framework, sondern: „Wir wollen gemeinsam herausfinden, wo ihr die meiste Zeit verliert und wie AI dabei helfen kann."
-2. THASC-Radar wird anonym gezeigt (kein individuelles Naming). Team sieht: „Wir stehen bei 1,6 – das ist normal für den Anfang."
+2. CRAFT-Radar wird anonym gezeigt (kein individuelles Naming). Team sieht: „Wir stehen bei 1,4 – das ist normal für den Anfang."
 3. Vorstellung des 4-Wochen-Plans – was passiert in den nächsten Wochen, was wird von wem erwartet.
 4. **Wichtig:** Jan adressiert den Elefanten im Raum: „Ich weiß, dass einige von euch privat schon AI nutzen. Das ist nicht verboten und nicht schlimm – im Gegenteil. Wir werden nächste Woche darüber reden, offen und ohne Konsequenzen."
 
@@ -487,11 +487,11 @@ Zyklus 2 bleibt bei Team Claim, aber geht tiefer: Pre-Review in Pipeline live, T
 
 | Dimension | Intensität | Schwerpunkt |
 |-----------|------------|-------------|
-| D1 Discover & Navigate | 📊 Monitoring | Metriken tracken, Mid-Pilot THASC-Check |
-| D2 Value Stream Optimization | 🔥 Hoch | Pre-Review live, Testdaten-Generierung implementieren |
-| D3 Governance & Compliance | ✅ Aktiv | BR-Update, Dokumentation der Policy-Anwendung |
-| D4 Human Transformation | ✅ Aktiv | Prompt Engineering Workshop, Kathrin einbinden |
-| D5 Technical Enablement | 🔥 Hoch | Pipeline-Integration, System-Prompt-Optimierung |
+| D1 **C** – Compliance & Governance | ✅ Aktiv | BR-Update, Dokumentation der Policy-Anwendung |
+| D2 **R** – Readiness (Human & Cultural) | ✅ Aktiv | Prompt Engineering Workshop, Kathrin einbinden |
+| D3 **A** – Adoption & Usage | 📊 Monitoring | Metriken tracken, Mid-Pilot CRAFT-Check |
+| D4 **F** – Flow & Process Integration | 🔥 Hoch | Pre-Review live, Testdaten-Generierung implementieren |
+| D5 **T** – Technical Enablement | 🔥 Hoch | Pipeline-Integration, System-Prompt-Optimierung |
 
 ---
 
@@ -639,20 +639,20 @@ Jan zieht die Woche-7-Metriken und bereitet den Zyklus-2-Abschluss vor.
 
 ### Woche 8: Review, Readiness Gate & Ausblick
 
-#### Montag: Zweiter Pulse Check (THASC)
+#### Montag: Zweiter Pulse Check (CRAFT)
 
 Alle 12 Teammitglieder füllen den Pulse Check erneut aus:
 
-| THASC-Dimension | Baseline (Woche 0) | Nach Zyklus 2 (Woche 8) | Delta |
+| CRAFT-Dimension | Baseline (Woche 0) | Nach Zyklus 2 (Woche 8) | Delta |
 |-----------------|--------------------|-----------------------------|-------|
-| **T** – Technical Enablement | 1,3 | 3,2 | +1,9 |
-| **H** – Human Capability | 2,1 | 3,1 | +1,0 |
+| **C** – Compliance & Governance | 1,2 | 2,8 | +1,6 |
+| **R** – Readiness (Human & Cultural) | 2,3 | 3,5 | +1,2 |
 | **A** – Adoption & Usage | 1,0 | 2,8 | +1,8 |
-| **S** – Systemic Integration | 1,0 | 2,4 | +1,4 |
-| **C** – Cultural Readiness | 2,4 | 3,6 | +1,2 |
-| **Gesamt** | **1,6 (Exploring)** | **3,0 (Embedding)** | **+1,4** |
+| **F** – Flow & Process Integration | 1,0 | 2,4 | +1,4 |
+| **T** – Technical Enablement | 1,3 | 3,2 | +1,9 |
+| **Gesamt** | **1,4 (Exploring)** | **3,0 (Embedding)** | **+1,6** |
 
-> **Interpretation:** Das Team hat sich in 8 Wochen von „Exploring" zu „Embedding" entwickelt. Cultural Readiness (3,6) liegt über der technischen Adoption (2,8) – das ist ideal: die Bereitschaft ist da, die Nutzung kann nachziehen. Systemic Integration (2,4) ist das Schlusslicht – logisch, weil erst zwei Pipeline-Integrationen existieren (Pre-Review und Testdaten).
+> **Interpretation:** Das Team hat sich in 8 Wochen von „Exploring" zu „Embedding" entwickelt. Readiness (3,5) liegt über der technischen Adoption (2,8) – das ist ideal: die Bereitschaft ist da, die Nutzung kann nachziehen. Flow & Process Integration (2,4) ist das Schlusslicht – logisch, weil erst zwei Pipeline-Integrationen existieren (Pre-Review und Testdaten).
 
 #### Dienstag: Zyklus-2-Retrospektive (2h)
 
@@ -685,7 +685,7 @@ Alle 12 Teammitglieder füllen den Pulse Check erneut aus:
 | Adoption Rate > 60% | 40% AI-assisted Commits | ⚠️ Unter Ziel, aber starker Trend |
 | DORA-Metriken stabil oder verbessert | PR Review -50%, Lead Time -14%, CFR -3pp | ✅ Klar verbessert |
 | Kein offener Governance-Blocker | BR-Update positiv, Azure OpenAI Stufe 2 läuft | ✅ |
-| Cultural Readiness positiv | THASC C = 3,6, Team-Feedback sehr positiv | ✅ |
+| Readiness positiv | CRAFT R = 3,5, Team-Feedback sehr positiv | ✅ |
 | Technische Basis solide | 2 Pipeline-Integrationen, Continue.dev für alle | ✅ |
 
 **Entscheidung: ERWEITERN.**
@@ -705,7 +705,7 @@ Jan erstellt den Pilot-Report für interne und externe Nutzung:
 | Lead Time for Changes | 22 Tage | 19 Tage | -14% |
 | Change Failure Rate | 12% | 9% | -25% |
 | Testdaten-Erstellungszeit | 1–2 Tage | 3–4 Stunden | **-70%** |
-| THASC Gesamt | 1,6 (Exploring) | 3,0 (Embedding) | +1,4 Stufen |
+| CRAFT Gesamt | 1,4 (Exploring) | 3,0 (Embedding) | +1,6 Stufen |
 | AI-assisted Commits | 0% | ~40% | — |
 | Team-Zufriedenheit (NPS) | Nicht erhoben | 78 | Baseline für Folge-Zyklen |
 
@@ -747,7 +747,7 @@ Jan erstellt den Pilot-Report für interne und externe Nutzung:
 
 | Framework-Element | Beobachtung | Anpassungsbedarf |
 |-------------------|-------------|------------------|
-| **THASC-Modell** | Die 5 Dimensionen bilden die Realität gut ab. Die Scoring-Logik ist aber noch zu grob – 5 Stufen sind zu wenig Granularität für Fortschrittsmessung innerhalb eines Quartals. | Zwischenstufen einführen (z.B. 1,0 – 1,5 – 2,0 statt nur ganzzahlig). |
+| **CRAFT-Modell** | Die 5 Dimensionen bilden die Realität gut ab. Die Scoring-Logik ist aber noch zu grob – 5 Stufen sind zu wenig Granularität für Fortschrittsmessung innerhalb eines Quartals. | Zwischenstufen einführen (z.B. 1,0 – 1,5 – 2,0 statt nur ganzzahlig). |
 | **Pulse Check Dauer** | 15 Minuten war realistisch beim ersten Mal. Beim zweiten Mal sagten 3 Personen: „Die Fragen sind gleich, das nervt." | Adaptive Fragen: Beim zweiten Durchlauf nur geänderte Dimensionen vertiefen. |
 | **Champion-Rolle** | Tom war ein guter Champion für Frontend. Für Backend fehlte ein expliziter Champion – Ayşe hat es implizit gemacht, aber sie war gleichzeitig Technical AI Lead. | Pro Technologie-Bereich einen Champion. Rollen nicht doppelt besetzen. |
 
@@ -773,5 +773,5 @@ Jan erstellt den Pilot-Report für interne und externe Nutzung:
 
 ---
 
-*AI Value Stream Transformer – Use Case FinSecure AG*
+*AI Transformation Framework (CRAFT) – Use Case FinSecure AG*
 *Version 1.0 | Februar 2026 | Fiktives Szenario zu Illustrationszwecken*

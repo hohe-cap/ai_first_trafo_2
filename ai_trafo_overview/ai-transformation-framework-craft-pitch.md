@@ -1,4 +1,4 @@
-# THE AI VALUE STREAM TRANSFORMER – Pitch
+# AI TRANSFORMATION FRAMEWORK – powered by CRAFT – Pitch
 
 **Vom AI-Tool-Chaos zur messbaren Wertschöpfung im Software Development**
 
@@ -32,30 +32,30 @@ Wer nur eines davon löst, landet bei den 95%.
 
 ---
 
-## Der AI Value Stream Transformer: Was wir anders machen
+## Das AI Transformation Framework (CRAFT): Was wir anders machen
 
 Wir starten nicht mit der Frage „Welches AI-Tool sollt ihr nutzen?" Wir starten mit der Frage: **„Wo verliert ihr im SDLC die meiste Zeit und Qualität – und wo hat AI den größten Hebel?"**
 
-### Die 5 gleichzeitigen Dimensionen
+### Die 5 CRAFT-Dimensionen
 
 | | Dimension | Kernfrage |
 |---|-----------|-----------|
-| 🧭 | **Discover & Navigate** | Wo steht das Team wirklich? (Nicht: Wo glaubt das Management, dass es steht?) |
-| 🔧 | **Value Stream Optimization** | Wo sind die echten Bottlenecks im Wertschöpfungsprozess – und welche AI-Intervention hat dort den größten Hebel? |
-| 🛡️ | **Governance & Compliance** | Was darf das Team? Was muss es? EU AI Act, Betriebsrat, Datenklassifizierung – geklärt und nutzbar, nicht als Blocker. |
-| 👥 | **Human Transformation** | Wie verändern sich Rollen? Wie bauen wir Ängste ab? Wie nutzen wir die Shadow-AI-Erfahrung statt sie zu bekämpfen? |
-| ⚙️ | **Technical Enablement** | Welches Setup braucht das Team konkret – von IDE-Plugin bis Air-gapped LLM? |
+| 🛡️ | **D1: C – Compliance & Governance** | Was darf das Team? Was muss es? EU AI Act, Betriebsrat, Datenklassifizierung – geklärt und nutzbar, nicht als Blocker. |
+| 👥 | **D2: R – Readiness (Human & Cultural)** | Wie verändern sich Rollen? Wie bauen wir Ängste ab? Wie nutzen wir die Shadow-AI-Erfahrung statt sie zu bekämpfen? |
+| 📊 | **D3: A – Adoption & Usage** | Wie intensiv und breit wird AI tatsächlich genutzt – offiziell und inoffiziell? |
+| 🔧 | **D4: F – Flow & Process Integration** | Wo sind die echten Bottlenecks im Wertschöpfungsprozess – und welche AI-Intervention hat dort den größten Hebel? |
+| ⚙️ | **D5: T – Technical Enablement** | Welches Setup braucht das Team konkret – von IDE-Plugin bis Air-gapped LLM? |
 
 ### Was das in der Praxis bedeutet
 
 **Statt:** „Hier sind eure Copilot-Lizenzen, viel Spaß."
 
 **Machen wir:**
-1. Wir lassen das Team in 15 Minuten einen Pulse Check ausfüllen – kein Audit, sondern eine Standortbestimmung auf 5 Dimensionen.
+1. Wir lassen das Team in 15 Minuten einen Pulse Check ausfüllen – kein Audit, sondern eine Standortbestimmung auf den 5 CRAFT-Dimensionen.
 2. Wir mappen gemeinsam den tatsächlichen Value Stream – von der Anforderung bis zum Deployment. Wo sind die Wartezeiten? Wo die Übergabe-Brüche? Wo die manuellen Wiederholungen?
 3. Wir matchen die Bottlenecks mit konkreten AI-Interventionen aus unserem Katalog – inklusive Tooling-Alternativen für die jeweilige Sicherheitsstufe.
 4. Wir starten einen 4-Wochen-Zyklus: planen, umsetzen, messen, anpassen. Kein 6-Monats-Plan, sondern iteratives Lernen.
-5. Wir messen mit DORA-Metriken + AI-Reife – automatisiert wo möglich, minimal-invasiv wo nötig.
+5. Wir messen mit DORA-Metriken + CRAFT-Score – automatisiert wo möglich, minimal-invasiv wo nötig.
 
 ---
 
@@ -81,11 +81,11 @@ Am Ende der ersten zwei Zyklen (8 Wochen) hat das Team:
 
 | Deliverable | Inhalt |
 |-------------|--------|
-| **THASC-Radar** | Visualisierter AI-Reifegrad auf 5 Dimensionen mit Benchmark |
+| **CRAFT-Radar** | Visualisierter AI-Reifegrad auf 5 Dimensionen mit Benchmark |
 | **Value Stream Map** | Visualisierter Ist-Prozess mit identifizierten Bottlenecks und priorisierten AI-Interventionen |
 | **Governance-Rahmen** | Freigegebene Sicherheitsstufe, Policies, Betriebsrats-Status |
 | **Iterationsplan** | Konkrete Ziele für 4–6 weitere Zyklen mit Readiness-Gate-Kriterien |
-| **KPI-Baseline** | DORA + THASC als Ausgangspunkt für messbare Fortschrittskontrolle |
+| **KPI-Baseline** | DORA + CRAFT als Ausgangspunkt für messbare Fortschrittskontrolle |
 | **Erste Quick Wins** | 2–3 implementierte AI-Interventionen für die dringendsten Bottlenecks |
 
 ---
@@ -96,7 +96,7 @@ Am Ende der ersten zwei Zyklen (8 Wochen) hat das Team:
 Pulse Check + Value Stream Kurzanalyse + priorisierte Empfehlungen. Für Teams, die einen Einstieg brauchen.
 
 **Aufwand:** ~5 Beratertage
-**Ergebnis:** THASC-Radar, Top-3-Bottleneck-Analyse, priorisierte AI-Interventionen
+**Ergebnis:** CRAFT-Radar, Top-3-Bottleneck-Analyse, priorisierte AI-Interventionen
 
 ### Modell B: Pilot-Begleitung (24 Wochen)
 Vollständige Anwendung des Frameworks mit einem Team über 6 Zyklen. Inklusive Change-Begleitung, Governance-Setup und Metriken-Tracking.
@@ -156,4 +156,4 @@ Modell A (Quick Assessment): ~5 Beratertage. Modell B (Pilot): ~1 FTE AI Transfo
 
 ---
 
-*The AI Value Stream Transformer – Pitch v1.0 | Februar 2026*
+*AI Transformation Framework – powered by CRAFT – Pitch v1.0 | Februar 2026*
