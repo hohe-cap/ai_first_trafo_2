@@ -1,0 +1,1494 @@
+# =============================================================================
+# CRAFT Context & Readiness Assessment (Ebene 1)
+# =============================================================================
+# One-time assessment at the start of a transformation engagement.
+# Captures project context and diagnoses transformation readiness.
+# Output feeds into adaptive filtering for Pulse Check (Ebene 2).
+#
+# Version: 1.0
+# Last Updated: 2026-02-11
+# Total Questions: 35 (17 Context + 18 Readiness)
+# Estimated Duration: 25-30 minutes
+# =============================================================================
+
+version: "1.0"
+assessment_type: "context_readiness"
+description:
+  de: >-
+    Einmaliges Assessment zu Beginn einer Transformationsbegleitung.
+    Erfasst den Projektkontext und diagnostiziert die Transformations-Readiness
+    als Grundlage fuer adaptive Pulse Checks und gezielte Interventionen.
+  en: >-
+    One-time assessment at the start of a transformation engagement.
+    Captures project context and diagnoses transformation readiness
+    as foundation for adaptive pulse checks and targeted interventions.
+estimated_duration_minutes: 30
+respondent: "AI Transformation Manager / Technical Lead (1 person per team)"
+
+# =============================================================================
+# SECTIONS
+# =============================================================================
+sections:
+  - key: "context"
+    name:
+      de: "Kontext-Erfassung"
+      en: "Context Assessment"
+    description:
+      de: "Projektrahmen, Business-Kontext, Tech-Stack und Arbeitsweise"
+      en: "Project framework, business context, tech stack and working methods"
+    estimated_duration_minutes: 10
+    purpose:
+      de: >-
+        Bestimmt Compliance-Tier, Tech-Pattern und Culture-Pattern.
+        Steuert adaptives Filtering fuer Pulse Check und Deep-Dives.
+      en: >-
+        Determines compliance tier, tech pattern and culture pattern.
+        Controls adaptive filtering for pulse check and deep-dives.
+
+  - key: "readiness"
+    name:
+      de: "Readiness Assessment"
+      en: "Readiness Assessment"
+    description:
+      de: "Leadership, Skills, Infrastruktur, Kultur und Prozesse"
+      en: "Leadership, skills, infrastructure, culture and processes"
+    estimated_duration_minutes: 20
+    purpose:
+      de: >-
+        Diagnostiziert Transformations-Readiness ueber 5 Dimensionen.
+        Ergebnis bestimmt ob erweitert, vertieft oder konsolidiert wird.
+      en: >-
+        Diagnoses transformation readiness across 5 dimensions.
+        Result determines whether to expand, deepen or consolidate.
+
+# =============================================================================
+# CATEGORIES
+# =============================================================================
+categories:
+  # --- Context Categories ---
+  - key: "project_basics"
+    section: "context"
+    name:
+      de: "Projekt-Basics"
+      en: "Project Basics"
+    description:
+      de: "Team-Groesse, Laufzeit, Phase und Typ"
+      en: "Team size, duration, phase and type"
+    why_important:
+      de: >-
+        Bestimmt den Skalierungs-Ansatz und die Change-Komplexitaet.
+        Solo/Klein braucht andere Strategien als Enterprise.
+      en: >-
+        Determines scaling approach and change complexity.
+        Solo/small needs different strategies than enterprise.
+    order: 1
+
+  - key: "business_context"
+    section: "context"
+    name:
+      de: "Business-Kontext & Compliance"
+      en: "Business Context & Compliance"
+    description:
+      de: "Branche, Regulierung, Datenverarbeitung, Vertragsmodell"
+      en: "Industry, regulation, data processing, contract model"
+    why_important:
+      de: >-
+        Regulatorische Anforderungen und Vertragsmodelle definieren die
+        Grenzen des Moeglichen. Banking braucht andere Strategien als Startups.
+        Das Vertragsmodell bestimmt Incentive-Alignment.
+      en: >-
+        Regulatory requirements and contract models define the boundaries
+        of what's possible. Banking needs different strategies than startups.
+        The contract model determines incentive alignment.
+    order: 2
+
+  - key: "tech_landscape"
+    section: "context"
+    name:
+      de: "Technologie-Landschaft"
+      en: "Technology Landscape"
+    description:
+      de: "Programmiersprachen, Legacy-Anteil, Deployment-Frequenz"
+      en: "Programming languages, legacy share, deployment frequency"
+    why_important:
+      de: >-
+        Der Tech-Stack bestimmt welche AI-Tools sofort einsetzbar sind und
+        wo technische Schulden erst abgebaut werden muessen.
+      en: >-
+        The tech stack determines which AI tools can be used immediately
+        and where technical debt must be addressed first.
+    order: 3
+
+  - key: "ways_of_working"
+    section: "context"
+    name:
+      de: "Arbeitsweise"
+      en: "Ways of Working"
+    description:
+      de: "Methodik, Kollaboration, Vertragsmodell"
+      en: "Methodology, collaboration, contract model"
+    why_important:
+      de: >-
+        Die Arbeitsweise zeigt wie experimentierfreudig das Team ist.
+        Wasserfall-Teams brauchen andere Change-Strategien als DevOps-Teams.
+      en: >-
+        Working methods show how experimental the team is.
+        Waterfall teams need different change strategies than DevOps teams.
+    order: 4
+
+  - key: "goals_timeline"
+    section: "context"
+    name:
+      de: "Ziele & Rahmenbedingungen"
+      en: "Goals & Constraints"
+    description:
+      de: "Hauptziel, Budget, Timeline"
+      en: "Main goal, budget, timeline"
+    why_important:
+      de: >-
+        Zeitliche und finanzielle Constraints definieren welche Quick Wins
+        realistisch sind und wo langfristige Investments noetig sind.
+      en: >-
+        Time and financial constraints define which quick wins are realistic
+        and where long-term investments are needed.
+    order: 5
+
+  # --- Readiness Categories ---
+  - key: "leadership"
+    section: "readiness"
+    name:
+      de: "Leadership & Commitment"
+      en: "Leadership & Commitment"
+    description:
+      de: "Executive Sponsorship, Budget, Change Management Ressourcen"
+      en: "Executive sponsorship, budget, change management resources"
+    why_important:
+      de: >-
+        Ohne Top-Level-Support scheitern 70% aller Transformationsprojekte
+        innerhalb des ersten Jahres (Kotter, Prosci).
+      en: >-
+        Without top-level support, 70% of transformation projects fail
+        within the first year (Kotter, Prosci).
+    weight_in_readiness_score: 0.25
+    order: 6
+
+  - key: "skills"
+    section: "readiness"
+    name:
+      de: "Skills & Faehigkeiten"
+      en: "Skills & Capabilities"
+    description:
+      de: "AI-Exposure, Lernkultur, Trainingskapazitaet"
+      en: "AI exposure, learning culture, training capacity"
+    why_important:
+      de: >-
+        Aktuelle Skill-Level bestimmen den Startpunkt.
+        Lernkultur bestimmt die Adoptionsgeschwindigkeit.
+      en: >-
+        Current skill levels determine the starting point.
+        Learning culture determines adoption speed.
+    weight_in_readiness_score: 0.20
+    order: 7
+
+  - key: "infrastructure"
+    section: "readiness"
+    name:
+      de: "Infrastruktur & Tools"
+      en: "Infrastructure & Tools"
+    description:
+      de: "API-Zugang, Tool-Flexibilitaet, Datenklassifizierung, Security"
+      en: "API access, tool flexibility, data classification, security"
+    why_important:
+      de: >-
+        Technische Grundvoraussetzungen bestimmen was ueberhaupt moeglich ist.
+        Gesperrte Umgebungen brauchen andere Strategien als offene.
+      en: >-
+        Technical prerequisites determine what is possible at all.
+        Locked-down environments need different strategies than open ones.
+    weight_in_readiness_score: 0.25
+    order: 8
+
+  - key: "culture"
+    section: "readiness"
+    name:
+      de: "Kultur & Mindset"
+      en: "Culture & Mindset"
+    description:
+      de: "Fehlertoleranz, Innovationszeit, Prozessflexibilitaet"
+      en: "Failure tolerance, innovation time, process flexibility"
+    why_important:
+      de: >-
+        Psychologische Sicherheit und Experimentierfreiheit sind die
+        staerksten Praediktoren fuer erfolgreiche AI-Adoption.
+      en: >-
+        Psychological safety and freedom to experiment are the
+        strongest predictors of successful AI adoption.
+    weight_in_readiness_score: 0.15
+    order: 9
+
+  - key: "processes"
+    section: "readiness"
+    name:
+      de: "Prozesse & Workflows"
+      en: "Processes & Workflows"
+    description:
+      de: "Bottleneck-Identifikation, Zeitverteilung, Prozessreife"
+      en: "Bottleneck identification, time distribution, process maturity"
+    why_important:
+      de: >-
+        Value Stream First: AI-Interventionen muessen dort ansetzen,
+        wo die groessten Bottlenecks sind. Ohne Prozessverstaendnis
+        optimieren wir an der falschen Stelle.
+      en: >-
+        Value Stream First: AI interventions must target the biggest
+        bottlenecks. Without process understanding we optimize in
+        the wrong place.
+    weight_in_readiness_score: 0.15
+    order: 10
+
+# =============================================================================
+# QUESTIONS — CONTEXT SECTION (17 Questions)
+# =============================================================================
+questions:
+
+  # ---------------------------------------------------------------------------
+  # Category: project_basics (4 Questions)
+  # ---------------------------------------------------------------------------
+  - question_key: "ctx_team_size"
+    section: "context"
+    category: "project_basics"
+    question_text:
+      de: "Wie gross ist das Projekt-Team?"
+      en: "How large is the project team?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "solo"
+        de: "Solo (1 Person)"
+        en: "Solo (1 person)"
+        order: 1
+      - key: "small"
+        de: "Klein (2-5 Personen)"
+        en: "Small (2-5 people)"
+        order: 2
+      - key: "medium"
+        de: "Mittel (6-15 Personen)"
+        en: "Medium (6-15 people)"
+        order: 3
+      - key: "large"
+        de: "Gross (16-30 Personen)"
+        en: "Large (16-30 people)"
+        order: 4
+      - key: "enterprise"
+        de: "Enterprise (>30 Personen)"
+        en: "Enterprise (>30 people)"
+        order: 5
+    adaptive_impact:
+      de: "Solo/Klein → Governance-Fragen ueberspringen; Gross/Enterprise → Change Coalition Fragen hinzufuegen"
+      en: "Solo/Small → Skip governance questions; Large/Enterprise → Add change coalition questions"
+    order: 1
+
+  - question_key: "ctx_project_duration"
+    section: "context"
+    category: "project_basics"
+    question_text:
+      de: "Wie lange laeuft das Projekt bereits?"
+      en: "How long has the project been running?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "new"
+        de: "Neu (0-3 Monate)"
+        en: "New (0-3 months)"
+        order: 1
+      - key: "young"
+        de: "Jung (3-12 Monate)"
+        en: "Young (3-12 months)"
+        order: 2
+      - key: "established"
+        de: "Etabliert (1-3 Jahre)"
+        en: "Established (1-3 years)"
+        order: 3
+      - key: "legacy"
+        de: "Legacy (>3 Jahre)"
+        en: "Legacy (>3 years)"
+        order: 4
+    adaptive_impact:
+      de: "Neu → AI-First Setup fokussieren; Legacy → Workflow-Redesign und Tech-Debt priorisieren"
+      en: "New → Focus AI-first setup; Legacy → Prioritize workflow redesign and tech debt"
+    order: 2
+
+  - question_key: "ctx_project_phase"
+    section: "context"
+    category: "project_basics"
+    question_text:
+      de: "In welcher Phase befindet sich das Projekt?"
+      en: "What phase is the project in?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "discovery"
+        de: "Discovery / Planning"
+        en: "Discovery / Planning"
+        order: 1
+      - key: "development"
+        de: "Aktive Entwicklung"
+        en: "Active Development"
+        order: 2
+      - key: "maintenance"
+        de: "Wartung / Support"
+        en: "Maintenance / Support"
+        order: 3
+      - key: "transition"
+        de: "Transition / Sunset"
+        en: "Transition / Sunset"
+        order: 4
+    adaptive_impact:
+      de: "Discovery → Architecture-Design Fragen; Maintenance → Tool-Optimierung fokussieren"
+      en: "Discovery → Architecture design questions; Maintenance → Focus tool optimization"
+    order: 3
+
+  - question_key: "ctx_project_type"
+    section: "context"
+    category: "project_basics"
+    question_text:
+      de: "Was ist der Haupt-Projekt-Typ?"
+      en: "What is the main project type?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "greenfield"
+        de: "Greenfield (Neuentwicklung)"
+        en: "Greenfield (new development)"
+        order: 1
+      - key: "brownfield"
+        de: "Brownfield (bestehende Codebase)"
+        en: "Brownfield (existing codebase)"
+        order: 2
+      - key: "modernization"
+        de: "Modernisierung (Legacy → Modern)"
+        en: "Modernization (Legacy → Modern)"
+        order: 3
+      - key: "maintenance"
+        de: "Wartung / Support"
+        en: "Maintenance / Support"
+        order: 4
+    order: 4
+
+  # ---------------------------------------------------------------------------
+  # Category: business_context (4 Questions)
+  # ---------------------------------------------------------------------------
+  - question_key: "ctx_industry"
+    section: "context"
+    category: "business_context"
+    question_text:
+      de: "In welcher Branche ist der Kunde / die Organisation taetig?"
+      en: "What industry is the customer / organization in?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "banking"
+        de: "Banking / Finance"
+        en: "Banking / Finance"
+        compliance_tier: 3
+        order: 1
+      - key: "healthcare"
+        de: "Healthcare / Pharma"
+        en: "Healthcare / Pharma"
+        compliance_tier: 3
+        order: 2
+      - key: "insurance"
+        de: "Versicherung"
+        en: "Insurance"
+        compliance_tier: 3
+        order: 3
+      - key: "automotive"
+        de: "Automotive / Manufacturing"
+        en: "Automotive / Manufacturing"
+        compliance_tier: 2
+        order: 4
+      - key: "public_sector"
+        de: "Oeffentlicher Sektor"
+        en: "Public Sector"
+        compliance_tier: 2
+        order: 5
+      - key: "technology"
+        de: "Technology / Software"
+        en: "Technology / Software"
+        compliance_tier: 1
+        order: 6
+      - key: "retail"
+        de: "Retail / E-Commerce"
+        en: "Retail / E-Commerce"
+        compliance_tier: 1
+        order: 7
+      - key: "startup"
+        de: "Startup / Scale-Up"
+        en: "Startup / Scale-Up"
+        compliance_tier: 1
+        order: 8
+      - key: "other"
+        de: "Andere"
+        en: "Other"
+        compliance_tier: 2
+        order: 9
+    adaptive_impact:
+      de: "Tier 3 (Banking/Healthcare) → Compliance-Fragen priorisieren, Public-AI einschraenken; Tier 1 → Standard"
+      en: "Tier 3 (Banking/Healthcare) → Prioritize compliance, restrict public AI; Tier 1 → Standard"
+    order: 5
+
+  - question_key: "ctx_data_location"
+    section: "context"
+    category: "business_context"
+    question_text:
+      de: "Wo duerfen Daten in diesem Projekt verarbeitet werden?"
+      en: "Where can data be processed in this project?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "eu_only"
+        de: "EU-Only (DSGVO-strict)"
+        en: "EU-Only (GDPR-strict)"
+        order: 1
+      - key: "us_acceptable"
+        de: "US akzeptabel (Angemessenheitsbeschluss)"
+        en: "US acceptable (adequacy decision)"
+        order: 2
+      - key: "global"
+        de: "Global / flexibel"
+        en: "Global / flexible"
+        order: 3
+      - key: "on_premise"
+        de: "On-Premise only"
+        en: "On-premise only"
+        order: 4
+    adaptive_impact:
+      de: "EU-Only → Nur EU-gehostete AI-Tools; On-Premise → Nur Self-Hosted (Ollama, vLLM)"
+      en: "EU-Only → Only EU-hosted AI tools; On-Premise → Only self-hosted (Ollama, vLLM)"
+    order: 6
+
+  - question_key: "ctx_code_ownership"
+    section: "context"
+    category: "business_context"
+    question_text:
+      de: "Wem gehoert der Code?"
+      en: "Who owns the code?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "customer"
+        de: "Kunde (IP-Transfer)"
+        en: "Customer (IP transfer)"
+        order: 1
+      - key: "shared"
+        de: "Geteilt (Joint Ownership)"
+        en: "Shared (joint ownership)"
+        order: 2
+      - key: "own_ip"
+        de: "Eigenes IP (Produkt)"
+        en: "Own IP (product)"
+        order: 3
+    adaptive_impact:
+      de: "Kunde → Kunden-Approval fuer AI-Tools erforderlich; Eigenes IP → Volle Freiheit"
+      en: "Customer → Customer approval required for AI tools; Own IP → Full freedom"
+    order: 7
+
+  - question_key: "ctx_criticality"
+    section: "context"
+    category: "business_context"
+    question_text:
+      de: "Wie kritisch ist das Projekt fuer das Business?"
+      en: "How critical is the project for the business?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "mission_critical"
+        de: "Mission-Critical (Revenue-Impact)"
+        en: "Mission-Critical (revenue impact)"
+        order: 1
+      - key: "business_critical"
+        de: "Business-Critical (Operations)"
+        en: "Business-Critical (operations)"
+        order: 2
+      - key: "important"
+        de: "Important (Support)"
+        en: "Important (support)"
+        order: 3
+      - key: "experimental"
+        de: "Experimental (Innovation)"
+        en: "Experimental (innovation)"
+        order: 4
+    adaptive_impact:
+      de: "Mission-Critical → Structured rollout, Risk Management; Experimental → Fast rollout"
+      en: "Mission-Critical → Structured rollout, risk management; Experimental → Fast rollout"
+    order: 8
+
+  # ---------------------------------------------------------------------------
+  # Category: tech_landscape (3 Questions)
+  # ---------------------------------------------------------------------------
+  - question_key: "ctx_languages"
+    section: "context"
+    category: "tech_landscape"
+    question_text:
+      de: "Welche Programmiersprachen werden hauptsaechlich verwendet?"
+      en: "What programming languages are primarily used?"
+    answer_type: "multiple_choice"
+    allow_multiple: true
+    answer_options:
+      - key: "python"
+        de: "Python"
+        en: "Python"
+        order: 1
+      - key: "java_kotlin"
+        de: "Java / Kotlin"
+        en: "Java / Kotlin"
+        order: 2
+      - key: "javascript_typescript"
+        de: "JavaScript / TypeScript"
+        en: "JavaScript / TypeScript"
+        order: 3
+      - key: "csharp_dotnet"
+        de: "C# / .NET"
+        en: "C# / .NET"
+        order: 4
+      - key: "go"
+        de: "Go"
+        en: "Go"
+        order: 5
+      - key: "cpp"
+        de: "C / C++"
+        en: "C / C++"
+        order: 6
+      - key: "ruby"
+        de: "Ruby"
+        en: "Ruby"
+        order: 7
+      - key: "php"
+        de: "PHP"
+        en: "PHP"
+        order: 8
+      - key: "other"
+        de: "Andere"
+        en: "Other"
+        order: 9
+    adaptive_impact:
+      de: "Bestimmt Tech-Pattern fuer Tool-Empfehlungen (z.B. Python → Copilot + Cursor + Ruff)"
+      en: "Determines tech pattern for tool recommendations (e.g. Python → Copilot + Cursor + Ruff)"
+    order: 9
+
+  - question_key: "ctx_legacy_percentage"
+    section: "context"
+    category: "tech_landscape"
+    question_text:
+      de: "Wie hoch ist der Legacy-Code-Anteil?"
+      en: "What is the legacy code share?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "none"
+        de: "Kein Legacy (100% modern)"
+        en: "No legacy (100% modern)"
+        order: 1
+      - key: "low"
+        de: "Wenig (<20%)"
+        en: "Low (<20%)"
+        order: 2
+      - key: "moderate"
+        de: "Moderat (20-50%)"
+        en: "Moderate (20-50%)"
+        order: 3
+      - key: "high"
+        de: "Hoch (50-80%)"
+        en: "High (50-80%)"
+        order: 4
+      - key: "mostly"
+        de: "Ueberwiegend Legacy (>80%)"
+        en: "Mostly legacy (>80%)"
+        order: 5
+    adaptive_impact:
+      de: "Hoch/Ueberwiegend → Tech-Debt-Reduktion priorisieren; Kein Legacy → Advanced AI Patterns"
+      en: "High/Mostly → Prioritize tech debt reduction; No legacy → Advanced AI patterns"
+    order: 10
+
+  - question_key: "ctx_deployment_frequency"
+    section: "context"
+    category: "tech_landscape"
+    question_text:
+      de: "Wie oft wird deployed?"
+      en: "How often do you deploy?"
+    description:
+      de: "DORA-Baseline: Deployment Frequency ist einer der vier DORA-Key-Metrics"
+      en: "DORA baseline: Deployment frequency is one of the four DORA key metrics"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "multiple_daily"
+        de: "Mehrmals taeglich (Continuous Deployment)"
+        en: "Multiple times daily (Continuous Deployment)"
+        order: 1
+      - key: "daily"
+        de: "Taeglich"
+        en: "Daily"
+        order: 2
+      - key: "weekly"
+        de: "Woechentlich"
+        en: "Weekly"
+        order: 3
+      - key: "monthly"
+        de: "Monatlich"
+        en: "Monthly"
+        order: 4
+      - key: "less"
+        de: "Seltener"
+        en: "Less frequently"
+        order: 5
+    order: 11
+
+  # ---------------------------------------------------------------------------
+  # Category: ways_of_working (3 Questions)
+  # ---------------------------------------------------------------------------
+  - question_key: "ctx_methodology"
+    section: "context"
+    category: "ways_of_working"
+    question_text:
+      de: "Welche Entwicklungs-Methodik wird verwendet?"
+      en: "What development methodology is used?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "scrum"
+        de: "Scrum"
+        en: "Scrum"
+        order: 1
+      - key: "kanban"
+        de: "Kanban"
+        en: "Kanban"
+        order: 2
+      - key: "safe"
+        de: "SAFe (Scaled Agile)"
+        en: "SAFe (Scaled Agile)"
+        order: 3
+      - key: "waterfall"
+        de: "Wasserfall"
+        en: "Waterfall"
+        order: 4
+      - key: "adhoc"
+        de: "Ad-hoc / kein formaler Prozess"
+        en: "Ad-hoc / no formal process"
+        order: 5
+    order: 12
+
+  - question_key: "ctx_collaboration_model"
+    section: "context"
+    category: "ways_of_working"
+    question_text:
+      de: "Wie arbeitet das Team zusammen?"
+      en: "How does the team collaborate?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "remote_first"
+        de: "Remote-First"
+        en: "Remote-First"
+        order: 1
+      - key: "hybrid"
+        de: "Hybrid"
+        en: "Hybrid"
+        order: 2
+      - key: "office"
+        de: "Office-Based"
+        en: "Office-Based"
+        order: 3
+      - key: "async"
+        de: "Async-First"
+        en: "Async-First"
+        order: 4
+    adaptive_impact:
+      de: "Remote/Async → AI-Pairing-Tools wichtiger; Office → In-Person + AI Hybrid"
+      en: "Remote/Async → AI pairing tools more important; Office → In-person + AI hybrid"
+    order: 13
+
+  - question_key: "ctx_contract_model"
+    section: "context"
+    category: "ways_of_working"
+    question_text:
+      de: "Welches Vertragsmodell gilt fuer dieses Projekt?"
+      en: "What contract model applies to this project?"
+    description:
+      de: >-
+        KRITISCH fuer Incentive-Alignment: Bei T&M kann AI-Produktivitaet
+        zu weniger abrechenbaren Stunden fuehren (Fehlanreiz).
+      en: >-
+        CRITICAL for incentive alignment: With T&M, AI productivity
+        can lead to fewer billable hours (misaligned incentives).
+    answer_type: "single_choice"
+    answer_options:
+      - key: "time_material"
+        de: "Time & Material (Abrechnung nach Aufwand)"
+        en: "Time & Material (billed by effort)"
+        incentive_risk: "high"
+        order: 1
+      - key: "fixed_price"
+        de: "Fixed Price (Festpreis)"
+        en: "Fixed Price"
+        incentive_risk: "low"
+        order: 2
+      - key: "value_based"
+        de: "Value-Based / Outcome-Based"
+        en: "Value-Based / Outcome-Based"
+        incentive_risk: "none"
+        order: 3
+      - key: "hybrid"
+        de: "Hybrid (T&M + Success Bonus)"
+        en: "Hybrid (T&M + success bonus)"
+        incentive_risk: "medium"
+        order: 4
+      - key: "internal"
+        de: "Internes Projekt (keine externe Abrechnung)"
+        en: "Internal project (no external billing)"
+        incentive_risk: "none"
+        order: 5
+    adaptive_impact:
+      de: "T&M → Shadow-AI-Risiko pruefen, Gainsharing-Modelle empfehlen"
+      en: "T&M → Check shadow AI risk, recommend gainsharing models"
+    order: 14
+
+  # ---------------------------------------------------------------------------
+  # Category: goals_timeline (3 Questions)
+  # ---------------------------------------------------------------------------
+  - question_key: "ctx_main_goal"
+    section: "context"
+    category: "goals_timeline"
+    question_text:
+      de: "Was ist das Hauptziel der AI-Transformation?"
+      en: "What is the main goal of the AI transformation?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "velocity"
+        de: "Geschwindigkeit (+Velocity, schnellere Delivery)"
+        en: "Speed (+velocity, faster delivery)"
+        order: 1
+      - key: "quality"
+        de: "Qualitaet (+Code Quality, weniger Bugs)"
+        en: "Quality (+code quality, fewer bugs)"
+        order: 2
+      - key: "cost"
+        de: "Kostenreduktion (-Effort, hoehere Effizienz)"
+        en: "Cost reduction (-effort, higher efficiency)"
+        order: 3
+      - key: "innovation"
+        de: "Innovation (neue Capabilities, AI-First)"
+        en: "Innovation (new capabilities, AI-first)"
+        order: 4
+      - key: "upskilling"
+        de: "Team-Upskilling (Kompetenzaufbau)"
+        en: "Team upskilling (capability building)"
+        order: 5
+    adaptive_impact:
+      de: "Bestimmt Fokus-Metriken: Velocity → DORA; Qualitaet → Bug Density; Kosten → Effort/Story Point"
+      en: "Determines focus metrics: Velocity → DORA; Quality → Bug density; Cost → Effort/story point"
+    order: 15
+
+  - question_key: "ctx_ai_budget"
+    section: "context"
+    category: "goals_timeline"
+    question_text:
+      de: "Welches Budget steht fuer AI-Tools zur Verfuegung (monatlich, pro Entwickler)?"
+      en: "What budget is available for AI tools (monthly, per developer)?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "none"
+        de: "Kein dediziertes Budget"
+        en: "No dedicated budget"
+        order: 1
+      - key: "minimal"
+        de: "Minimal (bis 20 EUR/Monat, z.B. Copilot Individual)"
+        en: "Minimal (up to 20 EUR/month, e.g. Copilot Individual)"
+        order: 2
+      - key: "standard"
+        de: "Standard (20-50 EUR/Monat, z.B. Copilot Business)"
+        en: "Standard (20-50 EUR/month, e.g. Copilot Business)"
+        order: 3
+      - key: "premium"
+        de: "Premium (50-100 EUR/Monat, z.B. Cursor + Claude Pro)"
+        en: "Premium (50-100 EUR/month, e.g. Cursor + Claude Pro)"
+        order: 4
+      - key: "enterprise"
+        de: "Enterprise (>100 EUR/Monat, mehrere Tools)"
+        en: "Enterprise (>100 EUR/month, multiple tools)"
+        order: 5
+    order: 16
+
+  - question_key: "ctx_timeline"
+    section: "context"
+    category: "goals_timeline"
+    question_text:
+      de: "Bis wann sollen erste messbare Ergebnisse sichtbar sein?"
+      en: "By when should first measurable results be visible?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "immediate"
+        de: "Sofort (1-2 Wochen, Quick Wins)"
+        en: "Immediately (1-2 weeks, quick wins)"
+        order: 1
+      - key: "short"
+        de: "Kurzfristig (1-3 Monate)"
+        en: "Short-term (1-3 months)"
+        order: 2
+      - key: "medium"
+        de: "Mittelfristig (3-6 Monate)"
+        en: "Medium-term (3-6 months)"
+        order: 3
+      - key: "long"
+        de: "Langfristig (6-12 Monate)"
+        en: "Long-term (6-12 months)"
+        order: 4
+    adaptive_impact:
+      de: "Sofort → Quick-Win-Patterns priorisieren; Langfristig → Nachhaltige Transformation"
+      en: "Immediately → Prioritize quick-win patterns; Long-term → Sustainable transformation"
+    order: 17
+
+  # ===========================================================================
+  # QUESTIONS — READINESS SECTION (18 Questions)
+  # ===========================================================================
+
+  # ---------------------------------------------------------------------------
+  # Category: leadership (4 Questions)
+  # ---------------------------------------------------------------------------
+  - question_key: "rdy_executive_sponsorship"
+    section: "readiness"
+    category: "leadership"
+    question_text:
+      de: "Gibt es einen C-Level Executive, der aktiv die AI-Transformation vorantreibt?"
+      en: "Is there a C-level executive actively championing AI transformation?"
+    why_important:
+      de: "Ohne Top-Level-Support fehlen Ressourcen und Priorisierung"
+      en: "Without top-level support, resources and prioritization are missing"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "full_commitment"
+        de: "Ja, mit dedizierter Zeit und Budget"
+        en: "Yes, with dedicated time and budget"
+        score: 100
+        order: 1
+      - key: "verbal_support"
+        de: "Ja, aber nur verbale Unterstuetzung"
+        en: "Yes, but only verbal support"
+        score: 60
+        order: 2
+      - key: "middle_management"
+        de: "Nein, aber Middle Management ist interessiert"
+        en: "No, but middle management is interested"
+        score: 30
+        order: 3
+      - key: "no_sponsorship"
+        de: "Keine Unterstuetzung"
+        en: "No sponsorship"
+        score: 0
+        order: 4
+    weight: 1.5
+    order: 18
+
+  - question_key: "rdy_budget_allocation"
+    section: "readiness"
+    category: "leadership"
+    question_text:
+      de: "Welcher Anteil des IT/R&D-Budgets ist fuer AI-Experimente und -Tools allokiert?"
+      en: "What share of IT/R&D budget is allocated for AI experimentation and tools?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "high"
+        de: ">10% des Budgets"
+        en: ">10% of budget"
+        score: 100
+        order: 1
+      - key: "medium"
+        de: "5-10%"
+        en: "5-10%"
+        score: 80
+        order: 2
+      - key: "low"
+        de: "1-5%"
+        en: "1-5%"
+        score: 50
+        order: 3
+      - key: "minimal"
+        de: "<1% oder kein Budget"
+        en: "<1% or no budget"
+        score: 0
+        order: 4
+    weight: 1.2
+    order: 19
+
+  - question_key: "rdy_transformation_timeline"
+    section: "readiness"
+    category: "leadership"
+    question_text:
+      de: "Was ist die realistische Timeline fuer erste AI-Adoption?"
+      en: "What is the realistic timeline for initial AI adoption?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "urgent"
+        de: "Dringend, innerhalb 3 Monate"
+        en: "Urgent, within 3 months"
+        score: 100
+        order: 1
+      - key: "short"
+        de: "3-6 Monate"
+        en: "3-6 months"
+        score: 80
+        order: 2
+      - key: "medium"
+        de: "6-12 Monate"
+        en: "6-12 months"
+        score: 50
+        order: 3
+      - key: "long"
+        de: ">12 Monate oder kein Timeline"
+        en: ">12 months or no timeline"
+        score: 20
+        order: 4
+    weight: 1.0
+    order: 20
+
+  - question_key: "rdy_change_management"
+    section: "readiness"
+    category: "leadership"
+    question_text:
+      de: "Sind Ressourcen fuer Change Management allokiert (Training, Kommunikation, Coaching)?"
+      en: "Are resources allocated for change management (training, communication, coaching)?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "dedicated_team"
+        de: "Dediziertes Team mit Budget"
+        en: "Dedicated team with budget"
+        score: 100
+        order: 1
+      - key: "partial"
+        de: "Teilweise allokiert"
+        en: "Partial allocation"
+        score: 60
+        order: 2
+      - key: "adhoc"
+        de: "Ad-hoc, kein Budget"
+        en: "Ad-hoc, no budget"
+        score: 20
+        order: 3
+      - key: "none"
+        de: "Keine Ressourcen"
+        en: "None"
+        score: 0
+        order: 4
+    weight: 1.3
+    order: 21
+
+  # ---------------------------------------------------------------------------
+  # Category: skills (4 Questions)
+  # ---------------------------------------------------------------------------
+  - question_key: "rdy_ai_exposure"
+    section: "readiness"
+    category: "skills"
+    question_text:
+      de: "Welcher Anteil des Teams hat bereits AI-Coding-Assistenten genutzt (Copilot, ChatGPT, Claude)?"
+      en: "What share of the team has already used AI coding assistants (Copilot, ChatGPT, Claude)?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "high"
+        de: ">75% des Teams"
+        en: ">75% of team"
+        score: 100
+        order: 1
+      - key: "medium"
+        de: "50-75%"
+        en: "50-75%"
+        score: 80
+        order: 2
+      - key: "low"
+        de: "25-50%"
+        en: "25-50%"
+        score: 50
+        order: 3
+      - key: "minimal"
+        de: "<25%"
+        en: "<25%"
+        score: 20
+        order: 4
+    weight: 1.2
+    order: 22
+
+  - question_key: "rdy_learning_culture"
+    section: "readiness"
+    category: "skills"
+    question_text:
+      de: "Wie geht das Team mit neuen Tools und Technologien um?"
+      en: "How does the team approach new tools and technologies?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "self_learners"
+        de: "Selbstlerner, experimentierfreudig"
+        en: "Self-learners, eager to experiment"
+        score: 100
+        order: 1
+      - key: "open"
+        de: "Offen fuer Training"
+        en: "Open to training"
+        score: 70
+        order: 2
+      - key: "resistant_willing"
+        de: "Zurueckhaltend, aber bereit"
+        en: "Reluctant but willing"
+        score: 40
+        order: 3
+      - key: "strong_resistance"
+        de: "Starke Resistenz"
+        en: "Strong resistance"
+        score: 0
+        order: 4
+    weight: 1.4
+    order: 23
+
+  - question_key: "rdy_training_capacity"
+    section: "readiness"
+    category: "skills"
+    question_text:
+      de: "Kann das Team 2-4 Stunden pro Woche fuer AI-Upskilling aufbringen?"
+      en: "Can the team dedicate 2-4 hours per week for AI upskilling?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "high"
+        de: "Ja, >4 Stunden/Woche moeglich"
+        en: "Yes, >4 hours/week possible"
+        score: 100
+        order: 1
+      - key: "medium"
+        de: "Ja, 2-4 Stunden"
+        en: "Yes, 2-4 hours"
+        score: 70
+        order: 2
+      - key: "low"
+        de: "Schwierig, <2 Stunden"
+        en: "Difficult, <2 hours"
+        score: 30
+        order: 3
+      - key: "none"
+        de: "Keine Zeit verfuegbar"
+        en: "No time available"
+        score: 0
+        order: 4
+    weight: 1.0
+    order: 24
+
+  - question_key: "rdy_technical_literacy"
+    section: "readiness"
+    category: "skills"
+    question_text:
+      de: "Wie ist die technische Grundkompetenz im Team (Cloud, APIs, moderne Dev-Tools)?"
+      en: "What is the technical baseline in the team (cloud, APIs, modern dev tools)?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "high"
+        de: "Hoch: Cloud, APIs, moderne Dev-Tools vertraut"
+        en: "High: Familiar with cloud, APIs, modern dev tools"
+        score: 100
+        order: 1
+      - key: "medium"
+        de: "Mittel: Grundkenntnisse vorhanden"
+        en: "Medium: Basic knowledge present"
+        score: 70
+        order: 2
+      - key: "low"
+        de: "Niedrig: Traditionelle IT, wenig Cloud"
+        en: "Low: Traditional IT, little cloud"
+        score: 30
+        order: 3
+      - key: "minimal"
+        de: "Sehr niedrig: Wenig Tech-Exposure"
+        en: "Very low: Little tech exposure"
+        score: 0
+        order: 4
+    weight: 1.1
+    order: 25
+
+  # ---------------------------------------------------------------------------
+  # Category: infrastructure (4 Questions)
+  # ---------------------------------------------------------------------------
+  - question_key: "rdy_api_access"
+    section: "readiness"
+    category: "infrastructure"
+    question_text:
+      de: "Haben Entwickler Zugang zu Cloud-AI-APIs (OpenAI, Azure OpenAI, Anthropic, etc.)?"
+      en: "Do developers have access to cloud AI APIs (OpenAI, Azure OpenAI, Anthropic, etc.)?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "full"
+        de: "Ja, uneingeschraenkt"
+        en: "Yes, unrestricted"
+        score: 100
+        order: 1
+      - key: "restricted"
+        de: "Ja, aber eingeschraenkt / genehmigungspflichtig"
+        en: "Yes, but restricted / approval required"
+        score: 60
+        order: 2
+      - key: "planned"
+        de: "Geplant, aber noch nicht verfuegbar"
+        en: "Planned, but not yet available"
+        score: 30
+        order: 3
+      - key: "blocked"
+        de: "Nein, blockiert"
+        en: "No, blocked"
+        score: 0
+        order: 4
+    weight: 1.5
+    order: 26
+
+  - question_key: "rdy_tool_flexibility"
+    section: "readiness"
+    category: "infrastructure"
+    question_text:
+      de: "Koennen Teams selbstaendig neue AI-Tools installieren und testen?"
+      en: "Can teams independently install and test new AI tools?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "full"
+        de: "Ja, volle Freiheit"
+        en: "Yes, full freedom"
+        score: 100
+        order: 1
+      - key: "whitelist"
+        de: "Ja, mit Whitelist"
+        en: "Yes, with whitelist"
+        score: 70
+        order: 2
+      - key: "approval"
+        de: "Nur nach Genehmigung"
+        en: "Only after approval"
+        score: 30
+        order: 3
+      - key: "locked"
+        de: "Komplett gesperrt"
+        en: "Completely locked down"
+        score: 0
+        order: 4
+    weight: 1.2
+    order: 27
+
+  - question_key: "rdy_data_classification"
+    section: "readiness"
+    category: "infrastructure"
+    question_text:
+      de: "Sind Datenklassifizierungen klar definiert (oeffentlich, intern, vertraulich, streng vertraulich)?"
+      en: "Are data classifications clearly defined (public, internal, confidential, strictly confidential)?"
+    why_important:
+      de: "Klare Klassifizierung ermoeglicht sichere AI-Nutzung und bestimmt die CRAFT-Sicherheitsstufe"
+      en: "Clear classification enables safe AI usage and determines the CRAFT security tier"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "well_defined"
+        de: "Ja, klar dokumentiert und kommuniziert"
+        en: "Yes, clearly documented and communicated"
+        score: 100
+        order: 1
+      - key: "partial"
+        de: "Teilweise, nicht durchgaengig"
+        en: "Partially, not consistent"
+        score: 60
+        order: 2
+      - key: "unclear"
+        de: "Unklar oder inkonsistent"
+        en: "Unclear or inconsistent"
+        score: 20
+        order: 3
+      - key: "not_defined"
+        de: "Nicht definiert"
+        en: "Not defined"
+        score: 0
+        order: 4
+    weight: 1.3
+    order: 28
+
+  - question_key: "rdy_security_posture"
+    section: "readiness"
+    category: "infrastructure"
+    question_text:
+      de: "Welche Security-Haltung hat die Organisation gegenueber Cloud-AI-Services?"
+      en: "What is the organization's security posture towards cloud AI services?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "risk_managed"
+        de: "Risk-Managed: Pragmatisch, datenklassifiziert"
+        en: "Risk-Managed: Pragmatic, data-classified"
+        score: 100
+        order: 1
+      - key: "cautious"
+        de: "Vorsichtig: Nur mit Whitelisting"
+        en: "Cautious: Only with whitelisting"
+        score: 60
+        order: 2
+      - key: "restrictive"
+        de: "Restriktiv: Nur on-premise"
+        en: "Restrictive: Only on-premise"
+        score: 20
+        order: 3
+      - key: "blocked"
+        de: "Blockiert: Keine Cloud-AI erlaubt"
+        en: "Blocked: No cloud AI allowed"
+        score: 0
+        order: 4
+    weight: 1.4
+    order: 29
+
+  # ---------------------------------------------------------------------------
+  # Category: culture (4 Questions)
+  # ---------------------------------------------------------------------------
+  - question_key: "rdy_failure_tolerance"
+    section: "readiness"
+    category: "culture"
+    question_text:
+      de: "Wie geht die Organisation mit Fehlern bei Experimenten um?"
+      en: "How does the organization handle failures in experiments?"
+    why_important:
+      de: "Psychologische Sicherheit ist der staerkste Praediktor fuer AI-Adoption"
+      en: "Psychological safety is the strongest predictor of AI adoption"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "learning_culture"
+        de: "Lernkultur: Fehler sind Lernchancen"
+        en: "Learning culture: Failures are learning opportunities"
+        score: 100
+        order: 1
+      - key: "tolerant"
+        de: "Tolerant: Fehler sind ok bei Experimenten"
+        en: "Tolerant: Failures ok in experiments"
+        score: 70
+        order: 2
+      - key: "risk_averse"
+        de: "Risikoavers: Fehler werden vermieden"
+        en: "Risk-averse: Failures are avoided"
+        score: 30
+        order: 3
+      - key: "blame_culture"
+        de: "Blame-Culture: Fehler werden bestraft"
+        en: "Blame culture: Failures are punished"
+        score: 0
+        order: 4
+    weight: 1.5
+    order: 30
+
+  - question_key: "rdy_innovation_time"
+    section: "readiness"
+    category: "culture"
+    question_text:
+      de: "Haben Mitarbeiter Zeit fuer Innovation und Experimente?"
+      en: "Do employees have time for innovation and experiments?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "dedicated"
+        de: "Ja, dedizierte Innovation-Zeit (z.B. 20%)"
+        en: "Yes, dedicated innovation time (e.g. 20%)"
+        score: 100
+        order: 1
+      - key: "encouraged"
+        de: "Ja, wird ermutigt wenn moeglich"
+        en: "Yes, encouraged when possible"
+        score: 70
+        order: 2
+      - key: "limited"
+        de: "Kaum, nur in Freizeit"
+        en: "Limited, only in free time"
+        score: 30
+        order: 3
+      - key: "none"
+        de: "Nein, 100% operative Auslastung"
+        en: "No, 100% operational workload"
+        score: 0
+        order: 4
+    weight: 1.2
+    order: 31
+
+  - question_key: "rdy_cross_functional"
+    section: "readiness"
+    category: "culture"
+    question_text:
+      de: "Wie gut funktioniert cross-funktionale Zusammenarbeit?"
+      en: "How well does cross-functional collaboration work?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "excellent"
+        de: "Exzellent: Teams arbeiten nahtlos zusammen"
+        en: "Excellent: Teams work seamlessly together"
+        score: 100
+        order: 1
+      - key: "good"
+        de: "Gut: Zusammenarbeit funktioniert meistens"
+        en: "Good: Collaboration works mostly"
+        score: 70
+        order: 2
+      - key: "limited"
+        de: "Begrenzt: Silos vorhanden"
+        en: "Limited: Silos present"
+        score: 30
+        order: 3
+      - key: "poor"
+        de: "Schlecht: Stark isolierte Teams"
+        en: "Poor: Highly isolated teams"
+        score: 0
+        order: 4
+    weight: 1.1
+    order: 32
+
+  - question_key: "rdy_process_flexibility"
+    section: "readiness"
+    category: "culture"
+    question_text:
+      de: "Wie flexibel sind Prozesse bzgl. neuer Arbeitsweisen?"
+      en: "How flexible are processes regarding new ways of working?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "highly_flexible"
+        de: "Hoch flexibel: Teams koennen Prozesse anpassen"
+        en: "Highly flexible: Teams can adapt processes"
+        score: 100
+        order: 1
+      - key: "moderate"
+        de: "Moderat: Aenderungen moeglich mit Genehmigung"
+        en: "Moderate: Changes possible with approval"
+        score: 70
+        order: 2
+      - key: "rigid"
+        de: "Starr: Schwierige Aenderungen"
+        en: "Rigid: Difficult to change"
+        score: 30
+        order: 3
+      - key: "inflexible"
+        de: "Unflexibel: Keine Aenderungen moeglich"
+        en: "Inflexible: No changes possible"
+        score: 0
+        order: 4
+    weight: 1.0
+    order: 33
+
+  # ---------------------------------------------------------------------------
+  # Category: processes (2 Questions)
+  # ---------------------------------------------------------------------------
+  - question_key: "rdy_workflow_bottlenecks"
+    section: "readiness"
+    category: "processes"
+    question_text:
+      de: "Wo entstehen typischerweise die groessten Verzoegerungen in euren Entwicklungsprozessen? (Mehrfachauswahl)"
+      en: "Where do the biggest delays typically occur in your development processes? (Multiple selections)"
+    why_important:
+      de: "Value Stream First: AI kann gezielt Bottlenecks adressieren"
+      en: "Value Stream First: AI can specifically address bottlenecks"
+    answer_type: "multiple_choice"
+    allow_multiple: true
+    answer_options:
+      - key: "code_review"
+        de: "Code Reviews (Wartezeiten, Reviewer-Kapazitaet)"
+        en: "Code Reviews (waiting times, reviewer capacity)"
+        order: 1
+      - key: "testing"
+        de: "Testing (Schreiben, Ausfuehren, Debugging)"
+        en: "Testing (writing, executing, debugging)"
+        order: 2
+      - key: "documentation"
+        de: "Dokumentation (technisch, fachlich, API-Docs)"
+        en: "Documentation (technical, business, API docs)"
+        order: 3
+      - key: "requirements"
+        de: "Anforderungs-Klaerung (unklare Specs, Missverstaendnisse)"
+        en: "Requirements clarification (unclear specs, misunderstandings)"
+        order: 4
+      - key: "deployment"
+        de: "Deployment-Prozesse (Konfiguration, Rollouts, Approvals)"
+        en: "Deployment processes (configuration, rollouts, approvals)"
+        order: 5
+      - key: "knowledge_transfer"
+        de: "Wissenstransfer (Onboarding, Legacy-Code-Verstaendnis)"
+        en: "Knowledge transfer (onboarding, legacy code understanding)"
+        order: 6
+      - key: "dependencies"
+        de: "Abhaengigkeiten (andere Teams, externe Partner)"
+        en: "Dependencies (other teams, external partners)"
+        order: 7
+      - key: "none"
+        de: "Keine signifikanten Verzoegerungen"
+        en: "No significant delays"
+        order: 8
+    weight: 1.5
+    order: 34
+
+  - question_key: "rdy_process_documentation"
+    section: "readiness"
+    category: "processes"
+    question_text:
+      de: "Wie gut sind eure Entwicklungsprozesse dokumentiert und verstanden?"
+      en: "How well are your development processes documented and understood?"
+    why_important:
+      de: "Gut dokumentierte Prozesse koennen einfacher durch AI optimiert werden"
+      en: "Well-documented processes can be more easily optimized by AI"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "excellent"
+        de: "Exzellent: Runbooks, SOPs, alle verstehen die Prozesse"
+        en: "Excellent: Runbooks, SOPs, everyone understands processes"
+        score: 100
+        order: 1
+      - key: "partial"
+        de: "Teilweise: Kern-Prozesse klar, Details fehlen"
+        en: "Partial: Core processes clear, details missing"
+        score: 70
+        order: 2
+      - key: "implicit"
+        de: "Implizites Wissen: Prozesse existieren, aber nicht dokumentiert"
+        en: "Implicit knowledge: Processes exist but not documented"
+        score: 30
+        order: 3
+      - key: "tribal"
+        de: "Tribal Knowledge: Nur wenige wissen wie Dinge funktionieren"
+        en: "Tribal knowledge: Only few know how things work"
+        score: 0
+        order: 4
+    weight: 1.2
+    order: 35
+
+# =============================================================================
+# SCORING
+# =============================================================================
+scoring:
+  context:
+    description:
+      de: >-
+        Context-Fragen generieren kein numerisches Scoring, sondern
+        Pattern-Matches fuer adaptives Filtering.
+      en: >-
+        Context questions don't generate numeric scores, but
+        pattern matches for adaptive filtering.
+    derived_patterns:
+      - name: "compliance_tier"
+        description: "1 (Flexible) / 2 (Moderate) / 3 (Strict)"
+        derived_from: ["ctx_industry", "ctx_data_location", "ctx_criticality"]
+      - name: "tech_pattern"
+        description: "e.g. python_web, java_enterprise, javascript_react"
+        derived_from: ["ctx_languages"]
+      - name: "culture_pattern"
+        description: "safety_first / balanced / move_fast"
+        derived_from: ["ctx_criticality", "rdy_failure_tolerance"]
+      - name: "incentive_alignment"
+        description: "aligned / misaligned / neutral"
+        derived_from: ["ctx_contract_model"]
+
+  readiness:
+    description:
+      de: >-
+        Readiness-Score: Gewichteter Durchschnitt pro Kategorie, dann
+        gewichtete Aggregation zum Gesamt-Readiness-Score (0-100%).
+      en: >-
+        Readiness score: Weighted average per category, then
+        weighted aggregation to overall readiness score (0-100%).
+    formula: >-
+      Readiness = (Leadership x 0.25) + (Skills x 0.20) +
+                  (Infrastructure x 0.25) + (Culture x 0.15) +
+                  (Processes x 0.15)
+    interpretation:
+      ready:
+        threshold: 70
+        de: "Bereit fuer Transformation (Erweitern)"
+        en: "Ready for transformation (Expand)"
+      partially_ready:
+        threshold: 50
+        de: "Teilweise bereit — Luecken zuerst adressieren (Vertiefen)"
+        en: "Partially ready — address gaps first (Deepen)"
+      not_ready:
+        threshold: 0
+        de: "Nicht bereit — Grundlagenarbeit noetig (Konsolidieren)"
+        en: "Not ready — foundational work needed (Consolidate)"

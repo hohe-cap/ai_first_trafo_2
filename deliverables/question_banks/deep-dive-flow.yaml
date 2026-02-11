@@ -1,0 +1,458 @@
+# Deep Dive Assessment: Flow & Process Integration (Dimension F)
+# Triggered when F-Score < 2 in quarterly Pulse Check
+# Focus: Diagnose WHERE in the value stream AI can have the biggest impact
+# Duration: ~15 minutes
+
+version: "1.0"
+assessment_type: "deep_dive_flow"
+description:
+  de: "Vertiefende Value Stream Analyse. Wird ausgelöst wenn F-Score unter 2 liegt. Ziel: Top-3 Bottlenecks quantifizieren, Wartezeiten verstehen, Handoffs analysieren und AI-Interventionspunkte identifizieren."
+  en: "In-depth value stream analysis. Triggered when F-Score is below 2. Goal: Quantify top-3 bottlenecks, understand wait times, analyze handoffs, and identify AI intervention points."
+estimated_duration_minutes: 15
+trigger:
+  dimension: "F"
+  condition: "score < 2 in pulse check"
+respondent: "Value Stream Coach or AI Transformation Manager"
+
+questions:
+  - question_key: "dd_f_01"
+    question_text:
+      de: "Was ist der GRÖSSTE Bottleneck in Ihrem Software Delivery Value Stream?"
+      en: "What is the BIGGEST bottleneck in your software delivery value stream?"
+    why_important:
+      de: "Theory of Constraints: Nur der größte Bottleneck bestimmt den Durchsatz. Alles andere ist Optimierungs-Theater."
+      en: "Theory of Constraints: Only the biggest bottleneck determines throughput. Everything else is optimization theater."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "requirements"
+        de: "Requirements / User Story Definition (unklar, zu lange)"
+        en: "Requirements / User Story Definition (unclear, too long)"
+        score: 20
+        order: 1
+      - key: "code_review"
+        de: "Code Review Wartezeiten / Verfügbarkeit Reviewer"
+        en: "Code review wait times / reviewer availability"
+        score: 30
+        order: 2
+      - key: "testing"
+        de: "Testing / QA (manuell, langsam, Rework)"
+        en: "Testing / QA (manual, slow, rework)"
+        score: 25
+        order: 3
+      - key: "ci_cd"
+        de: "CI/CD Pipeline (langsam, instabil, Wartezeiten)"
+        en: "CI/CD pipeline (slow, unstable, wait times)"
+        score: 35
+        order: 4
+      - key: "approval"
+        de: "Approvals / Freigabeprozesse"
+        en: "Approvals / release processes"
+        score: 15
+        order: 5
+      - key: "dependencies"
+        de: "Dependencies / Wartezeiten auf andere Teams"
+        en: "Dependencies / wait times for other teams"
+        score: 20
+        order: 6
+      - key: "deployment"
+        de: "Deployment / Rollout (manuell, fehleranfällig)"
+        en: "Deployment / rollout (manual, error-prone)"
+        score: 30
+        order: 7
+      - key: "no_clear_bottleneck"
+        de: "Kein klarer Bottleneck / Flow ist gut"
+        en: "No clear bottleneck / flow is good"
+        score: 100
+        order: 8
+    weight: 1.5
+    order: 1
+
+  - question_key: "dd_f_02"
+    question_text:
+      de: "Wie lange dauert aktuell die durchschnittliche Lead Time (von Feature-Idee bis Production)?"
+      en: "What is the current average lead time (from feature idea to production)?"
+    why_important:
+      de: "Lead Time ist der zentrale DORA-KPI für Flow. Alles über 1 Woche deutet auf systematische Verzögerungen hin."
+      en: "Lead time is the central DORA KPI for flow. Anything over 1 week indicates systematic delays."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "under_1_day"
+        de: "Unter 1 Tag (Elite)"
+        en: "Under 1 day (Elite)"
+        score: 100
+        order: 1
+      - key: "1_to_7_days"
+        de: "1-7 Tage (High Performer)"
+        en: "1-7 days (High Performer)"
+        score: 85
+        order: 2
+      - key: "1_to_4_weeks"
+        de: "1-4 Wochen (Medium)"
+        en: "1-4 weeks (Medium)"
+        score: 50
+        order: 3
+      - key: "1_to_6_months"
+        de: "1-6 Monate (Low Performer)"
+        en: "1-6 months (Low Performer)"
+        score: 20
+        order: 4
+      - key: "over_6_months"
+        de: "Über 6 Monate"
+        en: "Over 6 months"
+        score: 0
+        order: 5
+      - key: "unknown"
+        de: "Unbekannt / nicht gemessen"
+        en: "Unknown / not measured"
+        score: 10
+        order: 6
+    weight: 1.4
+    order: 2
+
+  - question_key: "dd_f_03"
+    question_text:
+      de: "Wie hoch ist die Flow Efficiency (% aktive Arbeit vs. Wartezeit) in Ihrem Value Stream?"
+      en: "What is the flow efficiency (% active work vs. wait time) in your value stream?"
+    why_important:
+      de: "Flow Efficiency zeigt Verschwendung. Typisch sind 10-20% - d.h. 80-90% ist Wartezeit. AI kann Wartezeiten massiv reduzieren."
+      en: "Flow efficiency shows waste. Typical is 10-20% - meaning 80-90% is wait time. AI can massively reduce wait times."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "over_40"
+        de: "Über 40% (exzellent)"
+        en: "Over 40% (excellent)"
+        score: 100
+        order: 1
+      - key: "20_to_40"
+        de: "20-40% (gut)"
+        en: "20-40% (good)"
+        score: 70
+        order: 2
+      - key: "10_to_20"
+        de: "10-20% (typisch, Verbesserungsbedarf)"
+        en: "10-20% (typical, needs improvement)"
+        score: 40
+        order: 3
+      - key: "under_10"
+        de: "Unter 10% (kritisch)"
+        en: "Under 10% (critical)"
+        score: 10
+        order: 4
+      - key: "unknown"
+        de: "Unbekannt / nicht gemessen"
+        en: "Unknown / not measured"
+        score: 0
+        order: 5
+    weight: 1.3
+    order: 3
+
+  - question_key: "dd_f_04"
+    question_text:
+      de: "Welcher Anteil der Lead Time ist WARTEZEIT (nicht aktive Arbeit)?"
+      en: "What share of lead time is WAIT TIME (not active work)?"
+    why_important:
+      de: "Wartezeit ist der größte Hebel für AI-Intervention. Code Review Warteschlangen, Test-Wartezeiten, Approval-Delays können durch AI reduziert werden."
+      en: "Wait time is the biggest lever for AI intervention. Code review queues, test wait times, approval delays can be reduced by AI."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "under_50"
+        de: "Unter 50% (exzellent)"
+        en: "Under 50% (excellent)"
+        score: 100
+        order: 1
+      - key: "50_to_70"
+        de: "50-70% (gut)"
+        en: "50-70% (good)"
+        score: 70
+        order: 2
+      - key: "70_to_85"
+        de: "70-85% (typisch, Verbesserungsbedarf)"
+        en: "70-85% (typical, needs improvement)"
+        score: 40
+        order: 3
+      - key: "over_85"
+        de: "Über 85% (kritisch)"
+        en: "Over 85% (critical)"
+        score: 10
+        order: 4
+      - key: "unknown"
+        de: "Unbekannt / nicht gemessen"
+        en: "Unknown / not measured"
+        score: 0
+        order: 5
+    weight: 1.3
+    order: 4
+
+  - question_key: "dd_f_05"
+    question_text:
+      de: "Wie viele Handoffs (Übergaben zwischen Teams/Rollen) gibt es im typischen Delivery-Prozess?"
+      en: "How many handoffs (transfers between teams/roles) are there in the typical delivery process?"
+    why_important:
+      de: "Jeder Handoff ist eine Reibungs- und Fehlerquelle. Mehr als 5 Handoffs = hohe Komplexität, AI kann Handoffs reduzieren."
+      en: "Every handoff is a source of friction and errors. More than 5 handoffs = high complexity, AI can reduce handoffs."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "0_to_2"
+        de: "0-2 Handoffs (DevOps-Team, End-to-End)"
+        en: "0-2 handoffs (DevOps team, end-to-end)"
+        score: 100
+        order: 1
+      - key: "3_to_5"
+        de: "3-5 Handoffs (typisch)"
+        en: "3-5 handoffs (typical)"
+        score: 70
+        order: 2
+      - key: "6_to_10"
+        de: "6-10 Handoffs (komplex)"
+        en: "6-10 handoffs (complex)"
+        score: 40
+        order: 3
+      - key: "over_10"
+        de: "Über 10 Handoffs (sehr komplex)"
+        en: "Over 10 handoffs (very complex)"
+        score: 10
+        order: 4
+      - key: "unknown"
+        de: "Unbekannt / nicht gezählt"
+        en: "Unknown / not counted"
+        score: 0
+        order: 5
+    weight: 1.2
+    order: 5
+
+  - question_key: "dd_f_06"
+    question_text:
+      de: "Wie hoch ist die Rework-Rate (% der Arbeit die wiederholt werden muss wegen Bugs/Missverständnissen)?"
+      en: "What is the rework rate (% of work that must be repeated due to bugs/misunderstandings)?"
+    why_important:
+      de: "Rework ist direkter Value-Verlust. AI kann Rework reduzieren durch bessere Requirements, Tests, Code Quality."
+      en: "Rework is direct value loss. AI can reduce rework through better requirements, tests, code quality."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "under_10"
+        de: "Unter 10% (exzellent)"
+        en: "Under 10% (excellent)"
+        score: 100
+        order: 1
+      - key: "10_to_20"
+        de: "10-20% (gut)"
+        en: "10-20% (good)"
+        score: 70
+        order: 2
+      - key: "20_to_40"
+        de: "20-40% (hoch)"
+        en: "20-40% (high)"
+        score: 40
+        order: 3
+      - key: "over_40"
+        de: "Über 40% (kritisch)"
+        en: "Over 40% (critical)"
+        score: 10
+        order: 4
+      - key: "unknown"
+        de: "Unbekannt / nicht gemessen"
+        en: "Unknown / not measured"
+        score: 0
+        order: 5
+    weight: 1.3
+    order: 6
+
+  - question_key: "dd_f_07"
+    question_text:
+      de: "Wurde ein Value Stream Mapping (VSM) in den letzten 12 Monaten durchgeführt?"
+      en: "Was a Value Stream Mapping (VSM) conducted in the last 12 months?"
+    why_important:
+      de: "VSM ist das zentrale Tool um Bottlenecks sichtbar zu machen. Ohne VSM ist Flow-Optimierung Ratespiel."
+      en: "VSM is the central tool to make bottlenecks visible. Without VSM, flow optimization is guesswork."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "yes_detailed"
+        de: "Ja, detailliert (2-Tage-Workshop mit Metriken)"
+        en: "Yes, detailed (2-day workshop with metrics)"
+        score: 100
+        order: 1
+      - key: "yes_basic"
+        de: "Ja, Basis-Version (4h Workshop)"
+        en: "Yes, basic version (4h workshop)"
+        score: 70
+        order: 2
+      - key: "informal"
+        de: "Informell / ad-hoc analysiert"
+        en: "Informal / ad-hoc analyzed"
+        score: 40
+        order: 3
+      - key: "no"
+        de: "Nein, nicht durchgeführt"
+        en: "No, not conducted"
+        score: 0
+        order: 4
+    weight: 1.2
+    order: 7
+
+  - question_key: "dd_f_08"
+    question_text:
+      de: "Welche AI-Intervention würde den größten Impact auf Flow haben? (Mehrfachauswahl Top-3)"
+      en: "Which AI intervention would have the biggest impact on flow? (Multiple selection top-3)"
+    why_important:
+      de: "Identifiziert konkrete AI-Interventionspunkte. Verschiedene Bottlenecks brauchen verschiedene AI-Lösungen."
+      en: "Identifies concrete AI intervention points. Different bottlenecks need different AI solutions."
+    answer_type: "multiple_choice"
+    allow_multiple: true
+    answer_options:
+      - key: "requirements_generation"
+        de: "AI-generierte User Stories / Akzeptanzkriterien"
+        en: "AI-generated user stories / acceptance criteria"
+        score: 20
+        order: 1
+      - key: "code_generation"
+        de: "AI Code Generation (Copilot, Cursor)"
+        en: "AI code generation (Copilot, Cursor)"
+        score: 25
+        order: 2
+      - key: "code_review_automation"
+        de: "AI Code Review Automation (Pre-Review)"
+        en: "AI code review automation (pre-review)"
+        score: 25
+        order: 3
+      - key: "test_generation"
+        de: "AI Test Generation (Unit, Integration, E2E)"
+        en: "AI test generation (unit, integration, E2E)"
+        score: 25
+        order: 4
+      - key: "documentation"
+        de: "AI-generierte Dokumentation"
+        en: "AI-generated documentation"
+        score: 15
+        order: 5
+      - key: "deployment_automation"
+        de: "AI-gestütztes Deployment / Release Automation"
+        en: "AI-supported deployment / release automation"
+        score: 20
+        order: 6
+      - key: "monitoring_insights"
+        de: "AI Monitoring & Log Analysis"
+        en: "AI monitoring & log analysis"
+        score: 15
+        order: 7
+    weight: 1.3
+    order: 8
+
+  - question_key: "dd_f_09"
+    question_text:
+      de: "Wie gut sind DORA-Metriken aktuell gemessen und verfügbar?"
+      en: "How well are DORA metrics currently measured and available?"
+    why_important:
+      de: "DORA-Metriken sind die Basis für Flow-Optimierung. Ohne Metriken keine Baseline, kein Fortschritt messbar."
+      en: "DORA metrics are the basis for flow optimization. Without metrics, no baseline, no progress measurable."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "automated_all"
+        de: "Automatisiert, alle 4 DORA-Metriken verfügbar (Deployment Freq, Lead Time, MTTR, Change Failure Rate)"
+        en: "Automated, all 4 DORA metrics available (Deployment Freq, Lead Time, MTTR, Change Failure Rate)"
+        score: 100
+        order: 1
+      - key: "automated_partial"
+        de: "Automatisiert, aber nur 2-3 Metriken"
+        en: "Automated, but only 2-3 metrics"
+        score: 70
+        order: 2
+      - key: "manual"
+        de: "Manuell erhoben, unregelmäßig"
+        en: "Manually collected, irregular"
+        score: 40
+        order: 3
+      - key: "none"
+        de: "Nicht gemessen"
+        en: "Not measured"
+        score: 0
+        order: 4
+    weight: 1.4
+    order: 9
+
+  - question_key: "dd_f_10"
+    question_text:
+      de: "Wie lange dauert im Durchschnitt Code Review (von PR-Erstellung bis Merge)?"
+      en: "How long does code review take on average (from PR creation to merge)?"
+    why_important:
+      de: "Code Review ist oft der größte Bottleneck. AI kann Pre-Review machen und Reviewer-Zeit dramatisch reduzieren."
+      en: "Code review is often the biggest bottleneck. AI can do pre-review and dramatically reduce reviewer time."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "under_4h"
+        de: "Unter 4 Stunden (Elite)"
+        en: "Under 4 hours (Elite)"
+        score: 100
+        order: 1
+      - key: "4h_to_1_day"
+        de: "4h - 1 Tag (gut)"
+        en: "4h - 1 day (good)"
+        score: 80
+        order: 2
+      - key: "1_to_3_days"
+        de: "1-3 Tage (moderat)"
+        en: "1-3 days (moderate)"
+        score: 50
+        order: 3
+      - key: "over_3_days"
+        de: "Über 3 Tage (Bottleneck)"
+        en: "Over 3 days (bottleneck)"
+        score: 20
+        order: 4
+      - key: "unknown"
+        de: "Unbekannt / nicht gemessen"
+        en: "Unknown / not measured"
+        score: 0
+        order: 5
+    weight: 1.3
+    order: 10
+
+  - question_key: "dd_f_11"
+    question_text:
+      de: "Gibt es einen AI Intervention Katalog (SDLC-Phase → konkrete AI-Lösungen)?"
+      en: "Is there an AI intervention catalog (SDLC phase → concrete AI solutions)?"
+    why_important:
+      de: "Katalog macht AI-Potenziale konkret und umsetzbar. Ohne Katalog bleibt AI-Integration abstrakt."
+      en: "Catalog makes AI potentials concrete and actionable. Without catalog, AI integration remains abstract."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "comprehensive"
+        de: "Ja, umfassend mit Tools pro Sicherheitsstufe"
+        en: "Yes, comprehensive with tools per security tier"
+        score: 100
+        order: 1
+      - key: "basic"
+        de: "Ja, Grundversion vorhanden"
+        en: "Yes, basic version available"
+        score: 70
+        order: 2
+      - key: "informal"
+        de: "Informell / ad-hoc Liste"
+        en: "Informal / ad-hoc list"
+        score: 40
+        order: 3
+      - key: "none"
+        de: "Nein, nicht vorhanden"
+        en: "No, not available"
+        score: 0
+        order: 4
+    weight: 1.1
+    order: 11
+
+scoring:
+  dimension: "F"
+  formula: "weighted_average"
+  interpretation:
+    de: |
+      F-Score Interpretation:
+      - 0-30: Kritisch - keine Flow-Messung, unbekannte Bottlenecks, sehr lange Lead Times (>6 Monate)
+      - 31-50: Schwach - Lead Time 1-6 Monate, hohe Wartezeiten (>85%), keine VSM gemacht
+      - 51-70: Entwicklung - Lead Time 1-4 Wochen, Bottlenecks bekannt aber nicht systematisch adressiert
+      - 71-85: Gut - Lead Time <1 Woche, DORA-Metriken gemessen, AI-Interventionen definiert
+      - 86-100: Exzellent - Lead Time <1 Tag, Flow Efficiency >40%, AI optimiert Value Stream kontinuierlich
+    en: |
+      F-Score Interpretation:
+      - 0-30: Critical - no flow measurement, unknown bottlenecks, very long lead times (>6 months)
+      - 31-50: Weak - lead time 1-6 months, high wait times (>85%), no VSM done
+      - 51-70: Developing - lead time 1-4 weeks, bottlenecks known but not systematically addressed
+      - 71-85: Good - lead time <1 week, DORA metrics measured, AI interventions defined
+      - 86-100: Excellent - lead time <1 day, flow efficiency >40%, AI optimizes value stream continuously

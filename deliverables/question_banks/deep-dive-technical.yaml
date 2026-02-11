@@ -1,0 +1,492 @@
+# Deep Dive Assessment: Technical Enablement (Dimension T)
+# Triggered when T-Score < 2 in quarterly Pulse Check
+# Focus: Diagnose WHAT technical gaps exist and what's needed to close them
+# Duration: ~15 minutes
+
+version: "1.0"
+assessment_type: "deep_dive_technical"
+description:
+  de: "Vertiefende Analyse technischer Lücken. Wird ausgelöst wenn T-Score unter 2 liegt. Ziel: Tool-Verfügbarkeit pro SDLC-Phase prüfen, Sicherheitsstufen-Gaps identifizieren, Infrastruktur-Blocker verstehen, IDE-Integration bewerten."
+  en: "In-depth analysis of technical gaps. Triggered when T-Score is below 2. Goal: Check tool availability per SDLC phase, identify security tier gaps, understand infrastructure blockers, evaluate IDE integration."
+estimated_duration_minutes: 15
+trigger:
+  dimension: "T"
+  condition: "score < 2 in pulse check"
+respondent: "Technical AI Lead or DevOps Lead"
+
+questions:
+  - question_key: "dd_t_01"
+    question_text:
+      de: "Was ist aktuell der GRÖSSTE technische Blocker für AI-Adoption?"
+      en: "What is currently the BIGGEST technical blocker for AI adoption?"
+    why_important:
+      de: "Identifiziert die Kern-Barriere um gezielte technische Maßnahmen zu priorisieren."
+      en: "Identifies the core barrier to prioritize targeted technical measures."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "no_tools"
+        de: "Fehlende Tool-Verfügbarkeit / noch nicht ausgerollt"
+        en: "Missing tool availability / not yet rolled out"
+        score: 0
+        order: 1
+      - key: "tool_quality"
+        de: "Tool-Qualität / Zuverlässigkeit unzureichend"
+        en: "Tool quality / reliability insufficient"
+        score: 20
+        order: 2
+      - key: "infrastructure"
+        de: "Infrastruktur-Probleme (Netzwerk, Performance, Latenz)"
+        en: "Infrastructure problems (network, performance, latency)"
+        score: 15
+        order: 3
+      - key: "security_tier"
+        de: "Fehlende Sicherheitsstufen (z.B. nur Public Cloud, kein Air-gapped)"
+        en: "Missing security tiers (e.g., only public cloud, no air-gapped)"
+        score: 25
+        order: 4
+      - key: "integration"
+        de: "Schlechte Integration in bestehende Tools (IDE, CI/CD)"
+        en: "Poor integration into existing tools (IDE, CI/CD)"
+        score: 30
+        order: 5
+      - key: "complexity"
+        de: "Zu komplex zu nutzen / zu konfigurieren"
+        en: "Too complex to use / configure"
+        score: 35
+        order: 6
+      - key: "no_blocker"
+        de: "Kein signifikanter technischer Blocker"
+        en: "No significant technical blocker"
+        score: 100
+        order: 7
+    weight: 1.5
+    order: 1
+
+  - question_key: "dd_t_02"
+    question_text:
+      de: "Für welche SDLC-Phasen sind KEINE geeigneten AI-Tools verfügbar? (Mehrfachauswahl)"
+      en: "For which SDLC phases are NO suitable AI tools available? (Multiple selection)"
+    why_important:
+      de: "Identifiziert Tool-Lücken. Vollständige SDLC-Abdeckung ist Voraussetzung für End-to-End-AI-Integration."
+      en: "Identifies tool gaps. Complete SDLC coverage is prerequisite for end-to-end AI integration."
+    answer_type: "multiple_choice"
+    allow_multiple: true
+    answer_options:
+      - key: "requirements"
+        de: "Requirements Engineering (User Stories, Akzeptanzkriterien)"
+        en: "Requirements Engineering (user stories, acceptance criteria)"
+        score: -15
+        order: 1
+      - key: "design"
+        de: "Design / Architektur"
+        en: "Design / Architecture"
+        score: -15
+        order: 2
+      - key: "coding"
+        de: "Coding / Implementation"
+        en: "Coding / Implementation"
+        score: -20
+        order: 3
+      - key: "code_review"
+        de: "Code Review"
+        en: "Code Review"
+        score: -15
+        order: 4
+      - key: "testing"
+        de: "Testing / QA"
+        en: "Testing / QA"
+        score: -15
+        order: 5
+      - key: "documentation"
+        de: "Dokumentation"
+        en: "Documentation"
+        score: -10
+        order: 6
+      - key: "ci_cd"
+        de: "CI/CD Automation"
+        en: "CI/CD Automation"
+        score: -10
+        order: 7
+      - key: "monitoring"
+        de: "Monitoring / Operations"
+        en: "Monitoring / Operations"
+        score: -10
+        order: 8
+      - key: "all_covered"
+        de: "Alle Phasen haben geeignete Tools"
+        en: "All phases have suitable tools"
+        score: 100
+        order: 9
+    weight: 1.4
+    order: 2
+
+  - question_key: "dd_t_03"
+    question_text:
+      de: "Welche der drei Sicherheitsstufen sind verfügbar UND werden aktiv genutzt?"
+      en: "Which of the three security tiers are available AND actively used?"
+    why_important:
+      de: "Multi-Tier-Strategie ist entscheidend. Nur eine Stufe = viele Anwendungsfälle blockiert."
+      en: "Multi-tier strategy is crucial. Only one tier = many use cases blocked."
+    answer_type: "multiple_choice"
+    allow_multiple: true
+    answer_options:
+      - key: "tier1_public"
+        de: "Stufe 1: Public Cloud (GitHub Copilot, Claude Pro, ChatGPT Enterprise) - aktiv genutzt"
+        en: "Tier 1: Public Cloud (GitHub Copilot, Claude Pro, ChatGPT Enterprise) - actively used"
+        score: 30
+        order: 1
+      - key: "tier2_private"
+        de: "Stufe 2: Private Cloud (Azure OpenAI, AWS Bedrock) - aktiv genutzt"
+        en: "Tier 2: Private Cloud (Azure OpenAI, AWS Bedrock) - actively used"
+        score: 40
+        order: 2
+      - key: "tier3_airgapped"
+        de: "Stufe 3: Air-gapped (Ollama/vLLM lokal, Continue.dev) - aktiv genutzt"
+        en: "Tier 3: Air-gapped (Ollama/vLLM local, Continue.dev) - actively used"
+        score: 30
+        order: 3
+      - key: "none"
+        de: "Keine Stufe aktiv genutzt"
+        en: "No tier actively used"
+        score: 0
+        order: 4
+    weight: 1.4
+    order: 3
+
+  - question_key: "dd_t_04"
+    question_text:
+      de: "Welche Sicherheitsstufe fehlt und wird dringend benötigt?"
+      en: "Which security tier is missing and urgently needed?"
+    why_important:
+      de: "Priorisiert Infrastruktur-Investments. Fehlende Stufe 3 blockiert hochsensible Anwendungsfälle."
+      en: "Prioritizes infrastructure investments. Missing tier 3 blocks highly sensitive use cases."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "tier1_needed"
+        de: "Stufe 1 (Public Cloud) fehlt - blockiert einfache/unkritische Use Cases"
+        en: "Tier 1 (Public Cloud) missing - blocks simple/non-critical use cases"
+        score: 40
+        order: 1
+      - key: "tier2_needed"
+        de: "Stufe 2 (Private Cloud) fehlt - blockiert sensible Daten"
+        en: "Tier 2 (Private Cloud) missing - blocks sensitive data"
+        score: 30
+        order: 2
+      - key: "tier3_needed"
+        de: "Stufe 3 (Air-gapped) fehlt - blockiert streng vertrauliche Daten"
+        en: "Tier 3 (Air-gapped) missing - blocks strictly confidential data"
+        score: 20
+        order: 3
+      - key: "all_available"
+        de: "Alle drei Stufen verfügbar"
+        en: "All three tiers available"
+        score: 100
+        order: 4
+    weight: 1.3
+    order: 4
+
+  - question_key: "dd_t_05"
+    question_text:
+      de: "Wie gut sind AI-Tools in die bevorzugten IDEs integriert (VS Code, IntelliJ, etc.)?"
+      en: "How well are AI tools integrated into preferred IDEs (VS Code, IntelliJ, etc.)?"
+    why_important:
+      de: "IDE-Integration ist kritisch für Developer Experience. Ohne nahtlose Integration sinkt Adoption dramatisch."
+      en: "IDE integration is critical for developer experience. Without seamless integration, adoption drops dramatically."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "excellent"
+        de: "Exzellent - native Integration, alle Features verfügbar"
+        en: "Excellent - native integration, all features available"
+        score: 100
+        order: 1
+      - key: "good"
+        de: "Gut - funktioniert, gelegentliche Probleme"
+        en: "Good - works, occasional issues"
+        score: 70
+        order: 2
+      - key: "basic"
+        de: "Basic - funktioniert, aber nicht alle Features, umständlich"
+        en: "Basic - works but not all features, cumbersome"
+        score: 40
+        order: 3
+      - key: "poor"
+        de: "Schlecht - instabil, fehlende Features, frustrierend"
+        en: "Poor - unstable, missing features, frustrating"
+        score: 15
+        order: 4
+      - key: "none"
+        de: "Keine IDE-Integration vorhanden"
+        en: "No IDE integration available"
+        score: 0
+        order: 5
+    weight: 1.3
+    order: 5
+
+  - question_key: "dd_t_06"
+    question_text:
+      de: "Gibt es Performance-Probleme mit AI-Tools (Latenz, Timeouts, Verfügbarkeit)?"
+      en: "Are there performance issues with AI tools (latency, timeouts, availability)?"
+    why_important:
+      de: "Performance-Probleme töten Adoption. Entwickler tolerieren max. 2-3 Sekunden Latenz."
+      en: "Performance issues kill adoption. Developers tolerate max. 2-3 seconds latency."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "no_issues"
+        de: "Keine Probleme - schnell und zuverlässig (<2s Latenz)"
+        en: "No issues - fast and reliable (<2s latency)"
+        score: 100
+        order: 1
+      - key: "minor"
+        de: "Gelegentliche Probleme, aber akzeptabel (2-5s)"
+        en: "Occasional issues but acceptable (2-5s)"
+        score: 70
+        order: 2
+      - key: "moderate"
+        de: "Regelmäßige Probleme, nervt (5-10s oder häufige Timeouts)"
+        en: "Regular issues, annoying (5-10s or frequent timeouts)"
+        score: 40
+        order: 3
+      - key: "severe"
+        de: "Schwerwiegende Probleme - oft nicht nutzbar (>10s oder ständige Ausfälle)"
+        en: "Severe issues - often unusable (>10s or constant failures)"
+        score: 10
+        order: 4
+    weight: 1.3
+    order: 6
+
+  - question_key: "dd_t_07"
+    question_text:
+      de: "Wie gut funktioniert Model Selection (Auswahl verschiedener LLMs für verschiedene Use Cases)?"
+      en: "How well does model selection work (choosing different LLMs for different use cases)?"
+    why_important:
+      de: "Verschiedene Tasks brauchen verschiedene Modelle. GPT-4 für Architektur, Codex für Coding, kleine Modelle für simple Tasks."
+      en: "Different tasks need different models. GPT-4 for architecture, Codex for coding, small models for simple tasks."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "flexible"
+        de: "Flexibel - mehrere Modelle verfügbar, einfach wechselbar"
+        en: "Flexible - multiple models available, easy to switch"
+        score: 100
+        order: 1
+      - key: "limited_choice"
+        de: "Begrenzte Auswahl - 1-2 Modelle verfügbar"
+        en: "Limited choice - 1-2 models available"
+        score: 60
+        order: 2
+      - key: "fixed"
+        de: "Fest - nur ein Modell, nicht wechselbar"
+        en: "Fixed - only one model, not switchable"
+        score: 30
+        order: 3
+      - key: "unknown"
+        de: "Weiß nicht / nicht relevant"
+        en: "Don't know / not relevant"
+        score: 50
+        order: 4
+    weight: 1.1
+    order: 7
+
+  - question_key: "dd_t_08"
+    question_text:
+      de: "Gibt es eine zentrale Prompt Library / Template-Sammlung (technisch zugänglich, nicht nur Dokumentation)?"
+      en: "Is there a central prompt library / template collection (technically accessible, not just documentation)?"
+    why_important:
+      de: "Technisch integrierte Prompt Library (z.B. via MCP, IDE-Snippets) beschleunigt Adoption massiv."
+      en: "Technically integrated prompt library (e.g., via MCP, IDE snippets) massively accelerates adoption."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "integrated"
+        de: "Ja, technisch integriert (MCP-Server, IDE-Extension, API)"
+        en: "Yes, technically integrated (MCP server, IDE extension, API)"
+        score: 100
+        order: 1
+      - key: "accessible"
+        de: "Ja, zentral verfügbar aber manuelles Copy-Paste (Wiki, Confluence)"
+        en: "Yes, centrally available but manual copy-paste (Wiki, Confluence)"
+        score: 60
+        order: 2
+      - key: "informal"
+        de: "Informell / ad-hoc (Slack, persönliche Sammlungen)"
+        en: "Informal / ad-hoc (Slack, personal collections)"
+        score: 30
+        order: 3
+      - key: "none"
+        de: "Nein, nicht vorhanden"
+        en: "No, not available"
+        score: 0
+        order: 4
+    weight: 1.2
+    order: 8
+
+  - question_key: "dd_t_09"
+    question_text:
+      de: "Sind AI-Tools in CI/CD-Pipelines integriert (z.B. AI Code Review, Test Generation)?"
+      en: "Are AI tools integrated into CI/CD pipelines (e.g., AI code review, test generation)?"
+    why_important:
+      de: "CI/CD-Integration macht AI zum Standard-Teil des Prozesses, nicht optionalem Extra."
+      en: "CI/CD integration makes AI a standard part of the process, not an optional extra."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "comprehensive"
+        de: "Ja, umfassend - mehrere AI-Schritte in Pipeline (Review, Tests, Docs)"
+        en: "Yes, comprehensive - multiple AI steps in pipeline (review, tests, docs)"
+        score: 100
+        order: 1
+      - key: "partial"
+        de: "Teilweise - einzelne AI-Schritte integriert"
+        en: "Partial - individual AI steps integrated"
+        score: 70
+        order: 2
+      - key: "pilot"
+        de: "Pilotphase / nur in einzelnen Projekten"
+        en: "Pilot phase / only in individual projects"
+        score: 40
+        order: 3
+      - key: "none"
+        de: "Nein, nicht integriert"
+        en: "No, not integrated"
+        score: 0
+        order: 4
+    weight: 1.2
+    order: 9
+
+  - question_key: "dd_t_10"
+    question_text:
+      de: "Wie ist die LLM-Deployment-Strategie für Air-gapped / Stufe 3 Umgebungen?"
+      en: "What is the LLM deployment strategy for air-gapped / tier 3 environments?"
+    why_important:
+      de: "Stufe 3 ist kritisch für hochsensible Daten. Ohne funktionierende lokale LLMs bleiben viele Use Cases blockiert."
+      en: "Tier 3 is critical for highly sensitive data. Without functioning local LLMs, many use cases remain blocked."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "production_ready"
+        de: "Production-ready - Ollama/vLLM läuft stabil, mehrere Modelle verfügbar"
+        en: "Production-ready - Ollama/vLLM runs stably, multiple models available"
+        score: 100
+        order: 1
+      - key: "pilot"
+        de: "Pilotphase - funktioniert, aber noch nicht skaliert"
+        en: "Pilot phase - works but not yet scaled"
+        score: 70
+        order: 2
+      - key: "planned"
+        de: "Geplant, aber noch nicht implementiert"
+        en: "Planned but not yet implemented"
+        score: 40
+        order: 3
+      - key: "not_planned"
+        de: "Nicht geplant / nicht erforderlich"
+        en: "Not planned / not required"
+        score: 30
+        order: 4
+      - key: "not_needed"
+        de: "Nicht benötigt - Public/Private Cloud ausreichend"
+        en: "Not needed - public/private cloud sufficient"
+        score: 100
+        order: 5
+    weight: 1.2
+    order: 10
+
+  - question_key: "dd_t_11"
+    question_text:
+      de: "Welche technischen Capabilities fehlen am meisten? (Mehrfachauswahl Top-3)"
+      en: "Which technical capabilities are most missing? (Multiple selection top-3)"
+    why_important:
+      de: "Priorisiert technische Roadmap. Verschiedene Teams brauchen verschiedene Capabilities."
+      en: "Prioritizes technical roadmap. Different teams need different capabilities."
+    answer_type: "multiple_choice"
+    allow_multiple: true
+    answer_options:
+      - key: "better_ide"
+        de: "Bessere IDE-Integration / mehr Features"
+        en: "Better IDE integration / more features"
+        score: 20
+        order: 1
+      - key: "more_models"
+        de: "Mehr Modell-Auswahl (verschiedene LLMs)"
+        en: "More model selection (different LLMs)"
+        score: 15
+        order: 2
+      - key: "ci_cd"
+        de: "CI/CD-Integration (AI in Pipeline)"
+        en: "CI/CD integration (AI in pipeline)"
+        score: 20
+        order: 3
+      - key: "prompt_library"
+        de: "Technisch integrierte Prompt Library (MCP)"
+        en: "Technically integrated prompt library (MCP)"
+        score: 15
+        order: 4
+      - key: "air_gapped"
+        de: "Air-gapped Lösung (lokale LLMs)"
+        en: "Air-gapped solution (local LLMs)"
+        score: 25
+        order: 5
+      - key: "monitoring"
+        de: "AI Usage Monitoring / Analytics"
+        en: "AI usage monitoring / analytics"
+        score: 15
+        order: 6
+      - key: "training"
+        de: "Custom Model Training / Fine-Tuning"
+        en: "Custom model training / fine-tuning"
+        score: 10
+        order: 7
+      - key: "none"
+        de: "Keine großen Lücken - Setup ist gut"
+        en: "No major gaps - setup is good"
+        score: 100
+        order: 8
+    weight: 1.2
+    order: 11
+
+  - question_key: "dd_t_12"
+    question_text:
+      de: "Wie ist die technische Dokumentation für AI-Tool-Setup und Best Practices?"
+      en: "How is the technical documentation for AI tool setup and best practices?"
+    why_important:
+      de: "Gute technische Docs reduzieren Support-Aufwand und ermöglichen Self-Service."
+      en: "Good technical docs reduce support effort and enable self-service."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "excellent"
+        de: "Exzellent - umfassend, aktuell, mit Beispielen"
+        en: "Excellent - comprehensive, current, with examples"
+        score: 100
+        order: 1
+      - key: "good"
+        de: "Gut - Grundlagen vorhanden, wird gepflegt"
+        en: "Good - basics available, maintained"
+        score: 70
+        order: 2
+      - key: "basic"
+        de: "Basic - vorhanden, aber lückenhaft oder veraltet"
+        en: "Basic - available but incomplete or outdated"
+        score: 40
+        order: 3
+      - key: "poor"
+        de: "Schlecht - kaum vorhanden, viel Trial & Error"
+        en: "Poor - barely available, much trial & error"
+        score: 10
+        order: 4
+    weight: 1.0
+    order: 12
+
+scoring:
+  dimension: "T"
+  formula: "weighted_average"
+  interpretation:
+    de: |
+      T-Score Interpretation:
+      - 0-30: Kritisch - fundamentale technische Lücken, keine oder kaum Tools verfügbar
+      - 31-50: Schwach - nur eine Sicherheitsstufe, schlechte IDE-Integration, Performance-Probleme
+      - 51-70: Entwicklung - Basis-Tools vorhanden (Tier 1+2), aber SDLC-Lücken oder Integrationsprobleme
+      - 71-85: Gut - alle drei Tiers verfügbar, gute IDE-Integration, CI/CD teilweise integriert
+      - 86-100: Exzellent - alle Tiers produktiv, nahtlose Integration, Prompt Library, AI in CI/CD, gute Performance
+    en: |
+      T-Score Interpretation:
+      - 0-30: Critical - fundamental technical gaps, no or hardly any tools available
+      - 31-50: Weak - only one security tier, poor IDE integration, performance issues
+      - 51-70: Developing - basic tools available (Tier 1+2), but SDLC gaps or integration issues
+      - 71-85: Good - all three tiers available, good IDE integration, CI/CD partially integrated
+      - 86-100: Excellent - all tiers productive, seamless integration, prompt library, AI in CI/CD, good performance

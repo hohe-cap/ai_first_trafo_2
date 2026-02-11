@@ -2,6 +2,16 @@
 
 Stand: Feb 2026 | Draft
 
+> **Hinweis:** Die maschinenlesbare Source of Truth ist jetzt [`question_banks/pulse-check.yaml`](question_banks/pulse-check.yaml).
+> Dieses MD-Dokument dient als menschenlesbare Referenz fuer Workshops und Reviews.
+>
+> **Drei-Ebenen-Architektur:**
+> | Ebene | Datei | Zweck | Frequenz |
+> |-------|-------|-------|----------|
+> | 1 | [`context-readiness.yaml`](question_banks/context-readiness.yaml) | Kontext & Readiness (35 Fragen) | Einmalig |
+> | 2 | [`pulse-check.yaml`](question_banks/pulse-check.yaml) | CRAFT Pulse Check (16 Fragen) | Quartalsweise |
+> | 3 | `deep-dive-*.yaml` (5 Dateien) | Dimension Deep-Dives (je 10-12 Fragen) | On-Demand |
+
 ## Ziel
 Ein kurzer, quartalsweiser Pulse Check (≤15 Minuten), der:
 - anonym bleibt (ehrliche Antworten)

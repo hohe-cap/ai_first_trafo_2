@@ -1,0 +1,745 @@
+# =============================================================================
+# CRAFT Pulse Check (Ebene 2) — Quarterly Assessment
+# =============================================================================
+# Quarterly pulse check (<=15 minutes) for ongoing tracking.
+# Generates Spider Chart (1-5) per CRAFT dimension.
+# Anonymous, segmentable, context-adaptive.
+#
+# Source of Truth: This YAML file.
+# Derived view: pulse-check-question-bank-v1.md
+#
+# Version: 1.0
+# Last Updated: 2026-02-11
+# Total Questions: 16 (5 Maturity + 8 MC + 1 Freitext + 2 segmentation-adjacent)
+# Estimated Duration: <=15 minutes
+# =============================================================================
+
+version: "1.0"
+assessment_type: "pulse_check"
+description:
+  de: >-
+    Quartalsweiser Pulse Check. Anonym, segmentierbar, <=15 Minuten.
+    Erzeugt Spider-Score (1-5) pro CRAFT-Dimension.
+  en: >-
+    Quarterly pulse check. Anonymous, segmentable, <=15 minutes.
+    Generates spider score (1-5) per CRAFT dimension.
+estimated_duration_minutes: 15
+frequency: "quarterly"
+respondent: "All team members (individual, anonymous)"
+context_dependency: "Filtered by Ebene 1 Context & Readiness Assessment results"
+
+# =============================================================================
+# DESIGN RULES
+# =============================================================================
+design_rules:
+  de:
+    - "Pro Dimension: 1 Maturity-Frage (Spider-Score) + 1-2 MC (Diagnostik) + 0-1 Freitext"
+    - "Keine Likert-Skalen. Maturity-Stufen mit konkreten Verhaltensbeschreibungen."
+    - "Segmentfelder sind nicht-identifizierend, Auswertung nur bei k >= 5"
+    - "Keine personenbezogenen Daten (Name, E-Mail, Mitarbeiter-ID)"
+    - "Context-adaptive Filterung basierend auf Ebene 1 Assessment"
+  en:
+    - "Per dimension: 1 maturity question (spider score) + 1-2 MC (diagnostics) + 0-1 free text"
+    - "No Likert scales. Maturity levels with concrete behavioral descriptions."
+    - "Segment fields are non-identifying, evaluation only when k >= 5"
+    - "No personal data (name, email, employee ID)"
+    - "Context-adaptive filtering based on Ebene 1 assessment"
+
+# =============================================================================
+# SEGMENTATION FIELDS
+# =============================================================================
+segmentation:
+  required:
+    - key: "team_cluster"
+      name:
+        de: "Team-/Cluster-Code"
+        en: "Team/Cluster Code"
+      description:
+        de: "Vordefinierte Auswahl, nicht frei getippt"
+        en: "Predefined selection, not free-typed"
+      type: "predefined_list"
+
+    - key: "role_family"
+      name:
+        de: "Rollen-Familie"
+        en: "Role Family"
+      type: "single_choice"
+      options:
+        - key: "dev"
+          de: "Dev"
+          en: "Dev"
+        - key: "qa_test"
+          de: "QA / Test"
+          en: "QA / Test"
+        - key: "po_ba"
+          de: "PO / BA"
+          en: "PO / BA"
+        - key: "ops_sre"
+          de: "Ops / SRE"
+          en: "Ops / SRE"
+        - key: "security_compliance"
+          de: "Security / Compliance"
+          en: "Security / Compliance"
+        - key: "management_lead"
+          de: "Management / Lead"
+          en: "Management / Lead"
+        - key: "other"
+          de: "Andere"
+          en: "Other"
+
+    - key: "work_context"
+      name:
+        de: "Arbeitskontext"
+        en: "Work Context"
+      type: "single_choice"
+      options:
+        - key: "product_team"
+          de: "Produktteam"
+          en: "Product Team"
+        - key: "platform_team"
+          de: "Plattformteam"
+          en: "Platform Team"
+        - key: "shared_service"
+          de: "Shared Service"
+          en: "Shared Service"
+        - key: "project_program"
+          de: "Projekt / Programm"
+          en: "Project / Program"
+
+  optional:
+    - key: "seniority"
+      name:
+        de: "Seniority"
+        en: "Seniority"
+      type: "single_choice"
+      show_if: "k >= 5 in parent segment"
+      options:
+        - key: "junior"
+          de: "Junior"
+          en: "Junior"
+        - key: "mid"
+          de: "Mid"
+          en: "Mid"
+        - key: "senior"
+          de: "Senior"
+          en: "Senior"
+        - key: "lead_principal"
+          de: "Lead / Principal"
+          en: "Lead / Principal"
+
+  k_anonymity:
+    minimum_k: 5
+    rules:
+      de:
+        - "Segment-Ergebnisse nur anzeigen wenn k >= 5 Antworten"
+        - "Keine Kreuztabellen die zu kleinen Gruppen fuehren"
+        - "Freitext nur als Themen-Cluster veroeffentlichen, nie als Rohtext"
+      en:
+        - "Show segment results only when k >= 5 responses"
+        - "No cross-tabs that lead to small groups"
+        - "Free text only as topic clusters, never raw text"
+
+# =============================================================================
+# DIMENSIONS
+# =============================================================================
+dimensions:
+  - key: "C"
+    name:
+      de: "Compliance & Governance"
+      en: "Compliance & Governance"
+    order: 1
+  - key: "R"
+    name:
+      de: "Readiness (Human & Cultural)"
+      en: "Readiness (Human & Cultural)"
+    order: 2
+  - key: "A"
+    name:
+      de: "Adoption & Usage"
+      en: "Adoption & Usage"
+    order: 3
+  - key: "F"
+    name:
+      de: "Flow & Process Integration"
+      en: "Flow & Process Integration"
+    order: 4
+  - key: "T"
+    name:
+      de: "Technical Enablement"
+      en: "Technical Enablement"
+    order: 5
+
+# =============================================================================
+# QUESTIONS
+# =============================================================================
+questions:
+
+  # ---------------------------------------------------------------------------
+  # C — Compliance & Governance
+  # ---------------------------------------------------------------------------
+  - question_key: "C-M1"
+    dimension: "C"
+    question_type: "maturity"
+    question_text:
+      de: "Welche Stufe beschreibt eure aktuelle Compliance/Governance-Situation am besten?"
+      en: "Which level best describes your current compliance/governance situation?"
+    maturity_levels:
+      1:
+        de: "Ich weiss nicht, welche AI-Tools ich nutzen darf; es gibt keine klare Policy."
+        en: "I don't know which AI tools I'm allowed to use; there's no clear policy."
+      2:
+        de: "Ich kenne die Regeln grob, aber bei Unsicherheit weiss ich nicht, wen ich fragen soll oder warte sehr lange auf Antwort."
+        en: "I roughly know the rules, but when unsure I don't know who to ask or wait very long for answers."
+      3:
+        de: "Policies existieren und sind bekannt; Freigaben/Antworten kommen, aber dauern oft zu lang oder sind nicht praxisnah."
+        en: "Policies exist and are known; approvals/answers come but often take too long or aren't practical."
+      4:
+        de: "Policies sind klar und praxisnah; bei Unsicherheit bekomme ich schnell eine verlaessliche Antwort."
+        en: "Policies are clear and practical; when unsure I quickly get a reliable answer."
+      5:
+        de: "Compliance ist in meinen Workflow integriert (automatisierte Checks, Self-Service-Freigaben, klare Entscheidungsbaeume)."
+        en: "Compliance is integrated into my workflow (automated checks, self-service approvals, clear decision trees)."
+    order: 1
+
+  - question_key: "C-MC1"
+    dimension: "C"
+    question_type: "multiple_choice"
+    question_text:
+      de: "Welche Situation blockiert euch am haeufigsten?"
+      en: "Which situation blocks you most frequently?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "data_classification"
+        de: "Unklare Datenklassifizierung"
+        en: "Unclear data classification"
+        order: 1
+      - key: "tool_not_approved"
+        de: "Tool nicht freigegeben"
+        en: "Tool not approved"
+        order: 2
+      - key: "privacy_unclear"
+        de: "Betriebsrat / Privacy unklar"
+        en: "Works council / Privacy unclear"
+        order: 3
+      - key: "security_slow"
+        de: "Security-Prozess zu langsam"
+        en: "Security process too slow"
+        order: 4
+      - key: "cost_quota"
+        de: "Kosten / Quota"
+        en: "Cost / Quota"
+        order: 5
+      - key: "nothing"
+        de: "Nichts blockiert aktuell"
+        en: "Nothing currently blocking"
+        order: 6
+      - key: "other"
+        de: "Anderes"
+        en: "Other"
+        order: 7
+    order: 2
+
+  - question_key: "C-FT1"
+    dimension: "C"
+    question_type: "free_text"
+    optional: true
+    question_text:
+      de: "Welche 1 Regel/Aenderung wuerde euch sofort helfen?"
+      en: "What 1 rule/change would immediately help you?"
+    max_length: 280
+    order: 3
+
+  # ---------------------------------------------------------------------------
+  # R — Readiness (Human & Cultural)
+  # ---------------------------------------------------------------------------
+  - question_key: "R-M1"
+    dimension: "R"
+    question_type: "maturity"
+    question_text:
+      de: "Welche Stufe beschreibt deine persoenliche AI-Readiness am besten?"
+      en: "Which level best describes your personal AI readiness?"
+    maturity_levels:
+      1:
+        de: "Ich habe kein Verstaendnis dafuer, was AI fuer meine Arbeit bedeutet; es gibt keine Enablement-Angebote."
+        en: "I have no understanding of what AI means for my work; there are no enablement offerings."
+      2:
+        de: "Ich habe ein grobes Verstaendnis, fuehle mich aber unsicher in der Anwendung; ich weiss nicht, wo ich anfangen soll."
+        en: "I have a rough understanding but feel insecure in application; I don't know where to start."
+      3:
+        de: "Ich kann AI-Tools grundlegend bedienen und im Team offen darueber sprechen, bin aber unsicher bei Qualitaetsbewertung (Halluzinationen, Grenzen)."
+        en: "I can basically use AI tools and discuss them openly in the team, but I'm unsure about quality assessment (hallucinations, limitations)."
+      4:
+        de: "Ich kann AI-Outputs kritisch bewerten und sinnvoll in meinen Alltag einbauen; ich verstehe, wie sich meine Rolle veraendert."
+        en: "I can critically evaluate AI outputs and meaningfully integrate them into my daily work; I understand how my role is changing."
+      5:
+        de: "Ich bin sicher im Umgang mit AI, unterstuetze andere aktiv (Champion-Rolle), und gestalte Veraenderungen in meiner Rolle proaktiv."
+        en: "I'm confident with AI, actively support others (champion role), and proactively shape changes in my role."
+    order: 4
+
+  - question_key: "R-MC1"
+    dimension: "R"
+    question_type: "multiple_choice"
+    question_text:
+      de: "Was waere fuer dich der staerkste Enablement-Hebel?"
+      en: "What would be the strongest enablement lever for you?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "playbooks"
+        de: "Kurze Beispiele / Playbooks"
+        en: "Short examples / Playbooks"
+        order: 1
+      - key: "pairing"
+        de: "Pairing mit erfahrenen Kolleg:innen"
+        en: "Pairing with experienced colleagues"
+        order: 2
+      - key: "training"
+        de: "Strukturiertes Training"
+        en: "Structured training"
+        order: 3
+      - key: "prompts"
+        de: "Bessere Prompts / Templates"
+        en: "Better prompts / templates"
+        order: 4
+      - key: "time"
+        de: "Mehr Zeit zum Experimentieren"
+        en: "More time to experiment"
+        order: 5
+      - key: "champion"
+        de: "Champion-Support im Team"
+        en: "Champion support in team"
+        order: 6
+    order: 5
+
+  - question_key: "R-MC2"
+    dimension: "R"
+    question_type: "multiple_choice"
+    question_text:
+      de: "Was hemmt dich aktuell am meisten?"
+      en: "What inhibits you most currently?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "quality_uncertainty"
+        de: "Unsicherheit ueber Qualitaet der Outputs"
+        en: "Uncertainty about output quality"
+        order: 1
+      - key: "unclear_use_cases"
+        de: "Unklar, wofuer AI sinnvoll ist"
+        en: "Unclear what AI is useful for"
+        order: 2
+      - key: "no_time"
+        de: "Fehlende Zeit"
+        en: "Lack of time"
+        order: 3
+      - key: "no_training"
+        de: "Fehlendes Training"
+        en: "Lack of training"
+        order: 4
+      - key: "role_concern"
+        de: "Sorge um Rolle / Arbeitsplatz"
+        en: "Concern about role / job"
+        order: 5
+      - key: "tech_barriers"
+        de: "Technische Huerden"
+        en: "Technical barriers"
+        order: 6
+      - key: "nothing"
+        de: "Nichts hemmt mich"
+        en: "Nothing inhibits me"
+        order: 7
+    order: 6
+
+  # ---------------------------------------------------------------------------
+  # A — Adoption & Usage
+  # ---------------------------------------------------------------------------
+  - question_key: "A-M1"
+    dimension: "A"
+    question_type: "maturity"
+    question_text:
+      de: "Welche Stufe beschreibt deine tatsaechliche AI-Nutzung am besten?"
+      en: "Which level best describes your actual AI usage?"
+    maturity_levels:
+      1:
+        de: "Ich nutze keine AI-Tools fuer meine Arbeit."
+        en: "I don't use any AI tools for my work."
+      2:
+        de: "Ich nutze AI gelegentlich fuer einfache Aufgaben (z.B. Textformulierung, Quick Questions), nicht regelmaessig."
+        en: "I use AI occasionally for simple tasks (e.g. text drafting, quick questions), not regularly."
+      3:
+        de: "Ich nutze AI regelmaessig (mind. woechentlich) in 1-2 Arbeitsbereichen und es spart mir merklich Zeit."
+        en: "I use AI regularly (at least weekly) in 1-2 work areas and it noticeably saves me time."
+      4:
+        de: "AI ist fester Bestandteil meiner taeglichen Arbeit in mehreren Bereichen/SDLC-Phasen."
+        en: "AI is an integral part of my daily work across multiple areas/SDLC phases."
+      5:
+        de: "AI ist durchgaengig in meinen Workflow integriert; ich optimiere aktiv Prompts/Workflows und teile Best Practices."
+        en: "AI is fully integrated into my workflow; I actively optimize prompts/workflows and share best practices."
+    order: 7
+
+  - question_key: "A-MC1"
+    dimension: "A"
+    question_type: "multiple_choice"
+    question_text:
+      de: "Welcher Nutzungsmodus beschreibt deine typische GenAI-Nutzung am besten?"
+      en: "Which usage mode best describes your typical GenAI usage?"
+    description:
+      de: "Usage Mode Tracking (1-5 Skala)"
+      en: "Usage mode tracking (1-5 scale)"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "none"
+        de: "1: Gar nicht"
+        en: "1: Not at all"
+        usage_mode: 1
+        order: 1
+      - key: "chat"
+        de: "2: Chat-basiert (Q&A / Copy-Paste), nicht integriert"
+        en: "2: Chat-based (Q&A / copy-paste), not integrated"
+        usage_mode: 2
+        order: 2
+      - key: "integrated"
+        de: "3: Integriert (IDE/Workflow), Schritt-fuer-Schritt gesteuert"
+        en: "3: Integrated (IDE/workflow), step-by-step controlled"
+        usage_mode: 3
+        order: 3
+      - key: "agentic"
+        de: "4: Agentisch (teilautonom), mit Review/Gates"
+        en: "4: Agentic (semi-autonomous), with review/gates"
+        usage_mode: 4
+        order: 4
+      - key: "multi_agentic"
+        de: "5: Multi-agentisch (mehrere Agenten), end-to-end Aufgaben"
+        en: "5: Multi-agentic (multiple agents), end-to-end tasks"
+        usage_mode: 5
+        order: 5
+    order: 8
+
+  - question_key: "A-MC2"
+    dimension: "A"
+    question_type: "multiple_choice"
+    question_text:
+      de: "In welchen SDLC-Phasen nutzt du AI heute?"
+      en: "In which SDLC phases do you use AI today?"
+    answer_type: "multiple_choice"
+    allow_multiple: true
+    answer_options:
+      - key: "requirements"
+        de: "Requirements"
+        en: "Requirements"
+        order: 1
+      - key: "design"
+        de: "Design"
+        en: "Design"
+        order: 2
+      - key: "coding"
+        de: "Coding"
+        en: "Coding"
+        order: 3
+      - key: "code_review"
+        de: "Code Review"
+        en: "Code Review"
+        order: 4
+      - key: "testing"
+        de: "Testing"
+        en: "Testing"
+        order: 5
+      - key: "docs"
+        de: "Dokumentation"
+        en: "Documentation"
+        order: 6
+      - key: "ops"
+        de: "Operations"
+        en: "Operations"
+        order: 7
+      - key: "incident"
+        de: "Incident Response"
+        en: "Incident Response"
+        order: 8
+      - key: "security"
+        de: "Security"
+        en: "Security"
+        order: 9
+      - key: "none"
+        de: "Keine"
+        en: "None"
+        order: 10
+    order: 9
+
+  - question_key: "A-MC3"
+    dimension: "A"
+    question_type: "multiple_choice"
+    question_text:
+      de: "Nutzt du aktuell nicht-freigegebene Tools (Shadow AI) fuer Arbeitszwecke?"
+      en: "Do you currently use non-approved tools (shadow AI) for work purposes?"
+    description:
+      de: "Anonym, nur Trend wird ausgewertet"
+      en: "Anonymous, only trend is evaluated"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "never"
+        de: "Nie"
+        en: "Never"
+        order: 1
+      - key: "rarely"
+        de: "Selten"
+        en: "Rarely"
+        order: 2
+      - key: "occasionally"
+        de: "Gelegentlich"
+        en: "Occasionally"
+        order: 3
+      - key: "frequently"
+        de: "Haeufig"
+        en: "Frequently"
+        order: 4
+    order: 10
+
+  # ---------------------------------------------------------------------------
+  # F — Flow & Process Integration
+  # ---------------------------------------------------------------------------
+  - question_key: "F-M1"
+    dimension: "F"
+    question_type: "maturity"
+    question_text:
+      de: "Welche Stufe beschreibt die AI-Integration in eure Team-Workflows am besten?"
+      en: "Which level best describes AI integration into your team workflows?"
+    maturity_levels:
+      1:
+        de: "AI wird bei uns nicht in Prozesse/Workflows eingebunden."
+        en: "AI is not incorporated into our processes/workflows."
+      2:
+        de: "Einzelne nutzen AI nebenbei (z.B. Chat), aber es ist kein Teil unserer Team-Workflows."
+        en: "Individuals use AI on the side (e.g. chat), but it's not part of our team workflows."
+      3:
+        de: "Wir haben erste AI-gestuetzte Workflows (z.B. PR Pre-Review, Testgenerierung), aber die meisten Prozesse laufen wie vorher."
+        en: "We have initial AI-supported workflows (e.g. PR pre-review, test generation), but most processes run as before."
+      4:
+        de: "AI ist in mehreren Kern-Workflows eingebettet und reduziert messbar Wartezeiten oder Rework."
+        en: "AI is embedded in multiple core workflows and measurably reduces wait times or rework."
+      5:
+        de: "AI ist systematisch in unsere Wertschoepfungskette integriert; Bottlenecks werden datengetrieben identifiziert und adressiert."
+        en: "AI is systematically integrated into our value stream; bottlenecks are identified and addressed data-driven."
+    order: 11
+
+  - question_key: "F-MC1"
+    dimension: "F"
+    question_type: "multiple_choice"
+    question_text:
+      de: "Wo ist euer groesster Prozess-Bottleneck aktuell?"
+      en: "Where is your biggest process bottleneck currently?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "pr_review"
+        de: "PR Review"
+        en: "PR Review"
+        order: 1
+      - key: "qa_testing"
+        de: "QA / Testing"
+        en: "QA / Testing"
+        order: 2
+      - key: "release_approvals"
+        de: "Release Approvals"
+        en: "Release Approvals"
+        order: 3
+      - key: "environments"
+        de: "Umgebungen"
+        en: "Environments"
+        order: 4
+      - key: "requirements"
+        de: "Anforderungen / Refinement"
+        en: "Requirements / Refinement"
+        order: 5
+      - key: "dependencies"
+        de: "Abhaengigkeiten (andere Teams)"
+        en: "Dependencies (other teams)"
+        order: 6
+      - key: "none"
+        de: "Keiner dominant"
+        en: "None dominant"
+        order: 7
+      - key: "other"
+        de: "Anderes"
+        en: "Other"
+        order: 8
+    order: 12
+
+  - question_key: "F-MC2"
+    dimension: "F"
+    question_type: "multiple_choice"
+    question_text:
+      de: "Welche AI-Intervention wuerde euch am ehesten helfen?"
+      en: "Which AI intervention would help you most?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "pr_prereview"
+        de: "PR Pre-Review"
+        en: "PR Pre-Review"
+        order: 1
+      - key: "testdata"
+        de: "Testdaten-Generierung"
+        en: "Test data generation"
+        order: 2
+      - key: "testgen"
+        de: "Testgenerierung"
+        en: "Test generation"
+        order: 3
+      - key: "docs_automation"
+        de: "Dokumentations-Automation"
+        en: "Documentation automation"
+        order: 4
+      - key: "incident_assist"
+        de: "Incident Assist"
+        en: "Incident Assist"
+        order: 5
+      - key: "ticket_refinement"
+        de: "Ticket-Refinement"
+        en: "Ticket refinement"
+        order: 6
+      - key: "other"
+        de: "Anderes"
+        en: "Other"
+        order: 7
+    order: 13
+
+  # ---------------------------------------------------------------------------
+  # T — Technical Enablement
+  # ---------------------------------------------------------------------------
+  - question_key: "T-M1"
+    dimension: "T"
+    question_type: "maturity"
+    question_text:
+      de: "Welche Stufe beschreibt euer aktuelles AI-Tooling am besten?"
+      en: "Which level best describes your current AI tooling?"
+    maturity_levels:
+      1:
+        de: "Ich habe keinen Zugang zu freigegebenen AI-Tools."
+        en: "I have no access to approved AI tools."
+      2:
+        de: "Ich habe Zugang, aber nur als separaten Chat (nicht in IDE/Workflow integriert); Zugang einzurichten war umstaendlich."
+        en: "I have access, but only as separate chat (not integrated in IDE/workflow); setting up access was cumbersome."
+      3:
+        de: "AI ist in mein Hauptwerkzeug integriert (z.B. IDE), aber Verfuegbarkeit oder Performance schwankt; Prompts/Playbooks fehlen."
+        en: "AI is integrated in my main tool (e.g. IDE), but availability or performance fluctuates; prompts/playbooks missing."
+      4:
+        de: "AI-Tools sind zuverlaessig, performant und in IDE/CI integriert; wiederverwendbare Prompts/Playbooks sind verfuegbar."
+        en: "AI tools are reliable, performant and integrated in IDE/CI; reusable prompts/playbooks are available."
+      5:
+        de: "AI-Tooling ist vollstaendig integriert (IDE, CI/CD, Monitoring), Self-Service-Provisioning, automatisierte Guardrails, Kosten-Transparenz."
+        en: "AI tooling is fully integrated (IDE, CI/CD, monitoring), self-service provisioning, automated guardrails, cost transparency."
+    order: 14
+
+  - question_key: "T-MC1"
+    dimension: "T"
+    question_type: "multiple_choice"
+    question_text:
+      de: "Welcher Nutzungsmodus ist bei euch offiziell (Tools/Policies) realistisch unterstuetzt?"
+      en: "Which usage mode is officially (tools/policies) realistically supported for you?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "none"
+        de: "1: Keine Nutzung moeglich"
+        en: "1: No usage possible"
+        order: 1
+      - key: "chat_only"
+        de: "2: Chat-only"
+        en: "2: Chat-only"
+        order: 2
+      - key: "integrated"
+        de: "3: Integrierter Assistant"
+        en: "3: Integrated assistant"
+        order: 3
+      - key: "agentic"
+        de: "4: Agentisch (single)"
+        en: "4: Agentic (single)"
+        order: 4
+      - key: "multi_agentic"
+        de: "5: Multi-agentisch"
+        en: "5: Multi-agentic"
+        order: 5
+    order: 15
+
+  - question_key: "T-MC2"
+    dimension: "T"
+    question_type: "multiple_choice"
+    question_text:
+      de: "Was ist die groesste technische Reibung?"
+      en: "What is the biggest technical friction?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "no_access"
+        de: "Kein Zugang"
+        en: "No access"
+        order: 1
+      - key: "sso_provisioning"
+        de: "SSO / Provisioning"
+        en: "SSO / Provisioning"
+        order: 2
+      - key: "latency"
+        de: "Latenz / Performance"
+        en: "Latency / Performance"
+        order: 3
+      - key: "wrong_models"
+        de: "Falsche oder limitierte Modelle"
+        en: "Wrong or limited models"
+        order: 4
+      - key: "missing_context"
+        de: "Fehlender Kontext (Repo / Docs)"
+        en: "Missing context (repo / docs)"
+        order: 5
+      - key: "cost_quota"
+        de: "Kosten / Quota"
+        en: "Cost / Quota"
+        order: 6
+      - key: "policies_block"
+        de: "Policies blockieren Tooling"
+        en: "Policies block tooling"
+        order: 7
+      - key: "no_friction"
+        de: "Keine Reibung"
+        en: "No friction"
+        order: 8
+    order: 16
+
+# =============================================================================
+# SCORING
+# =============================================================================
+scoring:
+  spider_score:
+    description:
+      de: "Pro Dimension: Median der Maturity-Antworten (M1) = Score 1-5"
+      en: "Per dimension: Median of maturity answers (M1) = Score 1-5"
+    method: "median"
+    scale: "1-5"
+    segmentation: "Optional nach Team, Rolle, Arbeitskontext (nur bei k >= 5)"
+
+  trend:
+    description:
+      de: "Quartalsvergleich: Spider-Overlay + Delta-Tabelle"
+      en: "Quarterly comparison: Spider overlay + delta table"
+
+  hitl_review:
+    description:
+      de: >-
+        AI erstellt Spider-Diagramm, Delta-Analyse, Top-3 Blocker/Treiber,
+        5-10 Interventionsvorschlaege. Menschen entscheiden in 60-90 Min Review.
+      en: >-
+        AI creates spider diagram, delta analysis, top-3 blockers/drivers,
+        5-10 intervention suggestions. Humans decide in 60-90 min review.
+
+# =============================================================================
+# ANTI-PATTERNS
+# =============================================================================
+anti_patterns:
+  de:
+    - "Pulse Check als Performance-Ranking von Individuen nutzen"
+    - "Segment-Drilldown unter k-Schwelle"
+    - "Zu viele Fragen — strikt bei <=15 Minuten bleiben"
+    - "Freitext ohne klare Moderation (Deanonymisierung durch Details)"
+    - "Maturity-Stufen als Bewertung statt Steuerungsinstrument"
+    - "Spider-Scores ohne MC-Diagnostik interpretieren (Zahl ohne Kontext)"
+  en:
+    - "Using pulse check as individual performance ranking"
+    - "Segment drilldown below k threshold"
+    - "Too many questions — strictly stay at <=15 minutes"
+    - "Free text without clear moderation (deanonymization through details)"
+    - "Using maturity levels as evaluation instead of steering instrument"
+    - "Interpreting spider scores without MC diagnostics (number without context)"
