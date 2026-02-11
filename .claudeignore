@@ -1,0 +1,56 @@
+# Claude Code Ignore File
+# Dateien und Verzeichnisse die NICHT in den Kontext geladen werden sollen
+
+# Private Notizen und Drafts (niemals committen!)
+.private/
+*.draft.md
+*-notes.md
+*-wip.md
+
+# Temporäre Dateien
+*.tmp
+*.temp
+*.log
+*.swp
+*.swo
+*~
+
+# Build Artifacts (falls vorhanden)
+dist/
+build/
+*.pyc
+__pycache__/
+node_modules/
+
+# IDE Settings (projekt-spezifisch, nicht universal)
+.vscode/settings.json
+.idea/workspace.xml
+
+# Sensitive Data (extra Sicherheit)
+.env
+.env.*
+*.key
+*.pem
+credentials.json
+secrets/
+
+# Large Files (können Context Window sprengen)
+*.pdf
+*.zip
+*.tar.gz
+*.mp4
+*.mov
+
+# Test Data (nicht relevant für Agent-Instructions)
+test-data/
+fixtures/
+*.fixture.json
+
+# Git Internals
+.git/
+
+---
+
+# WICHTIG: Diese Datei verhindert dass Claude Code bestimmte Dateien lädt
+# Sie ist NICHT dasselbe wie .gitignore
+# .private/ ist hier UND in .gitignore für doppelte Sicherheit
