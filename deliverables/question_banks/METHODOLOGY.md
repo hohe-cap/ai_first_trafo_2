@@ -1,10 +1,10 @@
-# CRAFT Assessment Methodology
+# CRAFT Explorations-Methodik
 
 **Version:** 2.0 | **Stand:** Feb 2026 | **Status:** Draft
 
 > Dieses Dokument ist die Design-Referenz ("Design Bible") fuer alle CRAFT Question Banks.
 > Es beschreibt die methodischen Prinzipien, Scoring-Logik und Kalibrierungsregeln,
-> die sicherstellen, dass Assessments konsistent, vergleichbar und handlungsleitend sind.
+> die sicherstellen, dass Explorationen konsistent, vergleichbar und handlungsleitend sind.
 
 ---
 
@@ -34,7 +34,7 @@ Pulse Check (Dimension C):
 - Der Pulse Check ist ein **Extrakt** der Deep-Dives
 - Der Deep-Dive wird 1x beim **Kickoff als Baseline** durchgefuehrt, danach on-demand
 
-### Kontext-Assessment (Ebene 1) — Sonderrolle
+### Kontext-Exploration (Ebene 1) — Sonderrolle
 
 Ebene 1 unterscheidet sich fundamental von Ebene 2 und 3:
 - **Fakten, nicht Meinungen** — erfasst Rahmenbedingungen (Branche, Team-Groesse, Tech-Stack, etc.)
@@ -86,7 +86,7 @@ Beim Schreiben neuer Maturity-Beschreibungen:
 - Kein **Response-Shift-Problem** — Stufe 3 bleibt Stufe 3, auch wenn das Bewusstsein steigt
 - Der Median ergibt einen **natuerlichen Spider-Score** (1-5)
 
-### Fragetypen pro Assessment
+### Fragetypen pro Exploration
 
 | Typ | Symbol | Zweck | Im Spider-Score? |
 |-----|--------|-------|-----------------|
@@ -217,7 +217,7 @@ Reg. Readiness        ██████████  5/5  Evolving
 **Optional (wenn k gross genug):**
 4. Seniority (Junior, Mid, Senior, Lead/Principal)
 
-### Context-Assessment (Ebene 1)
+### Context-Exploration (Ebene 1)
 
 - **Nicht anonym** — wird von 1-2 benannten Personen ausgefuellt
 - Keine Segmentierung noetig
@@ -249,7 +249,7 @@ Powerful Questions geben individuellen Reflexionsraum und erzeugen qualitative I
 
 ## 8) HITL-Review (Human-in-the-Loop)
 
-Nach jeder Assessment-Runde (Baseline oder Quartal) findet ein strukturierter Review statt:
+Nach jeder Explorationsrunde (Baseline oder Quartal) findet ein strukturierter Review statt:
 
 **AI erstellt:**
 - Spider-Diagramm + Sub-Topic-Profile
@@ -262,7 +262,7 @@ Nach jeder Assessment-Runde (Baseline oder Quartal) findet ein strukturierter Re
 **Menschen entscheiden (60-90 Min Review):**
 - 1-3 Interventionen pro Zyklus
 - Welche Segmente priorisiert werden
-- Welche Fragen im naechsten Assessment angepasst werden
+- Welche Fragen in der naechsten Exploration angepasst werden
 - Ob ein Deep-Dive fuer eine bestimmte Dimension ausgeloest wird
 
 ---

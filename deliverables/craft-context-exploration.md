@@ -1,4 +1,4 @@
-# CRAFT Context Assessment — Rahmenbedingungen erfassen (v1)
+# CRAFT Context Exploration — Rahmenbedingungen erfassen (v1)
 
 Stand: Feb 2026 | Draft
 

@@ -1,11 +1,11 @@
 # =============================================================================
-# CRAFT Pulse Check (Ebene 2) — Quarterly Assessment
+# CRAFT Pulse Check (Ebene 2) — Quarterly Exploration
 # =============================================================================
 # Quarterly pulse check (<=15 minutes) for ongoing tracking.
 # Generates Spider Chart (1-5) per CRAFT dimension.
 # Anonymous, segmentable, context-adaptive.
 #
-# The Pulse Check is an EXTRACT of the Deep-Dive assessments:
+# The Pulse Check is an EXTRACT of the Deep-Dive explorations:
 # - Each Maturity question here (X-M1) is the high-level summary of
 #   3-5 sub-topic maturity questions in the corresponding deep-dive-*.yaml
 # - Deep-Dives provide the granular WHY; Pulse Check tracks the TREND
@@ -23,20 +23,20 @@
 # =============================================================================
 
 version: "2.0"
-assessment_type: "pulse_check"
+exploration_type: "pulse_check"
 description:
   de: >-
     Quartalsweiser Pulse Check. Anonym, segmentierbar, <=15 Minuten.
     Erzeugt Spider-Score (1-5) pro CRAFT-Dimension.
-    Ist ein Extrakt der Deep-Dive Assessments (Ebene 3).
+    Ist ein Extrakt der Deep-Dive Explorationen (Ebene 3).
   en: >-
     Quarterly pulse check. Anonymous, segmentable, <=15 minutes.
     Generates spider score (1-5) per CRAFT dimension.
-    Is an extract of the Deep-Dive assessments (Level 3).
+    Is an extract of the Deep-Dive explorations (Level 3).
 estimated_duration_minutes: 15
 frequency: "quarterly"
 respondent: "All team members (individual, anonymous)"
-context_dependency: "Filtered by Ebene 1 Context & Readiness Assessment results"
+context_dependency: "Filtered by Ebene 1 Context & Readiness Exploration results"
 methodology_reference: "METHODOLOGY.md"
 
 # =============================================================================
@@ -49,7 +49,7 @@ design_rules:
     - "Alle Maturity-Stufen tragen Labels: Exploring → Experimenting → Embedding → Scaling → Evolving"
     - "Segmentfelder sind nicht-identifizierend, Auswertung nur bei k >= 5"
     - "Keine personenbezogenen Daten (Name, E-Mail, Mitarbeiter-ID)"
-    - "Context-adaptive Filterung basierend auf Ebene 1 Assessment"
+    - "Context-adaptive Filterung basierend auf Ebene 1 Exploration"
     - "Jede Maturity-Frage ist die High-Level-Zusammenfassung des entsprechenden Deep-Dives"
   en:
     - "Per dimension: 1 maturity question (spider score) + 1-2 MC (diagnostics) + 0-1 powerful question"
@@ -57,7 +57,7 @@ design_rules:
     - "All maturity levels carry labels: Exploring → Experimenting → Embedding → Scaling → Evolving"
     - "Segment fields are non-identifying, evaluation only when k >= 5"
     - "No personal data (name, email, employee ID)"
-    - "Context-adaptive filtering based on Ebene 1 assessment"
+    - "Context-adaptive filtering based on Ebene 1 exploration"
     - "Each maturity question is the high-level summary of the corresponding deep-dive"
 
 # =============================================================================

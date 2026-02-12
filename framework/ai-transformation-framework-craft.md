@@ -160,7 +160,7 @@ flowchart TB
 
 ### Iterativer Prozessrahmen: Discover & Navigate
 
-Der Prozessrahmen ist das Betriebssystem der Transformation. Er ersetzt das klassische einmalige Assessment durch eine kontinuierliche Standortbestimmung und folgt einem PDCA-Zyklus (Plan – Do – Check – Adjust) in 4-Wochen-Iterationen (siehe Kapitel 3). Der Begriff Assessment wird bewusst vermieden, da er als Prüfung wahrgenommen wird. Stattdessen nutzen wir den **AI Navigator** als Werkzeug und den **Pulse Check** als regelmäßigen Durchlauf.
+Der Prozessrahmen ist das Betriebssystem der Transformation. Er ersetzt die klassische einmalige Bestandsaufnahme durch eine kontinuierliche Standortbestimmung und folgt einem PDCA-Zyklus (Plan – Do – Check – Adjust) in 4-Wochen-Iterationen (siehe Kapitel 3). Wir sprechen bewusst von **Exploration** statt Assessment — der Prozess ist ein gemeinsames Erkunden, keine Prüfung. Werkzeuge dafür sind der **AI Navigator** (App) und der **Pulse Check** als regelmäßiger Durchlauf.
 
 #### AI Navigator (App)
 
@@ -172,9 +172,23 @@ Eine interaktive Self-Service-Anwendung, die Teams eigenständig durchlaufen. Si
 - **Output:** Team-Dashboard mit Scores über die 5 CRAFT-Dimensionen (siehe Kapitel 4), Radar-Chart, Stärken-/Schwächen-Analyse und automatisch generierte Handlungsempfehlungen, die direkt in die Roadmap einfließen.
 - **Benchmark:** Anonymisierter Vergleich mit anderen Teams als zusätzlicher Impuls.
 
+#### Drei-Ebenen-Explorations-Architektur
+
+Die Standortbestimmung erfolgt über drei aufeinander aufbauende Ebenen. Jede Ebene hat einen eigenen Zweck, Respondenten-Kreis und Rhythmus:
+
+| Ebene | Zweck | Frequenz | Respondent | Dauer |
+|-------|-------|----------|------------|-------|
+| **1: Context & Readiness** | Fakten und Rahmenbedingungen erfassen (Branche, Team, Tech-Stack, Budget) | Einmalig (Kickoff) | AI Transformation Manager / Tech Lead (1–2 Personen, nicht anonym) | ~30 Min |
+| **2: Pulse Check** | CRAFT-Spider-Score (1–5) pro Dimension tracken, Trends erkennen | Quartalsweise | Alle Teammitglieder (anonym) | ≤15 Min |
+| **3: Deep-Dives** (5×) | Granulare Sub-Topic-Analyse pro Dimension (je 4 Sub-Topics) | 1× Kickoff (Baseline) + on-demand | Alle Teammitglieder (anonym) | ~15–20 Min pro Dimension |
+
+**Beziehung Pulse Check ↔ Deep-Dive:** Der Pulse Check ist ein *Extrakt* der Deep-Dives. Jede Pulse-Check-Maturity-Frage (z.B. C-M1) fasst die 4 Sub-Topics des entsprechenden Deep-Dives zusammen. Deep-Dives liefern das granulare *Warum*, der Pulse Check trackt den *Trend*.
+
+> **Design-Methodik:** Alle Explorations-Prinzipien (Scoring-Formeln, Kalibrierungsregeln, Visualisierung, Anonymität) sind in `deliverables/question_banks/METHODOLOGY.md` dokumentiert. Die YAML-Dateien in `deliverables/question_banks/` sind die Source of Truth für alle Fragen.
+
 #### Pulse Check Inhalte
 
-Der Pulse Check erfasst pro CRAFT-Dimension 3–4 Fragen (Multiple Choice + optionaler Freitext). Die Fragen sind so formuliert, dass sie den aktuellen Stand beschreiben, nicht bewerten. Beispiel: „In wie vielen SDLC-Phasen nutzt euer Team aktuell AI-Unterstützung?" statt „Wie gut nutzt ihr AI?"
+Der Pulse Check erfasst pro CRAFT-Dimension 2–3 Fragen: 1 Maturity-Frage (5-Level, konkrete Verhaltensbeschreibungen von *Exploring* bis *Evolving*) + 1–2 MC-Diagnostik-Fragen (erklären das Warum). Keine Likert-Skalen — jede Maturity-Stufe beschreibt konkretes Verhalten, nicht Zustimmungsgrade. Beispiel: „Ich weiß nicht, welche AI-Tools ich nutzen darf" (Level 1) vs. „Compliance ist in meinen Workflow integriert" (Level 5).
 
 ### 2.1 Dimension 1: Compliance & Governance (C)
 
@@ -401,13 +415,20 @@ Die DORA Metrics sind der Goldstandard für Software Delivery Performance. Sie w
 
 #### Schicht 2: AI Maturity – Das CRAFT-Modell
 
-Ein 5-Dimensionen-Modell, zugeschnitten auf den SDLC-Kontext. Jede CRAFT-Dimension korrespondiert direkt mit einer Framework-Dimension (D1–D5) – die Handlungsdimension und ihr KPI-Gegenstück sind deckungsgleich. Das Modell ist über den AI Navigator Pulse Check erhebbar.
+Ein 5-Dimensionen-Modell, zugeschnitten auf den SDLC-Kontext. Jede CRAFT-Dimension korrespondiert direkt mit einer Framework-Dimension (D1–D5) – die Handlungsdimension und ihr KPI-Gegenstück sind deckungsgleich. Das Modell wird über zwei komplementäre Instrumente erhoben:
+
+- **Pulse Check** (quartalsweise): 1 Maturity-Frage pro Dimension → Spider-Score = Median über alle Respondenten (1–5)
+- **Deep-Dives** (Kickoff-Baseline + on-demand): 4 Sub-Topics pro Dimension → Spider-Score = (Median × 0.6) + (Minimum × 0.4)
+
+Die Min-gewichtete Formel der Deep-Dives verhindert, dass kritische Schwächen im Durchschnitt verschwinden. Ein Sub-Topic auf Level 1 bleibt als Blocker sichtbar, egal wie gut die anderen Sub-Topics sind. Alle Maturity-Fragen folgen einem universellen 5-Level-Progressionsmuster mit konkreten Verhaltensbeschreibungen (keine Likert-Skalen), um Vergleichbarkeit über Dimensionen und Zeit zu gewährleisten.
 
 - **C – Compliance & Governance (D1):** Sind regulatorische Leitplanken etabliert und werden sie eingehalten?
 - **R – Readiness, Human & Cultural (D2):** Können und wollen die Menschen AI effektiv und kritisch nutzen?
 - **A – Adoption & Usage (D3):** Wird AI tatsächlich im Arbeitsalltag genutzt – und breit über den SDLC?
 - **F – Flow & Process Integration (D4):** Ist AI in SDLC-Prozesse und Workflows eingebettet oder ein Fremdkörper?
 - **T – Technical Enablement (D5):** Wie gut ist die AI-Infrastruktur verfügbar und integriert?
+
+> **Methodik-Referenz:** Die vollständige Scoring-Logik, Kalibrierungsregeln und Visualisierungsprinzipien sind in `deliverables/question_banks/METHODOLOGY.md` dokumentiert.
 
 ```mermaid
 ---
@@ -591,6 +612,7 @@ Das Framework ist mehr als ein Strategiepapier. Folgende konkrete Werkzeuge und 
 | Werkzeug | Beschreibung | Status | Priorität |
 |----------|--------------|--------|-----------|
 | AI Navigator App | Web-basierte Self-Service-App für den Pulse Check, generiert CRAFT-Scores und Roadmap-Empfehlungen | Zu entwickeln | Hoch |
+| CRAFT Explorer | Drei-Ebenen-Fragenarchitektur (Context & Readiness + Pulse Check + 5 Deep-Dives) mit Design-Methodik. 7 YAML-Dateien + METHODOLOGY.md in `deliverables/question_banks/` | **v2.0 fertig** | Hoch |
 | AI Intervention Katalog | Kuratierte Zuordnung von SDLC-Phasen zu AI-Lösungen mit Tooling-Alternativen pro Sicherheitsstufe | Entwurf vorhanden | Hoch |
 | Value Stream Mapping Template | Workshop-Material und Vorlagen für den 2-Tages-VSM-Workshop | Zu entwickeln | Hoch |
 | Governance Starter Kit | Policy-Vorlagen, Entscheidungsbaum, Betriebsrats-Leitfaden | Teilweise vorhanden | Hoch |
@@ -734,7 +756,7 @@ Nicht alle Werkzeuge müssen gleichzeitig fertig sein. Der kritische Pfad für e
 |---|-------------|-------------|---------|
 | A1 | Governance Starter Kit (Stufe 1+2) | Ohne Governance-Freigabe startet kein Pilot im Konzernumfeld. Dies ist erfahrungsgemäß der längste Vorlauf. | 2 Wochen Erstellung + Abstimmungszeit |
 | A2 | AI Intervention Katalog v1 (Top 10) | Nicht den vollständigen Katalog, sondern die 10 häufigsten Interventionen für Development, Testing und Documentation. Das reicht für einen Pilot. | 2 Wochen |
-| A3 | Pulse Check v1 (Papier/Digital-Formular) | Kein App-MVP nötig, ein strukturierter Fragebogen (Google Forms / MS Forms) reicht für den ersten Durchlauf. | 1 Woche |
+| A3 | CRAFT Explorer v2.0 | **Fertig.** Alle Question Banks (Context & Readiness + Pulse Check + 5 Deep-Dives) mit Scoring-Methodik liegen als YAML vor. Für den Pilot reicht die Umsetzung als Google/MS Forms oder die AI Navigator App (MVP). | ✅ Vorhanden |
 | A4 | Value Stream Workshop Kurzformat | Statt 2-Tages-Workshop ein fokussiertes 4-Stunden-Format für den Pilot. Vollversion nach Learnings. | 1 Woche |
 
 **Phase B: Pilot-Durchführung (24 Wochen / 6 Zyklen)**

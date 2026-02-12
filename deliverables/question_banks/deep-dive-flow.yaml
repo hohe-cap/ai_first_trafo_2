@@ -1,7 +1,7 @@
 # =============================================================================
 # CRAFT Deep-Dive: Flow & Process Integration (Dimension F)
 # =============================================================================
-# Extended assessment for the F dimension. Same quality criteria as Pulse Check.
+# Extended exploration for the F dimension. Same quality criteria as Pulse Check.
 # See METHODOLOGY.md for design principles and scoring rules.
 #
 # Version: 2.0
@@ -11,7 +11,7 @@
 # =============================================================================
 
 version: "2.0"
-assessment_type: "deep_dive_flow"
+exploration_type: "deep_dive_flow"
 dimension: "F"
 dimension_name:
   de: "Flow & Process Integration"

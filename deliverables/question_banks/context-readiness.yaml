@@ -1,11 +1,11 @@
 # =============================================================================
-# CRAFT Context & Readiness Assessment (Ebene 1)
+# CRAFT Context & Readiness Exploration (Ebene 1)
 # =============================================================================
-# One-time assessment at the start of a transformation engagement.
+# One-time exploration at the start of a transformation engagement.
 # Captures project context and diagnoses transformation readiness.
 # Output feeds into adaptive filtering for Pulse Check (Ebene 2).
 #
-# IMPORTANT: This assessment is fundamentally different from Pulse Check and
+# IMPORTANT: This exploration is fundamentally different from Pulse Check and
 # Deep-Dives. It captures FACTS and CONDITIONS, not opinions or maturity.
 # See METHODOLOGY.md Section 1 for details on this distinction.
 #
@@ -16,14 +16,14 @@
 # =============================================================================
 
 version: "2.0"
-assessment_type: "context_readiness"
+exploration_type: "context_readiness"
 description:
   de: >-
-    Einmaliges Assessment zu Beginn einer Transformationsbegleitung.
+    Einmalige Exploration zu Beginn einer Transformationsbegleitung.
     Erfasst den Projektkontext und diagnostiziert die Transformations-Readiness
     als Grundlage fuer adaptive Pulse Checks und gezielte Interventionen.
   en: >-
-    One-time assessment at the start of a transformation engagement.
+    One-time exploration at the start of a transformation engagement.
     Captures project context and diagnoses transformation readiness
     as foundation for adaptive pulse checks and targeted interventions.
 estimated_duration_minutes: 30
@@ -38,7 +38,7 @@ sections:
   - key: "context"
     name:
       de: "Kontext-Erfassung"
-      en: "Context Assessment"
+      en: "Context Exploration"
     description:
       de: "Projektrahmen, Business-Kontext, Tech-Stack und Arbeitsweise"
       en: "Project framework, business context, tech stack and working methods"
@@ -53,8 +53,8 @@ sections:
 
   - key: "readiness"
     name:
-      de: "Readiness Assessment"
-      en: "Readiness Assessment"
+      de: "Readiness Exploration"
+      en: "Readiness Exploration"
     description:
       de: "Leadership, Skills, Infrastruktur, Kultur und Prozesse"
       en: "Leadership, skills, infrastructure, culture and processes"

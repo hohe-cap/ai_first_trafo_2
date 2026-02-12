@@ -1,7 +1,7 @@
 # =============================================================================
 # CRAFT Deep-Dive: Technical Enablement (Dimension T)
 # =============================================================================
-# Extended assessment for the T dimension. Same quality criteria as Pulse Check:
+# Extended exploration for the T dimension. Same quality criteria as Pulse Check:
 # - 5-level maturity with behavioral descriptions (Exploring → Evolving)
 # - No Likert scales
 # - Anonymous, all team members respond
@@ -29,7 +29,7 @@
 # =============================================================================
 
 version: "2.0"
-assessment_type: "deep_dive_technical"
+exploration_type: "deep_dive_technical"
 dimension: "T"
 dimension_name:
   de: "Technical Enablement"
@@ -44,7 +44,7 @@ description:
   en: >-
     In-depth analysis of AI technical infrastructure and tool landscape.
     Breaks dimension T into 4 sub-topics, each with calibrated
-    5-level maturity assessment. Conducted once as baseline and then
+    5-level maturity exploration. Conducted once as baseline and then
     on-demand when pulse check shows concerns.
 
 estimated_duration_minutes: 20

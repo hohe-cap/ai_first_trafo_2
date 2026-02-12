@@ -1,7 +1,7 @@
 # =============================================================================
 # CRAFT Deep-Dive: Readiness — Human & Cultural (Dimension R)
 # =============================================================================
-# Extended assessment for the R dimension. Same quality criteria as Pulse Check.
+# Extended exploration for the R dimension. Same quality criteria as Pulse Check.
 # See METHODOLOGY.md for design principles and scoring rules.
 #
 # Version: 2.0
@@ -11,7 +11,7 @@
 # =============================================================================
 
 version: "2.0"
-assessment_type: "deep_dive_readiness"
+exploration_type: "deep_dive_readiness"
 dimension: "R"
 dimension_name:
   de: "Readiness (Human & Cultural)"

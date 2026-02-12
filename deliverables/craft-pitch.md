@@ -92,7 +92,7 @@ Am Ende der ersten zwei Zyklen (8 Wochen) hat das Team:
 
 ## Engagement-Modelle
 
-### Modell A: Quick Assessment (2 Wochen)
+### Modell A: Quick Exploration (2 Wochen)
 Pulse Check + Value Stream Kurzanalyse + priorisierte Empfehlungen. Für Teams, die einen Einstieg brauchen.
 
 **Aufwand:** ~5 Beratertage
@@ -133,7 +133,7 @@ Ausweitung auf weitere Teams, Aufbau eines internen Centers of Excellence, Champ
 „Die Zahlen zeigen: Workflow-Redesign hat den stärksten Effekt auf den Geschäftserfolg von AI-Initiativen. Unser Framework macht genau das – systematisch, iterativ und messbar. Kein Big-Bang-Rollout, sondern schrittweise Ausweitung mit eingebauten Qualitäts-Gates."
 
 ### Für das Entwicklungsteam:
-„Wir kommen nicht mit einem Assessment, das euch bewertet. Wir kommen mit einem 15-Minuten-Check, der euch zeigt wo ihr steht, und mit einem Katalog konkreter Tools und Methoden, die zu euren tatsächlichen Engpässen passen. Und ja, wir wissen, dass ihr schon längst ChatGPT nutzt – wir helfen euch, das offiziell zu machen."
+„Wir kommen nicht mit einer Prüfung, die euch bewertet. Wir kommen mit einem 15-Minuten-Check, der euch zeigt wo ihr steht, und mit einem Katalog konkreter Tools und Methoden, die zu euren tatsächlichen Engpässen passen. Und ja, wir wissen, dass ihr schon längst ChatGPT nutzt – wir helfen euch, das offiziell zu machen."
 
 ---
 
@@ -143,7 +143,7 @@ Ausweitung auf weitere Teams, Aufbau eines internen Centers of Excellence, Champ
 GitHub hilft euch, GitHub-Tools besser zu nutzen. Wir helfen euch, den richtigen Mix aus allen verfügbaren AI-Tools an den richtigen Stellen im Value Stream einzusetzen – tool-agnostisch, mit Change Management und Governance für den deutschen Konzernkontext.
 
 **„Ihr habt noch keinen Pilot. Warum sollten wir euch vertrauen?"**
-Faire Frage. Deshalb bieten wir Modell A (Quick Assessment, 2 Wochen) als Einstieg an – begrenztes Risiko, konkreter Output. Wenn der Value Stream Map und die Bottleneck-Analyse überzeugen, reden wir über den Pilot. Und: Jeder einzelne Baustein – DORA, Lean VSM, Kotter – ist jahrelang validiert. Was neu ist, ist die Integration.
+Faire Frage. Deshalb bieten wir Modell A (Quick Exploration, 2 Wochen) als Einstieg an – begrenztes Risiko, konkreter Output. Wenn der Value Stream Map und die Bottleneck-Analyse überzeugen, reden wir über den Pilot. Und: Jeder einzelne Baustein – DORA, Lean VSM, Kotter – ist jahrelang validiert. Was neu ist, ist die Integration.
 
 **„Wir haben schon ein Maturity Assessment gemacht. Was bringt ein weiteres?"**
 Maturity Assessments sagen euch, wo ihr steht. Wir sagen euch, wie ihr euch bewegt. Unser Pulse Check ist kein Selbstzweck, sondern der Eingangs-Sensor für konkrete Maßnahmen in 4-Wochen-Zyklen. Die Frage ist nicht „Welchen Score haben wir?", sondern „Was machen wir nächste Woche anders?"
@@ -152,7 +152,7 @@ Maturity Assessments sagen euch, wo ihr steht. Wir sagen euch, wie ihr euch bewe
 Weil die AI-Landschaft sich schneller ändert als jeder 6-Monats-Plan. Vor 12 Monaten gab es kein Claude Code, kein Cursor Agent Mode, keinen MCP-Standard. Ein fester Plan wäre nach 3 Monaten veraltet. Iterative Zyklen mit Readiness Gates erlauben Kurskorrektur, ohne den Gesamtrahmen zu verlieren.
 
 **„Was kostet das?"**
-Modell A (Quick Assessment): ~5 Beratertage. Modell B (Pilot): ~1 FTE AI Transformation Manager + 1 FTE Support über 24 Wochen. Der ROI-Case rechnet sich über DORA-Verbesserungen: Wenn wir Lead Time um 20% senken und Change Failure Rate um 15% reduzieren, übertrifft der Wert die Investition typischerweise um den Faktor 3–5x.
+Modell A (Quick Exploration): ~5 Beratertage. Modell B (Pilot): ~1 FTE AI Transformation Manager + 1 FTE Support über 24 Wochen. Der ROI-Case rechnet sich über DORA-Verbesserungen: Wenn wir Lead Time um 20% senken und Change Failure Rate um 15% reduzieren, übertrifft der Wert die Investition typischerweise um den Faktor 3–5x.
 
 ---
 

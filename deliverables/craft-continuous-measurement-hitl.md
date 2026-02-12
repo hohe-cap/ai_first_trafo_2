@@ -13,9 +13,9 @@ Leitprinzipien:
 
 ---
 
-## 0) Voraussetzung: Context Assessment (einmalig)
+## 0) Voraussetzung: Context Exploration (einmalig)
 
-Vor dem ersten Pulse Check wird einmalig das **CRAFT Context Assessment** (→ `craft-context-assessment.md`) durch den Engagement Lead ausgefüllt. Es erfasst:
+Vor dem ersten Pulse Check wird einmalig die **CRAFT Context Exploration** (→ `craft-context-exploration.md`) durch den Engagement Lead ausgefüllt. Sie erfasst:
 - Projekt-/Org-Rahmenbedingungen (Größe, Phase, Typ)
 - Business & Compliance (Branche, Regulierung, Vertragsmodell, BR)
 - Tech Stack & Arbeitsweise (Sprachen, IDE, Legacy, Methodik, Deployment, Zusammenarbeitsmodell)
@@ -30,10 +30,10 @@ Das Context-Profil steuert:
 
 ## 1) Mess-Architektur: 3 Sensor-Typen + Context
 
-### Context Assessment (einmalig, Engagement-Start)
+### Context Exploration (einmalig, Engagement-Start)
 - Erfasst **Rahmenbedingungen**, die sich selten ändern.
 - 19 Fragen, ~10 Minuten, ausgefüllt durch Engagement Lead.
-- Details → `craft-context-assessment.md`
+- Details → `craft-context-exploration.md`
 
 ### Sensor A — Pulse Check (anonym, quartalsweise)
 - Erfasst **Wahrnehmung, Readiness, Blocker**, Dinge die Tool-Daten nicht zeigen.
@@ -212,6 +212,6 @@ Regeln:
 ---
 
 ## 8) Praktischer Start (MVP in 2 Zyklen)
-- **Woche 0 (Kickoff):** Context Assessment ausfüllen (Engagement Lead, ~10 Min). Context-Profil generieren, CRAFT-Priorisierung ableiten.
+- **Woche 0 (Kickoff):** Context Exploration ausfüllen (Engagement Lead, ~10 Min). Context-Profil generieren, CRAFT-Priorisierung ableiten.
 - **Zyklus 1:** Context-adaptiven Pulse Check v1 durchführen, Baselines ziehen, 1 Workflow-Intervention (z.B. PR Pre‑Review).
 - **Zyklus 2:** Pulse Check v2 + Segmentierung, zweite Intervention (z.B. Testdaten), erstes Readiness Gate mit Sponsor.

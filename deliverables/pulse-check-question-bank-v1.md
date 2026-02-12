@@ -24,7 +24,7 @@ Ein kurzer, quartalsweiser Pulse Check (≤15 Minuten), der:
 - **Keine Likert-Skalen.** Stattdessen: Maturity-Stufen mit konkreten Beschreibungen (eindeutig, wenig Interpretationsspielraum).
 - Segmentfelder sind **nicht-identifizierend** und werden nur bei **k‑Anonymity** ausgewertet.
 - Keine personenbezogenen Daten (Name, E-Mail, Mitarbeiter-ID). Keine Freitextfelder, die zu Identifikation verleiten.
-- **Context-adaptive Filterung:** Fragen und MC-Optionen werden basierend auf dem CRAFT Context Assessment angepasst (→ `craft-context-assessment.md`). Irrelevante Fragen/Optionen werden ausgeblendet, branchenspezifische ergänzt.
+- **Context-adaptive Filterung:** Fragen und MC-Optionen werden basierend auf der CRAFT Context Exploration angepasst (→ `craft-context-exploration.md`). Irrelevante Fragen/Optionen werden ausgeblendet, branchenspezifische ergänzt.
 
 **Warum Maturity-Stufen statt Likert?**
 - Jede Stufe beschreibt ein **konkretes Verhalten/eine konkrete Situation** — weniger Interpretationsspielraum als „stimme eher zu".
