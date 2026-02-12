@@ -1,386 +1,522 @@
-# Deep Dive Assessment: Compliance & Governance (Dimension C)
-# Triggered when C-Score < 2 in quarterly Pulse Check
-# Focus: Diagnose WHY compliance is blocking AI adoption
-# Duration: ~15 minutes
+# =============================================================================
+# CRAFT Deep-Dive: Compliance & Governance (Dimension C)
+# =============================================================================
+# Extended assessment for the C dimension. Same quality criteria as Pulse Check:
+# - 5-level maturity with behavioral descriptions (Exploring → Evolving)
+# - No Likert scales
+# - Anonymous, all team members respond
+#
+# Usage:
+# - Once at kickoff (baseline) + on-demand when Pulse Check C-Score drops
+# - Respondent: All team members (anonymous, segmentable)
+# - Duration: ~15-20 minutes
+#
+# Relationship to Pulse Check:
+# - Pulse Check C-M1 = high-level summary (1 maturity question)
+# - This Deep-Dive = granular view (4 maturity sub-topics + diagnostics)
+# - Deep-Dive sub-topic scores aggregate to the same 1-5 spider score
+#
+# Version: 2.0
+# Last Updated: 2026-02-12
+# Total Questions: 9 (2 Context + 4 Maturity + 2 MC-Diagnostik + 1 Powerful Question)
+# Estimated Duration: 15-20 minutes
+# =============================================================================
 
-version: "1.0"
+version: "2.0"
 assessment_type: "deep_dive_compliance"
-description:
-  de: "Vertiefende Analyse der Compliance- und Governance-Barrieren. Wird ausgelöst wenn der C-Score unter 2 liegt. Ziel: Identifizieren ob fehlende Policies, langsame Prozesse, unklare Verantwortlichkeiten oder kultureller Widerstand gegen Governance die Hauptblockade darstellen."
-  en: "In-depth analysis of compliance and governance barriers. Triggered when C-Score is below 2. Goal: Identify whether missing policies, slow processes, unclear ownership, or cultural resistance to governance are the main blockers."
-estimated_duration_minutes: 15
-trigger:
-  dimension: "C"
-  condition: "score < 2 in pulse check"
-respondent: "AI Transformation Manager or Governance Liaison"
+dimension: "C"
+dimension_name:
+  de: "Compliance & Governance"
+  en: "Compliance & Governance"
 
-questions:
-  - question_key: "dd_c_01"
-    question_text:
-      de: "Welches ist aktuell der GRÖSSTE Compliance-Blocker für AI-Adoption in Ihrem Team?"
-      en: "What is currently the BIGGEST compliance blocker for AI adoption in your team?"
-    why_important:
-      de: "Identifiziert die Haupt-Barriere um gezielte Maßnahmen zu priorisieren."
-      en: "Identifies the main barrier to prioritize targeted actions."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "missing_policies"
-        de: "Fehlende oder unklare AI-Nutzungs-Policies"
-        en: "Missing or unclear AI usage policies"
-        score: 20
-        order: 1
-      - key: "slow_approval"
-        de: "Zu langsame Genehmigungs- und Freigabeprozesse"
-        en: "Too slow approval and release processes"
-        score: 40
-        order: 2
-      - key: "unclear_ownership"
-        de: "Unklare Verantwortlichkeiten (wer darf was entscheiden?)"
-        en: "Unclear responsibilities (who can decide what?)"
-        score: 30
-        order: 3
-      - key: "betriebsrat"
-        de: "Betriebsrat-Abstimmung noch nicht erfolgt oder blockiert"
-        en: "Works council alignment not yet done or blocked"
-        score: 10
-        order: 4
-      - key: "data_classification"
-        de: "Unklare Datenklassifizierung (was darf wohin?)"
-        en: "Unclear data classification (what can go where?)"
-        score: 25
-        order: 5
-      - key: "no_blocker"
-        de: "Kein signifikanter Blocker vorhanden"
-        en: "No significant blocker present"
-        score: 100
-        order: 6
-    weight: 1.5
+description:
+  de: >-
+    Vertiefende Analyse der Compliance- und Governance-Reife.
+    Bricht die Dimension C in 4 Sub-Topics auf, jeweils mit kalibrierter
+    5-Level-Maturity-Bewertung. Wird einmalig als Baseline und danach
+    on-demand bei auffaelligem Pulse Check durchgefuehrt.
+  en: >-
+    In-depth analysis of compliance and governance maturity.
+    Breaks dimension C into 4 sub-topics, each with calibrated
+    5-level maturity assessment. Conducted once as baseline and then
+    on-demand when pulse check shows concerns.
+
+estimated_duration_minutes: 20
+frequency: "once_at_kickoff_then_on_demand"
+trigger:
+  condition: "Kickoff baseline OR C-Score drop/stagnation in Pulse Check"
+respondent: "All team members (individual, anonymous)"
+
+# =============================================================================
+# DESIGN PRINCIPLES
+# =============================================================================
+design_principles:
+  de:
+    - "Alle Maturity-Fragen folgen demselben 5-Level-Progressionsmuster"
+    - "Keine Likert-Skalen — nur konkrete Verhaltensbeschreibungen"
+    - "Anonym, segmentierbar, gleiche Regeln wie Pulse Check"
+    - "Context-Fragen informieren die Analyse, fliessen aber nicht direkt in den Spider-Score"
+    - "MC-Diagnostik erklaert das WARUM hinter den Maturity-Scores"
+    - "Powerful Question gibt individuellen Reflexionsraum"
+  en:
+    - "All maturity questions follow the same 5-level progression pattern"
+    - "No Likert scales — only concrete behavioral descriptions"
+    - "Anonymous, segmentable, same rules as Pulse Check"
+    - "Context questions inform analysis but don't directly feed into spider score"
+    - "MC diagnostics explain the WHY behind maturity scores"
+    - "Powerful question provides individual reflection space"
+
+# =============================================================================
+# UNIVERSAL MATURITY PROGRESSION PATTERN
+# =============================================================================
+# Every maturity question across ALL dimensions follows this pattern.
+# This ensures Level 3 in Sub-Topic A is comparable to Level 3 in Sub-Topic B.
+maturity_calibration:
+  pattern:
+    1:
+      label:
+        de: "Exploring"
+        en: "Exploring"
+      description:
+        de: "Kein Bewusstsein, keine Struktur, keine Prozesse"
+        en: "No awareness, no structure, no processes"
+    2:
+      label:
+        de: "Experimenting"
+        en: "Experimenting"
+      description:
+        de: "Bewusstsein vorhanden, aber ad-hoc und unsicher"
+        en: "Awareness present, but ad-hoc and uncertain"
+    3:
+      label:
+        de: "Embedding"
+        en: "Embedding"
+      description:
+        de: "Definierter Prozess, funktioniert grundlegend"
+        en: "Defined process, works basically"
+    4:
+      label:
+        de: "Scaling"
+        en: "Scaling"
+      description:
+        de: "Effektiv, gemessen, praxisnah"
+        en: "Effective, measured, practical"
+    5:
+      label:
+        de: "Evolving"
+        en: "Evolving"
+      description:
+        de: "Integriert, automatisiert, kontinuierlich optimiert"
+        en: "Integrated, automated, continuously optimized"
+
+# =============================================================================
+# SUB-TOPICS (define the granular aspects of this dimension)
+# =============================================================================
+sub_topics:
+  - key: "policy_clarity"
+    name:
+      de: "Policy-Klarheit & Zugaenglichkeit"
+      en: "Policy Clarity & Accessibility"
+    description:
+      de: "Sind AI-Policies klar, praxisnah, auffindbar und verstaendlich?"
+      en: "Are AI policies clear, practical, findable, and understandable?"
     order: 1
 
-  - question_key: "dd_c_02"
+  - key: "governance_speed"
+    name:
+      de: "Governance-Geschwindigkeit"
+      en: "Governance Speed"
+    description:
+      de: "Wie schnell werden Governance-Entscheidungen und Tool-Freigaben getroffen?"
+      en: "How quickly are governance decisions and tool approvals made?"
+    order: 2
+
+  - key: "data_classification"
+    name:
+      de: "Datenklassifizierung & Schutz"
+      en: "Data Classification & Protection"
+    description:
+      de: "Wissen Teams welche Daten in welche AI-Tools eingegeben werden duerfen?"
+      en: "Do teams know which data may be entered into which AI tools?"
+    order: 3
+
+  - key: "regulatory_readiness"
+    name:
+      de: "Regulatorische Readiness"
+      en: "Regulatory Readiness"
+    description:
+      de: "Ist die Organisation auf EU AI Act, Betriebsrat und rechtliche Anforderungen vorbereitet?"
+      en: "Is the organization prepared for EU AI Act, works council, and legal requirements?"
+    order: 4
+
+# =============================================================================
+# QUESTIONS
+# =============================================================================
+questions:
+
+  # ---------------------------------------------------------------------------
+  # CONTEXT / METRIC QUESTIONS (inform analysis, not in spider score)
+  # ---------------------------------------------------------------------------
+  - question_key: "C-CTX-1"
+    question_type: "context"
+    sub_topic: ~
     question_text:
-      de: "Wie lange dauert aktuell die Freigabe eines neuen AI-Tools (von Anfrage bis produktiver Nutzung)?"
-      en: "How long does approval of a new AI tool currently take (from request to productive use)?"
+      de: "Gibt es eine schriftliche AI-Nutzungs-Policy in eurer Organisation?"
+      en: "Is there a written AI usage policy in your organization?"
     why_important:
-      de: "Time-to-approval ist ein kritischer KPI für Governance-Effizienz. Wartezeiten >4 Wochen blockieren Innovation."
-      en: "Time-to-approval is a critical KPI for governance efficiency. Wait times >4 weeks block innovation."
+      de: "Faktische Grundlage: Ohne Policy agieren Teams im Graubereich."
+      en: "Factual basis: Without policy, teams operate in gray areas."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "comprehensive_official"
+        de: "Ja, umfassend und offiziell verabschiedet"
+        en: "Yes, comprehensive and officially adopted"
+        order: 1
+      - key: "exists_limited"
+        de: "Ja, aber nur fuer bestimmte Bereiche oder zu allgemein"
+        en: "Yes, but only for specific areas or too general"
+        order: 2
+      - key: "draft_only"
+        de: "Nur als Entwurf vorhanden, nicht offiziell"
+        en: "Only available as draft, not official"
+        order: 3
+      - key: "no_policy"
+        de: "Nein, keine Policy vorhanden"
+        en: "No, no policy available"
+        order: 4
+      - key: "unknown"
+        de: "Weiss nicht / nicht bekannt"
+        en: "Don't know / not known"
+        order: 5
+    scoring_note: "Context only — does not feed into spider score directly"
+    order: 1
+
+  - question_key: "C-CTX-2"
+    question_type: "context"
+    sub_topic: ~
+    question_text:
+      de: "Wie lange dauert typischerweise die Freigabe eines neuen AI-Tools (von Anfrage bis produktive Nutzung)?"
+      en: "How long does approval of a new AI tool typically take (from request to productive use)?"
+    why_important:
+      de: "Metrik: Time-to-approval ist ein KPI fuer Governance-Effizienz."
+      en: "Metric: Time-to-approval is a KPI for governance efficiency."
     answer_type: "single_choice"
     answer_options:
       - key: "under_1_week"
         de: "Unter 1 Woche"
         en: "Under 1 week"
-        score: 100
         order: 1
       - key: "1_to_2_weeks"
         de: "1-2 Wochen"
         en: "1-2 weeks"
-        score: 80
         order: 2
       - key: "2_to_4_weeks"
         de: "2-4 Wochen"
         en: "2-4 weeks"
-        score: 50
         order: 3
       - key: "4_to_8_weeks"
         de: "4-8 Wochen"
         en: "4-8 weeks"
-        score: 20
         order: 4
       - key: "over_8_weeks"
-        de: "Über 8 Wochen oder keine Freigabe erfolgt"
-        en: "Over 8 weeks or no approval granted"
-        score: 0
+        de: "Ueber 8 Wochen oder noch nie beantragt"
+        en: "Over 8 weeks or never requested"
         order: 5
-      - key: "never_requested"
-        de: "Noch nie beantragt / nicht bekannt"
-        en: "Never requested / not known"
-        score: 10
-        order: 6
-    weight: 1.3
+    scoring_note: "Context only — does not feed into spider score directly"
     order: 2
 
-  - question_key: "dd_c_03"
+  # ---------------------------------------------------------------------------
+  # MATURITY QUESTIONS (one per sub-topic, calibrated 5-level)
+  # ---------------------------------------------------------------------------
+  - question_key: "C-M-POLICY"
+    question_type: "maturity"
+    sub_topic: "policy_clarity"
     question_text:
-      de: "Gibt es eine schriftliche AI-Nutzungs-Policy die für Entwickler zugänglich und verständlich ist?"
-      en: "Is there a written AI usage policy that is accessible and understandable for developers?"
-    why_important:
-      de: "Ohne klare Policy agieren Teams im Graubereich oder gar nicht. Eine Policy muss existieren, kommuniziert sein und verstanden werden."
-      en: "Without clear policy, teams operate in gray areas or not at all. A policy must exist, be communicated, and be understood."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "comprehensive_clear"
-        de: "Ja, umfassend und klar formuliert, Team kennt sie"
-        en: "Yes, comprehensive and clearly formulated, team knows it"
-        score: 100
-        order: 1
-      - key: "exists_unclear"
-        de: "Ja, existiert, aber schwer verständlich oder zu allgemein"
-        en: "Yes, exists but hard to understand or too general"
-        score: 60
-        order: 2
-      - key: "draft_only"
-        de: "Nur als Draft vorhanden, noch nicht offiziell"
-        en: "Only available as draft, not yet official"
-        score: 40
-        order: 3
-      - key: "no_policy"
-        de: "Nein, keine Policy vorhanden"
-        en: "No, no policy available"
-        score: 0
-        order: 4
-      - key: "unknown"
-        de: "Weiß nicht / nicht bekannt im Team"
-        en: "Don't know / not known in team"
-        score: 10
-        order: 5
-    weight: 1.4
+      de: "Welche Stufe beschreibt die AI-Policy-Situation in deinem Team am besten?"
+      en: "Which level best describes the AI policy situation in your team?"
+    maturity_levels:
+      1:
+        label: "Exploring"
+        de: "Ich weiss nicht, ob es AI-Regeln gibt; wenn ja, kenne ich sie nicht."
+        en: "I don't know if AI rules exist; if so, I don't know them."
+      2:
+        label: "Experimenting"
+        de: "Es gibt Regeln, aber sie sind schwer zu finden, zu allgemein oder fuer meinen Alltag nicht verstaendlich."
+        en: "Rules exist, but they're hard to find, too general, or not understandable for my daily work."
+      3:
+        label: "Embedding"
+        de: "Policies sind dokumentiert, bekannt und decken die wichtigsten Faelle ab; bei Spezialfaellen gibt es noch Grauzonen."
+        en: "Policies are documented, known, and cover the key cases; there are still gray areas for special cases."
+      4:
+        label: "Scaling"
+        de: "Policies sind klar, praxisnah und leicht auffindbar; Entscheidungshilfen (z.B. Ampelsystem) helfen mir im Alltag."
+        en: "Policies are clear, practical, and easy to find; decision aids (e.g., traffic light system) help me daily."
+      5:
+        label: "Evolving"
+        de: "Policies werden regelmaessig aktualisiert, Feedback-Loops existieren, und ich kann selbst pruefen ob ein Use Case konform ist."
+        en: "Policies are regularly updated, feedback loops exist, and I can self-check whether a use case is compliant."
     order: 3
 
-  - question_key: "dd_c_04"
+  - question_key: "C-M-SPEED"
+    question_type: "maturity"
+    sub_topic: "governance_speed"
     question_text:
-      de: "Wurde die Nutzung von AI-Coding-Tools (z.B. GitHub Copilot, Claude, ChatGPT) mit dem Betriebsrat abgestimmt?"
-      en: "Has the use of AI coding tools (e.g., GitHub Copilot, Claude, ChatGPT) been aligned with the works council?"
-    why_important:
-      de: "Betriebsrat-Abstimmung ist in Deutschland gesetzlich erforderlich bei Überwachungs-Potential. Fehlende Abstimmung ist ein rechtliches Risiko."
-      en: "Works council alignment is legally required in Germany when monitoring potential exists. Missing alignment is a legal risk."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "formally_approved"
-        de: "Ja, formell abgestimmt und genehmigt (Betriebsvereinbarung)"
-        en: "Yes, formally aligned and approved (works agreement)"
-        score: 100
-        order: 1
-      - key: "in_progress"
-        de: "Abstimmung läuft, konstruktiver Dialog"
-        en: "Alignment in progress, constructive dialogue"
-        score: 60
-        order: 2
-      - key: "stalled"
-        de: "Abstimmung läuft, aber stockt oder Widerstand"
-        en: "Alignment in progress but stalled or resistance"
-        score: 30
-        order: 3
-      - key: "not_started"
-        de: "Noch nicht gestartet"
-        en: "Not yet started"
-        score: 10
-        order: 4
-      - key: "not_applicable"
-        de: "Nicht erforderlich (kein Betriebsrat / andere Jurisdiktion)"
-        en: "Not applicable (no works council / other jurisdiction)"
-        score: 100
-        order: 5
-    weight: 1.2
+      de: "Welche Stufe beschreibt die Geschwindigkeit eurer Governance-Entscheidungen am besten?"
+      en: "Which level best describes the speed of your governance decisions?"
+    maturity_levels:
+      1:
+        label: "Exploring"
+        de: "Es gibt keinen erkennbaren Prozess fuer AI-bezogene Entscheidungen oder Freigaben."
+        en: "There is no recognizable process for AI-related decisions or approvals."
+      2:
+        label: "Experimenting"
+        de: "Es gibt einen informellen Weg, aber Wartezeiten sind unvorhersehbar und es ist unklar, wer entscheidet."
+        en: "There's an informal path, but wait times are unpredictable and it's unclear who decides."
+      3:
+        label: "Embedding"
+        de: "Ein Freigabeprozess existiert und Ansprechpartner sind benannt, aber es dauert oft Wochen."
+        en: "An approval process exists and contacts are named, but it often takes weeks."
+      4:
+        label: "Scaling"
+        de: "Freigaben haben ein SLA (unter 1 Woche), Eskalationswege sind klar, Fast-Track fuer Standard-Tools existiert."
+        en: "Approvals have an SLA (under 1 week), escalation paths are clear, fast-track for standard tools exists."
+      5:
+        label: "Evolving"
+        de: "Self-Service-Freigabe fuer Standard-Tools, automatisierte Compliance-Checks; Governance ist kein Bottleneck mehr."
+        en: "Self-service approval for standard tools, automated compliance checks; governance is no longer a bottleneck."
     order: 4
 
-  - question_key: "dd_c_05"
+  - question_key: "C-M-DATA"
+    question_type: "maturity"
+    sub_topic: "data_classification"
     question_text:
-      de: "Wie gut verstehen Entwickler welche Daten sie in welche AI-Tools eingeben dürfen (Datenklassifizierung)?"
-      en: "How well do developers understand which data they may input into which AI tools (data classification)?"
-    why_important:
-      de: "Unklare Datenklassifizierung führt zu Angst oder Verstößen. Klarheit ist Voraussetzung für sichere Nutzung."
-      en: "Unclear data classification leads to fear or violations. Clarity is prerequisite for safe usage."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "very_clear"
-        de: "Sehr klar - klare Regeln, einfache Entscheidungshilfen (z.B. Ampel-System)"
-        en: "Very clear - clear rules, simple decision aids (e.g., traffic light system)"
-        score: 100
-        order: 1
-      - key: "mostly_clear"
-        de: "Überwiegend klar - einige Grauzonen, aber Ansprechpartner verfügbar"
-        en: "Mostly clear - some gray areas, but contact persons available"
-        score: 70
-        order: 2
-      - key: "unclear"
-        de: "Unklar - viel Unsicherheit, keine klaren Guidelines"
-        en: "Unclear - much uncertainty, no clear guidelines"
-        score: 30
-        order: 3
-      - key: "very_unclear"
-        de: "Sehr unklar - im Zweifel wird gar nichts genutzt"
-        en: "Very unclear - when in doubt, nothing is used"
-        score: 0
-        order: 4
-    weight: 1.3
+      de: "Welche Stufe beschreibt euren Umgang mit Datenklassifizierung im AI-Kontext am besten?"
+      en: "Which level best describes how you handle data classification in the AI context?"
+    maturity_levels:
+      1:
+        label: "Exploring"
+        de: "Ich weiss nicht, welche Daten ich in welche AI-Tools eingeben darf; es gibt keine klaren Regeln."
+        en: "I don't know which data I may enter into which AI tools; there are no clear rules."
+      2:
+        label: "Experimenting"
+        de: "Es gibt grobe Regeln (z.B. 'keine Kundendaten'), aber viele Grauzonen; im Zweifel nutze ich AI lieber gar nicht."
+        en: "There are rough rules (e.g., 'no customer data'), but many gray areas; when in doubt, I'd rather not use AI."
+      3:
+        label: "Embedding"
+        de: "Datenklassifizierung ist definiert und kommuniziert; fuer die meisten Situationen weiss ich, was erlaubt ist."
+        en: "Data classification is defined and communicated; for most situations, I know what's allowed."
+      4:
+        label: "Scaling"
+        de: "Klares Ampelsystem oder Entscheidungsbaum; jede Sicherheitsstufe hat definierte erlaubte Datentypen; schnelle Antworten bei Grenzfaellen."
+        en: "Clear traffic light system or decision tree; each security tier has defined allowed data types; quick answers for edge cases."
+      5:
+        label: "Evolving"
+        de: "Automatisierte Checks verhindern falsche Dateneingabe; Klassifizierung ist in Tools integriert (z.B. Context-Filter, DLP)."
+        en: "Automated checks prevent wrong data input; classification is integrated into tools (e.g., context filters, DLP)."
     order: 5
 
-  - question_key: "dd_c_06"
+  - question_key: "C-M-REGULATORY"
+    question_type: "maturity"
+    sub_topic: "regulatory_readiness"
     question_text:
-      de: "Welche der drei Sicherheitsstufen sind in Ihrer Organisation VERFÜGBAR? (Mehrfachauswahl möglich)"
-      en: "Which of the three security tiers are AVAILABLE in your organization? (Multiple selection possible)"
-    why_important:
-      de: "Multi-Tier-Strategie ist entscheidend: Public Cloud für unkritische Daten, Private Cloud für sensible, Air-gapped für streng vertraulich."
-      en: "Multi-tier strategy is crucial: Public cloud for non-critical data, private cloud for sensitive, air-gapped for strictly confidential."
-    answer_type: "multiple_choice"
-    allow_multiple: true
-    answer_options:
-      - key: "tier1_public"
-        de: "Stufe 1: Public Cloud (GitHub Copilot, Claude Pro, ChatGPT Enterprise)"
-        en: "Tier 1: Public Cloud (GitHub Copilot, Claude Pro, ChatGPT Enterprise)"
-        score: 30
-        order: 1
-      - key: "tier2_private"
-        de: "Stufe 2: Private Cloud (Azure OpenAI, AWS Bedrock im eigenen Tenant)"
-        en: "Tier 2: Private Cloud (Azure OpenAI, AWS Bedrock in own tenant)"
-        score: 40
-        order: 2
-      - key: "tier3_airgapped"
-        de: "Stufe 3: Air-gapped (Ollama/vLLM lokal, Continue.dev)"
-        en: "Tier 3: Air-gapped (Ollama/vLLM local, Continue.dev)"
-        score: 30
-        order: 3
-      - key: "none"
-        de: "Keine Stufe verfügbar"
-        en: "No tier available"
-        score: 0
-        order: 4
-    weight: 1.4
+      de: "Welche Stufe beschreibt eure Vorbereitung auf regulatorische Anforderungen (EU AI Act, Betriebsrat, etc.) am besten?"
+      en: "Which level best describes your preparation for regulatory requirements (EU AI Act, works council, etc.)?"
+    maturity_levels:
+      1:
+        label: "Exploring"
+        de: "Regulatorische Anforderungen an AI-Nutzung sind mir nicht bekannt oder werden nicht adressiert."
+        en: "Regulatory requirements for AI usage are not known to me or are not being addressed."
+      2:
+        label: "Experimenting"
+        de: "Ich weiss, dass es Anforderungen gibt (z.B. EU AI Act, Betriebsrat), aber es gibt noch keinen konkreten Plan."
+        en: "I know requirements exist (e.g., EU AI Act, works council), but there's no concrete plan yet."
+      3:
+        label: "Embedding"
+        de: "Erste Schritte sind gemacht (z.B. Gap-Analyse, Betriebsrat informiert); Umsetzung hat begonnen, ist aber lueckenhaft."
+        en: "First steps taken (e.g., gap analysis, works council informed); implementation started but has gaps."
+      4:
+        label: "Scaling"
+        de: "Roadmap steht, Betriebsvereinbarung ist vereinbart oder in Abstimmung; EU AI Act Compliance wird systematisch umgesetzt."
+        en: "Roadmap in place, works agreement is agreed or in alignment; EU AI Act compliance is being systematically implemented."
+      5:
+        label: "Evolving"
+        de: "Alle regulatorischen Anforderungen umgesetzt und proaktiv monitored; Betriebsvereinbarung wird gelebt; neue Regulierung wird fruehzeitig antizipiert."
+        en: "All regulatory requirements implemented and proactively monitored; works agreement is lived; new regulation is anticipated early."
     order: 6
 
-  - question_key: "dd_c_07"
+  # ---------------------------------------------------------------------------
+  # MC DIAGNOSTICS (explain the WHY)
+  # ---------------------------------------------------------------------------
+  - question_key: "C-MC-BLOCKER"
+    question_type: "diagnostic"
     question_text:
-      de: "Wer ist die VERANTWORTLICHE Person/Rolle für AI-Governance-Entscheidungen in Ihrer Organisation?"
-      en: "Who is the RESPONSIBLE person/role for AI governance decisions in your organization?"
-    why_important:
-      de: "Ohne klaren Owner verzögern sich Entscheidungen oder fallen gar nicht. Ownership ist kritisch für Geschwindigkeit."
-      en: "Without clear owner, decisions are delayed or never made. Ownership is critical for speed."
+      de: "Was blockiert euch aktuell am staerksten im Bereich Compliance & Governance?"
+      en: "What currently blocks you most in the area of compliance & governance?"
     answer_type: "single_choice"
     answer_options:
-      - key: "dedicated_role"
-        de: "Dedizierte Rolle (z.B. AI Governance Lead, CISO mit AI-Fokus)"
-        en: "Dedicated role (e.g., AI Governance Lead, CISO with AI focus)"
-        score: 100
+      - key: "unclear_data_rules"
+        de: "Unklare Datenklassifizierung — weiss nicht, was wohin darf"
+        en: "Unclear data classification — don't know what goes where"
         order: 1
-      - key: "shared_clear"
-        de: "Geteilte Verantwortung, aber klar definiert (z.B. CISO + Legal)"
-        en: "Shared responsibility, but clearly defined (e.g., CISO + Legal)"
-        score: 80
+      - key: "slow_approval"
+        de: "Tool-Freigabe zu langsam oder gar nicht moeglich"
+        en: "Tool approval too slow or not possible at all"
         order: 2
-      - key: "shared_unclear"
-        de: "Geteilte Verantwortung, aber Grenzen unklar"
-        en: "Shared responsibility, but boundaries unclear"
-        score: 40
+      - key: "betriebsrat_stalled"
+        de: "Betriebsrat-Abstimmung fehlt oder stockt"
+        en: "Works council alignment missing or stalled"
         order: 3
-      - key: "no_owner"
-        de: "Keine klare Verantwortlichkeit definiert"
-        en: "No clear responsibility defined"
-        score: 0
+      - key: "no_policy"
+        de: "Keine oder unklare AI-Nutzungs-Policy"
+        en: "No or unclear AI usage policy"
         order: 4
-    weight: 1.3
+      - key: "cost_quota"
+        de: "Kosten- oder Quota-Einschraenkungen"
+        en: "Cost or quota restrictions"
+        order: 5
+      - key: "nothing"
+        de: "Nichts blockiert aktuell"
+        en: "Nothing currently blocking"
+        order: 6
+      - key: "other"
+        de: "Anderes"
+        en: "Other"
+        order: 7
     order: 7
 
-  - question_key: "dd_c_08"
+  - question_key: "C-MC-INTERVENTION"
+    question_type: "diagnostic"
     question_text:
-      de: "Gibt es einen Eskalationsweg wenn ein Team auf einen Governance-Blocker trifft?"
-      en: "Is there an escalation path when a team encounters a governance blocker?"
-    why_important:
-      de: "Ohne Eskalationsweg bleiben Blocker bestehen. Ein funktionierender Fast-Track ist entscheidend für Agilität."
-      en: "Without escalation path, blockers persist. A functioning fast-track is crucial for agility."
+      de: "Welche Massnahme wuerde euch im Bereich Compliance & Governance am meisten helfen?"
+      en: "Which measure would help you most in compliance & governance?"
     answer_type: "single_choice"
     answer_options:
-      - key: "fast_track"
-        de: "Ja, definierter Fast-Track mit SLA (z.B. 48h Reaktionszeit)"
-        en: "Yes, defined fast-track with SLA (e.g., 48h response time)"
-        score: 100
+      - key: "practical_policy"
+        de: "Praxisnahe Policy mit konkreten Beispielen und Entscheidungshilfen"
+        en: "Practical policy with concrete examples and decision aids"
         order: 1
-      - key: "informal"
-        de: "Ja, informell über bekannte Ansprechpartner"
-        en: "Yes, informally via known contact persons"
-        score: 70
+      - key: "faster_approval"
+        de: "Schnellerer Freigabeprozess / Fast-Track fuer Standard-Tools"
+        en: "Faster approval process / fast-track for standard tools"
         order: 2
-      - key: "unclear"
-        de: "Unklar oder zu langwierig"
-        en: "Unclear or too lengthy"
-        score: 30
+      - key: "clear_data_rules"
+        de: "Klare Datenklassifizierung (Ampelsystem: was darf wohin?)"
+        en: "Clear data classification (traffic light system: what goes where?)"
         order: 3
-      - key: "no_path"
-        de: "Nein, kein Eskalationsweg bekannt"
-        en: "No, no escalation path known"
-        score: 0
+      - key: "betriebsvereinbarung"
+        de: "Betriebsvereinbarung fuer AI-Tools abschliessen"
+        en: "Conclude works agreement for AI tools"
         order: 4
-    weight: 1.2
+      - key: "self_service_checks"
+        de: "Self-Service Compliance-Checks (kann ich das nutzen? Ja/Nein)"
+        en: "Self-service compliance checks (can I use this? Yes/No)"
+        order: 5
+      - key: "better_communication"
+        de: "Bessere Kommunikation bestehender Regeln und Ansprechpartner"
+        en: "Better communication of existing rules and contacts"
+        order: 6
+      - key: "other"
+        de: "Anderes"
+        en: "Other"
+        order: 7
     order: 8
 
-  - question_key: "dd_c_09"
+  # ---------------------------------------------------------------------------
+  # POWERFUL QUESTION (individual reflection, optional)
+  # ---------------------------------------------------------------------------
+  - question_key: "C-PQ"
+    question_type: "powerful_question"
+    optional: true
     question_text:
-      de: "Wie hoch schätzen Sie das Risiko ein dass Shadow AI (ungenehmigt genutzte Tools) ein Compliance-Problem darstellt?"
-      en: "How high do you estimate the risk that Shadow AI (unapproved tools used) poses a compliance problem?"
-    why_important:
-      de: "Shadow AI ist ein Indikator für fehlende offizielle Alternativen oder zu restriktive Policies. Hohe Shadow AI = Governance-Failure."
-      en: "Shadow AI is an indicator of missing official alternatives or too restrictive policies. High Shadow AI = governance failure."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "low_managed"
-        de: "Niedrig - wir haben Amnestie angeboten und kanalisieren Shadow AI"
-        en: "Low - we offered amnesty and channel Shadow AI"
-        score: 100
-        order: 1
-      - key: "medium_aware"
-        de: "Mittel - wir wissen davon, arbeiten an offiziellen Alternativen"
-        en: "Medium - we know about it, working on official alternatives"
-        score: 60
-        order: 2
-      - key: "high_unmanaged"
-        de: "Hoch - weitverbreitet, aber nicht adressiert"
-        en: "High - widespread but not addressed"
-        score: 20
-        order: 3
-      - key: "unknown"
-        de: "Unbekannt - wir haben keinen Überblick"
-        en: "Unknown - we have no overview"
-        score: 10
-        order: 4
-    weight: 1.1
+      de: "Welche Governance-Regel wuerde sich morgen aendern, wenn du entscheiden duerftest?"
+      en: "Which governance rule would change tomorrow if you could decide?"
+    max_length: 280
+    moderation_note:
+      de: "Nur als Themen-Cluster veroeffentlichen, nie als Rohtext. k-Anonymitaet beachten."
+      en: "Only publish as topic clusters, never as raw text. Observe k-anonymity."
     order: 9
 
-  - question_key: "dd_c_10"
-    question_text:
-      de: "Wie ist Ihre Organisation auf den EU AI Act vorbereitet (Inkrafttreten 2026)?"
-      en: "How is your organization prepared for the EU AI Act (effective 2026)?"
-    why_important:
-      de: "EU AI Act wird verbindlich. Unvorbereitet sein bedeutet Compliance-Risiko und potenzielle Bußgelder."
-      en: "EU AI Act will be binding. Being unprepared means compliance risk and potential fines."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "well_prepared"
-        de: "Gut vorbereitet - Gap-Analyse gemacht, Roadmap definiert"
-        en: "Well prepared - gap analysis done, roadmap defined"
-        score: 100
-        order: 1
-      - key: "awareness"
-        de: "Bewusstsein vorhanden, erste Schritte geplant"
-        en: "Awareness present, first steps planned"
-        score: 60
-        order: 2
-      - key: "minimal"
-        de: "Minimal - bekannt, aber noch nicht adressiert"
-        en: "Minimal - known but not yet addressed"
-        score: 30
-        order: 3
-      - key: "unaware"
-        de: "Nicht bekannt / nicht adressiert"
-        en: "Not known / not addressed"
-        score: 0
-        order: 4
-    weight: 1.0
-    order: 10
-
+# =============================================================================
+# SCORING
+# =============================================================================
 scoring:
-  dimension: "C"
-  formula: "weighted_average"
+  method:
+    de: >-
+      Spider-Score = (Median der 4 Maturity-Antworten x 0.6) + (Minimum x 0.4).
+      Der Minimum-Anteil verhindert, dass kritische Schwaechen im Durchschnitt
+      verschwinden. Ein Sub-Topic auf Level 1 ist ein Blocker, egal wie gut der Rest ist.
+    en: >-
+      Spider score = (Median of 4 maturity answers x 0.6) + (Minimum x 0.4).
+      The minimum component prevents critical weaknesses from disappearing in
+      the average. A sub-topic at Level 1 is a blocker, no matter how good the rest is.
+  formula: "(median(C-M-POLICY, C-M-SPEED, C-M-DATA, C-M-REGULATORY) * 0.6) + (min(C-M-POLICY, C-M-SPEED, C-M-DATA, C-M-REGULATORY) * 0.4)"
+  scale: "1-5"
+
+  sub_topic_profile:
+    description:
+      de: >-
+        Neben dem aggregierten Spider-Score wird immer ein Sub-Topic-Profil
+        (Balkendiagramm) angezeigt, das die Einzelscores sichtbar macht.
+        Dies ist die entscheidende Darstellung fuer Interventionsplanung.
+      en: >-
+        Alongside the aggregated spider score, a sub-topic profile
+        (bar chart) is always displayed showing individual scores.
+        This is the key visualization for intervention planning.
+
+  context_questions:
+    description:
+      de: >-
+        Context-Fragen (C-CTX-*) fliessen NICHT direkt in den Spider-Score,
+        sondern informieren die qualitative Analyse und Interventionsplanung.
+        Sie koennen Maturity-Scores validieren oder widersprechen
+        (z.B. Team sagt Level 4 bei Governance-Speed, aber Approval dauert 8 Wochen).
+      en: >-
+        Context questions (C-CTX-*) do NOT directly feed into the spider score,
+        but inform qualitative analysis and intervention planning.
+        They can validate or contradict maturity scores
+        (e.g., team says Level 4 for governance speed, but approval takes 8 weeks).
+
   interpretation:
-    de: |
-      C-Score Interpretation:
-      - 0-30: Kritisch - fundamentale Governance-Lücken, hohes Compliance-Risiko
-      - 31-50: Schwach - wichtige Policies fehlen oder Prozesse zu langsam
-      - 51-70: Entwicklung - Grundlagen vorhanden, aber Optimierungsbedarf
-      - 71-85: Gut - funktionierende Governance, moderate Geschwindigkeit
-      - 86-100: Exzellent - agile Governance, klare Verantwortlichkeiten, schnelle Freigaben
-    en: |
-      C-Score Interpretation:
-      - 0-30: Critical - fundamental governance gaps, high compliance risk
-      - 31-50: Weak - important policies missing or processes too slow
-      - 51-70: Developing - basics present but optimization needed
-      - 71-85: Good - functioning governance, moderate speed
-      - 86-100: Excellent - agile governance, clear responsibilities, fast approvals
+    1:
+      label: "Exploring"
+      de: "Keine oder unbekannte Governance; fundamentale Luecken in Policy, Prozessen und regulatorischer Vorbereitung."
+      en: "No or unknown governance; fundamental gaps in policy, processes, and regulatory preparation."
+    2:
+      label: "Experimenting"
+      de: "Bewusstsein vorhanden, aber ad-hoc; Regeln unklar, Prozesse langsam und unvorhersehbar."
+      en: "Awareness present but ad-hoc; rules unclear, processes slow and unpredictable."
+    3:
+      label: "Embedding"
+      de: "Grundlagen stehen; Policies bekannt, Prozesse definiert, aber Grauzonen und Geschwindigkeitsprobleme."
+      en: "Foundations in place; policies known, processes defined, but gray areas and speed issues."
+    4:
+      label: "Scaling"
+      de: "Effektive Governance; klare Regeln, schnelle Entscheidungen, regulatorische Roadmap umgesetzt."
+      en: "Effective governance; clear rules, fast decisions, regulatory roadmap implemented."
+    5:
+      label: "Evolving"
+      de: "Integrierte Governance; Self-Service, automatisierte Checks, proaktive Regulierungs-Antizipation."
+      en: "Integrated governance; self-service, automated checks, proactive regulation anticipation."
+
+# =============================================================================
+# RELATIONSHIP TO PULSE CHECK
+# =============================================================================
+pulse_check_relationship:
+  description:
+    de: >-
+      Die Pulse-Check-Frage C-M1 ist die High-Level-Zusammenfassung dieser
+      4 Sub-Topics. Der Deep-Dive C-Score sollte mit dem Pulse-Check C-Score
+      korrelieren. Grosse Abweichungen deuten auf Antwort-Verzerrung hin
+      und sollten im HITL-Review diskutiert werden.
+    en: >-
+      The pulse check question C-M1 is the high-level summary of these
+      4 sub-topics. The deep-dive C-Score should correlate with the pulse
+      check C-Score. Large deviations indicate response bias and should
+      be discussed in the HITL review.
+  pulse_check_question: "C-M1"
+  sub_topic_mapping:
+    C-M1_level_1: "Maps roughly to: all sub-topics at Exploring"
+    C-M1_level_2: "Maps roughly to: policy_clarity or governance_speed at Experimenting"
+    C-M1_level_3: "Maps roughly to: most sub-topics at Embedding, some gaps remain"
+    C-M1_level_4: "Maps roughly to: all sub-topics at Scaling, no critical blockers"
+    C-M1_level_5: "Maps roughly to: all sub-topics at Evolving, integrated & automated"

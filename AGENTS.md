@@ -1,6 +1,6 @@
 # AI-First Transformation Project - Agent Instructions
 
-**Version:** 1.0 | **Last Updated:** 2026-02-10
+**Version:** 1.1 | **Last Updated:** 2026-02-12
 
 ---
 
@@ -116,9 +116,11 @@ sondern an fehlender Prozessintegration und Change Management.
 - Automatisch aus CI/CD und Jira/Azure DevOps erhebbar
 
 **Schicht 2: AI Maturity (CRAFT-Scores)**
-- Pro Dimension 3-4 Metriken, quartalsweise Erhebung via AI Navigator Pulse Check
-- Max. 15 Minuten Aufwand pro Team, anonymer Benchmark verfügbar
-- Beispiele: DAU/Team-Size, AI-assisted Commits %, Tool Availability Score
+- Pro Dimension 1 Maturity-Score (1-5, Exploring → Evolving) via Pulse Check
+- Deep-Dives: 4 Sub-Topics pro Dimension, Min-gewichtete Aggregation
+- Max. 15 Minuten Aufwand pro Team (Pulse Check), anonymer Benchmark verfügbar
+- Scoring: Median (Pulse), (Median×0.6)+(Min×0.4) (Deep-Dive)
+- Methodik: `deliverables/question_banks/METHODOLOGY.md`
 
 **Schicht 3: Business Impact (aggregiert, kein eigenes Reporting)**
 - Velocity-Veränderung, Time-to-Market, Qualität (aus L1), Mitarbeiterzufriedenheit
@@ -167,6 +169,11 @@ sondern an fehlender Prozessintegration und Change Management.
 
 **Primär:**
 - **AI Navigator App:** Pulse Check (quartalsweise, 15min), generiert CRAFT-Scores und Roadmap
+- **CRAFT Assessment System:** Drei-Ebenen-Architektur (Question Banks in `deliverables/question_banks/`)
+  - Ebene 1: Context & Readiness (einmalig, Fakten, 35 Fragen)
+  - Ebene 2: Pulse Check (quartalsweise, 16 Fragen, Spider-Score)
+  - Ebene 3: Deep-Dives (5×, je 9 Fragen, Sub-Topic-Profile)
+  - Design-Methodik: `METHODOLOGY.md` (Scoring, Kalibrierung, Visualisierung)
 - **AI Intervention Katalog:** SDLC-Phase → AI-Lösungen mit Tool-Alternativen pro Sicherheitsstufe
 - **Value Stream Mapping Template:** 2-Tages-Workshop-Material (Kurzformat 4h verfügbar)
 - **Governance Starter Kit:** Policy-Vorlagen, Entscheidungsbaum, Betriebsrats-Leitfaden
@@ -208,6 +215,11 @@ sondern an fehlender Prozessintegration und Change Management.
 ### Vollständige Framework-Dokumentation
 - **Vollversion:** `framework/ai-transformation-framework-craft.md` (Source of Truth)
 
+### Assessment System
+- **Question Banks:** `deliverables/question_banks/*.yaml` (YAML = Source of Truth)
+- **Methodik:** `deliverables/question_banks/METHODOLOGY.md` (Design Bible)
+- **Abgeleitete Ansicht:** `deliverables/pulse-check-question-bank-v1.md`
+
 ### Research & Analyse
 - `research/` - Wie verschiedene AI-Agents Instructions nutzen, Blueprints und Architektur
 
@@ -237,5 +249,6 @@ sondern an fehlender Prozessintegration und Change Management.
 
 **Version-Info:**
 - Framework Version: 1.0 DRAFT
-- AGENTS.md Version: 1.0
-- Letzte Sync mit Vollversion: 2026-02-10
+- AGENTS.md Version: 1.1
+- Assessment System Version: 2.0 (Question Banks + METHODOLOGY.md)
+- Letzte Sync mit Vollversion: 2026-02-12

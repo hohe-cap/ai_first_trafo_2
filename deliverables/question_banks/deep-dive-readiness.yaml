@@ -1,458 +1,389 @@
-# Deep Dive Assessment: Readiness - Human & Cultural (Dimension R)
-# Triggered when R-Score < 2 or stagnating over 2 quarters
-# Focus: Diagnose WHAT specifically inhibits people from adopting AI
-# Duration: ~15 minutes
+# =============================================================================
+# CRAFT Deep-Dive: Readiness — Human & Cultural (Dimension R)
+# =============================================================================
+# Extended assessment for the R dimension. Same quality criteria as Pulse Check.
+# See METHODOLOGY.md for design principles and scoring rules.
+#
+# Version: 2.0
+# Last Updated: 2026-02-12
+# Total Questions: 10 (2 Context + 4 Maturity + 2 MC-Diagnostik + 2 Powerful Questions)
+# Estimated Duration: 15-20 minutes
+# =============================================================================
 
-version: "1.0"
+version: "2.0"
 assessment_type: "deep_dive_readiness"
-description:
-  de: "Vertiefende Analyse der menschlichen und kulturellen Barrieren. Wird ausgelöst wenn R-Score unter 2 liegt oder stagniert. Ziel: Verstehen ob Angst, fehlende Skills, Zeitmangel, fehlendes Verständnis oder organisatorische Kultur die Adoption hemmt."
-  en: "In-depth analysis of human and cultural barriers. Triggered when R-Score is below 2 or stagnating. Goal: Understand whether fear, missing skills, lack of time, lack of understanding, or organizational culture inhibits adoption."
-estimated_duration_minutes: 15
-trigger:
-  dimension: "R"
-  condition: "score < 2 in pulse check or stagnating"
-respondent: "Change & People Lead or AI Transformation Manager"
+dimension: "R"
+dimension_name:
+  de: "Readiness (Human & Cultural)"
+  en: "Readiness (Human & Cultural)"
 
-questions:
-  - question_key: "dd_r_01"
-    question_text:
-      de: "Was ist die HAUPTURSACHE für Zurückhaltung bei AI-Nutzung in Ihrem Team?"
-      en: "What is the MAIN CAUSE of reluctance to use AI in your team?"
-    why_important:
-      de: "Identifiziert die Kern-Barriere um gezielte Change-Maßnahmen zu designen. Angst erfordert andere Interventionen als Skill-Lücken."
-      en: "Identifies the core barrier to design targeted change measures. Fear requires different interventions than skill gaps."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "fear_replacement"
-        de: "Angst vor Job-Verlust / Ersetzbarkeit"
-        en: "Fear of job loss / replaceability"
-        score: 0
-        order: 1
-      - key: "lack_skills"
-        de: "Fehlende Skills / Unsicherheit wie man AI nutzt"
-        en: "Missing skills / uncertainty how to use AI"
-        score: 40
-        order: 2
-      - key: "lack_time"
-        de: "Keine Zeit zum Lernen / Experimentieren"
-        en: "No time to learn / experiment"
-        score: 30
-        order: 3
-      - key: "unclear_value"
-        de: "Unklarer Nutzen / 'Warum sollte ich?'"
-        en: "Unclear value / 'Why should I?'"
-        score: 35
-        order: 4
-      - key: "trust_issues"
-        de: "Misstrauen gegenüber AI-Qualität / Sicherheit"
-        en: "Distrust of AI quality / security"
-        score: 25
-        order: 5
-      - key: "cultural_resistance"
-        de: "Kultureller Widerstand ('Das haben wir schon immer so gemacht')"
-        en: "Cultural resistance ('We've always done it this way')"
-        score: 20
-        order: 6
-      - key: "no_resistance"
-        de: "Keine signifikante Zurückhaltung"
-        en: "No significant reluctance"
-        score: 100
-        order: 7
-    weight: 1.5
+description:
+  de: >-
+    Vertiefende Analyse der menschlichen und kulturellen AI-Readiness.
+    Bricht die Dimension R in 4 Sub-Topics auf: Psychologische Sicherheit,
+    Skill-Vertrauen, Rollenentwicklung und Peer-Support/Champions.
+  en: >-
+    In-depth analysis of human and cultural AI readiness.
+    Breaks dimension R into 4 sub-topics: psychological safety,
+    skill confidence, role evolution, and peer support/champions.
+
+estimated_duration_minutes: 20
+frequency: "once_at_kickoff_then_on_demand"
+trigger:
+  condition: "Kickoff baseline OR R-Score drop/stagnation in Pulse Check"
+respondent: "All team members (individual, anonymous)"
+
+# =============================================================================
+# SUB-TOPICS
+# =============================================================================
+sub_topics:
+  - key: "psychological_safety"
+    name:
+      de: "Psychologische Sicherheit"
+      en: "Psychological Safety"
+    description:
+      de: "Koennen Menschen mit AI experimentieren, ohne Angst vor Bewertung oder Bestrafung?"
+      en: "Can people experiment with AI without fear of judgment or punishment?"
     order: 1
 
-  - question_key: "dd_r_02"
-    question_text:
-      de: "Wie würden Sie die psychologische Sicherheit bezüglich AI-Experimente im Team einschätzen?"
-      en: "How would you rate the psychological safety regarding AI experiments in the team?"
-    why_important:
-      de: "Psychological Safety ist der stärkste Prädiktor für Innovation-Adoption. Ohne Sicherheit zu experimentieren gibt es keine Adoption."
-      en: "Psychological safety is the strongest predictor of innovation adoption. Without safety to experiment, there is no adoption."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "very_high"
-        de: "Sehr hoch - Fehler werden als Lernen gesehen, aktive Ermutigung"
-        en: "Very high - mistakes seen as learning, active encouragement"
-        score: 100
-        order: 1
-      - key: "high"
-        de: "Hoch - man darf experimentieren, aber nicht explizit gefördert"
-        en: "High - experimentation allowed but not explicitly encouraged"
-        score: 75
-        order: 2
-      - key: "medium"
-        de: "Mittel - je nach Manager/Projekt unterschiedlich"
-        en: "Medium - varies by manager/project"
-        score: 50
-        order: 3
-      - key: "low"
-        de: "Niedrig - Fehler werden sanktioniert, wenig Raum für Experimente"
-        en: "Low - mistakes are sanctioned, little room for experiments"
-        score: 20
-        order: 4
-      - key: "very_low"
-        de: "Sehr niedrig - 'Bloß nichts Neues ausprobieren'"
-        en: "Very low - 'Better not try anything new'"
-        score: 0
-        order: 5
-    weight: 1.4
+  - key: "skill_confidence"
+    name:
+      de: "Skill-Level & Vertrauen"
+      en: "Skill Level & Confidence"
+    description:
+      de: "Fuehlen sich Menschen sicher genug, AI-Tools effektiv zu nutzen?"
+      en: "Do people feel confident enough to use AI tools effectively?"
     order: 2
 
-  - question_key: "dd_r_03"
-    question_text:
-      de: "Wie verbreitet ist Shadow AI (private, ungenehmigt genutzte AI-Tools) in Ihrem Team?"
-      en: "How widespread is Shadow AI (private, unapproved AI tools) in your team?"
-    why_important:
-      de: "Shadow AI zeigt unerfüllten Bedarf. Hohes Shadow AI bedeutet: Teams wollen AI nutzen, aber offizielle Wege sind blockiert oder unbekannt."
-      en: "Shadow AI shows unmet need. High Shadow AI means: teams want to use AI, but official paths are blocked or unknown."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "none_official"
-        de: "Nicht vorhanden - alle nutzen offizielle Tools"
-        en: "Not present - everyone uses official tools"
-        score: 100
-        order: 1
-      - key: "minimal_transitioning"
-        de: "Minimal - einzelne Fälle, aber wir migrieren sie zu offiziellen Tools"
-        en: "Minimal - isolated cases, but we migrate them to official tools"
-        score: 80
-        order: 2
-      - key: "moderate"
-        de: "Moderat - geschätzt 20-40% nutzen private Tools parallel"
-        en: "Moderate - estimated 20-40% use private tools in parallel"
-        score: 40
-        order: 3
-      - key: "widespread"
-        de: "Weit verbreitet - Mehrheit nutzt private/ungenehmigt Tools"
-        en: "Widespread - majority uses private/unapproved tools"
-        score: 10
-        order: 4
-      - key: "unknown"
-        de: "Unbekannt - wir haben keinen Überblick"
-        en: "Unknown - we have no overview"
-        score: 20
-        order: 5
-    weight: 1.2
+  - key: "role_evolution"
+    name:
+      de: "Rollenentwicklung & Klarheit"
+      en: "Role Evolution & Clarity"
+    description:
+      de: "Verstehen Menschen, wie sich ihre Rolle mit AI veraendert?"
+      en: "Do people understand how their role evolves with AI?"
     order: 3
 
-  - question_key: "dd_r_04"
-    question_text:
-      de: "Wurde eine 'Shadow AI Amnestie' (Kanalisierung statt Verbot) angeboten?"
-      en: "Was a 'Shadow AI Amnesty' (channeling instead of prohibition) offered?"
-    why_important:
-      de: "Amnestie-Ansatz kanalisiert Energie statt sie zu unterdrücken. Best Practice für Change Management bei disruptiven Tools."
-      en: "Amnesty approach channels energy instead of suppressing it. Best practice for change management with disruptive tools."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "offered_successful"
-        de: "Ja, angeboten und erfolgreich - Shadow AI wurde migriert"
-        en: "Yes, offered and successful - Shadow AI was migrated"
-        score: 100
-        order: 1
-      - key: "offered_partial"
-        de: "Ja, angeboten, aber nur teilweise angenommen"
-        en: "Yes, offered but only partially accepted"
-        score: 70
-        order: 2
-      - key: "planned"
-        de: "Geplant, aber noch nicht umgesetzt"
-        en: "Planned but not yet implemented"
-        score: 50
-        order: 3
-      - key: "no_plan"
-        de: "Nein, nicht geplant"
-        en: "No, not planned"
-        score: 20
-        order: 4
-      - key: "not_needed"
-        de: "Nicht nötig - kein Shadow AI vorhanden"
-        en: "Not needed - no Shadow AI present"
-        score: 100
-        order: 5
-    weight: 1.1
+  - key: "peer_support"
+    name:
+      de: "Peer-Support & Champions"
+      en: "Peer Support & Champions"
+    description:
+      de: "Gibt es ein Unterstuetzungsnetzwerk (Champions, Pairing, Community)?"
+      en: "Is there a support network (champions, pairing, community)?"
     order: 4
 
-  - question_key: "dd_r_05"
+# =============================================================================
+# QUESTIONS
+# =============================================================================
+questions:
+
+  # ---------------------------------------------------------------------------
+  # CONTEXT / METRIC QUESTIONS
+  # ---------------------------------------------------------------------------
+  - question_key: "R-CTX-1"
+    question_type: "context"
+    sub_topic: ~
     question_text:
-      de: "Wie ausgeprägt ist die Rolle-Angst ('AI macht meinen Job überflüssig') im Team?"
-      en: "How pronounced is role anxiety ('AI makes my job obsolete') in the team?"
+      de: "Gibt es ein formales AI-Enablement-Programm (Training, Workshops, Lernpfade)?"
+      en: "Is there a formal AI enablement program (training, workshops, learning paths)?"
     why_important:
-      de: "Role-Angst ist der stärkste Innovations-Killer. Muss explizit adressiert werden durch Rollenentwicklungs-Narrative."
-      en: "Role anxiety is the strongest innovation killer. Must be explicitly addressed through role development narratives."
+      de: "Faktische Grundlage: Enablement-Infrastruktur bestimmt ob Skill-Aufbau systematisch oder ad-hoc stattfindet."
+      en: "Factual basis: Enablement infrastructure determines whether skill building is systematic or ad-hoc."
     answer_type: "single_choice"
     answer_options:
-      - key: "none_positive"
-        de: "Nicht vorhanden - AI wird als Enabler gesehen (Higher-level work)"
-        en: "Not present - AI is seen as enabler (higher-level work)"
-        score: 100
+      - key: "comprehensive"
+        de: "Ja, umfassendes Programm mit verschiedenen Formaten"
+        en: "Yes, comprehensive program with various formats"
         order: 1
-      - key: "low_managed"
-        de: "Gering - adressiert durch Rollenentwicklungs-Workshops"
-        en: "Low - addressed through role development workshops"
-        score: 80
+      - key: "basic"
+        de: "Ja, aber nur einzelne Trainings oder Workshops"
+        en: "Yes, but only individual trainings or workshops"
         order: 2
-      - key: "moderate"
-        de: "Moderat - Unsicherheit vorhanden, aber nicht lähmend"
-        en: "Moderate - uncertainty present but not paralyzing"
-        score: 50
+      - key: "informal"
+        de: "Informell — ad-hoc, keine strukturierten Angebote"
+        en: "Informal — ad-hoc, no structured offerings"
         order: 3
-      - key: "high"
-        de: "Hoch - viele befürchten Jobverlust"
-        en: "High - many fear job loss"
-        score: 20
+      - key: "none"
+        de: "Nein, kein Enablement vorhanden"
+        en: "No, no enablement available"
         order: 4
-      - key: "very_high"
-        de: "Sehr hoch - aktiver Widerstand aus Angst"
-        en: "Very high - active resistance from fear"
-        score: 0
-        order: 5
-    weight: 1.5
+    scoring_note: "Context only — does not feed into spider score directly"
+    order: 1
+
+  - question_key: "R-CTX-2"
+    question_type: "context"
+    sub_topic: ~
+    question_text:
+      de: "Nutzt du aktuell nicht-freigegebene AI-Tools (Shadow AI) fuer Arbeitszwecke?"
+      en: "Do you currently use non-approved AI tools (Shadow AI) for work purposes?"
+    why_important:
+      de: "Shadow AI zeigt unerfuellten Bedarf. Hohe Shadow-AI-Rate = Teams wollen AI nutzen, offizielle Wege sind blockiert."
+      en: "Shadow AI shows unmet need. High shadow AI rate = teams want AI, official paths are blocked."
+    description:
+      de: "Anonym — nur Trend wird ausgewertet, keine individuelle Zuordnung"
+      en: "Anonymous — only trend is evaluated, no individual attribution"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "never"
+        de: "Nie"
+        en: "Never"
+        order: 1
+      - key: "rarely"
+        de: "Selten"
+        en: "Rarely"
+        order: 2
+      - key: "occasionally"
+        de: "Gelegentlich"
+        en: "Occasionally"
+        order: 3
+      - key: "frequently"
+        de: "Haeufig"
+        en: "Frequently"
+        order: 4
+    scoring_note: "Context only — trend indicator for unmet demand"
+    order: 2
+
+  # ---------------------------------------------------------------------------
+  # MATURITY QUESTIONS
+  # ---------------------------------------------------------------------------
+  - question_key: "R-M-SAFETY"
+    question_type: "maturity"
+    sub_topic: "psychological_safety"
+    question_text:
+      de: "Welche Stufe beschreibt die psychologische Sicherheit fuer AI-Experimente in deinem Team am besten?"
+      en: "Which level best describes the psychological safety for AI experiments in your team?"
+    maturity_levels:
+      1:
+        label: "Exploring"
+        de: "Mit AI zu experimentieren wird skeptisch gesehen oder nicht thematisiert; ich fuehle mich nicht sicher, neue Tools auszuprobieren."
+        en: "Experimenting with AI is viewed skeptically or not discussed; I don't feel safe trying new tools."
+      2:
+        label: "Experimenting"
+        de: "Es wird toleriert, aber nicht aktiv ermutigt; wenn etwas schiefgeht, wuerde ich es lieber nicht erwaehnen."
+        en: "It's tolerated but not actively encouraged; if something goes wrong, I'd rather not mention it."
+      3:
+        label: "Embedding"
+        de: "Experimentieren ist ok und wir sprechen offen ueber AI; aber es haengt vom Manager oder Projekt ab."
+        en: "Experimenting is ok and we discuss AI openly; but it depends on the manager or project."
+      4:
+        label: "Scaling"
+        de: "Aktive Ermutigung zu experimentieren; Fehler werden als Lernen gesehen; regelmaessige Sharing-Sessions existieren."
+        en: "Active encouragement to experiment; failures seen as learning; regular sharing sessions exist."
+      5:
+        label: "Evolving"
+        de: "Experimentieren ist systematisch verankert; Leadership experimentiert sichtbar mit; Learnings aus AI-Experimenten sind Teil unserer Retros."
+        en: "Experimentation is systematically anchored; leadership visibly experiments; learnings from AI experiments are part of our retros."
+    order: 3
+
+  - question_key: "R-M-SKILL"
+    question_type: "maturity"
+    sub_topic: "skill_confidence"
+    question_text:
+      de: "Welche Stufe beschreibt dein persoenliches AI-Skill-Level und Vertrauen am besten?"
+      en: "Which level best describes your personal AI skill level and confidence?"
+    maturity_levels:
+      1:
+        label: "Exploring"
+        de: "Ich weiss nicht, was AI fuer meine Arbeit tun kann; es gibt keine Trainingsangebote."
+        en: "I don't know what AI can do for my work; there are no training offerings."
+      2:
+        label: "Experimenting"
+        de: "Ich habe eine grobe Vorstellung, fuehle mich aber unsicher; ich weiss nicht, wo ich anfangen soll oder was ein guter Prompt ist."
+        en: "I have a rough idea but feel insecure; I don't know where to start or what makes a good prompt."
+      3:
+        label: "Embedding"
+        de: "Ich kann AI-Tools fuer grundlegende Aufgaben nutzen; ich verstehe Grenzen (Halluzinationen), brauche aber mehr Praxis."
+        en: "I can use AI tools for basic tasks; I understand limitations (hallucinations) but need more practice."
+      4:
+        label: "Scaling"
+        de: "Ich kann AI-Outputs kritisch bewerten; ich weiss, welches Tool fuer welche Aufgabe; ich helfe anderen beim Einstieg."
+        en: "I can critically evaluate AI outputs; I know which tool for which task; I help others get started."
+      5:
+        label: "Evolving"
+        de: "Ich bin sicher im Umgang mit AI; ich optimiere Prompts/Workflows aktiv, teile Best Practices und gestalte neue Arbeitsweisen."
+        en: "I'm confident with AI; I actively optimize prompts/workflows, share best practices, and shape new ways of working."
+    order: 4
+
+  - question_key: "R-M-ROLE"
+    question_type: "maturity"
+    sub_topic: "role_evolution"
+    question_text:
+      de: "Welche Stufe beschreibt dein Verstaendnis darueber, wie sich deine Rolle durch AI veraendert, am besten?"
+      en: "Which level best describes your understanding of how your role changes with AI?"
+    maturity_levels:
+      1:
+        label: "Exploring"
+        de: "Ich habe keine Vorstellung davon, wie AI meine Rolle veraendert; niemand spricht darueber."
+        en: "I have no idea how AI changes my role; nobody talks about it."
+      2:
+        label: "Experimenting"
+        de: "Ich habe gehoert, dass sich Rollen aendern, aber es ist unklar, was das fuer MICH konkret bedeutet."
+        en: "I've heard roles are changing, but it's unclear what that means for ME specifically."
+      3:
+        label: "Embedding"
+        de: "Ich verstehe grob, wie sich meine Rolle entwickelt; es gibt Diskussionen, aber keinen konkreten Entwicklungsplan."
+        en: "I roughly understand how my role evolves; there are discussions but no concrete development plan."
+      4:
+        label: "Scaling"
+        de: "Es gibt ein klares Rollenentwicklungs-Narrativ; ich weiss welche neuen Skills ich brauche; Lernpfade sind verfuegbar."
+        en: "There's a clear role evolution narrative; I know which new skills I need; learning paths are available."
+      5:
+        label: "Evolving"
+        de: "Meine Rolle hat sich aktiv weiterentwickelt; ich arbeite auf hoeherem Niveau (mehr Design, weniger Routine); ich gestalte Rollenmodelle fuer andere mit."
+        en: "My role has actively evolved; I work at a higher level (more design, less routine); I help shape role models for others."
     order: 5
 
-  - question_key: "dd_r_06"
+  - question_key: "R-M-SUPPORT"
+    question_type: "maturity"
+    sub_topic: "peer_support"
     question_text:
-      de: "Welche Rollen im SDLC zeigen die größte Skill-Lücke bezüglich AI-Nutzung?"
-      en: "Which roles in the SDLC show the biggest skill gap regarding AI usage?"
-    why_important:
-      de: "Skill-Lücken sind rollenspezifisch. QA braucht andere Enablement als Product Owner oder DevOps."
-      en: "Skill gaps are role-specific. QA needs different enablement than Product Owner or DevOps."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "product_owner"
-        de: "Product Owner / Requirements Engineering"
-        en: "Product Owner / Requirements Engineering"
-        score: 30
-        order: 1
-      - key: "developers"
-        de: "Entwickler / Software Engineers"
-        en: "Developers / Software Engineers"
-        score: 50
-        order: 2
-      - key: "qa_testers"
-        de: "QA / Tester"
-        en: "QA / Testers"
-        score: 20
-        order: 3
-      - key: "devops_ops"
-        de: "DevOps / Operations"
-        en: "DevOps / Operations"
-        score: 25
-        order: 4
-      - key: "architects"
-        de: "Architekten / Tech Leads"
-        en: "Architects / Tech Leads"
-        score: 40
-        order: 5
-      - key: "all_equal"
-        de: "Alle Rollen etwa gleich"
-        en: "All roles about equal"
-        score: 35
-        order: 6
-      - key: "no_gap"
-        de: "Keine signifikante Skill-Lücke"
-        en: "No significant skill gap"
-        score: 100
-        order: 7
-    weight: 1.3
+      de: "Welche Stufe beschreibt das AI-Unterstuetzungsnetzwerk in eurem Team am besten?"
+      en: "Which level best describes the AI support network in your team?"
+    maturity_levels:
+      1:
+        label: "Exploring"
+        de: "Es gibt niemanden, den ich zu AI fragen kann; ich bin auf mich allein gestellt."
+        en: "There's no one I can ask about AI; I'm on my own."
+      2:
+        label: "Experimenting"
+        de: "Ich kenne informell jemanden der helfen kann, aber es gibt keine strukturierte Unterstuetzung."
+        en: "I informally know someone who can help, but there's no structured support."
+      3:
+        label: "Embedding"
+        de: "Es gibt benannte AI-Ansprechpartner/Champions, aber sie haben keine dedizierte Zeit dafuer."
+        en: "There are designated AI contacts/champions, but they don't have dedicated time for it."
+      4:
+        label: "Scaling"
+        de: "Aktives Champion-Netzwerk mit dedizierter Zeit (mind. 20%); regelmaessige Office Hours und Pairing-Sessions."
+        en: "Active champion network with dedicated time (min. 20%); regular office hours and pairing sessions."
+      5:
+        label: "Evolving"
+        de: "Champions sind etablierte Multiplikatoren; Peer Learning ist systematisch; neue Teammitglieder bekommen AI-Onboarding als Standard."
+        en: "Champions are established multipliers; peer learning is systematic; new team members get AI onboarding as standard."
     order: 6
 
-  - question_key: "dd_r_07"
+  # ---------------------------------------------------------------------------
+  # MC DIAGNOSTICS
+  # ---------------------------------------------------------------------------
+  - question_key: "R-MC-BLOCKER"
+    question_type: "diagnostic"
     question_text:
-      de: "Wie effektiv war das bisherige AI-Enablement (Training, Workshops, Dokumentation)?"
-      en: "How effective was the AI enablement so far (training, workshops, documentation)?"
-    why_important:
-      de: "Ineffektives Enablement verschwendet Budget und frustriert Teams. Wichtig zu verstehen was funktioniert und was nicht."
-      en: "Ineffective enablement wastes budget and frustrates teams. Important to understand what works and what doesn't."
+      de: "Was hemmt dich aktuell am meisten bei der AI-Nutzung?"
+      en: "What currently inhibits you most in using AI?"
     answer_type: "single_choice"
     answer_options:
-      - key: "very_effective"
-        de: "Sehr effektiv - hohe Teilnahme, messbare Verhaltensänderung"
-        en: "Very effective - high participation, measurable behavior change"
-        score: 100
+      - key: "role_concern"
+        de: "Sorge um meine Rolle / meinen Arbeitsplatz"
+        en: "Concern about my role / my job"
         order: 1
-      - key: "effective"
-        de: "Effektiv - gute Resonanz, einige nutzen es produktiv"
-        en: "Effective - good response, some use it productively"
-        score: 75
+      - key: "missing_skills"
+        de: "Fehlende Skills — weiss nicht wie ich AI effektiv nutze"
+        en: "Missing skills — don't know how to use AI effectively"
         order: 2
-      - key: "moderate"
-        de: "Moderat - Teilnahme OK, aber wenig nachhaltige Wirkung"
-        en: "Moderate - participation OK but little lasting impact"
-        score: 50
+      - key: "no_time"
+        de: "Keine Zeit zum Lernen oder Experimentieren"
+        en: "No time to learn or experiment"
         order: 3
-      - key: "ineffective"
-        de: "Ineffektiv - wenig Interesse oder falsche Formate"
-        en: "Ineffective - little interest or wrong formats"
-        score: 20
+      - key: "unclear_value"
+        de: "Unklar, wofuer AI in meiner Arbeit sinnvoll ist"
+        en: "Unclear what AI is useful for in my work"
         order: 4
-      - key: "none_offered"
-        de: "Kein Enablement angeboten"
-        en: "No enablement offered"
-        score: 0
+      - key: "quality_distrust"
+        de: "Misstrauen gegenueber AI-Output-Qualitaet"
+        en: "Distrust of AI output quality"
         order: 5
-    weight: 1.2
+      - key: "tech_barriers"
+        de: "Technische Huerden (Zugang, Tools, Performance)"
+        en: "Technical barriers (access, tools, performance)"
+        order: 6
+      - key: "nothing"
+        de: "Nichts hemmt mich"
+        en: "Nothing inhibits me"
+        order: 7
     order: 7
 
-  - question_key: "dd_r_08"
+  - question_key: "R-MC-ENABLEMENT"
+    question_type: "diagnostic"
     question_text:
-      de: "Gibt es ein Champion-Netzwerk (Multiplikatoren im Team) und ist es effektiv?"
-      en: "Is there a champion network (multipliers in the team) and is it effective?"
-    why_important:
-      de: "Champions sind nach Kotter der stärkste Change-Hebel. Ohne dedizierte Kapazität (20%) scheitern sie aber."
-      en: "Champions are the strongest change lever according to Kotter. But without dedicated capacity (20%) they fail."
+      de: "Was waere fuer dich der staerkste Enablement-Hebel?"
+      en: "What would be the strongest enablement lever for you?"
     answer_type: "single_choice"
     answer_options:
-      - key: "yes_dedicated"
-        de: "Ja, aktiv mit dedizierter Kapazität (mind. 20% Zeit)"
-        en: "Yes, active with dedicated capacity (min. 20% time)"
-        score: 100
+      - key: "playbooks"
+        de: "Kurze Beispiele / Playbooks fuer meinen Arbeitsalltag"
+        en: "Short examples / playbooks for my daily work"
         order: 1
-      - key: "yes_informal"
-        de: "Ja, aber informell ohne dedizierte Zeit"
-        en: "Yes, but informal without dedicated time"
-        score: 60
+      - key: "pairing"
+        de: "Pairing mit erfahrenen Kolleg:innen"
+        en: "Pairing with experienced colleagues"
         order: 2
-      - key: "planned"
-        de: "Geplant, aber noch nicht etabliert"
-        en: "Planned but not yet established"
-        score: 40
+      - key: "training"
+        de: "Strukturiertes Training (Workshops, Kurse)"
+        en: "Structured training (workshops, courses)"
         order: 3
-      - key: "no_plan"
-        de: "Nein, nicht geplant"
-        en: "No, not planned"
-        score: 10
+      - key: "prompts"
+        de: "Bessere Prompts / Templates fuer meine Use Cases"
+        en: "Better prompts / templates for my use cases"
         order: 4
-    weight: 1.3
+      - key: "time"
+        de: "Mehr dedizierte Zeit zum Experimentieren"
+        en: "More dedicated time to experiment"
+        order: 5
+      - key: "champion"
+        de: "Champion-Support / Ansprechpartner im Team"
+        en: "Champion support / contact person in team"
+        order: 6
     order: 8
 
-  - question_key: "dd_r_09"
+  # ---------------------------------------------------------------------------
+  # POWERFUL QUESTIONS
+  # ---------------------------------------------------------------------------
+  - question_key: "R-PQ"
+    question_type: "powerful_question"
+    optional: true
     question_text:
-      de: "Wie unterstützt das Management AI-Adoption aktiv?"
-      en: "How does management actively support AI adoption?"
-    why_important:
-      de: "Management-Support ist kritisch für Legitimation und Ressourcen-Freigabe. Lip-service reicht nicht."
-      en: "Management support is critical for legitimacy and resource allocation. Lip service is not enough."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "very_active"
-        de: "Sehr aktiv - nutzt AI selbst, kommuniziert regelmäßig, gibt Budget frei"
-        en: "Very active - uses AI themselves, communicates regularly, releases budget"
-        score: 100
-        order: 1
-      - key: "supportive"
-        de: "Unterstützend - erlaubt Experimente, gibt Raum"
-        en: "Supportive - allows experiments, gives space"
-        score: 70
-        order: 2
-      - key: "neutral"
-        de: "Neutral - weder fördernd noch hemmend"
-        en: "Neutral - neither promoting nor inhibiting"
-        score: 40
-        order: 3
-      - key: "skeptical"
-        de: "Skeptisch - 'Zeigt erst mal Ergebnisse'"
-        en: "Skeptical - 'Show results first'"
-        score: 20
-        order: 4
-      - key: "blocking"
-        de: "Blockierend - aktiver Widerstand"
-        en: "Blocking - active resistance"
-        score: 0
-        order: 5
-    weight: 1.4
+      de: "Was muesste passieren, damit du dich sicher fuehlst, AI aktiv in deinem Arbeitsalltag zu nutzen?"
+      en: "What would need to happen for you to feel confident actively using AI in your daily work?"
+    max_length: 280
+    moderation_note:
+      de: "Nur als Themen-Cluster veroeffentlichen, nie als Rohtext. k-Anonymitaet beachten."
+      en: "Only publish as topic clusters, never as raw text. Observe k-anonymity."
     order: 9
 
-  - question_key: "dd_r_10"
-    question_text:
-      de: "Welches Enablement-Format wäre am hilfreichsten für Ihr Team? (Mehrfachauswahl möglich)"
-      en: "Which enablement format would be most helpful for your team? (Multiple selection possible)"
-    why_important:
-      de: "Verschiedene Teams brauchen verschiedene Formate. Wichtig um Enablement-Strategie zu priorisieren."
-      en: "Different teams need different formats. Important to prioritize enablement strategy."
-    answer_type: "multiple_choice"
-    allow_multiple: true
-    answer_options:
-      - key: "hands_on_workshops"
-        de: "Hands-on Workshops (2-4h, konkrete Use Cases)"
-        en: "Hands-on workshops (2-4h, concrete use cases)"
-        score: 25
-        order: 1
-      - key: "office_hours"
-        de: "Office Hours / Sprechstunde mit Experten"
-        en: "Office hours / consultation with experts"
-        score: 25
-        order: 2
-      - key: "prompt_library"
-        de: "Prompt Library / Best Practice Sammlung"
-        en: "Prompt library / best practice collection"
-        score: 20
-        order: 3
-      - key: "peer_learning"
-        de: "Peer Learning / Show & Tell Sessions"
-        en: "Peer learning / show & tell sessions"
-        score: 20
-        order: 4
-      - key: "role_specific"
-        de: "Rollenspezifische Lernpfade (QA, Dev, PO, etc.)"
-        en: "Role-specific learning paths (QA, Dev, PO, etc.)"
-        score: 25
-        order: 5
-      - key: "documentation"
-        de: "Bessere Dokumentation / Self-Service"
-        en: "Better documentation / self-service"
-        score: 15
-        order: 6
-    weight: 1.0
-    order: 10
-
-  - question_key: "dd_r_11"
-    question_text:
-      de: "Wie stark ist die 'Not Invented Here' Mentalität bezüglich AI-Tools?"
-      en: "How strong is the 'Not Invented Here' mentality regarding AI tools?"
-    why_important:
-      de: "NIH-Mentalität blockiert Adoption von externen Tools. Wichtig für Buy-vs-Build Entscheidungen."
-      en: "NIH mentality blocks adoption of external tools. Important for buy-vs-build decisions."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "pragmatic"
-        de: "Pragmatisch - Best Tool gewinnt, egal ob extern oder intern"
-        en: "Pragmatic - best tool wins, regardless of external or internal"
-        score: 100
-        order: 1
-      - key: "slight_preference"
-        de: "Leichte Präferenz für eigene Lösungen, aber offen"
-        en: "Slight preference for own solutions, but open"
-        score: 70
-        order: 2
-      - key: "strong_preference"
-        de: "Starke Präferenz - 'Wir bauen lieber selbst'"
-        en: "Strong preference - 'We prefer to build ourselves'"
-        score: 40
-        order: 3
-      - key: "rigid"
-        de: "Rigide - externe Tools werden abgelehnt"
-        en: "Rigid - external tools are rejected"
-        score: 10
-        order: 4
-    weight: 1.1
-    order: 11
-
+# =============================================================================
+# SCORING
+# =============================================================================
 scoring:
-  dimension: "R"
-  formula: "weighted_average"
+  formula: "(median(R-M-SAFETY, R-M-SKILL, R-M-ROLE, R-M-SUPPORT) * 0.6) + (min(R-M-SAFETY, R-M-SKILL, R-M-ROLE, R-M-SUPPORT) * 0.4)"
+  scale: "1-5"
   interpretation:
-    de: |
-      R-Score Interpretation:
-      - 0-30: Kritisch - hohe Angst, kultureller Widerstand, fehlende Psychological Safety
-      - 31-50: Schwach - Skill-Lücken, ineffektives Enablement, wenig Management-Support
-      - 51-70: Entwicklung - Grundlagen vorhanden, Champions entstehen, moderates Shadow AI
-      - 71-85: Gut - positive Kultur, effektives Enablement, aktives Champion-Netzwerk
-      - 86-100: Exzellent - AI wird als Enabler gesehen, hohe Psychological Safety, systematisches Change Management
-    en: |
-      R-Score Interpretation:
-      - 0-30: Critical - high fear, cultural resistance, missing psychological safety
-      - 31-50: Weak - skill gaps, ineffective enablement, little management support
-      - 51-70: Developing - basics present, champions emerging, moderate Shadow AI
-      - 71-85: Good - positive culture, effective enablement, active champion network
-      - 86-100: Excellent - AI seen as enabler, high psychological safety, systematic change management
+    1:
+      label: "Exploring"
+      de: "Hohe Unsicherheit und Angst; keine Enablement-Angebote; keine Unterstuetzungsstrukturen."
+      en: "High uncertainty and fear; no enablement offerings; no support structures."
+    2:
+      label: "Experimenting"
+      de: "Bewusstsein da, aber Skills fehlen; Experimentieren wird toleriert, nicht gefoerdert."
+      en: "Awareness present but skills missing; experimentation tolerated, not promoted."
+    3:
+      label: "Embedding"
+      de: "Grundlegende Skills vorhanden; Experimentieren ist ok; Champions entstehen, aber ohne dedizierte Zeit."
+      en: "Basic skills present; experimentation ok; champions emerging but without dedicated time."
+    4:
+      label: "Scaling"
+      de: "Sicherer Umgang mit AI; aktives Champion-Netzwerk; klare Rollenentwicklung; Management foerdert aktiv."
+      en: "Confident AI usage; active champion network; clear role evolution; management actively promotes."
+    5:
+      label: "Evolving"
+      de: "AI ist Teil der Identitaet; systematisches Peer Learning; Rollen haben sich weiterentwickelt; kontinuierliche Verbesserung."
+      en: "AI is part of identity; systematic peer learning; roles have evolved; continuous improvement."
+
+pulse_check_relationship:
+  pulse_check_question: "R-M1"
+  sub_topic_mapping:
+    R-M1_level_1: "Maps to: skill_confidence at Exploring, no enablement"
+    R-M1_level_2: "Maps to: skill_confidence at Experimenting, psychological_safety low"
+    R-M1_level_3: "Maps to: skill_confidence at Embedding, safety ok but role unclear"
+    R-M1_level_4: "Maps to: most sub-topics at Scaling, active role evolution"
+    R-M1_level_5: "Maps to: all sub-topics at Evolving, champion role, proactive"

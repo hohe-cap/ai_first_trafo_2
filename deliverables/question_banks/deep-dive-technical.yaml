@@ -1,492 +1,525 @@
-# Deep Dive Assessment: Technical Enablement (Dimension T)
-# Triggered when T-Score < 2 in quarterly Pulse Check
-# Focus: Diagnose WHAT technical gaps exist and what's needed to close them
-# Duration: ~15 minutes
+# =============================================================================
+# CRAFT Deep-Dive: Technical Enablement (Dimension T)
+# =============================================================================
+# Extended assessment for the T dimension. Same quality criteria as Pulse Check:
+# - 5-level maturity with behavioral descriptions (Exploring → Evolving)
+# - No Likert scales
+# - Anonymous, all team members respond
+#
+# Usage:
+# - Once at kickoff (baseline) + on-demand when Pulse Check T-Score drops
+# - Respondent: All team members (anonymous, segmentable)
+# - Duration: ~15-20 minutes
+#
+# Relationship to Pulse Check:
+# - Pulse Check T-M1 = high-level summary (1 maturity question)
+# - This Deep-Dive = granular view (4 maturity sub-topics + diagnostics)
+# - Deep-Dive sub-topic scores aggregate to the same 1-5 spider score
+#
+# Overlap prevention:
+# - Security tiers live HERE (not in Compliance)
+# - Prompt library as technical infrastructure lives HERE (not in Adoption)
+# - SDLC-phase AI coverage from a process view lives in Flow (F)
+# - Usage depth & frequency live in Adoption (A)
+#
+# Version: 2.0
+# Last Updated: 2026-02-12
+# Total Questions: 10 (2 Context + 4 Maturity + 2 MC-Diagnostik + 1 Powerful Question + 1 Segmentation)
+# Estimated Duration: 15-20 minutes
+# =============================================================================
 
-version: "1.0"
+version: "2.0"
 assessment_type: "deep_dive_technical"
-description:
-  de: "Vertiefende Analyse technischer Lücken. Wird ausgelöst wenn T-Score unter 2 liegt. Ziel: Tool-Verfügbarkeit pro SDLC-Phase prüfen, Sicherheitsstufen-Gaps identifizieren, Infrastruktur-Blocker verstehen, IDE-Integration bewerten."
-  en: "In-depth analysis of technical gaps. Triggered when T-Score is below 2. Goal: Check tool availability per SDLC phase, identify security tier gaps, understand infrastructure blockers, evaluate IDE integration."
-estimated_duration_minutes: 15
-trigger:
-  dimension: "T"
-  condition: "score < 2 in pulse check"
-respondent: "Technical AI Lead or DevOps Lead"
+dimension: "T"
+dimension_name:
+  de: "Technical Enablement"
+  en: "Technical Enablement"
 
-questions:
-  - question_key: "dd_t_01"
-    question_text:
-      de: "Was ist aktuell der GRÖSSTE technische Blocker für AI-Adoption?"
-      en: "What is currently the BIGGEST technical blocker for AI adoption?"
-    why_important:
-      de: "Identifiziert die Kern-Barriere um gezielte technische Maßnahmen zu priorisieren."
-      en: "Identifies the core barrier to prioritize targeted technical measures."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "no_tools"
-        de: "Fehlende Tool-Verfügbarkeit / noch nicht ausgerollt"
-        en: "Missing tool availability / not yet rolled out"
-        score: 0
-        order: 1
-      - key: "tool_quality"
-        de: "Tool-Qualität / Zuverlässigkeit unzureichend"
-        en: "Tool quality / reliability insufficient"
-        score: 20
-        order: 2
-      - key: "infrastructure"
-        de: "Infrastruktur-Probleme (Netzwerk, Performance, Latenz)"
-        en: "Infrastructure problems (network, performance, latency)"
-        score: 15
-        order: 3
-      - key: "security_tier"
-        de: "Fehlende Sicherheitsstufen (z.B. nur Public Cloud, kein Air-gapped)"
-        en: "Missing security tiers (e.g., only public cloud, no air-gapped)"
-        score: 25
-        order: 4
-      - key: "integration"
-        de: "Schlechte Integration in bestehende Tools (IDE, CI/CD)"
-        en: "Poor integration into existing tools (IDE, CI/CD)"
-        score: 30
-        order: 5
-      - key: "complexity"
-        de: "Zu komplex zu nutzen / zu konfigurieren"
-        en: "Too complex to use / configure"
-        score: 35
-        order: 6
-      - key: "no_blocker"
-        de: "Kein signifikanter technischer Blocker"
-        en: "No significant technical blocker"
-        score: 100
-        order: 7
-    weight: 1.5
+description:
+  de: >-
+    Vertiefende Analyse der technischen AI-Infrastruktur und Tool-Landschaft.
+    Bricht die Dimension T in 4 Sub-Topics auf, jeweils mit kalibrierter
+    5-Level-Maturity-Bewertung. Wird einmalig als Baseline und danach
+    on-demand bei auffaelligem Pulse Check durchgefuehrt.
+  en: >-
+    In-depth analysis of AI technical infrastructure and tool landscape.
+    Breaks dimension T into 4 sub-topics, each with calibrated
+    5-level maturity assessment. Conducted once as baseline and then
+    on-demand when pulse check shows concerns.
+
+estimated_duration_minutes: 20
+frequency: "once_at_kickoff_then_on_demand"
+trigger:
+  condition: "Kickoff baseline OR T-Score drop/stagnation in Pulse Check"
+respondent: "All team members (individual, anonymous)"
+
+# =============================================================================
+# DESIGN PRINCIPLES
+# =============================================================================
+design_principles:
+  de:
+    - "Alle Maturity-Fragen folgen demselben 5-Level-Progressionsmuster"
+    - "Keine Likert-Skalen — nur konkrete Verhaltensbeschreibungen"
+    - "Anonym, segmentierbar, gleiche Regeln wie Pulse Check"
+    - "Context-Fragen informieren die Analyse, fliessen aber nicht direkt in den Spider-Score"
+    - "MC-Diagnostik erklaert das WARUM hinter den Maturity-Scores"
+    - "Powerful Question gibt individuellen Reflexionsraum"
+  en:
+    - "All maturity questions follow the same 5-level progression pattern"
+    - "No Likert scales — only concrete behavioral descriptions"
+    - "Anonymous, segmentable, same rules as Pulse Check"
+    - "Context questions inform analysis but don't directly feed into spider score"
+    - "MC diagnostics explain the WHY behind maturity scores"
+    - "Powerful question provides individual reflection space"
+
+# =============================================================================
+# UNIVERSAL MATURITY PROGRESSION PATTERN
+# =============================================================================
+# Every maturity question across ALL dimensions follows this pattern.
+# This ensures Level 3 in Sub-Topic A is comparable to Level 3 in Sub-Topic B.
+maturity_calibration:
+  pattern:
+    1:
+      label:
+        de: "Exploring"
+        en: "Exploring"
+      description:
+        de: "Kein Bewusstsein, keine Struktur, keine Prozesse"
+        en: "No awareness, no structure, no processes"
+    2:
+      label:
+        de: "Experimenting"
+        en: "Experimenting"
+      description:
+        de: "Bewusstsein vorhanden, aber ad-hoc und unsicher"
+        en: "Awareness present, but ad-hoc and uncertain"
+    3:
+      label:
+        de: "Embedding"
+        en: "Embedding"
+      description:
+        de: "Definierter Prozess, funktioniert grundlegend"
+        en: "Defined process, works basically"
+    4:
+      label:
+        de: "Scaling"
+        en: "Scaling"
+      description:
+        de: "Effektiv, gemessen, praxisnah"
+        en: "Effective, measured, practical"
+    5:
+      label:
+        de: "Evolving"
+        en: "Evolving"
+      description:
+        de: "Integriert, automatisiert, kontinuierlich optimiert"
+        en: "Integrated, automated, continuously optimized"
+
+# =============================================================================
+# SUB-TOPICS (define the granular aspects of this dimension)
+# =============================================================================
+sub_topics:
+  - key: "tool_availability"
+    name:
+      de: "Tool-Verfuegbarkeit & Sicherheitsstufen"
+      en: "Tool Availability & Security Tiers"
+    description:
+      de: "Sind AI-Tools ueber verschiedene Sicherheitsstufen verfuegbar und zugaenglich?"
+      en: "Are AI tools available and accessible across different security tiers?"
     order: 1
 
-  - question_key: "dd_t_02"
-    question_text:
-      de: "Für welche SDLC-Phasen sind KEINE geeigneten AI-Tools verfügbar? (Mehrfachauswahl)"
-      en: "For which SDLC phases are NO suitable AI tools available? (Multiple selection)"
-    why_important:
-      de: "Identifiziert Tool-Lücken. Vollständige SDLC-Abdeckung ist Voraussetzung für End-to-End-AI-Integration."
-      en: "Identifies tool gaps. Complete SDLC coverage is prerequisite for end-to-end AI integration."
-    answer_type: "multiple_choice"
-    allow_multiple: true
-    answer_options:
-      - key: "requirements"
-        de: "Requirements Engineering (User Stories, Akzeptanzkriterien)"
-        en: "Requirements Engineering (user stories, acceptance criteria)"
-        score: -15
-        order: 1
-      - key: "design"
-        de: "Design / Architektur"
-        en: "Design / Architecture"
-        score: -15
-        order: 2
-      - key: "coding"
-        de: "Coding / Implementation"
-        en: "Coding / Implementation"
-        score: -20
-        order: 3
-      - key: "code_review"
-        de: "Code Review"
-        en: "Code Review"
-        score: -15
-        order: 4
-      - key: "testing"
-        de: "Testing / QA"
-        en: "Testing / QA"
-        score: -15
-        order: 5
-      - key: "documentation"
-        de: "Dokumentation"
-        en: "Documentation"
-        score: -10
-        order: 6
-      - key: "ci_cd"
-        de: "CI/CD Automation"
-        en: "CI/CD Automation"
-        score: -10
-        order: 7
-      - key: "monitoring"
-        de: "Monitoring / Operations"
-        en: "Monitoring / Operations"
-        score: -10
-        order: 8
-      - key: "all_covered"
-        de: "Alle Phasen haben geeignete Tools"
-        en: "All phases have suitable tools"
-        score: 100
-        order: 9
-    weight: 1.4
+  - key: "ide_integration"
+    name:
+      de: "IDE-Integration & Developer Experience"
+      en: "IDE Integration & Developer Experience"
+    description:
+      de: "Wie nahtlos sind AI-Tools in die taegliche Entwicklungsumgebung integriert?"
+      en: "How seamlessly are AI tools integrated into the daily development environment?"
     order: 2
 
-  - question_key: "dd_t_03"
+  - key: "reliability"
+    name:
+      de: "Zuverlaessigkeit & Performance"
+      en: "Reliability & Performance"
+    description:
+      de: "Sind AI-Tools stabil, schnell und zuverlaessig nutzbar?"
+      en: "Are AI tools stable, fast, and reliably usable?"
+    order: 3
+
+  - key: "ecosystem"
+    name:
+      de: "Ecosystem-Reife (Prompt Library, CI/CD, Docs)"
+      en: "Ecosystem Maturity (Prompt Library, CI/CD, Docs)"
+    description:
+      de: "Existiert ein reifes Oekosystem rund um die AI-Tools (Prompt-Vorlagen, Pipeline-Integration, Dokumentation)?"
+      en: "Does a mature ecosystem exist around the AI tools (prompt templates, pipeline integration, documentation)?"
+    order: 4
+
+# =============================================================================
+# QUESTIONS
+# =============================================================================
+questions:
+
+  # ---------------------------------------------------------------------------
+  # CONTEXT / METRIC QUESTIONS (inform analysis, not in spider score)
+  # ---------------------------------------------------------------------------
+  - question_key: "T-CTX-1"
+    question_type: "context"
+    sub_topic: ~
     question_text:
-      de: "Welche der drei Sicherheitsstufen sind verfügbar UND werden aktiv genutzt?"
-      en: "Which of the three security tiers are available AND actively used?"
+      de: "Welche Sicherheitsstufen fuer AI-Tools sind in eurer Organisation verfuegbar? (Mehrfachauswahl)"
+      en: "Which security tiers for AI tools are available in your organization? (Multiple selection)"
     why_important:
-      de: "Multi-Tier-Strategie ist entscheidend. Nur eine Stufe = viele Anwendungsfälle blockiert."
-      en: "Multi-tier strategy is crucial. Only one tier = many use cases blocked."
+      de: "Faktische Grundlage: Multi-Tier-Strategie bestimmt, welche Use Cases ueberhaupt moeglich sind."
+      en: "Factual basis: Multi-tier strategy determines which use cases are possible at all."
     answer_type: "multiple_choice"
     allow_multiple: true
     answer_options:
       - key: "tier1_public"
-        de: "Stufe 1: Public Cloud (GitHub Copilot, Claude Pro, ChatGPT Enterprise) - aktiv genutzt"
-        en: "Tier 1: Public Cloud (GitHub Copilot, Claude Pro, ChatGPT Enterprise) - actively used"
-        score: 30
+        de: "Stufe 1: Public Cloud (z.B. GitHub Copilot, Claude Pro, ChatGPT Enterprise)"
+        en: "Tier 1: Public Cloud (e.g., GitHub Copilot, Claude Pro, ChatGPT Enterprise)"
         order: 1
       - key: "tier2_private"
-        de: "Stufe 2: Private Cloud (Azure OpenAI, AWS Bedrock) - aktiv genutzt"
-        en: "Tier 2: Private Cloud (Azure OpenAI, AWS Bedrock) - actively used"
-        score: 40
+        de: "Stufe 2: Private Cloud (z.B. Azure OpenAI, AWS Bedrock im eigenen Tenant)"
+        en: "Tier 2: Private Cloud (e.g., Azure OpenAI, AWS Bedrock in own tenant)"
         order: 2
       - key: "tier3_airgapped"
-        de: "Stufe 3: Air-gapped (Ollama/vLLM lokal, Continue.dev) - aktiv genutzt"
-        en: "Tier 3: Air-gapped (Ollama/vLLM local, Continue.dev) - actively used"
-        score: 30
+        de: "Stufe 3: Air-gapped / lokal (z.B. Ollama, vLLM mit lokalen Modellen)"
+        en: "Tier 3: Air-gapped / local (e.g., Ollama, vLLM with local models)"
         order: 3
-      - key: "none"
-        de: "Keine Stufe aktiv genutzt"
-        en: "No tier actively used"
-        score: 0
+      - key: "none_available"
+        de: "Keine AI-Tools offiziell verfuegbar"
+        en: "No AI tools officially available"
         order: 4
-    weight: 1.4
+      - key: "unknown"
+        de: "Weiss nicht"
+        en: "Don't know"
+        order: 5
+    scoring_note: "Context only — does not feed into spider score directly"
+    order: 1
+
+  - question_key: "T-CTX-2"
+    question_type: "context"
+    sub_topic: ~
+    question_text:
+      de: "Wie viele verschiedene AI-Tools nutzt du aktiv in deiner taeglichen Arbeit?"
+      en: "How many different AI tools do you actively use in your daily work?"
+    why_important:
+      de: "Metrik: Tool-Vielfalt zeigt Ecosystem-Reife und potenzielle Fragmentierung."
+      en: "Metric: Tool diversity shows ecosystem maturity and potential fragmentation."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "none"
+        de: "Keins"
+        en: "None"
+        order: 1
+      - key: "one"
+        de: "1 Tool"
+        en: "1 tool"
+        order: 2
+      - key: "two_three"
+        de: "2-3 Tools"
+        en: "2-3 tools"
+        order: 3
+      - key: "four_plus"
+        de: "4 oder mehr Tools"
+        en: "4 or more tools"
+        order: 4
+    scoring_note: "Context only — does not feed into spider score directly"
+    order: 2
+
+  # ---------------------------------------------------------------------------
+  # MATURITY QUESTIONS (one per sub-topic, calibrated 5-level)
+  # ---------------------------------------------------------------------------
+  - question_key: "T-M-AVAILABILITY"
+    question_type: "maturity"
+    sub_topic: "tool_availability"
+    question_text:
+      de: "Welche Stufe beschreibt die Verfuegbarkeit von AI-Tools in deinem Arbeitsalltag am besten?"
+      en: "Which level best describes the availability of AI tools in your daily work?"
+    maturity_levels:
+      1:
+        label: "Exploring"
+        de: "Es gibt keine freigegebenen AI-Tools; wenn ich AI nutzen will, muss ich auf private Accounts oder inoffizielle Wege zurueckgreifen."
+        en: "There are no approved AI tools; if I want to use AI, I have to fall back on personal accounts or unofficial channels."
+      2:
+        label: "Experimenting"
+        de: "Ein erstes Tool ist verfuegbar, aber nur fuer einen Teil des Teams oder nur fuer unkritische Daten; fuer sensible Bereiche gibt es keine Loesung."
+        en: "A first tool is available, but only for part of the team or only for non-critical data; for sensitive areas there's no solution."
+      3:
+        label: "Embedding"
+        de: "AI-Tools sind fuer die meisten Teammitglieder verfuegbar; mindestens eine Sicherheitsstufe deckt unseren Hauptbedarf ab."
+        en: "AI tools are available for most team members; at least one security tier covers our main needs."
+      4:
+        label: "Scaling"
+        de: "Verschiedene Sicherheitsstufen stehen bereit; fuer jeden Datentyp gibt es eine passende Loesung; neue Tools werden schnell bereitgestellt."
+        en: "Different security tiers are available; for every data type there's a suitable solution; new tools are provisioned quickly."
+      5:
+        label: "Evolving"
+        de: "Multi-Tier-Strategie ist Alltag; Teams koennen flexibel zwischen Modellen und Stufen wechseln; Self-Service-Provisioning fuer Standard-Tools."
+        en: "Multi-tier strategy is routine; teams can flexibly switch between models and tiers; self-service provisioning for standard tools."
     order: 3
 
-  - question_key: "dd_t_04"
+  - question_key: "T-M-IDE"
+    question_type: "maturity"
+    sub_topic: "ide_integration"
     question_text:
-      de: "Welche Sicherheitsstufe fehlt und wird dringend benötigt?"
-      en: "Which security tier is missing and urgently needed?"
-    why_important:
-      de: "Priorisiert Infrastruktur-Investments. Fehlende Stufe 3 blockiert hochsensible Anwendungsfälle."
-      en: "Prioritizes infrastructure investments. Missing tier 3 blocks highly sensitive use cases."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "tier1_needed"
-        de: "Stufe 1 (Public Cloud) fehlt - blockiert einfache/unkritische Use Cases"
-        en: "Tier 1 (Public Cloud) missing - blocks simple/non-critical use cases"
-        score: 40
-        order: 1
-      - key: "tier2_needed"
-        de: "Stufe 2 (Private Cloud) fehlt - blockiert sensible Daten"
-        en: "Tier 2 (Private Cloud) missing - blocks sensitive data"
-        score: 30
-        order: 2
-      - key: "tier3_needed"
-        de: "Stufe 3 (Air-gapped) fehlt - blockiert streng vertrauliche Daten"
-        en: "Tier 3 (Air-gapped) missing - blocks strictly confidential data"
-        score: 20
-        order: 3
-      - key: "all_available"
-        de: "Alle drei Stufen verfügbar"
-        en: "All three tiers available"
-        score: 100
-        order: 4
-    weight: 1.3
+      de: "Welche Stufe beschreibt die Integration von AI-Tools in deine Entwicklungsumgebung (IDE) am besten?"
+      en: "Which level best describes the integration of AI tools into your development environment (IDE)?"
+    maturity_levels:
+      1:
+        label: "Exploring"
+        de: "AI-Tools laufen ausserhalb meiner IDE (z.B. Browser-Tab); ich muss Copy-Paste verwenden, um Ergebnisse in meinen Code zu uebertragen."
+        en: "AI tools run outside my IDE (e.g., browser tab); I need to copy-paste to transfer results into my code."
+      2:
+        label: "Experimenting"
+        de: "Ein Plugin/Extension ist installiert, aber es funktioniert nur fuer einfache Dinge (z.B. Autocomplete); komplexere Features fehlen oder sind instabil."
+        en: "A plugin/extension is installed, but it only works for simple things (e.g., autocomplete); more complex features are missing or unstable."
+      3:
+        label: "Embedding"
+        de: "AI ist in meiner IDE fuer Kernfeatures integriert (Autocomplete, Chat, Erklaerungen); es funktioniert zuverlaessig fuer Standard-Workflows."
+        en: "AI is integrated in my IDE for core features (autocomplete, chat, explanations); it works reliably for standard workflows."
+      4:
+        label: "Scaling"
+        de: "AI unterstuetzt mich durchgaengig: Code-Generierung, Refactoring, Test-Erstellung, Dokumentation — alles direkt in der IDE; ich kann zwischen Modellen wechseln."
+        en: "AI supports me throughout: code generation, refactoring, test creation, documentation — all directly in the IDE; I can switch between models."
+      5:
+        label: "Evolving"
+        de: "AI ist tief in meinen gesamten Workflow integriert — agentic workflows, Multi-File-Aenderungen, Context-aware Vorschlaege; ich arbeite in einer AI-nativen Umgebung."
+        en: "AI is deeply integrated into my entire workflow — agentic workflows, multi-file changes, context-aware suggestions; I work in an AI-native environment."
     order: 4
 
-  - question_key: "dd_t_05"
+  - question_key: "T-M-RELIABILITY"
+    question_type: "maturity"
+    sub_topic: "reliability"
     question_text:
-      de: "Wie gut sind AI-Tools in die bevorzugten IDEs integriert (VS Code, IntelliJ, etc.)?"
-      en: "How well are AI tools integrated into preferred IDEs (VS Code, IntelliJ, etc.)?"
-    why_important:
-      de: "IDE-Integration ist kritisch für Developer Experience. Ohne nahtlose Integration sinkt Adoption dramatisch."
-      en: "IDE integration is critical for developer experience. Without seamless integration, adoption drops dramatically."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "excellent"
-        de: "Exzellent - native Integration, alle Features verfügbar"
-        en: "Excellent - native integration, all features available"
-        score: 100
-        order: 1
-      - key: "good"
-        de: "Gut - funktioniert, gelegentliche Probleme"
-        en: "Good - works, occasional issues"
-        score: 70
-        order: 2
-      - key: "basic"
-        de: "Basic - funktioniert, aber nicht alle Features, umständlich"
-        en: "Basic - works but not all features, cumbersome"
-        score: 40
-        order: 3
-      - key: "poor"
-        de: "Schlecht - instabil, fehlende Features, frustrierend"
-        en: "Poor - unstable, missing features, frustrating"
-        score: 15
-        order: 4
-      - key: "none"
-        de: "Keine IDE-Integration vorhanden"
-        en: "No IDE integration available"
-        score: 0
-        order: 5
-    weight: 1.3
+      de: "Welche Stufe beschreibt die Zuverlaessigkeit und Performance der AI-Tools am besten?"
+      en: "Which level best describes the reliability and performance of AI tools?"
+    maturity_levels:
+      1:
+        label: "Exploring"
+        de: "AI-Tools sind nicht verfuegbar oder so instabil, dass ich sie nicht sinnvoll nutzen kann."
+        en: "AI tools are not available or so unstable that I can't use them meaningfully."
+      2:
+        label: "Experimenting"
+        de: "Tools funktionieren manchmal, aber haeufige Ausfaelle, hohe Latenz oder Timeouts frustrieren und stoeren meinen Flow."
+        en: "Tools work sometimes, but frequent outages, high latency, or timeouts frustrate and disrupt my flow."
+      3:
+        label: "Embedding"
+        de: "Tools laufen meistens stabil; gelegentliche Performance-Probleme, aber insgesamt akzeptabel fuer die taegliche Arbeit."
+        en: "Tools run mostly stable; occasional performance issues, but overall acceptable for daily work."
+      4:
+        label: "Scaling"
+        de: "Tools sind zuverlaessig und schnell; SLAs werden eingehalten; bei Problemen gibt es klare Supportwege und schnelle Loesungen."
+        en: "Tools are reliable and fast; SLAs are met; when problems occur, there are clear support channels and quick solutions."
+      5:
+        label: "Evolving"
+        de: "Infrastructure-as-Code, automatisches Scaling, proaktives Monitoring; Performance wird kontinuierlich optimiert und Ausfaelle sind selten."
+        en: "Infrastructure-as-code, automatic scaling, proactive monitoring; performance is continuously optimized and outages are rare."
     order: 5
 
-  - question_key: "dd_t_06"
+  - question_key: "T-M-ECOSYSTEM"
+    question_type: "maturity"
+    sub_topic: "ecosystem"
     question_text:
-      de: "Gibt es Performance-Probleme mit AI-Tools (Latenz, Timeouts, Verfügbarkeit)?"
-      en: "Are there performance issues with AI tools (latency, timeouts, availability)?"
-    why_important:
-      de: "Performance-Probleme töten Adoption. Entwickler tolerieren max. 2-3 Sekunden Latenz."
-      en: "Performance issues kill adoption. Developers tolerate max. 2-3 seconds latency."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "no_issues"
-        de: "Keine Probleme - schnell und zuverlässig (<2s Latenz)"
-        en: "No issues - fast and reliable (<2s latency)"
-        score: 100
-        order: 1
-      - key: "minor"
-        de: "Gelegentliche Probleme, aber akzeptabel (2-5s)"
-        en: "Occasional issues but acceptable (2-5s)"
-        score: 70
-        order: 2
-      - key: "moderate"
-        de: "Regelmäßige Probleme, nervt (5-10s oder häufige Timeouts)"
-        en: "Regular issues, annoying (5-10s or frequent timeouts)"
-        score: 40
-        order: 3
-      - key: "severe"
-        de: "Schwerwiegende Probleme - oft nicht nutzbar (>10s oder ständige Ausfälle)"
-        en: "Severe issues - often unusable (>10s or constant failures)"
-        score: 10
-        order: 4
-    weight: 1.3
+      de: "Welche Stufe beschreibt das Oekosystem rund um eure AI-Tools (Prompt-Vorlagen, CI/CD-Integration, Dokumentation) am besten?"
+      en: "Which level best describes the ecosystem around your AI tools (prompt templates, CI/CD integration, documentation)?"
+    maturity_levels:
+      1:
+        label: "Exploring"
+        de: "Jeder arbeitet fuer sich; keine geteilten Prompts, keine Dokumentation, keine Integration in Build-Pipelines."
+        en: "Everyone works on their own; no shared prompts, no documentation, no integration into build pipelines."
+      2:
+        label: "Experimenting"
+        de: "Einzelne teilen Prompts informell (z.B. Slack, persoenliche Notizen); Dokumentation ist lueckenhaft; CI/CD-Integration ist nicht vorhanden."
+        en: "Some share prompts informally (e.g., Slack, personal notes); documentation is patchy; CI/CD integration doesn't exist."
+      3:
+        label: "Embedding"
+        de: "Es gibt eine zentrale Anlaufstelle (Wiki, Confluence) fuer Prompts und Best Practices; erste AI-Schritte in Pipelines (z.B. AI Code Review); Setup-Doku vorhanden."
+        en: "There's a central resource (wiki, Confluence) for prompts and best practices; first AI steps in pipelines (e.g., AI code review); setup docs available."
+      4:
+        label: "Scaling"
+        de: "Prompt Library ist technisch integriert (IDE-Snippets, MCP-Server); AI in CI/CD ist Standard (Review, Tests, Docs); Dokumentation ist aktuell und umfassend."
+        en: "Prompt library is technically integrated (IDE snippets, MCP server); AI in CI/CD is standard (review, tests, docs); documentation is current and comprehensive."
+      5:
+        label: "Evolving"
+        de: "Das Oekosystem entwickelt sich kontinuierlich weiter: Community-driven Prompt Library, AI-generierte Pipeline-Optimierung, automatische Docs-Updates; Teams tragen aktiv bei."
+        en: "The ecosystem continuously evolves: community-driven prompt library, AI-generated pipeline optimization, automatic docs updates; teams actively contribute."
     order: 6
 
-  - question_key: "dd_t_07"
+  # ---------------------------------------------------------------------------
+  # MC DIAGNOSTICS (explain the WHY)
+  # ---------------------------------------------------------------------------
+  - question_key: "T-MC-BLOCKER"
+    question_type: "diagnostic"
     question_text:
-      de: "Wie gut funktioniert Model Selection (Auswahl verschiedener LLMs für verschiedene Use Cases)?"
-      en: "How well does model selection work (choosing different LLMs for different use cases)?"
-    why_important:
-      de: "Verschiedene Tasks brauchen verschiedene Modelle. GPT-4 für Architektur, Codex für Coding, kleine Modelle für simple Tasks."
-      en: "Different tasks need different models. GPT-4 for architecture, Codex for coding, small models for simple tasks."
+      de: "Was blockiert euch aktuell am staerksten im Bereich Technical Enablement?"
+      en: "What currently blocks you most in the area of technical enablement?"
     answer_type: "single_choice"
     answer_options:
-      - key: "flexible"
-        de: "Flexibel - mehrere Modelle verfügbar, einfach wechselbar"
-        en: "Flexible - multiple models available, easy to switch"
-        score: 100
+      - key: "no_tools_available"
+        de: "Keine oder zu wenige AI-Tools offiziell freigegeben"
+        en: "No or too few AI tools officially approved"
         order: 1
-      - key: "limited_choice"
-        de: "Begrenzte Auswahl - 1-2 Modelle verfügbar"
-        en: "Limited choice - 1-2 models available"
-        score: 60
+      - key: "poor_integration"
+        de: "Schlechte IDE-Integration — zu umstaendlich, zu viel Copy-Paste"
+        en: "Poor IDE integration — too cumbersome, too much copy-paste"
         order: 2
-      - key: "fixed"
-        de: "Fest - nur ein Modell, nicht wechselbar"
-        en: "Fixed - only one model, not switchable"
-        score: 30
+      - key: "performance_issues"
+        de: "Performance-Probleme — zu langsam, instabil, haeufige Ausfaelle"
+        en: "Performance issues — too slow, unstable, frequent outages"
         order: 3
-      - key: "unknown"
-        de: "Weiß nicht / nicht relevant"
-        en: "Don't know / not relevant"
-        score: 50
+      - key: "missing_tier"
+        de: "Fehlende Sicherheitsstufe — kann fuer bestimmte Daten kein AI nutzen"
+        en: "Missing security tier — can't use AI for certain data"
         order: 4
-    weight: 1.1
+      - key: "no_ecosystem"
+        de: "Fehlendes Oekosystem — keine Prompts, keine Docs, jeder faengt bei Null an"
+        en: "Missing ecosystem — no prompts, no docs, everyone starts from zero"
+        order: 5
+      - key: "nothing"
+        de: "Nichts blockiert aktuell"
+        en: "Nothing currently blocking"
+        order: 6
+      - key: "other"
+        de: "Anderes"
+        en: "Other"
+        order: 7
     order: 7
 
-  - question_key: "dd_t_08"
+  - question_key: "T-MC-PRIORITY"
+    question_type: "diagnostic"
     question_text:
-      de: "Gibt es eine zentrale Prompt Library / Template-Sammlung (technisch zugänglich, nicht nur Dokumentation)?"
-      en: "Is there a central prompt library / template collection (technically accessible, not just documentation)?"
-    why_important:
-      de: "Technisch integrierte Prompt Library (z.B. via MCP, IDE-Snippets) beschleunigt Adoption massiv."
-      en: "Technically integrated prompt library (e.g., via MCP, IDE snippets) massively accelerates adoption."
+      de: "Welche technische Verbesserung haette den groessten positiven Einfluss auf eure AI-Nutzung?"
+      en: "Which technical improvement would have the greatest positive impact on your AI usage?"
     answer_type: "single_choice"
-    answer_options:
-      - key: "integrated"
-        de: "Ja, technisch integriert (MCP-Server, IDE-Extension, API)"
-        en: "Yes, technically integrated (MCP server, IDE extension, API)"
-        score: 100
-        order: 1
-      - key: "accessible"
-        de: "Ja, zentral verfügbar aber manuelles Copy-Paste (Wiki, Confluence)"
-        en: "Yes, centrally available but manual copy-paste (Wiki, Confluence)"
-        score: 60
-        order: 2
-      - key: "informal"
-        de: "Informell / ad-hoc (Slack, persönliche Sammlungen)"
-        en: "Informal / ad-hoc (Slack, personal collections)"
-        score: 30
-        order: 3
-      - key: "none"
-        de: "Nein, nicht vorhanden"
-        en: "No, not available"
-        score: 0
-        order: 4
-    weight: 1.2
-    order: 8
-
-  - question_key: "dd_t_09"
-    question_text:
-      de: "Sind AI-Tools in CI/CD-Pipelines integriert (z.B. AI Code Review, Test Generation)?"
-      en: "Are AI tools integrated into CI/CD pipelines (e.g., AI code review, test generation)?"
-    why_important:
-      de: "CI/CD-Integration macht AI zum Standard-Teil des Prozesses, nicht optionalem Extra."
-      en: "CI/CD integration makes AI a standard part of the process, not an optional extra."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "comprehensive"
-        de: "Ja, umfassend - mehrere AI-Schritte in Pipeline (Review, Tests, Docs)"
-        en: "Yes, comprehensive - multiple AI steps in pipeline (review, tests, docs)"
-        score: 100
-        order: 1
-      - key: "partial"
-        de: "Teilweise - einzelne AI-Schritte integriert"
-        en: "Partial - individual AI steps integrated"
-        score: 70
-        order: 2
-      - key: "pilot"
-        de: "Pilotphase / nur in einzelnen Projekten"
-        en: "Pilot phase / only in individual projects"
-        score: 40
-        order: 3
-      - key: "none"
-        de: "Nein, nicht integriert"
-        en: "No, not integrated"
-        score: 0
-        order: 4
-    weight: 1.2
-    order: 9
-
-  - question_key: "dd_t_10"
-    question_text:
-      de: "Wie ist die LLM-Deployment-Strategie für Air-gapped / Stufe 3 Umgebungen?"
-      en: "What is the LLM deployment strategy for air-gapped / tier 3 environments?"
-    why_important:
-      de: "Stufe 3 ist kritisch für hochsensible Daten. Ohne funktionierende lokale LLMs bleiben viele Use Cases blockiert."
-      en: "Tier 3 is critical for highly sensitive data. Without functioning local LLMs, many use cases remain blocked."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "production_ready"
-        de: "Production-ready - Ollama/vLLM läuft stabil, mehrere Modelle verfügbar"
-        en: "Production-ready - Ollama/vLLM runs stably, multiple models available"
-        score: 100
-        order: 1
-      - key: "pilot"
-        de: "Pilotphase - funktioniert, aber noch nicht skaliert"
-        en: "Pilot phase - works but not yet scaled"
-        score: 70
-        order: 2
-      - key: "planned"
-        de: "Geplant, aber noch nicht implementiert"
-        en: "Planned but not yet implemented"
-        score: 40
-        order: 3
-      - key: "not_planned"
-        de: "Nicht geplant / nicht erforderlich"
-        en: "Not planned / not required"
-        score: 30
-        order: 4
-      - key: "not_needed"
-        de: "Nicht benötigt - Public/Private Cloud ausreichend"
-        en: "Not needed - public/private cloud sufficient"
-        score: 100
-        order: 5
-    weight: 1.2
-    order: 10
-
-  - question_key: "dd_t_11"
-    question_text:
-      de: "Welche technischen Capabilities fehlen am meisten? (Mehrfachauswahl Top-3)"
-      en: "Which technical capabilities are most missing? (Multiple selection top-3)"
-    why_important:
-      de: "Priorisiert technische Roadmap. Verschiedene Teams brauchen verschiedene Capabilities."
-      en: "Prioritizes technical roadmap. Different teams need different capabilities."
-    answer_type: "multiple_choice"
-    allow_multiple: true
     answer_options:
       - key: "better_ide"
-        de: "Bessere IDE-Integration / mehr Features"
-        en: "Better IDE integration / more features"
-        score: 20
+        de: "Bessere IDE-Integration (native, mehr Features, agentic Workflows)"
+        en: "Better IDE integration (native, more features, agentic workflows)"
         order: 1
-      - key: "more_models"
-        de: "Mehr Modell-Auswahl (verschiedene LLMs)"
-        en: "More model selection (different LLMs)"
-        score: 15
+      - key: "more_tiers"
+        de: "Weitere Sicherheitsstufen bereitstellen (Private Cloud oder Air-gapped)"
+        en: "Provide additional security tiers (private cloud or air-gapped)"
         order: 2
-      - key: "ci_cd"
-        de: "CI/CD-Integration (AI in Pipeline)"
-        en: "CI/CD integration (AI in pipeline)"
-        score: 20
-        order: 3
       - key: "prompt_library"
-        de: "Technisch integrierte Prompt Library (MCP)"
-        en: "Technically integrated prompt library (MCP)"
-        score: 15
-        order: 4
-      - key: "air_gapped"
-        de: "Air-gapped Lösung (lokale LLMs)"
-        en: "Air-gapped solution (local LLMs)"
-        score: 25
-        order: 5
-      - key: "monitoring"
-        de: "AI Usage Monitoring / Analytics"
-        en: "AI usage monitoring / analytics"
-        score: 15
-        order: 6
-      - key: "training"
-        de: "Custom Model Training / Fine-Tuning"
-        en: "Custom model training / fine-tuning"
-        score: 10
-        order: 7
-      - key: "none"
-        de: "Keine großen Lücken - Setup ist gut"
-        en: "No major gaps - setup is good"
-        score: 100
-        order: 8
-    weight: 1.2
-    order: 11
-
-  - question_key: "dd_t_12"
-    question_text:
-      de: "Wie ist die technische Dokumentation für AI-Tool-Setup und Best Practices?"
-      en: "How is the technical documentation for AI tool setup and best practices?"
-    why_important:
-      de: "Gute technische Docs reduzieren Support-Aufwand und ermöglichen Self-Service."
-      en: "Good technical docs reduce support effort and enable self-service."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "excellent"
-        de: "Exzellent - umfassend, aktuell, mit Beispielen"
-        en: "Excellent - comprehensive, current, with examples"
-        score: 100
-        order: 1
-      - key: "good"
-        de: "Gut - Grundlagen vorhanden, wird gepflegt"
-        en: "Good - basics available, maintained"
-        score: 70
-        order: 2
-      - key: "basic"
-        de: "Basic - vorhanden, aber lückenhaft oder veraltet"
-        en: "Basic - available but incomplete or outdated"
-        score: 40
+        de: "Technisch integrierte Prompt Library (MCP-Server, IDE-Snippets)"
+        en: "Technically integrated prompt library (MCP server, IDE snippets)"
         order: 3
-      - key: "poor"
-        de: "Schlecht - kaum vorhanden, viel Trial & Error"
-        en: "Poor - barely available, much trial & error"
-        score: 10
+      - key: "cicd_integration"
+        de: "AI in CI/CD-Pipelines einbinden (Code Review, Test-Generierung)"
+        en: "Integrate AI into CI/CD pipelines (code review, test generation)"
         order: 4
-    weight: 1.0
-    order: 12
+      - key: "model_selection"
+        de: "Mehr Modell-Auswahl (verschiedene LLMs fuer verschiedene Tasks)"
+        en: "More model selection (different LLMs for different tasks)"
+        order: 5
+      - key: "better_docs"
+        de: "Bessere Dokumentation und Onboarding-Materialien"
+        en: "Better documentation and onboarding materials"
+        order: 6
+      - key: "other"
+        de: "Anderes"
+        en: "Other"
+        order: 7
+    order: 8
 
+  # ---------------------------------------------------------------------------
+  # POWERFUL QUESTION (individual reflection, optional)
+  # ---------------------------------------------------------------------------
+  - question_key: "T-PQ"
+    question_type: "powerful_question"
+    optional: true
+    question_text:
+      de: "Welches AI-Tool oder Feature vermisst du am meisten, das es eigentlich geben muesste?"
+      en: "Which AI tool or feature do you miss the most that should really exist?"
+    max_length: 280
+    moderation_note:
+      de: "Nur als Themen-Cluster veroeffentlichen, nie als Rohtext. k-Anonymitaet beachten."
+      en: "Only publish as topic clusters, never as raw text. Observe k-anonymity."
+    order: 9
+
+# =============================================================================
+# SCORING
+# =============================================================================
 scoring:
-  dimension: "T"
-  formula: "weighted_average"
+  method:
+    de: >-
+      Spider-Score = (Median der 4 Maturity-Antworten x 0.6) + (Minimum x 0.4).
+      Der Minimum-Anteil verhindert, dass kritische Schwaechen im Durchschnitt
+      verschwinden. Ein Sub-Topic auf Level 1 ist ein Blocker, egal wie gut der Rest ist.
+    en: >-
+      Spider score = (Median of 4 maturity answers x 0.6) + (Minimum x 0.4).
+      The minimum component prevents critical weaknesses from disappearing in
+      the average. A sub-topic at Level 1 is a blocker, no matter how good the rest is.
+  formula: "(median(T-M-AVAILABILITY, T-M-IDE, T-M-RELIABILITY, T-M-ECOSYSTEM) * 0.6) + (min(T-M-AVAILABILITY, T-M-IDE, T-M-RELIABILITY, T-M-ECOSYSTEM) * 0.4)"
+  scale: "1-5"
+
+  sub_topic_profile:
+    description:
+      de: >-
+        Neben dem aggregierten Spider-Score wird immer ein Sub-Topic-Profil
+        (Balkendiagramm) angezeigt, das die Einzelscores sichtbar macht.
+        Dies ist die entscheidende Darstellung fuer Interventionsplanung.
+      en: >-
+        Alongside the aggregated spider score, a sub-topic profile
+        (bar chart) is always displayed showing individual scores.
+        This is the key visualization for intervention planning.
+
+  context_questions:
+    description:
+      de: >-
+        Context-Fragen (T-CTX-*) fliessen NICHT direkt in den Spider-Score,
+        sondern informieren die qualitative Analyse und Interventionsplanung.
+        Sie koennen Maturity-Scores validieren oder widersprechen
+        (z.B. Team sagt Level 4 bei Tool-Verfuegbarkeit, aber T-CTX-1 zeigt nur 1 Sicherheitsstufe).
+      en: >-
+        Context questions (T-CTX-*) do NOT directly feed into the spider score,
+        but inform qualitative analysis and intervention planning.
+        They can validate or contradict maturity scores
+        (e.g., team says Level 4 for tool availability, but T-CTX-1 shows only 1 security tier).
+
   interpretation:
-    de: |
-      T-Score Interpretation:
-      - 0-30: Kritisch - fundamentale technische Lücken, keine oder kaum Tools verfügbar
-      - 31-50: Schwach - nur eine Sicherheitsstufe, schlechte IDE-Integration, Performance-Probleme
-      - 51-70: Entwicklung - Basis-Tools vorhanden (Tier 1+2), aber SDLC-Lücken oder Integrationsprobleme
-      - 71-85: Gut - alle drei Tiers verfügbar, gute IDE-Integration, CI/CD teilweise integriert
-      - 86-100: Exzellent - alle Tiers produktiv, nahtlose Integration, Prompt Library, AI in CI/CD, gute Performance
-    en: |
-      T-Score Interpretation:
-      - 0-30: Critical - fundamental technical gaps, no or hardly any tools available
-      - 31-50: Weak - only one security tier, poor IDE integration, performance issues
-      - 51-70: Developing - basic tools available (Tier 1+2), but SDLC gaps or integration issues
-      - 71-85: Good - all three tiers available, good IDE integration, CI/CD partially integrated
-      - 86-100: Excellent - all tiers productive, seamless integration, prompt library, AI in CI/CD, good performance
+    1:
+      label: "Exploring"
+      de: "Keine oder unzugaengliche AI-Tools; fundamentale Luecken in Infrastruktur, Integration und Oekosystem."
+      en: "No or inaccessible AI tools; fundamental gaps in infrastructure, integration, and ecosystem."
+    2:
+      label: "Experimenting"
+      de: "Erste Tools vorhanden, aber instabil, schlecht integriert oder nur fuer Teile des Teams; kein Oekosystem."
+      en: "First tools available but unstable, poorly integrated, or only for parts of the team; no ecosystem."
+    3:
+      label: "Embedding"
+      de: "AI-Tools zuverlaessig und fuer die meisten verfuegbar; IDE-Integration funktioniert; erste Ecosystem-Bausteine."
+      en: "AI tools reliable and available for most; IDE integration works; first ecosystem building blocks."
+    4:
+      label: "Scaling"
+      de: "Multi-Tier-Strategie, nahtlose IDE-Integration, AI in CI/CD, integrierte Prompt Library; professioneller Betrieb."
+      en: "Multi-tier strategy, seamless IDE integration, AI in CI/CD, integrated prompt library; professional operations."
+    5:
+      label: "Evolving"
+      de: "AI-native Entwicklungsumgebung; Self-Service, automatisches Scaling, Community-driven Ecosystem; kontinuierliche Innovation."
+      en: "AI-native development environment; self-service, automatic scaling, community-driven ecosystem; continuous innovation."
+
+# =============================================================================
+# RELATIONSHIP TO PULSE CHECK
+# =============================================================================
+pulse_check_relationship:
+  description:
+    de: >-
+      Die Pulse-Check-Frage T-M1 ist die High-Level-Zusammenfassung dieser
+      4 Sub-Topics. Der Deep-Dive T-Score sollte mit dem Pulse-Check T-Score
+      korrelieren. Grosse Abweichungen deuten auf Antwort-Verzerrung hin
+      und sollten im HITL-Review diskutiert werden.
+    en: >-
+      The pulse check question T-M1 is the high-level summary of these
+      4 sub-topics. The deep-dive T-Score should correlate with the pulse
+      check T-Score. Large deviations indicate response bias and should
+      be discussed in the HITL review.
+  pulse_check_question: "T-M1"
+  sub_topic_mapping:
+    T-M1_level_1: "Maps roughly to: no tools available, everything ad-hoc or inaccessible"
+    T-M1_level_2: "Maps roughly to: first tools but poor integration or reliability"
+    T-M1_level_3: "Maps roughly to: tools work reliably, basic IDE integration, first ecosystem"
+    T-M1_level_4: "Maps roughly to: multi-tier, deep integration, AI in CI/CD, prompt library"
+    T-M1_level_5: "Maps roughly to: AI-native environment, self-service, community-driven ecosystem"

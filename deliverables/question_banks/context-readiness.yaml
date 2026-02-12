@@ -5,13 +5,17 @@
 # Captures project context and diagnoses transformation readiness.
 # Output feeds into adaptive filtering for Pulse Check (Ebene 2).
 #
-# Version: 1.0
-# Last Updated: 2026-02-11
+# IMPORTANT: This assessment is fundamentally different from Pulse Check and
+# Deep-Dives. It captures FACTS and CONDITIONS, not opinions or maturity.
+# See METHODOLOGY.md Section 1 for details on this distinction.
+#
+# Version: 2.0
+# Last Updated: 2026-02-12
 # Total Questions: 35 (17 Context + 18 Readiness)
 # Estimated Duration: 25-30 minutes
 # =============================================================================
 
-version: "1.0"
+version: "2.0"
 assessment_type: "context_readiness"
 description:
   de: >-
@@ -23,7 +27,9 @@ description:
     Captures project context and diagnoses transformation readiness
     as foundation for adaptive pulse checks and targeted interventions.
 estimated_duration_minutes: 30
-respondent: "AI Transformation Manager / Technical Lead (1 person per team)"
+frequency: "once_at_kickoff"
+respondent: "AI Transformation Manager / Technical Lead (1-2 persons, not anonymous)"
+methodology_reference: "METHODOLOGY.md"
 
 # =============================================================================
 # SECTIONS

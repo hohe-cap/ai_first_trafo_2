@@ -5,45 +5,60 @@
 # Generates Spider Chart (1-5) per CRAFT dimension.
 # Anonymous, segmentable, context-adaptive.
 #
+# The Pulse Check is an EXTRACT of the Deep-Dive assessments:
+# - Each Maturity question here (X-M1) is the high-level summary of
+#   3-5 sub-topic maturity questions in the corresponding deep-dive-*.yaml
+# - Deep-Dives provide the granular WHY; Pulse Check tracks the TREND
+#
+# Design Methodology: See METHODOLOGY.md for full scoring rules, calibration,
+# and visualization principles.
+#
 # Source of Truth: This YAML file.
 # Derived view: pulse-check-question-bank-v1.md
 #
-# Version: 1.0
-# Last Updated: 2026-02-11
-# Total Questions: 16 (5 Maturity + 8 MC + 1 Freitext + 2 segmentation-adjacent)
+# Version: 2.0
+# Last Updated: 2026-02-12
+# Total Questions: 16 (5 Maturity + 8 MC + 1 Powerful Question + 2 segmentation-adjacent)
 # Estimated Duration: <=15 minutes
 # =============================================================================
 
-version: "1.0"
+version: "2.0"
 assessment_type: "pulse_check"
 description:
   de: >-
     Quartalsweiser Pulse Check. Anonym, segmentierbar, <=15 Minuten.
     Erzeugt Spider-Score (1-5) pro CRAFT-Dimension.
+    Ist ein Extrakt der Deep-Dive Assessments (Ebene 3).
   en: >-
     Quarterly pulse check. Anonymous, segmentable, <=15 minutes.
     Generates spider score (1-5) per CRAFT dimension.
+    Is an extract of the Deep-Dive assessments (Level 3).
 estimated_duration_minutes: 15
 frequency: "quarterly"
 respondent: "All team members (individual, anonymous)"
 context_dependency: "Filtered by Ebene 1 Context & Readiness Assessment results"
+methodology_reference: "METHODOLOGY.md"
 
 # =============================================================================
 # DESIGN RULES
 # =============================================================================
 design_rules:
   de:
-    - "Pro Dimension: 1 Maturity-Frage (Spider-Score) + 1-2 MC (Diagnostik) + 0-1 Freitext"
+    - "Pro Dimension: 1 Maturity-Frage (Spider-Score) + 1-2 MC (Diagnostik) + 0-1 Powerful Question"
     - "Keine Likert-Skalen. Maturity-Stufen mit konkreten Verhaltensbeschreibungen."
+    - "Alle Maturity-Stufen tragen Labels: Exploring → Experimenting → Embedding → Scaling → Evolving"
     - "Segmentfelder sind nicht-identifizierend, Auswertung nur bei k >= 5"
     - "Keine personenbezogenen Daten (Name, E-Mail, Mitarbeiter-ID)"
     - "Context-adaptive Filterung basierend auf Ebene 1 Assessment"
+    - "Jede Maturity-Frage ist die High-Level-Zusammenfassung des entsprechenden Deep-Dives"
   en:
-    - "Per dimension: 1 maturity question (spider score) + 1-2 MC (diagnostics) + 0-1 free text"
+    - "Per dimension: 1 maturity question (spider score) + 1-2 MC (diagnostics) + 0-1 powerful question"
     - "No Likert scales. Maturity levels with concrete behavioral descriptions."
+    - "All maturity levels carry labels: Exploring → Experimenting → Embedding → Scaling → Evolving"
     - "Segment fields are non-identifying, evaluation only when k >= 5"
     - "No personal data (name, email, employee ID)"
     - "Context-adaptive filtering based on Ebene 1 assessment"
+    - "Each maturity question is the high-level summary of the corresponding deep-dive"
 
 # =============================================================================
 # SEGMENTATION FIELDS
@@ -147,26 +162,31 @@ dimensions:
     name:
       de: "Compliance & Governance"
       en: "Compliance & Governance"
+    deep_dive: "deep-dive-compliance.yaml"
     order: 1
   - key: "R"
     name:
       de: "Readiness (Human & Cultural)"
       en: "Readiness (Human & Cultural)"
+    deep_dive: "deep-dive-readiness.yaml"
     order: 2
   - key: "A"
     name:
       de: "Adoption & Usage"
       en: "Adoption & Usage"
+    deep_dive: "deep-dive-adoption.yaml"
     order: 3
   - key: "F"
     name:
       de: "Flow & Process Integration"
       en: "Flow & Process Integration"
+    deep_dive: "deep-dive-flow.yaml"
     order: 4
   - key: "T"
     name:
       de: "Technical Enablement"
       en: "Technical Enablement"
+    deep_dive: "deep-dive-technical.yaml"
     order: 5
 
 # =============================================================================
@@ -180,30 +200,36 @@ questions:
   - question_key: "C-M1"
     dimension: "C"
     question_type: "maturity"
+    deep_dive_sub_topics: ["policy_clarity", "governance_speed", "data_classification", "regulatory_readiness"]
     question_text:
       de: "Welche Stufe beschreibt eure aktuelle Compliance/Governance-Situation am besten?"
       en: "Which level best describes your current compliance/governance situation?"
     maturity_levels:
       1:
+        label: "Exploring"
         de: "Ich weiss nicht, welche AI-Tools ich nutzen darf; es gibt keine klare Policy."
         en: "I don't know which AI tools I'm allowed to use; there's no clear policy."
       2:
+        label: "Experimenting"
         de: "Ich kenne die Regeln grob, aber bei Unsicherheit weiss ich nicht, wen ich fragen soll oder warte sehr lange auf Antwort."
         en: "I roughly know the rules, but when unsure I don't know who to ask or wait very long for answers."
       3:
+        label: "Embedding"
         de: "Policies existieren und sind bekannt; Freigaben/Antworten kommen, aber dauern oft zu lang oder sind nicht praxisnah."
         en: "Policies exist and are known; approvals/answers come but often take too long or aren't practical."
       4:
+        label: "Scaling"
         de: "Policies sind klar und praxisnah; bei Unsicherheit bekomme ich schnell eine verlaessliche Antwort."
         en: "Policies are clear and practical; when unsure I quickly get a reliable answer."
       5:
+        label: "Evolving"
         de: "Compliance ist in meinen Workflow integriert (automatisierte Checks, Self-Service-Freigaben, klare Entscheidungsbaeume)."
         en: "Compliance is integrated into my workflow (automated checks, self-service approvals, clear decision trees)."
     order: 1
 
   - question_key: "C-MC1"
     dimension: "C"
-    question_type: "multiple_choice"
+    question_type: "diagnostic"
     question_text:
       de: "Welche Situation blockiert euch am haeufigsten?"
       en: "Which situation blocks you most frequently?"
@@ -239,14 +265,17 @@ questions:
         order: 7
     order: 2
 
-  - question_key: "C-FT1"
+  - question_key: "C-PQ1"
     dimension: "C"
-    question_type: "free_text"
+    question_type: "powerful_question"
     optional: true
     question_text:
-      de: "Welche 1 Regel/Aenderung wuerde euch sofort helfen?"
-      en: "What 1 rule/change would immediately help you?"
+      de: "Welche 1 Governance-Regel wuerde sich morgen aendern, wenn du entscheiden duerftest?"
+      en: "Which 1 governance rule would change tomorrow if you could decide?"
     max_length: 280
+    moderation_note:
+      de: "Nur als Themen-Cluster veroeffentlichen, nie als Rohtext. k-Anonymitaet beachten."
+      en: "Only publish as topic clusters, never as raw text. Observe k-anonymity."
     order: 3
 
   # ---------------------------------------------------------------------------
@@ -255,30 +284,36 @@ questions:
   - question_key: "R-M1"
     dimension: "R"
     question_type: "maturity"
+    deep_dive_sub_topics: ["psychological_safety", "skill_confidence", "role_evolution", "peer_support"]
     question_text:
       de: "Welche Stufe beschreibt deine persoenliche AI-Readiness am besten?"
       en: "Which level best describes your personal AI readiness?"
     maturity_levels:
       1:
+        label: "Exploring"
         de: "Ich habe kein Verstaendnis dafuer, was AI fuer meine Arbeit bedeutet; es gibt keine Enablement-Angebote."
         en: "I have no understanding of what AI means for my work; there are no enablement offerings."
       2:
+        label: "Experimenting"
         de: "Ich habe ein grobes Verstaendnis, fuehle mich aber unsicher in der Anwendung; ich weiss nicht, wo ich anfangen soll."
         en: "I have a rough understanding but feel insecure in application; I don't know where to start."
       3:
+        label: "Embedding"
         de: "Ich kann AI-Tools grundlegend bedienen und im Team offen darueber sprechen, bin aber unsicher bei Qualitaetsbewertung (Halluzinationen, Grenzen)."
         en: "I can basically use AI tools and discuss them openly in the team, but I'm unsure about quality assessment (hallucinations, limitations)."
       4:
+        label: "Scaling"
         de: "Ich kann AI-Outputs kritisch bewerten und sinnvoll in meinen Alltag einbauen; ich verstehe, wie sich meine Rolle veraendert."
         en: "I can critically evaluate AI outputs and meaningfully integrate them into my daily work; I understand how my role is changing."
       5:
+        label: "Evolving"
         de: "Ich bin sicher im Umgang mit AI, unterstuetze andere aktiv (Champion-Rolle), und gestalte Veraenderungen in meiner Rolle proaktiv."
         en: "I'm confident with AI, actively support others (champion role), and proactively shape changes in my role."
     order: 4
 
   - question_key: "R-MC1"
     dimension: "R"
-    question_type: "multiple_choice"
+    question_type: "diagnostic"
     question_text:
       de: "Was waere fuer dich der staerkste Enablement-Hebel?"
       en: "What would be the strongest enablement lever for you?"
@@ -312,7 +347,7 @@ questions:
 
   - question_key: "R-MC2"
     dimension: "R"
-    question_type: "multiple_choice"
+    question_type: "diagnostic"
     question_text:
       de: "Was hemmt dich aktuell am meisten?"
       en: "What inhibits you most currently?"
@@ -354,30 +389,36 @@ questions:
   - question_key: "A-M1"
     dimension: "A"
     question_type: "maturity"
+    deep_dive_sub_topics: ["usage_regularity", "usage_depth", "output_trust", "knowledge_sharing"]
     question_text:
       de: "Welche Stufe beschreibt deine tatsaechliche AI-Nutzung am besten?"
       en: "Which level best describes your actual AI usage?"
     maturity_levels:
       1:
+        label: "Exploring"
         de: "Ich nutze keine AI-Tools fuer meine Arbeit."
         en: "I don't use any AI tools for my work."
       2:
+        label: "Experimenting"
         de: "Ich nutze AI gelegentlich fuer einfache Aufgaben (z.B. Textformulierung, Quick Questions), nicht regelmaessig."
         en: "I use AI occasionally for simple tasks (e.g. text drafting, quick questions), not regularly."
       3:
+        label: "Embedding"
         de: "Ich nutze AI regelmaessig (mind. woechentlich) in 1-2 Arbeitsbereichen und es spart mir merklich Zeit."
         en: "I use AI regularly (at least weekly) in 1-2 work areas and it noticeably saves me time."
       4:
+        label: "Scaling"
         de: "AI ist fester Bestandteil meiner taeglichen Arbeit in mehreren Bereichen/SDLC-Phasen."
         en: "AI is an integral part of my daily work across multiple areas/SDLC phases."
       5:
+        label: "Evolving"
         de: "AI ist durchgaengig in meinen Workflow integriert; ich optimiere aktiv Prompts/Workflows und teile Best Practices."
         en: "AI is fully integrated into my workflow; I actively optimize prompts/workflows and share best practices."
     order: 7
 
   - question_key: "A-MC1"
     dimension: "A"
-    question_type: "multiple_choice"
+    question_type: "diagnostic"
     question_text:
       de: "Welcher Nutzungsmodus beschreibt deine typische GenAI-Nutzung am besten?"
       en: "Which usage mode best describes your typical GenAI usage?"
@@ -415,7 +456,7 @@ questions:
 
   - question_key: "A-MC2"
     dimension: "A"
-    question_type: "multiple_choice"
+    question_type: "diagnostic"
     question_text:
       de: "In welchen SDLC-Phasen nutzt du AI heute?"
       en: "In which SDLC phases do you use AI today?"
@@ -466,7 +507,7 @@ questions:
 
   - question_key: "A-MC3"
     dimension: "A"
-    question_type: "multiple_choice"
+    question_type: "diagnostic"
     question_text:
       de: "Nutzt du aktuell nicht-freigegebene Tools (Shadow AI) fuer Arbeitszwecke?"
       en: "Do you currently use non-approved tools (shadow AI) for work purposes?"
@@ -499,30 +540,36 @@ questions:
   - question_key: "F-M1"
     dimension: "F"
     question_type: "maturity"
+    deep_dive_sub_topics: ["bottleneck_awareness", "ai_workflow_integration", "impact_reduction", "flow_measurement"]
     question_text:
       de: "Welche Stufe beschreibt die AI-Integration in eure Team-Workflows am besten?"
       en: "Which level best describes AI integration into your team workflows?"
     maturity_levels:
       1:
+        label: "Exploring"
         de: "AI wird bei uns nicht in Prozesse/Workflows eingebunden."
         en: "AI is not incorporated into our processes/workflows."
       2:
+        label: "Experimenting"
         de: "Einzelne nutzen AI nebenbei (z.B. Chat), aber es ist kein Teil unserer Team-Workflows."
         en: "Individuals use AI on the side (e.g. chat), but it's not part of our team workflows."
       3:
+        label: "Embedding"
         de: "Wir haben erste AI-gestuetzte Workflows (z.B. PR Pre-Review, Testgenerierung), aber die meisten Prozesse laufen wie vorher."
         en: "We have initial AI-supported workflows (e.g. PR pre-review, test generation), but most processes run as before."
       4:
+        label: "Scaling"
         de: "AI ist in mehreren Kern-Workflows eingebettet und reduziert messbar Wartezeiten oder Rework."
         en: "AI is embedded in multiple core workflows and measurably reduces wait times or rework."
       5:
+        label: "Evolving"
         de: "AI ist systematisch in unsere Wertschoepfungskette integriert; Bottlenecks werden datengetrieben identifiziert und adressiert."
         en: "AI is systematically integrated into our value stream; bottlenecks are identified and addressed data-driven."
     order: 11
 
   - question_key: "F-MC1"
     dimension: "F"
-    question_type: "multiple_choice"
+    question_type: "diagnostic"
     question_text:
       de: "Wo ist euer groesster Prozess-Bottleneck aktuell?"
       en: "Where is your biggest process bottleneck currently?"
@@ -564,7 +611,7 @@ questions:
 
   - question_key: "F-MC2"
     dimension: "F"
-    question_type: "multiple_choice"
+    question_type: "diagnostic"
     question_text:
       de: "Welche AI-Intervention wuerde euch am ehesten helfen?"
       en: "Which AI intervention would help you most?"
@@ -606,30 +653,36 @@ questions:
   - question_key: "T-M1"
     dimension: "T"
     question_type: "maturity"
+    deep_dive_sub_topics: ["tool_availability", "ide_integration", "reliability", "ecosystem"]
     question_text:
       de: "Welche Stufe beschreibt euer aktuelles AI-Tooling am besten?"
       en: "Which level best describes your current AI tooling?"
     maturity_levels:
       1:
+        label: "Exploring"
         de: "Ich habe keinen Zugang zu freigegebenen AI-Tools."
         en: "I have no access to approved AI tools."
       2:
+        label: "Experimenting"
         de: "Ich habe Zugang, aber nur als separaten Chat (nicht in IDE/Workflow integriert); Zugang einzurichten war umstaendlich."
         en: "I have access, but only as separate chat (not integrated in IDE/workflow); setting up access was cumbersome."
       3:
+        label: "Embedding"
         de: "AI ist in mein Hauptwerkzeug integriert (z.B. IDE), aber Verfuegbarkeit oder Performance schwankt; Prompts/Playbooks fehlen."
         en: "AI is integrated in my main tool (e.g. IDE), but availability or performance fluctuates; prompts/playbooks missing."
       4:
+        label: "Scaling"
         de: "AI-Tools sind zuverlaessig, performant und in IDE/CI integriert; wiederverwendbare Prompts/Playbooks sind verfuegbar."
         en: "AI tools are reliable, performant and integrated in IDE/CI; reusable prompts/playbooks are available."
       5:
+        label: "Evolving"
         de: "AI-Tooling ist vollstaendig integriert (IDE, CI/CD, Monitoring), Self-Service-Provisioning, automatisierte Guardrails, Kosten-Transparenz."
         en: "AI tooling is fully integrated (IDE, CI/CD, monitoring), self-service provisioning, automated guardrails, cost transparency."
     order: 14
 
   - question_key: "T-MC1"
     dimension: "T"
-    question_type: "multiple_choice"
+    question_type: "diagnostic"
     question_text:
       de: "Welcher Nutzungsmodus ist bei euch offiziell (Tools/Policies) realistisch unterstuetzt?"
       en: "Which usage mode is officially (tools/policies) realistically supported for you?"
@@ -659,7 +712,7 @@ questions:
 
   - question_key: "T-MC2"
     dimension: "T"
-    question_type: "multiple_choice"
+    question_type: "diagnostic"
     question_text:
       de: "Was ist die groesste technische Reibung?"
       en: "What is the biggest technical friction?"
@@ -705,11 +758,30 @@ questions:
 scoring:
   spider_score:
     description:
-      de: "Pro Dimension: Median der Maturity-Antworten (M1) = Score 1-5"
-      en: "Per dimension: Median of maturity answers (M1) = Score 1-5"
+      de: >-
+        Pro Dimension: Median der Maturity-Antworten (X-M1) ueber alle Respondenten = Score 1-5.
+        Da der Pulse Check nur 1 Maturity-Frage pro Dimension hat, ist der Score
+        direkt der Median (keine Min-Gewichtung noetig — die Min-gewichtete Formel
+        gilt nur fuer Deep-Dives mit mehreren Sub-Topics).
+      en: >-
+        Per dimension: Median of maturity answers (X-M1) across all respondents = Score 1-5.
+        Since the pulse check has only 1 maturity question per dimension, the score
+        is directly the median (no min-weighting needed — the min-weighted formula
+        only applies to deep-dives with multiple sub-topics).
     method: "median"
     scale: "1-5"
     segmentation: "Optional nach Team, Rolle, Arbeitskontext (nur bei k >= 5)"
+
+  deep_dive_correlation:
+    description:
+      de: >-
+        Der Pulse Check Score pro Dimension sollte mit dem Deep-Dive Score
+        korrelieren. Grosse Abweichungen deuten auf Antwort-Verzerrung hin
+        und sollten im HITL-Review diskutiert werden.
+      en: >-
+        The pulse check score per dimension should correlate with the
+        deep-dive score. Large deviations indicate response bias and
+        should be discussed in the HITL review.
 
   trend:
     description:
@@ -736,6 +808,7 @@ anti_patterns:
     - "Freitext ohne klare Moderation (Deanonymisierung durch Details)"
     - "Maturity-Stufen als Bewertung statt Steuerungsinstrument"
     - "Spider-Scores ohne MC-Diagnostik interpretieren (Zahl ohne Kontext)"
+    - "Pulse Check Score ohne Deep-Dive-Baseline interpretieren (kein Sub-Topic-Kontext)"
   en:
     - "Using pulse check as individual performance ranking"
     - "Segment drilldown below k threshold"
@@ -743,3 +816,4 @@ anti_patterns:
     - "Free text without clear moderation (deanonymization through details)"
     - "Using maturity levels as evaluation instead of steering instrument"
     - "Interpreting spider scores without MC diagnostics (number without context)"
+    - "Interpreting pulse check score without deep-dive baseline (no sub-topic context)"

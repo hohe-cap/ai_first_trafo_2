@@ -1,458 +1,420 @@
-# Deep Dive Assessment: Adoption & Usage (Dimension A)
-# Triggered when A-Score is stagnating (no improvement over 2 quarters)
-# Focus: Diagnose WHY adoption isn't growing
-# Duration: ~15 minutes
+# =============================================================================
+# CRAFT Deep-Dive: Adoption & Usage (Dimension A)
+# =============================================================================
+# Extended assessment for the A dimension. Same quality criteria as Pulse Check.
+# See METHODOLOGY.md for design principles and scoring rules.
+#
+# Version: 2.0
+# Last Updated: 2026-02-12
+# Total Questions: 10 (2 Context + 4 Maturity + 2 MC-Diagnostik + 1 Powerful Question + 1 context-MC)
+# Estimated Duration: 15-20 minutes
+# =============================================================================
 
-version: "1.0"
+version: "2.0"
 assessment_type: "deep_dive_adoption"
-description:
-  de: "Vertiefende Analyse stagnierender AI-Adoption. Wird ausgelöst wenn A-Score über 2 Quartale nicht wächst. Ziel: Verstehen ob Tooling-Probleme, Skill-Lücken, unklarer Nutzen oder Prozess-Friction die Ursache sind."
-  en: "In-depth analysis of stagnating AI adoption. Triggered when A-Score does not grow over 2 quarters. Goal: Understand whether tooling issues, skill gaps, unclear value, or process friction are the cause."
-estimated_duration_minutes: 15
-trigger:
-  dimension: "A"
-  condition: "score stagnating (no improvement over 2 quarters)"
-respondent: "AI Transformation Manager"
+dimension: "A"
+dimension_name:
+  de: "Adoption & Usage"
+  en: "Adoption & Usage"
 
-questions:
-  - question_key: "dd_a_01"
-    question_text:
-      de: "Was ist der HAUPTGRUND warum AI-Nutzung nicht wächst?"
-      en: "What is the MAIN REASON why AI usage is not growing?"
-    why_important:
-      de: "Identifiziert die Kern-Barriere für Adoption-Wachstum. Verschiedene Ursachen erfordern verschiedene Interventionen."
-      en: "Identifies the core barrier for adoption growth. Different causes require different interventions."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "tool_quality"
-        de: "Tool-Qualität / Zuverlässigkeit unzureichend"
-        en: "Tool quality / reliability insufficient"
-        score: 20
-        order: 1
-      - key: "skill_gap"
-        de: "Team weiß nicht WIE man AI effektiv nutzt"
-        en: "Team doesn't know HOW to use AI effectively"
-        score: 40
-        order: 2
-      - key: "unclear_value"
-        de: "Nutzen nicht klar / keine überzeugenden Use Cases"
-        en: "Value unclear / no convincing use cases"
-        score: 30
-        order: 3
-      - key: "process_friction"
-        de: "AI passt nicht in bestehende Workflows"
-        en: "AI doesn't fit into existing workflows"
-        score: 25
-        order: 4
-      - key: "time_pressure"
-        de: "Team hat keine Zeit AI zu lernen / zu nutzen"
-        en: "Team has no time to learn / use AI"
-        score: 35
-        order: 5
-      - key: "governance_blocker"
-        de: "Governance / Compliance blockiert"
-        en: "Governance / compliance blocks"
-        score: 15
-        order: 6
-      - key: "no_blocker"
-        de: "Kein Blocker - Adoption wächst stetig"
-        en: "No blocker - adoption growing steadily"
-        score: 100
-        order: 7
-    weight: 1.5
+description:
+  de: >-
+    Vertiefende Analyse der AI-Adoptions-Dynamik.
+    Bricht die Dimension A in 4 Sub-Topics auf: Nutzungsbreite,
+    Nutzungstiefe, Output-Qualitaet/Vertrauen und Wissensteilung.
+  en: >-
+    In-depth analysis of AI adoption dynamics.
+    Breaks dimension A into 4 sub-topics: usage breadth,
+    usage depth, output quality/trust, and knowledge sharing.
+
+estimated_duration_minutes: 20
+frequency: "once_at_kickoff_then_on_demand"
+trigger:
+  condition: "Kickoff baseline OR A-Score stagnation in Pulse Check"
+respondent: "All team members (individual, anonymous)"
+
+# =============================================================================
+# SUB-TOPICS
+# =============================================================================
+sub_topics:
+  - key: "usage_regularity"
+    name:
+      de: "Nutzungsbreite & Regelmaessigkeit"
+      en: "Usage Breadth & Regularity"
+    description:
+      de: "Wie regelmaessig und breit wird AI ueber verschiedene Arbeitsbereiche genutzt?"
+      en: "How regularly and broadly is AI used across different work areas?"
     order: 1
 
-  - question_key: "dd_a_02"
-    question_text:
-      de: "Wie viele Entwickler im Team nutzen AI-Tools TÄGLICH (DAU)?"
-      en: "How many developers in the team use AI tools DAILY (DAU)?"
-    why_important:
-      de: "DAU (Daily Active Users) ist der primäre Adoption-KPI. Alles unter 60% deutet auf systematische Barrieren hin."
-      en: "DAU (Daily Active Users) is the primary adoption KPI. Anything below 60% indicates systematic barriers."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "over_80"
-        de: "Über 80% der Entwickler"
-        en: "Over 80% of developers"
-        score: 100
-        order: 1
-      - key: "60_to_80"
-        de: "60-80% der Entwickler"
-        en: "60-80% of developers"
-        score: 80
-        order: 2
-      - key: "40_to_60"
-        de: "40-60% der Entwickler"
-        en: "40-60% of developers"
-        score: 50
-        order: 3
-      - key: "20_to_40"
-        de: "20-40% der Entwickler"
-        en: "20-40% of developers"
-        score: 30
-        order: 4
-      - key: "under_20"
-        de: "Unter 20% der Entwickler"
-        en: "Under 20% of developers"
-        score: 10
-        order: 5
-      - key: "unknown"
-        de: "Unbekannt / nicht gemessen"
-        en: "Unknown / not measured"
-        score: 0
-        order: 6
-    weight: 1.4
+  - key: "usage_depth"
+    name:
+      de: "Nutzungstiefe (Usage Mode)"
+      en: "Usage Depth (Usage Mode)"
+    description:
+      de: "Wie tief ist AI integriert — von Chat bis agentisch?"
+      en: "How deeply is AI integrated — from chat to agentic?"
     order: 2
 
-  - question_key: "dd_a_03"
-    question_text:
-      de: "Hat sich die DAU-Rate in den letzten 3 Monaten verändert?"
-      en: "Has the DAU rate changed in the last 3 months?"
-    why_important:
-      de: "Trend ist wichtiger als Momentaufnahme. Stagnierende oder fallende DAU erfordert sofortige Intervention."
-      en: "Trend is more important than snapshot. Stagnating or falling DAU requires immediate intervention."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "strong_growth"
-        de: "Starkes Wachstum (>20% relative Steigerung)"
-        en: "Strong growth (>20% relative increase)"
-        score: 100
-        order: 1
-      - key: "moderate_growth"
-        de: "Moderates Wachstum (10-20%)"
-        en: "Moderate growth (10-20%)"
-        score: 80
-        order: 2
-      - key: "stable"
-        de: "Stabil (+/- 10%)"
-        en: "Stable (+/- 10%)"
-        score: 50
-        order: 3
-      - key: "declining"
-        de: "Rückläufig (>10% Rückgang)"
-        en: "Declining (>10% decrease)"
-        score: 20
-        order: 4
-      - key: "unknown"
-        de: "Unbekannt / nicht gemessen"
-        en: "Unknown / not measured"
-        score: 0
-        order: 5
-    weight: 1.3
+  - key: "output_trust"
+    name:
+      de: "Output-Qualitaet & Vertrauen"
+      en: "Output Quality & Trust"
+    description:
+      de: "Ist der AI-Output nuetzlich und wird ihm vertraut?"
+      en: "Is AI output useful and trusted?"
     order: 3
 
-  - question_key: "dd_a_04"
-    question_text:
-      de: "Wie hoch ist der Anteil AI-assistierter Commits (% der Commits mit AI-Unterstützung)?"
-      en: "What is the share of AI-assisted commits (% of commits with AI support)?"
-    why_important:
-      de: "AI-assisted Commits % zeigt Nutzungstiefe. DAU allein kann oberflächlich sein, Commit-Anteil zeigt echte Integration."
-      en: "AI-assisted commits % shows usage depth. DAU alone can be superficial, commit share shows real integration."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "over_60"
-        de: "Über 60% der Commits"
-        en: "Over 60% of commits"
-        score: 100
-        order: 1
-      - key: "40_to_60"
-        de: "40-60% der Commits"
-        en: "40-60% of commits"
-        score: 80
-        order: 2
-      - key: "20_to_40"
-        de: "20-40% der Commits"
-        en: "20-40% of commits"
-        score: 50
-        order: 3
-      - key: "under_20"
-        de: "Unter 20% der Commits"
-        en: "Under 20% of commits"
-        score: 20
-        order: 4
-      - key: "unknown"
-        de: "Unbekannt / nicht gemessen"
-        en: "Unknown / not measured"
-        score: 0
-        order: 5
-    weight: 1.3
+  - key: "knowledge_sharing"
+    name:
+      de: "Wissensteilung & Best Practices"
+      en: "Knowledge Sharing & Best Practices"
+    description:
+      de: "Werden Erfahrungen, Prompts und Best Practices systematisch geteilt?"
+      en: "Are experiences, prompts, and best practices shared systematically?"
     order: 4
 
-  - question_key: "dd_a_05"
+# =============================================================================
+# QUESTIONS
+# =============================================================================
+questions:
+
+  # ---------------------------------------------------------------------------
+  # CONTEXT / METRIC QUESTIONS
+  # ---------------------------------------------------------------------------
+  - question_key: "A-CTX-1"
+    question_type: "context"
+    sub_topic: ~
     question_text:
-      de: "In welchen SDLC-Phasen wird AI NICHT genutzt, obwohl es sinnvoll wäre? (Mehrfachauswahl)"
-      en: "In which SDLC phases is AI NOT used, although it would make sense? (Multiple selection)"
+      de: "In welchen SDLC-Phasen nutzt du AI heute? (Mehrfachauswahl)"
+      en: "In which SDLC phases do you use AI today? (Multiple selection)"
     why_important:
-      de: "Identifiziert Adoption-Lücken. Fokus auf Coding allein ist suboptimal - AI kann in allen Phasen Wert schaffen."
-      en: "Identifies adoption gaps. Focus on coding alone is suboptimal - AI can create value in all phases."
+      de: "SDLC-Abdeckung zeigt Adoptionsbreite. Nur-Coding ist suboptimal — AI kann in allen Phasen Wert schaffen."
+      en: "SDLC coverage shows adoption breadth. Coding-only is suboptimal — AI can create value in all phases."
     answer_type: "multiple_choice"
     allow_multiple: true
     answer_options:
       - key: "requirements"
-        de: "Requirements Engineering / User Stories"
-        en: "Requirements Engineering / User Stories"
-        score: -15
+        de: "Requirements / User Stories"
+        en: "Requirements / User Stories"
         order: 1
       - key: "design"
         de: "Design / Architektur"
         en: "Design / Architecture"
-        score: -15
         order: 2
       - key: "coding"
-        de: "Coding / Implementation"
+        de: "Coding / Implementierung"
         en: "Coding / Implementation"
-        score: -20
         order: 3
-      - key: "testing"
-        de: "Testing / QA"
-        en: "Testing / QA"
-        score: -15
-        order: 4
       - key: "code_review"
         de: "Code Review"
         en: "Code Review"
-        score: -10
+        order: 4
+      - key: "testing"
+        de: "Testing / QA"
+        en: "Testing / QA"
         order: 5
       - key: "documentation"
         de: "Dokumentation"
         en: "Documentation"
-        score: -10
         order: 6
-      - key: "operations"
+      - key: "ops"
         de: "Operations / Monitoring"
         en: "Operations / Monitoring"
-        score: -15
+        order: 7
+      - key: "incident"
+        de: "Incident Response"
+        en: "Incident Response"
+        order: 8
+      - key: "none"
+        de: "Keine"
+        en: "None"
+        order: 9
+    scoring_note: "Context only — maps SDLC coverage, does not feed into spider score"
+    order: 1
+
+  - question_key: "A-CTX-2"
+    question_type: "context"
+    sub_topic: ~
+    question_text:
+      de: "Wie viel Zeit investierst du durchschnittlich PRO TAG in AI-gestuetzte Arbeit?"
+      en: "How much time do you invest on average PER DAY in AI-supported work?"
+    why_important:
+      de: "Zeigt Nutzungsintensitaet. Unter 30 Min/Tag deutet auf oberflaechliche Nutzung hin."
+      en: "Shows usage intensity. Under 30 min/day indicates superficial usage."
+    answer_type: "single_choice"
+    answer_options:
+      - key: "none"
+        de: "Gar nicht"
+        en: "Not at all"
+        order: 1
+      - key: "under_30min"
+        de: "Unter 30 Minuten"
+        en: "Under 30 minutes"
+        order: 2
+      - key: "30min_to_1h"
+        de: "30 Min - 1 Stunde"
+        en: "30 min - 1 hour"
+        order: 3
+      - key: "1_to_2h"
+        de: "1-2 Stunden"
+        en: "1-2 hours"
+        order: 4
+      - key: "over_2h"
+        de: "Ueber 2 Stunden"
+        en: "Over 2 hours"
+        order: 5
+    scoring_note: "Context only — usage intensity indicator"
+    order: 2
+
+  # ---------------------------------------------------------------------------
+  # MATURITY QUESTIONS
+  # ---------------------------------------------------------------------------
+  - question_key: "A-M-REGULARITY"
+    question_type: "maturity"
+    sub_topic: "usage_regularity"
+    question_text:
+      de: "Welche Stufe beschreibt deine tatsaechliche AI-Nutzung am besten?"
+      en: "Which level best describes your actual AI usage?"
+    maturity_levels:
+      1:
+        label: "Exploring"
+        de: "Ich nutze keine AI-Tools fuer meine Arbeit."
+        en: "I don't use any AI tools for my work."
+      2:
+        label: "Experimenting"
+        de: "Ich nutze AI gelegentlich fuer einfache Aufgaben (z.B. Textformulierung, Quick Questions), nicht regelmaessig."
+        en: "I use AI occasionally for simple tasks (e.g., text drafting, quick questions), not regularly."
+      3:
+        label: "Embedding"
+        de: "Ich nutze AI regelmaessig (mind. woechentlich) in 1-2 Arbeitsbereichen und es spart mir merklich Zeit."
+        en: "I use AI regularly (at least weekly) in 1-2 work areas and it noticeably saves me time."
+      4:
+        label: "Scaling"
+        de: "AI ist fester Bestandteil meiner taeglichen Arbeit in mehreren Bereichen und SDLC-Phasen."
+        en: "AI is an integral part of my daily work across multiple areas and SDLC phases."
+      5:
+        label: "Evolving"
+        de: "AI ist durchgaengig in meinen Workflow integriert; ich optimiere aktiv Prompts/Workflows und teile Best Practices."
+        en: "AI is fully integrated into my workflow; I actively optimize prompts/workflows and share best practices."
+    order: 3
+
+  - question_key: "A-M-DEPTH"
+    question_type: "maturity"
+    sub_topic: "usage_depth"
+    question_text:
+      de: "Welche Stufe beschreibt deinen typischen AI-Nutzungsmodus am besten?"
+      en: "Which level best describes your typical AI usage mode?"
+    maturity_levels:
+      1:
+        label: "Exploring"
+        de: "Ich nutze AI gar nicht."
+        en: "I don't use AI at all."
+      2:
+        label: "Experimenting"
+        de: "Nur Chat-basiert (Q&A, Copy-Paste); AI ist ein separates Fenster, nicht in meine Tools integriert."
+        en: "Chat-based only (Q&A, copy-paste); AI is a separate window, not integrated into my tools."
+      3:
+        label: "Embedding"
+        de: "AI ist in meiner IDE oder meinem Workflow integriert; ich nutze es Schritt-fuer-Schritt fuer bestimmte Aufgaben."
+        en: "AI is integrated in my IDE or workflow; I use it step-by-step for specific tasks."
+      4:
+        label: "Scaling"
+        de: "Agentische Nutzung — AI uebernimmt teilautonome Aufgaben (z.B. Coding-Tasks, Test-Generierung), ich reviewe die Ergebnisse."
+        en: "Agentic usage — AI handles semi-autonomous tasks (e.g., coding tasks, test generation), I review the results."
+      5:
+        label: "Evolving"
+        de: "Multi-agentische Workflows; AI bearbeitet End-to-End-Aufgaben; ich orchestriere mehr als ich ausfuehre."
+        en: "Multi-agentic workflows; AI handles end-to-end tasks; I orchestrate rather than execute."
+    order: 4
+
+  - question_key: "A-M-QUALITY"
+    question_type: "maturity"
+    sub_topic: "output_trust"
+    question_text:
+      de: "Welche Stufe beschreibt deine Erfahrung mit der Qualitaet von AI-Outputs am besten?"
+      en: "Which level best describes your experience with AI output quality?"
+    maturity_levels:
+      1:
+        label: "Exploring"
+        de: "Ich habe keine Erfahrung mit AI-Outputs, um die Qualitaet beurteilen zu koennen."
+        en: "I have no experience with AI outputs to judge quality."
+      2:
+        label: "Experimenting"
+        de: "AI-Output ist Glueckssache; ich vertraue ihm oft nicht und mache die Arbeit am Ende doch selbst."
+        en: "AI output is hit-or-miss; I often don't trust it and end up doing the work myself."
+      3:
+        label: "Embedding"
+        de: "AI liefert einen brauchbaren Startpunkt, der bearbeitet werden muss; ich kann meistens erkennen, wenn der Output falsch ist."
+        en: "AI provides a usable starting point that needs editing; I can usually tell when output is wrong."
+      4:
+        label: "Scaling"
+        de: "AI-Output ist zuverlaessig gut fuer meine Use Cases; ich habe gelernt, effektiv zu prompten; Review-Aufwand ist gering."
+        en: "AI output is reliably good for my use cases; I've learned to prompt effectively; review effort is low."
+      5:
+        label: "Evolving"
+        de: "AI-Output ist hochwertig; ich habe eigene Prompts/Workflows gebaut, die konstant gute Ergebnisse liefern; ich lehre andere, gute Ergebnisse zu erzielen."
+        en: "AI output is high quality; I've built custom prompts/workflows that consistently deliver; I teach others to get good results."
+    order: 5
+
+  - question_key: "A-M-SHARING"
+    question_type: "maturity"
+    sub_topic: "knowledge_sharing"
+    question_text:
+      de: "Welche Stufe beschreibt den Austausch von AI-Wissen und Best Practices in eurem Team am besten?"
+      en: "Which level best describes AI knowledge and best practice sharing in your team?"
+    maturity_levels:
+      1:
+        label: "Exploring"
+        de: "Niemand teilt AI-Tipps oder Erfahrungen; jeder findet alles selbst heraus."
+        en: "Nobody shares AI tips or experiences; everyone figures things out alone."
+      2:
+        label: "Experimenting"
+        de: "Informeller Austausch passiert (Chat, Kaffee), aber nichts Strukturiertes."
+        en: "Informal sharing happens (chat, coffee) but nothing structured."
+      3:
+        label: "Embedding"
+        de: "Es gibt eine geteilte Prompt-Sammlung oder Wiki; gelegentliche Show-and-Tell-Sessions finden statt."
+        en: "There's a shared prompt collection or wiki; occasional show & tell sessions take place."
+      4:
+        label: "Scaling"
+        de: "Aktive Best-Practice-Kultur; Prompt Library wird gepflegt; regelmaessige Community-Sessions; Erfolgsgeschichten werden dokumentiert."
+        en: "Active best practice culture; prompt library maintained; regular community sessions; success stories documented."
+      5:
+        label: "Evolving"
+        de: "Systematisches Wissensmanagement; Prompts/Workflows versioniert und in Tools integriert; kontinuierliche Verbesserungskultur."
+        en: "Systematic knowledge management; prompts/workflows versioned and integrated in tools; continuous improvement culture."
+    order: 6
+
+  # ---------------------------------------------------------------------------
+  # MC DIAGNOSTICS
+  # ---------------------------------------------------------------------------
+  - question_key: "A-MC-BLOCKER"
+    question_type: "diagnostic"
+    question_text:
+      de: "Was ist der Hauptgrund, warum AI-Nutzung in deinem Team nicht weiter waechst?"
+      en: "What is the main reason AI usage in your team isn't growing further?"
+    answer_type: "single_choice"
+    answer_options:
+      - key: "tool_quality"
+        de: "Tool-Qualitaet / Zuverlaessigkeit unzureichend"
+        en: "Tool quality / reliability insufficient"
+        order: 1
+      - key: "skill_gap"
+        de: "Team weiss nicht WIE man AI effektiv nutzt"
+        en: "Team doesn't know HOW to use AI effectively"
+        order: 2
+      - key: "unclear_value"
+        de: "Nutzen nicht klar / keine ueberzeugenden Use Cases"
+        en: "Value unclear / no convincing use cases"
+        order: 3
+      - key: "process_friction"
+        de: "AI passt nicht in bestehende Workflows"
+        en: "AI doesn't fit into existing workflows"
+        order: 4
+      - key: "time_pressure"
+        de: "Keine Zeit zum Lernen und Experimentieren"
+        en: "No time to learn and experiment"
+        order: 5
+      - key: "governance"
+        de: "Governance / Compliance blockiert"
+        en: "Governance / compliance blocks"
+        order: 6
+      - key: "no_blocker"
+        de: "Kein Blocker — Adoption waechst stetig"
+        en: "No blocker — adoption growing steadily"
+        order: 7
+    order: 7
+
+  - question_key: "A-MC-SDLC-GAP"
+    question_type: "diagnostic"
+    question_text:
+      de: "In welchen SDLC-Phasen SOLLTE AI genutzt werden, wird es aber noch nicht? (Mehrfachauswahl)"
+      en: "In which SDLC phases SHOULD AI be used, but isn't yet? (Multiple selection)"
+    answer_type: "multiple_choice"
+    allow_multiple: true
+    answer_options:
+      - key: "requirements"
+        de: "Requirements / User Stories"
+        en: "Requirements / User Stories"
+        order: 1
+      - key: "design"
+        de: "Design / Architektur"
+        en: "Design / Architecture"
+        order: 2
+      - key: "coding"
+        de: "Coding / Implementierung"
+        en: "Coding / Implementation"
+        order: 3
+      - key: "testing"
+        de: "Testing / QA"
+        en: "Testing / QA"
+        order: 4
+      - key: "code_review"
+        de: "Code Review"
+        en: "Code Review"
+        order: 5
+      - key: "documentation"
+        de: "Dokumentation"
+        en: "Documentation"
+        order: 6
+      - key: "ops"
+        de: "Operations / Monitoring"
+        en: "Operations / Monitoring"
         order: 7
       - key: "all_covered"
         de: "Alle Phasen werden abgedeckt"
         en: "All phases are covered"
-        score: 100
         order: 8
-    weight: 1.2
-    order: 5
-
-  - question_key: "dd_a_06"
-    question_text:
-      de: "Wie zufrieden sind Nutzer mit der QUALITÄT der AI-Tool-Ausgaben?"
-      en: "How satisfied are users with the QUALITY of AI tool outputs?"
-    why_important:
-      de: "Schlechte Output-Qualität führt zu Adoption-Abbruch. Wichtig zu verstehen ob Tools das Versprechen halten."
-      en: "Poor output quality leads to adoption dropout. Important to understand if tools deliver on promise."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "very_satisfied"
-        de: "Sehr zufrieden - AI-Output meist direkt nutzbar"
-        en: "Very satisfied - AI output mostly directly usable"
-        score: 100
-        order: 1
-      - key: "satisfied"
-        de: "Zufrieden - guter Startpunkt, braucht Überarbeitung"
-        en: "Satisfied - good starting point, needs revision"
-        score: 75
-        order: 2
-      - key: "neutral"
-        de: "Neutral - gemischte Qualität"
-        en: "Neutral - mixed quality"
-        score: 50
-        order: 3
-      - key: "dissatisfied"
-        de: "Unzufrieden - oft nicht hilfreich"
-        en: "Dissatisfied - often not helpful"
-        score: 20
-        order: 4
-      - key: "very_dissatisfied"
-        de: "Sehr unzufrieden - zeitverschwendend"
-        en: "Very dissatisfied - waste of time"
-        score: 0
-        order: 5
-    weight: 1.3
-    order: 6
-
-  - question_key: "dd_a_07"
-    question_text:
-      de: "Wie gut sind Prompting-Skills im Team entwickelt?"
-      en: "How well developed are prompting skills in the team?"
-    why_important:
-      de: "Schlechte Prompts = schlechte Ergebnisse = AI wird als nutzlos wahrgenommen. Prompting ist die Kern-Skill."
-      en: "Bad prompts = bad results = AI perceived as useless. Prompting is the core skill."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "advanced"
-        de: "Fortgeschritten - Team nutzt Context, Iterationen, Prompt-Patterns"
-        en: "Advanced - team uses context, iterations, prompt patterns"
-        score: 100
-        order: 1
-      - key: "intermediate"
-        de: "Mittel - grundlegende Prompts funktionieren"
-        en: "Intermediate - basic prompts work"
-        score: 70
-        order: 2
-      - key: "basic"
-        de: "Anfänger - meist einfache One-Shot-Prompts"
-        en: "Basic - mostly simple one-shot prompts"
-        score: 40
-        order: 3
-      - key: "poor"
-        de: "Schwach - Frustrationen durch schlechte Prompts"
-        en: "Poor - frustrations from bad prompts"
-        score: 15
-        order: 4
-    weight: 1.2
-    order: 7
-
-  - question_key: "dd_a_08"
-    question_text:
-      de: "Gibt es eine zentrale Prompt Library / Best Practice Sammlung?"
-      en: "Is there a central prompt library / best practice collection?"
-    why_important:
-      de: "Prompt Library beschleunigt Adoption und verhindert dass jeder das Rad neu erfindet. Low-hanging fruit für Quick Wins."
-      en: "Prompt library accelerates adoption and prevents everyone from reinventing the wheel. Low-hanging fruit for quick wins."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "comprehensive"
-        de: "Ja, umfassend und aktiv genutzt"
-        en: "Yes, comprehensive and actively used"
-        score: 100
-        order: 1
-      - key: "basic"
-        de: "Ja, Grundlagen vorhanden, wird erweitert"
-        en: "Yes, basics available, being expanded"
-        score: 70
-        order: 2
-      - key: "informal"
-        de: "Informell / ad-hoc (Slack, Wiki)"
-        en: "Informal / ad-hoc (Slack, Wiki)"
-        score: 40
-        order: 3
-      - key: "none"
-        de: "Nein, nicht vorhanden"
-        en: "No, not available"
-        score: 0
-        order: 4
-    weight: 1.1
     order: 8
 
-  - question_key: "dd_a_09"
+  # ---------------------------------------------------------------------------
+  # POWERFUL QUESTION
+  # ---------------------------------------------------------------------------
+  - question_key: "A-PQ"
+    question_type: "powerful_question"
+    optional: true
     question_text:
-      de: "Wie viel Zeit investieren Entwickler durchschnittlich PRO TAG in AI-gestützte Arbeit?"
-      en: "How much time do developers invest on average PER DAY in AI-supported work?"
-    why_important:
-      de: "Zeigt Nutzungsintensität. Unter 1h/Tag deutet auf oberflächliche Nutzung hin."
-      en: "Shows usage intensity. Less than 1h/day indicates superficial usage."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "over_3h"
-        de: "Über 3 Stunden / Tag"
-        en: "Over 3 hours / day"
-        score: 100
-        order: 1
-      - key: "2_to_3h"
-        de: "2-3 Stunden / Tag"
-        en: "2-3 hours / day"
-        score: 85
-        order: 2
-      - key: "1_to_2h"
-        de: "1-2 Stunden / Tag"
-        en: "1-2 hours / day"
-        score: 70
-        order: 3
-      - key: "30min_to_1h"
-        de: "30min - 1 Stunde / Tag"
-        en: "30min - 1 hour / day"
-        score: 50
-        order: 4
-      - key: "under_30min"
-        de: "Unter 30min / Tag"
-        en: "Under 30min / day"
-        score: 20
-        order: 5
-      - key: "unknown"
-        de: "Unbekannt / nicht gemessen"
-        en: "Unknown / not measured"
-        score: 0
-        order: 6
-    weight: 1.2
+      de: "Beschreibe einen konkreten Moment, in dem AI dir wirklich geholfen hat — oder dich frustriert hat."
+      en: "Describe a concrete moment when AI truly helped you — or frustrated you."
+    max_length: 280
+    moderation_note:
+      de: "Nur als Themen-Cluster veroeffentlichen, nie als Rohtext. k-Anonymitaet beachten."
+      en: "Only publish as topic clusters, never as raw text. Observe k-anonymity."
     order: 9
 
-  - question_key: "dd_a_10"
-    question_text:
-      de: "Gibt es klare, kommunizierte Use Cases wo AI nachweislich Wert stiftet?"
-      en: "Are there clear, communicated use cases where AI demonstrably creates value?"
-    why_important:
-      de: "Konkrete Success Stories sind der stärkste Adoption-Treiber. Ohne Beweise bleibt AI abstrakt."
-      en: "Concrete success stories are the strongest adoption driver. Without proof, AI remains abstract."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "many_documented"
-        de: "Ja, viele dokumentierte Use Cases mit Metriken"
-        en: "Yes, many documented use cases with metrics"
-        score: 100
-        order: 1
-      - key: "some_examples"
-        de: "Ja, einige Beispiele vorhanden"
-        en: "Yes, some examples available"
-        score: 70
-        order: 2
-      - key: "anecdotal"
-        de: "Nur anekdotisch / nicht systematisch"
-        en: "Only anecdotal / not systematic"
-        score: 40
-        order: 3
-      - key: "none"
-        de: "Nein, keine klaren Use Cases"
-        en: "No, no clear use cases"
-        score: 0
-        order: 4
-    weight: 1.3
-    order: 10
-
-  - question_key: "dd_a_11"
-    question_text:
-      de: "Werden AI-Nutzungsdaten (DAU, Commits, etc.) regelmäßig erhoben und kommuniziert?"
-      en: "Are AI usage data (DAU, commits, etc.) regularly collected and communicated?"
-    why_important:
-      de: "What gets measured gets managed. Ohne Metriken keine gezielte Intervention."
-      en: "What gets measured gets managed. Without metrics, no targeted intervention."
-    answer_type: "single_choice"
-    answer_options:
-      - key: "automated_regular"
-        de: "Ja, automatisiert und regelmäßig kommuniziert"
-        en: "Yes, automated and regularly communicated"
-        score: 100
-        order: 1
-      - key: "manual_regular"
-        de: "Ja, manuell erhoben, regelmäßig"
-        en: "Yes, manually collected, regularly"
-        score: 70
-        order: 2
-      - key: "ad_hoc"
-        de: "Ad-hoc / unregelmäßig"
-        en: "Ad-hoc / irregular"
-        score: 40
-        order: 3
-      - key: "none"
-        de: "Nein, nicht erhoben"
-        en: "No, not collected"
-        score: 0
-        order: 4
-    weight: 1.2
-    order: 11
-
+# =============================================================================
+# SCORING
+# =============================================================================
 scoring:
-  dimension: "A"
-  formula: "weighted_average"
+  formula: "(median(A-M-REGULARITY, A-M-DEPTH, A-M-QUALITY, A-M-SHARING) * 0.6) + (min(A-M-REGULARITY, A-M-DEPTH, A-M-QUALITY, A-M-SHARING) * 0.4)"
+  scale: "1-5"
   interpretation:
-    de: |
-      A-Score Interpretation:
-      - 0-30: Kritisch - sehr niedrige Adoption, fundamentale Barrieren
-      - 31-50: Schwach - Adoption unter 40%, Stagnation, unklarer Nutzen
-      - 51-70: Entwicklung - moderate Adoption (40-60% DAU), Wachstum verlangsamt
-      - 71-85: Gut - hohe Adoption (60-80% DAU), SDLC-Abdeckung wächst
-      - 86-100: Exzellent - sehr hohe Adoption (>80% DAU), alle SDLC-Phasen abgedeckt, messbare Wirkung
-    en: |
-      A-Score Interpretation:
-      - 0-30: Critical - very low adoption, fundamental barriers
-      - 31-50: Weak - adoption under 40%, stagnation, unclear value
-      - 51-70: Developing - moderate adoption (40-60% DAU), growth slowing
-      - 71-85: Good - high adoption (60-80% DAU), SDLC coverage growing
-      - 86-100: Excellent - very high adoption (>80% DAU), all SDLC phases covered, measurable impact
+    1:
+      label: "Exploring"
+      de: "Keine AI-Nutzung; kein Wissen ueber Moeglichkeiten; keine Sharing-Kultur."
+      en: "No AI usage; no knowledge of possibilities; no sharing culture."
+    2:
+      label: "Experimenting"
+      de: "Gelegentliche Nutzung; Chat-basiert; Output unsicher; informeller Austausch."
+      en: "Occasional usage; chat-based; uncertain output; informal sharing."
+    3:
+      label: "Embedding"
+      de: "Regelmaessige Nutzung in 1-2 Bereichen; IDE-integriert; brauchbare Outputs; erste Sharing-Strukturen."
+      en: "Regular usage in 1-2 areas; IDE-integrated; usable outputs; first sharing structures."
+    4:
+      label: "Scaling"
+      de: "Taegliche Nutzung, mehrere SDLC-Phasen; agentisch; zuverlaessige Outputs; aktive Best-Practice-Kultur."
+      en: "Daily usage, multiple SDLC phases; agentic; reliable outputs; active best practice culture."
+    5:
+      label: "Evolving"
+      de: "Durchgaengig integriert; multi-agentisch; hochwertige Outputs; systematisches Wissensmanagement."
+      en: "Fully integrated; multi-agentic; high-quality outputs; systematic knowledge management."
+
+pulse_check_relationship:
+  pulse_check_question: "A-M1"
+  sub_topic_mapping:
+    A-M1_level_1: "Maps to: usage_regularity at Exploring, no usage"
+    A-M1_level_2: "Maps to: usage_regularity at Experimenting, chat-only depth"
+    A-M1_level_3: "Maps to: usage_regularity at Embedding, integrated depth, first time savings"
+    A-M1_level_4: "Maps to: most sub-topics at Scaling, daily multi-area usage"
+    A-M1_level_5: "Maps to: all sub-topics at Evolving, optimizing and sharing"
