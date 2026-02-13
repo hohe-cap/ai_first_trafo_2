@@ -1,0 +1,13 @@
+services:
+  ai-navigator:
+    build:
+      context: ..
+      dockerfile: app/Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - app-data:/app/server-data
+    restart: unless-stopped
+
+volumes:
+  app-data:

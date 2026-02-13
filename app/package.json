@@ -1,0 +1,43 @@
+{
+  "name": "ai-navigator",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "copy-yamls": "bash scripts/copy-yamls.sh",
+    "dev:client": "vite",
+    "dev:server": "npm run copy-yamls:server && tsx watch server/index.ts",
+    "dev": "npm run copy-yamls && npm run copy-yamls:server && concurrently -n client,server -c blue,green \"vite\" \"tsx watch server/index.ts\"",
+    "copy-yamls:server": "mkdir -p server-data/question-banks && cp ../deliverables/question_banks/*.yaml server-data/question-banks/ 2>/dev/null; echo 'YAMLs copied to server-data'",
+    "build": "npm run copy-yamls && vue-tsc -b && vite build",
+    "build:server": "esbuild server/index.ts --bundle --platform=node --format=esm --outfile=server-dist/index.mjs --packages=external",
+    "start": "npm run copy-yamls:server && node server-dist/index.mjs",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.2.0",
+    "@fastify/static": "^9.0.0",
+    "chart.js": "^4.5.1",
+    "fastify": "^5.7.4",
+    "js-yaml": "^4.1.1",
+    "pinia": "^3.0.4",
+    "vue": "^3.5.25",
+    "vue-router": "^4.6.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^24.10.13",
+    "@vitejs/plugin-vue": "^6.0.2",
+    "@vue/tsconfig": "^0.8.1",
+    "concurrently": "^9.2.1",
+    "tailwindcss": "^4.1.18",
+    "tsx": "^4.21.0",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.1",
+    "vitest": "^4.0.18",
+    "vue-tsc": "^3.1.5"
+  }
+}
