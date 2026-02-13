@@ -168,11 +168,13 @@ sondern an fehlender Prozessintegration und Change Management.
 ### Werkzeuge & Deliverables
 
 **Primär:**
-- **AI Navigator App:** Pulse Check (quartalsweise, 15min), generiert CRAFT-Scores und Roadmap
+- **AI Navigator App:** Web-App für CRAFT Explorer, begleitet durch AI Transformation Manager. Generiert CRAFT-Scores und Radar-Chart
 - **CRAFT Explorer:** Drei-Ebenen-Architektur (Question Banks in `deliverables/question_banks/`)
+  - Ablauf: Deep-Dive (Kickoff-Baseline) → Analyse & Spider-Chart → Interventionen → Pulse Check (quartalsweise) → Deep-Dive bei Bedarf
   - Ebene 1: Context & Readiness (einmalig, Fakten, 35 Fragen)
   - Ebene 2: Pulse Check (quartalsweise, 16 Fragen, Spider-Score)
-  - Ebene 3: Deep-Dives (5×, je 9 Fragen, Sub-Topic-Profile)
+  - Ebene 3: Deep-Dives (5×, je 9–10 Fragen, Sub-Topic-Profile, Kickoff-Baseline + on-demand)
+  - Durchführung: Team eigenständig. Analyse & nächste Schritte: AI Transformation Manager
   - Design-Methodik: `METHODOLOGY.md` (Scoring, Kalibrierung, Visualisierung)
 - **AI Intervention Katalog:** SDLC-Phase → AI-Lösungen mit Tool-Alternativen pro Sicherheitsstufe
 - **Value Stream Mapping Template:** 2-Tages-Workshop-Material (Kurzformat 4h verfügbar)

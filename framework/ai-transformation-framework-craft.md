@@ -164,12 +164,13 @@ Der Prozessrahmen ist das Betriebssystem der Transformation. Er ersetzt die klas
 
 #### AI Navigator (App)
 
-Eine interaktive Self-Service-Anwendung, die Teams eigenständig durchlaufen. Sie ist bewusst nicht als Audit konzipiert, sondern als Orientierungswerkzeug, das Selbststeuerung ermöglicht.
+Eine interaktive Anwendung, die vom AI Transformation Manager begleitet wird. Sie ist bewusst nicht als Audit konzipiert, sondern als gemeinsames Explorations-Werkzeug. Teams führen die Erhebung eigenständig durch; Analyse, Auswertung und Ableitung der nächsten Schritte erfolgen immer durch den AI Transformation Manager.
 
 - **Format:** Web-App, flexibel einsetzbar in unterschiedlichen Kontexten (standalone, Teams-Integration, Workshop-Begleitung).
-- **Dauer:** Maximal 15 Minuten pro Pulse Check. Alles darüber wird nicht ausgefüllt.
-- **Frequenz:** Quartalweise je Team, um Fortschritt sichtbar zu machen.
-- **Output:** Team-Dashboard mit Scores über die 5 CRAFT-Dimensionen (siehe Kapitel 4), Radar-Chart, Stärken-/Schwächen-Analyse und automatisch generierte Handlungsempfehlungen, die direkt in die Roadmap einfließen.
+- **Begleitetes Modell:** Durchführung der Exploration durch das Team, Analyse und Handlungsempfehlungen durch AI Transformation Manager. Keine unbegleitete Auswertung.
+- **Ablauf:** Deep-Dive (Kickoff-Baseline, alle 5 Dimensionen) → Analyse & Spider-Chart → erste Interventionen → Pulse Check (quartalsweise, Trend-Tracking) → Deep-Dive bei Bedarf (on-demand).
+- **Dauer:** ~15–20 Minuten pro Deep-Dive-Dimension (einmalig), ≤15 Minuten pro Pulse Check (quartalsweise).
+- **Output:** Team-Dashboard mit Scores über die 5 CRAFT-Dimensionen (siehe Kapitel 4), Radar-Chart, Stärken-/Schwächen-Analyse und Handlungsempfehlungen, die gemeinsam in die Roadmap einfließen.
 - **Benchmark:** Anonymisierter Vergleich mit anderen Teams als zusätzlicher Impuls.
 
 #### Drei-Ebenen-Explorations-Architektur
@@ -611,7 +612,7 @@ Das Framework ist mehr als ein Strategiepapier. Folgende konkrete Werkzeuge und 
 
 | Werkzeug | Beschreibung | Status | Priorität |
 |----------|--------------|--------|-----------|
-| AI Navigator App | Web-basierte Self-Service-App für den Pulse Check, generiert CRAFT-Scores und Roadmap-Empfehlungen | Zu entwickeln | Hoch |
+| AI Navigator App | Web-basierte App für CRAFT Explorer (Deep-Dive + Pulse Check), begleitet durch AI Transformation Manager. Generiert CRAFT-Scores und Radar-Chart als Grundlage für gemeinsame Roadmap-Ableitung | Zu entwickeln | Hoch |
 | CRAFT Explorer | Drei-Ebenen-Fragenarchitektur (Context & Readiness + Pulse Check + 5 Deep-Dives) mit Design-Methodik. 7 YAML-Dateien + METHODOLOGY.md in `deliverables/question_banks/` | **v2.0 fertig** | Hoch |
 | AI Intervention Katalog | Kuratierte Zuordnung von SDLC-Phasen zu AI-Lösungen mit Tooling-Alternativen pro Sicherheitsstufe | Entwurf vorhanden | Hoch |
 | Value Stream Mapping Template | Workshop-Material und Vorlagen für den 2-Tages-VSM-Workshop | Zu entwickeln | Hoch |

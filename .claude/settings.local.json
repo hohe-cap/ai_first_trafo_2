@@ -6,7 +6,8 @@
       "Bash(git config:*)",
       "Bash(git rm:*)",
       "Bash(git add:*)",
-      "Bash(git commit -m \"$\\(cat <<''EOF''\nrefactor: restructure project directories for clarity\n\nReorganize the directory tree to clearly separate concerns:\n- framework/ — CRAFT source of truth \\(was ai_trafo_overview/\\)\n- deliverables/ — derived documents, presentations, use cases\n- research/ — agent instruction analysis \\(was agent_instructions/\\)\n- archive/ — fix casing from Archive/ to archive/\n\nUpdate all path references across AGENTS.md, CLAUDE.md, GEMINI.md,\n.clinerules/main.md, and .github/copilot-instructions.md.\nAdd previously untracked config files to version control.\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")"
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nrefactor: restructure project directories for clarity\n\nReorganize the directory tree to clearly separate concerns:\n- framework/ — CRAFT source of truth \\(was ai_trafo_overview/\\)\n- deliverables/ — derived documents, presentations, use cases\n- research/ — agent instruction analysis \\(was agent_instructions/\\)\n- archive/ — fix casing from Archive/ to archive/\n\nUpdate all path references across AGENTS.md, CLAUDE.md, GEMINI.md,\n.clinerules/main.md, and .github/copilot-instructions.md.\nAdd previously untracked config files to version control.\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(python3:*)"
     ]
   }
 }

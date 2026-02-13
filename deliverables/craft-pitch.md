@@ -51,7 +51,7 @@ Wir starten nicht mit der Frage „Welches AI-Tool sollt ihr nutzen?" Wir starte
 **Statt:** „Hier sind eure Copilot-Lizenzen, viel Spaß."
 
 **Machen wir:**
-1. Wir lassen das Team in 15 Minuten einen Pulse Check ausfüllen – kein Audit, sondern eine Standortbestimmung auf den 5 CRAFT-Dimensionen.
+1. Wir führen mit dem Team einen CRAFT Explorer Deep-Dive durch – kein Audit, sondern eine gemeinsame Standortbestimmung auf allen 5 CRAFT-Dimensionen. Die Analyse und Ableitung der nächsten Schritte übernimmt der AI Transformation Manager.
 2. Wir mappen gemeinsam den tatsächlichen Value Stream – von der Anforderung bis zum Deployment. Wo sind die Wartezeiten? Wo die Übergabe-Brüche? Wo die manuellen Wiederholungen?
 3. Wir matchen die Bottlenecks mit konkreten AI-Interventionen aus unserem Katalog – inklusive Tooling-Alternativen für die jeweilige Sicherheitsstufe.
 4. Wir starten einen 4-Wochen-Zyklus: planen, umsetzen, messen, anpassen. Kein 6-Monats-Plan, sondern iteratives Lernen.
@@ -90,25 +90,21 @@ Am Ende der ersten zwei Zyklen (8 Wochen) hat das Team:
 
 ---
 
-## Engagement-Modelle
+## Begleitmodell
 
-### Modell A: Quick Exploration (2 Wochen)
-Pulse Check + Value Stream Kurzanalyse + priorisierte Empfehlungen. Für Teams, die einen Einstieg brauchen.
+### ~4 Monate gemeinsame Arbeit mit dem AI Adoption Team
 
-**Aufwand:** ~5 Beratertage
-**Ergebnis:** CRAFT-Radar, Top-3-Bottleneck-Analyse, priorisierte AI-Interventionen
+Das CRAFT Framework wird nicht als einmaliges Assessment oder als Menükarte angeboten, sondern als begleitete Transformation:
 
-### Modell B: Pilot-Begleitung (24 Wochen)
-Vollständige Anwendung des Frameworks mit einem Team über 6 Zyklen. Inklusive Change-Begleitung, Governance-Setup und Metriken-Tracking.
+1. **Start:** CRAFT Explorer Deep-Dive (alle 5 Dimensionen) + Value Stream Mapping + Governance-Setup — begleitet durch den AI Transformation Manager.
+2. **4-Wochen-Zyklen:** Iterative Umsetzung mit dem AI Adoption Team (AI Transformation Manager, Technical AI Lead, Change & People Lead, Value Stream Coach, Governance Liaison).
+3. **Nach jedem Zyklus:** Readiness Gate — datenbasierte Entscheidung: Erweitern, Vertiefen oder Konsolidieren.
+4. **Nach ~4 Zyklen (~4 Monate):** Gemeinsame Entscheidung über Fortsetzung oder Übergabe an das interne Team.
 
-**Aufwand:** AI Transformation Manager (100%) + Technical Lead (50%) + Change Lead (50%)
-**Ergebnis:** Vollständige AI Adoption Roadmap, validierte Metriken, skalierbare Playbooks
+**Aufwand:** AI Transformation Manager (100%) + Teile des AI Adoption Teams (50–80%)
+**Ergebnis nach 4 Zyklen:** CRAFT-Radar, validierte Roadmap, Governance-Rahmen, KPI-Baseline, erste Quick Wins, skalierbare Playbooks
 
-### Modell C: Skalierungs-Programm (ab Zyklus 7)
-Ausweitung auf weitere Teams, Aufbau eines internen Centers of Excellence, Champion-Netzwerk über Teamgrenzen hinweg.
-
-**Aufwand:** Skaliert mit Teamanzahl, AI Adoption Team als interne Funktion
-**Ergebnis:** Organisationsweite AI-Integration im SDLC mit messbarem Impact
+**Danach:** Nach jedem weiteren Zyklus entscheidet das Team, ob es die externe Begleitung fortsetzt oder die Transformation eigenständig weiterführt — mit aufgebautem Champion-Netzwerk und internem Know-how.
 
 ---
 
@@ -143,16 +139,16 @@ Ausweitung auf weitere Teams, Aufbau eines internen Centers of Excellence, Champ
 GitHub hilft euch, GitHub-Tools besser zu nutzen. Wir helfen euch, den richtigen Mix aus allen verfügbaren AI-Tools an den richtigen Stellen im Value Stream einzusetzen – tool-agnostisch, mit Change Management und Governance für den deutschen Konzernkontext.
 
 **„Ihr habt noch keinen Pilot. Warum sollten wir euch vertrauen?"**
-Faire Frage. Deshalb bieten wir Modell A (Quick Exploration, 2 Wochen) als Einstieg an – begrenztes Risiko, konkreter Output. Wenn der Value Stream Map und die Bottleneck-Analyse überzeugen, reden wir über den Pilot. Und: Jeder einzelne Baustein – DORA, Lean VSM, Kotter – ist jahrelang validiert. Was neu ist, ist die Integration.
+Faire Frage. Deshalb starten wir mit einem Deep-Dive und dem ersten 4-Wochen-Zyklus — begrenztes Risiko, konkreter Output nach 4 Wochen. Wenn die Ergebnisse überzeugen, geht es weiter. Und: Jeder einzelne Baustein – DORA, Lean VSM, Kotter – ist jahrelang validiert. Was neu ist, ist die Integration.
 
 **„Wir haben schon ein Maturity Assessment gemacht. Was bringt ein weiteres?"**
-Maturity Assessments sagen euch, wo ihr steht. Wir sagen euch, wie ihr euch bewegt. Unser Pulse Check ist kein Selbstzweck, sondern der Eingangs-Sensor für konkrete Maßnahmen in 4-Wochen-Zyklen. Die Frage ist nicht „Welchen Score haben wir?", sondern „Was machen wir nächste Woche anders?"
+Maturity Assessments sagen euch, wo ihr steht. Wir sagen euch, wie ihr euch bewegt. Unser CRAFT Explorer startet mit einem Deep-Dive für ein tiefes Verständnis aller Dimensionen — begleitet durch einen AI Transformation Manager. Die Ergebnisse fließen direkt in konkrete Maßnahmen in 4-Wochen-Zyklen. Die Frage ist nicht „Welchen Score haben wir?", sondern „Was machen wir nächste Woche anders?"
 
 **„Warum 4-Wochen-Zyklen und nicht ein 6-Monats-Plan?"**
 Weil die AI-Landschaft sich schneller ändert als jeder 6-Monats-Plan. Vor 12 Monaten gab es kein Claude Code, kein Cursor Agent Mode, keinen MCP-Standard. Ein fester Plan wäre nach 3 Monaten veraltet. Iterative Zyklen mit Readiness Gates erlauben Kurskorrektur, ohne den Gesamtrahmen zu verlieren.
 
 **„Was kostet das?"**
-Modell A (Quick Exploration): ~5 Beratertage. Modell B (Pilot): ~1 FTE AI Transformation Manager + 1 FTE Support über 24 Wochen. Der ROI-Case rechnet sich über DORA-Verbesserungen: Wenn wir Lead Time um 20% senken und Change Failure Rate um 15% reduzieren, übertrifft der Wert die Investition typischerweise um den Faktor 3–5x.
+~4 Monate Begleitung mit AI Adoption Team (AI Transformation Manager 100% + Teile des Teams 50–80%). Nach jedem 4-Wochen-Zyklus datenbasierte Entscheidung über Fortsetzung oder Übergabe. Der ROI-Case rechnet sich über DORA-Verbesserungen: Wenn wir Lead Time um 20% senken und Change Failure Rate um 15% reduzieren, übertrifft der Wert die Investition typischerweise um den Faktor 3–5x.
 
 ---
 
