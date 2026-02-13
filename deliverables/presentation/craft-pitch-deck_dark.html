@@ -8,7 +8,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 
   :root {
-    --navy: #0C1B2E;
+    --navy: rgb(39, 41, 54);
     --navy-light: #162A45;
     --slate: #2D4A6B;
     --slate-light: #7B8FA8;
@@ -84,7 +84,7 @@
     left: 0;
     right: 0;
     height: 72px;
-    background: rgba(12, 27, 46, 0.95);
+    background: rgba(39, 41, 54, 0.95);
     backdrop-filter: blur(12px);
     border-top: 1px solid rgba(255,255,255,0.08);
     display: flex;
@@ -436,7 +436,6 @@
   <!-- ==================== SLIDE 1: THESE + KONTRAST ==================== -->
   <div class="slide active" data-slide="0">
     <div class="slide-content">
-      <div class="slide-tag">CRAFT AI Transformation Framework</div>
       <h2 style="font-size: clamp(28px, 3.5vw, 44px); max-width: 900px; margin: 0 auto 20px;">
         AI-Transformation gelingt &mdash;<br><span class="text-accent">wenn man drei Dinge gleichzeitig bewegt.</span>
       </h2>
@@ -497,41 +496,89 @@
     <div class="slide-content left">
       <div class="slide-tag">Framework-Architektur</div>
       <h2>Die 5 CRAFT-Dimensionen</h2>
-      <p class="subtitle" style="margin-bottom: 20px;">Gleichzeitig aktiv, nie abgeschlossen. Jede beantwortet eine Kernfrage.</p>
+      <p class="subtitle" style="margin-bottom: 20px;">Gleichzeitig aktiv, nie abgeschlossen &mdash; und regelm&auml;&szlig;ig messbar.</p>
 
-      <div class="dim-card border-amber">
-        <div class="dim-letter bg-amber">C</div>
-        <div class="dim-info">
-          <h3>Compliance &amp; Governance</h3>
-          <p>Was darf das Team? Was muss es? &mdash; AI Policies, Betriebsrat, EU AI Act, 3 Sicherheitsstufen.</p>
+      <div class="two-col" style="margin-top: 16px; align-items: center;">
+        <div>
+          <div class="dim-card border-amber" style="margin-bottom: 6px;">
+            <div class="dim-letter bg-amber" style="width: 38px; height: 38px; font-size: 18px;">C</div>
+            <div class="dim-info">
+              <h3 style="font-size: 14px;">Compliance &amp; Governance</h3>
+              <p style="font-size: 12px;">AI at scale, without the risk &mdash; Guardrails that enable speed, not block it.</p>
+            </div>
+          </div>
+          <div class="dim-card border-emerald" style="margin-bottom: 6px;">
+            <div class="dim-letter bg-emerald" style="width: 38px; height: 38px; font-size: 18px;">R</div>
+            <div class="dim-info">
+              <h3 style="font-size: 14px;">Readiness &mdash; Human &amp; Cultural</h3>
+              <p style="font-size: 12px;">Teams that deliver with AI, not despite it &mdash; Skills, Safety, Champions.</p>
+            </div>
+          </div>
+          <div class="dim-card border-amber" style="margin-bottom: 6px;">
+            <div class="dim-letter bg-amber" style="width: 38px; height: 38px; font-size: 18px;">A</div>
+            <div class="dim-info">
+              <h3 style="font-size: 14px;">Adoption &amp; Usage</h3>
+              <p style="font-size: 12px;">Von Shelfware zu echtem Nutzen &mdash; messbar in jedem Sprint.</p>
+            </div>
+          </div>
+          <div class="dim-card border-blue" style="margin-bottom: 6px;">
+            <div class="dim-letter bg-cyan" style="width: 38px; height: 38px; font-size: 18px;">F</div>
+            <div class="dim-info">
+              <h3 style="font-size: 14px;">Flow &amp; Process Integration</h3>
+              <p style="font-size: 12px;">AI dort, wo sie den gr&ouml;&szlig;ten Hebel hat &mdash; Bottlenecks first, nicht easiest tools.</p>
+            </div>
+          </div>
+          <div class="dim-card border-violet" style="margin-bottom: 6px;">
+            <div class="dim-letter bg-violet" style="width: 38px; height: 38px; font-size: 18px;">T</div>
+            <div class="dim-info">
+              <h3 style="font-size: 14px;">Technical Enablement</h3>
+              <p style="font-size: 12px;">Zero-Friction AI in jedem Workflow &mdash; IDE-nativ, produktionsbereit.</p>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="dim-card border-emerald">
-        <div class="dim-letter bg-emerald">R</div>
-        <div class="dim-info">
-          <h3>Readiness &mdash; Human &amp; Cultural</h3>
-          <p>K&ouml;nnen und wollen die Menschen AI nutzen? &mdash; Skills, Psychological Safety, Rollenentwicklung, Champions.</p>
-        </div>
-      </div>
-      <div class="dim-card border-amber">
-        <div class="dim-letter bg-amber">A</div>
-        <div class="dim-info">
-          <h3>Adoption &amp; Usage</h3>
-          <p>Wird AI tats&auml;chlich genutzt &mdash; breit &uuml;ber den SDLC? &mdash; DAU, Nutzungstiefe, Shadow AI &rarr; Managed AI.</p>
-        </div>
-      </div>
-      <div class="dim-card border-blue">
-        <div class="dim-letter bg-cyan">F</div>
-        <div class="dim-info">
-          <h3>Flow &amp; Process Integration</h3>
-          <p>Wo sind die echten Bottlenecks &mdash; und wo hat AI den gr&ouml;&szlig;ten Hebel? &mdash; Value Stream Mapping, AI Intervention Katalog.</p>
-        </div>
-      </div>
-      <div class="dim-card border-violet">
-        <div class="dim-letter bg-violet">T</div>
-        <div class="dim-info">
-          <h3>Technical Enablement</h3>
-          <p>Welches Setup braucht das Team konkret? &mdash; IDE-Integration, LLM-Deployment, Prompt Libraries, MCP-Server.</p>
+
+        <div style="display: flex; flex-direction: column; align-items: center;">
+          <div class="radar-wrap">
+            <svg viewBox="0 0 300 280" width="100%" style="max-width: 300px;">
+              <g transform="translate(150, 135)">
+                <g stroke="rgba(255,255,255,0.12)" fill="none" stroke-width="1">
+                  <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" opacity="0.5"/>
+                  <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30" opacity="0.5"/>
+                  <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22" opacity="0.5"/>
+                  <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15" opacity="0.5"/>
+                  <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7" opacity="0.5"/>
+                </g>
+                <g stroke="rgba(255,255,255,0.15)" stroke-width="0.5">
+                  <line x1="0" y1="0" x2="0" y2="-120"/>
+                  <line x1="0" y1="0" x2="114" y2="-37"/>
+                  <line x1="0" y1="0" x2="70" y2="97"/>
+                  <line x1="0" y1="0" x2="-70" y2="97"/>
+                  <line x1="0" y1="0" x2="-114" y2="-37"/>
+                </g>
+                <!-- Data polygon: C=2.5, R=3, A=1.5, F=2, T=3.5 -->
+                <polygon
+                  points="0,-60 68,-22 21,29 -28,39 -68,-22"
+                  fill="rgba(0, 150, 224, 0.2)"
+                  stroke="var(--blue-light)"
+                  stroke-width="2.5"
+                />
+                <circle cx="0" cy="-60" r="5" fill="var(--amber)"/>
+                <circle cx="68" cy="-22" r="5" fill="var(--emerald)"/>
+                <circle cx="21" cy="29" r="5" fill="var(--amber)"/>
+                <circle cx="-28" cy="39" r="5" fill="var(--cyan)"/>
+                <circle cx="-68" cy="-22" r="5" fill="var(--violet)"/>
+              </g>
+              <text x="150" y="12" text-anchor="middle" font-size="11" font-weight="600" fill="#FFB500">Compliance 2.5</text>
+              <text x="282" y="102" text-anchor="end" font-size="11" font-weight="600" fill="#2BD9AA">Readiness 3.0</text>
+              <text x="232" y="245" text-anchor="middle" font-size="11" font-weight="600" fill="#FFB500">Adoption 1.5</text>
+              <text x="68" y="245" text-anchor="middle" font-size="11" font-weight="600" fill="#00DCFA">Flow 2.0</text>
+              <text x="18" y="102" text-anchor="start" font-size="11" font-weight="600" fill="#7B61FF">Technical 3.5</text>
+              <text x="150" y="272" text-anchor="middle" font-size="11" fill="rgba(123,143,168,0.7)">Beispiel: Typisches Team in Zyklus 1</text>
+            </svg>
+          </div>
+          <p style="font-size: 11px; color: var(--slate-light); text-align: center; margin-top: 8px; max-width: 260px; line-height: 1.5;">
+            Jede Dimension wird per <strong style="color: var(--white);">Pulse Check</strong> regelm&auml;&szlig;ig gemessen &mdash; Fortschritt wird sichtbar, Interventionen werden datenbasiert priorisiert.
+          </p>
         </div>
       </div>
     </div>
@@ -567,7 +614,7 @@
             </li>
             <li>
               <div class="feature-icon bg-blue">&#10227;</div>
-              <div><strong style="color: var(--white);">Iterativ messen &amp; anpassen</strong> &mdash; DORA + CRAFT-Score. Pulse Check quartalsweise.</div>
+              <div><strong style="color: var(--white);">Iterativ messen &amp; anpassen</strong> &mdash; DORA + CRAFT-Score. Pulse Check regelm&auml;&szlig;ig.</div>
             </li>
           </ul>
         </div>
@@ -712,7 +759,7 @@
       </div>
 
       <p style="margin-top: 16px; font-size: 12px; color: var(--slate-light); text-align: center;">
-        Pulse Check: 5 Fragen (je 1 pro Dimension) &middot; &le;15 Minuten &middot; quartalsweise &middot; anonym
+        Pulse Check: 5 Fragen (je 1 pro Dimension) &middot; &le;15 Minuten &middot; regelm&auml;&szlig;ig &middot; anonym
         <span style="margin: 0 8px; color: rgba(255,255,255,0.2);">|</span>
         Deep-Dive: 9&ndash;10 Fragen pro Dimension &middot; einmalig als Baseline + on-demand
       </p>
