@@ -2,7 +2,7 @@
 
 **Version:** 2.0
 **Erstellt:** 2026-02-13
-**Status:** Stories 1-3 implementiert, ab Story 4 mit Backend-Architektur
+**Status:** Stories 1-4 implementiert, ab Story 5 Fragen-Flow
 
 ---
 
@@ -136,30 +136,18 @@ server/data/
 
 ---
 
-### Story 4 — Backend & Session-Verwaltung
+### Story 4 — Backend & Session-Verwaltung ✅
 
 > Als Facilitator kann ich eine Assessment-Session erstellen und bekomme
 > einen Teilnahme-Code, den ich an mein Team weitergeben kann.
 
-**Scope:**
-- Fastify-Server mit REST-API
-- Session erstellen: POST /api/sessions → { id, code, type, team }
-- Session abrufen: GET /api/sessions/:code
-- Session-Status: open / closed
-- JSON File Storage für Sessions
-- Facilitator-Startseite: Session erstellen, Code anzeigen
-
-**API-Endpunkte:**
-- `POST /api/sessions` — Session erstellen (Typ, Team-Name)
-- `GET /api/sessions/:code` — Session-Info abrufen (für Teilnehmer)
-- `GET /api/sessions` — Alle Sessions auflisten (für Facilitator)
-- `PATCH /api/sessions/:id/status` — Session öffnen/schließen
+**Status: DONE** — Fastify-Server, Session-CRUD-API, JSON File Storage, Facilitator-Dashboard, Docker mit esbuild-Server-Kompilierung
 
 **Akzeptanzkriterien:**
-- [ ] Facilitator kann Session erstellen und bekommt 6-stelligen Code
-- [ ] Teilnehmer kann mit Code die Session finden
-- [ ] Sessions werden als JSON-Dateien gespeichert
-- [ ] Session-Liste auf Facilitator-Dashboard sichtbar
+- [x] Facilitator kann Session erstellen und bekommt 6-stelligen Code
+- [x] Teilnehmer kann mit Code die Session finden
+- [x] Sessions werden als JSON-Dateien gespeichert
+- [x] Session-Liste auf Facilitator-Dashboard sichtbar
 
 ---
 
@@ -264,7 +252,7 @@ server/data/
 ## Reihenfolge
 
 ```
-Story 1 ✅ → 2 ✅ → 3 ✅ → 4 → 5 → 6 → 7 → 8 → 9
+Story 1 ✅ → 2 ✅ → 3 ✅ → 4 ✅ → 5 → 6 → 7 → 8 → 9
                                          ↑
                                      7 kann parallel zu 6
 ```
