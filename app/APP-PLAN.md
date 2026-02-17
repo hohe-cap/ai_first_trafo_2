@@ -2,7 +2,7 @@
 
 **Version:** 2.0
 **Erstellt:** 2026-02-13
-**Status:** Stories 1-4 implementiert, ab Story 5 Fragen-Flow
+**Status:** Stories 1-9 implementiert — MVP komplett
 
 ---
 
@@ -151,45 +151,32 @@ server/data/
 
 ---
 
-### Story 5 — Fragen-Flow (Kern)
+### Story 5 — Fragen-Flow (Kern) ✅
 
 > Als Teilnehmer kann ich über den Session-Code an einem Assessment
 > teilnehmen und Fragen beantworten.
 
-**Scope:**
-- Teilnehmer-Einstieg: Code eingeben → Fragen laden
-- Segmentation-Felder erfassen (Rolle, Arbeitskontext)
-- Maturity-Fragen: 5 Verhaltensbeschreibungen als auswählbare Karten
-- Diagnostic: Single Choice / Multiple Choice
-- Powerful Questions: Freitext (optional, max 280 Zeichen)
-- Context-Fragen: Single/Multiple Choice
-- Fortschrittsanzeige + Vor/Zurück-Navigation
-- Antwort-Zwischenspeicherung (localStorage als Fallback, Server als Ziel)
+**Status: DONE** — 4 Fragetypen (Maturity/Diagnostic/Context/Powerful), Segmentation, Progress, Navigation, Server-Sync + Resume
 
 **Akzeptanzkriterien:**
-- [ ] Kompletter Pulse Check durchklickbar (16 Fragen)
-- [ ] Kompletter Deep-Dive durchklickbar (9-10 Fragen)
-- [ ] Alle Antworttypen funktionieren korrekt
-- [ ] Antworten werden auf dem Server gespeichert
+- [x] Kompletter Pulse Check durchklickbar (16 Fragen)
+- [x] Kompletter Deep-Dive durchklickbar (9-10 Fragen)
+- [x] Alle Antworttypen funktionieren korrekt
+- [x] Antworten werden auf dem Server gespeichert
 
 ---
 
-### Story 6 — Antwort-Speicherung & Resume
+### Story 6 — Antwort-Speicherung & Resume ✅
 
 > Als Teilnehmer kann ich ein unterbrochenes Assessment fortsetzen.
 > Alle Antworten werden serverseitig gespeichert.
 
-**Scope:**
-- API: POST /api/sessions/:id/responses — Antworten speichern
-- API: GET /api/sessions/:id/responses/:respondentId — Antworten laden
-- Respondent-ID per Browser generieren (UUID in localStorage)
-- Automatische Speicherung nach jeder Antwort
-- Resume: Bei erneutem Aufruf mit gleichem Code → letzte Antworten laden
+**Status: DONE** — Komplett in Story 5 mit implementiert (Response-API, RespondentId, debounced Sync, Resume-Logik)
 
 **Akzeptanzkriterien:**
-- [ ] Antworten werden als JSON auf dem Server gespeichert
-- [ ] Browser schließen → neu öffnen → Assessment fortsetzen
-- [ ] Mehrere Teilnehmer können parallel ausfüllen
+- [x] Antworten werden als JSON auf dem Server gespeichert
+- [x] Browser schließen → neu öffnen → Assessment fortsetzen
+- [x] Mehrere Teilnehmer können parallel ausfüllen
 
 ---
 
@@ -205,10 +192,10 @@ server/data/
 - API: GET /api/sessions/:id/results — Aggregierte Scores
 
 **Akzeptanzkriterien:**
-- [ ] Unit Tests mit bekannten Eingaben → erwartete Scores
-- [ ] Aggregation über mehrere Teilnehmer korrekt (Median)
-- [ ] Deep-Dive Score korrekt (Median×0.6 + Min×0.4)
-- [ ] Stufen-Label stimmt mit Score überein
+- [x] Unit Tests mit bekannten Eingaben → erwartete Scores (14 Tests)
+- [x] Aggregation über mehrere Teilnehmer korrekt (Median)
+- [x] Deep-Dive Score korrekt (Median×0.6 + Min×0.4)
+- [x] Stufen-Label stimmt mit Score überein
 
 ---
 
@@ -225,10 +212,10 @@ server/data/
 - Responsive (Desktop + Tablet)
 
 **Akzeptanzkriterien:**
-- [ ] Radar-Chart zeigt 5 Dimensionen mit korrekten Werten
-- [ ] Tabelle zeigt Score + Label pro Dimension
-- [ ] Teilnehmeranzahl sichtbar
-- [ ] MC-Diagnostik wird zusammengefasst dargestellt
+- [x] Radar-Chart zeigt 5 Dimensionen mit korrekten Werten
+- [x] Tabelle zeigt Score + Label pro Dimension
+- [x] Teilnehmeranzahl sichtbar
+- [x] MC-Diagnostik wird zusammengefasst dargestellt
 
 ---
 
@@ -243,18 +230,16 @@ server/data/
 - Optional: Rohdaten-Export (alle anonymisierten Einzel-Responses)
 
 **Akzeptanzkriterien:**
-- [ ] Export erzeugt valide, lesbare JSON-Datei
-- [ ] Enthält Scores + Diagnostik
-- [ ] Keine personenbezogenen Daten im Export
+- [x] Export erzeugt valide, lesbare JSON-Datei
+- [x] Enthält Scores + Diagnostik
+- [x] Keine personenbezogenen Daten im Export
 
 ---
 
 ## Reihenfolge
 
 ```
-Story 1 ✅ → 2 ✅ → 3 ✅ → 4 ✅ → 5 → 6 → 7 → 8 → 9
-                                         ↑
-                                     7 kann parallel zu 6
+Story 1 ✅ → 2 ✅ → 3 ✅ → 4 ✅ → 5 ✅ → 6 ✅ → 7 ✅ → 8 ✅ → 9 ✅
 ```
 
 ---

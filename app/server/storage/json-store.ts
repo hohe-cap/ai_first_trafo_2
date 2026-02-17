@@ -1,4 +1,4 @@
-import { readFile, writeFile, mkdir, readdir, unlink } from 'node:fs/promises'
+import { readFile, writeFile, mkdir, readdir, unlink, rm } from 'node:fs/promises'
 import { join } from 'node:path'
 import { existsSync } from 'node:fs'
 
@@ -49,6 +49,9 @@ export class JsonStore {
   async deleteSession(id: string): Promise<void> {
     const path = this.sessionPath(id)
     if (existsSync(path)) await unlink(path)
+    // Also delete all responses for this session
+    const respDir = this.responsesDir(id)
+    if (existsSync(respDir)) await rm(respDir, { recursive: true })
   }
 
   // --- Responses ---
@@ -72,6 +75,13 @@ export class JsonStore {
     if (!existsSync(path)) return null
     const raw = await readFile(path, 'utf-8')
     return JSON.parse(raw)
+  }
+
+  async countResponses(sessionId: string): Promise<number> {
+    const dir = this.responsesDir(sessionId)
+    if (!existsSync(dir)) return 0
+    const files = await readdir(dir)
+    return files.filter((f) => f.endsWith('.json')).length
   }
 
   async getAllResponses(sessionId: string): Promise<Record<string, unknown>[]> {

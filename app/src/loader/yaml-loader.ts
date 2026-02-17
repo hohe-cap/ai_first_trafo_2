@@ -4,11 +4,8 @@ import { validateQuestionBank } from './validators'
 
 const YAML_FILES = [
   'pulse-check.yaml',
-  'deep-dive-adoption.yaml',
-  'deep-dive-compliance.yaml',
-  'deep-dive-flow.yaml',
-  'deep-dive-readiness.yaml',
-  'deep-dive-technical.yaml',
+  'deep-dive-combined.yaml',
+  'context-readiness.yaml',
 ]
 
 const DATA_BASE_PATH = import.meta.env.BASE_URL + 'data/'
@@ -64,13 +61,15 @@ async function loadSingleYaml(filename: string): Promise<QuestionBank> {
 }
 
 export function getAvailableAssessmentTypes(banks: Map<string, QuestionBank>) {
-  const types: { key: string; type: 'pulse_check' | 'deep_dive'; dimension?: string; bank: QuestionBank }[] = []
+  const types: { key: string; type: 'pulse_check' | 'deep_dive' | 'context_readiness'; dimension?: string; bank: QuestionBank }[] = []
 
   for (const [key, bank] of banks) {
     if (key === 'pulse_check') {
       types.push({ key, type: 'pulse_check', bank })
-    } else if (key.startsWith('deep_dive_')) {
+    } else if (key === 'deep_dive' || key.startsWith('deep_dive_')) {
       types.push({ key, type: 'deep_dive', dimension: bank.dimension, bank })
+    } else if (key === 'context_readiness') {
+      types.push({ key, type: 'context_readiness', bank })
     }
   }
 

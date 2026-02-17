@@ -3,8 +3,11 @@ import fastifyStatic from '@fastify/static'
 import fastifyCors from '@fastify/cors'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { readFile } from 'node:fs/promises'
 import { JsonStore } from './storage/json-store.js'
 import { sessionRoutes } from './routes/sessions.js'
+import { responseRoutes } from './routes/responses.js'
+import { resultsRoutes } from './routes/results.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -27,6 +30,8 @@ async function start() {
 
   // API routes
   await fastify.register(sessionRoutes, { store })
+  await fastify.register(responseRoutes, { store })
+  await fastify.register(resultsRoutes, { store, dataDir: DATA_DIR })
 
   // Serve question bank YAMLs
   const questionBanksDir = join(DATA_DIR, 'question-banks')
@@ -46,11 +51,13 @@ async function start() {
   })
 
   // SPA fallback: serve index.html for non-API, non-file routes
+  const indexHtmlPath = join(distDir, 'index.html')
   fastify.setNotFoundHandler(async (request, reply) => {
     if (request.url.startsWith('/api/')) {
       return reply.status(404).send({ error: 'Not found' })
     }
-    return reply.sendFile('index.html', distDir)
+    const html = await readFile(indexHtmlPath, 'utf-8')
+    return reply.type('text/html').send(html)
   })
 
   try {

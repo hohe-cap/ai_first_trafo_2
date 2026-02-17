@@ -17,6 +17,7 @@ export interface AnswerOption {
   en: string
   order: number
   usage_mode?: number
+  score?: number
 }
 
 export type QuestionType = 'maturity' | 'diagnostic' | 'powerful_question' | 'context'
@@ -26,10 +27,15 @@ export interface Question {
   question_key: string
   dimension?: string
   sub_topic?: string | null
-  question_type: QuestionType
+  question_type?: QuestionType
   question_text: LocalizedText
   order: number
   optional?: boolean
+
+  // Context & Readiness fields
+  section?: string
+  category?: string
+  weight?: number
 
   // Maturity questions
   maturity_levels?: Record<number, MaturityLevel>
@@ -38,6 +44,7 @@ export interface Question {
   // Diagnostic / Context questions
   answer_type?: AnswerType
   allow_multiple?: boolean
+  max_selections?: number
   answer_options?: AnswerOption[]
   description?: LocalizedText
 
@@ -50,11 +57,30 @@ export interface Question {
   why_important?: LocalizedText
 }
 
+export interface Section {
+  key: string
+  name: LocalizedText
+  description?: LocalizedText
+  estimated_duration_minutes?: number
+  purpose?: LocalizedText
+}
+
+export interface Category {
+  key: string
+  section: string
+  name: LocalizedText
+  description?: LocalizedText
+  why_important?: LocalizedText
+  weight_in_readiness_score?: number
+  order: number
+}
+
 export interface Dimension {
   key: string
   name: LocalizedText
   deep_dive?: string
   order: number
+  sub_topics?: SubTopic[]
 }
 
 export interface SubTopic {
@@ -89,6 +115,8 @@ export interface QuestionBank {
   dimension?: string
   dimension_name?: LocalizedText
   dimensions?: Dimension[]
+  sections?: Section[]
+  categories?: Category[]
   sub_topics?: SubTopic[]
   segmentation?: {
     required: SegmentField[]

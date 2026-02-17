@@ -11,7 +11,7 @@ function toggle() {
 <template>
   <button
     @click="toggle"
-    class="rounded border border-gray-300 px-3 py-1 text-sm hover:bg-gray-100"
+    class="rounded border border-gray-300 px-3 py-1 text-sm hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
   >
     {{ locale === 'de' ? t('language.en') : t('language.de') }}
   </button>

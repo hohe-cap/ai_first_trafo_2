@@ -15,6 +15,8 @@ function generateCode(): string {
 interface CreateSessionBody {
   type: 'pulse_check' | string
   team: string
+  dimensions?: string[]
+  cycle?: number
 }
 
 export async function sessionRoutes(fastify: FastifyInstance, opts: { store: JsonStore }) {
@@ -22,7 +24,7 @@ export async function sessionRoutes(fastify: FastifyInstance, opts: { store: Jso
 
   // Create a new session
   fastify.post<{ Body: CreateSessionBody }>('/api/sessions', async (request, reply) => {
-    const { type, team } = request.body
+    const { type, team, dimensions, cycle } = request.body
 
     if (!type || !team) {
       return reply.status(400).send({ error: 'type and team are required' })
@@ -38,7 +40,7 @@ export async function sessionRoutes(fastify: FastifyInstance, opts: { store: Jso
       attempts++
     }
 
-    const session = {
+    const session: Record<string, unknown> = {
       id: randomUUID(),
       code,
       type,
@@ -47,14 +49,42 @@ export async function sessionRoutes(fastify: FastifyInstance, opts: { store: Jso
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
     }
+    if (dimensions && dimensions.length > 0) {
+      session.dimensions = dimensions
+    }
+    if (cycle && cycle > 0) {
+      session.cycle = cycle
+    }
 
     await store.saveSession(session)
     return reply.status(201).send(session)
   })
 
-  // List all sessions (facilitator view)
+  // List all sessions (facilitator view) — enriched with response_count + auto-archive
   fastify.get('/api/sessions', async () => {
-    return store.getAllSessions()
+    const sessions = await store.getAllSessions()
+    const now = Date.now()
+    const thirtyDays = 30 * 24 * 60 * 60 * 1000
+
+    // Auto-archive sessions closed for > 30 days
+    for (const s of sessions) {
+      if (s.status === 'closed' && s.updated_at) {
+        const closedAt = new Date(s.updated_at as string).getTime()
+        if (now - closedAt > thirtyDays) {
+          s.status = 'archived'
+          s.updated_at = new Date().toISOString()
+          await store.saveSession(s)
+        }
+      }
+    }
+
+    const enriched = await Promise.all(
+      sessions.map(async (s) => ({
+        ...s,
+        response_count: await store.countResponses(s.id as string),
+      })),
+    )
+    return enriched
   })
 
   // Get session by code (participant entry)
@@ -85,8 +115,8 @@ export async function sessionRoutes(fastify: FastifyInstance, opts: { store: Jso
       }
 
       const { status } = request.body
-      if (!['open', 'closed'].includes(status)) {
-        return reply.status(400).send({ error: 'status must be "open" or "closed"' })
+      if (!['open', 'closed', 'archived'].includes(status)) {
+        return reply.status(400).send({ error: 'status must be "open", "closed", or "archived"' })
       }
 
       session.status = status
@@ -96,7 +126,27 @@ export async function sessionRoutes(fastify: FastifyInstance, opts: { store: Jso
     },
   )
 
-  // Delete session
+  // Bulk archive all closed sessions of a team
+  fastify.post<{ Body: { team: string } }>('/api/sessions/bulk-archive', async (request, reply) => {
+    const { team } = request.body
+    if (!team) {
+      return reply.status(400).send({ error: 'team is required' })
+    }
+
+    const sessions = await store.getAllSessions()
+    let count = 0
+    for (const s of sessions) {
+      if (s.team === team && (s.status === 'open' || s.status === 'closed')) {
+        s.status = 'archived'
+        s.updated_at = new Date().toISOString()
+        await store.saveSession(s)
+        count++
+      }
+    }
+    return { archived: count }
+  })
+
+  // Delete session (and its responses)
   fastify.delete<{ Params: { id: string } }>('/api/sessions/:id', async (request, reply) => {
     await store.deleteSession(request.params.id)
     return reply.status(204).send()

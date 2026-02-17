@@ -24,8 +24,8 @@ export function validateQuestionBank(bank: unknown, filename: string): string[] 
       if (!q.question_key) {
         errors.push(`${prefix} Question ${i}: missing 'question_key'`)
       }
-      if (!q.question_type) {
-        errors.push(`${prefix} Question ${i}: missing 'question_type'`)
+      if (!q.question_type && !q.section) {
+        errors.push(`${prefix} Question ${i}: missing 'question_type' or 'section'`)
       }
       if (!q.question_text || typeof q.question_text !== 'object') {
         errors.push(`${prefix} Question ${i}: missing or invalid 'question_text'`)
