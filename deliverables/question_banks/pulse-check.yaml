@@ -219,11 +219,11 @@ questions:
         en: "Policies exist and are known; approvals/answers come but often take too long or aren't practical."
       4:
         label: "Scaling"
-        de: "Policies sind klar und praxisnah; bei Unsicherheit bekomme ich schnell eine verlaessliche Antwort."
+        de: "Policies sind klar und praxisnah; bei Unsicherheit bekomme ich schnell eine verlässliche Antwort."
         en: "Policies are clear and practical; when unsure I quickly get a reliable answer."
       5:
         label: "Evolving"
-        de: "Compliance ist in meinen Workflow integriert (automatisierte Checks, Self-Service-Freigaben, klare Entscheidungsbaeume)."
+        de: "Compliance ist in meinen Workflow integriert (automatisierte Checks, Self-Service-Freigaben, klare Entscheidungsbäume)."
         en: "Compliance is integrated into my workflow (automated checks, self-service approvals, clear decision trees)."
     order: 1
 
@@ -231,9 +231,11 @@ questions:
     dimension: "C"
     question_type: "diagnostic"
     question_text:
-      de: "Welche Situation blockiert euch am haeufigsten?"
+      de: "Welche Situation blockiert euch am häufigsten?"
       en: "Which situation blocks you most frequently?"
-    answer_type: "single_choice"
+    answer_type: multiple_choice
+    allow_multiple: true
+    max_selections: 3
     answer_options:
       - key: "data_classification"
         de: "Unklare Datenklassifizierung"
@@ -270,11 +272,11 @@ questions:
     question_type: "powerful_question"
     optional: true
     question_text:
-      de: "Welche 1 Governance-Regel wuerde sich morgen aendern, wenn du entscheiden duerftest?"
+      de: "Welche 1 Governance-Regel würde sich morgen ändern, wenn du entscheiden duerftest?"
       en: "Which 1 governance rule would change tomorrow if you could decide?"
     max_length: 280
     moderation_note:
-      de: "Nur als Themen-Cluster veroeffentlichen, nie als Rohtext. k-Anonymitaet beachten."
+      de: "Nur als Themen-Cluster veröffentlichen, nie als Rohtext. k-Anonymität beachten."
       en: "Only publish as topic clusters, never as raw text. Observe k-anonymity."
     order: 3
 
@@ -286,28 +288,28 @@ questions:
     question_type: "maturity"
     deep_dive_sub_topics: ["psychological_safety", "skill_confidence", "role_evolution", "peer_support"]
     question_text:
-      de: "Welche Stufe beschreibt deine persoenliche AI-Readiness am besten?"
+      de: "Welche Stufe beschreibt deine persönliche AI-Readiness am besten?"
       en: "Which level best describes your personal AI readiness?"
     maturity_levels:
       1:
         label: "Exploring"
-        de: "Ich habe kein Verstaendnis dafuer, was AI fuer meine Arbeit bedeutet; es gibt keine Enablement-Angebote."
+        de: "Ich habe kein Verständnis dafür, was AI für meine Arbeit bedeutet; es gibt keine Enablement-Angebote."
         en: "I have no understanding of what AI means for my work; there are no enablement offerings."
       2:
         label: "Experimenting"
-        de: "Ich habe ein grobes Verstaendnis, fuehle mich aber unsicher in der Anwendung; ich weiss nicht, wo ich anfangen soll."
+        de: "Ich habe ein grobes Verständnis, fühle mich aber unsicher in der Anwendung; ich weiss nicht, wo ich anfangen soll."
         en: "I have a rough understanding but feel insecure in application; I don't know where to start."
       3:
         label: "Embedding"
-        de: "Ich kann AI-Tools grundlegend bedienen und im Team offen darueber sprechen, bin aber unsicher bei Qualitaetsbewertung (Halluzinationen, Grenzen)."
+        de: "Ich kann AI-Tools grundlegend bedienen und im Team offen darüber sprechen, bin aber unsicher bei Qualitätsbewertung (Halluzinationen, Grenzen)."
         en: "I can basically use AI tools and discuss them openly in the team, but I'm unsure about quality assessment (hallucinations, limitations)."
       4:
         label: "Scaling"
-        de: "Ich kann AI-Outputs kritisch bewerten und sinnvoll in meinen Alltag einbauen; ich verstehe, wie sich meine Rolle veraendert."
+        de: "Ich kann AI-Outputs kritisch bewerten und sinnvoll in meinen Alltag einbauen; ich verstehe, wie sich meine Rolle verändert."
         en: "I can critically evaluate AI outputs and meaningfully integrate them into my daily work; I understand how my role is changing."
       5:
         label: "Evolving"
-        de: "Ich bin sicher im Umgang mit AI, unterstuetze andere aktiv (Champion-Rolle), und gestalte Veraenderungen in meiner Rolle proaktiv."
+        de: "Ich bin sicher im Umgang mit AI, unterstütze andere aktiv (Champion-Rolle), und gestalte Veränderungen in meiner Rolle proaktiv."
         en: "I'm confident with AI, actively support others (champion role), and proactively shape changes in my role."
     order: 4
 
@@ -315,9 +317,11 @@ questions:
     dimension: "R"
     question_type: "diagnostic"
     question_text:
-      de: "Was waere fuer dich der staerkste Enablement-Hebel?"
+      de: "Was wäre für dich der stärkste Enablement-Hebel?"
       en: "What would be the strongest enablement lever for you?"
-    answer_type: "single_choice"
+    answer_type: multiple_choice
+    allow_multiple: true
+    max_selections: 3
     answer_options:
       - key: "playbooks"
         de: "Kurze Beispiele / Playbooks"
@@ -351,14 +355,16 @@ questions:
     question_text:
       de: "Was hemmt dich aktuell am meisten?"
       en: "What inhibits you most currently?"
-    answer_type: "single_choice"
+    answer_type: multiple_choice
+    allow_multiple: true
+    max_selections: 3
     answer_options:
       - key: "quality_uncertainty"
-        de: "Unsicherheit ueber Qualitaet der Outputs"
+        de: "Unsicherheit über Qualität der Outputs"
         en: "Uncertainty about output quality"
         order: 1
       - key: "unclear_use_cases"
-        de: "Unklar, wofuer AI sinnvoll ist"
+        de: "Unklar, wofür AI sinnvoll ist"
         en: "Unclear what AI is useful for"
         order: 2
       - key: "no_time"
@@ -374,7 +380,7 @@ questions:
         en: "Concern about role / job"
         order: 5
       - key: "tech_barriers"
-        de: "Technische Huerden"
+        de: "Technische Hürden"
         en: "Technical barriers"
         order: 6
       - key: "nothing"
@@ -391,28 +397,28 @@ questions:
     question_type: "maturity"
     deep_dive_sub_topics: ["usage_regularity", "usage_depth", "output_trust", "knowledge_sharing"]
     question_text:
-      de: "Welche Stufe beschreibt deine tatsaechliche AI-Nutzung am besten?"
+      de: "Welche Stufe beschreibt deine tatsächliche AI-Nutzung am besten?"
       en: "Which level best describes your actual AI usage?"
     maturity_levels:
       1:
         label: "Exploring"
-        de: "Ich nutze keine AI-Tools fuer meine Arbeit."
+        de: "Ich nutze keine AI-Tools für meine Arbeit."
         en: "I don't use any AI tools for my work."
       2:
         label: "Experimenting"
-        de: "Ich nutze AI gelegentlich fuer einfache Aufgaben (z.B. Textformulierung, Quick Questions), nicht regelmaessig."
+        de: "Ich nutze AI gelegentlich für einfache Aufgaben (z.B. Textformulierung, Quick Qüstions), nicht regelmaessig."
         en: "I use AI occasionally for simple tasks (e.g. text drafting, quick questions), not regularly."
       3:
         label: "Embedding"
-        de: "Ich nutze AI regelmaessig (mind. woechentlich) in 1-2 Arbeitsbereichen und es spart mir merklich Zeit."
+        de: "Ich nutze AI regelmaessig (mind. wöchentlich) in 1-2 Arbeitsbereichen und es spart mir merklich Zeit."
         en: "I use AI regularly (at least weekly) in 1-2 work areas and it noticeably saves me time."
       4:
         label: "Scaling"
-        de: "AI ist fester Bestandteil meiner taeglichen Arbeit in mehreren Bereichen/SDLC-Phasen."
+        de: "AI ist fester Bestandteil meiner täglichen Arbeit in mehreren Bereichen/SDLC-Phasen."
         en: "AI is an integral part of my daily work across multiple areas/SDLC phases."
       5:
         label: "Evolving"
-        de: "AI ist durchgaengig in meinen Workflow integriert; ich optimiere aktiv Prompts/Workflows und teile Best Practices."
+        de: "AI ist durchgängig in meinen Workflow integriert; ich optimiere aktiv Prompts/Workflows und teile Best Practices."
         en: "AI is fully integrated into my workflow; I actively optimize prompts/workflows and share best practices."
     order: 7
 
@@ -425,7 +431,9 @@ questions:
     description:
       de: "Usage Mode Tracking (1-5 Skala)"
       en: "Usage mode tracking (1-5 scale)"
-    answer_type: "single_choice"
+    answer_type: multiple_choice
+    allow_multiple: true
+    max_selections: 3
     answer_options:
       - key: "none"
         de: "1: Gar nicht"
@@ -438,7 +446,7 @@ questions:
         usage_mode: 2
         order: 2
       - key: "integrated"
-        de: "3: Integriert (IDE/Workflow), Schritt-fuer-Schritt gesteuert"
+        de: "3: Integriert (IDE/Workflow), Schritt-für-Schritt gesteuert"
         en: "3: Integrated (IDE/workflow), step-by-step controlled"
         usage_mode: 3
         order: 3
@@ -462,6 +470,7 @@ questions:
       en: "In which SDLC phases do you use AI today?"
     answer_type: "multiple_choice"
     allow_multiple: true
+    max_selections: 3
     answer_options:
       - key: "requirements"
         de: "Requirements"
@@ -509,12 +518,14 @@ questions:
     dimension: "A"
     question_type: "diagnostic"
     question_text:
-      de: "Nutzt du aktuell nicht-freigegebene Tools (Shadow AI) fuer Arbeitszwecke?"
+      de: "Nutzt du aktuell nicht-freigegebene Tools (Shadow AI) für Arbeitszwecke?"
       en: "Do you currently use non-approved tools (shadow AI) for work purposes?"
     description:
       de: "Anonym, nur Trend wird ausgewertet"
       en: "Anonymous, only trend is evaluated"
-    answer_type: "single_choice"
+    answer_type: multiple_choice
+    allow_multiple: true
+    max_selections: 3
     answer_options:
       - key: "never"
         de: "Nie"
@@ -529,7 +540,7 @@ questions:
         en: "Occasionally"
         order: 3
       - key: "frequently"
-        de: "Haeufig"
+        de: "Häufig"
         en: "Frequently"
         order: 4
     order: 10
@@ -555,7 +566,7 @@ questions:
         en: "Individuals use AI on the side (e.g. chat), but it's not part of our team workflows."
       3:
         label: "Embedding"
-        de: "Wir haben erste AI-gestuetzte Workflows (z.B. PR Pre-Review, Testgenerierung), aber die meisten Prozesse laufen wie vorher."
+        de: "Wir haben erste AI-gestützte Workflows (z.B. PR Pre-Review, Testgenerierung), aber die meisten Prozesse laufen wie vorher."
         en: "We have initial AI-supported workflows (e.g. PR pre-review, test generation), but most processes run as before."
       4:
         label: "Scaling"
@@ -563,7 +574,7 @@ questions:
         en: "AI is embedded in multiple core workflows and measurably reduces wait times or rework."
       5:
         label: "Evolving"
-        de: "AI ist systematisch in unsere Wertschoepfungskette integriert; Bottlenecks werden datengetrieben identifiziert und adressiert."
+        de: "AI ist systematisch in unsere Wertschöpfungskette integriert; Bottlenecks werden datengetrieben identifiziert und adressiert."
         en: "AI is systematically integrated into our value stream; bottlenecks are identified and addressed data-driven."
     order: 11
 
@@ -571,9 +582,11 @@ questions:
     dimension: "F"
     question_type: "diagnostic"
     question_text:
-      de: "Wo ist euer groesster Prozess-Bottleneck aktuell?"
+      de: "Wo ist euer grösster Prozess-Bottleneck aktuell?"
       en: "Where is your biggest process bottleneck currently?"
-    answer_type: "single_choice"
+    answer_type: multiple_choice
+    allow_multiple: true
+    max_selections: 3
     answer_options:
       - key: "pr_review"
         de: "PR Review"
@@ -596,7 +609,7 @@ questions:
         en: "Requirements / Refinement"
         order: 5
       - key: "dependencies"
-        de: "Abhaengigkeiten (andere Teams)"
+        de: "Abhängigkeiten (andere Teams)"
         en: "Dependencies (other teams)"
         order: 6
       - key: "none"
@@ -613,9 +626,11 @@ questions:
     dimension: "F"
     question_type: "diagnostic"
     question_text:
-      de: "Welche AI-Intervention wuerde euch am ehesten helfen?"
+      de: "Welche AI-Intervention würde euch am ehesten helfen?"
       en: "Which AI intervention would help you most?"
-    answer_type: "single_choice"
+    answer_type: multiple_choice
+    allow_multiple: true
+    max_selections: 3
     answer_options:
       - key: "pr_prereview"
         de: "PR Pre-Review"
@@ -664,19 +679,19 @@ questions:
         en: "I have no access to approved AI tools."
       2:
         label: "Experimenting"
-        de: "Ich habe Zugang, aber nur als separaten Chat (nicht in IDE/Workflow integriert); Zugang einzurichten war umstaendlich."
+        de: "Ich habe Zugang, aber nur als separaten Chat (nicht in IDE/Workflow integriert); Zugang einzurichten war umständlich."
         en: "I have access, but only as separate chat (not integrated in IDE/workflow); setting up access was cumbersome."
       3:
         label: "Embedding"
-        de: "AI ist in mein Hauptwerkzeug integriert (z.B. IDE), aber Verfuegbarkeit oder Performance schwankt; Prompts/Playbooks fehlen."
+        de: "AI ist in mein Hauptwerkzeug integriert (z.B. IDE), aber Verfügbarkeit oder Performance schwankt; Prompts/Playbooks fehlen."
         en: "AI is integrated in my main tool (e.g. IDE), but availability or performance fluctuates; prompts/playbooks missing."
       4:
         label: "Scaling"
-        de: "AI-Tools sind zuverlaessig, performant und in IDE/CI integriert; wiederverwendbare Prompts/Playbooks sind verfuegbar."
+        de: "AI-Tools sind zuverlässig, performant und in IDE/CI integriert; wiederverwendbare Prompts/Playbooks sind verfügbar."
         en: "AI tools are reliable, performant and integrated in IDE/CI; reusable prompts/playbooks are available."
       5:
         label: "Evolving"
-        de: "AI-Tooling ist vollstaendig integriert (IDE, CI/CD, Monitoring), Self-Service-Provisioning, automatisierte Guardrails, Kosten-Transparenz."
+        de: "AI-Tooling ist vollständig integriert (IDE, CI/CD, Monitoring), Self-Service-Provisioning, automatisierte Guardrails, Kosten-Transparenz."
         en: "AI tooling is fully integrated (IDE, CI/CD, monitoring), self-service provisioning, automated guardrails, cost transparency."
     order: 14
 
@@ -684,12 +699,14 @@ questions:
     dimension: "T"
     question_type: "diagnostic"
     question_text:
-      de: "Welcher Nutzungsmodus ist bei euch offiziell (Tools/Policies) realistisch unterstuetzt?"
+      de: "Welcher Nutzungsmodus ist bei euch offiziell (Tools/Policies) realistisch unterstützt?"
       en: "Which usage mode is officially (tools/policies) realistically supported for you?"
-    answer_type: "single_choice"
+    answer_type: multiple_choice
+    allow_multiple: true
+    max_selections: 3
     answer_options:
       - key: "none"
-        de: "1: Keine Nutzung moeglich"
+        de: "1: Keine Nutzung möglich"
         en: "1: No usage possible"
         order: 1
       - key: "chat_only"
@@ -714,9 +731,11 @@ questions:
     dimension: "T"
     question_type: "diagnostic"
     question_text:
-      de: "Was ist die groesste technische Reibung?"
+      de: "Was ist die grösste technische Reibung?"
       en: "What is the biggest technical friction?"
-    answer_type: "single_choice"
+    answer_type: multiple_choice
+    allow_multiple: true
+    max_selections: 3
     answer_options:
       - key: "no_access"
         de: "Kein Zugang"

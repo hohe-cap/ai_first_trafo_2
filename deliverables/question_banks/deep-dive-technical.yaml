@@ -121,10 +121,10 @@ maturity_calibration:
 sub_topics:
   - key: "tool_availability"
     name:
-      de: "Tool-Verfuegbarkeit & Sicherheitsstufen"
+      de: "Tool-Verfügbarkeit & Sicherheitsstufen"
       en: "Tool Availability & Security Tiers"
     description:
-      de: "Sind AI-Tools ueber verschiedene Sicherheitsstufen verfuegbar und zugaenglich?"
+      de: "Sind AI-Tools über verschiedene Sicherheitsstufen verfügbar und zugänglich?"
       en: "Are AI tools available and accessible across different security tiers?"
     order: 1
 
@@ -133,16 +133,16 @@ sub_topics:
       de: "IDE-Integration & Developer Experience"
       en: "IDE Integration & Developer Experience"
     description:
-      de: "Wie nahtlos sind AI-Tools in die taegliche Entwicklungsumgebung integriert?"
+      de: "Wie nahtlos sind AI-Tools in die tägliche Entwicklungsumgebung integriert?"
       en: "How seamlessly are AI tools integrated into the daily development environment?"
     order: 2
 
   - key: "reliability"
     name:
-      de: "Zuverlaessigkeit & Performance"
+      de: "Zuverlässigkeit & Performance"
       en: "Reliability & Performance"
     description:
-      de: "Sind AI-Tools stabil, schnell und zuverlaessig nutzbar?"
+      de: "Sind AI-Tools stabil, schnell und zuverlässig nutzbar?"
       en: "Are AI tools stable, fast, and reliably usable?"
     order: 3
 
@@ -151,7 +151,7 @@ sub_topics:
       de: "Ecosystem-Reife (Prompt Library, CI/CD, Docs)"
       en: "Ecosystem Maturity (Prompt Library, CI/CD, Docs)"
     description:
-      de: "Existiert ein reifes Oekosystem rund um die AI-Tools (Prompt-Vorlagen, Pipeline-Integration, Dokumentation)?"
+      de: "Existiert ein reifes Ökosystem rund um die AI-Tools (Prompt-Vorlagen, Pipeline-Integration, Dokumentation)?"
       en: "Does a mature ecosystem exist around the AI tools (prompt templates, pipeline integration, documentation)?"
     order: 4
 
@@ -167,10 +167,10 @@ questions:
     question_type: "context"
     sub_topic: ~
     question_text:
-      de: "Welche Sicherheitsstufen fuer AI-Tools sind in eurer Organisation verfuegbar? (Mehrfachauswahl)"
+      de: "Welche Sicherheitsstufen für AI-Tools sind in eurer Organisation verfügbar? (Mehrfachauswahl)"
       en: "Which security tiers for AI tools are available in your organization? (Multiple selection)"
     why_important:
-      de: "Faktische Grundlage: Multi-Tier-Strategie bestimmt, welche Use Cases ueberhaupt moeglich sind."
+      de: "Faktische Grundlage: Multi-Tier-Strategie bestimmt, welche Use Cases überhaupt möglich sind."
       en: "Factual basis: Multi-tier strategy determines which use cases are possible at all."
     answer_type: "multiple_choice"
     allow_multiple: true
@@ -188,7 +188,7 @@ questions:
         en: "Tier 3: Air-gapped / local (e.g., Ollama, vLLM with local models)"
         order: 3
       - key: "none_available"
-        de: "Keine AI-Tools offiziell verfuegbar"
+        de: "Keine AI-Tools offiziell verfügbar"
         en: "No AI tools officially available"
         order: 4
       - key: "unknown"
@@ -202,7 +202,7 @@ questions:
     question_type: "context"
     sub_topic: ~
     question_text:
-      de: "Wie viele verschiedene AI-Tools nutzt du aktiv in deiner taeglichen Arbeit?"
+      de: "Wie viele verschiedene AI-Tools nutzt du aktiv in deiner täglichen Arbeit?"
       en: "How many different AI tools do you actively use in your daily work?"
     why_important:
       de: "Metrik: Tool-Vielfalt zeigt Ecosystem-Reife und potenzielle Fragmentierung."
@@ -235,28 +235,28 @@ questions:
     question_type: "maturity"
     sub_topic: "tool_availability"
     question_text:
-      de: "Welche Stufe beschreibt die Verfuegbarkeit von AI-Tools in deinem Arbeitsalltag am besten?"
+      de: "Welche Stufe beschreibt die Verfügbarkeit von AI-Tools in deinem Arbeitsalltag am besten?"
       en: "Which level best describes the availability of AI tools in your daily work?"
     maturity_levels:
       1:
         label: "Exploring"
-        de: "Es gibt keine freigegebenen AI-Tools; wenn ich AI nutzen will, muss ich auf private Accounts oder inoffizielle Wege zurueckgreifen."
+        de: "Es gibt keine freigegebenen AI-Tools; wenn ich AI nutzen will, muss ich auf private Accounts oder inoffizielle Wege zurückgreifen."
         en: "There are no approved AI tools; if I want to use AI, I have to fall back on personal accounts or unofficial channels."
       2:
         label: "Experimenting"
-        de: "Ein erstes Tool ist verfuegbar, aber nur fuer einen Teil des Teams oder nur fuer unkritische Daten; fuer sensible Bereiche gibt es keine Loesung."
+        de: "Ein erstes Tool ist verfügbar, aber nur für einen Teil des Teams oder nur für unkritische Daten; für sensible Bereiche gibt es keine Lösung."
         en: "A first tool is available, but only for part of the team or only for non-critical data; for sensitive areas there's no solution."
       3:
         label: "Embedding"
-        de: "AI-Tools sind fuer die meisten Teammitglieder verfuegbar; mindestens eine Sicherheitsstufe deckt unseren Hauptbedarf ab."
+        de: "AI-Tools sind für die meisten Teammitglieder verfügbar; mindestens eine Sicherheitsstufe deckt unseren Hauptbedarf ab."
         en: "AI tools are available for most team members; at least one security tier covers our main needs."
       4:
         label: "Scaling"
-        de: "Verschiedene Sicherheitsstufen stehen bereit; fuer jeden Datentyp gibt es eine passende Loesung; neue Tools werden schnell bereitgestellt."
+        de: "Verschiedene Sicherheitsstufen stehen bereit; für jeden Datentyp gibt es eine passende Lösung; neue Tools werden schnell bereitgestellt."
         en: "Different security tiers are available; for every data type there's a suitable solution; new tools are provisioned quickly."
       5:
         label: "Evolving"
-        de: "Multi-Tier-Strategie ist Alltag; Teams koennen flexibel zwischen Modellen und Stufen wechseln; Self-Service-Provisioning fuer Standard-Tools."
+        de: "Multi-Tier-Strategie ist Alltag; Teams können flexibel zwischen Modellen und Stufen wechseln; Self-Service-Provisioning für Standard-Tools."
         en: "Multi-tier strategy is routine; teams can flexibly switch between models and tiers; self-service provisioning for standard tools."
     order: 3
 
@@ -269,23 +269,23 @@ questions:
     maturity_levels:
       1:
         label: "Exploring"
-        de: "AI-Tools laufen ausserhalb meiner IDE (z.B. Browser-Tab); ich muss Copy-Paste verwenden, um Ergebnisse in meinen Code zu uebertragen."
+        de: "AI-Tools laufen ausserhalb meiner IDE (z.B. Browser-Tab); ich muss Copy-Paste verwenden, um Ergebnisse in meinen Code zu übertragen."
         en: "AI tools run outside my IDE (e.g., browser tab); I need to copy-paste to transfer results into my code."
       2:
         label: "Experimenting"
-        de: "Ein Plugin/Extension ist installiert, aber es funktioniert nur fuer einfache Dinge (z.B. Autocomplete); komplexere Features fehlen oder sind instabil."
+        de: "Ein Plugin/Extension ist installiert, aber es funktioniert nur für einfache Dinge (z.B. Autocomplete); komplexere Features fehlen oder sind instabil."
         en: "A plugin/extension is installed, but it only works for simple things (e.g., autocomplete); more complex features are missing or unstable."
       3:
         label: "Embedding"
-        de: "AI ist in meiner IDE fuer Kernfeatures integriert (Autocomplete, Chat, Erklaerungen); es funktioniert zuverlaessig fuer Standard-Workflows."
+        de: "AI ist in meiner IDE für Kernfeatures integriert (Autocomplete, Chat, Erklärungen); es funktioniert zuverlässig für Standard-Workflows."
         en: "AI is integrated in my IDE for core features (autocomplete, chat, explanations); it works reliably for standard workflows."
       4:
         label: "Scaling"
-        de: "AI unterstuetzt mich durchgaengig: Code-Generierung, Refactoring, Test-Erstellung, Dokumentation — alles direkt in der IDE; ich kann zwischen Modellen wechseln."
+        de: "AI unterstützt mich durchgängig: Code-Generierung, Refactoring, Test-Erstellung, Dokumentation — alles direkt in der IDE; ich kann zwischen Modellen wechseln."
         en: "AI supports me throughout: code generation, refactoring, test creation, documentation — all directly in the IDE; I can switch between models."
       5:
         label: "Evolving"
-        de: "AI ist tief in meinen gesamten Workflow integriert — agentic workflows, Multi-File-Aenderungen, Context-aware Vorschlaege; ich arbeite in einer AI-nativen Umgebung."
+        de: "AI ist tief in meinen gesamten Workflow integriert — agentic workflows, Multi-File-Änderungen, Context-aware Vorschläge; ich arbeite in einer AI-nativen Umgebung."
         en: "AI is deeply integrated into my entire workflow — agentic workflows, multi-file changes, context-aware suggestions; I work in an AI-native environment."
     order: 4
 
@@ -293,28 +293,28 @@ questions:
     question_type: "maturity"
     sub_topic: "reliability"
     question_text:
-      de: "Welche Stufe beschreibt die Zuverlaessigkeit und Performance der AI-Tools am besten?"
+      de: "Welche Stufe beschreibt die Zuverlässigkeit und Performance der AI-Tools am besten?"
       en: "Which level best describes the reliability and performance of AI tools?"
     maturity_levels:
       1:
         label: "Exploring"
-        de: "AI-Tools sind nicht verfuegbar oder so instabil, dass ich sie nicht sinnvoll nutzen kann."
+        de: "AI-Tools sind nicht verfügbar oder so instabil, dass ich sie nicht sinnvoll nutzen kann."
         en: "AI tools are not available or so unstable that I can't use them meaningfully."
       2:
         label: "Experimenting"
-        de: "Tools funktionieren manchmal, aber haeufige Ausfaelle, hohe Latenz oder Timeouts frustrieren und stoeren meinen Flow."
+        de: "Tools funktionieren manchmal, aber häufige Ausfälle, hohe Latenz oder Timeouts frustrieren und stören meinen Flow."
         en: "Tools work sometimes, but frequent outages, high latency, or timeouts frustrate and disrupt my flow."
       3:
         label: "Embedding"
-        de: "Tools laufen meistens stabil; gelegentliche Performance-Probleme, aber insgesamt akzeptabel fuer die taegliche Arbeit."
+        de: "Tools laufen meistens stabil; gelegentliche Performance-Probleme, aber insgesamt akzeptabel für die tägliche Arbeit."
         en: "Tools run mostly stable; occasional performance issues, but overall acceptable for daily work."
       4:
         label: "Scaling"
-        de: "Tools sind zuverlaessig und schnell; SLAs werden eingehalten; bei Problemen gibt es klare Supportwege und schnelle Loesungen."
+        de: "Tools sind zuverlässig und schnell; SLAs werden eingehalten; bei Problemen gibt es klare Supportwege und schnelle Lösungen."
         en: "Tools are reliable and fast; SLAs are met; when problems occur, there are clear support channels and quick solutions."
       5:
         label: "Evolving"
-        de: "Infrastructure-as-Code, automatisches Scaling, proaktives Monitoring; Performance wird kontinuierlich optimiert und Ausfaelle sind selten."
+        de: "Infrastructure-as-Code, automatisches Scaling, proaktives Monitoring; Performance wird kontinuierlich optimiert und Ausfälle sind selten."
         en: "Infrastructure-as-code, automatic scaling, proactive monitoring; performance is continuously optimized and outages are rare."
     order: 5
 
@@ -322,20 +322,20 @@ questions:
     question_type: "maturity"
     sub_topic: "ecosystem"
     question_text:
-      de: "Welche Stufe beschreibt das Oekosystem rund um eure AI-Tools (Prompt-Vorlagen, CI/CD-Integration, Dokumentation) am besten?"
+      de: "Welche Stufe beschreibt das Ökosystem rund um eure AI-Tools (Prompt-Vorlagen, CI/CD-Integration, Dokumentation) am besten?"
       en: "Which level best describes the ecosystem around your AI tools (prompt templates, CI/CD integration, documentation)?"
     maturity_levels:
       1:
         label: "Exploring"
-        de: "Jeder arbeitet fuer sich; keine geteilten Prompts, keine Dokumentation, keine Integration in Build-Pipelines."
+        de: "Jeder arbeitet für sich; keine geteilten Prompts, keine Dokumentation, keine Integration in Build-Pipelines."
         en: "Everyone works on their own; no shared prompts, no documentation, no integration into build pipelines."
       2:
         label: "Experimenting"
-        de: "Einzelne teilen Prompts informell (z.B. Slack, persoenliche Notizen); Dokumentation ist lueckenhaft; CI/CD-Integration ist nicht vorhanden."
+        de: "Einzelne teilen Prompts informell (z.B. Slack, persönliche Notizen); Dokumentation ist lückenhaft; CI/CD-Integration ist nicht vorhanden."
         en: "Some share prompts informally (e.g., Slack, personal notes); documentation is patchy; CI/CD integration doesn't exist."
       3:
         label: "Embedding"
-        de: "Es gibt eine zentrale Anlaufstelle (Wiki, Confluence) fuer Prompts und Best Practices; erste AI-Schritte in Pipelines (z.B. AI Code Review); Setup-Doku vorhanden."
+        de: "Es gibt eine zentrale Anlaufstelle (Wiki, Conflünce) für Prompts und Best Practices; erste AI-Schritte in Pipelines (z.B. AI Code Review); Setup-Doku vorhanden."
         en: "There's a central resource (wiki, Confluence) for prompts and best practices; first AI steps in pipelines (e.g., AI code review); setup docs available."
       4:
         label: "Scaling"
@@ -343,7 +343,7 @@ questions:
         en: "Prompt library is technically integrated (IDE snippets, MCP server); AI in CI/CD is standard (review, tests, docs); documentation is current and comprehensive."
       5:
         label: "Evolving"
-        de: "Das Oekosystem entwickelt sich kontinuierlich weiter: Community-driven Prompt Library, AI-generierte Pipeline-Optimierung, automatische Docs-Updates; Teams tragen aktiv bei."
+        de: "Das Ökosystem entwickelt sich kontinuierlich weiter: Community-driven Prompt Library, AI-generierte Pipeline-Optimierung, automatische Docs-Updates; Teams tragen aktiv bei."
         en: "The ecosystem continuously evolves: community-driven prompt library, AI-generated pipeline optimization, automatic docs updates; teams actively contribute."
     order: 6
 
@@ -353,7 +353,7 @@ questions:
   - question_key: "T-MC-BLOCKER"
     question_type: "diagnostic"
     question_text:
-      de: "Was blockiert euch aktuell am staerksten im Bereich Technical Enablement?"
+      de: "Was blockiert euch aktuell am stärksten im Bereich Technical Enablement?"
       en: "What currently blocks you most in the area of technical enablement?"
     answer_type: "single_choice"
     answer_options:
@@ -362,19 +362,19 @@ questions:
         en: "No or too few AI tools officially approved"
         order: 1
       - key: "poor_integration"
-        de: "Schlechte IDE-Integration — zu umstaendlich, zu viel Copy-Paste"
+        de: "Schlechte IDE-Integration — zu umständlich, zu viel Copy-Paste"
         en: "Poor IDE integration — too cumbersome, too much copy-paste"
         order: 2
       - key: "performance_issues"
-        de: "Performance-Probleme — zu langsam, instabil, haeufige Ausfaelle"
+        de: "Performance-Probleme — zu langsam, instabil, häufige Ausfälle"
         en: "Performance issues — too slow, unstable, frequent outages"
         order: 3
       - key: "missing_tier"
-        de: "Fehlende Sicherheitsstufe — kann fuer bestimmte Daten kein AI nutzen"
+        de: "Fehlende Sicherheitsstufe — kann für bestimmte Daten kein AI nutzen"
         en: "Missing security tier — can't use AI for certain data"
         order: 4
       - key: "no_ecosystem"
-        de: "Fehlendes Oekosystem — keine Prompts, keine Docs, jeder faengt bei Null an"
+        de: "Fehlendes Ökosystem — keine Prompts, keine Docs, jeder fängt bei Null an"
         en: "Missing ecosystem — no prompts, no docs, everyone starts from zero"
         order: 5
       - key: "nothing"
@@ -390,7 +390,7 @@ questions:
   - question_key: "T-MC-PRIORITY"
     question_type: "diagnostic"
     question_text:
-      de: "Welche technische Verbesserung haette den groessten positiven Einfluss auf eure AI-Nutzung?"
+      de: "Welche technische Verbesserung hätte den grössten positiven Einfluss auf eure AI-Nutzung?"
       en: "Which technical improvement would have the greatest positive impact on your AI usage?"
     answer_type: "single_choice"
     answer_options:
@@ -411,7 +411,7 @@ questions:
         en: "Integrate AI into CI/CD pipelines (code review, test generation)"
         order: 4
       - key: "model_selection"
-        de: "Mehr Modell-Auswahl (verschiedene LLMs fuer verschiedene Tasks)"
+        de: "Mehr Modell-Auswahl (verschiedene LLMs für verschiedene Tasks)"
         en: "More model selection (different LLMs for different tasks)"
         order: 5
       - key: "better_docs"
@@ -431,11 +431,11 @@ questions:
     question_type: "powerful_question"
     optional: true
     question_text:
-      de: "Welches AI-Tool oder Feature vermisst du am meisten, das es eigentlich geben muesste?"
+      de: "Welches AI-Tool oder Feature vermisst du am meisten, das es eigentlich geben müsste?"
       en: "Which AI tool or feature do you miss the most that should really exist?"
     max_length: 280
     moderation_note:
-      de: "Nur als Themen-Cluster veroeffentlichen, nie als Rohtext. k-Anonymitaet beachten."
+      de: "Nur als Themen-Cluster veröffentlichen, nie als Rohtext. k-Anonymität beachten."
       en: "Only publish as topic clusters, never as raw text. Observe k-anonymity."
     order: 9
 
@@ -482,15 +482,15 @@ scoring:
   interpretation:
     1:
       label: "Exploring"
-      de: "Keine oder unzugaengliche AI-Tools; fundamentale Luecken in Infrastruktur, Integration und Oekosystem."
+      de: "Keine oder unzugängliche AI-Tools; fundamentale Lücken in Infrastruktur, Integration und Ökosystem."
       en: "No or inaccessible AI tools; fundamental gaps in infrastructure, integration, and ecosystem."
     2:
       label: "Experimenting"
-      de: "Erste Tools vorhanden, aber instabil, schlecht integriert oder nur fuer Teile des Teams; kein Oekosystem."
+      de: "Erste Tools vorhanden, aber instabil, schlecht integriert oder nur für Teile des Teams; kein Ökosystem."
       en: "First tools available but unstable, poorly integrated, or only for parts of the team; no ecosystem."
     3:
       label: "Embedding"
-      de: "AI-Tools zuverlaessig und fuer die meisten verfuegbar; IDE-Integration funktioniert; erste Ecosystem-Bausteine."
+      de: "AI-Tools zuverlässig und für die meisten verfügbar; IDE-Integration funktioniert; erste Ecosystem-Bausteine."
       en: "AI tools reliable and available for most; IDE integration works; first ecosystem building blocks."
     4:
       label: "Scaling"

@@ -115,10 +115,10 @@ maturity_calibration:
 sub_topics:
   - key: "policy_clarity"
     name:
-      de: "Policy-Klarheit & Zugaenglichkeit"
+      de: "Policy-Klarheit & Zugänglichkeit"
       en: "Policy Clarity & Accessibility"
     description:
-      de: "Sind AI-Policies klar, praxisnah, auffindbar und verstaendlich?"
+      de: "Sind AI-Policies klar, praxisnah, auffindbar und verständlich?"
       en: "Are AI policies clear, practical, findable, and understandable?"
     order: 1
 
@@ -173,7 +173,7 @@ questions:
         en: "Yes, comprehensive and officially adopted"
         order: 1
       - key: "exists_limited"
-        de: "Ja, aber nur fuer bestimmte Bereiche oder zu allgemein"
+        de: "Ja, aber nur für bestimmte Bereiche oder zu allgemein"
         en: "Yes, but only for specific areas or too general"
         order: 2
       - key: "draft_only"
@@ -198,7 +198,7 @@ questions:
       de: "Wie lange dauert typischerweise die Freigabe eines neuen AI-Tools (von Anfrage bis produktive Nutzung)?"
       en: "How long does approval of a new AI tool typically take (from request to productive use)?"
     why_important:
-      de: "Metrik: Time-to-approval ist ein KPI fuer Governance-Effizienz."
+      de: "Metrik: Time-to-approval ist ein KPI für Governance-Effizienz."
       en: "Metric: Time-to-approval is a KPI for governance efficiency."
     answer_type: "single_choice"
     answer_options:
@@ -219,7 +219,7 @@ questions:
         en: "4-8 weeks"
         order: 4
       - key: "over_8_weeks"
-        de: "Ueber 8 Wochen oder noch nie beantragt"
+        de: "Über 8 Wochen oder noch nie beantragt"
         en: "Over 8 weeks or never requested"
         order: 5
     scoring_note: "Context only — does not feed into spider score directly"
@@ -241,11 +241,11 @@ questions:
         en: "I don't know if AI rules exist; if so, I don't know them."
       2:
         label: "Experimenting"
-        de: "Es gibt Regeln, aber sie sind schwer zu finden, zu allgemein oder fuer meinen Alltag nicht verstaendlich."
+        de: "Es gibt Regeln, aber sie sind schwer zu finden, zu allgemein oder für meinen Alltag nicht verständlich."
         en: "Rules exist, but they're hard to find, too general, or not understandable for my daily work."
       3:
         label: "Embedding"
-        de: "Policies sind dokumentiert, bekannt und decken die wichtigsten Faelle ab; bei Spezialfaellen gibt es noch Grauzonen."
+        de: "Policies sind dokumentiert, bekannt und decken die wichtigsten Fälle ab; bei Spezialfällen gibt es noch Grauzonen."
         en: "Policies are documented, known, and cover the key cases; there are still gray areas for special cases."
       4:
         label: "Scaling"
@@ -253,7 +253,7 @@ questions:
         en: "Policies are clear, practical, and easy to find; decision aids (e.g., traffic light system) help me daily."
       5:
         label: "Evolving"
-        de: "Policies werden regelmaessig aktualisiert, Feedback-Loops existieren, und ich kann selbst pruefen ob ein Use Case konform ist."
+        de: "Policies werden regelmaessig aktualisiert, Feedback-Loops existieren, und ich kann selbst prüfen ob ein Use Case konform ist."
         en: "Policies are regularly updated, feedback loops exist, and I can self-check whether a use case is compliant."
     order: 3
 
@@ -266,7 +266,7 @@ questions:
     maturity_levels:
       1:
         label: "Exploring"
-        de: "Es gibt keinen erkennbaren Prozess fuer AI-bezogene Entscheidungen oder Freigaben."
+        de: "Es gibt keinen erkennbaren Prozess für AI-bezogene Entscheidungen oder Freigaben."
         en: "There is no recognizable process for AI-related decisions or approvals."
       2:
         label: "Experimenting"
@@ -278,11 +278,11 @@ questions:
         en: "An approval process exists and contacts are named, but it often takes weeks."
       4:
         label: "Scaling"
-        de: "Freigaben haben ein SLA (unter 1 Woche), Eskalationswege sind klar, Fast-Track fuer Standard-Tools existiert."
+        de: "Freigaben haben ein SLA (unter 1 Woche), Eskalationswege sind klar, Fast-Track für Standard-Tools existiert."
         en: "Approvals have an SLA (under 1 week), escalation paths are clear, fast-track for standard tools exists."
       5:
         label: "Evolving"
-        de: "Self-Service-Freigabe fuer Standard-Tools, automatisierte Compliance-Checks; Governance ist kein Bottleneck mehr."
+        de: "Self-Service-Freigabe für Standard-Tools, automatisierte Compliance-Checks; Governance ist kein Bottleneck mehr."
         en: "Self-service approval for standard tools, automated compliance checks; governance is no longer a bottleneck."
     order: 4
 
@@ -303,11 +303,11 @@ questions:
         en: "There are rough rules (e.g., 'no customer data'), but many gray areas; when in doubt, I'd rather not use AI."
       3:
         label: "Embedding"
-        de: "Datenklassifizierung ist definiert und kommuniziert; fuer die meisten Situationen weiss ich, was erlaubt ist."
+        de: "Datenklassifizierung ist definiert und kommuniziert; für die meisten Situationen weiss ich, was erlaubt ist."
         en: "Data classification is defined and communicated; for most situations, I know what's allowed."
       4:
         label: "Scaling"
-        de: "Klares Ampelsystem oder Entscheidungsbaum; jede Sicherheitsstufe hat definierte erlaubte Datentypen; schnelle Antworten bei Grenzfaellen."
+        de: "Klares Ampelsystem oder Entscheidungsbaum; jede Sicherheitsstufe hat definierte erlaubte Datentypen; schnelle Antworten bei Grenzfällen."
         en: "Clear traffic light system or decision tree; each security tier has defined allowed data types; quick answers for edge cases."
       5:
         label: "Evolving"
@@ -332,7 +332,7 @@ questions:
         en: "I know requirements exist (e.g., EU AI Act, works council), but there's no concrete plan yet."
       3:
         label: "Embedding"
-        de: "Erste Schritte sind gemacht (z.B. Gap-Analyse, Betriebsrat informiert); Umsetzung hat begonnen, ist aber lueckenhaft."
+        de: "Erste Schritte sind gemacht (z.B. Gap-Analyse, Betriebsrat informiert); Umsetzung hat begonnen, ist aber lückenhaft."
         en: "First steps taken (e.g., gap analysis, works council informed); implementation started but has gaps."
       4:
         label: "Scaling"
@@ -340,7 +340,7 @@ questions:
         en: "Roadmap in place, works agreement is agreed or in alignment; EU AI Act compliance is being systematically implemented."
       5:
         label: "Evolving"
-        de: "Alle regulatorischen Anforderungen umgesetzt und proaktiv monitored; Betriebsvereinbarung wird gelebt; neue Regulierung wird fruehzeitig antizipiert."
+        de: "Alle regulatorischen Anforderungen umgesetzt und proaktiv monitored; Betriebsvereinbarung wird gelebt; neue Regulierung wird frühzeitig antizipiert."
         en: "All regulatory requirements implemented and proactively monitored; works agreement is lived; new regulation is anticipated early."
     order: 6
 
@@ -350,7 +350,7 @@ questions:
   - question_key: "C-MC-BLOCKER"
     question_type: "diagnostic"
     question_text:
-      de: "Was blockiert euch aktuell am staerksten im Bereich Compliance & Governance?"
+      de: "Was blockiert euch aktuell am stärksten im Bereich Compliance & Governance?"
       en: "What currently blocks you most in the area of compliance & governance?"
     answer_type: "single_choice"
     answer_options:
@@ -359,7 +359,7 @@ questions:
         en: "Unclear data classification — don't know what goes where"
         order: 1
       - key: "slow_approval"
-        de: "Tool-Freigabe zu langsam oder gar nicht moeglich"
+        de: "Tool-Freigabe zu langsam oder gar nicht möglich"
         en: "Tool approval too slow or not possible at all"
         order: 2
       - key: "betriebsrat_stalled"
@@ -371,7 +371,7 @@ questions:
         en: "No or unclear AI usage policy"
         order: 4
       - key: "cost_quota"
-        de: "Kosten- oder Quota-Einschraenkungen"
+        de: "Kosten- oder Quota-Einschränkungen"
         en: "Cost or quota restrictions"
         order: 5
       - key: "nothing"
@@ -387,7 +387,7 @@ questions:
   - question_key: "C-MC-INTERVENTION"
     question_type: "diagnostic"
     question_text:
-      de: "Welche Massnahme wuerde euch im Bereich Compliance & Governance am meisten helfen?"
+      de: "Welche Massnahme würde euch im Bereich Compliance & Governance am meisten helfen?"
       en: "Which measure would help you most in compliance & governance?"
     answer_type: "single_choice"
     answer_options:
@@ -396,7 +396,7 @@ questions:
         en: "Practical policy with concrete examples and decision aids"
         order: 1
       - key: "faster_approval"
-        de: "Schnellerer Freigabeprozess / Fast-Track fuer Standard-Tools"
+        de: "Schnellerer Freigabeprozess / Fast-Track für Standard-Tools"
         en: "Faster approval process / fast-track for standard tools"
         order: 2
       - key: "clear_data_rules"
@@ -404,7 +404,7 @@ questions:
         en: "Clear data classification (traffic light system: what goes where?)"
         order: 3
       - key: "betriebsvereinbarung"
-        de: "Betriebsvereinbarung fuer AI-Tools abschliessen"
+        de: "Betriebsvereinbarung für AI-Tools abschliessen"
         en: "Conclude works agreement for AI tools"
         order: 4
       - key: "self_service_checks"
@@ -428,11 +428,11 @@ questions:
     question_type: "powerful_question"
     optional: true
     question_text:
-      de: "Welche Governance-Regel wuerde sich morgen aendern, wenn du entscheiden duerftest?"
+      de: "Welche Governance-Regel würde sich morgen ändern, wenn du entscheiden duerftest?"
       en: "Which governance rule would change tomorrow if you could decide?"
     max_length: 280
     moderation_note:
-      de: "Nur als Themen-Cluster veroeffentlichen, nie als Rohtext. k-Anonymitaet beachten."
+      de: "Nur als Themen-Cluster veröffentlichen, nie als Rohtext. k-Anonymität beachten."
       en: "Only publish as topic clusters, never as raw text. Observe k-anonymity."
     order: 9
 
@@ -479,7 +479,7 @@ scoring:
   interpretation:
     1:
       label: "Exploring"
-      de: "Keine oder unbekannte Governance; fundamentale Luecken in Policy, Prozessen und regulatorischer Vorbereitung."
+      de: "Keine oder unbekannte Governance; fundamentale Lücken in Policy, Prozessen und regulatorischer Vorbereitung."
       en: "No or unknown governance; fundamental gaps in policy, processes, and regulatory preparation."
     2:
       label: "Experimenting"

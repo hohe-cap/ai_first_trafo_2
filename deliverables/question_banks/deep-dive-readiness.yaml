@@ -42,7 +42,7 @@ sub_topics:
       de: "Psychologische Sicherheit"
       en: "Psychological Safety"
     description:
-      de: "Koennen Menschen mit AI experimentieren, ohne Angst vor Bewertung oder Bestrafung?"
+      de: "Können Menschen mit AI experimentieren, ohne Angst vor Bewertung oder Bestrafung?"
       en: "Can people experiment with AI without fear of judgment or punishment?"
     order: 1
 
@@ -51,7 +51,7 @@ sub_topics:
       de: "Skill-Level & Vertrauen"
       en: "Skill Level & Confidence"
     description:
-      de: "Fuehlen sich Menschen sicher genug, AI-Tools effektiv zu nutzen?"
+      de: "Fühlen sich Menschen sicher genug, AI-Tools effektiv zu nutzen?"
       en: "Do people feel confident enough to use AI tools effectively?"
     order: 2
 
@@ -60,7 +60,7 @@ sub_topics:
       de: "Rollenentwicklung & Klarheit"
       en: "Role Evolution & Clarity"
     description:
-      de: "Verstehen Menschen, wie sich ihre Rolle mit AI veraendert?"
+      de: "Verstehen Menschen, wie sich ihre Rolle mit AI verändert?"
       en: "Do people understand how their role evolves with AI?"
     order: 3
 
@@ -69,7 +69,7 @@ sub_topics:
       de: "Peer-Support & Champions"
       en: "Peer Support & Champions"
     description:
-      de: "Gibt es ein Unterstuetzungsnetzwerk (Champions, Pairing, Community)?"
+      de: "Gibt es ein Unterstützungsnetzwerk (Champions, Pairing, Community)?"
       en: "Is there a support network (champions, pairing, community)?"
     order: 4
 
@@ -115,10 +115,10 @@ questions:
     question_type: "context"
     sub_topic: ~
     question_text:
-      de: "Nutzt du aktuell nicht-freigegebene AI-Tools (Shadow AI) fuer Arbeitszwecke?"
+      de: "Nutzt du aktuell nicht-freigegebene AI-Tools (Shadow AI) für Arbeitszwecke?"
       en: "Do you currently use non-approved AI tools (Shadow AI) for work purposes?"
     why_important:
-      de: "Shadow AI zeigt unerfuellten Bedarf. Hohe Shadow-AI-Rate = Teams wollen AI nutzen, offizielle Wege sind blockiert."
+      de: "Shadow AI zeigt unerfüllten Bedarf. Hohe Shadow-AI-Rate = Teams wollen AI nutzen, offizielle Wege sind blockiert."
       en: "Shadow AI shows unmet need. High shadow AI rate = teams want AI, official paths are blocked."
     description:
       de: "Anonym — nur Trend wird ausgewertet, keine individuelle Zuordnung"
@@ -138,7 +138,7 @@ questions:
         en: "Occasionally"
         order: 3
       - key: "frequently"
-        de: "Haeufig"
+        de: "Häufig"
         en: "Frequently"
         order: 4
     scoring_note: "Context only — trend indicator for unmet demand"
@@ -151,20 +151,20 @@ questions:
     question_type: "maturity"
     sub_topic: "psychological_safety"
     question_text:
-      de: "Welche Stufe beschreibt die psychologische Sicherheit fuer AI-Experimente in deinem Team am besten?"
+      de: "Welche Stufe beschreibt die psychologische Sicherheit für AI-Experimente in deinem Team am besten?"
       en: "Which level best describes the psychological safety for AI experiments in your team?"
     maturity_levels:
       1:
         label: "Exploring"
-        de: "Mit AI zu experimentieren wird skeptisch gesehen oder nicht thematisiert; ich fuehle mich nicht sicher, neue Tools auszuprobieren."
+        de: "Mit AI zu experimentieren wird skeptisch gesehen oder nicht thematisiert; ich fühle mich nicht sicher, neue Tools auszuprobieren."
         en: "Experimenting with AI is viewed skeptically or not discussed; I don't feel safe trying new tools."
       2:
         label: "Experimenting"
-        de: "Es wird toleriert, aber nicht aktiv ermutigt; wenn etwas schiefgeht, wuerde ich es lieber nicht erwaehnen."
+        de: "Es wird toleriert, aber nicht aktiv ermutigt; wenn etwas schiefgeht, würde ich es lieber nicht erwähnen."
         en: "It's tolerated but not actively encouraged; if something goes wrong, I'd rather not mention it."
       3:
         label: "Embedding"
-        de: "Experimentieren ist ok und wir sprechen offen ueber AI; aber es haengt vom Manager oder Projekt ab."
+        de: "Experimentieren ist ok und wir sprechen offen über AI; aber es hängt vom Manager oder Projekt ab."
         en: "Experimenting is ok and we discuss AI openly; but it depends on the manager or project."
       4:
         label: "Scaling"
@@ -180,24 +180,24 @@ questions:
     question_type: "maturity"
     sub_topic: "skill_confidence"
     question_text:
-      de: "Welche Stufe beschreibt dein persoenliches AI-Skill-Level und Vertrauen am besten?"
+      de: "Welche Stufe beschreibt dein persönliches AI-Skill-Level und Vertrauen am besten?"
       en: "Which level best describes your personal AI skill level and confidence?"
     maturity_levels:
       1:
         label: "Exploring"
-        de: "Ich weiss nicht, was AI fuer meine Arbeit tun kann; es gibt keine Trainingsangebote."
+        de: "Ich weiss nicht, was AI für meine Arbeit tun kann; es gibt keine Trainingsangebote."
         en: "I don't know what AI can do for my work; there are no training offerings."
       2:
         label: "Experimenting"
-        de: "Ich habe eine grobe Vorstellung, fuehle mich aber unsicher; ich weiss nicht, wo ich anfangen soll oder was ein guter Prompt ist."
+        de: "Ich habe eine grobe Vorstellung, fühle mich aber unsicher; ich weiss nicht, wo ich anfangen soll oder was ein guter Prompt ist."
         en: "I have a rough idea but feel insecure; I don't know where to start or what makes a good prompt."
       3:
         label: "Embedding"
-        de: "Ich kann AI-Tools fuer grundlegende Aufgaben nutzen; ich verstehe Grenzen (Halluzinationen), brauche aber mehr Praxis."
+        de: "Ich kann AI-Tools für grundlegende Aufgaben nutzen; ich verstehe Grenzen (Halluzinationen), brauche aber mehr Praxis."
         en: "I can use AI tools for basic tasks; I understand limitations (hallucinations) but need more practice."
       4:
         label: "Scaling"
-        de: "Ich kann AI-Outputs kritisch bewerten; ich weiss, welches Tool fuer welche Aufgabe; ich helfe anderen beim Einstieg."
+        de: "Ich kann AI-Outputs kritisch bewerten; ich weiss, welches Tool für welche Aufgabe; ich helfe anderen beim Einstieg."
         en: "I can critically evaluate AI outputs; I know which tool for which task; I help others get started."
       5:
         label: "Evolving"
@@ -209,16 +209,16 @@ questions:
     question_type: "maturity"
     sub_topic: "role_evolution"
     question_text:
-      de: "Welche Stufe beschreibt dein Verstaendnis darueber, wie sich deine Rolle durch AI veraendert, am besten?"
+      de: "Welche Stufe beschreibt dein Verständnis darüber, wie sich deine Rolle durch AI verändert, am besten?"
       en: "Which level best describes your understanding of how your role changes with AI?"
     maturity_levels:
       1:
         label: "Exploring"
-        de: "Ich habe keine Vorstellung davon, wie AI meine Rolle veraendert; niemand spricht darueber."
+        de: "Ich habe keine Vorstellung davon, wie AI meine Rolle verändert; niemand spricht darüber."
         en: "I have no idea how AI changes my role; nobody talks about it."
       2:
         label: "Experimenting"
-        de: "Ich habe gehoert, dass sich Rollen aendern, aber es ist unklar, was das fuer MICH konkret bedeutet."
+        de: "Ich habe gehört, dass sich Rollen ändern, aber es ist unklar, was das für MICH konkret bedeutet."
         en: "I've heard roles are changing, but it's unclear what that means for ME specifically."
       3:
         label: "Embedding"
@@ -226,11 +226,11 @@ questions:
         en: "I roughly understand how my role evolves; there are discussions but no concrete development plan."
       4:
         label: "Scaling"
-        de: "Es gibt ein klares Rollenentwicklungs-Narrativ; ich weiss welche neuen Skills ich brauche; Lernpfade sind verfuegbar."
+        de: "Es gibt ein klares Rollenentwicklungs-Narrativ; ich weiss welche neuen Skills ich brauche; Lernpfade sind verfügbar."
         en: "There's a clear role evolution narrative; I know which new skills I need; learning paths are available."
       5:
         label: "Evolving"
-        de: "Meine Rolle hat sich aktiv weiterentwickelt; ich arbeite auf hoeherem Niveau (mehr Design, weniger Routine); ich gestalte Rollenmodelle fuer andere mit."
+        de: "Meine Rolle hat sich aktiv weiterentwickelt; ich arbeite auf höherem Niveau (mehr Design, weniger Routine); ich gestalte Rollenmodelle für andere mit."
         en: "My role has actively evolved; I work at a higher level (more design, less routine); I help shape role models for others."
     order: 5
 
@@ -238,7 +238,7 @@ questions:
     question_type: "maturity"
     sub_topic: "peer_support"
     question_text:
-      de: "Welche Stufe beschreibt das AI-Unterstuetzungsnetzwerk in eurem Team am besten?"
+      de: "Welche Stufe beschreibt das AI-Unterstützungsnetzwerk in eurem Team am besten?"
       en: "Which level best describes the AI support network in your team?"
     maturity_levels:
       1:
@@ -247,11 +247,11 @@ questions:
         en: "There's no one I can ask about AI; I'm on my own."
       2:
         label: "Experimenting"
-        de: "Ich kenne informell jemanden der helfen kann, aber es gibt keine strukturierte Unterstuetzung."
+        de: "Ich kenne informell jemanden der helfen kann, aber es gibt keine strukturierte Unterstützung."
         en: "I informally know someone who can help, but there's no structured support."
       3:
         label: "Embedding"
-        de: "Es gibt benannte AI-Ansprechpartner/Champions, aber sie haben keine dedizierte Zeit dafuer."
+        de: "Es gibt benannte AI-Ansprechpartner/Champions, aber sie haben keine dedizierte Zeit dafür."
         en: "There are designated AI contacts/champions, but they don't have dedicated time for it."
       4:
         label: "Scaling"
@@ -286,15 +286,15 @@ questions:
         en: "No time to learn or experiment"
         order: 3
       - key: "unclear_value"
-        de: "Unklar, wofuer AI in meiner Arbeit sinnvoll ist"
+        de: "Unklar, wofür AI in meiner Arbeit sinnvoll ist"
         en: "Unclear what AI is useful for in my work"
         order: 4
       - key: "quality_distrust"
-        de: "Misstrauen gegenueber AI-Output-Qualitaet"
+        de: "Misstrauen gegenüber AI-Output-Qualität"
         en: "Distrust of AI output quality"
         order: 5
       - key: "tech_barriers"
-        de: "Technische Huerden (Zugang, Tools, Performance)"
+        de: "Technische Hürden (Zugang, Tools, Performance)"
         en: "Technical barriers (access, tools, performance)"
         order: 6
       - key: "nothing"
@@ -306,12 +306,12 @@ questions:
   - question_key: "R-MC-ENABLEMENT"
     question_type: "diagnostic"
     question_text:
-      de: "Was waere fuer dich der staerkste Enablement-Hebel?"
+      de: "Was wäre für dich der stärkste Enablement-Hebel?"
       en: "What would be the strongest enablement lever for you?"
     answer_type: "single_choice"
     answer_options:
       - key: "playbooks"
-        de: "Kurze Beispiele / Playbooks fuer meinen Arbeitsalltag"
+        de: "Kurze Beispiele / Playbooks für meinen Arbeitsalltag"
         en: "Short examples / playbooks for my daily work"
         order: 1
       - key: "pairing"
@@ -323,7 +323,7 @@ questions:
         en: "Structured training (workshops, courses)"
         order: 3
       - key: "prompts"
-        de: "Bessere Prompts / Templates fuer meine Use Cases"
+        de: "Bessere Prompts / Templates für meine Use Cases"
         en: "Better prompts / templates for my use cases"
         order: 4
       - key: "time"
@@ -343,11 +343,11 @@ questions:
     question_type: "powerful_question"
     optional: true
     question_text:
-      de: "Was muesste passieren, damit du dich sicher fuehlst, AI aktiv in deinem Arbeitsalltag zu nutzen?"
+      de: "Was müsste passieren, damit du dich sicher fühlst, AI aktiv in deinem Arbeitsalltag zu nutzen?"
       en: "What would need to happen for you to feel confident actively using AI in your daily work?"
     max_length: 280
     moderation_note:
-      de: "Nur als Themen-Cluster veroeffentlichen, nie als Rohtext. k-Anonymitaet beachten."
+      de: "Nur als Themen-Cluster veröffentlichen, nie als Rohtext. k-Anonymität beachten."
       en: "Only publish as topic clusters, never as raw text. Observe k-anonymity."
     order: 9
 
@@ -360,11 +360,11 @@ scoring:
   interpretation:
     1:
       label: "Exploring"
-      de: "Hohe Unsicherheit und Angst; keine Enablement-Angebote; keine Unterstuetzungsstrukturen."
+      de: "Hohe Unsicherheit und Angst; keine Enablement-Angebote; keine Unterstützungsstrukturen."
       en: "High uncertainty and fear; no enablement offerings; no support structures."
     2:
       label: "Experimenting"
-      de: "Bewusstsein da, aber Skills fehlen; Experimentieren wird toleriert, nicht gefoerdert."
+      de: "Bewusstsein da, aber Skills fehlen; Experimentieren wird toleriert, nicht gefördert."
       en: "Awareness present but skills missing; experimentation tolerated, not promoted."
     3:
       label: "Embedding"
@@ -372,11 +372,11 @@ scoring:
       en: "Basic skills present; experimentation ok; champions emerging but without dedicated time."
     4:
       label: "Scaling"
-      de: "Sicherer Umgang mit AI; aktives Champion-Netzwerk; klare Rollenentwicklung; Management foerdert aktiv."
+      de: "Sicherer Umgang mit AI; aktives Champion-Netzwerk; klare Rollenentwicklung; Management fördert aktiv."
       en: "Confident AI usage; active champion network; clear role evolution; management actively promotes."
     5:
       label: "Evolving"
-      de: "AI ist Teil der Identitaet; systematisches Peer Learning; Rollen haben sich weiterentwickelt; kontinuierliche Verbesserung."
+      de: "AI ist Teil der Identität; systematisches Peer Learning; Rollen haben sich weiterentwickelt; kontinuierliche Verbesserung."
       en: "AI is part of identity; systematic peer learning; roles have evolved; continuous improvement."
 
 pulse_check_relationship:

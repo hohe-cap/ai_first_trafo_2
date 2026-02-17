@@ -1,0 +1,1579 @@
+version: "2.0"
+exploration_type: deep_dive
+description:
+  de: Vertiefende Analyse aller 5 CRAFT-Dimensionen. Bricht jede Dimension in 4 Sub-Topics auf, jeweils mit kalibrierter 5-Level-Maturity-Bewertung. Wird einmalig als Kickoff-Baseline und danach on-demand durchgeführt.
+  en: In-depth analysis of all 5 CRAFT dimensions. Breaks each dimension into 4 sub-topics, each with calibrated 5-level maturity exploration. Conducted once as kickoff baseline and then on-demand.
+estimated_duration_minutes: 90
+frequency: once_at_kickoff_then_on_demand
+respondent: All team members (individual, anonymous)
+dimensions:
+  - key: C
+    name:
+      de: Compliance & Governance
+      en: Compliance & Governance
+    order: 1
+    sub_topics:
+      - key: policy_clarity
+        name:
+          de: Policy-Klarheit & Zugänglichkeit
+          en: Policy Clarity & Accessibility
+        description:
+          de: Sind AI-Policies klar, praxisnah, auffindbar und verständlich?
+          en: Are AI policies clear, practical, findable, and understandable?
+        order: 1
+      - key: governance_speed
+        name:
+          de: Governance-Geschwindigkeit
+          en: Governance Speed
+        description:
+          de: Wie schnell werden Governance-Entscheidungen und Tool-Freigaben getroffen?
+          en: How quickly are governance decisions and tool approvals made?
+        order: 2
+      - key: data_classification
+        name:
+          de: Datenklassifizierung & Schutz
+          en: Data Classification & Protection
+        description:
+          de: Wissen Teams welche Daten in welche AI-Tools eingegeben werden duerfen?
+          en: Do teams know which data may be entered into which AI tools?
+        order: 3
+      - key: regulatory_readiness
+        name:
+          de: Regulatorische Readiness
+          en: Regulatory Readiness
+        description:
+          de: Ist die Organisation auf EU AI Act, Betriebsrat und rechtliche Anforderungen vorbereitet?
+          en: Is the organization prepared for EU AI Act, works council, and legal requirements?
+        order: 4
+  - key: R
+    name:
+      de: Readiness (Human & Cultural)
+      en: Readiness (Human & Cultural)
+    order: 2
+    sub_topics:
+      - key: psychological_safety
+        name:
+          de: Psychologische Sicherheit
+          en: Psychological Safety
+        description:
+          de: Können Menschen mit AI experimentieren, ohne Angst vor Bewertung oder Bestrafung?
+          en: Can people experiment with AI without fear of judgment or punishment?
+        order: 1
+      - key: skill_confidence
+        name:
+          de: Skill-Level & Vertrauen
+          en: Skill Level & Confidence
+        description:
+          de: Fühlen sich Menschen sicher genug, AI-Tools effektiv zu nutzen?
+          en: Do people feel confident enough to use AI tools effectively?
+        order: 2
+      - key: role_evolution
+        name:
+          de: Rollenentwicklung & Klarheit
+          en: Role Evolution & Clarity
+        description:
+          de: Verstehen Menschen, wie sich ihre Rolle mit AI verändert?
+          en: Do people understand how their role evolves with AI?
+        order: 3
+      - key: peer_support
+        name:
+          de: Peer-Support & Champions
+          en: Peer Support & Champions
+        description:
+          de: Gibt es ein Unterstützungsnetzwerk (Champions, Pairing, Community)?
+          en: Is there a support network (champions, pairing, community)?
+        order: 4
+  - key: A
+    name:
+      de: Adoption & Usage
+      en: Adoption & Usage
+    order: 3
+    sub_topics:
+      - key: usage_regularity
+        name:
+          de: Nutzungsbreite & Regelmaessigkeit
+          en: Usage Breadth & Regularity
+        description:
+          de: Wie regelmaessig und breit wird AI über verschiedene Arbeitsbereiche genutzt?
+          en: How regularly and broadly is AI used across different work areas?
+        order: 1
+      - key: usage_depth
+        name:
+          de: Nutzungstiefe (Usage Mode)
+          en: Usage Depth (Usage Mode)
+        description:
+          de: Wie tief ist AI integriert — von Chat bis agentisch?
+          en: How deeply is AI integrated — from chat to agentic?
+        order: 2
+      - key: output_trust
+        name:
+          de: Output-Qualität & Vertrauen
+          en: Output Quality & Trust
+        description:
+          de: Ist der AI-Output nützlich und wird ihm vertraut?
+          en: Is AI output useful and trusted?
+        order: 3
+      - key: knowledge_sharing
+        name:
+          de: Wissensteilung & Best Practices
+          en: Knowledge Sharing & Best Practices
+        description:
+          de: Werden Erfahrungen, Prompts und Best Practices systematisch geteilt?
+          en: Are experiences, prompts, and best practices shared systematically?
+        order: 4
+  - key: F
+    name:
+      de: Flow & Process Integration
+      en: Flow & Process Integration
+    order: 4
+    sub_topics:
+      - key: bottleneck_awareness
+        name:
+          de: Bottleneck-Bewusstsein
+          en: Bottleneck Awareness
+        description:
+          de: Wissen Teams, wo ihre grössten Verzögerungen im Delivery-Prozess liegen?
+          en: Do teams know where their biggest delays in the delivery process are?
+        order: 1
+      - key: ai_workflow_integration
+        name:
+          de: AI-Workflow-Integration
+          en: AI Workflow Integration
+        description:
+          de: Ist AI in Team-Workflows eingebettet (nicht nur individuelle Nutzung)?
+          en: Is AI embedded in team workflows (not just individual usage)?
+        order: 2
+      - key: impact_reduction
+        name:
+          de: Wartezeit- & Rework-Reduktion
+          en: Wait Time & Rework Reduction
+        description:
+          de: Hat AI messbar Wartezeiten oder Nacharbeit reduziert?
+          en: Has AI measurably reduced wait times or rework?
+        order: 3
+      - key: flow_measurement
+        name:
+          de: Flow-Messung & Sichtbarkeit
+          en: Flow Measurement & Visibility
+        description:
+          de: Werden Flow-Metriken (DORA, Cycle Time) gemessen und genutzt?
+          en: Are flow metrics (DORA, cycle time) measured and used?
+        order: 4
+  - key: T
+    name:
+      de: Technical Enablement
+      en: Technical Enablement
+    order: 5
+    sub_topics:
+      - key: tool_availability
+        name:
+          de: Tool-Verfügbarkeit & Sicherheitsstufen
+          en: Tool Availability & Security Tiers
+        description:
+          de: Sind AI-Tools über verschiedene Sicherheitsstufen verfügbar und zugänglich?
+          en: Are AI tools available and accessible across different security tiers?
+        order: 1
+      - key: ide_integration
+        name:
+          de: IDE-Integration & Developer Experience
+          en: IDE Integration & Developer Experience
+        description:
+          de: Wie nahtlos sind AI-Tools in die tägliche Entwicklungsumgebung integriert?
+          en: How seamlessly are AI tools integrated into the daily development environment?
+        order: 2
+      - key: reliability
+        name:
+          de: Zuverlässigkeit & Performance
+          en: Reliability & Performance
+        description:
+          de: Sind AI-Tools stabil, schnell und zuverlässig nutzbar?
+          en: Are AI tools stable, fast, and reliably usable?
+        order: 3
+      - key: ecosystem
+        name:
+          de: Ecosystem-Reife (Prompt Library, CI/CD, Docs)
+          en: Ecosystem Maturity (Prompt Library, CI/CD, Docs)
+        description:
+          de: Existiert ein reifes Ökosystem rund um die AI-Tools (Prompt-Vorlagen, Pipeline-Integration, Dokumentation)?
+          en: Does a mature ecosystem exist around the AI tools (prompt templates, pipeline integration, documentation)?
+        order: 4
+questions:
+  - question_key: C-CTX-1
+    question_type: context
+    sub_topic: null
+    question_text:
+      de: Gibt es eine schriftliche AI-Nutzungs-Policy in eurer Organisation?
+      en: Is there a written AI usage policy in your organization?
+    why_important:
+      de: "Faktische Grundlage: Ohne Policy agieren Teams im Graubereich."
+      en: "Factual basis: Without policy, teams operate in gray areas."
+    answer_type: single_choice
+    answer_options:
+      - key: comprehensive_official
+        de: Ja, umfassend und offiziell verabschiedet
+        en: Yes, comprehensive and officially adopted
+        order: 1
+      - key: exists_limited
+        de: Ja, aber nur für bestimmte Bereiche oder zu allgemein
+        en: Yes, but only for specific areas or too general
+        order: 2
+      - key: draft_only
+        de: Nur als Entwurf vorhanden, nicht offiziell
+        en: Only available as draft, not official
+        order: 3
+      - key: no_policy
+        de: Nein, keine Policy vorhanden
+        en: No, no policy available
+        order: 4
+      - key: unknown
+        de: Weiss nicht / nicht bekannt
+        en: Don't know / not known
+        order: 5
+    scoring_note: Context only — does not feed into spider score directly
+    order: 1
+    dimension: C
+  - question_key: C-CTX-2
+    question_type: context
+    sub_topic: null
+    question_text:
+      de: Wie lange dauert typischerweise die Freigabe eines neuen AI-Tools (von Anfrage bis produktive Nutzung)?
+      en: How long does approval of a new AI tool typically take (from request to productive use)?
+    why_important:
+      de: "Metrik: Time-to-approval ist ein KPI für Governance-Effizienz."
+      en: "Metric: Time-to-approval is a KPI for governance efficiency."
+    answer_type: single_choice
+    answer_options:
+      - key: under_1_week
+        de: Unter 1 Woche
+        en: Under 1 week
+        order: 1
+      - key: 1_to_2_weeks
+        de: 1-2 Wochen
+        en: 1-2 weeks
+        order: 2
+      - key: 2_to_4_weeks
+        de: 2-4 Wochen
+        en: 2-4 weeks
+        order: 3
+      - key: 4_to_8_weeks
+        de: 4-8 Wochen
+        en: 4-8 weeks
+        order: 4
+      - key: over_8_weeks
+        de: Über 8 Wochen oder noch nie beantragt
+        en: Over 8 weeks or never requested
+        order: 5
+    scoring_note: Context only — does not feed into spider score directly
+    order: 2
+    dimension: C
+  - question_key: C-M-POLICY
+    question_type: maturity
+    sub_topic: policy_clarity
+    question_text:
+      de: Welche Stufe beschreibt die AI-Policy-Situation in deinem Team am besten?
+      en: Which level best describes the AI policy situation in your team?
+    maturity_levels:
+      "1":
+        label: Exploring
+        de: Ich weiss nicht, ob es AI-Regeln gibt; wenn ja, kenne ich sie nicht.
+        en: I don't know if AI rules exist; if so, I don't know them.
+      "2":
+        label: Experimenting
+        de: Es gibt Regeln, aber sie sind schwer zu finden, zu allgemein oder für meinen Alltag nicht verständlich.
+        en: Rules exist, but they're hard to find, too general, or not understandable for my daily work.
+      "3":
+        label: Embedding
+        de: Policies sind dokumentiert, bekannt und decken die wichtigsten Fälle ab; bei Spezialfällen gibt es noch Grauzonen.
+        en: Policies are documented, known, and cover the key cases; there are still gray areas for special cases.
+      "4":
+        label: Scaling
+        de: Policies sind klar, praxisnah und leicht auffindbar; Entscheidungshilfen (z.B. Ampelsystem) helfen mir im Alltag.
+        en: Policies are clear, practical, and easy to find; decision aids (e.g., traffic light system) help me daily.
+      "5":
+        label: Evolving
+        de: Policies werden regelmaessig aktualisiert, Feedback-Loops existieren, und ich kann selbst prüfen ob ein Use Case konform ist.
+        en: Policies are regularly updated, feedback loops exist, and I can self-check whether a use case is compliant.
+    order: 3
+    dimension: C
+  - question_key: C-M-SPEED
+    question_type: maturity
+    sub_topic: governance_speed
+    question_text:
+      de: Welche Stufe beschreibt die Geschwindigkeit eurer Governance-Entscheidungen am besten?
+      en: Which level best describes the speed of your governance decisions?
+    maturity_levels:
+      "1":
+        label: Exploring
+        de: Es gibt keinen erkennbaren Prozess für AI-bezogene Entscheidungen oder Freigaben.
+        en: There is no recognizable process for AI-related decisions or approvals.
+      "2":
+        label: Experimenting
+        de: Es gibt einen informellen Weg, aber Wartezeiten sind unvorhersehbar und es ist unklar, wer entscheidet.
+        en: There's an informal path, but wait times are unpredictable and it's unclear who decides.
+      "3":
+        label: Embedding
+        de: Ein Freigabeprozess existiert und Ansprechpartner sind benannt, aber es dauert oft Wochen.
+        en: An approval process exists and contacts are named, but it often takes weeks.
+      "4":
+        label: Scaling
+        de: Freigaben haben ein SLA (unter 1 Woche), Eskalationswege sind klar, Fast-Track für Standard-Tools existiert.
+        en: Approvals have an SLA (under 1 week), escalation paths are clear, fast-track for standard tools exists.
+      "5":
+        label: Evolving
+        de: Self-Service-Freigabe für Standard-Tools, automatisierte Compliance-Checks; Governance ist kein Bottleneck mehr.
+        en: Self-service approval for standard tools, automated compliance checks; governance is no longer a bottleneck.
+    order: 4
+    dimension: C
+  - question_key: C-M-DATA
+    question_type: maturity
+    sub_topic: data_classification
+    question_text:
+      de: Welche Stufe beschreibt euren Umgang mit Datenklassifizierung im AI-Kontext am besten?
+      en: Which level best describes how you handle data classification in the AI context?
+    maturity_levels:
+      "1":
+        label: Exploring
+        de: Ich weiss nicht, welche Daten ich in welche AI-Tools eingeben darf; es gibt keine klaren Regeln.
+        en: I don't know which data I may enter into which AI tools; there are no clear rules.
+      "2":
+        label: Experimenting
+        de: Es gibt grobe Regeln (z.B. 'keine Kundendaten'), aber viele Grauzonen; im Zweifel nutze ich AI lieber gar nicht.
+        en: There are rough rules (e.g., 'no customer data'), but many gray areas; when in doubt, I'd rather not use AI.
+      "3":
+        label: Embedding
+        de: Datenklassifizierung ist definiert und kommuniziert; für die meisten Situationen weiss ich, was erlaubt ist.
+        en: Data classification is defined and communicated; for most situations, I know what's allowed.
+      "4":
+        label: Scaling
+        de: Klares Ampelsystem oder Entscheidungsbaum; jede Sicherheitsstufe hat definierte erlaubte Datentypen; schnelle Antworten bei Grenzfällen.
+        en: Clear traffic light system or decision tree; each security tier has defined allowed data types; quick answers for edge cases.
+      "5":
+        label: Evolving
+        de: Automatisierte Checks verhindern falsche Dateneingabe; Klassifizierung ist in Tools integriert (z.B. Context-Filter, DLP).
+        en: Automated checks prevent wrong data input; classification is integrated into tools (e.g., context filters, DLP).
+    order: 5
+    dimension: C
+  - question_key: C-M-REGULATORY
+    question_type: maturity
+    sub_topic: regulatory_readiness
+    question_text:
+      de: Welche Stufe beschreibt eure Vorbereitung auf regulatorische Anforderungen (EU AI Act, Betriebsrat, etc.) am besten?
+      en: Which level best describes your preparation for regulatory requirements (EU AI Act, works council, etc.)?
+    maturity_levels:
+      "1":
+        label: Exploring
+        de: Regulatorische Anforderungen an AI-Nutzung sind mir nicht bekannt oder werden nicht adressiert.
+        en: Regulatory requirements for AI usage are not known to me or are not being addressed.
+      "2":
+        label: Experimenting
+        de: Ich weiss, dass es Anforderungen gibt (z.B. EU AI Act, Betriebsrat), aber es gibt noch keinen konkreten Plan.
+        en: I know requirements exist (e.g., EU AI Act, works council), but there's no concrete plan yet.
+      "3":
+        label: Embedding
+        de: Erste Schritte sind gemacht (z.B. Gap-Analyse, Betriebsrat informiert); Umsetzung hat begonnen, ist aber lückenhaft.
+        en: First steps taken (e.g., gap analysis, works council informed); implementation started but has gaps.
+      "4":
+        label: Scaling
+        de: Roadmap steht, Betriebsvereinbarung ist vereinbart oder in Abstimmung; EU AI Act Compliance wird systematisch umgesetzt.
+        en: Roadmap in place, works agreement is agreed or in alignment; EU AI Act compliance is being systematically implemented.
+      "5":
+        label: Evolving
+        de: Alle regulatorischen Anforderungen umgesetzt und proaktiv monitored; Betriebsvereinbarung wird gelebt; neue Regulierung wird frühzeitig antizipiert.
+        en: All regulatory requirements implemented and proactively monitored; works agreement is lived; new regulation is anticipated early.
+    order: 6
+    dimension: C
+  - question_key: C-MC-BLOCKER
+    question_type: diagnostic
+    question_text:
+      de: Was blockiert euch aktuell am stärksten im Bereich Compliance & Governance?
+      en: What currently blocks you most in the area of compliance & governance?
+    answer_type: multiple_choice
+    allow_multiple: true
+    max_selections: 3
+    answer_options:
+      - key: unclear_data_rules
+        de: Unklare Datenklassifizierung — weiss nicht, was wohin darf
+        en: Unclear data classification — don't know what goes where
+        order: 1
+      - key: slow_approval
+        de: Tool-Freigabe zu langsam oder gar nicht möglich
+        en: Tool approval too slow or not possible at all
+        order: 2
+      - key: betriebsrat_stalled
+        de: Betriebsrat-Abstimmung fehlt oder stockt
+        en: Works council alignment missing or stalled
+        order: 3
+      - key: no_policy
+        de: Keine oder unklare AI-Nutzungs-Policy
+        en: No or unclear AI usage policy
+        order: 4
+      - key: cost_quota
+        de: Kosten- oder Quota-Einschränkungen
+        en: Cost or quota restrictions
+        order: 5
+      - key: nothing
+        de: Nichts blockiert aktuell
+        en: Nothing currently blocking
+        order: 6
+      - key: other
+        de: Anderes
+        en: Other
+        order: 7
+    order: 7
+    dimension: C
+  - question_key: C-MC-INTERVENTION
+    question_type: diagnostic
+    question_text:
+      de: Welche Massnahme würde euch im Bereich Compliance & Governance am meisten helfen?
+      en: Which measure would help you most in compliance & governance?
+    answer_type: multiple_choice
+    allow_multiple: true
+    max_selections: 3
+    answer_options:
+      - key: practical_policy
+        de: Praxisnahe Policy mit konkreten Beispielen und Entscheidungshilfen
+        en: Practical policy with concrete examples and decision aids
+        order: 1
+      - key: faster_approval
+        de: Schnellerer Freigabeprozess / Fast-Track für Standard-Tools
+        en: Faster approval process / fast-track for standard tools
+        order: 2
+      - key: clear_data_rules
+        de: "Klare Datenklassifizierung (Ampelsystem: was darf wohin?)"
+        en: "Clear data classification (traffic light system: what goes where?)"
+        order: 3
+      - key: betriebsvereinbarung
+        de: Betriebsvereinbarung für AI-Tools abschliessen
+        en: Conclude works agreement for AI tools
+        order: 4
+      - key: self_service_checks
+        de: Self-Service Compliance-Checks (kann ich das nutzen? Ja/Nein)
+        en: Self-service compliance checks (can I use this? Yes/No)
+        order: 5
+      - key: better_communication
+        de: Bessere Kommunikation bestehender Regeln und Ansprechpartner
+        en: Better communication of existing rules and contacts
+        order: 6
+      - key: other
+        de: Anderes
+        en: Other
+        order: 7
+    order: 8
+    dimension: C
+  - question_key: C-PQ
+    question_type: powerful_question
+    optional: true
+    question_text:
+      de: Welche Governance-Regel würde sich morgen ändern, wenn du entscheiden duerftest?
+      en: Which governance rule would change tomorrow if you could decide?
+    max_length: 280
+    moderation_note:
+      de: Nur als Themen-Cluster veröffentlichen, nie als Rohtext. k-Anonymität beachten.
+      en: Only publish as topic clusters, never as raw text. Observe k-anonymity.
+    order: 9
+    dimension: C
+  - question_key: R-CTX-1
+    question_type: context
+    sub_topic: null
+    question_text:
+      de: Gibt es ein formales AI-Enablement-Programm (Training, Workshops, Lernpfade)?
+      en: Is there a formal AI enablement program (training, workshops, learning paths)?
+    why_important:
+      de: "Faktische Grundlage: Enablement-Infrastruktur bestimmt ob Skill-Aufbau systematisch oder ad-hoc stattfindet."
+      en: "Factual basis: Enablement infrastructure determines whether skill building is systematic or ad-hoc."
+    answer_type: single_choice
+    answer_options:
+      - key: comprehensive
+        de: Ja, umfassendes Programm mit verschiedenen Formaten
+        en: Yes, comprehensive program with various formats
+        order: 1
+      - key: basic
+        de: Ja, aber nur einzelne Trainings oder Workshops
+        en: Yes, but only individual trainings or workshops
+        order: 2
+      - key: informal
+        de: Informell — ad-hoc, keine strukturierten Angebote
+        en: Informal — ad-hoc, no structured offerings
+        order: 3
+      - key: none
+        de: Nein, kein Enablement vorhanden
+        en: No, no enablement available
+        order: 4
+    scoring_note: Context only — does not feed into spider score directly
+    order: 10
+    dimension: R
+  - question_key: R-CTX-2
+    question_type: context
+    sub_topic: null
+    question_text:
+      de: Nutzt du aktuell nicht-freigegebene AI-Tools (Shadow AI) für Arbeitszwecke?
+      en: Do you currently use non-approved AI tools (Shadow AI) for work purposes?
+    why_important:
+      de: Shadow AI zeigt unerfüllten Bedarf. Hohe Shadow-AI-Rate = Teams wollen AI nutzen, offizielle Wege sind blockiert.
+      en: Shadow AI shows unmet need. High shadow AI rate = teams want AI, official paths are blocked.
+    description:
+      de: Anonym — nur Trend wird ausgewertet, keine individuelle Zuordnung
+      en: Anonymous — only trend is evaluated, no individual attribution
+    answer_type: single_choice
+    answer_options:
+      - key: never
+        de: Nie
+        en: Never
+        order: 1
+      - key: rarely
+        de: Selten
+        en: Rarely
+        order: 2
+      - key: occasionally
+        de: Gelegentlich
+        en: Occasionally
+        order: 3
+      - key: frequently
+        de: Häufig
+        en: Frequently
+        order: 4
+    scoring_note: Context only — trend indicator for unmet demand
+    order: 11
+    dimension: R
+  - question_key: R-M-SAFETY
+    question_type: maturity
+    sub_topic: psychological_safety
+    question_text:
+      de: Welche Stufe beschreibt die psychologische Sicherheit für AI-Experimente in deinem Team am besten?
+      en: Which level best describes the psychological safety for AI experiments in your team?
+    maturity_levels:
+      "1":
+        label: Exploring
+        de: Mit AI zu experimentieren wird skeptisch gesehen oder nicht thematisiert; ich fühle mich nicht sicher, neue Tools auszuprobieren.
+        en: Experimenting with AI is viewed skeptically or not discussed; I don't feel safe trying new tools.
+      "2":
+        label: Experimenting
+        de: Es wird toleriert, aber nicht aktiv ermutigt; wenn etwas schiefgeht, würde ich es lieber nicht erwähnen.
+        en: It's tolerated but not actively encouraged; if something goes wrong, I'd rather not mention it.
+      "3":
+        label: Embedding
+        de: Experimentieren ist ok und wir sprechen offen über AI; aber es hängt vom Manager oder Projekt ab.
+        en: Experimenting is ok and we discuss AI openly; but it depends on the manager or project.
+      "4":
+        label: Scaling
+        de: Aktive Ermutigung zu experimentieren; Fehler werden als Lernen gesehen; regelmaessige Sharing-Sessions existieren.
+        en: Active encouragement to experiment; failures seen as learning; regular sharing sessions exist.
+      "5":
+        label: Evolving
+        de: Experimentieren ist systematisch verankert; Leadership experimentiert sichtbar mit; Learnings aus AI-Experimenten sind Teil unserer Retros.
+        en: Experimentation is systematically anchored; leadership visibly experiments; learnings from AI experiments are part of our retros.
+    order: 12
+    dimension: R
+  - question_key: R-M-SKILL
+    question_type: maturity
+    sub_topic: skill_confidence
+    question_text:
+      de: Welche Stufe beschreibt dein persönliches AI-Skill-Level und Vertrauen am besten?
+      en: Which level best describes your personal AI skill level and confidence?
+    maturity_levels:
+      "1":
+        label: Exploring
+        de: Ich weiss nicht, was AI für meine Arbeit tun kann; es gibt keine Trainingsangebote.
+        en: I don't know what AI can do for my work; there are no training offerings.
+      "2":
+        label: Experimenting
+        de: Ich habe eine grobe Vorstellung, fühle mich aber unsicher; ich weiss nicht, wo ich anfangen soll oder was ein guter Prompt ist.
+        en: I have a rough idea but feel insecure; I don't know where to start or what makes a good prompt.
+      "3":
+        label: Embedding
+        de: Ich kann AI-Tools für grundlegende Aufgaben nutzen; ich verstehe Grenzen (Halluzinationen), brauche aber mehr Praxis.
+        en: I can use AI tools for basic tasks; I understand limitations (hallucinations) but need more practice.
+      "4":
+        label: Scaling
+        de: Ich kann AI-Outputs kritisch bewerten; ich weiss, welches Tool für welche Aufgabe; ich helfe anderen beim Einstieg.
+        en: I can critically evaluate AI outputs; I know which tool for which task; I help others get started.
+      "5":
+        label: Evolving
+        de: Ich bin sicher im Umgang mit AI; ich optimiere Prompts/Workflows aktiv, teile Best Practices und gestalte neue Arbeitsweisen.
+        en: I'm confident with AI; I actively optimize prompts/workflows, share best practices, and shape new ways of working.
+    order: 13
+    dimension: R
+  - question_key: R-M-ROLE
+    question_type: maturity
+    sub_topic: role_evolution
+    question_text:
+      de: Welche Stufe beschreibt dein Verständnis darüber, wie sich deine Rolle durch AI verändert, am besten?
+      en: Which level best describes your understanding of how your role changes with AI?
+    maturity_levels:
+      "1":
+        label: Exploring
+        de: Ich habe keine Vorstellung davon, wie AI meine Rolle verändert; niemand spricht darüber.
+        en: I have no idea how AI changes my role; nobody talks about it.
+      "2":
+        label: Experimenting
+        de: Ich habe gehört, dass sich Rollen ändern, aber es ist unklar, was das für MICH konkret bedeutet.
+        en: I've heard roles are changing, but it's unclear what that means for ME specifically.
+      "3":
+        label: Embedding
+        de: Ich verstehe grob, wie sich meine Rolle entwickelt; es gibt Diskussionen, aber keinen konkreten Entwicklungsplan.
+        en: I roughly understand how my role evolves; there are discussions but no concrete development plan.
+      "4":
+        label: Scaling
+        de: Es gibt ein klares Rollenentwicklungs-Narrativ; ich weiss welche neuen Skills ich brauche; Lernpfade sind verfügbar.
+        en: There's a clear role evolution narrative; I know which new skills I need; learning paths are available.
+      "5":
+        label: Evolving
+        de: Meine Rolle hat sich aktiv weiterentwickelt; ich arbeite auf höherem Niveau (mehr Design, weniger Routine); ich gestalte Rollenmodelle für andere mit.
+        en: My role has actively evolved; I work at a higher level (more design, less routine); I help shape role models for others.
+    order: 14
+    dimension: R
+  - question_key: R-M-SUPPORT
+    question_type: maturity
+    sub_topic: peer_support
+    question_text:
+      de: Welche Stufe beschreibt das AI-Unterstützungsnetzwerk in eurem Team am besten?
+      en: Which level best describes the AI support network in your team?
+    maturity_levels:
+      "1":
+        label: Exploring
+        de: Es gibt niemanden, den ich zu AI fragen kann; ich bin auf mich allein gestellt.
+        en: There's no one I can ask about AI; I'm on my own.
+      "2":
+        label: Experimenting
+        de: Ich kenne informell jemanden der helfen kann, aber es gibt keine strukturierte Unterstützung.
+        en: I informally know someone who can help, but there's no structured support.
+      "3":
+        label: Embedding
+        de: Es gibt benannte AI-Ansprechpartner/Champions, aber sie haben keine dedizierte Zeit dafür.
+        en: There are designated AI contacts/champions, but they don't have dedicated time for it.
+      "4":
+        label: Scaling
+        de: Aktives Champion-Netzwerk mit dedizierter Zeit (mind. 20%); regelmaessige Office Hours und Pairing-Sessions.
+        en: Active champion network with dedicated time (min. 20%); regular office hours and pairing sessions.
+      "5":
+        label: Evolving
+        de: Champions sind etablierte Multiplikatoren; Peer Learning ist systematisch; neue Teammitglieder bekommen AI-Onboarding als Standard.
+        en: Champions are established multipliers; peer learning is systematic; new team members get AI onboarding as standard.
+    order: 15
+    dimension: R
+  - question_key: R-MC-BLOCKER
+    question_type: diagnostic
+    question_text:
+      de: Was hemmt dich aktuell am meisten bei der AI-Nutzung?
+      en: What currently inhibits you most in using AI?
+    answer_type: multiple_choice
+    allow_multiple: true
+    max_selections: 3
+    answer_options:
+      - key: role_concern
+        de: Sorge um meine Rolle / meinen Arbeitsplatz
+        en: Concern about my role / my job
+        order: 1
+      - key: missing_skills
+        de: Fehlende Skills — weiss nicht wie ich AI effektiv nutze
+        en: Missing skills — don't know how to use AI effectively
+        order: 2
+      - key: no_time
+        de: Keine Zeit zum Lernen oder Experimentieren
+        en: No time to learn or experiment
+        order: 3
+      - key: unclear_value
+        de: Unklar, wofür AI in meiner Arbeit sinnvoll ist
+        en: Unclear what AI is useful for in my work
+        order: 4
+      - key: quality_distrust
+        de: Misstrauen gegenüber AI-Output-Qualität
+        en: Distrust of AI output quality
+        order: 5
+      - key: tech_barriers
+        de: Technische Hürden (Zugang, Tools, Performance)
+        en: Technical barriers (access, tools, performance)
+        order: 6
+      - key: nothing
+        de: Nichts hemmt mich
+        en: Nothing inhibits me
+        order: 7
+    order: 16
+    dimension: R
+  - question_key: R-MC-ENABLEMENT
+    question_type: diagnostic
+    question_text:
+      de: Was wäre für dich der stärkste Enablement-Hebel?
+      en: What would be the strongest enablement lever for you?
+    answer_type: multiple_choice
+    allow_multiple: true
+    max_selections: 3
+    answer_options:
+      - key: playbooks
+        de: Kurze Beispiele / Playbooks für meinen Arbeitsalltag
+        en: Short examples / playbooks for my daily work
+        order: 1
+      - key: pairing
+        de: Pairing mit erfahrenen Kolleg:innen
+        en: Pairing with experienced colleagues
+        order: 2
+      - key: training
+        de: Strukturiertes Training (Workshops, Kurse)
+        en: Structured training (workshops, courses)
+        order: 3
+      - key: prompts
+        de: Bessere Prompts / Templates für meine Use Cases
+        en: Better prompts / templates for my use cases
+        order: 4
+      - key: time
+        de: Mehr dedizierte Zeit zum Experimentieren
+        en: More dedicated time to experiment
+        order: 5
+      - key: champion
+        de: Champion-Support / Ansprechpartner im Team
+        en: Champion support / contact person in team
+        order: 6
+    order: 17
+    dimension: R
+  - question_key: R-PQ
+    question_type: powerful_question
+    optional: true
+    question_text:
+      de: Was müsste passieren, damit du dich sicher fühlst, AI aktiv in deinem Arbeitsalltag zu nutzen?
+      en: What would need to happen for you to feel confident actively using AI in your daily work?
+    max_length: 280
+    moderation_note:
+      de: Nur als Themen-Cluster veröffentlichen, nie als Rohtext. k-Anonymität beachten.
+      en: Only publish as topic clusters, never as raw text. Observe k-anonymity.
+    order: 18
+    dimension: R
+  - question_key: A-CTX-1
+    question_type: context
+    sub_topic: null
+    question_text:
+      de: In welchen SDLC-Phasen nutzt du AI heute? (Mehrfachauswahl)
+      en: In which SDLC phases do you use AI today? (Multiple selection)
+    why_important:
+      de: SDLC-Abdeckung zeigt Adoptionsbreite. Nur-Coding ist suboptimal — AI kann in allen Phasen Wert schaffen.
+      en: SDLC coverage shows adoption breadth. Coding-only is suboptimal — AI can create value in all phases.
+    answer_type: multiple_choice
+    allow_multiple: true
+    answer_options:
+      - key: requirements
+        de: Requirements / User Stories
+        en: Requirements / User Stories
+        order: 1
+      - key: design
+        de: Design / Architektur
+        en: Design / Architecture
+        order: 2
+      - key: coding
+        de: Coding / Implementierung
+        en: Coding / Implementation
+        order: 3
+      - key: code_review
+        de: Code Review
+        en: Code Review
+        order: 4
+      - key: testing
+        de: Testing / QA
+        en: Testing / QA
+        order: 5
+      - key: documentation
+        de: Dokumentation
+        en: Documentation
+        order: 6
+      - key: ops
+        de: Operations / Monitoring
+        en: Operations / Monitoring
+        order: 7
+      - key: incident
+        de: Incident Response
+        en: Incident Response
+        order: 8
+      - key: none
+        de: Keine
+        en: None
+        order: 9
+    scoring_note: Context only — maps SDLC coverage, does not feed into spider score
+    order: 19
+    dimension: A
+  - question_key: A-CTX-2
+    question_type: context
+    sub_topic: null
+    question_text:
+      de: Wie viel Zeit investierst du durchschnittlich PRO TAG in AI-gestützte Arbeit?
+      en: How much time do you invest on average PER DAY in AI-supported work?
+    why_important:
+      de: Zeigt Nutzungsintensität. Unter 30 Min/Tag deutet auf oberflächliche Nutzung hin.
+      en: Shows usage intensity. Under 30 min/day indicates superficial usage.
+    answer_type: single_choice
+    answer_options:
+      - key: none
+        de: Gar nicht
+        en: Not at all
+        order: 1
+      - key: under_30min
+        de: Unter 30 Minuten
+        en: Under 30 minutes
+        order: 2
+      - key: 30min_to_1h
+        de: 30 Min - 1 Stunde
+        en: 30 min - 1 hour
+        order: 3
+      - key: 1_to_2h
+        de: 1-2 Stunden
+        en: 1-2 hours
+        order: 4
+      - key: over_2h
+        de: Über 2 Stunden
+        en: Over 2 hours
+        order: 5
+    scoring_note: Context only — usage intensity indicator
+    order: 20
+    dimension: A
+  - question_key: A-M-REGULARITY
+    question_type: maturity
+    sub_topic: usage_regularity
+    question_text:
+      de: Welche Stufe beschreibt deine tatsächliche AI-Nutzung am besten?
+      en: Which level best describes your actual AI usage?
+    maturity_levels:
+      "1":
+        label: Exploring
+        de: Ich nutze keine AI-Tools für meine Arbeit.
+        en: I don't use any AI tools for my work.
+      "2":
+        label: Experimenting
+        de: Ich nutze AI gelegentlich für einfache Aufgaben (z.B. Textformulierung, Quick Qüstions), nicht regelmaessig.
+        en: I use AI occasionally for simple tasks (e.g., text drafting, quick questions), not regularly.
+      "3":
+        label: Embedding
+        de: Ich nutze AI regelmaessig (mind. wöchentlich) in 1-2 Arbeitsbereichen und es spart mir merklich Zeit.
+        en: I use AI regularly (at least weekly) in 1-2 work areas and it noticeably saves me time.
+      "4":
+        label: Scaling
+        de: AI ist fester Bestandteil meiner täglichen Arbeit in mehreren Bereichen und SDLC-Phasen.
+        en: AI is an integral part of my daily work across multiple areas and SDLC phases.
+      "5":
+        label: Evolving
+        de: AI ist durchgängig in meinen Workflow integriert; ich optimiere aktiv Prompts/Workflows und teile Best Practices.
+        en: AI is fully integrated into my workflow; I actively optimize prompts/workflows and share best practices.
+    order: 21
+    dimension: A
+  - question_key: A-M-DEPTH
+    question_type: maturity
+    sub_topic: usage_depth
+    question_text:
+      de: Welche Stufe beschreibt deinen typischen AI-Nutzungsmodus am besten?
+      en: Which level best describes your typical AI usage mode?
+    maturity_levels:
+      "1":
+        label: Exploring
+        de: Ich nutze AI gar nicht.
+        en: I don't use AI at all.
+      "2":
+        label: Experimenting
+        de: Nur Chat-basiert (Q&A, Copy-Paste); AI ist ein separates Fenster, nicht in meine Tools integriert.
+        en: Chat-based only (Q&A, copy-paste); AI is a separate window, not integrated into my tools.
+      "3":
+        label: Embedding
+        de: AI ist in meiner IDE oder meinem Workflow integriert; ich nutze es Schritt-für-Schritt für bestimmte Aufgaben.
+        en: AI is integrated in my IDE or workflow; I use it step-by-step for specific tasks.
+      "4":
+        label: Scaling
+        de: Agentische Nutzung — AI übernimmt teilautonome Aufgaben (z.B. Coding-Tasks, Test-Generierung), ich reviewe die Ergebnisse.
+        en: Agentic usage — AI handles semi-autonomous tasks (e.g., coding tasks, test generation), I review the results.
+      "5":
+        label: Evolving
+        de: Multi-agentische Workflows; AI bearbeitet End-to-End-Aufgaben; ich orchestriere mehr als ich ausführe.
+        en: Multi-agentic workflows; AI handles end-to-end tasks; I orchestrate rather than execute.
+    order: 22
+    dimension: A
+  - question_key: A-M-QUALITY
+    question_type: maturity
+    sub_topic: output_trust
+    question_text:
+      de: Welche Stufe beschreibt deine Erfahrung mit der Qualität von AI-Outputs am besten?
+      en: Which level best describes your experience with AI output quality?
+    maturity_levels:
+      "1":
+        label: Exploring
+        de: Ich habe keine Erfahrung mit AI-Outputs, um die Qualität beurteilen zu können.
+        en: I have no experience with AI outputs to judge quality.
+      "2":
+        label: Experimenting
+        de: AI-Output ist Glückssache; ich vertraue ihm oft nicht und mache die Arbeit am Ende doch selbst.
+        en: AI output is hit-or-miss; I often don't trust it and end up doing the work myself.
+      "3":
+        label: Embedding
+        de: AI liefert einen brauchbaren Startpunkt, der bearbeitet werden muss; ich kann meistens erkennen, wenn der Output falsch ist.
+        en: AI provides a usable starting point that needs editing; I can usually tell when output is wrong.
+      "4":
+        label: Scaling
+        de: AI-Output ist zuverlässig gut für meine Use Cases; ich habe gelernt, effektiv zu prompten; Review-Aufwand ist gering.
+        en: AI output is reliably good for my use cases; I've learned to prompt effectively; review effort is low.
+      "5":
+        label: Evolving
+        de: AI-Output ist hochwertig; ich habe eigene Prompts/Workflows gebaut, die konstant gute Ergebnisse liefern; ich lehre andere, gute Ergebnisse zu erzielen.
+        en: AI output is high quality; I've built custom prompts/workflows that consistently deliver; I teach others to get good results.
+    order: 23
+    dimension: A
+  - question_key: A-M-SHARING
+    question_type: maturity
+    sub_topic: knowledge_sharing
+    question_text:
+      de: Welche Stufe beschreibt den Austausch von AI-Wissen und Best Practices in eurem Team am besten?
+      en: Which level best describes AI knowledge and best practice sharing in your team?
+    maturity_levels:
+      "1":
+        label: Exploring
+        de: Niemand teilt AI-Tipps oder Erfahrungen; jeder findet alles selbst heraus.
+        en: Nobody shares AI tips or experiences; everyone figures things out alone.
+      "2":
+        label: Experimenting
+        de: Informeller Austausch passiert (Chat, Kaffee), aber nichts Strukturiertes.
+        en: Informal sharing happens (chat, coffee) but nothing structured.
+      "3":
+        label: Embedding
+        de: Es gibt eine geteilte Prompt-Sammlung oder Wiki; gelegentliche Show-and-Tell-Sessions finden statt.
+        en: There's a shared prompt collection or wiki; occasional show & tell sessions take place.
+      "4":
+        label: Scaling
+        de: Aktive Best-Practice-Kultur; Prompt Library wird gepflegt; regelmaessige Community-Sessions; Erfolgsgeschichten werden dokumentiert.
+        en: Active best practice culture; prompt library maintained; regular community sessions; success stories documented.
+      "5":
+        label: Evolving
+        de: Systematisches Wissensmanagement; Prompts/Workflows versioniert und in Tools integriert; kontinuierliche Verbesserungskultur.
+        en: Systematic knowledge management; prompts/workflows versioned and integrated in tools; continuous improvement culture.
+    order: 24
+    dimension: A
+  - question_key: A-MC-BLOCKER
+    question_type: diagnostic
+    question_text:
+      de: Was ist der Hauptgrund, warum AI-Nutzung in deinem Team nicht weiter wächst?
+      en: What is the main reason AI usage in your team isn't growing further?
+    answer_type: multiple_choice
+    allow_multiple: true
+    max_selections: 3
+    answer_options:
+      - key: tool_quality
+        de: Tool-Qualität / Zuverlässigkeit unzureichend
+        en: Tool quality / reliability insufficient
+        order: 1
+      - key: skill_gap
+        de: Team weiss nicht WIE man AI effektiv nutzt
+        en: Team doesn't know HOW to use AI effectively
+        order: 2
+      - key: unclear_value
+        de: Nutzen nicht klar / keine überzeugenden Use Cases
+        en: Value unclear / no convincing use cases
+        order: 3
+      - key: process_friction
+        de: AI passt nicht in bestehende Workflows
+        en: AI doesn't fit into existing workflows
+        order: 4
+      - key: time_pressure
+        de: Keine Zeit zum Lernen und Experimentieren
+        en: No time to learn and experiment
+        order: 5
+      - key: governance
+        de: Governance / Compliance blockiert
+        en: Governance / compliance blocks
+        order: 6
+      - key: no_blocker
+        de: Kein Blocker — Adoption wächst stetig
+        en: No blocker — adoption growing steadily
+        order: 7
+    order: 25
+    dimension: A
+  - question_key: A-MC-SDLC-GAP
+    question_type: diagnostic
+    question_text:
+      de: In welchen SDLC-Phasen SOLLTE AI genutzt werden, wird es aber noch nicht? (Mehrfachauswahl)
+      en: In which SDLC phases SHOULD AI be used, but isn't yet? (Multiple selection)
+    answer_type: multiple_choice
+    allow_multiple: true
+    max_selections: 3
+    answer_options:
+      - key: requirements
+        de: Requirements / User Stories
+        en: Requirements / User Stories
+        order: 1
+      - key: design
+        de: Design / Architektur
+        en: Design / Architecture
+        order: 2
+      - key: coding
+        de: Coding / Implementierung
+        en: Coding / Implementation
+        order: 3
+      - key: testing
+        de: Testing / QA
+        en: Testing / QA
+        order: 4
+      - key: code_review
+        de: Code Review
+        en: Code Review
+        order: 5
+      - key: documentation
+        de: Dokumentation
+        en: Documentation
+        order: 6
+      - key: ops
+        de: Operations / Monitoring
+        en: Operations / Monitoring
+        order: 7
+      - key: all_covered
+        de: Alle Phasen werden abgedeckt
+        en: All phases are covered
+        order: 8
+    order: 26
+    dimension: A
+  - question_key: A-PQ
+    question_type: powerful_question
+    optional: true
+    question_text:
+      de: Beschreibe einen konkreten Moment, in dem AI dir wirklich geholfen hat — oder dich frustriert hat.
+      en: Describe a concrete moment when AI truly helped you — or frustrated you.
+    max_length: 280
+    moderation_note:
+      de: Nur als Themen-Cluster veröffentlichen, nie als Rohtext. k-Anonymität beachten.
+      en: Only publish as topic clusters, never as raw text. Observe k-anonymity.
+    order: 27
+    dimension: A
+  - question_key: F-CTX-1
+    question_type: context
+    sub_topic: null
+    question_text:
+      de: Wurde ein Value Stream Mapping (VSM) in den letzten 12 Monaten durchgeführt?
+      en: Was a Value Stream Mapping (VSM) conducted in the last 12 months?
+    why_important:
+      de: VSM ist das zentrale Tool um Bottlenecks sichtbar zu machen. Ohne VSM ist Flow-Optimierung ein Ratespiel.
+      en: VSM is the central tool for making bottlenecks visible. Without VSM, flow optimization is guesswork.
+    answer_type: single_choice
+    answer_options:
+      - key: detailed
+        de: Ja, detailliert (2-Tage-Workshop mit Metriken)
+        en: Yes, detailed (2-day workshop with metrics)
+        order: 1
+      - key: basic
+        de: Ja, Basis-Version (4h Workshop)
+        en: Yes, basic version (4h workshop)
+        order: 2
+      - key: informal
+        de: Informell / ad-hoc analysiert
+        en: Informal / ad-hoc analyzed
+        order: 3
+      - key: "no"
+        de: Nein, nicht durchgeführt
+        en: No, not conducted
+        order: 4
+    scoring_note: Context only — does not feed into spider score directly
+    order: 28
+    dimension: F
+  - question_key: F-CTX-2
+    question_type: context
+    sub_topic: null
+    question_text:
+      de: Wie lange dauert im Durchschnitt ein Code Review (von PR-Erstellung bis Merge)?
+      en: How long does code review take on average (from PR creation to merge)?
+    why_important:
+      de: Code Review ist oft der grösste Bottleneck. Dient als Validierungspunkt für die Maturity-Antworten.
+      en: Code review is often the biggest bottleneck. Serves as validation point for maturity answers.
+    answer_type: single_choice
+    answer_options:
+      - key: under_4h
+        de: Unter 4 Stunden
+        en: Under 4 hours
+        order: 1
+      - key: 4h_to_1_day
+        de: 4 Stunden - 1 Tag
+        en: 4 hours - 1 day
+        order: 2
+      - key: 1_to_3_days
+        de: 1-3 Tage
+        en: 1-3 days
+        order: 3
+      - key: over_3_days
+        de: Über 3 Tage
+        en: Over 3 days
+        order: 4
+      - key: unknown
+        de: Unbekannt / nicht gemessen
+        en: Unknown / not measured
+        order: 5
+    scoring_note: Context only — validation metric for flow maturity
+    order: 29
+    dimension: F
+  - question_key: F-M-BOTTLENECK
+    question_type: maturity
+    sub_topic: bottleneck_awareness
+    question_text:
+      de: Welche Stufe beschreibt euer Bewusstsein für Delivery-Bottlenecks am besten?
+      en: Which level best describes your awareness of delivery bottlenecks?
+    maturity_levels:
+      "1":
+        label: Exploring
+        de: Wir wissen nicht, wo unsere grössten Verzögerungen liegen; wir haben unseren Delivery-Prozess nicht analysiert.
+        en: We don't know where our biggest delays are; we haven't analyzed our delivery process.
+      "2":
+        label: Experimenting
+        de: Wir haben ein Bauchgefühl für Bottlenecks, aber keine Daten um es zu belegen.
+        en: We have a gut feeling about bottlenecks, but no data to back it up.
+      "3":
+        label: Embedding
+        de: Wir haben die wichtigsten Bottlenecks identifiziert (z.B. via VSM oder Retros); wir kennen die Top-2-3 Schmerzpunkte.
+        en: We've identified key bottlenecks (e.g., via VSM or retros); we know the top 2-3 pain points.
+      "4":
+        label: Scaling
+        de: Bottlenecks sind mit Daten quantifiziert; wir adressieren sie systematisch; Fortschritt wird getrackt.
+        en: Bottlenecks are quantified with data; we address them systematically; progress is tracked.
+      "5":
+        label: Evolving
+        de: Bottleneck-Analyse ist kontinuierlich und datengetrieben; AI hilft, entstehende Engpässe zu identifizieren bevor sie kritisch werden.
+        en: Bottleneck analysis is continuous and data-driven; AI helps identify emerging bottlenecks before they become critical.
+    order: 30
+    dimension: F
+  - question_key: F-M-INTEGRATION
+    question_type: maturity
+    sub_topic: ai_workflow_integration
+    question_text:
+      de: Welche Stufe beschreibt die AI-Integration in eure Team-Workflows am besten?
+      en: Which level best describes AI integration into your team workflows?
+    maturity_levels:
+      "1":
+        label: Exploring
+        de: AI ist kein Teil unserer Prozesse oder Workflows.
+        en: AI is not part of our processes or workflows.
+      "2":
+        label: Experimenting
+        de: Einzelne nutzen AI nebenbei (z.B. Chat), aber es ist kein definierter Teil unserer Team-Workflows.
+        en: Individuals use AI on the side (e.g., chat), but it's not a defined part of our team workflows.
+      "3":
+        label: Embedding
+        de: Wir haben erste AI-gestützte Workflows (z.B. PR Pre-Review, Testgenerierung), aber die meisten Prozesse laufen wie vorher.
+        en: We have initial AI-supported workflows (e.g., PR pre-review, test generation), but most processes run as before.
+      "4":
+        label: Scaling
+        de: AI ist in mehreren Kern-Workflows eingebettet (Code Review, Testing, Docs); es gibt definierte Prozesse dafür.
+        en: AI is embedded in multiple core workflows (code review, testing, docs); there are defined processes for it.
+      "5":
+        label: Evolving
+        de: AI ist systematisch in unsere Wertschöpfungskette integriert; wir optimieren AI-gestützte Prozesse kontinuierlich.
+        en: AI is systematically integrated into our value stream; we continuously optimize AI-supported processes.
+    order: 31
+    dimension: F
+  - question_key: F-M-IMPACT
+    question_type: maturity
+    sub_topic: impact_reduction
+    question_text:
+      de: Welche Stufe beschreibt den messbaren Impact von AI auf euren Delivery-Flow am besten?
+      en: Which level best describes the measurable impact of AI on your delivery flow?
+    maturity_levels:
+      "1":
+        label: Exploring
+        de: AI hat keinen erkennbaren Einfluss auf unsere Delivery-Geschwindigkeit oder -Qualität.
+        en: AI has no recognizable impact on our delivery speed or quality.
+      "2":
+        label: Experimenting
+        de: Einzelne berichten von Zeitersparnis, aber nichts Messbares auf Team-Ebene.
+        en: Individuals report time savings, but nothing measurable at team level.
+      "3":
+        label: Embedding
+        de: Wir sehen erste messbare Verbesserungen in bestimmten Bereichen (z.B. schnelleres Code Review, weniger manülles Testing).
+        en: We see first measurable improvements in specific areas (e.g., faster code review, less manual testing).
+      "4":
+        label: Scaling
+        de: Mehrere Delivery-Schritte sind messbar schneller oder haben weniger Rework; wir können Vorher/Nachher-Metriken zeigen.
+        en: Multiple delivery steps are measurably faster or have less rework; we can show before/after metrics.
+      "5":
+        label: Evolving
+        de: AI-getriebene Verbesserungen sind systematisch; Flow Efficiency hat sich messbar verbessert; wir identifizieren kontinuierlich neue Optimierungspunkte.
+        en: AI-driven improvements are systematic; flow efficiency has measurably improved; we continuously identify new optimization points.
+    order: 32
+    dimension: F
+  - question_key: F-M-MEASUREMENT
+    question_type: maturity
+    sub_topic: flow_measurement
+    question_text:
+      de: Welche Stufe beschreibt eure Flow-Messung und -Sichtbarkeit am besten?
+      en: Which level best describes your flow measurement and visibility?
+    maturity_levels:
+      "1":
+        label: Exploring
+        de: Wir messen keine Delivery-Metriken (Lead Time, Cycle Time, etc.).
+        en: We don't measure delivery metrics (lead time, cycle time, etc.).
+      "2":
+        label: Experimenting
+        de: Wir messen einzelne Dinge manüll und unregelmaessig; keine DORA-Metriken.
+        en: We measure some things manually and irregularly; no DORA metrics.
+      "3":
+        label: Embedding
+        de: Kern-Metriken sind definiert und werden getrackt (mindestens 2 von 4 DORA-Metriken); Daten existieren, werden aber nicht immer genutzt.
+        en: Core metrics are defined and tracked (at least 2 of 4 DORA metrics); data exists but isn't always used.
+      "4":
+        label: Scaling
+        de: Alle 4 DORA-Metriken werden gemessen; Daten fliessen in Entscheidungen; AI-Impact auf Flow ist sichtbar.
+        en: All 4 DORA metrics are measured; data feeds into decisions; AI impact on flow is visible.
+      "5":
+        label: Evolving
+        de: Automatisierte Echtzeit-Flow-Dashboards; AI-getriebene Insights; Flow-Metriken treiben kontinuierliche Verbesserung.
+        en: Automated real-time flow dashboards; AI-driven insights; flow metrics drive continuous improvement.
+    order: 33
+    dimension: F
+  - question_key: F-MC-BOTTLENECK
+    question_type: diagnostic
+    question_text:
+      de: Wo ist euer grösster Prozess-Bottleneck aktuell?
+      en: Where is your biggest process bottleneck currently?
+    answer_type: multiple_choice
+    allow_multiple: true
+    max_selections: 3
+    answer_options:
+      - key: pr_review
+        de: Code Review (Wartezeiten, Reviewer-Kapazität)
+        en: Code review (wait times, reviewer capacity)
+        order: 1
+      - key: qa_testing
+        de: QA / Testing (manüll, langsam, Rework)
+        en: QA / Testing (manual, slow, rework)
+        order: 2
+      - key: release_approvals
+        de: Release Approvals / Freigabeprozesse
+        en: Release approvals / release processes
+        order: 3
+      - key: environments
+        de: Umgebungen (Verfügbarkeit, Konfiguration)
+        en: Environments (availability, configuration)
+        order: 4
+      - key: requirements
+        de: Anforderungen / Refinement (unklar, zu lang)
+        en: Requirements / refinement (unclear, too long)
+        order: 5
+      - key: dependencies
+        de: Abhängigkeiten von anderen Teams
+        en: Dependencies on other teams
+        order: 6
+      - key: none
+        de: Keiner dominant
+        en: None dominant
+        order: 7
+      - key: other
+        de: Anderes
+        en: Other
+        order: 8
+    order: 34
+    dimension: F
+  - question_key: F-MC-INTERVENTION
+    question_type: diagnostic
+    question_text:
+      de: Welche AI-Intervention würde euren Flow am meisten verbessern?
+      en: Which AI intervention would most improve your flow?
+    answer_type: multiple_choice
+    allow_multiple: true
+    max_selections: 3
+    answer_options:
+      - key: pr_prereview
+        de: AI Code Review / PR Pre-Review
+        en: AI code review / PR pre-review
+        order: 1
+      - key: test_generation
+        de: Testgenerierung (Unit, Integration, E2E)
+        en: Test generation (unit, integration, E2E)
+        order: 2
+      - key: docs_automation
+        de: Dokumentations-Automation
+        en: Documentation automation
+        order: 3
+      - key: requirements_assist
+        de: AI-gestütztes Ticket-Refinement / Requirements
+        en: AI-supported ticket refinement / requirements
+        order: 4
+      - key: incident_assist
+        de: Incident Assist / Log-Analyse
+        en: Incident assist / log analysis
+        order: 5
+      - key: deployment
+        de: AI-gestütztes Deployment / Release Automation
+        en: AI-supported deployment / release automation
+        order: 6
+      - key: other
+        de: Anderes
+        en: Other
+        order: 7
+    order: 35
+    dimension: F
+  - question_key: F-PQ
+    question_type: powerful_question
+    optional: true
+    question_text:
+      de: Wenn du einen Schritt in eurem Delivery-Prozess mit AI automatisieren könntest — welchen?
+      en: If you could automate one step in your delivery process with AI — which one?
+    max_length: 280
+    moderation_note:
+      de: Nur als Themen-Cluster veröffentlichen, nie als Rohtext. k-Anonymität beachten.
+      en: Only publish as topic clusters, never as raw text. Observe k-anonymity.
+    order: 36
+    dimension: F
+  - question_key: T-CTX-1
+    question_type: context
+    sub_topic: null
+    question_text:
+      de: Welche Sicherheitsstufen für AI-Tools sind in eurer Organisation verfügbar? (Mehrfachauswahl)
+      en: Which security tiers for AI tools are available in your organization? (Multiple selection)
+    why_important:
+      de: "Faktische Grundlage: Multi-Tier-Strategie bestimmt, welche Use Cases überhaupt möglich sind."
+      en: "Factual basis: Multi-tier strategy determines which use cases are possible at all."
+    answer_type: multiple_choice
+    allow_multiple: true
+    answer_options:
+      - key: tier1_public
+        de: "Stufe 1: Public Cloud (z.B. GitHub Copilot, Claude Pro, ChatGPT Enterprise)"
+        en: "Tier 1: Public Cloud (e.g., GitHub Copilot, Claude Pro, ChatGPT Enterprise)"
+        order: 1
+      - key: tier2_private
+        de: "Stufe 2: Private Cloud (z.B. Azure OpenAI, AWS Bedrock im eigenen Tenant)"
+        en: "Tier 2: Private Cloud (e.g., Azure OpenAI, AWS Bedrock in own tenant)"
+        order: 2
+      - key: tier3_airgapped
+        de: "Stufe 3: Air-gapped / lokal (z.B. Ollama, vLLM mit lokalen Modellen)"
+        en: "Tier 3: Air-gapped / local (e.g., Ollama, vLLM with local models)"
+        order: 3
+      - key: none_available
+        de: Keine AI-Tools offiziell verfügbar
+        en: No AI tools officially available
+        order: 4
+      - key: unknown
+        de: Weiss nicht
+        en: Don't know
+        order: 5
+    scoring_note: Context only — does not feed into spider score directly
+    order: 37
+    dimension: T
+  - question_key: T-CTX-2
+    question_type: context
+    sub_topic: null
+    question_text:
+      de: Wie viele verschiedene AI-Tools nutzt du aktiv in deiner täglichen Arbeit?
+      en: How many different AI tools do you actively use in your daily work?
+    why_important:
+      de: "Metrik: Tool-Vielfalt zeigt Ecosystem-Reife und potenzielle Fragmentierung."
+      en: "Metric: Tool diversity shows ecosystem maturity and potential fragmentation."
+    answer_type: single_choice
+    answer_options:
+      - key: none
+        de: Keins
+        en: None
+        order: 1
+      - key: one
+        de: 1 Tool
+        en: 1 tool
+        order: 2
+      - key: two_three
+        de: 2-3 Tools
+        en: 2-3 tools
+        order: 3
+      - key: four_plus
+        de: 4 oder mehr Tools
+        en: 4 or more tools
+        order: 4
+    scoring_note: Context only — does not feed into spider score directly
+    order: 38
+    dimension: T
+  - question_key: T-M-AVAILABILITY
+    question_type: maturity
+    sub_topic: tool_availability
+    question_text:
+      de: Welche Stufe beschreibt die Verfügbarkeit von AI-Tools in deinem Arbeitsalltag am besten?
+      en: Which level best describes the availability of AI tools in your daily work?
+    maturity_levels:
+      "1":
+        label: Exploring
+        de: Es gibt keine freigegebenen AI-Tools; wenn ich AI nutzen will, muss ich auf private Accounts oder inoffizielle Wege zurückgreifen.
+        en: There are no approved AI tools; if I want to use AI, I have to fall back on personal accounts or unofficial channels.
+      "2":
+        label: Experimenting
+        de: Ein erstes Tool ist verfügbar, aber nur für einen Teil des Teams oder nur für unkritische Daten; für sensible Bereiche gibt es keine Lösung.
+        en: A first tool is available, but only for part of the team or only for non-critical data; for sensitive areas there's no solution.
+      "3":
+        label: Embedding
+        de: AI-Tools sind für die meisten Teammitglieder verfügbar; mindestens eine Sicherheitsstufe deckt unseren Hauptbedarf ab.
+        en: AI tools are available for most team members; at least one security tier covers our main needs.
+      "4":
+        label: Scaling
+        de: Verschiedene Sicherheitsstufen stehen bereit; für jeden Datentyp gibt es eine passende Lösung; neue Tools werden schnell bereitgestellt.
+        en: Different security tiers are available; for every data type there's a suitable solution; new tools are provisioned quickly.
+      "5":
+        label: Evolving
+        de: Multi-Tier-Strategie ist Alltag; Teams können flexibel zwischen Modellen und Stufen wechseln; Self-Service-Provisioning für Standard-Tools.
+        en: Multi-tier strategy is routine; teams can flexibly switch between models and tiers; self-service provisioning for standard tools.
+    order: 39
+    dimension: T
+  - question_key: T-M-IDE
+    question_type: maturity
+    sub_topic: ide_integration
+    question_text:
+      de: Welche Stufe beschreibt die Integration von AI-Tools in deine Entwicklungsumgebung (IDE) am besten?
+      en: Which level best describes the integration of AI tools into your development environment (IDE)?
+    maturity_levels:
+      "1":
+        label: Exploring
+        de: AI-Tools laufen ausserhalb meiner IDE (z.B. Browser-Tab); ich muss Copy-Paste verwenden, um Ergebnisse in meinen Code zu übertragen.
+        en: AI tools run outside my IDE (e.g., browser tab); I need to copy-paste to transfer results into my code.
+      "2":
+        label: Experimenting
+        de: Ein Plugin/Extension ist installiert, aber es funktioniert nur für einfache Dinge (z.B. Autocomplete); komplexere Features fehlen oder sind instabil.
+        en: A plugin/extension is installed, but it only works for simple things (e.g., autocomplete); more complex features are missing or unstable.
+      "3":
+        label: Embedding
+        de: AI ist in meiner IDE für Kernfeatures integriert (Autocomplete, Chat, Erklärungen); es funktioniert zuverlässig für Standard-Workflows.
+        en: AI is integrated in my IDE for core features (autocomplete, chat, explanations); it works reliably for standard workflows.
+      "4":
+        label: Scaling
+        de: "AI unterstützt mich durchgängig: Code-Generierung, Refactoring, Test-Erstellung, Dokumentation — alles direkt in der IDE; ich kann zwischen Modellen wechseln."
+        en: "AI supports me throughout: code generation, refactoring, test creation, documentation — all directly in the IDE; I can switch between models."
+      "5":
+        label: Evolving
+        de: AI ist tief in meinen gesamten Workflow integriert — agentic workflows, Multi-File-Änderungen, Context-aware Vorschläge; ich arbeite in einer AI-nativen Umgebung.
+        en: AI is deeply integrated into my entire workflow — agentic workflows, multi-file changes, context-aware suggestions; I work in an AI-native environment.
+    order: 40
+    dimension: T
+  - question_key: T-M-RELIABILITY
+    question_type: maturity
+    sub_topic: reliability
+    question_text:
+      de: Welche Stufe beschreibt die Zuverlässigkeit und Performance der AI-Tools am besten?
+      en: Which level best describes the reliability and performance of AI tools?
+    maturity_levels:
+      "1":
+        label: Exploring
+        de: AI-Tools sind nicht verfügbar oder so instabil, dass ich sie nicht sinnvoll nutzen kann.
+        en: AI tools are not available or so unstable that I can't use them meaningfully.
+      "2":
+        label: Experimenting
+        de: Tools funktionieren manchmal, aber häufige Ausfälle, hohe Latenz oder Timeouts frustrieren und stören meinen Flow.
+        en: Tools work sometimes, but frequent outages, high latency, or timeouts frustrate and disrupt my flow.
+      "3":
+        label: Embedding
+        de: Tools laufen meistens stabil; gelegentliche Performance-Probleme, aber insgesamt akzeptabel für die tägliche Arbeit.
+        en: Tools run mostly stable; occasional performance issues, but overall acceptable for daily work.
+      "4":
+        label: Scaling
+        de: Tools sind zuverlässig und schnell; SLAs werden eingehalten; bei Problemen gibt es klare Supportwege und schnelle Lösungen.
+        en: Tools are reliable and fast; SLAs are met; when problems occur, there are clear support channels and quick solutions.
+      "5":
+        label: Evolving
+        de: Infrastructure-as-Code, automatisches Scaling, proaktives Monitoring; Performance wird kontinuierlich optimiert und Ausfälle sind selten.
+        en: Infrastructure-as-code, automatic scaling, proactive monitoring; performance is continuously optimized and outages are rare.
+    order: 41
+    dimension: T
+  - question_key: T-M-ECOSYSTEM
+    question_type: maturity
+    sub_topic: ecosystem
+    question_text:
+      de: Welche Stufe beschreibt das Ökosystem rund um eure AI-Tools (Prompt-Vorlagen, CI/CD-Integration, Dokumentation) am besten?
+      en: Which level best describes the ecosystem around your AI tools (prompt templates, CI/CD integration, documentation)?
+    maturity_levels:
+      "1":
+        label: Exploring
+        de: Jeder arbeitet für sich; keine geteilten Prompts, keine Dokumentation, keine Integration in Build-Pipelines.
+        en: Everyone works on their own; no shared prompts, no documentation, no integration into build pipelines.
+      "2":
+        label: Experimenting
+        de: Einzelne teilen Prompts informell (z.B. Slack, persönliche Notizen); Dokumentation ist lückenhaft; CI/CD-Integration ist nicht vorhanden.
+        en: Some share prompts informally (e.g., Slack, personal notes); documentation is patchy; CI/CD integration doesn't exist.
+      "3":
+        label: Embedding
+        de: Es gibt eine zentrale Anlaufstelle (Wiki, Conflünce) für Prompts und Best Practices; erste AI-Schritte in Pipelines (z.B. AI Code Review); Setup-Doku vorhanden.
+        en: There's a central resource (wiki, Confluence) for prompts and best practices; first AI steps in pipelines (e.g., AI code review); setup docs available.
+      "4":
+        label: Scaling
+        de: Prompt Library ist technisch integriert (IDE-Snippets, MCP-Server); AI in CI/CD ist Standard (Review, Tests, Docs); Dokumentation ist aktuell und umfassend.
+        en: Prompt library is technically integrated (IDE snippets, MCP server); AI in CI/CD is standard (review, tests, docs); documentation is current and comprehensive.
+      "5":
+        label: Evolving
+        de: "Das Ökosystem entwickelt sich kontinuierlich weiter: Community-driven Prompt Library, AI-generierte Pipeline-Optimierung, automatische Docs-Updates; Teams tragen aktiv bei."
+        en: "The ecosystem continuously evolves: community-driven prompt library, AI-generated pipeline optimization, automatic docs updates; teams actively contribute."
+    order: 42
+    dimension: T
+  - question_key: T-MC-BLOCKER
+    question_type: diagnostic
+    question_text:
+      de: Was blockiert euch aktuell am stärksten im Bereich Technical Enablement?
+      en: What currently blocks you most in the area of technical enablement?
+    answer_type: multiple_choice
+    allow_multiple: true
+    max_selections: 3
+    answer_options:
+      - key: no_tools_available
+        de: Keine oder zu wenige AI-Tools offiziell freigegeben
+        en: No or too few AI tools officially approved
+        order: 1
+      - key: poor_integration
+        de: Schlechte IDE-Integration — zu umständlich, zu viel Copy-Paste
+        en: Poor IDE integration — too cumbersome, too much copy-paste
+        order: 2
+      - key: performance_issues
+        de: Performance-Probleme — zu langsam, instabil, häufige Ausfälle
+        en: Performance issues — too slow, unstable, frequent outages
+        order: 3
+      - key: missing_tier
+        de: Fehlende Sicherheitsstufe — kann für bestimmte Daten kein AI nutzen
+        en: Missing security tier — can't use AI for certain data
+        order: 4
+      - key: no_ecosystem
+        de: Fehlendes Ökosystem — keine Prompts, keine Docs, jeder fängt bei Null an
+        en: Missing ecosystem — no prompts, no docs, everyone starts from zero
+        order: 5
+      - key: nothing
+        de: Nichts blockiert aktuell
+        en: Nothing currently blocking
+        order: 6
+      - key: other
+        de: Anderes
+        en: Other
+        order: 7
+    order: 43
+    dimension: T
+  - question_key: T-MC-PRIORITY
+    question_type: diagnostic
+    question_text:
+      de: Welche technische Verbesserung hätte den grössten positiven Einfluss auf eure AI-Nutzung?
+      en: Which technical improvement would have the greatest positive impact on your AI usage?
+    answer_type: multiple_choice
+    allow_multiple: true
+    max_selections: 3
+    answer_options:
+      - key: better_ide
+        de: Bessere IDE-Integration (native, mehr Features, agentic Workflows)
+        en: Better IDE integration (native, more features, agentic workflows)
+        order: 1
+      - key: more_tiers
+        de: Weitere Sicherheitsstufen bereitstellen (Private Cloud oder Air-gapped)
+        en: Provide additional security tiers (private cloud or air-gapped)
+        order: 2
+      - key: prompt_library
+        de: Technisch integrierte Prompt Library (MCP-Server, IDE-Snippets)
+        en: Technically integrated prompt library (MCP server, IDE snippets)
+        order: 3
+      - key: cicd_integration
+        de: AI in CI/CD-Pipelines einbinden (Code Review, Test-Generierung)
+        en: Integrate AI into CI/CD pipelines (code review, test generation)
+        order: 4
+      - key: model_selection
+        de: Mehr Modell-Auswahl (verschiedene LLMs für verschiedene Tasks)
+        en: More model selection (different LLMs for different tasks)
+        order: 5
+      - key: better_docs
+        de: Bessere Dokumentation und Onboarding-Materialien
+        en: Better documentation and onboarding materials
+        order: 6
+      - key: other
+        de: Anderes
+        en: Other
+        order: 7
+    order: 44
+    dimension: T
+  - question_key: T-PQ
+    question_type: powerful_question
+    optional: true
+    question_text:
+      de: Welches AI-Tool oder Feature vermisst du am meisten, das es eigentlich geben müsste?
+      en: Which AI tool or feature do you miss the most that should really exist?
+    max_length: 280
+    moderation_note:
+      de: Nur als Themen-Cluster veröffentlichen, nie als Rohtext. k-Anonymität beachten.
+      en: Only publish as topic clusters, never as raw text. Observe k-anonymity.
+    order: 45
+    dimension: T

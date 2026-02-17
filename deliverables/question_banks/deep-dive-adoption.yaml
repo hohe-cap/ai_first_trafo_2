@@ -42,7 +42,7 @@ sub_topics:
       de: "Nutzungsbreite & Regelmaessigkeit"
       en: "Usage Breadth & Regularity"
     description:
-      de: "Wie regelmaessig und breit wird AI ueber verschiedene Arbeitsbereiche genutzt?"
+      de: "Wie regelmaessig und breit wird AI über verschiedene Arbeitsbereiche genutzt?"
       en: "How regularly and broadly is AI used across different work areas?"
     order: 1
 
@@ -57,10 +57,10 @@ sub_topics:
 
   - key: "output_trust"
     name:
-      de: "Output-Qualitaet & Vertrauen"
+      de: "Output-Qualität & Vertrauen"
       en: "Output Quality & Trust"
     description:
-      de: "Ist der AI-Output nuetzlich und wird ihm vertraut?"
+      de: "Ist der AI-Output nützlich und wird ihm vertraut?"
       en: "Is AI output useful and trusted?"
     order: 3
 
@@ -136,10 +136,10 @@ questions:
     question_type: "context"
     sub_topic: ~
     question_text:
-      de: "Wie viel Zeit investierst du durchschnittlich PRO TAG in AI-gestuetzte Arbeit?"
+      de: "Wie viel Zeit investierst du durchschnittlich PRO TAG in AI-gestützte Arbeit?"
       en: "How much time do you invest on average PER DAY in AI-supported work?"
     why_important:
-      de: "Zeigt Nutzungsintensitaet. Unter 30 Min/Tag deutet auf oberflaechliche Nutzung hin."
+      de: "Zeigt Nutzungsintensität. Unter 30 Min/Tag deutet auf oberflächliche Nutzung hin."
       en: "Shows usage intensity. Under 30 min/day indicates superficial usage."
     answer_type: "single_choice"
     answer_options:
@@ -160,7 +160,7 @@ questions:
         en: "1-2 hours"
         order: 4
       - key: "over_2h"
-        de: "Ueber 2 Stunden"
+        de: "Über 2 Stunden"
         en: "Over 2 hours"
         order: 5
     scoring_note: "Context only — usage intensity indicator"
@@ -173,28 +173,28 @@ questions:
     question_type: "maturity"
     sub_topic: "usage_regularity"
     question_text:
-      de: "Welche Stufe beschreibt deine tatsaechliche AI-Nutzung am besten?"
+      de: "Welche Stufe beschreibt deine tatsächliche AI-Nutzung am besten?"
       en: "Which level best describes your actual AI usage?"
     maturity_levels:
       1:
         label: "Exploring"
-        de: "Ich nutze keine AI-Tools fuer meine Arbeit."
+        de: "Ich nutze keine AI-Tools für meine Arbeit."
         en: "I don't use any AI tools for my work."
       2:
         label: "Experimenting"
-        de: "Ich nutze AI gelegentlich fuer einfache Aufgaben (z.B. Textformulierung, Quick Questions), nicht regelmaessig."
+        de: "Ich nutze AI gelegentlich für einfache Aufgaben (z.B. Textformulierung, Quick Qüstions), nicht regelmaessig."
         en: "I use AI occasionally for simple tasks (e.g., text drafting, quick questions), not regularly."
       3:
         label: "Embedding"
-        de: "Ich nutze AI regelmaessig (mind. woechentlich) in 1-2 Arbeitsbereichen und es spart mir merklich Zeit."
+        de: "Ich nutze AI regelmaessig (mind. wöchentlich) in 1-2 Arbeitsbereichen und es spart mir merklich Zeit."
         en: "I use AI regularly (at least weekly) in 1-2 work areas and it noticeably saves me time."
       4:
         label: "Scaling"
-        de: "AI ist fester Bestandteil meiner taeglichen Arbeit in mehreren Bereichen und SDLC-Phasen."
+        de: "AI ist fester Bestandteil meiner täglichen Arbeit in mehreren Bereichen und SDLC-Phasen."
         en: "AI is an integral part of my daily work across multiple areas and SDLC phases."
       5:
         label: "Evolving"
-        de: "AI ist durchgaengig in meinen Workflow integriert; ich optimiere aktiv Prompts/Workflows und teile Best Practices."
+        de: "AI ist durchgängig in meinen Workflow integriert; ich optimiere aktiv Prompts/Workflows und teile Best Practices."
         en: "AI is fully integrated into my workflow; I actively optimize prompts/workflows and share best practices."
     order: 3
 
@@ -215,15 +215,15 @@ questions:
         en: "Chat-based only (Q&A, copy-paste); AI is a separate window, not integrated into my tools."
       3:
         label: "Embedding"
-        de: "AI ist in meiner IDE oder meinem Workflow integriert; ich nutze es Schritt-fuer-Schritt fuer bestimmte Aufgaben."
+        de: "AI ist in meiner IDE oder meinem Workflow integriert; ich nutze es Schritt-für-Schritt für bestimmte Aufgaben."
         en: "AI is integrated in my IDE or workflow; I use it step-by-step for specific tasks."
       4:
         label: "Scaling"
-        de: "Agentische Nutzung — AI uebernimmt teilautonome Aufgaben (z.B. Coding-Tasks, Test-Generierung), ich reviewe die Ergebnisse."
+        de: "Agentische Nutzung — AI übernimmt teilautonome Aufgaben (z.B. Coding-Tasks, Test-Generierung), ich reviewe die Ergebnisse."
         en: "Agentic usage — AI handles semi-autonomous tasks (e.g., coding tasks, test generation), I review the results."
       5:
         label: "Evolving"
-        de: "Multi-agentische Workflows; AI bearbeitet End-to-End-Aufgaben; ich orchestriere mehr als ich ausfuehre."
+        de: "Multi-agentische Workflows; AI bearbeitet End-to-End-Aufgaben; ich orchestriere mehr als ich ausführe."
         en: "Multi-agentic workflows; AI handles end-to-end tasks; I orchestrate rather than execute."
     order: 4
 
@@ -231,16 +231,16 @@ questions:
     question_type: "maturity"
     sub_topic: "output_trust"
     question_text:
-      de: "Welche Stufe beschreibt deine Erfahrung mit der Qualitaet von AI-Outputs am besten?"
+      de: "Welche Stufe beschreibt deine Erfahrung mit der Qualität von AI-Outputs am besten?"
       en: "Which level best describes your experience with AI output quality?"
     maturity_levels:
       1:
         label: "Exploring"
-        de: "Ich habe keine Erfahrung mit AI-Outputs, um die Qualitaet beurteilen zu koennen."
+        de: "Ich habe keine Erfahrung mit AI-Outputs, um die Qualität beurteilen zu können."
         en: "I have no experience with AI outputs to judge quality."
       2:
         label: "Experimenting"
-        de: "AI-Output ist Glueckssache; ich vertraue ihm oft nicht und mache die Arbeit am Ende doch selbst."
+        de: "AI-Output ist Glückssache; ich vertraue ihm oft nicht und mache die Arbeit am Ende doch selbst."
         en: "AI output is hit-or-miss; I often don't trust it and end up doing the work myself."
       3:
         label: "Embedding"
@@ -248,7 +248,7 @@ questions:
         en: "AI provides a usable starting point that needs editing; I can usually tell when output is wrong."
       4:
         label: "Scaling"
-        de: "AI-Output ist zuverlaessig gut fuer meine Use Cases; ich habe gelernt, effektiv zu prompten; Review-Aufwand ist gering."
+        de: "AI-Output ist zuverlässig gut für meine Use Cases; ich habe gelernt, effektiv zu prompten; Review-Aufwand ist gering."
         en: "AI output is reliably good for my use cases; I've learned to prompt effectively; review effort is low."
       5:
         label: "Evolving"
@@ -291,12 +291,12 @@ questions:
   - question_key: "A-MC-BLOCKER"
     question_type: "diagnostic"
     question_text:
-      de: "Was ist der Hauptgrund, warum AI-Nutzung in deinem Team nicht weiter waechst?"
+      de: "Was ist der Hauptgrund, warum AI-Nutzung in deinem Team nicht weiter wächst?"
       en: "What is the main reason AI usage in your team isn't growing further?"
     answer_type: "single_choice"
     answer_options:
       - key: "tool_quality"
-        de: "Tool-Qualitaet / Zuverlaessigkeit unzureichend"
+        de: "Tool-Qualität / Zuverlässigkeit unzureichend"
         en: "Tool quality / reliability insufficient"
         order: 1
       - key: "skill_gap"
@@ -304,7 +304,7 @@ questions:
         en: "Team doesn't know HOW to use AI effectively"
         order: 2
       - key: "unclear_value"
-        de: "Nutzen nicht klar / keine ueberzeugenden Use Cases"
+        de: "Nutzen nicht klar / keine überzeugenden Use Cases"
         en: "Value unclear / no convincing use cases"
         order: 3
       - key: "process_friction"
@@ -320,7 +320,7 @@ questions:
         en: "Governance / compliance blocks"
         order: 6
       - key: "no_blocker"
-        de: "Kein Blocker — Adoption waechst stetig"
+        de: "Kein Blocker — Adoption wächst stetig"
         en: "No blocker — adoption growing steadily"
         order: 7
     order: 7
@@ -378,7 +378,7 @@ questions:
       en: "Describe a concrete moment when AI truly helped you — or frustrated you."
     max_length: 280
     moderation_note:
-      de: "Nur als Themen-Cluster veroeffentlichen, nie als Rohtext. k-Anonymitaet beachten."
+      de: "Nur als Themen-Cluster veröffentlichen, nie als Rohtext. k-Anonymität beachten."
       en: "Only publish as topic clusters, never as raw text. Observe k-anonymity."
     order: 9
 
@@ -391,7 +391,7 @@ scoring:
   interpretation:
     1:
       label: "Exploring"
-      de: "Keine AI-Nutzung; kein Wissen ueber Moeglichkeiten; keine Sharing-Kultur."
+      de: "Keine AI-Nutzung; kein Wissen über Möglichkeiten; keine Sharing-Kultur."
       en: "No AI usage; no knowledge of possibilities; no sharing culture."
     2:
       label: "Experimenting"
@@ -403,11 +403,11 @@ scoring:
       en: "Regular usage in 1-2 areas; IDE-integrated; usable outputs; first sharing structures."
     4:
       label: "Scaling"
-      de: "Taegliche Nutzung, mehrere SDLC-Phasen; agentisch; zuverlaessige Outputs; aktive Best-Practice-Kultur."
+      de: "Tägliche Nutzung, mehrere SDLC-Phasen; agentisch; zuverlässige Outputs; aktive Best-Practice-Kultur."
       en: "Daily usage, multiple SDLC phases; agentic; reliable outputs; active best practice culture."
     5:
       label: "Evolving"
-      de: "Durchgaengig integriert; multi-agentisch; hochwertige Outputs; systematisches Wissensmanagement."
+      de: "Durchgängig integriert; multi-agentisch; hochwertige Outputs; systematisches Wissensmanagement."
       en: "Fully integrated; multi-agentic; high-quality outputs; systematic knowledge management."
 
 pulse_check_relationship:

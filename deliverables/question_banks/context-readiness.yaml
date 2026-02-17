@@ -78,7 +78,7 @@ categories:
       de: "Projekt-Basics"
       en: "Project Basics"
     description:
-      de: "Team-Groesse, Laufzeit, Phase und Typ"
+      de: "Team-Grösse, Laufzeit, Phase und Typ"
       en: "Team size, duration, phase and type"
     why_important:
       de: >-
@@ -114,7 +114,7 @@ categories:
       de: "Technologie-Landschaft"
       en: "Technology Landscape"
     description:
-      de: "Programmiersprachen, Legacy-Anteil, Deployment-Frequenz"
+      de: "Programmiersprachen, Legacy-Anteil, Deployment-Freqünz"
       en: "Programming languages, legacy share, deployment frequency"
     why_important:
       de: >-
@@ -181,10 +181,10 @@ categories:
   - key: "skills"
     section: "readiness"
     name:
-      de: "Skills & Faehigkeiten"
+      de: "Skills & Fähigkeiten"
       en: "Skills & Capabilities"
     description:
-      de: "AI-Exposure, Lernkultur, Trainingskapazitaet"
+      de: "AI-Exposure, Lernkultur, Trainingskapazität"
       en: "AI exposure, learning culture, training capacity"
     why_important:
       de: >-
@@ -202,7 +202,7 @@ categories:
       de: "Infrastruktur & Tools"
       en: "Infrastructure & Tools"
     description:
-      de: "API-Zugang, Tool-Flexibilitaet, Datenklassifizierung, Security"
+      de: "API-Zugang, Tool-Flexibilität, Datenklassifizierung, Security"
       en: "API access, tool flexibility, data classification, security"
     why_important:
       de: >-
@@ -220,7 +220,7 @@ categories:
       de: "Kultur & Mindset"
       en: "Culture & Mindset"
     description:
-      de: "Fehlertoleranz, Innovationszeit, Prozessflexibilitaet"
+      de: "Fehlertoleranz, Innovationszeit, Prozessflexibilität"
       en: "Failure tolerance, innovation time, process flexibility"
     why_important:
       de: >-
@@ -289,7 +289,7 @@ questions:
         en: "Enterprise (>30 people)"
         order: 5
     adaptive_impact:
-      de: "Solo/Klein → Governance-Fragen ueberspringen; Gross/Enterprise → Change Coalition Fragen hinzufuegen"
+      de: "Solo/Klein → Governance-Fragen überspringen; Gross/Enterprise → Change Coalition Fragen hinzufügen"
       en: "Solo/Small → Skip governance questions; Large/Enterprise → Add change coalition questions"
     order: 1
 
@@ -297,7 +297,7 @@ questions:
     section: "context"
     category: "project_basics"
     question_text:
-      de: "Wie lange laeuft das Projekt bereits?"
+      de: "Wie lange läuft das Projekt bereits?"
       en: "How long has the project been running?"
     answer_type: "single_choice"
     answer_options:
@@ -384,7 +384,7 @@ questions:
     section: "context"
     category: "business_context"
     question_text:
-      de: "In welcher Branche ist der Kunde / die Organisation taetig?"
+      de: "In welcher Branche ist der Kunde / die Organisation tätig?"
       en: "What industry is the customer / organization in?"
     answer_type: "single_choice"
     answer_options:
@@ -409,7 +409,7 @@ questions:
         compliance_tier: 2
         order: 4
       - key: "public_sector"
-        de: "Oeffentlicher Sektor"
+        de: "Öffentlicher Sektor"
         en: "Public Sector"
         compliance_tier: 2
         order: 5
@@ -434,7 +434,7 @@ questions:
         compliance_tier: 2
         order: 9
     adaptive_impact:
-      de: "Tier 3 (Banking/Healthcare) → Compliance-Fragen priorisieren, Public-AI einschraenken; Tier 1 → Standard"
+      de: "Tier 3 (Banking/Healthcare) → Compliance-Fragen priorisieren, Public-AI einschränken; Tier 1 → Standard"
       en: "Tier 3 (Banking/Healthcare) → Prioritize compliance, restrict public AI; Tier 1 → Standard"
     order: 5
 
@@ -471,7 +471,7 @@ questions:
     section: "context"
     category: "business_context"
     question_text:
-      de: "Wem gehoert der Code?"
+      de: "Wem gehört der Code?"
       en: "Who owns the code?"
     answer_type: "single_choice"
     answer_options:
@@ -488,7 +488,7 @@ questions:
         en: "Own IP (product)"
         order: 3
     adaptive_impact:
-      de: "Kunde → Kunden-Approval fuer AI-Tools erforderlich; Eigenes IP → Volle Freiheit"
+      de: "Kunde → Kunden-Approval für AI-Tools erforderlich; Eigenes IP → Volle Freiheit"
       en: "Customer → Customer approval required for AI tools; Own IP → Full freedom"
     order: 7
 
@@ -496,7 +496,7 @@ questions:
     section: "context"
     category: "business_context"
     question_text:
-      de: "Wie kritisch ist das Projekt fuer das Business?"
+      de: "Wie kritisch ist das Projekt für das Business?"
       en: "How critical is the project for the business?"
     answer_type: "single_choice"
     answer_options:
@@ -528,7 +528,7 @@ questions:
     section: "context"
     category: "tech_landscape"
     question_text:
-      de: "Welche Programmiersprachen werden hauptsaechlich verwendet?"
+      de: "Welche Programmiersprachen werden hauptsächlich verwendet?"
       en: "What programming languages are primarily used?"
     answer_type: "multiple_choice"
     allow_multiple: true
@@ -570,7 +570,7 @@ questions:
         en: "Other"
         order: 9
     adaptive_impact:
-      de: "Bestimmt Tech-Pattern fuer Tool-Empfehlungen (z.B. Python → Copilot + Cursor + Ruff)"
+      de: "Bestimmt Tech-Pattern für Tool-Empfehlungen (z.B. Python → Copilot + Cursor + Ruff)"
       en: "Determines tech pattern for tool recommendations (e.g. Python → Copilot + Cursor + Ruff)"
     order: 9
 
@@ -599,11 +599,11 @@ questions:
         en: "High (50-80%)"
         order: 4
       - key: "mostly"
-        de: "Ueberwiegend Legacy (>80%)"
+        de: "Überwiegend Legacy (>80%)"
         en: "Mostly legacy (>80%)"
         order: 5
     adaptive_impact:
-      de: "Hoch/Ueberwiegend → Tech-Debt-Reduktion priorisieren; Kein Legacy → Advanced AI Patterns"
+      de: "Hoch/Überwiegend → Tech-Debt-Reduktion priorisieren; Kein Legacy → Advanced AI Patterns"
       en: "High/Mostly → Prioritize tech debt reduction; No legacy → Advanced AI patterns"
     order: 10
 
@@ -614,20 +614,20 @@ questions:
       de: "Wie oft wird deployed?"
       en: "How often do you deploy?"
     description:
-      de: "DORA-Baseline: Deployment Frequency ist einer der vier DORA-Key-Metrics"
+      de: "DORA-Baseline: Deployment Freqüncy ist einer der vier DORA-Key-Metrics"
       en: "DORA baseline: Deployment frequency is one of the four DORA key metrics"
     answer_type: "single_choice"
     answer_options:
       - key: "multiple_daily"
-        de: "Mehrmals taeglich (Continuous Deployment)"
+        de: "Mehrmals täglich (Continuous Deployment)"
         en: "Multiple times daily (Continuous Deployment)"
         order: 1
       - key: "daily"
-        de: "Taeglich"
+        de: "Täglich"
         en: "Daily"
         order: 2
       - key: "weekly"
-        de: "Woechentlich"
+        de: "Wöchentlich"
         en: "Weekly"
         order: 3
       - key: "monthly"
@@ -706,7 +706,7 @@ questions:
     section: "context"
     category: "ways_of_working"
     question_text:
-      de: "Welches Vertragsmodell gilt fuer dieses Projekt?"
+      de: "Welches Vertragsmodell gilt für dieses Projekt?"
       en: "What contract model applies to this project?"
     description:
       de: >-
@@ -743,7 +743,7 @@ questions:
         incentive_risk: "none"
         order: 5
     adaptive_impact:
-      de: "T&M → Shadow-AI-Risiko pruefen, Gainsharing-Modelle empfehlen"
+      de: "T&M → Shadow-AI-Risiko prüfen, Gainsharing-Modelle empfehlen"
       en: "T&M → Check shadow AI risk, recommend gainsharing models"
     order: 14
 
@@ -763,11 +763,11 @@ questions:
         en: "Speed (+velocity, faster delivery)"
         order: 1
       - key: "quality"
-        de: "Qualitaet (+Code Quality, weniger Bugs)"
+        de: "Qualität (+Code Quality, weniger Bugs)"
         en: "Quality (+code quality, fewer bugs)"
         order: 2
       - key: "cost"
-        de: "Kostenreduktion (-Effort, hoehere Effizienz)"
+        de: "Kostenreduktion (-Effort, höhere Effizienz)"
         en: "Cost reduction (-effort, higher efficiency)"
         order: 3
       - key: "innovation"
@@ -779,7 +779,7 @@ questions:
         en: "Team upskilling (capability building)"
         order: 5
     adaptive_impact:
-      de: "Bestimmt Fokus-Metriken: Velocity → DORA; Qualitaet → Bug Density; Kosten → Effort/Story Point"
+      de: "Bestimmt Fokus-Metriken: Velocity → DORA; Qualität → Bug Density; Kosten → Effort/Story Point"
       en: "Determines focus metrics: Velocity → DORA; Quality → Bug density; Cost → Effort/story point"
     order: 15
 
@@ -787,7 +787,7 @@ questions:
     section: "context"
     category: "goals_timeline"
     question_text:
-      de: "Welches Budget steht fuer AI-Tools zur Verfuegung (monatlich, pro Entwickler)?"
+      de: "Welches Budget steht für AI-Tools zur Verfügung (monatlich, pro Entwickler)?"
       en: "What budget is available for AI tools (monthly, per developer)?"
     answer_type: "single_choice"
     answer_options:
@@ -866,7 +866,7 @@ questions:
         score: 100
         order: 1
       - key: "verbal_support"
-        de: "Ja, aber nur verbale Unterstuetzung"
+        de: "Ja, aber nur verbale Unterstützung"
         en: "Yes, but only verbal support"
         score: 60
         order: 2
@@ -876,7 +876,7 @@ questions:
         score: 30
         order: 3
       - key: "no_sponsorship"
-        de: "Keine Unterstuetzung"
+        de: "Keine Unterstützung"
         en: "No sponsorship"
         score: 0
         order: 4
@@ -887,7 +887,7 @@ questions:
     section: "readiness"
     category: "leadership"
     question_text:
-      de: "Welcher Anteil des IT/R&D-Budgets ist fuer AI-Experimente und -Tools allokiert?"
+      de: "Welcher Anteil des IT/R&D-Budgets ist für AI-Experimente und -Tools allokiert?"
       en: "What share of IT/R&D budget is allocated for AI experimentation and tools?"
     answer_type: "single_choice"
     answer_options:
@@ -918,7 +918,7 @@ questions:
     section: "readiness"
     category: "leadership"
     question_text:
-      de: "Was ist die realistische Timeline fuer erste AI-Adoption?"
+      de: "Was ist die realistische Timeline für erste AI-Adoption?"
       en: "What is the realistic timeline for initial AI adoption?"
     answer_type: "single_choice"
     answer_options:
@@ -949,7 +949,7 @@ questions:
     section: "readiness"
     category: "leadership"
     question_text:
-      de: "Sind Ressourcen fuer Change Management allokiert (Training, Kommunikation, Coaching)?"
+      de: "Sind Ressourcen für Change Management allokiert (Training, Kommunikation, Coaching)?"
       en: "Are resources allocated for change management (training, communication, coaching)?"
     answer_type: "single_choice"
     answer_options:
@@ -1024,12 +1024,12 @@ questions:
         score: 100
         order: 1
       - key: "open"
-        de: "Offen fuer Training"
+        de: "Offen für Training"
         en: "Open to training"
         score: 70
         order: 2
       - key: "resistant_willing"
-        de: "Zurueckhaltend, aber bereit"
+        de: "Zurückhaltend, aber bereit"
         en: "Reluctant but willing"
         score: 40
         order: 3
@@ -1045,12 +1045,12 @@ questions:
     section: "readiness"
     category: "skills"
     question_text:
-      de: "Kann das Team 2-4 Stunden pro Woche fuer AI-Upskilling aufbringen?"
+      de: "Kann das Team 2-4 Stunden pro Woche für AI-Upskilling aufbringen?"
       en: "Can the team dedicate 2-4 hours per week for AI upskilling?"
     answer_type: "single_choice"
     answer_options:
       - key: "high"
-        de: "Ja, >4 Stunden/Woche moeglich"
+        de: "Ja, >4 Stunden/Woche möglich"
         en: "Yes, >4 hours/week possible"
         score: 100
         order: 1
@@ -1065,7 +1065,7 @@ questions:
         score: 30
         order: 3
       - key: "none"
-        de: "Keine Zeit verfuegbar"
+        de: "Keine Zeit verfügbar"
         en: "No time available"
         score: 0
         order: 4
@@ -1115,17 +1115,17 @@ questions:
     answer_type: "single_choice"
     answer_options:
       - key: "full"
-        de: "Ja, uneingeschraenkt"
+        de: "Ja, uneingeschränkt"
         en: "Yes, unrestricted"
         score: 100
         order: 1
       - key: "restricted"
-        de: "Ja, aber eingeschraenkt / genehmigungspflichtig"
+        de: "Ja, aber eingeschränkt / genehmigungspflichtig"
         en: "Yes, but restricted / approval required"
         score: 60
         order: 2
       - key: "planned"
-        de: "Geplant, aber noch nicht verfuegbar"
+        de: "Geplant, aber noch nicht verfügbar"
         en: "Planned, but not yet available"
         score: 30
         order: 3
@@ -1141,7 +1141,7 @@ questions:
     section: "readiness"
     category: "infrastructure"
     question_text:
-      de: "Koennen Teams selbstaendig neue AI-Tools installieren und testen?"
+      de: "Können Teams selbständig neue AI-Tools installieren und testen?"
       en: "Can teams independently install and test new AI tools?"
     answer_type: "single_choice"
     answer_options:
@@ -1172,10 +1172,10 @@ questions:
     section: "readiness"
     category: "infrastructure"
     question_text:
-      de: "Sind Datenklassifizierungen klar definiert (oeffentlich, intern, vertraulich, streng vertraulich)?"
+      de: "Sind Datenklassifizierungen klar definiert (öffentlich, intern, vertraulich, streng vertraulich)?"
       en: "Are data classifications clearly defined (public, internal, confidential, strictly confidential)?"
     why_important:
-      de: "Klare Klassifizierung ermoeglicht sichere AI-Nutzung und bestimmt die CRAFT-Sicherheitsstufe"
+      de: "Klare Klassifizierung ermöglicht sichere AI-Nutzung und bestimmt die CRAFT-Sicherheitsstufe"
       en: "Clear classification enables safe AI usage and determines the CRAFT security tier"
     answer_type: "single_choice"
     answer_options:
@@ -1185,7 +1185,7 @@ questions:
         score: 100
         order: 1
       - key: "partial"
-        de: "Teilweise, nicht durchgaengig"
+        de: "Teilweise, nicht durchgängig"
         en: "Partially, not consistent"
         score: 60
         order: 2
@@ -1206,7 +1206,7 @@ questions:
     section: "readiness"
     category: "infrastructure"
     question_text:
-      de: "Welche Security-Haltung hat die Organisation gegenueber Cloud-AI-Services?"
+      de: "Welche Security-Haltung hat die Organisation gegenüber Cloud-AI-Services?"
       en: "What is the organization's security posture towards cloud AI services?"
     answer_type: "single_choice"
     answer_options:
@@ -1243,7 +1243,7 @@ questions:
       de: "Wie geht die Organisation mit Fehlern bei Experimenten um?"
       en: "How does the organization handle failures in experiments?"
     why_important:
-      de: "Psychologische Sicherheit ist der staerkste Praediktor fuer AI-Adoption"
+      de: "Psychologische Sicherheit ist der stärkste Prädiktor für AI-Adoption"
       en: "Psychological safety is the strongest predictor of AI adoption"
     answer_type: "single_choice"
     answer_options:
@@ -1274,7 +1274,7 @@ questions:
     section: "readiness"
     category: "culture"
     question_text:
-      de: "Haben Mitarbeiter Zeit fuer Innovation und Experimente?"
+      de: "Haben Mitarbeiter Zeit für Innovation und Experimente?"
       en: "Do employees have time for innovation and experiments?"
     answer_type: "single_choice"
     answer_options:
@@ -1284,7 +1284,7 @@ questions:
         score: 100
         order: 1
       - key: "encouraged"
-        de: "Ja, wird ermutigt wenn moeglich"
+        de: "Ja, wird ermutigt wenn möglich"
         en: "Yes, encouraged when possible"
         score: 70
         order: 2
@@ -1341,22 +1341,22 @@ questions:
     answer_type: "single_choice"
     answer_options:
       - key: "highly_flexible"
-        de: "Hoch flexibel: Teams koennen Prozesse anpassen"
+        de: "Hoch flexibel: Teams können Prozesse anpassen"
         en: "Highly flexible: Teams can adapt processes"
         score: 100
         order: 1
       - key: "moderate"
-        de: "Moderat: Aenderungen moeglich mit Genehmigung"
+        de: "Moderat: Änderungen möglich mit Genehmigung"
         en: "Moderate: Changes possible with approval"
         score: 70
         order: 2
       - key: "rigid"
-        de: "Starr: Schwierige Aenderungen"
+        de: "Starr: Schwierige Änderungen"
         en: "Rigid: Difficult to change"
         score: 30
         order: 3
       - key: "inflexible"
-        de: "Unflexibel: Keine Aenderungen moeglich"
+        de: "Unflexibel: Keine Änderungen möglich"
         en: "Inflexible: No changes possible"
         score: 0
         order: 4
@@ -1370,7 +1370,7 @@ questions:
     section: "readiness"
     category: "processes"
     question_text:
-      de: "Wo entstehen typischerweise die groessten Verzoegerungen in euren Entwicklungsprozessen? (Mehrfachauswahl)"
+      de: "Wo entstehen typischerweise die grössten Verzögerungen in euren Entwicklungsprozessen? (Mehrfachauswahl)"
       en: "Where do the biggest delays typically occur in your development processes? (Multiple selections)"
     why_important:
       de: "Value Stream First: AI kann gezielt Bottlenecks adressieren"
@@ -1379,11 +1379,11 @@ questions:
     allow_multiple: true
     answer_options:
       - key: "code_review"
-        de: "Code Reviews (Wartezeiten, Reviewer-Kapazitaet)"
+        de: "Code Reviews (Wartezeiten, Reviewer-Kapazität)"
         en: "Code Reviews (waiting times, reviewer capacity)"
         order: 1
       - key: "testing"
-        de: "Testing (Schreiben, Ausfuehren, Debugging)"
+        de: "Testing (Schreiben, Ausführen, Debugging)"
         en: "Testing (writing, executing, debugging)"
         order: 2
       - key: "documentation"
@@ -1391,7 +1391,7 @@ questions:
         en: "Documentation (technical, business, API docs)"
         order: 3
       - key: "requirements"
-        de: "Anforderungs-Klaerung (unklare Specs, Missverstaendnisse)"
+        de: "Anforderungs-Klärung (unklare Specs, Missverständnisse)"
         en: "Requirements clarification (unclear specs, misunderstandings)"
         order: 4
       - key: "deployment"
@@ -1399,15 +1399,15 @@ questions:
         en: "Deployment processes (configuration, rollouts, approvals)"
         order: 5
       - key: "knowledge_transfer"
-        de: "Wissenstransfer (Onboarding, Legacy-Code-Verstaendnis)"
+        de: "Wissenstransfer (Onboarding, Legacy-Code-Verständnis)"
         en: "Knowledge transfer (onboarding, legacy code understanding)"
         order: 6
       - key: "dependencies"
-        de: "Abhaengigkeiten (andere Teams, externe Partner)"
+        de: "Abhängigkeiten (andere Teams, externe Partner)"
         en: "Dependencies (other teams, external partners)"
         order: 7
       - key: "none"
-        de: "Keine signifikanten Verzoegerungen"
+        de: "Keine signifikanten Verzögerungen"
         en: "No significant delays"
         order: 8
     weight: 1.5
@@ -1420,7 +1420,7 @@ questions:
       de: "Wie gut sind eure Entwicklungsprozesse dokumentiert und verstanden?"
       en: "How well are your development processes documented and understood?"
     why_important:
-      de: "Gut dokumentierte Prozesse koennen einfacher durch AI optimiert werden"
+      de: "Gut dokumentierte Prozesse können einfacher durch AI optimiert werden"
       en: "Well-documented processes can be more easily optimized by AI"
     answer_type: "single_choice"
     answer_options:
@@ -1488,13 +1488,13 @@ scoring:
     interpretation:
       ready:
         threshold: 70
-        de: "Bereit fuer Transformation (Erweitern)"
+        de: "Bereit für Transformation (Erweitern)"
         en: "Ready for transformation (Expand)"
       partially_ready:
         threshold: 50
-        de: "Teilweise bereit — Luecken zuerst adressieren (Vertiefen)"
+        de: "Teilweise bereit — Lücken zürst adressieren (Vertiefen)"
         en: "Partially ready — address gaps first (Deepen)"
       not_ready:
         threshold: 0
-        de: "Nicht bereit — Grundlagenarbeit noetig (Konsolidieren)"
+        de: "Nicht bereit — Grundlagenarbeit nötig (Konsolidieren)"
         en: "Not ready — foundational work needed (Consolidate)"
