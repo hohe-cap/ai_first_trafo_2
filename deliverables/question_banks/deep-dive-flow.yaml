@@ -4,13 +4,13 @@
 # Extended exploration for the F dimension. Same quality criteria as Pulse Check.
 # See METHODOLOGY.md for design principles and scoring rules.
 #
-# Version: 2.0
-# Last Updated: 2026-02-12
-# Total Questions: 10 (2 Context + 4 Maturity + 2 MC-Diagnostik + 1 Powerful Question + 1 context)
-# Estimated Duration: 15-20 minutes
+# Version: 2.1
+# Last Updated: 2026-02-17
+# Total Questions: 11 (2 Context + 5 Maturity + 2 MC-Diagnostik + 1 Powerful Question + 1 context)
+# Estimated Duration: 20-25 minutes
 # =============================================================================
 
-version: "2.0"
+version: "2.1"
 exploration_type: "deep_dive_flow"
 dimension: "F"
 dimension_name:
@@ -20,14 +20,16 @@ dimension_name:
 description:
   de: >-
     Vertiefende Value-Stream-Analyse.
-    Bricht die Dimension F in 4 Sub-Topics auf: Bottleneck-Bewusstsein,
-    AI-Workflow-Integration, Wartezeit-/Rework-Reduktion und Flow-Messung.
+    Bricht die Dimension F in 5 Sub-Topics auf: Bottleneck-Bewusstsein,
+    AI-Workflow-Integration, Wartezeit-/Rework-Reduktion, Flow-Messung
+    und Flow-Measurement-Automation (Process Mining, AI-gestützte VSM).
   en: >-
     In-depth value stream analysis.
-    Breaks dimension F into 4 sub-topics: bottleneck awareness,
-    AI workflow integration, wait time/rework reduction, and flow measurement.
+    Breaks dimension F into 5 sub-topics: bottleneck awareness,
+    AI workflow integration, wait time/rework reduction, flow measurement,
+    and flow measurement automation (process mining, AI-supported VSM).
 
-estimated_duration_minutes: 20
+estimated_duration_minutes: 25
 frequency: "once_at_kickoff_then_on_demand"
 trigger:
   condition: "Kickoff baseline OR F-Score drop/stagnation in Pulse Check"
@@ -42,7 +44,7 @@ sub_topics:
       de: "Bottleneck-Bewusstsein"
       en: "Bottleneck Awareness"
     description:
-      de: "Wissen Teams, wo ihre groessten Verzoegerungen im Delivery-Prozess liegen?"
+      de: "Wissen Teams, wo ihre grössten Verzögerungen im Delivery-Prozess liegen?"
       en: "Do teams know where their biggest delays in the delivery process are?"
     order: 1
 
@@ -73,6 +75,15 @@ sub_topics:
       en: "Are flow metrics (DORA, cycle time) measured and used?"
     order: 4
 
+  - key: "flow_automation"
+    name:
+      de: "Flow-Measurement-Automation"
+      en: "Flow Measurement Automation"
+    description:
+      de: "Nutzen wir automatisierte Tools (Process Mining, AI-VSM) zur Flow-Analyse?"
+      en: "Do we use automated tools (process mining, AI-VSM) for flow analysis?"
+    order: 5
+
 # =============================================================================
 # QUESTIONS
 # =============================================================================
@@ -85,30 +96,38 @@ questions:
     question_type: "context"
     sub_topic: ~
     question_text:
-      de: "Wurde ein Value Stream Mapping (VSM) in den letzten 12 Monaten durchgefuehrt?"
-      en: "Was a Value Stream Mapping (VSM) conducted in the last 12 months?"
+      de: "Wie wird Value Stream Mapping (VSM) / Flow-Analyse bei euch durchgeführt?"
+      en: "How is Value Stream Mapping (VSM) / flow analysis conducted in your team?"
     why_important:
-      de: "VSM ist das zentrale Tool um Bottlenecks sichtbar zu machen. Ohne VSM ist Flow-Optimierung ein Ratespiel."
-      en: "VSM is the central tool for making bottlenecks visible. Without VSM, flow optimization is guesswork."
+      de: "VSM ist das zentrale Tool um Bottlenecks sichtbar zu machen. Process Mining und AI-Tools können Workshops ergänzen oder ersetzen."
+      en: "VSM is the central tool for making bottlenecks visible. Process mining and AI tools can complement or replace workshops."
     answer_type: "single_choice"
     answer_options:
-      - key: "detailed"
-        de: "Ja, detailliert (2-Tage-Workshop mit Metriken)"
-        en: "Yes, detailed (2-day workshop with metrics)"
+      - key: "process_mining"
+        de: "Process Mining / automatisierte Event-Log-Analyse (z.B. Celonis, UiPath)"
+        en: "Process mining / automated event log analysis (e.g., Celonis, UiPath)"
         order: 1
-      - key: "basic"
-        de: "Ja, Basis-Version (4h Workshop)"
-        en: "Yes, basic version (4h workshop)"
+      - key: "ai_vsm"
+        de: "AI-gestützte VSM-Tools (z.B. Visual Paradigm AI, Miro AI)"
+        en: "AI-supported VSM tools (e.g., Visual Paradigm AI, Miro AI)"
         order: 2
-      - key: "informal"
-        de: "Informell / ad-hoc analysiert"
-        en: "Informal / ad-hoc analyzed"
+      - key: "detailed_workshop"
+        de: "Klassischer Workshop detailliert (2 Tage mit Metriken)"
+        en: "Classic detailed workshop (2 days with metrics)"
         order: 3
-      - key: "no"
-        de: "Nein, nicht durchgefuehrt"
-        en: "No, not conducted"
+      - key: "basic_workshop"
+        de: "Klassischer Workshop Basis-Version (4h)"
+        en: "Classic basic workshop (4h)"
         order: 4
-    scoring_note: "Context only — does not feed into spider score directly"
+      - key: "informal"
+        de: "Informell / ad-hoc analysiert (Retros, Bauchgefühl)"
+        en: "Informal / ad-hoc analyzed (retros, gut feeling)"
+        order: 5
+      - key: "no"
+        de: "Nicht durchgeführt / kein VSM"
+        en: "Not conducted / no VSM"
+        order: 6
+    scoring_note: "Context only — but higher automation correlates with Evolving maturity"
     order: 1
 
   - question_key: "F-CTX-2"
@@ -118,7 +137,7 @@ questions:
       de: "Wie lange dauert im Durchschnitt ein Code Review (von PR-Erstellung bis Merge)?"
       en: "How long does code review take on average (from PR creation to merge)?"
     why_important:
-      de: "Code Review ist oft der groesste Bottleneck. Dient als Validierungspunkt fuer die Maturity-Antworten."
+      de: "Code Review ist oft der grösste Bottleneck. Dient als Validierungspunkt für die Maturity-Antworten."
       en: "Code review is often the biggest bottleneck. Serves as validation point for maturity answers."
     answer_type: "single_choice"
     answer_options:
@@ -135,7 +154,7 @@ questions:
         en: "1-3 days"
         order: 3
       - key: "over_3_days"
-        de: "Ueber 3 Tage"
+        de: "Über 3 Tage"
         en: "Over 3 days"
         order: 4
       - key: "unknown"
@@ -152,16 +171,16 @@ questions:
     question_type: "maturity"
     sub_topic: "bottleneck_awareness"
     question_text:
-      de: "Welche Stufe beschreibt euer Bewusstsein fuer Delivery-Bottlenecks am besten?"
+      de: "Welche Stufe beschreibt euer Bewusstsein für Delivery-Bottlenecks am besten?"
       en: "Which level best describes your awareness of delivery bottlenecks?"
     maturity_levels:
       1:
         label: "Exploring"
-        de: "Wir wissen nicht, wo unsere groessten Verzoegerungen liegen; wir haben unseren Delivery-Prozess nicht analysiert."
+        de: "Wir wissen nicht, wo unsere grössten Verzögerungen liegen; wir haben unseren Delivery-Prozess nicht analysiert."
         en: "We don't know where our biggest delays are; we haven't analyzed our delivery process."
       2:
         label: "Experimenting"
-        de: "Wir haben ein Bauchgefuehl fuer Bottlenecks, aber keine Daten um es zu belegen."
+        de: "Wir haben ein Bauchgefühl für Bottlenecks, aber keine Daten um es zu belegen."
         en: "We have a gut feeling about bottlenecks, but no data to back it up."
       3:
         label: "Embedding"
@@ -173,7 +192,7 @@ questions:
         en: "Bottlenecks are quantified with data; we address them systematically; progress is tracked."
       5:
         label: "Evolving"
-        de: "Bottleneck-Analyse ist kontinuierlich und datengetrieben; AI hilft, entstehende Engpaesse zu identifizieren bevor sie kritisch werden."
+        de: "Bottleneck-Analyse ist kontinuierlich und datengetrieben; AI hilft, entstehende Engpässe zu identifizieren bevor sie kritisch werden."
         en: "Bottleneck analysis is continuous and data-driven; AI helps identify emerging bottlenecks before they become critical."
     order: 3
 
@@ -194,15 +213,15 @@ questions:
         en: "Individuals use AI on the side (e.g., chat), but it's not a defined part of our team workflows."
       3:
         label: "Embedding"
-        de: "Wir haben erste AI-gestuetzte Workflows (z.B. PR Pre-Review, Testgenerierung), aber die meisten Prozesse laufen wie vorher."
+        de: "Wir haben erste AI-gestützte Workflows (z.B. PR Pre-Review, Testgenerierung), aber die meisten Prozesse laufen wie vorher."
         en: "We have initial AI-supported workflows (e.g., PR pre-review, test generation), but most processes run as before."
       4:
         label: "Scaling"
-        de: "AI ist in mehreren Kern-Workflows eingebettet (Code Review, Testing, Docs); es gibt definierte Prozesse dafuer."
+        de: "AI ist in mehreren Kern-Workflows eingebettet (Code Review, Testing, Docs); es gibt definierte Prozesse dafür."
         en: "AI is embedded in multiple core workflows (code review, testing, docs); there are defined processes for it."
       5:
         label: "Evolving"
-        de: "AI ist systematisch in unsere Wertschoepfungskette integriert; wir optimieren AI-gestuetzte Prozesse kontinuierlich."
+        de: "AI ist systematisch in unsere Wertschöpfungskette integriert; wir optimieren AI-gestützte Prozesse kontinuierlich."
         en: "AI is systematically integrated into our value stream; we continuously optimize AI-supported processes."
     order: 4
 
@@ -215,7 +234,7 @@ questions:
     maturity_levels:
       1:
         label: "Exploring"
-        de: "AI hat keinen erkennbaren Einfluss auf unsere Delivery-Geschwindigkeit oder -Qualitaet."
+        de: "AI hat keinen erkennbaren Einfluss auf unsere Delivery-Geschwindigkeit oder -Qualität."
         en: "AI has no recognizable impact on our delivery speed or quality."
       2:
         label: "Experimenting"
@@ -223,11 +242,11 @@ questions:
         en: "Individuals report time savings, but nothing measurable at team level."
       3:
         label: "Embedding"
-        de: "Wir sehen erste messbare Verbesserungen in bestimmten Bereichen (z.B. schnelleres Code Review, weniger manuelles Testing)."
+        de: "Wir sehen erste messbare Verbesserungen in bestimmten Bereichen (z.B. schnelleres Code Review, weniger manülles Testing)."
         en: "We see first measurable improvements in specific areas (e.g., faster code review, less manual testing)."
       4:
         label: "Scaling"
-        de: "Mehrere Delivery-Schritte sind messbar schneller oder haben weniger Rework; wir koennen Vorher/Nachher-Metriken zeigen."
+        de: "Mehrere Delivery-Schritte sind messbar schneller oder haben weniger Rework; wir können Vorher/Nachher-Metriken zeigen."
         en: "Multiple delivery steps are measurably faster or have less rework; we can show before/after metrics."
       5:
         label: "Evolving"
@@ -248,7 +267,7 @@ questions:
         en: "We don't measure delivery metrics (lead time, cycle time, etc.)."
       2:
         label: "Experimenting"
-        de: "Wir messen einzelne Dinge manuell und unregelmaessig; keine DORA-Metriken."
+        de: "Wir messen einzelne Dinge manuell und unregelmässig; keine DORA-Metriken."
         en: "We measure some things manually and irregularly; no DORA metrics."
       3:
         label: "Embedding"
@@ -264,22 +283,57 @@ questions:
         en: "Automated real-time flow dashboards; AI-driven insights; flow metrics drive continuous improvement."
     order: 6
 
+  - question_key: "F-M-AUTOMATION"
+    question_type: "maturity"
+    sub_topic: "flow_automation"
+    question_text:
+      de: "Welche Stufe beschreibt eure Nutzung von automatisierten Flow-Analyse-Tools am besten?"
+      en: "Which level best describes your use of automated flow analysis tools?"
+    why_important:
+      de: "Process Mining und AI-gestützte VSM-Tools reduzieren Workshop-Aufwand massiv und liefern objektive Daten. Compliance (Betriebsrat, DSGVO) muss aber beachtet werden."
+      en: "Process mining and AI-supported VSM tools massively reduce workshop effort and deliver objective data. But compliance (works council, GDPR) must be considered."
+    maturity_levels:
+      1:
+        label: "Exploring"
+        de: "Wir nutzen keine automatisierten Tools für Flow-Analyse; alles manuell via Workshops oder gar nicht."
+        en: "We don't use automated tools for flow analysis; everything manual via workshops or not at all."
+      2:
+        label: "Experimenting"
+        de: "Wir experimentieren mit Basic-Analytics (Jira/Azure DevOps Reports), aber keine dedizierte Process Mining / AI-VSM-Tools."
+        en: "We experiment with basic analytics (Jira/Azure DevOps reports), but no dedicated process mining / AI-VSM tools."
+      3:
+        label: "Embedding"
+        de: "Wir nutzen anonymisierte/aggregierte Daten aus Tools (z.B. Jira Stats) für VSM-Vorbereitung; reduziert Workshop-Aufwand auf ~1 Tag."
+        en: "We use anonymized/aggregated data from tools (e.g., Jira stats) for VSM preparation; reduces workshop effort to ~1 day."
+      4:
+        label: "Scaling"
+        de: "Process Mining oder AI-VSM ist im Einsatz (mit Betriebsratsvereinbarung / Compliance-Konzept); automatisierte Bottleneck-Erkennung; Workshop nur noch zur Validierung."
+        en: "Process mining or AI-VSM is in use (with works council agreement / compliance concept); automated bottleneck detection; workshop only for validation."
+      5:
+        label: "Evolving"
+        de: "Continuous Process Mining mit Predictive Analytics; VSM-Dashboards in Echtzeit; AI identifiziert Bottlenecks bevor sie kritisch werden; volle Compliance-Integration."
+        en: "Continuous process mining with predictive analytics; VSM dashboards in real-time; AI identifies bottlenecks before they become critical; full compliance integration."
+    compliance_note:
+      de: "WICHTIG: Process Mining mit User-Tracking erfordert Betriebsratsvereinbarung (§87 BetrVG) und Datenschutz-Folgenabschätzung. Stufe 3-4 mit anonymisierten Daten oft machbar, Stufe 5 nur mit robustem Governance-Modell."
+      en: "IMPORTANT: Process mining with user tracking requires works council agreement (§87 BetrVG) and data protection impact assessment. Level 3-4 with anonymized data often feasible, level 5 only with robust governance model."
+    order: 7
+
   # ---------------------------------------------------------------------------
   # MC DIAGNOSTICS
   # ---------------------------------------------------------------------------
   - question_key: "F-MC-BOTTLENECK"
     question_type: "diagnostic"
     question_text:
-      de: "Wo ist euer groesster Prozess-Bottleneck aktuell?"
+      de: "Wo ist euer grösster Prozess-Bottleneck aktuell?"
       en: "Where is your biggest process bottleneck currently?"
     answer_type: "single_choice"
     answer_options:
       - key: "pr_review"
-        de: "Code Review (Wartezeiten, Reviewer-Kapazitaet)"
+        de: "Code Review (Wartezeiten, Reviewer-Kapazität)"
         en: "Code review (wait times, reviewer capacity)"
         order: 1
       - key: "qa_testing"
-        de: "QA / Testing (manuell, langsam, Rework)"
+        de: "QA / Testing (manüll, langsam, Rework)"
         en: "QA / Testing (manual, slow, rework)"
         order: 2
       - key: "release_approvals"
@@ -287,7 +341,7 @@ questions:
         en: "Release approvals / release processes"
         order: 3
       - key: "environments"
-        de: "Umgebungen (Verfuegbarkeit, Konfiguration)"
+        de: "Umgebungen (Verfügbarkeit, Konfiguration)"
         en: "Environments (availability, configuration)"
         order: 4
       - key: "requirements"
@@ -295,7 +349,7 @@ questions:
         en: "Requirements / refinement (unclear, too long)"
         order: 5
       - key: "dependencies"
-        de: "Abhaengigkeiten von anderen Teams"
+        de: "Abhängigkeiten von anderen Teams"
         en: "Dependencies on other teams"
         order: 6
       - key: "none"
@@ -311,7 +365,7 @@ questions:
   - question_key: "F-MC-INTERVENTION"
     question_type: "diagnostic"
     question_text:
-      de: "Welche AI-Intervention wuerde euren Flow am meisten verbessern?"
+      de: "Welche AI-Intervention würde euren Flow am meisten verbessern?"
       en: "Which AI intervention would most improve your flow?"
     answer_type: "single_choice"
     answer_options:
@@ -328,7 +382,7 @@ questions:
         en: "Documentation automation"
         order: 3
       - key: "requirements_assist"
-        de: "AI-gestuetztes Ticket-Refinement / Requirements"
+        de: "AI-gestütztes Ticket-Refinement / Requirements"
         en: "AI-supported ticket refinement / requirements"
         order: 4
       - key: "incident_assist"
@@ -336,7 +390,7 @@ questions:
         en: "Incident assist / log analysis"
         order: 5
       - key: "deployment"
-        de: "AI-gestuetztes Deployment / Release Automation"
+        de: "AI-gestütztes Deployment / Release Automation"
         en: "AI-supported deployment / release automation"
         order: 6
       - key: "other"
@@ -352,11 +406,11 @@ questions:
     question_type: "powerful_question"
     optional: true
     question_text:
-      de: "Wenn du einen Schritt in eurem Delivery-Prozess mit AI automatisieren koenntest — welchen?"
+      de: "Wenn du einen Schritt in eurem Delivery-Prozess mit AI automatisieren könntest — welchen?"
       en: "If you could automate one step in your delivery process with AI — which one?"
     max_length: 280
     moderation_note:
-      de: "Nur als Themen-Cluster veroeffentlichen, nie als Rohtext. k-Anonymitaet beachten."
+      de: "Nur als Themen-Cluster veröffentlichen, nie als Rohtext. k-Anonymität beachten."
       en: "Only publish as topic clusters, never as raw text. Observe k-anonymity."
     order: 9
 
@@ -364,29 +418,30 @@ questions:
 # SCORING
 # =============================================================================
 scoring:
-  formula: "(median(F-M-BOTTLENECK, F-M-INTEGRATION, F-M-IMPACT, F-M-MEASUREMENT) * 0.6) + (min(F-M-BOTTLENECK, F-M-INTEGRATION, F-M-IMPACT, F-M-MEASUREMENT) * 0.4)"
+  formula: "(median(F-M-BOTTLENECK, F-M-INTEGRATION, F-M-IMPACT, F-M-MEASUREMENT, F-M-AUTOMATION) * 0.6) + (min(F-M-BOTTLENECK, F-M-INTEGRATION, F-M-IMPACT, F-M-MEASUREMENT, F-M-AUTOMATION) * 0.4)"
   scale: "1-5"
+  note: "F-M-AUTOMATION kann den Score senken wenn Compliance fehlt — ist Feature, kein Bug. Zeigt Governance-Readiness-Gap."
   interpretation:
     1:
       label: "Exploring"
-      de: "Keine Flow-Messung; unbekannte Bottlenecks; AI nicht in Prozessen."
-      en: "No flow measurement; unknown bottlenecks; AI not in processes."
+      de: "Keine Flow-Messung; unbekannte Bottlenecks; AI nicht in Prozessen; manuelle/keine VSM."
+      en: "No flow measurement; unknown bottlenecks; AI not in processes; manual/no VSM."
     2:
       label: "Experimenting"
-      de: "Bauchgefuehl fuer Bottlenecks; individuelle AI-Nutzung nebenbei; keine Metriken."
-      en: "Gut feeling about bottlenecks; individual AI usage on the side; no metrics."
+      de: "Bauchgefühl für Bottlenecks; individuelle AI-Nutzung nebenbei; keine Metriken; Basic-Analytics."
+      en: "Gut feeling about bottlenecks; individual AI usage on the side; no metrics; basic analytics."
     3:
       label: "Embedding"
-      de: "Bottlenecks bekannt; erste AI-Workflows; erste messbare Verbesserungen; DORA-Metriken entstehen."
-      en: "Bottlenecks known; initial AI workflows; first measurable improvements; DORA metrics emerging."
+      de: "Bottlenecks bekannt; erste AI-Workflows; erste messbare Verbesserungen; DORA-Metriken entstehen; anonymisierte Daten für VSM-Prep."
+      en: "Bottlenecks known; initial AI workflows; first measurable improvements; DORA metrics emerging; anonymized data for VSM prep."
     4:
       label: "Scaling"
-      de: "Datengetriebene Bottleneck-Analyse; AI in Kern-Workflows; messbare Impact-Reduktion; alle DORA-Metriken."
-      en: "Data-driven bottleneck analysis; AI in core workflows; measurable impact reduction; all DORA metrics."
+      de: "Datengetriebene Bottleneck-Analyse; AI in Kern-Workflows; messbare Impact-Reduktion; alle DORA-Metriken; Process Mining/AI-VSM mit Compliance."
+      en: "Data-driven bottleneck analysis; AI in core workflows; measurable impact reduction; all DORA metrics; process mining/AI-VSM with compliance."
     5:
       label: "Evolving"
-      de: "Kontinuierliche Flow-Optimierung; AI treibt Prozessinnovation; Echtzeit-Dashboards; proaktive Bottleneck-Erkennung."
-      en: "Continuous flow optimization; AI drives process innovation; real-time dashboards; proactive bottleneck detection."
+      de: "Kontinuierliche Flow-Optimierung; AI treibt Prozessinnovation; Echtzeit-Dashboards; Predictive Analytics; proaktive Bottleneck-Erkennung."
+      en: "Continuous flow optimization; AI drives process innovation; real-time dashboards; predictive analytics; proactive bottleneck detection."
 
 pulse_check_relationship:
   pulse_check_question: "F-M1"
