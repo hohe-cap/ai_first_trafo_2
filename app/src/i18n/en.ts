@@ -1,7 +1,7 @@
 export default {
   app: {
-    title: 'AI Navigator',
-    subtitle: 'CRAFT Exploration',
+    title: 'CRAFT Explorer',
+    subtitle: 'Making AI Transformation Measurable',
   },
   nav: {
     home: 'Home',
@@ -9,7 +9,7 @@ export default {
     results: 'Results',
   },
   home: {
-    welcome: 'Welcome to AI Navigator',
+    welcome: 'Welcome to CRAFT Explorer',
     description: 'Measure the AI maturity of your organizational unit using the CRAFT framework.',
     iAmFacilitator: 'I am a Facilitator',
     iAmFacilitatorDesc: 'Create exploration sessions and view results',
@@ -73,6 +73,19 @@ export default {
     loading: 'Loading exploration...',
     segmentationIntro: 'Before we start, a few quick questions about your context.',
     submitting: 'Saving your answers...',
+    introAnonymityTitle: 'Completely anonymous',
+    introAnonymityText: 'You only need the participation code — no login, no name, no email. Your answers cannot be traced back to you.',
+    introHonestyNote: 'Only honest answers help your team move forward!',
+    introMaturityLabel: 'Maturity levels (1–5)',
+    introMaturityDesc: 'Where does your team stand? These answers feed directly into the CRAFT score.',
+    introContextLabel: 'Context questions (A, B, C…)',
+    introContextDesc: 'Factual assessment — helps with analysis, does not affect scoring.',
+    introMcNote: 'Some questions allow multiple selections.',
+    introPowerfulLabel: 'Open questions',
+    introPowerfulDesc: 'Optional personal impulse — no scoring.',
+    introDuration: 'Estimated duration: ~{min} minutes',
+    introQuestionCount: '{total} questions',
+    introStart: 'Let\'s go',
     thankYou: 'Thank you!',
     thankYouDesc: 'Your answers have been saved. You can close this window.',
     editAnswers: 'Edit answers',

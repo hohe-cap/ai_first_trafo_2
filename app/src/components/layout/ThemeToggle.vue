@@ -10,7 +10,7 @@ onMounted(() => {
 function toggle() {
   dark.value = !dark.value
   document.documentElement.classList.toggle('dark', dark.value)
-  localStorage.setItem('ai-navigator:theme', dark.value ? 'dark' : 'light')
+  localStorage.setItem('craft-explorer:theme', dark.value ? 'dark' : 'light')
 }
 </script>
 

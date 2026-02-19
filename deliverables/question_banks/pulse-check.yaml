@@ -543,6 +543,10 @@ questions:
         de: "Häufig"
         en: "Frequently"
         order: 4
+      - key: "regularly"
+        de: "Regelmäßig / Täglich"
+        en: "Regularly / Daily"
+        order: 5
     order: 10
 
   # ---------------------------------------------------------------------------

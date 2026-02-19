@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Navigator — CRAFT Exploration</title>
+    <title>CRAFT Explorer</title>
   </head>
   <body>
     <script>
       // Apply dark mode before first paint to prevent flash
-      if (localStorage.getItem('ai-navigator:theme') === 'dark' ||
-          (!localStorage.getItem('ai-navigator:theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      if (localStorage.getItem('craft-explorer:theme') === 'dark' ||
+          (!localStorage.getItem('craft-explorer:theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark')
       }
     </script>

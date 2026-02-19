@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from '../i18n'
 import { useAssessmentStore } from '../stores/assessment'
@@ -11,6 +11,7 @@ import SegmentationForm from '../components/assessment/SegmentationForm.vue'
 import MaturityQuestion from '../components/assessment/MaturityQuestion.vue'
 import ChoiceQuestion from '../components/assessment/ChoiceQuestion.vue'
 import PowerfulQuestion from '../components/assessment/PowerfulQuestion.vue'
+import IntroPanel from '../components/assessment/IntroPanel.vue'
 import { localized } from '../utils/localized'
 
 const route = useRoute()
@@ -24,15 +25,22 @@ const {
   currentSubTopicLabel,
   segmentationFields,
   currentAnswer,
+  currentOtherText,
 } = useAssessmentFlow()
 
 const sessionId = route.params.id as string
+const showIntro = ref(true)
 
 onMounted(async () => {
   await store.initSession(sessionId, assessmentStore.questionBanks)
 
   if (store.error === 'alreadyCompleted') {
     router.replace({ name: 'thankYou', params: { id: sessionId } })
+  }
+
+  // Skip intro on re-entry (resuming from a saved response)
+  if (store.currentIndex > 0) {
+    showIntro.value = false
   }
 })
 
@@ -47,6 +55,12 @@ function handleSegmentationSubmit() {
 function handleAnswer(value: AnswerValue) {
   if (store.currentQuestion) {
     store.setAnswer(store.currentQuestion.question_key, value)
+  }
+}
+
+function handleOtherText(text: string) {
+  if (store.currentQuestion) {
+    store.setOtherText(store.currentQuestion.question_key, text)
   }
 }
 
@@ -96,6 +110,14 @@ async function handleFinish() {
     />
   </div>
 
+  <!-- Intro (shown once before the first question) -->
+  <IntroPanel
+    v-else-if="store.phase === 'questions' && showIntro && store.questionBank"
+    :bank="store.questionBank"
+    :locale="(locale as Locale)"
+    @start="showIntro = false"
+  />
+
   <!-- Questions -->
   <div v-else-if="store.phase === 'questions' && store.currentQuestion" class="mx-auto max-w-2xl px-4 py-8">
     <!-- Dimension / Sub-topic header -->
@@ -119,8 +141,10 @@ async function handleFinish() {
         v-else-if="store.currentQuestion.question_type === 'diagnostic' || store.currentQuestion.question_type === 'context' || store.currentQuestion.answer_options"
         :question="store.currentQuestion"
         :modelValue="(currentAnswer as string | string[] | null)"
+        :otherText="currentOtherText"
         :locale="(locale as Locale)"
         @update:modelValue="handleAnswer"
+        @update:otherText="handleOtherText"
       />
       <PowerfulQuestion
         v-else-if="store.currentQuestion.question_type === 'powerful_question'"

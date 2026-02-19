@@ -1,4 +1,4 @@
-# AI Navigator — App-Plan
+# CRAFT Explorer — App-Plan
 
 **Version:** 2.0
 **Erstellt:** 2026-02-13
@@ -8,7 +8,7 @@
 
 ## Vision
 
-Die AI Navigator App misst den aktuellen AI-Reifegrad einer Organisationseinheit
+Die CRAFT Explorer App misst den aktuellen AI-Reifegrad einer Organisationseinheit
 mithilfe des CRAFT-Frameworks und liefert die Datenbasis für konkrete
 Verbesserungsinitiativen.
 

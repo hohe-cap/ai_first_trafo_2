@@ -9,11 +9,13 @@ const { t } = useI18n()
 const props = defineProps<{
   question: Question
   modelValue: string | string[] | null
+  otherText?: string
   locale: Locale
 }>()
 
 const emit = defineEmits<{
   'update:modelValue': [value: string | string[]]
+  'update:otherText': [value: string]
 }>()
 
 const isMultiple = computed(
@@ -76,33 +78,42 @@ function toggleMultiple(key: string) {
     </p>
 
     <div class="space-y-3">
-      <button
-        v-for="(opt, idx) in sortedOptions"
-        :key="opt.key"
-        type="button"
-        class="flex w-full items-start gap-3 rounded-lg border-2 p-4 text-left transition"
-        :class="[
-          isSelected(opt.key)
-            ? 'border-blue-500 bg-blue-50 ring-2 ring-blue-200 dark:bg-blue-900/30 dark:ring-blue-800'
-            : isDisabled(opt.key)
-              ? 'cursor-not-allowed border-gray-200 bg-gray-50 opacity-50 dark:border-gray-700 dark:bg-gray-800/50'
-              : 'border-gray-200 bg-white hover:border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:hover:border-gray-500',
-        ]"
-        :disabled="isDisabled(opt.key)"
-        @click="isMultiple ? toggleMultiple(opt.key) : selectSingle(opt.key)"
-      >
-        <span
-          class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold"
+      <div v-for="(opt, idx) in sortedOptions" :key="opt.key">
+        <button
+          type="button"
+          class="flex w-full items-start gap-3 rounded-lg border-2 p-4 text-left transition"
           :class="[
             isSelected(opt.key)
-              ? 'bg-blue-600 text-white'
-              : 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300',
+              ? 'border-blue-500 bg-blue-50 ring-2 ring-blue-200 dark:bg-blue-900/30 dark:ring-blue-800'
+              : isDisabled(opt.key)
+                ? 'cursor-not-allowed border-gray-200 bg-gray-50 opacity-50 dark:border-gray-700 dark:bg-gray-800/50'
+                : 'border-gray-200 bg-white hover:border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:hover:border-gray-500',
           ]"
+          :disabled="isDisabled(opt.key)"
+          @click="isMultiple ? toggleMultiple(opt.key) : selectSingle(opt.key)"
         >
-          {{ idx + 1 }}
-        </span>
-        <span class="text-sm text-gray-800 dark:text-gray-200">{{ opt[locale] }}</span>
-      </button>
+          <span
+            class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold"
+            :class="[
+              isSelected(opt.key)
+                ? 'bg-blue-600 text-white'
+                : 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300',
+            ]"
+          >
+            {{ String.fromCharCode(65 + idx) }}
+          </span>
+          <span class="text-sm text-gray-800 dark:text-gray-200">{{ opt[locale] }}</span>
+        </button>
+        <!-- Free text input for "other" option -->
+        <input
+          v-if="opt.key === 'other' && isSelected('other')"
+          type="text"
+          class="mt-2 ml-10 w-[calc(100%-2.5rem)] rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-800 placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:placeholder-gray-500"
+          :placeholder="locale === 'de' ? 'Bitte beschreiben...' : 'Please describe...'"
+          :value="otherText ?? ''"
+          @input="emit('update:otherText', ($event.target as HTMLInputElement).value)"
+        />
+      </div>
     </div>
   </div>
 </template>

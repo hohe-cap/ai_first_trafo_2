@@ -168,7 +168,7 @@ sondern an fehlender Prozessintegration und Change Management.
 ### Werkzeuge & Deliverables
 
 **Primär:**
-- **AI Navigator App:** Web-App für CRAFT Explorer, begleitet durch AI Transformation Manager. Generiert CRAFT-Scores und Radar-Chart
+- **CRAFT Explorer App:** Web-App für CRAFT Exploration, begleitet durch AI Transformation Manager. Generiert CRAFT-Scores und Radar-Chart
 - **CRAFT Explorer:** Drei-Ebenen-Architektur (Question Banks in `deliverables/question_banks/`)
   - Ablauf: Deep-Dive (Kickoff-Baseline) → Analyse & Spider-Chart → Interventionen → Pulse Check (quartalsweise) → Deep-Dive bei Bedarf
   - Ebene 1: Context & Readiness (einmalig, Fakten, 35 Fragen)

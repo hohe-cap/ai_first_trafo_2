@@ -59,6 +59,11 @@ export function useAssessmentFlow() {
     return store.answers[store.currentQuestion.question_key] ?? null
   })
 
+  const currentOtherText = computed(() => {
+    if (!store.currentQuestion) return ''
+    return store.otherTexts[store.currentQuestion.question_key] ?? ''
+  })
+
   return {
     store,
     locale,
@@ -67,5 +72,6 @@ export function useAssessmentFlow() {
     currentSubTopicLabel,
     segmentationFields,
     currentAnswer,
+    currentOtherText,
   }
 }

@@ -45,8 +45,10 @@ onMounted(() => {
 })
 onUnmounted(() => observer.disconnect())
 
-async function loadResults() {
-  loading.value = true
+async function loadResults(silent = false) {
+  if (!silent) {
+    loading.value = true
+  }
   error.value = ''
   try {
     const [sess, res] = await Promise.all([
@@ -57,7 +59,7 @@ async function loadResults() {
     result.value = res
     bank.value = assessmentStore.questionBanks.get(sess.type) ?? null
   } catch (e) {
-    error.value = (e as Error).message
+    if (!silent) error.value = (e as Error).message
   } finally {
     loading.value = false
   }
@@ -65,10 +67,10 @@ async function loadResults() {
 
 onMounted(loadResults)
 
-// Auto-refresh every 30s
+// Auto-refresh every 30s (silent — no loading spinner, no scroll reset)
 let refreshTimer: ReturnType<typeof setInterval> | null = null
 onMounted(() => {
-  refreshTimer = setInterval(loadResults, 30_000)
+  refreshTimer = setInterval(() => loadResults(true), 30_000)
 })
 onUnmounted(() => {
   if (refreshTimer) clearInterval(refreshTimer)
@@ -220,6 +222,29 @@ function diagnosticOptionLabel(diag: DiagnosticSummary, optionKey: string): stri
   return opt[locale.value as 'de' | 'en'] ?? optionKey
 }
 
+// --- Diagnostic option entries: all options (incl. 0 count), "other" always last ---
+function diagnosticEntries(diag: DiagnosticSummary): [string, number][] {
+  if (!bank.value) {
+    return Object.entries(diag.counts).sort((a, b) => b[1] - a[1])
+  }
+  const q = bank.value.questions.find((qu) => qu.question_key === diag.question_key)
+  if (!q?.answer_options) {
+    return Object.entries(diag.counts).sort((a, b) => b[1] - a[1])
+  }
+  // Build entries from all defined options (preserving order, adding 0 for missing)
+  const entries: [string, number][] = q.answer_options
+    .filter((o) => o.key !== 'other')
+    .map((o) => [o.key, diag.counts[o.key] ?? 0] as [string, number])
+  // Sort non-other by count descending
+  entries.sort((a, b) => b[1] - a[1])
+  // Append "other" at the end if it exists as an option
+  const otherOpt = q.answer_options.find((o) => o.key === 'other')
+  if (otherOpt) {
+    entries.push(['other', diag.counts['other'] ?? 0])
+  }
+  return entries
+}
+
 // --- Sub-Topics for Deep-Dive ---
 function subTopicName(stKey: string): string {
   if (!bank.value) return stKey
@@ -296,7 +321,7 @@ function exportJSON() {
       <div class="flex gap-2">
         <button
           class="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
-          @click="loadResults"
+          @click="loadResults()"
         >
           {{ t('results.refresh') }}
         </button>
@@ -374,16 +399,17 @@ function exportJSON() {
               <tbody>
                 <tr v-for="s in result.scores" :key="s.dimension" class="border-b border-gray-100 dark:border-gray-700">
                   <td class="py-2.5 font-medium text-gray-900 dark:text-gray-100">{{ dimensionName(s.dimension) }}</td>
-                  <td class="py-2.5 text-right font-mono font-bold" :class="scoreColor(s.score)">{{ s.score }}</td>
+                  <td class="py-2.5 text-right font-mono font-bold" :class="scoreColor(s.score)">{{ s.score }} <span class="text-xs font-normal text-gray-400">/ 5</span></td>
                   <td class="py-2.5 text-right text-gray-600 dark:text-gray-400">{{ s.label }}</td>
                 </tr>
               </tbody>
             </table>
 
-            <!-- Sub-Topics (Deep-Dive only) -->
+            <!-- Sub-Topics (Deep-Dive only), grouped by dimension -->
             <template v-for="s in result.scores" :key="'st-' + s.dimension">
-              <div v-if="s.sub_topics && s.sub_topics.length > 0" class="mt-4">
-                <h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500">{{ t('results.subTopics') }}</h3>
+              <div v-if="s.sub_topics && s.sub_topics.length > 0" class="mt-5 border-t border-gray-100 pt-4 dark:border-gray-700">
+                <h3 class="mb-1 text-sm font-semibold text-gray-900 dark:text-gray-100">{{ dimensionName(s.dimension) }}</h3>
+                <p class="mb-2 text-xs text-gray-400 dark:text-gray-500">{{ t('results.subTopics') }} — Score {{ s.score }} / 5 ({{ s.label }})</p>
                 <div class="space-y-1">
                   <div
                     v-for="st in s.sub_topics"
@@ -391,7 +417,7 @@ function exportJSON() {
                     class="flex items-center justify-between rounded bg-gray-50 px-3 py-1.5 text-sm dark:bg-gray-700/50"
                   >
                     <span class="text-gray-700 dark:text-gray-300">{{ subTopicName(st.sub_topic) }}</span>
-                    <span class="font-mono font-bold" :class="scoreColor(st.score)">{{ st.score }}</span>
+                    <span class="font-mono font-bold" :class="scoreColor(st.score)">{{ st.score }} <span class="text-xs font-normal text-gray-400">/ 5</span></span>
                   </div>
                 </div>
               </div>
@@ -408,19 +434,26 @@ function exportJSON() {
             <h3 class="mb-2 text-sm font-medium text-gray-800 dark:text-gray-200">{{ diagnosticQuestionText(diag) }}</h3>
             <div class="space-y-1.5">
               <div
-                v-for="[optKey, count] in Object.entries(diag.counts).sort((a, b) => b[1] - a[1])"
+                v-for="[optKey, count] in diagnosticEntries(diag)"
                 :key="optKey"
                 class="flex items-center gap-3"
+                :class="{ 'opacity-40': count === 0 }"
               >
                 <div class="h-2 flex-1 rounded-full bg-gray-100 dark:bg-gray-700">
                   <div
                     class="h-2 rounded-full bg-blue-500"
-                    :style="{ width: `${(count / diag.total) * 100}%` }"
+                    :style="{ width: diag.total > 0 ? `${(count / diag.total) * 100}%` : '0%' }"
                   />
                 </div>
-                <span class="w-10 text-right font-mono text-xs text-gray-500 dark:text-gray-400">{{ Math.round((count / diag.total) * 100) }}%</span>
-                <span class="min-w-0 shrink-0 text-sm text-gray-700 dark:text-gray-300">{{ diagnosticOptionLabel(diag, optKey) }}</span>
+                <span class="w-10 text-right font-mono text-xs text-gray-500 dark:text-gray-400">{{ diag.total > 0 ? Math.round((count / diag.total) * 100) : 0 }}%</span>
+                <span class="min-w-0 shrink-0 text-sm text-gray-700 dark:text-gray-300" :class="{ 'italic': optKey === 'other' }">{{ diagnosticOptionLabel(diag, optKey) }}</span>
               </div>
+            </div>
+            <!-- "Other" free text responses -->
+            <div v-if="diag.other_texts && diag.other_texts.length > 0" class="mt-2 ml-1 space-y-1">
+              <p v-for="(txt, i) in diag.other_texts" :key="i" class="text-xs italic text-gray-500 dark:text-gray-400">
+                &ldquo;{{ txt }}&rdquo;
+              </p>
             </div>
             <p class="mt-1 text-xs text-gray-400 dark:text-gray-500">{{ diag.total }} {{ t('results.answers') }}</p>
           </div>

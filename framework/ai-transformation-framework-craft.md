@@ -42,7 +42,7 @@ Das AI Transformation Framework adressiert diese Lücke mit drei Kernprinzipien:
 
 ## 2. Framework-Architektur: CRAFT-Dimensionen & Iterativer Prozess
 
-Das Framework besteht aus zwei Ebenen: fünf inhaltlichen **CRAFT-Dimensionen** (was wir steuern und messen) und einem **iterativen Prozessrahmen** (wie wir arbeiten). Die Dimensionen sind gleichzeitig aktiv – jede hat zu jedem Zeitpunkt eine Intensität (von Monitoring bis Deep Work), aber keine ist jemals abgeschlossen. Der Prozessrahmen „Discover & Navigate" bildet das Betriebssystem: er steuert die 4-Wochen-Iterationszyklen und stellt über den AI Navigator Pulse Check sicher, dass alle Dimensionen kontinuierlich gemessen und adressiert werden (siehe Kapitel 3).
+Das Framework besteht aus zwei Ebenen: fünf inhaltlichen **CRAFT-Dimensionen** (was wir steuern und messen) und einem **iterativen Prozessrahmen** (wie wir arbeiten). Die Dimensionen sind gleichzeitig aktiv – jede hat zu jedem Zeitpunkt eine Intensität (von Monitoring bis Deep Work), aber keine ist jemals abgeschlossen. Der Prozessrahmen „Discover & Navigate" bildet das Betriebssystem: er steuert die 4-Wochen-Iterationszyklen und stellt über den CRAFT Explorer Pulse Check sicher, dass alle Dimensionen kontinuierlich gemessen und adressiert werden (siehe Kapitel 3).
 
 ### Die 5 CRAFT-Dimensionen
 
@@ -160,9 +160,9 @@ flowchart TB
 
 ### Iterativer Prozessrahmen: Discover & Navigate
 
-Der Prozessrahmen ist das Betriebssystem der Transformation. Er ersetzt die klassische einmalige Bestandsaufnahme durch eine kontinuierliche Standortbestimmung und folgt einem PDCA-Zyklus (Plan – Do – Check – Adjust) in 4-Wochen-Iterationen (siehe Kapitel 3). Wir sprechen bewusst von **Exploration** statt Assessment — der Prozess ist ein gemeinsames Erkunden, keine Prüfung. Werkzeuge dafür sind der **AI Navigator** (App) und der **Pulse Check** als regelmäßiger Durchlauf.
+Der Prozessrahmen ist das Betriebssystem der Transformation. Er ersetzt die klassische einmalige Bestandsaufnahme durch eine kontinuierliche Standortbestimmung und folgt einem PDCA-Zyklus (Plan – Do – Check – Adjust) in 4-Wochen-Iterationen (siehe Kapitel 3). Wir sprechen bewusst von **Exploration** statt Assessment — der Prozess ist ein gemeinsames Erkunden, keine Prüfung. Werkzeuge dafür sind der **CRAFT Explorer** (App) und der **Pulse Check** als regelmäßiger Durchlauf.
 
-#### AI Navigator (App)
+#### CRAFT Explorer (App)
 
 Eine interaktive Anwendung, die vom AI Transformation Manager begleitet wird. Sie ist bewusst nicht als Audit konzipiert, sondern als gemeinsames Explorations-Werkzeug. Teams führen die Erhebung eigenständig durch; Analyse, Auswertung und Ableitung der nächsten Schritte erfolgen immer durch den AI Transformation Manager.
 
@@ -583,7 +583,7 @@ Dies ist die Schlüsselrolle des gesamten Frameworks. Der AI Transformation Mana
 
 ## 6. Die AI Adoption Roadmap (Kundenergebnis)
 
-Am Ende des Beratungsprozesses (oder nach den ersten 2 Iterationszyklen bei interner Anwendung) erhält das Team bzw. die Organisation eine individuelle AI Adoption Roadmap. Diese wird aus den Ergebnissen des AI Navigator Pulse Checks, des Value Stream Mappings und der Governance-Analyse generiert.
+Am Ende des Beratungsprozesses (oder nach den ersten 2 Iterationszyklen bei interner Anwendung) erhält das Team bzw. die Organisation eine individuelle AI Adoption Roadmap. Diese wird aus den Ergebnissen des CRAFT Explorer Pulse Checks, des Value Stream Mappings und der Governance-Analyse generiert.
 
 ### 6.1 Roadmap-Bestandteile
 
@@ -612,7 +612,7 @@ Das Framework ist mehr als ein Strategiepapier. Folgende konkrete Werkzeuge und 
 
 | Werkzeug | Beschreibung | Status | Priorität |
 |----------|--------------|--------|-----------|
-| AI Navigator App | Web-basierte App für CRAFT Explorer (Deep-Dive + Pulse Check), begleitet durch AI Transformation Manager. Generiert CRAFT-Scores und Radar-Chart als Grundlage für gemeinsame Roadmap-Ableitung | Zu entwickeln | Hoch |
+| CRAFT Explorer App | Web-basierte App für CRAFT Explorer (Deep-Dive + Pulse Check), begleitet durch AI Transformation Manager. Generiert CRAFT-Scores und Radar-Chart als Grundlage für gemeinsame Roadmap-Ableitung | Zu entwickeln | Hoch |
 | CRAFT Explorer | Drei-Ebenen-Fragenarchitektur (Context & Readiness + Pulse Check + 5 Deep-Dives) mit Design-Methodik. 7 YAML-Dateien + METHODOLOGY.md in `deliverables/question_banks/` | **v2.0 fertig** | Hoch |
 | AI Intervention Katalog | Kuratierte Zuordnung von SDLC-Phasen zu AI-Lösungen mit Tooling-Alternativen pro Sicherheitsstufe | Entwurf vorhanden | Hoch |
 | Value Stream Mapping Template | Workshop-Material und Vorlagen für den 2-Tages-VSM-Workshop | Zu entwickeln | Hoch |
@@ -683,7 +683,7 @@ Wir erfinden nicht neu, was bereits validiert ist. Die folgende Tabelle zeigt f�
 | **MITRE AI MM** | 5-Stufen-Reifegradlogik, Dimensionen-Architektur, Bewertungsmethodik | Die 20 Dimensionen (zu breit, nicht SDLC-spezifisch), organisationsweiten Scope | MITRE bewertet ganze Organisationen. Wir brauchen ein Instrument, das auf Team-Ebene im SDLC-Kontext funktioniert und in 15 Minuten ausfüllbar ist. |
 | **SEI/Accenture AI Adoption MM** | Workflow-Re-engineering als eigenständige Dimension, Workforce & Culture Fokus | 8-Dimensionen-Modell (zu granular für Pulse Checks), akademische Validierungsanforderungen | Das SEI-Modell ist für Forschungszwecke konzipiert, nicht für operative Steuerung in 4-Wochen-Zyklen. Unsere CRAFT-Verdichtung auf 5 Dimensionen ist ein bewusster Trade-off zwischen Tiefe und Anwendbarkeit. |
 | **Gartner AI MM** | Stufen-Bezeichnungen als Benchmark-Referenz, Marktdurchdringungsdaten | Die Stufen-Definitionen (zu abstrakt, keine Handlungsanleitung) | Gartner sagt dir, wo du stehst, aber nicht wie du dich bewegst. Unser Framework liefert das „Wie" durch Iterationszyklen und konkrete Werkzeuge. |
-| **EY.ai** | 15-Minuten-Zeitrahmen für Self-Assessment als validiertes Design-Prinzip | Sales-Funnel-Orientierung, Beratungsabhängigkeit im Ergebnis | EY nutzt das Assessment als Lead-Generator. Unser AI Navigator soll Teams zur Selbststeuerung befähigen, nicht zur Beratungsabhängigkeit führen. |
+| **EY.ai** | 15-Minuten-Zeitrahmen für Self-Assessment als validiertes Design-Prinzip | Sales-Funnel-Orientierung, Beratungsabhängigkeit im Ergebnis | EY nutzt das Assessment als Lead-Generator. Unser CRAFT Explorer soll Teams zur Selbststeuerung befähigen, nicht zur Beratungsabhängigkeit führen. |
 | **OWASP AIMA** | Security-Governance als durchgängige Dimension, Risikokategorisierung | Fokussierung auf AI-System-Entwicklung (wir nutzen AI, wir entwickeln sie nicht primär) | OWASP adressiert Organisationen, die AI-Systeme bauen. Wir adressieren Teams, die AI-Werkzeuge im SDLC einsetzen. Der Governance-Bedarf überlappt, aber der Kontext ist verschieden. |
 | **Kotter 8 Accelerators** | Guiding Coalition → AI Adoption Team, Volunteer Army → Champion-Netzwerk, Dual Operating System, nicht-lineares Change-Modell | Urgency-Erzeugung als Startpunkt (in AI-Kontext bereits vorhanden), Vision-Kommunikation als Phase (bei uns kontinuierlich) | Kotter liefert die Change-Architektur, aber keine Technologie-Brücke. Wir ergänzen die fehlende Verbindung zwischen Change-Theorie und konkreter AI-Tool-Integration. |
 | **Prosci ADKAR** | Individuelle Change-Perspektive als Ergänzung zur Team-Ebene, Reinforcement-Prinzip | ADKAR als primäres Steuerungsmodell (zu linear für unseren Kontext) | ADKAR beschreibt den individuellen Change-Pfad gut, aber steuert keine Team-Transformation und keine technische Dimension. Wir nutzen es als Linse für die Human-Dimension, nicht als Framework-Gerüst. |
@@ -757,7 +757,7 @@ Nicht alle Werkzeuge müssen gleichzeitig fertig sein. Der kritische Pfad für e
 |---|-------------|-------------|---------|
 | A1 | Governance Starter Kit (Stufe 1+2) | Ohne Governance-Freigabe startet kein Pilot im Konzernumfeld. Dies ist erfahrungsgemäß der längste Vorlauf. | 2 Wochen Erstellung + Abstimmungszeit |
 | A2 | AI Intervention Katalog v1 (Top 10) | Nicht den vollständigen Katalog, sondern die 10 häufigsten Interventionen für Development, Testing und Documentation. Das reicht für einen Pilot. | 2 Wochen |
-| A3 | CRAFT Explorer v2.0 | **Fertig.** Alle Question Banks (Context & Readiness + Pulse Check + 5 Deep-Dives) mit Scoring-Methodik liegen als YAML vor. Für den Pilot reicht die Umsetzung als Google/MS Forms oder die AI Navigator App (MVP). | ✅ Vorhanden |
+| A3 | CRAFT Explorer v2.0 | **Fertig.** Alle Question Banks (Context & Readiness + Pulse Check + 5 Deep-Dives) mit Scoring-Methodik liegen als YAML vor. Für den Pilot reicht die Umsetzung als Google/MS Forms oder die CRAFT Explorer App (MVP). | ✅ Vorhanden |
 | A4 | Value Stream Workshop Kurzformat | Statt 2-Tages-Workshop ein fokussiertes 4-Stunden-Format für den Pilot. Vollversion nach Learnings. | 1 Woche |
 
 **Phase B: Pilot-Durchführung (24 Wochen / 6 Zyklen)**
@@ -773,7 +773,7 @@ Nicht alle Werkzeuge müssen gleichzeitig fertig sein. Der kritische Pfad für e
 
 | # | Arbeitspaket | Beschreibung | Aufwand |
 |---|-------------|-------------|---------|
-| C1 | AI Navigator App (MVP) | Basierend auf Pilot-Learnings: Fragebogen-Design finalisieren, Scoring-Logik kalibrieren, Web-App bauen. | 4–6 Wochen |
+| C1 | CRAFT Explorer App (MVP) | Basierend auf Pilot-Learnings: Fragebogen-Design finalisieren, Scoring-Logik kalibrieren, Web-App bauen. | 4–6 Wochen |
 | C2 | AI Transformation Manager Handbuch | Rollenbeschreibung, Ausbildungspfad, Werkzeugkoffer – informiert durch echte Pilot-Erfahrung. | 2–3 Wochen |
 | C3 | Pitch-Material & Case Study | Pilot-Ergebnisse aufbereiten für interne Vermarktung und Kundengespräche. | 1–2 Wochen |
 

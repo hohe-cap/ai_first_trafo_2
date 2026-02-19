@@ -14,6 +14,7 @@ export const useResponseStore = defineStore('response', () => {
   const respondentId = ref('')
   const segmentation = ref<Record<string, string>>({})
   const answers = ref<Record<string, AnswerValue>>({})
+  const otherTexts = ref<Record<string, string>>({})
   const currentIndex = ref(0)
   const phase = ref<FlowPhase>('loading')
   const startedAt = ref('')
@@ -109,6 +110,7 @@ export const useResponseStore = defineStore('response', () => {
         // Restore state (works for both in-progress and completed-but-reopenable)
         segmentation.value = existing.segmentation ?? {}
         answers.value = existing.answers ?? {}
+        otherTexts.value = existing.other_texts ?? {}
         startedAt.value = existing.started_at
 
         if (existing.completed_at) {
@@ -122,10 +124,11 @@ export const useResponseStore = defineStore('response', () => {
         phase.value = 'questions'
       } catch {
         // No existing response — check localStorage draft
-        const draft = loadFromStorage<{ segmentation: Record<string, string>; answers: Record<string, AnswerValue> }>(`draft:${sessionId}`)
+        const draft = loadFromStorage<{ segmentation: Record<string, string>; answers: Record<string, AnswerValue>; other_texts?: Record<string, string> }>(`draft:${sessionId}`)
         if (draft) {
           segmentation.value = draft.segmentation ?? {}
           answers.value = draft.answers ?? {}
+          otherTexts.value = draft.other_texts ?? {}
         }
 
         startedAt.value = new Date().toISOString()
@@ -161,6 +164,16 @@ export const useResponseStore = defineStore('response', () => {
 
   function setAnswer(questionKey: string, value: AnswerValue) {
     answers.value[questionKey] = value
+    saveDraft()
+    scheduleSave()
+  }
+
+  function setOtherText(questionKey: string, text: string) {
+    if (text) {
+      otherTexts.value[questionKey] = text
+    } else {
+      delete otherTexts.value[questionKey]
+    }
     saveDraft()
     scheduleSave()
   }
@@ -214,6 +227,7 @@ export const useResponseStore = defineStore('response', () => {
       session_id: session.value.id,
       segmentation: segmentation.value,
       answers: answers.value,
+      other_texts: Object.keys(otherTexts.value).length > 0 ? otherTexts.value : undefined,
       started_at: startedAt.value,
       updated_at: new Date().toISOString(),
     }
@@ -233,6 +247,7 @@ export const useResponseStore = defineStore('response', () => {
     saveToStorage(`draft:${session.value.id}`, {
       segmentation: segmentation.value,
       answers: answers.value,
+      other_texts: otherTexts.value,
     })
   }
 
@@ -242,6 +257,7 @@ export const useResponseStore = defineStore('response', () => {
     respondentId.value = ''
     segmentation.value = {}
     answers.value = {}
+    otherTexts.value = {}
     currentIndex.value = 0
     phase.value = 'loading'
     startedAt.value = ''
@@ -257,6 +273,7 @@ export const useResponseStore = defineStore('response', () => {
     respondentId,
     segmentation,
     answers,
+    otherTexts,
     currentIndex,
     phase,
     startedAt,
@@ -273,6 +290,7 @@ export const useResponseStore = defineStore('response', () => {
     initSession,
     setSegmentation,
     setAnswer,
+    setOtherText,
     goNext,
     goPrev,
     finalize,

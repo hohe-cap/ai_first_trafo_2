@@ -1,5 +1,5 @@
 services:
-  ai-navigator:
+  craft-explorer:
     build:
       context: ..
       dockerfile: app/Dockerfile

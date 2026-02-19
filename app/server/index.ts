@@ -62,7 +62,7 @@ async function start() {
 
   try {
     await fastify.listen({ port: PORT, host: HOST })
-    fastify.log.info(`AI Navigator running at http://${HOST}:${PORT}`)
+    fastify.log.info(`CRAFT Explorer running at http://${HOST}:${PORT}`)
   } catch (err) {
     fastify.log.error(err)
     process.exit(1)

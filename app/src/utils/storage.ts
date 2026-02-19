@@ -1,4 +1,4 @@
-const STORAGE_PREFIX = 'ai-navigator:'
+const STORAGE_PREFIX = 'craft-explorer:'
 
 export function saveToStorage<T>(key: string, value: T): void {
   localStorage.setItem(`${STORAGE_PREFIX}${key}`, JSON.stringify(value))

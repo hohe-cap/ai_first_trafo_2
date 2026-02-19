@@ -16,6 +16,7 @@ export interface DiagnosticSummary {
   dimension?: string
   counts: Record<string, number>
   total: number
+  other_texts?: string[]
 }
 
 export interface SessionResult {

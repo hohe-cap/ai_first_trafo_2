@@ -532,6 +532,10 @@ questions:
         de: Häufig
         en: Frequently
         order: 4
+      - key: regularly
+        de: Regelmäßig / Täglich
+        en: Regularly / Daily
+        order: 5
     scoring_note: Context only — trend indicator for unmet demand
     order: 11
     dimension: R

@@ -206,6 +206,7 @@ function summarizeDiagnostics(
 
   return diagnosticQuestions.map((q) => {
     const counts: Record<string, number> = {}
+    const collectedTexts: string[] = []
     let total = 0
 
     for (const r of responses) {
@@ -219,6 +220,10 @@ function summarizeDiagnostics(
           counts[key] = (counts[key] ?? 0) + 1
         }
       }
+
+      // Collect "other" free text
+      const txt = r.other_texts?.[q.question_key]
+      if (txt) collectedTexts.push(txt)
     }
 
     return {
@@ -226,6 +231,7 @@ function summarizeDiagnostics(
       dimension: q.dimension,
       counts,
       total,
+      other_texts: collectedTexts.length > 0 ? collectedTexts : undefined,
     }
   })
 }
