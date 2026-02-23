@@ -4,6 +4,7 @@ import fastifyCors from '@fastify/cors'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { readFile } from 'node:fs/promises'
+import { exec } from 'node:child_process'
 import { JsonStore } from './storage/json-store.js'
 import { sessionRoutes } from './routes/sessions.js'
 import { responseRoutes } from './routes/responses.js'
@@ -12,6 +13,7 @@ import { resultsRoutes } from './routes/results.js'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const DATA_DIR = process.env.DATA_DIR || join(__dirname, '..', 'server-data')
+const DIST_DIR = process.env.DIST_DIR || join(__dirname, '..', 'dist')
 const PORT = Number(process.env.PORT) || 3000
 const HOST = process.env.HOST || '0.0.0.0'
 
@@ -42,16 +44,15 @@ async function start() {
   })
 
   // Serve Vue SPA static files (production only)
-  const distDir = join(__dirname, '..', 'dist')
   await fastify.register(fastifyStatic, {
-    root: distDir,
+    root: DIST_DIR,
     prefix: '/',
     decorateReply: false,
     wildcard: false,
   })
 
   // SPA fallback: serve index.html for non-API, non-file routes
-  const indexHtmlPath = join(distDir, 'index.html')
+  const indexHtmlPath = join(DIST_DIR, 'index.html')
   fastify.setNotFoundHandler(async (request, reply) => {
     if (request.url.startsWith('/api/')) {
       return reply.status(404).send({ error: 'Not found' })
@@ -62,7 +63,16 @@ async function start() {
 
   try {
     await fastify.listen({ port: PORT, host: HOST })
-    fastify.log.info(`CRAFT Explorer running at http://${HOST}:${PORT}`)
+    const url = `http://localhost:${PORT}`
+    fastify.log.info(`CRAFT Explorer running at ${url}`)
+
+    // Auto-open browser in standalone mode
+    if (process.env.OPEN_BROWSER === '1') {
+      const cmd = process.platform === 'win32' ? `start "" "${url}"`
+        : process.platform === 'darwin' ? `open "${url}"`
+        : `xdg-open "${url}"`
+      exec(cmd, () => {})
+    }
   } catch (err) {
     fastify.log.error(err)
     process.exit(1)

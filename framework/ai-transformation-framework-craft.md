@@ -615,6 +615,7 @@ Das Framework ist mehr als ein Strategiepapier. Folgende konkrete Werkzeuge und 
 | CRAFT Explorer App | Web-basierte App für CRAFT Explorer (Deep-Dive + Pulse Check), begleitet durch AI Transformation Manager. Generiert CRAFT-Scores und Radar-Chart als Grundlage für gemeinsame Roadmap-Ableitung | Zu entwickeln | Hoch |
 | CRAFT Explorer | Drei-Ebenen-Fragenarchitektur (Context & Readiness + Pulse Check + 5 Deep-Dives) mit Design-Methodik. 7 YAML-Dateien + METHODOLOGY.md in `deliverables/question_banks/` | **v2.0 fertig** | Hoch |
 | AI Intervention Katalog | Kuratierte Zuordnung von SDLC-Phasen zu AI-Lösungen mit Tooling-Alternativen pro Sicherheitsstufe | Entwurf vorhanden | Hoch |
+| Interventionskatalog Readiness (R) | Score-basierte Interventionsempfehlungen für Dimension R mit Diagnostik-Mapping, Steckbriefen und Priorisierungsmatrix. `deliverables/intervention-catalogue-readiness.md` | **v1.0 DRAFT** | Hoch |
 | Value Stream Mapping Template | Workshop-Material und Vorlagen für den 2-Tages-VSM-Workshop | Zu entwickeln | Hoch |
 | Governance Starter Kit | Policy-Vorlagen, Entscheidungsbaum, Betriebsrats-Leitfaden | Teilweise vorhanden | Hoch |
 | Technical Playbooks | Setup-Anleitungen pro Sicherheitsstufe (IDE bis LLM-Deployment) | Teilweise vorhanden | Mittel |

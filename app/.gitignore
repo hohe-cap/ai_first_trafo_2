@@ -2,5 +2,6 @@ node_modules/
 dist/
 server-dist/
 server-data/
+standalone/
 public/data/*.yaml
 *.local

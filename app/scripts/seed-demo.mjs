@@ -15,8 +15,8 @@ import yaml from 'js-yaml'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const APP_DIR = join(__dirname, '..')
-const DATA_DIR = join(APP_DIR, 'server-data')
-const YAML_DIR = join(APP_DIR, '..', 'deliverables', 'question_banks')
+const DATA_DIR = process.env.DATA_DIR || join(APP_DIR, 'server-data')
+const YAML_DIR = process.env.YAML_DIR || join(APP_DIR, '..', 'deliverables', 'question_banks')
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 

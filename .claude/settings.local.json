@@ -10,7 +10,12 @@
       "Bash(python3:*)",
       "Bash(source ~/.nvm/nvm.sh)",
       "Bash(nvm use:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(grep:*)",
+      "Bash(npx vue-tsc:*)",
+      "Bash(npm run build:*)",
+      "Bash(wc:*)",
+      "Bash(curl:*)"
     ]
   }
 }

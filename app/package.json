@@ -11,6 +11,8 @@
     "copy-yamls:server": "mkdir -p server-data/question-banks && cp ../deliverables/question_banks/*.yaml server-data/question-banks/ 2>/dev/null; echo 'YAMLs copied to server-data'",
     "build": "npm run copy-yamls && vue-tsc -b && vite build",
     "build:server": "esbuild server/index.ts --bundle --platform=node --format=esm --outfile=server-dist/index.mjs --packages=external",
+    "build:server:standalone": "esbuild server/index.ts --bundle --platform=node --format=esm --outfile=server-dist/index.mjs",
+    "build:standalone": "node scripts/build-standalone.mjs",
     "start": "npm run copy-yamls:server && node server-dist/index.mjs",
     "preview": "vite preview",
     "test": "vitest run",
