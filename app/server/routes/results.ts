@@ -66,7 +66,8 @@ export async function resultsRoutes(
       const responses = (await store.getAllResponses(sessionId)) as unknown as ResponsePayload[]
 
       // Calculate results
-      const results = calculateSessionResults(bank, responses, sessionId)
+      const contextProfile = (session as Record<string, unknown>).context_profile as string | undefined
+      const results = calculateSessionResults(bank, responses, sessionId, contextProfile)
 
       return results
     },

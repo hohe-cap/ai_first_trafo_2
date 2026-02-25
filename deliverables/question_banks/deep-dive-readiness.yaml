@@ -114,9 +114,13 @@ questions:
   - question_key: "R-CTX-2"
     question_type: "context"
     sub_topic: ~
+    challenge_ref: ["A-H4", "R-H3"]
     question_text:
       de: "Nutzt du aktuell nicht-freigegebene AI-Tools (Shadow AI) für Arbeitszwecke?"
       en: "Do you currently use non-approved AI tools (Shadow AI) for work purposes?"
+    normalization_note:
+      de: "In vielen Teams nutzen Mitarbeitende private AI-Tools, um produktiver zu sein — das ist ein häufiges und verständliches Verhalten. Deine ehrliche Antwort hilft uns, bessere offizielle Lösungen zu schaffen."
+      en: "In many teams, people use private AI tools to be more productive — this is a common and understandable behavior. Your honest answer helps us create better official solutions."
     why_important:
       de: "Shadow AI zeigt unerfüllten Bedarf. Hohe Shadow-AI-Rate = Teams wollen AI nutzen, offizielle Wege sind blockiert."
       en: "Shadow AI shows unmet need. High shadow AI rate = teams want AI, official paths are blocked."
@@ -272,6 +276,10 @@ questions:
   # ---------------------------------------------------------------------------
   - question_key: "R-MC-BLOCKER"
     question_type: "diagnostic"
+    challenge_ref: ["R-H1", "R-H2", "R-H4", "R-H5", "R-H6"]
+    normalization_note:
+      de: "Viele Menschen erleben Hemmnisse bei der AI-Nutzung — das ist ein normaler Teil der Transformation. Deine ehrliche Antwort hilft uns, gezielt die richtigen Unterstützungsangebote zu schaffen."
+      en: "Many people experience barriers in AI usage — this is a normal part of transformation. Your honest answer helps us create the right support offerings."
     question_text:
       de: "Was hemmt dich aktuell am meisten bei der AI-Nutzung?"
       en: "What currently inhibits you most in using AI?"

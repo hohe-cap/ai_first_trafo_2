@@ -15,7 +15,8 @@
       "Bash(npx vue-tsc:*)",
       "Bash(npm run build:*)",
       "Bash(wc:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(npx vite build:*)"
     ]
   }
 }

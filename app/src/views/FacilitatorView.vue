@@ -9,6 +9,7 @@ import {
   deleteSession as apiDeleteSession,
   bulkArchiveTeam,
   type Session,
+  type ContextProfile,
 } from '../api/client'
 
 const { t } = useI18n()
@@ -31,6 +32,16 @@ const dimensionNames: Record<string, string> = {
   F: 'Flow & Process',
   T: 'Technical Enablement',
 }
+
+const newProfile = ref<ContextProfile>('generic')
+
+const contextProfiles: { value: ContextProfile; label: string }[] = [
+  { value: 'generic', label: 'Generisch' },
+  { value: 'agile_open', label: 'Agil & Offen' },
+  { value: 'enterprise_regulated', label: 'Enterprise Reguliert' },
+  { value: 'public_sector', label: 'Public Sector' },
+  { value: 'corporate_liberal', label: 'Konzern Liberal' },
+]
 
 const isDeepDive = computed(() => newType.value === 'deep_dive')
 
@@ -157,7 +168,8 @@ async function handleCreate() {
   try {
     const dims = isDeepDive.value && selectedDimensions.value.length < 5 ? [...selectedDimensions.value] : undefined
     const cycle = newCycle.value && newCycle.value > 0 ? newCycle.value : undefined
-    await createSession(newType.value, newTeam.value.trim(), dims, cycle)
+    const profile = newProfile.value !== 'generic' ? newProfile.value : undefined
+    await createSession(newType.value, newTeam.value.trim(), dims, cycle, profile)
     // Auto-expand the team after creation
     expandedTeams.value.add(newTeam.value.trim())
     newTeam.value = ''
@@ -333,6 +345,19 @@ onMounted(() => {
             class="w-full rounded-md border border-gray-300 px-3 py-2 text-center focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 dark:placeholder-gray-400"
           />
         </div>
+        <div class="min-w-[160px]">
+          <label class="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">
+            {{ t('facilitator.contextProfile') }}
+          </label>
+          <select
+            v-model="newProfile"
+            class="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100"
+          >
+            <option v-for="p in contextProfiles" :key="p.value" :value="p.value">
+              {{ p.label }}
+            </option>
+          </select>
+        </div>
         <button
           type="submit"
           :disabled="creating || !newTeam.trim()"
@@ -486,6 +511,9 @@ onMounted(() => {
                     <span v-if="session.type !== 'context_readiness' && session.dimensions && session.dimensions.length < 5" class="ml-1 text-xs text-gray-500 dark:text-gray-400">
                       ({{ session.dimensions.join(', ') }})
                     </span>
+                  </div>
+                  <div v-if="session.context_profile" class="mt-0.5 text-xs text-purple-600 dark:text-purple-400">
+                    {{ contextProfiles.find((p) => p.value === session.context_profile)?.label ?? session.context_profile }}
                   </div>
                 </div>
 

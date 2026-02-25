@@ -426,6 +426,81 @@ function exportJSON() {
         </div>
       </template>
 
+      <!-- Challenges -->
+      <div v-if="result.challenges && result.challenges.length > 0" class="mb-6 rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
+        <h2 class="mb-1 text-lg font-semibold text-gray-900 dark:text-gray-100">{{ t('results.challenges') }}</h2>
+        <p v-if="result.context_profile" class="mb-4 text-xs text-purple-600 dark:text-purple-400">
+          {{ t('results.profileNote') }}: {{ result.context_profile.replace('_', ' ') }}
+        </p>
+        <div class="space-y-4">
+          <div
+            v-for="ch in result.challenges"
+            :key="ch.challenge_id"
+            class="rounded-lg border p-4"
+            :class="{
+              'border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-900/10': ch.relevance === 'very_high',
+              'border-orange-200 bg-orange-50 dark:border-orange-800 dark:bg-orange-900/10': ch.relevance === 'high',
+              'border-yellow-200 bg-yellow-50 dark:border-yellow-800 dark:bg-yellow-900/10': ch.relevance === 'medium',
+              'border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800': ch.relevance === 'low',
+            }"
+          >
+            <div class="mb-1 flex items-center gap-2">
+              <span class="text-xs font-mono text-gray-400 dark:text-gray-500">{{ ch.challenge_id }}</span>
+              <span class="font-medium text-gray-900 dark:text-gray-100">{{ ch.title }}</span>
+              <span
+                class="rounded-full px-2 py-0.5 text-xs font-medium"
+                :class="{
+                  'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400': ch.relevance === 'very_high',
+                  'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400': ch.relevance === 'high',
+                  'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400': ch.relevance === 'medium',
+                  'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400': ch.relevance === 'low',
+                }"
+              >
+                {{ t(`results.relevance${ch.relevance.charAt(0).toUpperCase() + ch.relevance.slice(1).replace('_h', 'H')}`) }}
+              </span>
+            </div>
+            <p class="mb-2 text-sm text-gray-600 dark:text-gray-400">{{ ch.description }}</p>
+            <div class="flex flex-wrap gap-1">
+              <span v-for="sig in ch.signals" :key="sig" class="rounded bg-gray-200 px-2 py-0.5 text-xs text-gray-700 dark:bg-gray-700 dark:text-gray-300">
+                {{ sig }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cross-Validations -->
+      <div v-if="result.cross_validations && result.cross_validations.length > 0" class="mb-6 rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
+        <h2 class="mb-4 text-lg font-semibold text-gray-900 dark:text-gray-100">{{ t('results.crossValidation') }}</h2>
+        <div class="space-y-3">
+          <div
+            v-for="(cv, idx) in result.cross_validations"
+            :key="idx"
+            class="flex items-start gap-3 rounded-lg border p-4"
+            :class="{
+              'border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-900/10': cv.severity === 'critical',
+              'border-yellow-200 bg-yellow-50 dark:border-yellow-800 dark:bg-yellow-900/10': cv.severity === 'warning',
+              'border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-900/10': cv.severity === 'info',
+            }"
+          >
+            <span
+              class="mt-0.5 shrink-0 rounded-full px-2 py-0.5 text-xs font-medium"
+              :class="{
+                'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400': cv.severity === 'critical',
+                'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400': cv.severity === 'warning',
+                'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400': cv.severity === 'info',
+              }"
+            >
+              {{ t(`results.severity${cv.severity.charAt(0).toUpperCase() + cv.severity.slice(1)}`) }}
+            </span>
+            <div>
+              <p class="text-sm font-medium text-gray-900 dark:text-gray-100">{{ cv.pattern }} <span class="text-xs text-gray-400">({{ cv.dimensions.join(' / ') }})</span></p>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">{{ cv.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Diagnostics -->
       <div v-if="result.diagnostics.some(d => d.total > 0)" class="rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
         <h2 class="mb-4 text-lg font-semibold text-gray-900 dark:text-gray-100">{{ t('results.diagnostics') }}</h2>

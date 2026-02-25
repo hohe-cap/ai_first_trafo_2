@@ -230,6 +230,7 @@ questions:
   - question_key: "C-MC1"
     dimension: "C"
     question_type: "diagnostic"
+    challenge_ref: ["C-H1", "C-H2", "C-H3", "C-H4"]
     question_text:
       de: "Welche Situation blockiert euch am häufigsten?"
       en: "Which situation blocks you most frequently?"
@@ -352,6 +353,10 @@ questions:
   - question_key: "R-MC2"
     dimension: "R"
     question_type: "diagnostic"
+    challenge_ref: ["R-H1", "R-H2", "R-H4", "R-H5", "R-H6"]
+    normalization_note:
+      de: "Viele Menschen erleben diese Hemmnisse — das ist ein normaler Teil der Transformation. Deine Antwort hilft uns, gezielt die richtigen Unterstützungsangebote zu schaffen."
+      en: "Many people experience these inhibitors — this is a normal part of transformation. Your answer helps us create the right support offerings."
     question_text:
       de: "Was hemmt dich aktuell am meisten?"
       en: "What inhibits you most currently?"
@@ -517,9 +522,13 @@ questions:
   - question_key: "A-MC3"
     dimension: "A"
     question_type: "diagnostic"
+    challenge_ref: ["A-H4"]
     question_text:
       de: "Nutzt du aktuell nicht-freigegebene Tools (Shadow AI) für Arbeitszwecke?"
       en: "Do you currently use non-approved tools (shadow AI) for work purposes?"
+    normalization_note:
+      de: "In vielen Teams nutzen Mitarbeitende private AI-Tools, um produktiver zu sein — das ist ein häufiges und verständliches Verhalten. Deine ehrliche Antwort hilft uns, bessere offizielle Lösungen zu schaffen."
+      en: "In many teams, people use private AI tools to be more productive — this is a common and understandable behavior. Your honest answer helps us create better official solutions."
     description:
       de: "Anonym, nur Trend wird ausgewertet"
       en: "Anonymous, only trend is evaluated"
@@ -734,6 +743,7 @@ questions:
   - question_key: "T-MC2"
     dimension: "T"
     question_type: "diagnostic"
+    challenge_ref: ["T-H1", "T-H2", "T-H3", "T-H4"]
     question_text:
       de: "Was ist die grösste technische Reibung?"
       en: "What is the biggest technical friction?"

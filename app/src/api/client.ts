@@ -15,6 +15,8 @@ async function request<T>(path: string, options?: RequestInit): Promise<T> {
 
 // --- Session Types ---
 
+export type ContextProfile = 'agile_open' | 'enterprise_regulated' | 'public_sector' | 'corporate_liberal' | 'generic'
+
 export interface Session {
   id: string
   code: string
@@ -23,6 +25,7 @@ export interface Session {
   status: 'open' | 'closed' | 'archived'
   dimensions?: string[]
   cycle?: number
+  context_profile?: ContextProfile
   created_at: string
   updated_at: string
   response_count?: number
@@ -30,10 +33,10 @@ export interface Session {
 
 // --- Session API ---
 
-export function createSession(type: string, team: string, dimensions?: string[], cycle?: number): Promise<Session> {
+export function createSession(type: string, team: string, dimensions?: string[], cycle?: number, context_profile?: ContextProfile): Promise<Session> {
   return request('/api/sessions', {
     method: 'POST',
-    body: JSON.stringify({ type, team, dimensions, cycle }),
+    body: JSON.stringify({ type, team, dimensions, cycle, context_profile }),
   })
 }
 

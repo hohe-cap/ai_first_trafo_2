@@ -17,6 +17,7 @@ interface CreateSessionBody {
   team: string
   dimensions?: string[]
   cycle?: number
+  context_profile?: 'agile_open' | 'enterprise_regulated' | 'public_sector' | 'corporate_liberal' | 'generic'
 }
 
 export async function sessionRoutes(fastify: FastifyInstance, opts: { store: JsonStore }) {
@@ -24,7 +25,7 @@ export async function sessionRoutes(fastify: FastifyInstance, opts: { store: Jso
 
   // Create a new session
   fastify.post<{ Body: CreateSessionBody }>('/api/sessions', async (request, reply) => {
-    const { type, team, dimensions, cycle } = request.body
+    const { type, team, dimensions, cycle, context_profile } = request.body
 
     if (!type || !team) {
       return reply.status(400).send({ error: 'type and team are required' })
@@ -54,6 +55,9 @@ export async function sessionRoutes(fastify: FastifyInstance, opts: { store: Jso
     }
     if (cycle && cycle > 0) {
       session.cycle = cycle
+    }
+    if (context_profile && context_profile !== 'generic') {
+      session.context_profile = context_profile
     }
 
     await store.saveSession(session)

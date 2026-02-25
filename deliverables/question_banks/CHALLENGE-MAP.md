@@ -1182,26 +1182,99 @@ Diese Herausforderungen blockieren überproportional viele andere und sollten mi
 
 ---
 
-## 4. Nächste Schritte
+## 4. Kontext-Profile — Herausforderungs-Gewichtung
 
-### 4.1 Validierung gegen bestehende Question Banks
+Die Relevanz von Herausforderungen variiert stark je nach Organisationskontext. Dieselben Survey-Fragen werden gestellt, aber die **Interpretation** der Ergebnisse wird profilabhängig gewichtet.
+
+### 4.1 Die vier Archetypen
+
+| Profil | Kennzeichen | Beispiele |
+|--------|-------------|-----------|
+| **Agil & Offen** | Flache Hierarchien, Cloud-native, wenig Regulierung | Start-ups, Digital-Agenturen, Scale-ups |
+| **Enterprise Reguliert** | Starke Regulierung, komplexe Governance, große IT | Banken, Versicherungen, Pharma, Automotive |
+| **Public Sector** | Betriebsrat, Datenschutz, lange Entscheidungswege | Behörden, öffentliche Verwaltung, Bildung |
+| **Konzern Liberal** | Große Organisation, aber innovationsfreundlich | Tech-Konzerne, Beratungen, Medien-/Telco-Unternehmen |
+
+### 4.2 Profil-Relevanz-Matrix
+
+Bewertung: ●●● = Sehr hoch (Fast immer vorhanden) | ●● = Hoch | ● = Mittel | ○ = Selten
+
+| ID | Herausforderung | Agil & Offen | Enterprise Reguliert | Public Sector | Konzern Liberal |
+|----|-----------------|:------------:|:-------------------:|:-------------:|:---------------:|
+| **C-H1** | Policy-Vakuum | ●●● | ● | ● | ●● |
+| **C-H2** | Governance-Bottleneck | ○ | ●●● | ●●● | ●● |
+| **C-H3** | Datenklassifizierungs-Grauzone | ●● | ●●● | ●●● | ●● |
+| **C-H4** | Betriebsrats-Blockade | ○ | ●● | ●●● | ● |
+| **C-H5** | Compliance-Angst-Paralyse | ○ | ●●● | ●●● | ●● |
+| **C-H6** | EU AI Act Unvorbereitetheit | ● | ●●● | ●● | ●● |
+| **R-H1** | Existenzangst | ○ | ●● | ●●● | ● |
+| **R-H2** | Skill-Gap / Paralyse | ● | ●● | ●●● | ●● |
+| **R-H3** | Fehlende psych. Sicherheit | ○ | ●● | ●●● | ● |
+| **R-H4** | Manager als Bremse | ○ | ●●● | ●●● | ●● |
+| **R-H5** | Champions ohne Mandate | ● | ●● | ●● | ●● |
+| **R-H6** | Rollenunklarheit | ● | ●● | ●● | ●● |
+| **A-H1** | Chat-Only-Plateau | ●● | ●●● | ●●● | ●● |
+| **A-H2** | Coding-Only-Adoption | ●● | ●● | ● | ●●● |
+| **A-H3** | Sporadische Nutzung | ● | ●● | ●●● | ●● |
+| **A-H4** | Shadow AI dominiert | ●●● | ●● | ● | ●●● |
+| **A-H5** | Vertrauens-Volatilität | ● | ●● | ●●● | ●● |
+| **A-H6** | Wissenssilos | ● | ●●● | ●● | ●● |
+| **F-H1** | AI als Insellösung | ●● | ●●● | ●●● | ●● |
+| **F-H2** | Bottleneck-Blindheit | ●● | ●● | ●●● | ●● |
+| **F-H3** | Bottlenecks unverändert | ● | ●●● | ●●● | ●● |
+| **F-H4** | Fehlende Messbarkeit | ●●● | ●● | ●●● | ●● |
+| **F-H5** | Process Mining blockiert | ○ | ●● | ●●● | ● |
+| **F-H6** | Workflow-Redesign-Widerstand | ○ | ●●● | ●●● | ●● |
+| **T-H1** | Tool-Wüste | ○ | ●● | ●●● | ● |
+| **T-H2** | IDE-Bruch | ● | ●● | ●●● | ●● |
+| **T-H3** | Performanz-Frust | ○ | ●● | ●●● | ●● |
+| **T-H4** | Fehlende Sicherheitsstufen | ○ | ●●● | ●●● | ●● |
+| **T-H5** | Prompt-Ödland | ●● | ●● | ●●● | ●● |
+| **T-H6** | CI/CD-Gap | ●●● | ●● | ●●● | ●● |
+
+### 4.3 Profil-Highlights
+
+**Agil & Offen:** Hauptrisiken liegen bei fehlendem Governance-Fundament (C-H1 Policy-Vakuum), unkontrollierter Shadow AI (A-H4), und fehlender Messbarkeit (F-H4). Technische Hürden sind dagegen selten — Tools sind meist schnell verfügbar.
+
+**Enterprise Reguliert:** Stärkste Herausforderungen in Governance (C-H2, C-H5, C-H6) und kulturellem Widerstand bei Prozessänderungen (F-H3, F-H6). Manager-Bremsen (R-H4) sind systemisch. Der größte Hebel liegt in der Governance-Beschleunigung.
+
+**Public Sector:** Breite, hohe Relevanz über fast alle Herausforderungen — Betriebsrat (C-H4), Existenzangst (R-H1), psychologische Sicherheit (R-H3), Tool-Mangel (T-H1), Performanz (T-H3). Transformationen dauern hier am längsten; der Fokus sollte auf Grundlagensicherung liegen.
+
+**Konzern Liberal:** Paradoxerweise hohe Coding-Only-Adoption (A-H2) und Shadow AI (A-H4) bei gleichzeitig moderaten Governance-Hürden. Das Hauptrisiko: AI-Nutzung stagniert bei "guten Copilot-Usern" ohne tiefere Prozessintegration.
+
+### 4.4 Anwendung in der CRAFT Explorer App
+
+Die Profilzuordnung erfolgt bei **Session-Erstellung** durch den Facilitator:
+1. Facilitator wählt eines der 4 Profile (oder "Generisch")
+2. Profile werden in der Session gespeichert (`context_profile`)
+3. In der Ergebnisdarstellung:
+   - Herausforderungen mit ●●● für das gewählte Profil werden prominent hervorgehoben
+   - Herausforderungen mit ○ werden als weniger wahrscheinlich markiert
+   - Die Profil-Information fließt in die narrativen Empfehlungen ein
+4. Scores selbst ändern sich NICHT — nur die Interpretation wird kontextualisiert
+
+---
+
+## 5. Nächste Schritte
+
+### 5.1 Validierung gegen bestehende Question Banks
 
 - [ ] Für jede Herausforderung prüfen: Wird sie durch bestehende Fragen aufgedeckt?
 - [ ] Gaps identifizieren: Welche Herausforderungen haben kein diagnostisches Signal?
 - [ ] Redundanzen identifizieren: Welche Fragen decken keine Herausforderung ab?
 
-### 4.2 Question Bank Optimierung
+### 5.2 Question Bank Optimierung
 
 - [ ] Diagnostische MC-Optionen an Root Causes anpassen
 - [ ] Cross-Validation-Matrix in Scoring-Engine implementieren
 - [ ] Normalisierungs-Framing für sensitive Fragen ergänzen
 
-### 4.3 Interventions-Kataloge vervollständigen
+### 5.3 Interventions-Kataloge vervollständigen
 
 - [ ] Interventionskataloge für C, A, F, T erstellen (R existiert bereits)
 - [ ] Jede Intervention mit Herausforderungs-IDs verknüpfen
 
-### 4.4 Survey-Methodik-Verbesserungen
+### 5.4 Survey-Methodik-Verbesserungen
 
 - [ ] Streuungs-Indikator (IQR) im Scoring implementieren
 - [ ] Response-Quality-Indikatoren (Straight-lining, Speeding) in App

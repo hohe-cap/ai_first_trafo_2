@@ -185,7 +185,20 @@ Die Standortbestimmung erfolgt über drei aufeinander aufbauende Ebenen. Jede Eb
 
 **Beziehung Pulse Check ↔ Deep-Dive:** Der Pulse Check ist ein *Extrakt* der Deep-Dives. Jede Pulse-Check-Maturity-Frage (z.B. C-M1) fasst die 4 Sub-Topics des entsprechenden Deep-Dives zusammen. Deep-Dives liefern das granulare *Warum*, der Pulse Check trackt den *Trend*.
 
-> **Design-Methodik:** Alle Explorations-Prinzipien (Scoring-Formeln, Kalibrierungsregeln, Visualisierung, Anonymität) sind in `deliverables/question_banks/METHODOLOGY.md` dokumentiert. Die YAML-Dateien in `deliverables/question_banks/` sind die Source of Truth für alle Fragen.
+> **Design-Methodik:** Alle Explorations-Prinzipien (Scoring-Formeln, Kalibrierungsregeln, Visualisierung, Anonymität) sind in `deliverables/question_banks/METHODOLOGY.md` dokumentiert. Die YAML-Dateien in `deliverables/question_banks/` sind die Source of Truth für alle Fragen. Die Fragen folgen dem **Backward-Design-Ansatz** (Wiggins & McTighe, 2005): Ausgehend von typischen Herausforderungen pro Dimension werden diagnostische Signale identifiziert und die Fragen so konstruiert, dass sie diese Herausforderungen aufdecken. Die systematische Challenge-Herausforderungs-Analyse ist in `deliverables/question_banks/CHALLENGE-MAP.md` dokumentiert.
+
+#### Kontext-Profile
+
+Organisationen unterscheiden sich fundamental in ihren Rahmenbedingungen — eine agile Digital-Agentur hat andere Herausforderungen als eine regulierte Bank. Um die Interpretation der CRAFT-Scores zu kontextualisieren, nutzt das Framework vier archetypisierte Kontext-Profile:
+
+| Profil | Kennzeichen | Typische Schwerpunkte |
+|--------|-------------|----------------------|
+| **Agil & Offen** | Flache Hierarchien, Cloud-native, wenig Regulierung | Policy-Vakuum, Shadow AI, fehlende Messbarkeit |
+| **Enterprise Reguliert** | Starke Regulierung, komplexe Governance, große IT | Governance-Bottleneck, Compliance-Angst, Manager als Bremse |
+| **Public Sector** | Betriebsrat, Datenschutz, lange Entscheidungswege | Breite Hürden über alle Dimensionen, Tool-Mangel, Existenzangst |
+| **Konzern Liberal** | Große Organisation, aber innovationsfreundlich | Coding-Only-Adoption, Stagnation bei oberflächlicher Nutzung |
+
+**Anwendungsprinzip:** Dieselben Fragen werden allen Teams gestellt (Vergleichbarkeit). Das Profil beeinflusst ausschließlich die **Interpretation** der Ergebnisse — welche Herausforderungen bei niedrigen Scores am wahrscheinlichsten sind und welche Interventionen am wirksamsten. Die vollständige Profil-Relevanz-Matrix für alle 30 typischen Herausforderungen ist in `deliverables/question_banks/CHALLENGE-MAP.md` dokumentiert.
 
 #### Pulse Check Inhalte
 
@@ -614,6 +627,7 @@ Das Framework ist mehr als ein Strategiepapier. Folgende konkrete Werkzeuge und 
 |----------|--------------|--------|-----------|
 | CRAFT Explorer App | Web-basierte App für CRAFT Explorer (Deep-Dive + Pulse Check), begleitet durch AI Transformation Manager. Generiert CRAFT-Scores und Radar-Chart als Grundlage für gemeinsame Roadmap-Ableitung | Zu entwickeln | Hoch |
 | CRAFT Explorer | Drei-Ebenen-Fragenarchitektur (Context & Readiness + Pulse Check + 5 Deep-Dives) mit Design-Methodik. 7 YAML-Dateien + METHODOLOGY.md in `deliverables/question_banks/` | **v2.0 fertig** | Hoch |
+| Challenge Map | Systematische Herausforderungs-Analyse: 30 typische Herausforderungen (6 pro CRAFT-Dimension) mit Root Causes, diagnostischen Signalen, Kausalketten und Profil-Relevanz-Matrix. Basis für Backward Design der Fragen. `deliverables/question_banks/CHALLENGE-MAP.md` | **v1.0 fertig** | Hoch |
 | AI Intervention Katalog | Kuratierte Zuordnung von SDLC-Phasen zu AI-Lösungen mit Tooling-Alternativen pro Sicherheitsstufe | Entwurf vorhanden | Hoch |
 | Interventionskatalog Readiness (R) | Score-basierte Interventionsempfehlungen für Dimension R mit Diagnostik-Mapping, Steckbriefen und Priorisierungsmatrix. `deliverables/intervention-catalogue-readiness.md` | **v1.0 DRAFT** | Hoch |
 | Value Stream Mapping Template | Workshop-Material und Vorlagen für den 2-Tages-VSM-Workshop | Zu entwickeln | Hoch |
@@ -650,7 +664,17 @@ Das Framework baut auf etablierten Modellen und aktueller Forschung auf, statt a
 - **Lean Value Stream Mapping:** Methodik zur Visualisierung und Optimierung von Wertströmen. Adaptiert für den SDLC-Kontext. → [Lean Enterprise Institute](https://www.lean.org/lexicon-terms/value-stream-mapping/)
 - **SAFe (Scaled Agile Framework):** Referenz für die Skalierung agiler Praktiken in Konzernen. → [SAFe Framework](https://scaledagileframework.com/)
 
-### 8.4 Empirische Studien zur AI-Transformation (2024–2025)
+### 8.4 Survey-Design & Diagnostische Methodik
+
+- **Wiggins, G. & McTighe, J. (2005): Understanding by Design.** Backward-Design-Prinzip: Von den gewünschten Erkenntnissen (typische Herausforderungen) rückwärts zu den diagnostischen Fragen. Methodische Grundlage für die Challenge-Map und die Konstruktion der CRAFT Explorer Fragen.
+- **DeVellis, R. F. (2017): Scale Development — Theory and Applications.** Standard-Referenz für Fragebogen-Konstruktion. Informiert die Gestaltung der Maturity-Stufen und diagnostischen MC-Optionen.
+- **Tourangeau, R., Rips, L. J. & Rasinski, K. (2000): The Psychology of Survey Response.** Basis für das Verständnis von Response-Verzerrungen (Social Desirability, Acquiescence Bias) und die Normalisierungs-Framing-Technik in sensitiven Fragen.
+- **Podsakoff, P. M. et al. (2003): Common Method Biases.** Informiert die Cross-Validation-Strategie: Maturity-Fragen als Selbsteinschätzung werden durch diagnostische MC-Fragen (Verhaltensindikatoren) abgesichert.
+- **Flanagan, J. C. (1954): The Critical Incident Technique.** Methodische Inspiration für die Powerful Questions — offene Fragen, die kritische Momente und reale Erfahrungen erfassen.
+- **Weisbord, M. R. (1976): Organizational Diagnosis — Six Places to Look.** Konzeptuelle Grundlage für die Multi-Dimensionen-Diagnostik über fünf CRAFT-Dimensionen.
+- **Burke, W. W. & Litwin, G. E. (1992): A Causal Model of Organizational Performance and Change.** Informiert die Kausalketten in der Challenge Map — wie Herausforderungen in einer Dimension andere auslösen.
+
+### 8.5 Empirische Studien zur AI-Transformation (2024–2025)
 
 - **MIT NANDA – „The GenAI Divide: State of AI in Business 2025":** 95% der Enterprise-AI-Piloten ohne messbaren P&L-Impact. 90% Shadow-AI-Nutzung. Hauptblocker: brittle workflows, fehlende kontextuelle Lernfähigkeit. → [MIT NANDA Report (PDF)](https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf)
 - **McKinsey – „The State of AI 2025: Agents, Innovation, and Transformation":** Workflow-Redesign = stärkster Faktor für EBIT-Impact unter 25 getesteten Attributen. Nur 21% der Organisationen haben Workflows redesigned. Nur 39% sehen überhaupt EBIT-Impact. → [McKinsey State of AI 2025](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai)

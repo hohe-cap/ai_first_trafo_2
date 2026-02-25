@@ -290,6 +290,7 @@ questions:
   # ---------------------------------------------------------------------------
   - question_key: "A-MC-BLOCKER"
     question_type: "diagnostic"
+    challenge_ref: ["A-H1", "A-H2", "A-H3", "A-H5"]
     question_text:
       de: "Was ist der Hauptgrund, warum AI-Nutzung in deinem Team nicht weiter wächst?"
       en: "What is the main reason AI usage in your team isn't growing further?"

@@ -1,6 +1,6 @@
 # AI-First Transformation Project - Agent Instructions
 
-**Version:** 1.1 | **Last Updated:** 2026-02-12
+**Version:** 1.2 | **Last Updated:** 2026-02-24
 
 ---
 
@@ -175,7 +175,10 @@ sondern an fehlender Prozessintegration und Change Management.
   - Ebene 2: Pulse Check (quartalsweise, 16 Fragen, Spider-Score)
   - Ebene 3: Deep-Dives (5×, je 9–10 Fragen, Sub-Topic-Profile, Kickoff-Baseline + on-demand)
   - Durchführung: Team eigenständig. Analyse & nächste Schritte: AI Transformation Manager
-  - Design-Methodik: `METHODOLOGY.md` (Scoring, Kalibrierung, Visualisierung)
+  - Design-Methodik: `METHODOLOGY.md` (Scoring, Kalibrierung, Backward Design, Cross-Validation)
+  - Fragen folgen **Backward Design** (Wiggins & McTighe 2005): Vom Herausforderungs-Katalog rückwärts zur Frage
+  - **Kontext-Profile:** 4 Archetypen (Agil, Enterprise Reguliert, Public Sector, Konzern Liberal) — gleiche Fragen, profil-gewichtete Interpretation
+  - **Challenge Map:** 30 typische Herausforderungen (6 pro Dimension), Profil-Relevanz-Matrix, Kausalketten → `CHALLENGE-MAP.md`
 - **AI Intervention Katalog:** SDLC-Phase → AI-Lösungen mit Tool-Alternativen pro Sicherheitsstufe
 - **Value Stream Mapping Template:** 2-Tages-Workshop-Material (Kurzformat 4h verfügbar)
 - **Governance Starter Kit:** Policy-Vorlagen, Entscheidungsbaum, Betriebsrats-Leitfaden
@@ -192,6 +195,7 @@ sondern an fehlender Prozessintegration und Change Management.
 - **Change Management:** Kotter 8 Accelerators (Guiding Coalition), Prosci ADKAR
 - **Delivery & Value Stream:** DORA Metrics, Lean VSM, SAFe
 - **Empirie:** MIT NANDA (95% Pilot-Failure), McKinsey State of AI 2025 (Workflow-Redesign = stärkster EBIT-Hebel)
+- **Survey-Design:** Wiggins & McTighe (Backward Design), DeVellis (Scale Development), Tourangeau (Survey Response Psychology)
 
 ### Typische Use Cases / Anwendungsfälle
 
@@ -251,6 +255,6 @@ sondern an fehlender Prozessintegration und Change Management.
 
 **Version-Info:**
 - Framework Version: 1.0 DRAFT
-- AGENTS.md Version: 1.1
-- CRAFT Explorer Version: 2.0 (Question Banks + METHODOLOGY.md)
-- Letzte Sync mit Vollversion: 2026-02-12
+- AGENTS.md Version: 1.2
+- CRAFT Explorer Version: 2.1 (Question Banks + METHODOLOGY.md + Challenge Map + Profile-Logik)
+- Letzte Sync mit Vollversion: 2026-02-24

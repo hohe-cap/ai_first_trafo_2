@@ -349,6 +349,7 @@ questions:
   # ---------------------------------------------------------------------------
   - question_key: "C-MC-BLOCKER"
     question_type: "diagnostic"
+    challenge_ref: ["C-H1", "C-H2", "C-H3", "C-H4", "C-H5"]
     question_text:
       de: "Was blockiert euch aktuell am stärksten im Bereich Compliance & Governance?"
       en: "What currently blocks you most in the area of compliance & governance?"

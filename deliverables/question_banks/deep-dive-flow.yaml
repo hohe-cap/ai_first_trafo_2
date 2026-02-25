@@ -323,6 +323,7 @@ questions:
   # ---------------------------------------------------------------------------
   - question_key: "F-MC-BOTTLENECK"
     question_type: "diagnostic"
+    challenge_ref: ["F-H1", "F-H2", "F-H3", "F-H6"]
     question_text:
       de: "Wo ist euer grösster Prozess-Bottleneck aktuell?"
       en: "Where is your biggest process bottleneck currently?"

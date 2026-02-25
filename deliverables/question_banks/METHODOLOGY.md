@@ -69,7 +69,73 @@ Beim Schreiben neuer Maturity-Beschreibungen:
 
 ---
 
-## 3) Design-Regeln fuer Fragen
+## 3) Backward Design — Diagnostischer Frageansatz
+
+### Methodische Grundlage
+
+Das CRAFT-Fragendesign folgt dem **Backward-Design-Prinzip** (Wiggins & McTighe 2005, *Understanding by Design*): Statt Fragen "bottom up" zu entwerfen ("Was koennten wir alles fragen?"), wird "top down" designt ("Was muessen wir nach der Auswertung entscheiden koennen?").
+
+```
+Schritt 1: Herausforderungen identifizieren
+           → CHALLENGE-MAP.md: 30 typische Herausforderungen ueber 5 Dimensionen
+
+Schritt 2: Diagnostische Signale definieren
+           → Welche Antwort-Kombination deutet auf welche Herausforderung?
+
+Schritt 3: Fragen designen / validieren
+           → Erzeugen die Fragen die noetigen Signale?
+
+Schritt 4: Intervention verknuepfen
+           → Interventionskataloge: Was tun bei erkannter Herausforderung?
+```
+
+### Drei Frage-Rollen im Zusammenspiel
+
+Nicht alle Fragen muessen "aufdeckend" sein. Drei Frage-Typen erfuellen unterschiedliche diagnostische Funktionen:
+
+| Rolle | Frage-Typ | Diagnostische Funktion |
+|-------|-----------|----------------------|
+| **Standort** | Maturity (M) | WO stehst du? Definiert den Moeglichkeitsraum. Implizit auch Defizit-Anzeige: Jedes Level (ausser 5) zeigt eine Luecke zur naechsten Stufe |
+| **Root Cause** | MC-Diagnostik (MC) | WARUM bist du dort? Identifiziert die spezifische Ursache hinter dem Score |
+| **Qualitativ** | Powerful Question (PQ) | WAS brauchst du? Validiert, entdeckt Unerwartetes, gibt Stimme |
+
+**Die Kombination ist maechtiger als jeder Teil allein:**
+- Maturity Level 2 → "Experimenting" (Standort)
+- PLUS Blocker = "Sorge um Rolle" → Angst-basierte Root Cause identifiziert
+- PLUS Cross-Check: T=4 (Tools da) → Es liegt nicht an der Technik
+- → Intervention: Rollenentwicklungs-Workshop, NICHT mehr Tooling
+
+### Maturity als Defizit-Landkarte
+
+Jede Maturity-Stufe beschreibt implizit die Herausforderungen, die fuer den Sprung zur naechsten Stufe ueberwunden werden muessen:
+
+| Transition | Typische Blockade | Charakter |
+|-----------|-------------------|-----------|
+| **1→2** (Exploring → Experimenting) | Kein Zugang, kein Wissen, keine Erlaubnis | Eisbrecher-Problem |
+| **2→3** (Experimenting → Embedding) | Sporadisch → systematisch, individuell → Team | Verstetigung |
+| **3→4** (Embedding → Scaling) | Grundlagen → Tiefe, Nutzung → Wirkung | Professionalisierung |
+| **4→5** (Scaling → Evolving) | Effektiv → Innovativ, reaktiv → proaktiv | Selbsttragende Optimierung |
+
+### Validierungsprinzip
+
+Jede Frage in den Question Banks muss mindestens eine der folgenden Validierungen erfuellen:
+1. **Herausforderungs-Abdeckung:** Sie deckt mindestens eine Herausforderung aus CHALLENGE-MAP.md auf
+2. **Entscheidungs-Relevanz:** Sie informiert eine konkrete Entscheidung (welche Intervention? welcher Deep-Dive?)
+3. **Trend-Faehigkeit:** Sie liefert einen vergleichbaren Datenpunkt ueber Zeit
+
+Fragen, die keine dieser Validierungen erfuellen, sind Kandidaten zum Streichen.
+
+### Referenz
+
+- **Vollstaendige Challenge Map:** `deliverables/question_banks/CHALLENGE-MAP.md`
+- **Interventionskatalog R:** `deliverables/intervention-catalogue-readiness.md`
+- **Methodische Grundlage:** Wiggins, G. & McTighe, J. (2005). *Understanding by Design* (2nd ed.). ASCD.
+- **Organisationsdiagnostik:** Weisbord, M.R. (1976). "Six Places to Look for Trouble." *Group & Organization Studies*, 1(4).
+- **Kausalmodell:** Burke, W.W. & Litwin, G.H. (1992). "A Causal Model of Organizational Performance." *Journal of Management*, 18(3).
+
+---
+
+## 3b) Design-Regeln fuer Fragen
 
 ### Keine Likert-Skalen
 
@@ -160,6 +226,88 @@ Beispiel: Wenn das Team bei Governance-Speed Level 4 angibt, aber die Context-Fr
 
 Beim Pulse Check gibt es nur 1 Maturity-Frage pro Dimension → der Score ist direkt der Median ueber alle Respondenten. Keine Min-Gewichtung noetig (nur 1 Frage).
 
+### Cross-Validation-Matrix
+
+Maturity-Scores werden automatisch gegen Context-Fragen und Cross-Dimension-Patterns geprueft. Inkonsistenzen werden als Flags im HITL-Review angezeigt.
+
+**Maturity vs. Context Cross-Checks:**
+
+| Maturity-Frage | Validierungs-Frage | Alarm bei |
+|---|---|---|
+| C-M-SPEED Level 4-5 | C-CTX-2: Approval-Time | > 4 Wochen |
+| R-M-SKILL Level 4+ | A-M1 Level 1-2 | Hoher Skill, keine Nutzung |
+| T-M1 Level 4+ | A-MC1: Usage Mode | Chat-only trotz Tool-Integration |
+| R-M-SAFETY Level 4+ | A-MC3: Shadow AI | Hohe Safety, aber Shadow AI |
+
+**Cross-Dimension-Patterns:**
+
+| Pattern | Diagnose | Implikation |
+|---------|----------|-------------|
+| T hoch, A niedrig | "Build it and they won't come" | Problem liegt bei R oder F, nicht bei T |
+| R hoch, A niedrig | "Willig aber unfaehig" | Fehlender Zugang (T) oder Governance-Block (C) |
+| A hoch, F niedrig | "Individuell ja, im Prozess nein" | Workflow-Redesign noetig (F) |
+| C niedrig, Rest mittel-hoch | "Governance als Bremse" | Shadow-AI-Risiko, C priorisieren |
+| Shadow AI hoch + C niedrig | "Governance-Luecke, hohe Nachfrage" | Shadow AI Amnestie + Governance Fast-Track |
+
+**Intra-Dimension-Checks:**
+
+| Pattern | Diagnose |
+|---------|----------|
+| Alle Sub-Topics ±0.5 | Halo-Effekt → nicht differenziert beantwortet |
+| Ein Sub-Topic >>2 unter Rest | Klarer Blocker → Min-Gewichtung greift |
+| Streuung (IQR) > 2 | Team ist gespalten → differenziertes Programm noetig |
+
+Diese Patterns werden als automatische Narrative im HITL-Review bereitgestellt (→ App: Cross-Validation-Modul in Scoring-Engine).
+
+---
+
+## 4b) Kontext-Profile & gewichtete Interpretation
+
+### Grundprinzip
+
+Der Context Explorer (Ebene 1) erfasst Rahmenbedingungen wie Branche, Teamgroesse, Regulierungsgrad und Sicherheitsstufen-Bedarf. Diese Fakten ordnen das Team einem **Kontext-Profil** zu, das die Auswertung steuert.
+
+**Kernregel: Fragen bleiben gleich, Interpretation wird kontextsensitiv.**
+
+### Profil-Archetypen
+
+| Profil | Typische Merkmale | Schwerpunkt-Herausforderungen |
+|---|---|---|
+| **Agil & Offen** | Startup/Scale-up, wenig Regulierung, Cloud-native, <50 Personen | R-H2 (Skills), A-H1 (Chat-Plateau), F-H2 (Bottleneck-Blindheit) |
+| **Enterprise Reguliert** | Konzern, Finanz/Pharma/Versicherung, Betriebsrat, >100 Personen | C-H2/H4 (Governance/BR), T-H4 (Sicherheitsstufen), R-H4 (Manager-Bremse) |
+| **Public Sector** | Behoerde, strenge Datenschutz-Anforderungen, air-gapped | C-H1/H4/H6 (Policy/BR/AI Act), T-H1 (Tool-Wueste), R-H1 (Existenzangst) |
+| **Konzern Liberal** | Grossunternehmen, innovationsfreundlich, Tech-Branche | F-H1 (AI als Inselloesung), A-H2 (Coding-Only), F-H6 (Workflow-Redesign) |
+
+### Drei Ebenen der Kontextsensitivitaet
+
+**Ebene 1: Maturity-Fragen — 100% identisch fuer alle Profile**
+Dies sichert Vergleichbarkeit und Benchmarking. Score 3.0 bedeutet dasselbe, unabhaengig vom Profil.
+
+**Ebene 2: MC-Diagnostik — Kern identisch, profilspezifische Optionen moeglich**
+Die Kern-Optionen (Blocker, Enablement) sind fuer alle gleich. Profile koennen zusaetzliche, kontextspezifische Optionen ergaenzen:
+- Enterprise Reguliert: Option "Betriebsrats-Verhandlung blockiert" bei C-MC-BLOCKER
+- Agil & Offen: Option "Fehlende Struktur/Orientierung" bei R-MC-BLOCKER
+
+**Ebene 3: Auswertung — Profil-gewichtete Herausforderungs-Priorisierung**
+Der AI Transformation Manager sieht im HITL-Review:
+- Welche Herausforderungen fuer dieses Profil besonders wahrscheinlich sind
+- Welche Cross-Dimension-Patterns profil-typisch sind
+- Welche Interventionen fuer diesen Kontext empfohlen werden
+
+### Profil-Zuordnung
+
+Die Profil-Zuordnung erfolgt automatisch aus den Context-Explorer-Antworten (Ebene 1):
+- Branche + Regulierungsgrad → Governance-Intensitaet
+- Teamgroesse + Organisationsform → Skalierungs-Kontext
+- Verfuegbare Sicherheitsstufen → Technische Constraints
+- Betriebsrat vorhanden → Compliance-Komplexitaet
+
+Die Zuordnung ist keine starre Kategorie, sondern eine **Gewichtung**: Ein Team kann z.B. 70% "Enterprise Reguliert" und 30% "Konzern Liberal" sein.
+
+### Vollstaendige Profil-Relevanz-Matrix
+
+Siehe `deliverables/question_banks/CHALLENGE-MAP.md`, Abschnitt 3: Profil-Matrix.
+
 ---
 
 ## 5) Darstellungsprinzipien
@@ -198,7 +346,7 @@ Reg. Readiness        ██████████  5/5  Evolving
 
 ---
 
-## 6) Anonymitaet & Segmentierung
+## 5b) Anonymitaet & Segmentierung
 
 ### Pulse Check und Deep-Dives
 
@@ -224,7 +372,7 @@ Reg. Readiness        ██████████  5/5  Evolving
 
 ---
 
-## 7) Powerful Questions — Leitlinien
+## 6) Powerful Questions — Leitlinien
 
 Powerful Questions geben individuellen Reflexionsraum und erzeugen qualitative Insights, die quantitative Scores nicht liefern koennen.
 
@@ -247,7 +395,7 @@ Powerful Questions geben individuellen Reflexionsraum und erzeugen qualitative I
 
 ---
 
-## 8) HITL-Review (Human-in-the-Loop)
+## 7) HITL-Review (Human-in-the-Loop)
 
 Nach jeder Explorationsrunde (Baseline oder Quartal) findet ein strukturierter Review statt:
 
@@ -267,7 +415,7 @@ Nach jeder Explorationsrunde (Baseline oder Quartal) findet ein strukturierter R
 
 ---
 
-## 9) Versionierung & Weiterentwicklung
+## 8) Versionierung & Weiterentwicklung
 
 - **YAML = Source of Truth** — MD-Dokumente sind abgeleitete Ansichten
 - **Versionierung** in jeder YAML-Datei (version: "2.0")
@@ -279,13 +427,28 @@ Nach jeder Explorationsrunde (Baseline oder Quartal) findet ein strukturierter R
 
 ## Referenzen
 
+### Framework & Deliverables
 - **Framework:** `framework/ai-transformation-framework-craft.md`
 - **Question Banks:** `deliverables/question_banks/*.yaml`
+- **Challenge Map:** `deliverables/question_banks/CHALLENGE-MAP.md`
+- **Interventionskatalog R:** `deliverables/intervention-catalogue-readiness.md`
 - **Pulse Check (menschenlesbar):** `deliverables/pulse-check-question-bank-v1.md`
 - **Maturity-Modell:** CRAFT Framework Reifestufen (Exploring → Evolving)
+
+### Methodische Grundlagen
+- **Backward Design:** Wiggins, G. & McTighe, J. (2005). *Understanding by Design* (2nd ed.). ASCD.
+- **Organisationsdiagnostik:** Weisbord, M.R. (1976). "Organizational Diagnosis: Six Places to Look for Trouble." *Group & Organization Studies*, 1(4), 430-447.
+- **Kausalmodell:** Burke, W.W. & Litwin, G.H. (1992). "A Causal Model of Organizational Performance and Change." *Journal of Management*, 18(3), 523-545.
+- **Critical Incident Technique:** Flanagan, J.C. (1954). *Psychological Bulletin*, 51(4), 327-358.
+
+### Psychometrie & Survey-Methodik
+- **Skalenentwicklung:** DeVellis, R.F. (2017). *Scale Development* (4th ed.). SAGE.
+- **Survey Response Psychology:** Tourangeau, R. et al. (2000). *The Psychology of Survey Response*. Cambridge UP.
+- **Social Desirability:** Podsakoff, P.M. et al. (2003). "Common Method Biases." *Journal of Applied Psychology*, 88(5), 879-903.
+- **Composite Indicators:** UNDP (2010). *Human Development Report* (Geometric Mean / penalized indicators).
 - **Scoring-Inspiration:** DORA Metrics (Median-basiert), Psychometrie (formative Messmodelle)
 
 ---
 
-**Letzte Aktualisierung:** 2026-02-12
+**Letzte Aktualisierung:** 2026-02-24
 **Autoren:** AI Transformation Team

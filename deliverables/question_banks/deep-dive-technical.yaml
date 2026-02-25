@@ -352,6 +352,7 @@ questions:
   # ---------------------------------------------------------------------------
   - question_key: "T-MC-BLOCKER"
     question_type: "diagnostic"
+    challenge_ref: ["T-H1", "T-H2", "T-H3", "T-H4", "T-H5"]
     question_text:
       de: "Was blockiert euch aktuell am stärksten im Bereich Technical Enablement?"
       en: "What currently blocks you most in the area of technical enablement?"
