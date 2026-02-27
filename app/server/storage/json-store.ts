@@ -1,9 +1,33 @@
 import { readFile, writeFile, mkdir, readdir, unlink, rm } from 'node:fs/promises'
-import { join } from 'node:path'
+import { join, resolve } from 'node:path'
 import { existsSync } from 'node:fs'
 
+// Only allow UUIDs, alphanumeric, and hyphens — no slashes, dots, or special chars
+const SAFE_ID_RE = /^[a-zA-Z0-9-]+$/
+
+/** Validate that an ID is safe for use in file paths. Throws on invalid input. */
+export function validateId(id: string, label = 'id'): string {
+  if (!id || !SAFE_ID_RE.test(id)) {
+    throw new Error(`Invalid ${label}: must be alphanumeric/hyphens only`)
+  }
+  return id
+}
+
 export class JsonStore {
-  constructor(private baseDir: string) {}
+  private resolvedBase: string
+
+  constructor(private baseDir: string) {
+    this.resolvedBase = resolve(baseDir)
+  }
+
+  /** Resolve a path and verify it stays within baseDir. Defence-in-depth. */
+  private safePath(...segments: string[]): string {
+    const resolved = resolve(join(this.baseDir, ...segments))
+    if (!resolved.startsWith(this.resolvedBase + '/') && resolved !== this.resolvedBase) {
+      throw new Error('Path traversal detected')
+    }
+    return resolved
+  }
 
   async init(): Promise<void> {
     await mkdir(join(this.baseDir, 'sessions'), { recursive: true })
@@ -13,7 +37,8 @@ export class JsonStore {
   // --- Sessions ---
 
   private sessionPath(id: string): string {
-    return join(this.baseDir, 'sessions', `${id}.json`)
+    validateId(id, 'session id')
+    return this.safePath('sessions', `${id}.json`)
   }
 
   async saveSession(session: Record<string, unknown>): Promise<void> {
@@ -57,11 +82,14 @@ export class JsonStore {
   // --- Responses ---
 
   private responsesDir(sessionId: string): string {
-    return join(this.baseDir, 'responses', sessionId)
+    validateId(sessionId, 'session id')
+    return this.safePath('responses', sessionId)
   }
 
   private responsePath(sessionId: string, responseId: string): string {
-    return join(this.responsesDir(sessionId), `${responseId}.json`)
+    validateId(sessionId, 'session id')
+    validateId(responseId, 'response id')
+    return this.safePath('responses', sessionId, `${responseId}.json`)
   }
 
   async saveResponse(sessionId: string, response: Record<string, unknown>): Promise<void> {

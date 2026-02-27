@@ -99,6 +99,15 @@ YAML ist Source of Truth. Markdown-Dateien sind abgeleitete Ansichten.
 - **Deployment:** Docker (air-gapped, ein Container, keine externen Abhaengigkeiten zur Laufzeit)
 - **Sprachen:** Deutsch/Englisch (von Anfang an bilingual)
 
+### Voraussetzungen
+
+| Was | Version | Wofuer |
+|-----|---------|--------|
+| Node.js | ≥ 20 (empfohlen: 22) | Entwicklung, Tests |
+| npm | mitgeliefert | Dependency-Management |
+| Docker | ≥ 24 | Container-Deployment |
+| Python 3 | beliebig | Standalone-Build (ZIP-Erstellung) |
+
 ### Lokale Entwicklung
 
 ```bash
@@ -109,12 +118,87 @@ npm run dev          # Frontend (Vite) + Backend (Fastify) parallel
 
 Die App laeuft auf `http://localhost:5173` (Frontend) und `http://localhost:3000` (API).
 
-### Docker
+### Installation & Deployment
+
+Es gibt **drei Wege**, die App bereitzustellen:
+
+#### Option 1: Docker (empfohlen fuer Server/Cloud)
+
+```bash
+# Im Projekt-Root:
+docker compose -f app/docker-compose.yml up -d --build
+```
+
+Die App ist unter `http://<server-ip>:3000` erreichbar. Daten werden in einem Docker-Volume persistiert.
+
+**Umgebungsvariablen (optional):**
+
+| Variable | Default | Beschreibung |
+|----------|---------|--------------|
+| `PORT` | `3000` | Server-Port |
+| `HOST` | `0.0.0.0` | Bind-Adresse (0.0.0.0 = alle Interfaces) |
+| `CORS_ORIGIN` | alle Origins | Erlaubte Origin fuer CORS, z.B. `https://craft.firma.de` |
+| `DATA_DIR` | `/app/server-data` | Pfad fuer Session- und Response-Daten |
+
+**Beispiel: Docker mit eigenem Port und CORS:**
+
+```bash
+docker run -p 8080:8080 \
+  -e PORT=8080 \
+  -e CORS_ORIGIN=https://craft.firma.de \
+  -v craft-data:/app/server-data \
+  craft-explorer
+```
+
+**Health-Check:** `GET /api/health` — gibt `{"status":"ok"}` zurueck. Wird von Docker HEALTHCHECK, Azure App Service und Load Balancern genutzt.
+
+#### Option 2: Standalone-Bundle (Windows, macOS, Linux — kein Docker noetig)
+
+Das Build-Script erzeugt ZIP-Archive mit eingebettetem Node.js — keine Installation erforderlich:
 
 ```bash
 cd app
-docker compose up --build
+npm install
+npm run build:standalone
 ```
+
+Erzeugt in `app/standalone/`:
+
+| Datei | Plattform |
+|-------|-----------|
+| `craft-explorer-windows-x64.zip` | Windows (64-Bit) |
+| `craft-explorer-macos-arm64.zip` | macOS Apple Silicon |
+| `craft-explorer-macos-x64.zip` | macOS Intel |
+| `craft-explorer-linux-x64.zip` | Linux (64-Bit) |
+
+**Benutzung:** ZIP entpacken, Launcher starten:
+- **Windows:** Doppelklick auf `start.bat`
+- **macOS:** Doppelklick auf `start.command` (beim ersten Mal: Rechtsklick → Oeffnen)
+- **Linux:** `chmod +x start.sh && ./start.sh`
+
+Der Browser oeffnet sich automatisch (Windows/Mac). Andere Teilnehmer im gleichen Netzwerk erreichen die App unter `http://<deine-IP>:3000`.
+
+#### Option 3: Azure / Cloud-Deployment
+
+Das Docker-Image laeuft auf jeder Container-Plattform:
+
+```bash
+# Image bauen und in eine Registry pushen
+docker build -f app/Dockerfile -t craft-explorer .
+docker tag craft-explorer <registry>/craft-explorer:latest
+docker push <registry>/craft-explorer:latest
+```
+
+**Azure App Service (Container):**
+1. Image in Azure Container Registry (ACR) pushen
+2. App Service → Container → ACR-Image auswaehlen
+3. Umgebungsvariablen setzen: `CORS_ORIGIN`, `WEBSITES_PORT=3000`
+4. Health-Check-Pfad: `/api/health`
+
+**Hinweise:**
+- Kein externer Datenbankzugriff noetig — alles laeuft im Container
+- Daten liegen in `/app/server-data` — fuer Persistenz ein Volume oder Azure File Share mounten
+- HTTPS wird vom Cloud-Provider terminiert (Reverse Proxy), die App selbst laeuft auf HTTP
 
 ### MVP-Funktionsumfang (Stories 1–9, abgeschlossen)
 

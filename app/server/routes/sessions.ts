@@ -20,6 +20,13 @@ interface CreateSessionBody {
   context_profile?: 'agile_open' | 'enterprise_regulated' | 'public_sector' | 'corporate_liberal' | 'generic'
 }
 
+// Reusable schema for UUID path parameters
+const idParamSchema = {
+  type: 'object' as const,
+  properties: { id: { type: 'string' as const, pattern: '^[a-zA-Z0-9-]+$' } },
+  required: ['id'] as const,
+}
+
 export async function sessionRoutes(fastify: FastifyInstance, opts: { store: JsonStore }) {
   const { store } = opts
 
@@ -101,7 +108,7 @@ export async function sessionRoutes(fastify: FastifyInstance, opts: { store: Jso
   })
 
   // Get session by ID
-  fastify.get<{ Params: { id: string } }>('/api/sessions/:id', async (request, reply) => {
+  fastify.get<{ Params: { id: string } }>('/api/sessions/:id', { schema: { params: idParamSchema } }, async (request, reply) => {
     const session = await store.getSession(request.params.id)
     if (!session) {
       return reply.status(404).send({ error: 'Session not found' })
@@ -112,6 +119,7 @@ export async function sessionRoutes(fastify: FastifyInstance, opts: { store: Jso
   // Update session status
   fastify.patch<{ Params: { id: string }; Body: { status: string } }>(
     '/api/sessions/:id/status',
+    { schema: { params: idParamSchema } },
     async (request, reply) => {
       const session = await store.getSession(request.params.id)
       if (!session) {
@@ -151,7 +159,7 @@ export async function sessionRoutes(fastify: FastifyInstance, opts: { store: Jso
   })
 
   // Delete session (and its responses)
-  fastify.delete<{ Params: { id: string } }>('/api/sessions/:id', async (request, reply) => {
+  fastify.delete<{ Params: { id: string } }>('/api/sessions/:id', { schema: { params: idParamSchema } }, async (request, reply) => {
     await store.deleteSession(request.params.id)
     return reply.status(204).send()
   })

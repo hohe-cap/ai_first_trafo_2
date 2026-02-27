@@ -65,6 +65,12 @@ logs/
 *.temp
 *.bak
 
+# Binary assets (use Git LFS if versioning needed)
+*.png
+*.jpg
+*.jpeg
+*.gif
+
 ---
 
 # WICHTIG für Agent Context Setup:

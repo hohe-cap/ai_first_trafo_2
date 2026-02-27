@@ -1,0 +1,51 @@
+# Docker build context filter (context = project root)
+
+# Version control
+.git
+.gitignore
+
+# Private & sensitive
+.private/
+*.secret
+*.key
+*.pem
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Agent instructions (not needed in image)
+.claude/
+.claudeignore
+CLAUDE.md
+
+# Node artifacts (will be installed fresh in container)
+app/node_modules/
+app/dist/
+app/server-dist/
+app/server-data/
+app/standalone/
+
+# Documentation & research (not needed in image)
+research/
+archive/
+docs/
+*.md
+!app/README.md
+
+# Logs & temp
+*.log
+*.tmp
+*.temp
+*.bak
+logs/
+
+# Binary assets
+*.png
+*.jpg
+*.jpeg
+*.gif

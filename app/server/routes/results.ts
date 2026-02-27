@@ -20,6 +20,12 @@ const TYPE_TO_FILE: Record<string, string> = {
   deep_dive_technical: 'deep-dive-technical.yaml',
 }
 
+const idParamSchema = {
+  type: 'object' as const,
+  properties: { id: { type: 'string' as const, pattern: '^[a-zA-Z0-9-]+$' } },
+  required: ['id'] as const,
+}
+
 export async function resultsRoutes(
   fastify: FastifyInstance,
   opts: { store: JsonStore; dataDir: string },
@@ -28,6 +34,7 @@ export async function resultsRoutes(
 
   fastify.get<{ Params: { id: string } }>(
     '/api/sessions/:id/results',
+    { schema: { params: idParamSchema } },
     async (request, reply) => {
       const sessionId = request.params.id
 

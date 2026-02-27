@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Build standalone CRAFT Explorer distributions for Windows and macOS.
+ * Build standalone CRAFT Explorer distributions for Windows, macOS and Linux.
  *
  * Creates platform-specific ZIP archives that include:
  * - Portable Node.js binary (no installation required)
@@ -56,6 +56,14 @@ const PLATFORMS = [
     targetBin: 'node',
     launcher: 'start.command',
   },
+  {
+    name: 'linux-x64',
+    archive: `node-${NODE_VERSION}-linux-x64.tar.gz`,
+    url: `https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}-linux-x64.tar.gz`,
+    nodeBin: `node-${NODE_VERSION}-linux-x64/bin/node`,
+    targetBin: 'node',
+    launcher: 'start.sh',
+  },
 ]
 
 const LAUNCHER_BAT = `@echo off
@@ -82,6 +90,17 @@ echo ""
 DATA_DIR="$DIR/server-data" DIST_DIR="$DIR/dist" HOST=0.0.0.0 PORT=3000 OPEN_BROWSER=1 "$DIR/node" "$DIR/server.mjs"
 `
 
+const LAUNCHER_SH = `#!/bin/bash
+DIR="$(cd "$(dirname "$0")" && pwd)"
+echo ""
+echo "  CRAFT Explorer startet..."
+echo "  Erreichbar unter http://localhost:3000"
+echo "  Im Netzwerk: http://$(hostname -I 2>/dev/null | awk '{print $1}'):3000"
+echo "  Zum Beenden: Ctrl+C"
+echo ""
+DATA_DIR="$DIR/server-data" DIST_DIR="$DIR/dist" HOST=0.0.0.0 PORT=3000 "$DIR/node" "$DIR/server.mjs"
+`
+
 const README_TXT = `CRAFT Explorer — Standalone Version
 ====================================
 
@@ -89,11 +108,13 @@ Starten:
   Windows:  Doppelklick auf "start.bat"
   macOS:    Doppelklick auf "start.command"
             (Beim ersten Mal: Rechtsklick → Oeffnen, um Gatekeeper zu bestaetigen)
+  Linux:    ./start.sh  (ggf. vorher: chmod +x start.sh)
 
 Der Browser oeffnet sich automatisch unter http://localhost:3000
+(Linux: URL manuell im Browser oeffnen)
 
 Beenden:
-  Das Konsolenfenster schliessen (Windows) oder Ctrl+C druecken (Mac).
+  Das Konsolenfenster schliessen (Windows) oder Ctrl+C druecken (Mac/Linux).
 
 Daten:
   Alle Daten liegen im Ordner "server-data/" und bleiben nach Neustart erhalten.
@@ -101,7 +122,7 @@ Daten:
 
 Netzwerk:
   Der Server ist standardmaessig unter Port 3000 im lokalen Netzwerk erreichbar.
-  Andere Teilnehmer im gleichen WLAN koennen ueber http://<deine-IP>:3000 beitreten.
+  Andere Teilnehmer im gleichen Netzwerk koennen ueber http://<deine-IP>:3000 beitreten.
 `
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -159,7 +180,9 @@ function buildFrontend(buildNode) {
 function buildServer() {
   console.log('\n📦 Bundling server (standalone, all deps embedded)...')
   // esbuild is a native binary — use it directly (works with any Node version)
-  run('npx esbuild server/index.ts --bundle --platform=node --format=esm --outfile=server-dist/index.mjs')
+  // Banner provides a real require() for Fastify's CJS dependencies in the ESM bundle
+  const banner = "import{createRequire}from'module';const require=createRequire(import.meta.url);"
+  run(`npx esbuild server/index.ts --bundle --platform=node --format=esm --outfile=server-dist/index.mjs --banner:js="${banner}"`)
 }
 
 function downloadNode(platform) {
@@ -255,6 +278,10 @@ function createPlatformBundle(platform) {
   console.log('  Creating launcher...')
   if (platform.launcher === 'start.bat') {
     writeFileSync(join(bundleDir, 'start.bat'), LAUNCHER_BAT, 'utf-8')
+  } else if (platform.launcher === 'start.sh') {
+    const launcherPath = join(bundleDir, 'start.sh')
+    writeFileSync(launcherPath, LAUNCHER_SH, 'utf-8')
+    chmodSync(launcherPath, 0o755)
   } else {
     const launcherPath = join(bundleDir, 'start.command')
     writeFileSync(launcherPath, LAUNCHER_COMMAND, 'utf-8')

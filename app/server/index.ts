@@ -20,15 +20,19 @@ const HOST = process.env.HOST || '0.0.0.0'
 async function start() {
   const fastify = Fastify({ logger: true })
 
-  // CORS for dev mode (Vite runs on different port)
+  // CORS — configurable for production, permissive for dev
+  const corsOrigin = process.env.CORS_ORIGIN
   await fastify.register(fastifyCors, {
-    origin: true,
+    origin: corsOrigin || true,
   })
 
   // Initialize storage
   const store = new JsonStore(DATA_DIR)
   await store.init()
   fastify.log.info(`Data directory: ${DATA_DIR}`)
+
+  // Health check for load balancers and container orchestration
+  fastify.get('/api/health', async () => ({ status: 'ok' }))
 
   // API routes
   await fastify.register(sessionRoutes, { store })
