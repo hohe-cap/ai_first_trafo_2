@@ -11,7 +11,7 @@
 #
 # Version: 2.0
 # Last Updated: 2026-02-12
-# Total Questions: 35 (17 Context + 18 Readiness)
+# Total Questions: 37 (17 Context + 20 Readiness)
 # Estimated Duration: 25-30 minutes
 # =============================================================================
 
@@ -235,20 +235,24 @@ categories:
   - key: "processes"
     section: "readiness"
     name:
-      de: "Prozesse & Workflows"
-      en: "Processes & Workflows"
+      de: "Prozesse, Workflows & Commercial Flow"
+      en: "Processes, Workflows & Commercial Flow"
     description:
-      de: "Bottleneck-Identifikation, Zeitverteilung, Prozessreife"
-      en: "Bottleneck identification, time distribution, process maturity"
+      de: "Bottleneck-Identifikation, Zeitverteilung, Prozessreife, Vertragsmodell-Alignment"
+      en: "Bottleneck identification, time distribution, process maturity, contract model alignment"
     why_important:
       de: >-
         Value Stream First: AI-Interventionen muessen dort ansetzen,
         wo die groessten Bottlenecks sind. Ohne Prozessverstaendnis
-        optimieren wir an der falschen Stelle.
+        optimieren wir an der falschen Stelle. Zudem bestimmt das
+        Vertragsmodell ob AI-Investitionen (Tooling, Champions-Zeit,
+        VSM-Workshops) ueberhaupt authorized werden koennen.
       en: >-
         Value Stream First: AI interventions must target the biggest
         bottlenecks. Without process understanding we optimize in
-        the wrong place.
+        the wrong place. Additionally, the contract model determines
+        whether AI investments (tooling, champion time, VSM workshops)
+        can be authorized at all.
     weight_in_readiness_score: 0.15
     order: 10
 
@@ -1446,6 +1450,100 @@ questions:
         order: 4
     weight: 1.2
     order: 35
+
+  - question_key: "rdy_commercial_flow_alignment"
+    section: "readiness"
+    category: "processes"
+    question_text:
+      de: "Wie gut unterstützt das aktuelle Vertragsmodell Investitionen in AI-Tooling und Transformation-Aufwände (Champions-Zeit, Workshops)?"
+      en: "How well does the current contract model support investments in AI tooling and transformation efforts (champion time, workshops)?"
+    why_important:
+      de: >-
+        T&M-Vertraege erzeugen einen systemischen Fehlanreiz: AI-Effizienz
+        fuehrt zu weniger abrechenbaren Stunden. Champions-Kapazitaet,
+        Tooling-Investitionen und VSM-Workshops lassen sich ohne Kunden-
+        Anforderung kaum rechtfertigen (Commercial Flow Alignment).
+      en: >-
+        T&M contracts create a systemic misaligned incentive: AI efficiency
+        leads to fewer billable hours. Champion capacity, tooling investments
+        and VSM workshops are hard to justify without customer demand
+        (Commercial Flow Alignment).
+    answer_type: "single_choice"
+    answer_options:
+      - key: "fully_aligned"
+        de: "Vollständig aligned: Outcome-Based / Gainsharing, Effizienz wird direkt belohnt"
+        en: "Fully aligned: Outcome-Based / Gainsharing, efficiency is directly rewarded"
+        score: 100
+        order: 1
+      - key: "partially_aligned"
+        de: "Teilweise aligned: Hybrid-Modell oder Fixed Price, Effizienz = interne Marge"
+        en: "Partially aligned: Hybrid or Fixed Price, efficiency equals internal margin"
+        score: 70
+        order: 2
+      - key: "neutral"
+        de: "Neutral: Internes Projekt, kein externer Abrechnungsdruck"
+        en: "Neutral: Internal project, no external billing pressure"
+        score: 60
+        order: 3
+      - key: "misaligned"
+        de: "Misaligned: T&M, aber Kunde ist Transformation-Investitionen gegenüber offen"
+        en: "Misaligned: T&M, but customer is open to transformation investments"
+        score: 30
+        order: 4
+      - key: "blocking"
+        de: "Blockierend: T&M, Kunde erwartet maximale Stunden-Auslastung ohne Spielraum"
+        en: "Blocking: T&M, customer expects maximum hour utilization with no flexibility"
+        score: 0
+        order: 5
+    weight: 1.3
+    order: 36
+
+  - question_key: "rdy_contract_transition_readiness"
+    section: "readiness"
+    category: "processes"
+    question_text:
+      de: "Gibt es Pläne oder aktive Gespräche, das Vertragsmodell in Richtung Outcome-Based oder Gainsharing weiterzuentwickeln?"
+      en: "Are there plans or active discussions to evolve the contract model towards outcome-based or gainsharing?"
+    why_important:
+      de: >-
+        Ohne expliziten Plan bleibt T&M ein dauerhafter struktureller
+        Blocker fuer nachhaltige AI-Adoption. Der Uebergang zu AI-aligned
+        Vertragsmodellen ist eine eigenstaendige Transformation-Intervention
+        (Commercial Flow Alignment im AI Intervention Katalog).
+      en: >-
+        Without an explicit plan, T&M remains a permanent structural
+        blocker for sustainable AI adoption. The transition to AI-aligned
+        contract models is an independent transformation intervention
+        (Commercial Flow Alignment in the AI Intervention Catalogue).
+    answer_type: "single_choice"
+    answer_options:
+      - key: "in_progress"
+        de: "Ja, Transition aktiv in Planung oder bereits umgesetzt"
+        en: "Yes, transition actively planned or already implemented"
+        score: 100
+        order: 1
+      - key: "discussed"
+        de: "Thema bekannt, wird intern oder mit dem Kunden diskutiert"
+        en: "Topic known, being discussed internally or with the customer"
+        score: 70
+        order: 2
+      - key: "aware"
+        de: "Bewusstsein für das Problem vorhanden, aber noch kein Plan"
+        en: "Awareness of the problem exists, but no plan yet"
+        score: 40
+        order: 3
+      - key: "not_relevant"
+        de: "Nicht relevant (internes Projekt oder Modell bereits AI-aligned)"
+        en: "Not relevant (internal project or model already AI-aligned)"
+        score: 80
+        order: 4
+      - key: "no_awareness"
+        de: "Kein Bewusstsein für das Problem / kein Plan"
+        en: "No awareness of the problem / no plan"
+        score: 0
+        order: 5
+    weight: 1.0
+    order: 37
 
 # =============================================================================
 # SCORING

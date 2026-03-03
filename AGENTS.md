@@ -92,7 +92,7 @@ sondern an fehlender Prozessintegration und Change Management.
 | **C** | Compliance & Governance | EU AI Act, Betriebsrat, Policies, 3 Sicherheitsstufen | Governance Liaison |
 | **R** | Readiness (Human & Cultural) | Rollenentwicklung, Champions, Psychological Safety, Shadow AI Amnestie | Change & People Lead |
 | **A** | Adoption & Usage | DAU/Team, AI-assisted Commits %, SDLC-Phasen-Abdeckung, Nutzungstiefe | AI Transformation Manager |
-| **F** | Flow & Process Integration | Value Stream Mapping, Bottleneck-Analyse, AI Intervention Katalog | Value Stream Coach |
+| **F** | Flow & Process Integration | Value Stream Mapping, Bottleneck-Analyse, AI Intervention Katalog, **Commercial Flow Alignment** (Vertragsmodell-Kompatibilität) | Value Stream Coach |
 | **T** | Technical Enablement | Tools, LLM-Deployment, IDE-Integration, MCP-Server, Prompt Libraries | Technical AI Lead |
 
 **Tooling-Architektur nach Sicherheitsstufe:**
@@ -257,4 +257,4 @@ sondern an fehlender Prozessintegration und Change Management.
 - Framework Version: 1.0 DRAFT
 - AGENTS.md Version: 1.2
 - CRAFT Explorer Version: 2.1 (Question Banks + METHODOLOGY.md + Challenge Map + Profile-Logik)
-- Letzte Sync mit Vollversion: 2026-02-24
+- Letzte Sync mit Vollversion: 2026-03-03

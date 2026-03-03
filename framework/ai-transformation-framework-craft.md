@@ -309,6 +309,49 @@ Jeder Eintrag im Katalog enthält: konkretes Tooling mit Alternativen für versc
 - **Erfahrungsdokumentation:** Champions dokumentieren ihre Tool-Erfahrungen strukturiert. AI identifiziert Muster und aggregiert Feedback über Teams hinweg.
 - **Kontextuelle Empfehlungen:** Basierend auf dem Pulse-Check-Ergebnis eines Teams schlägt der Katalog automatisch passende Interventionen vor.
 
+#### Commercial Flow Alignment
+
+Ein oft übersehener, aber strukturell kritischer Aspekt der Flow-Dimension: Der kommerzielle Rahmen, in dem Teams arbeiten, kann AI-Transformation systematisch blockieren.
+
+**Das T&M-Paradoxon:**
+
+Unter Time & Material-Verträgen führt AI-Effizienz unmittelbar zu weniger abrechenbaren Stunden. Dieser Mechanismus erzeugt systemische Fehlanreize:
+
+- **Champions-Kapazität** (20% dedizierte Zeit) ist gegenüber dem Kunden kaum begründbar
+- **Tooling-Investitionen** ohne direkten Stunden-ROI werden intern nicht genehmigt
+- **VSM-Workshops und Change-Aufwände** lassen sich ohne explizite Kunden-Anforderung nicht verbuchen
+- **Shadow AI** entsteht, weil offizielle Adoption die Stundenzahl sichtbar reduziert
+
+Das MIT NANDA-Datenpunkt „95% Piloten scheitern" hat hier eine oft unbeachtete Ursache: nicht fehlende Technologie, sondern strukturell falsch ausgerichtete Geschäftsmodelle.
+
+**Vertragsmodell-Kompatibilitätsmatrix:**
+
+| Vertragsmodell | Incentive-Alignment | AI-Transformation-Readiness |
+|----------------|---------------------|---------------------------------|
+| Time & Material | ❌ Bestraft Effizienz | Niedrig — aktive Intervention nötig |
+| Fixed Price | ⚠️ Neutral (Effizienz = interne Marge) | Mittel — funktioniert wenn intern supportet |
+| Hybrid (T&M + Success Bonus) | ✅ Teilweise aligned | Mittel-Hoch |
+| Outcome-Based / Gainsharing | ✅✅ Belohnt Effizienz direkt | Hoch — optimaler Rahmen |
+
+**Aufgabe des Value Stream Coach — Commercial Flow Check:**
+
+Im Kickoff jeder Transformation wird das Vertragsmodell als Flow-Constraint bewertet. Bei T&M-Identifikation gibt es drei Interventionspfade:
+
+1. **Innovation Budget:** Dediziertes „AI Transformation Budget" außerhalb T&M mit dem Kunden verhandeln — oft einfacher als direkte Vertragsumstellung
+2. **Vertragsrunde als Opportunity:** Nächste Vertragsverlängerung aktiv für Modell-Wechsel nutzen; Gainsharing-Pilot als „risikominimale Einstiegsoption" positionieren
+3. **Transparenz-Strategie:** Effizienzgewinne explizit sichtbar machen — Kunden, die die AI-Vorteile konkret sehen, sind häufig offen für Modellwechsel
+
+**Erweiterung des AI Intervention Katalogs:**
+
+Commercial Flow Interventionen werden als übergeordnete Kategorie im Katalog geführt:
+
+| Intervention | Trigger | Verantwortung |
+|---|---|---|
+| Contract Model Review + Empfehlung | Kickoff, immer | Value Stream Coach |
+| Kunden-Workshop „AI-First Commercial Models" | T&M + Awareness-Lücke beim Kunden | AI Transformation Manager |
+| Gainsharing Pilot Design | T&M > 12 Monate, Effizienzgewinne messbar | Value Stream Coach + AI Transformation Manager |
+| Innovation Budget Verhandlung | T&M + kurzfristiger Investitionsbedarf | AI Transformation Manager + Sponsor |
+
 ### 2.5 Dimension 5: Technical Enablement (T)
 
 Die konkrete technische Umsetzungsunterstützung – hier wird das Framework hands-on. Ziel ist es, die Reibung zwischen Wollen und Können zu minimieren.
@@ -541,7 +584,7 @@ flowchart TB
 | C – Compliance | Governance Compliance Score, Policy-Abdeckung pro Sicherheitsstufe, BR/EU AI Act Freigabestatus | Pulse Check + Governance-Tracking |
 | R – Readiness | Skill Self-Rating, Prompt Quality Score (anonymisiert), Anteil Teammitglieder mit AI-Schulung, Vertrauensindex, Champion-Meldungen, Workshop-Teilnahme | Pulse Check + Tool-Daten |
 | A – Adoption | Daily Active Users / Team Size, AI-assisted Commits (%), Nutzungsverteilung über SDLC-Phasen, **Usage Mode Maturity** (Chat → integriert → agentisch), Shadow AI Rate (sinkend = positiv) | Automatisch aus Tool-Telemetrie + Pulse Check |
-| F – Flow | Anteil SDLC-Phasen mit definierten AI-Interventionen, Flow Efficiency (aktiv vs. Wartezeit), CI/CD-Integration | Pulse Check + Pipeline-Daten |
+| F – Flow | Anteil SDLC-Phasen mit definierten AI-Interventionen, Flow Efficiency (aktiv vs. Wartezeit), CI/CD-Integration, **Commercial Flow Alignment Score** (Vertragsmodell-Kompatibilität) | Pulse Check + Pipeline-Daten + Context Readiness |
 | T – Technical | Tool Availability Score, Integration Depth (standalone vs. IDE-integriert vs. Workflow-integriert), Modellabdeckung pro SDLC-Phase, **supported usage mode** (welche Modi sind offiziell/technisch möglich) | Automatisch + Pulse Check |
 
 #### Schicht 3: Business Impact (für Sponsoren)
