@@ -20,10 +20,11 @@ Autor: Jan | AI Transformation Management
 5. [KPI-Framework: Outcome statt Output](#5-kpi-framework-outcome-statt-output)
 6. [Das AI Adoption Team](#6-das-ai-adoption-team)
 7. [Die AI Adoption Roadmap (Kundenergebnis)](#7-die-ai-adoption-roadmap-kundenergebnis)
-8. [Werkzeuge & Deliverables](#8-werkzeuge--deliverables-übersicht)
-9. [Referenzmodelle & Quellen](#9-referenzmodelle--quellen)
-10. [Systematische Abgrenzung: Warum ein eigener Ansatz?](#10-systematische-abgrenzung-warum-ein-eigener-ansatz)
-11. [Nächste Schritte: Vom Framework zur Anwendung](#11-nächste-schritte-vom-framework-zur-anwendung)
+8. [Engagement-Architektur: Vom Framework zur Wirkung](#8-engagement-architektur-vom-framework-zur-wirkung)
+9. [Werkzeuge & Deliverables](#9-werkzeuge--deliverables-übersicht)
+10. [Referenzmodelle & Quellen](#10-referenzmodelle--quellen)
+11. [Systematische Abgrenzung: Warum ein eigener Ansatz?](#11-systematische-abgrenzung-warum-ein-eigener-ansatz)
+12. [Nächste Schritte: Vom Framework zur Anwendung](#12-nächste-schritte-vom-framework-zur-anwendung)
 
 ---
 
@@ -708,7 +709,124 @@ Der Übergang von einem erfolgreichen Pilot zu einer breiten Adoption ist der sc
 
 ---
 
-## 8. Werkzeuge & Deliverables (Übersicht)
+## 8. Engagement-Architektur: Vom Framework zur Wirkung
+
+Die vorherigen Kapitel beschreiben *was* wir steuern (CRAFT-Dimensionen), *wie* wir arbeiten (Iterationsmodell) und *wie* wir messen (KPI-Framework). Dieses Kapitel beantwortet die vier Fragen, die jeder Sponsor und jedes Projektteam stellt, bevor eine Transformation beginnt: Was gewinnen wir? Wie arbeiten wir zusammen? Was kostet das? Und wie halten wir das Risiko gering?
+
+### 8.1 Value Proposition: Was die Organisation gewinnt
+
+Die Wertversprechen des Frameworks lassen sich auf drei Ebenen formulieren:
+
+**Ebene 1: Messbare Delivery-Verbesserung**
+Die empirische Basis ist belastbar (vgl. Kapitel 1): 55% schnellere Task-Completion, 25%+ AI-generierter Code bei Vorreitern, messbare DORA-Verbesserungen bei korrekt integrierter AI. Das Framework stellt sicher, dass diese Potenziale nicht nur als Einzeleffekte verpuffen, sondern systematisch im gesamten SDLC realisiert werden.
+
+**Ebene 2: Reduziertes Transformationsrisiko**
+Die Failure Rate von AI-Initiativen liegt bei 80-95% (MIT NANDA, S&P Global, RAND). Das Framework adressiert die drei empirisch identifizierten Hauptursachen: fehlende Prozessanpassung (Dimension F: Value Stream First), fehlendes Change Management (Dimension R: Human-Centric) und fehlende cross-funktionale Koordination (AI Adoption Team mit Readiness Gates).
+
+**Ebene 3: Befähigung statt Abhängigkeit**
+Das Engagement-Modell ist auf Wissenstransfer ausgelegt. Jede Phase baut interne Kompetenz auf: Champions werden ausgebildet, Playbooks werden übergeben, das KPI-System läuft autonom. Das Ziel ist nicht maximale Beratungsdauer, sondern maximale Selbststeuerungsfähigkeit der Organisation.
+
+### 8.2 Engagement-Modell: Vier Phasen der Zusammenarbeit
+
+Das Engagement-Modell folgt direkt aus der Framework-Architektur — jede Phase nutzt spezifische Framework-Komponenten und liefert eigenständigen Wert:
+
+```mermaid
+---
+config:
+  theme: base
+  themeVariables:
+    primaryColor: '#1a365d'
+    primaryTextColor: '#ffffff'
+    lineColor: '#4a5568'
+    fontSize: '13px'
+---
+flowchart LR
+    subgraph PHASES["ENGAGEMENT-MODELL"]
+        direction LR
+        T1["🔍 Discovery\n2–3 Wochen\nStandort & Quick Wins"]
+        T2["🚀 Pilot\n8–12 Wochen\n1 Team transformieren"]
+        T3["🏗️ Embed & Scale\n4–6 Monate\n2–4 Teams, Verankerung"]
+        T4["🤝 Continuous\nPartnership\nfortlaufend\nLangfristige Begleitung"]
+        T1 ==>|"Go/No-Go"| T2
+        T2 ==>|"Readiness Gate"| T3
+        T3 ==>|"bei Bedarf"| T4
+    end
+
+    subgraph VALUE["EIGENSTÄNDIGER WERT PRO PHASE"]
+        direction TB
+        V1["CRAFT Report\n+ Quick Wins"]
+        V2["Referenzteam\n+ DORA Delta"]
+        V3["Skalierungs-Playbook\n+ ROI-Nachweis"]
+        V4["Strategischer Sparring\n+ Org-Entwicklung"]
+    end
+
+    T1 -.-> V1
+    T2 -.-> V2
+    T3 -.-> V3
+    T4 -.-> V4
+
+    style PHASES fill:#ebf8ff,stroke:#2b6cb0,color:#1a365d
+    style VALUE fill:#f7fafc,stroke:#4a5568,color:#1a202c
+    style T1 fill:#ebf4ff,stroke:#3182ce,color:#1a365d
+    style T2 fill:#f0fff4,stroke:#38a169,color:#22543d
+    style T3 fill:#fef3c7,stroke:#d69e2e,color:#744210
+    style T4 fill:#faf5ff,stroke:#805ad5,color:#44337a
+```
+
+| Phase | Framework-Komponenten | Was der Kunde erhält | Typischer Umfang |
+|-------|----------------------|---------------------|------------------|
+| **Discovery** | CRAFT Explorer Deep-Dive, Kontext-Profil, Shadow AI Scan | CRAFT Maturity Report, Spider-Chart, Top-5 Quick Wins, Go/No-Go für Pilot | 2-3 Wochen, 8-12 PT |
+| **Pilot Begleitung** | Iterationszyklen 1-3, VSM Kurzformat, Champion Onboarding, Governance Starter Kit | Referenzteam mit messbarem DORA-Delta, Value Stream Map, angepasste Governance Policy | 8-12 Wochen, 25-40 PT |
+| **Embed & Scale** | Skalierungsmodell (Kap. 7.2), Pulse Check Etablierung, Rollenentwicklung, KPI-Dashboard | Skalierungs-Playbook, Champion-Netzwerk, ROI-Nachweis, Übergabe an interne Capability | 4-6 Monate, 50-80 PT |
+| **Continuous Partnership** | Alle Framework-Dimensionen im Coaching-Modus, strategische Steuerung, Organisationsentwicklung | Kontinuierliche Weiterentwicklung, strategischer Sparringspartner, organisationale Verankerung | Fortlaufend, 4-8 PT/Monat |
+
+**Discovery, Pilot und Embed & Scale** folgen der klassischen Options-Logik: kleine initiale Investition, evidenzbasierte Entscheidung, stufenweise Erhöhung des Commitments. Jede Phase liefert eigenständigen Wert — eine Organisation, die nach dem Pilot nicht skaliert, hat trotzdem ein transformiertes Referenzteam, dokumentierte Verbesserungen und ausgebildete Champions.
+
+**Continuous Partnership** adressiert Kontexte, in denen eine vollständige Übergabe nicht sinnvoll oder nicht gewünscht ist:
+
+- **Große Organisationen** mit vielen Teams, Standorten und Geschäftsbereichen, in denen die Skalierung schrittweise über 12+ Monate läuft und kontinuierliche Orchestrierung erfordert.
+- **Regulatorisch komplexe Umgebungen**, in denen sich Compliance-Anforderungen (EU AI Act, Branchenregulierung) schnell ändern und permanentes Governance-Monitoring nötig ist.
+- **Schnell evolvierende Tool-Landschaften**, in denen ein externer Sparringspartner Wert schafft, weil er die Breite der Marktentwicklung über viele Kunden hinweg sieht.
+- **Organisationen mit schwacher interner Change-Kapazität**, die eine langfristige Begleitung für den kulturellen Wandel brauchen.
+
+In diesem Modell verschiebt sich die Rolle vom operativen Enabler zum strategischen Partner: weniger Workshops, mehr Coaching. Weniger direkte Umsetzung, mehr Sparring und Qualitätssicherung. Die Intensität sinkt, der strategische Hebel steigt.
+
+> **Marketing-Aspekt:** Der modulare Aufbau erleichtert den Einstieg. Eine Organisation kann mit einer Discovery beginnen (geringes Commitment, hoher Informationsgewinn) und bei Erfolg natürlich in die nächste Phase wachsen. Das reduziert die Einstiegshürde und die Abschlussgröße des ersten Engagements — und erhöht die Wahrscheinlichkeit einer langfristigen Partnerschaft durch nachgewiesene Wirksamkeit.
+
+### 8.3 Investitionsschutz: Warum das Risiko kontrollierbar ist
+
+Das Framework hat vier strukturelle Eigenschaften, die das Investitionsrisiko systematisch begrenzen:
+
+**1. Eingebaute Feedback Loops**
+Der Pulse Check liefert alle 4 Wochen objektive Evidenz über den Fortschritt — keine Selbsteinschätzung des Beraters, sondern anonyme Team-Daten und automatisierte DORA-Metriken. Wenn eine Dimension stagniert, wird das nach spätestens einem Zyklus sichtbar.
+
+**2. Readiness Gates als Stop/Go-Mechanik**
+Nach jedem 4-Wochen-Zyklus steht eine bewusste Entscheidung (vgl. Kap. 4.2): Erweitern, Vertiefen oder Konsolidieren. Das verhindert die klassische Falle, zu schnell zu skalieren, bevor der Boden bereitet ist. Es verhindert aber auch, dass Engagement-Phasen sich endlos fortsetzen ohne Ergebnis.
+
+**3. Kosten-Risiko-Asymmetrie der Discovery**
+Die Discovery-Phase (8-12 PT) ist die kleinste Investition mit dem größten Informationsgewinn. Nach 2-3 Wochen weiß die Organisation: Wo stehen wir? Wo sind die größten Hebel? Lohnt sich ein Pilot? Die Ergebnisse (CRAFT Report, Quick Wins) haben unabhängig von der Folgeentscheidung eigenständigen Wert.
+
+**4. Modularer Aufbau mit eigenständigem Wert**
+Jede Phase liefert abgeschlossene Deliverables. Selbst wenn eine Organisation nach dem Pilot nicht skaliert, hat sie: ein transformiertes Referenzteam, dokumentierte DORA-Verbesserungen, ein funktionierendes Governance-Setup und ausgebildete Champions, die intern weiterwirken.
+
+> **Kosten der Nicht-Transformation:** Dem Investitionsrisiko steht ein mindestens ebenso reales Risiko des Nicht-Handelns gegenüber (vgl. Kap. 1.3): unkontrollierte Shadow AI mit Compliance-Risiken, wachsender Wettbewerbsnachteil durch langsamere Delivery-Zyklen, und die Erosion von Change-Kapital durch jede halbherzige oder gescheiterte AI-Initiative.
+
+### 8.4 Ergebnismatrix: Was Sie in welcher Phase erwarten können
+
+Die folgende Matrix verbindet jede Engagement-Phase mit konkreten, messbaren Ergebnissen — zugeordnet zu den drei KPI-Schichten (vgl. Kap. 5):
+
+| Phase | Delivery Outcomes (Schicht 1) | AI Maturity (Schicht 2) | Business Impact (Schicht 3) |
+|-------|-------------------------------|------------------------|----------------------------|
+| **Discovery** | DORA-Baseline erhoben | CRAFT-Scores als Ausgangspunkt, Stärken/Schwächen identifiziert | Business Case für Pilot quantifiziert |
+| **Pilot** | DORA-Delta messbar (Ziel: stabil oder verbessert), Flow Efficiency sichtbar | CRAFT-Score Verbesserung in mind. 2 Dimensionen | Quick Wins realisiert, Pilot-ROI dokumentiert |
+| **Embed & Scale** | DORA-Verbesserung über 2-4 Teams, Cycle Time Reduktion | CRAFT-Score >=3 in allen Dimensionen (Embedding-Level) | Velocity-Steigerung, Time-to-Market-Verbesserung quantifiziert |
+| **Continuous Partnership** | Kontinuierliche DORA-Optimierung, organisationsweite Benchmarks | CRAFT-Scores auf Scaling/Evolving-Level (4-5) | Strategische AI-Reife als Wettbewerbsvorteil, AI treibt Prozessinnovation |
+
+> **Operative Details** (Personentage, Preismodell, Add-ons, Kontext-Profil-Empfehlungen) sind im separaten Service-Dokument detailliert: `deliverables/craft-service-offerings.md`. Das ermöglicht eine unabhängige Aktualisierung operativer Parameter, ohne die Framework-Dokumentation zu verändern.
+
+---
+
+## 9. Werkzeuge & Deliverables (Übersicht)
 
 Das Framework ist mehr als ein Strategiepapier. Folgende konkrete Werkzeuge und Deliverables werden bereitgestellt oder müssen entwickelt werden:
 
@@ -730,11 +848,11 @@ Das Framework ist mehr als ein Strategiepapier. Folgende konkrete Werkzeuge und 
 
 ---
 
-## 9. Referenzmodelle & Quellen
+## 10. Referenzmodelle & Quellen
 
 Das Framework baut auf etablierten Modellen und aktueller Forschung auf, statt alles neu zu erfinden:
 
-### 9.1 AI Maturity Modelle
+### 10.1 AI Maturity Modelle
 
 - **MITRE AI Maturity Model:** 6 Säulen, 20 Dimensionen, 5 Reifestufen. Frei verfügbar, validiert, Fokus auf Organisation. Basis für die CRAFT-Dimensionierung. → [MITRE AI MM](https://aida.mitre.org/ai-maturity-model/)
 - **SEI / Accenture AI Adoption Maturity Model (2025):** 8 Dimensionen inkl. Workforce & Culture und Workflow Re-engineering. 5 Stufen von Exploratory bis Future-Ready. Besonders relevant für den Workflow-Fokus unseres Frameworks. → [SEI/Accenture AI Adoption MM](https://insights.sei.cmu.edu/library/ai-adoption-maturity-model/)
@@ -742,18 +860,18 @@ Das Framework baut auf etablierten Modellen und aktueller Forschung auf, statt a
 - **EY.ai Maturity Model:** 7 Dimensionen, 15-Minuten-Self-Assessment. Vorbild für den Zeitrahmen unseres Pulse Checks. → [EY.ai Maturity](https://www.ey.com/en_gl/ai/maturity-assessment)
 - **OWASP AI Maturity Assessment (2025):** 5 Domains (Strategy, Design, Implementation, Operations, Governance). Relevant für den Security-Aspekt. → [OWASP AIMA](https://owaspai.org/docs/ai_security/maturity/)
 
-### 9.2 Change Management
+### 10.2 Change Management
 
 - **Kotter 8 Accelerators:** Weiterentwicklung des klassischen 8-Step-Modells hin zu einem dynamischen, nicht-linearen Ansatz. Basis für die Guiding Coalition / AI Adoption Team Struktur. → [Kotter Inc.](https://www.kotterinc.com/methodology/8-steps/)
 - **Prosci ADKAR:** Individuelle Change-Perspektive (Awareness, Desire, Knowledge, Ability, Reinforcement). Ergänzend für die Human-Dimension. → [Prosci ADKAR](https://www.prosci.com/methodology/adkar)
 
-### 9.3 Software Delivery & Value Stream
+### 10.3 Software Delivery & Value Stream
 
 - **DORA Metrics:** Deployment Frequency, Lead Time, Change Failure Rate, Time to Restore. Goldstandard für Delivery Performance. → [DORA / Google Cloud](https://dora.dev/)
 - **Lean Value Stream Mapping:** Methodik zur Visualisierung und Optimierung von Wertströmen. Adaptiert für den SDLC-Kontext. → [Lean Enterprise Institute](https://www.lean.org/lexicon-terms/value-stream-mapping/)
 - **SAFe (Scaled Agile Framework):** Referenz für die Skalierung agiler Praktiken in Konzernen. → [SAFe Framework](https://scaledagileframework.com/)
 
-### 9.4 Survey-Design & Diagnostische Methodik
+### 10.4 Survey-Design & Diagnostische Methodik
 
 - **Wiggins, G. & McTighe, J. (2005): Understanding by Design.** Backward-Design-Prinzip: Von den gewünschten Erkenntnissen (typische Herausforderungen) rückwärts zu den diagnostischen Fragen. Methodische Grundlage für die Challenge-Map und die Konstruktion der CRAFT Explorer Fragen.
 - **DeVellis, R. F. (2017): Scale Development — Theory and Applications.** Standard-Referenz für Fragebogen-Konstruktion. Informiert die Gestaltung der Maturity-Stufen und diagnostischen MC-Optionen.
@@ -763,7 +881,7 @@ Das Framework baut auf etablierten Modellen und aktueller Forschung auf, statt a
 - **Weisbord, M. R. (1976): Organizational Diagnosis — Six Places to Look.** Konzeptuelle Grundlage für die Multi-Dimensionen-Diagnostik über fünf CRAFT-Dimensionen.
 - **Burke, W. W. & Litwin, G. E. (1992): A Causal Model of Organizational Performance and Change.** Informiert die Kausalketten in der Challenge Map — wie Herausforderungen in einer Dimension andere auslösen.
 
-### 9.5 Empirische Studien zur AI-Transformation (2024–2025)
+### 10.5 Empirische Studien zur AI-Transformation (2024–2025)
 
 - **MIT NANDA – „The GenAI Divide: State of AI in Business 2025":** 95% der Enterprise-AI-Piloten ohne messbaren P&L-Impact. 90% Shadow-AI-Nutzung. Hauptblocker: brittle workflows, fehlende kontextuelle Lernfähigkeit. → [MIT NANDA Report (PDF)](https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf)
 - **McKinsey – „The State of AI 2025: Agents, Innovation, and Transformation":** Workflow-Redesign = stärkster Faktor für EBIT-Impact unter 25 getesteten Attributen. Nur 21% der Organisationen haben Workflows redesigned. Nur 39% sehen überhaupt EBIT-Impact. → [McKinsey State of AI 2025](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai)
@@ -774,7 +892,7 @@ Das Framework baut auf etablierten Modellen und aktueller Forschung auf, statt a
 - **NTT DATA – „Between 70-85% of GenAI Deployment Efforts Are Failing":** 75% der Organisationen an oder über der Change-Sättigungsgrenze. 45% der Mitarbeiter von Change Fatigue betroffen. → [NTT DATA Analysis](https://www.nttdata.com/global/en/insights/focus/2024/between-70-85p-of-genai-deployment-efforts-are-failing)
 - **DORA Report 2024:** 25% mehr generative AI-Nutzung korreliert mit 7,2% weniger Stabilität und messbarem Throughput-Rückgang – Beleg für die These, dass AI ohne Prozessanpassung schaden kann.
 
-### 9.6 AI-Produktivitätsstudien & Developer Surveys
+### 10.6 AI-Produktivitätsstudien & Developer Surveys
 
 - **GitHub Research – „Quantifying GitHub Copilot's Impact on Developer Productivity and Happiness" (2022):** Kontrolliertes Experiment mit 95 professionellen Entwicklern: Copilot-Nutzer schließen Tasks 55% schneller ab (1h11min vs. 2h41min, P=.0017). 60–75% berichten höhere Arbeitszufriedenheit, 73% besseren Flow, 87% weniger mentale Belastung bei repetitiven Aufgaben. → [GitHub Research](https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/)
 - **GitHub Survey – „AI's Impact on the Developer Experience" (2023):** 92% der US-Enterprise-Entwickler nutzen AI-Coding-Tools (bei der Arbeit oder privat). 70% sehen signifikante Vorteile. 81% erwarten, dass AI-Tools die Team-Kollaboration verbessern. → [GitHub Survey](https://github.blog/news-insights/research/survey-reveals-ais-impact-on-the-developer-experience/)
@@ -783,11 +901,11 @@ Das Framework baut auf etablierten Modellen und aktueller Forschung auf, statt a
 
 ---
 
-## 10. Systematische Abgrenzung: Warum ein eigener Ansatz?
+## 11. Systematische Abgrenzung: Warum ein eigener Ansatz?
 
 Dieses Kapitel beantwortet drei Fragen: Was übernehmen wir von bestehenden Modellen – und warum? Warum reicht keines dieser Modelle allein? Und worauf stützt sich unsere Überzeugung, dass der kombinierte Ansatz funktioniert, auch ohne eigene Pilotdaten?
 
-### 10.1 Das Kernproblem: Adoption ohne Transformation
+### 11.1 Das Kernproblem: Adoption ohne Transformation
 
 Die Datenlage ist eindeutig und ernüchternd. Die [MIT NANDA-Studie „The GenAI Divide"](https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf) (2025) zeigt: Während über 80% der Organisationen AI-Tools pilotiert haben, erreichen nur 5% der Enterprise-AI-Initiativen die Produktionsreife mit messbarem P&L-Impact. S&P Global berichtet, dass 42% der Unternehmen 2025 die Mehrheit ihrer AI-Initiativen eingestellt haben – ein Anstieg von 17% im Vorjahr. [McKinseys State of AI Survey](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) (2025) bestätigt: Über 80% der Organisationen sehen keinen messbaren EBIT-Impact durch AI. Bains Studie von 2024 beziffert die allgemeine Transformations-Failure-Rate sogar auf 88%.
 
@@ -795,7 +913,7 @@ Die Ursachen sind dabei konsistent über alle Studien hinweg: es sind keine Tech
 
 Genau in diese Lücke – zwischen Tool-Adoption und tatsächlicher Wertschöpfung – zielt unser Framework.
 
-### 10.2 Was wir übernehmen und warum
+### 11.2 Was wir übernehmen und warum
 
 Wir erfinden nicht neu, was bereits validiert ist. Die folgende Tabelle zeigt für jede Referenzquelle, was wir konkret übernehmen und was bewusst nicht:
 
@@ -812,7 +930,7 @@ Wir erfinden nicht neu, was bereits validiert ist. Die folgende Tabelle zeigt f�
 | **Lean Value Stream Mapping** | VSM-Methodik, Waste-Kategorien, Flow-Efficiency-Konzept | Manufacturing-Kontext, physische Wertstrom-Metaphern | Lean VSM ist für Fabriken entwickelt. Unsere Adaption für den SDLC berücksichtigt die Besonderheiten von Wissensarbeit: unsichtbare Queues, Kontextwechsel, kognitive Last. |
 | **SAFe** | Portfolio-Skalierungslogik, PI-Planning-Rhythmik als Referenz für Iterationszyklen | Gesamtes SAFe-Framework als Voraussetzung, Zertifizierungs-Ökosystem | SAFe ist ein massives Betriebssystem für agile Skalierung. Unser Framework soll auch in Organisationen funktionieren, die kein SAFe nutzen. |
 
-### 10.3 Warum reicht keines dieser Modelle allein?
+### 11.3 Warum reicht keines dieser Modelle allein?
 
 Die bestehenden Modelle adressieren jeweils einen oder zwei Aspekte der Herausforderung, aber keines verbindet alle drei kritischen Ebenen:
 
@@ -824,7 +942,7 @@ Die bestehenden Modelle adressieren jeweils einen oder zwei Aspekte der Herausfo
 
 Unser Framework ist der Versuch, alle drei Ebenen in einem operativ nutzbaren System zu verbinden – nicht als Theorie, sondern als Werkzeugkasten mit konkreten Zyklen, Rollen und Deliverables.
 
-### 10.4 Worauf stützt sich unsere Überzeugung?
+### 11.4 Worauf stützt sich unsere Überzeugung?
 
 Dies ist die entscheidende Frage, die wir ehrlich beantworten müssen: Wir haben noch keinen vollständigen Pilot durchgeführt. Warum glauben wir trotzdem, dass dieser Ansatz funktioniert? Unsere Überzeugung stützt sich auf fünf Argumentationslinien – mit klarer Benennung ihrer Grenzen:
 
@@ -843,9 +961,9 @@ Im Gegensatz zu linearen Transformationsplänen hat unser Ansatz eingebaute Feed
 **Argument 5: Die Alternative – nichts Neues zu versuchen – ist nachweislich gescheitert.**
 Die 95% Failure Rate (MIT) und die 42% Abbruchquote (S&P Global) zeigen, dass der Status quo nicht funktioniert. Die bestehenden Ansätze – reines Tool-Rollout, generische Maturity Assessments, technologieagnostisches Change Management – produzieren die Ergebnisse, die wir sehen. Ein integrierter Ansatz ist nicht bewiesen besser, aber die fragmentierten Ansätze sind bewiesen unzureichend.
 
-> **Ehrliche Einschränkung:** Alle fünf Argumente zusammen ergeben eine starke Plausibilität, aber keinen Beweis. Was wir bisher haben, ist ein theoretisch fundiertes, empirisch informiertes Framework. Was wir brauchen, ist ein Pilot. Deshalb ist die Pilot-Durchführung (Kapitel 11, Arbeitspaket 6) nicht optional – sie ist die Validierungsvoraussetzung für jede externe Positionierung. Wir empfehlen, das Framework intern zu pilotieren und die Ergebnisse offen zu dokumentieren – einschließlich dessen, was nicht funktioniert hat. Das erzeugt mehr Glaubwürdigkeit als jede Hochglanzpräsentation.
+> **Ehrliche Einschränkung:** Alle fünf Argumente zusammen ergeben eine starke Plausibilität, aber keinen Beweis. Was wir bisher haben, ist ein theoretisch fundiertes, empirisch informiertes Framework. Was wir brauchen, ist ein Pilot. Deshalb ist die Pilot-Durchführung (Kapitel 12, Arbeitspaket B3) nicht optional – sie ist die Validierungsvoraussetzung für jede externe Positionierung. Wir empfehlen, das Framework intern zu pilotieren und die Ergebnisse offen zu dokumentieren – einschließlich dessen, was nicht funktioniert hat. Das erzeugt mehr Glaubwürdigkeit als jede Hochglanzpräsentation.
 
-### 10.5 Positionierung im Markt: Wo stehen wir?
+### 11.5 Positionierung im Markt: Wo stehen wir?
 
 Um die Abgrenzung greifbar zu machen, hier eine vereinfachte Positionierungsmatrix:
 
@@ -864,11 +982,11 @@ Die letzte Zeile ist entscheidend: Unser Validierungsdefizit gegenüber den etab
 
 ---
 
-## 11. Nächste Schritte: Vom Framework zur Anwendung
+## 12. Nächste Schritte: Vom Framework zur Anwendung
 
 Dieses Dokument beschreibt die Gesamtarchitektur. Die folgenden Schritte machen es anwendbar.
 
-### 11.1 Kritischer Pfad: Was muss zuerst existieren?
+### 12.1 Kritischer Pfad: Was muss zuerst existieren?
 
 Nicht alle Werkzeuge müssen gleichzeitig fertig sein. Der kritische Pfad für einen ersten Pilot lautet:
 
@@ -898,14 +1016,14 @@ Nicht alle Werkzeuge müssen gleichzeitig fertig sein. Der kritische Pfad für e
 | C2 | AI Transformation Manager Handbuch | Rollenbeschreibung, Ausbildungspfad, Werkzeugkoffer – informiert durch echte Pilot-Erfahrung. | 2–3 Wochen |
 | C3 | Pitch-Material & Case Study | Pilot-Ergebnisse aufbereiten für interne Vermarktung und Kundengespräche. | 1–2 Wochen |
 
-### 11.2 Offene Entscheidungen
+### 12.2 Offene Entscheidungen
 
 - **CRAFT-Validierung:** Das Modell ist ein Entwurf, kein validiertes Instrument. Für interne Nutzung akzeptabel, für externe Vermarktung bräuchte es Pilotierung und Kalibrierung mit realen Daten. Der Pilot (B3) ist die Validierungsgelegenheit.
 - **App-Technologie:** Web-App (React) für maximale Flexibilität vs. Teams-Integration für schnellere Adoption im Konzernumfeld? Empfehlung: Web-App mit Teams-Embedding als Option. Aber: Nicht vor dem Pilot investieren – Google/MS Forms reicht für die Validierung.
 - **Lizenzmodell:** Open Framework (Glaubwürdigkeit, Community-Aufbau) vs. proprietäres Beratungsprodukt (Revenue) vs. Hybrid (Framework offen, Werkzeuge und Begleitung als Service)? Empfehlung: Hybrid – aber erst entscheiden, wenn Pilot-Ergebnisse vorliegen.
 - **Community-Modell:** Interne CoP zuerst, externes CoE erst bei nachgewiesener Wirksamkeit.
 
-### 11.3 Risiken und Gegenmaßnahmen
+### 12.3 Risiken und Gegenmaßnahmen
 
 | Risiko | Wahrscheinlichkeit | Impact | Gegenmaßnahme |
 |--------|--------------------|---------|--------------------------------------------|

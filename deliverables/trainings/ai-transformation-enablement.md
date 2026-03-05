@@ -331,7 +331,7 @@ Gast-Trainer bringen ihr Thema und ihre Vorbereitung mit. Integration ins Gesamt
 - **Each Teach:** "Die Dimension, die am meisten ueberrascht hat, ist..."
 
 **Transfer-Auftrag:**
-> Schau dir den CRAFT Explorer an (URL/Demo). Fuehre den Pulse Check fuer dein eigenes Team/Projekt durch (hypothetisch oder real).
+> Schau dir den CRAFT Explorer an (URL/Demo). Ueberlege: Wenn du morgen zu einem neuen Kunden kommst — welches Instrument wuerdest du zuerst einsetzen, Deep Dive oder Pulse Check? Notiere deine Begruendung fuer Block 8.
 
 ---
 
@@ -347,12 +347,15 @@ Gast-Trainer bringen ihr Thema und ihre Vorbereitung mit. Integration ins Gesamt
 
 **Concept + Concrete Practice (40 Min)** *(Gast-Trainer)*
 - Live-Walkthrough: CRAFT Explorer Session erstellen, Fragen beantworten, Ergebnisse interpretieren
-- Scoring-Logik erklaeren: Median, Min-Gewichtung, Cross-Validation
+- **Zwei Instrumente erklaeren — wann was:** 
+  - **Deep Dive** (5×, je ~45–60 Min): Wird am Anfang der Transformation als **Kickoff-Baseline** durchgefuehrt — einmalig, um ein vollstaendiges Profil zu erstellen. Danach nur noch **punktuell**, wenn der Pulse Check Auffaelligkeiten zeigt (z.B. eine Dimension laeuft rueckwaerts) und mehr Tiefe gebraucht wird.
+  - **Pulse Check** (16 Fragen, ~15 Min): Laeuft **mindestens alle 4 Wochen** — im Rhythmus der Iterations-Zyklen. Dient als Fruehwarnsystem: Entwickelt sich etwas in die falsche Richtung, loest das einen gezielten Deep Dive auf einer oder mehreren Dimensionen aus.
+- Scoring-Logik erklaeren: Median (Pulse Check), (Median×0.6)+(Min×0.4) (Deep Dive), Cross-Validation
 - Spider-Chart lesen und Handlungsempfehlungen ableiten
 - Uebung: Teams bekommen vorgefuellte Ergebnisse und muessen:
   1. Die 2 kritischsten Dimensionen identifizieren
   2. Je 1 konkrete Intervention vorschlagen
-  3. Einen 4-Wochen-Zyklusplan skizzieren
+  3. Entscheiden: Braucht eine Dimension einen Deep Dive — und warum?
 
 **Conclusion (5 Min)** *(Haupt-Trainer)*
 - **Gallery Walk** (Miro): Team-Interventionsplaene, Peer-Feedback mit Post-its
@@ -375,8 +378,9 @@ Gast-Trainer bringen ihr Thema und ihre Vorbereitung mit. Integration ins Gesamt
 **Concept (15 Min)**
 - Input (10 Min):
   - Iterationsmodell: 4-Wochen-Zyklen, Readiness Gates
+  - Messzyklus: Pulse Check mindestens alle 4 Wochen (Fruehwarnsystem) — bei Auffaelligkeiten gezielter Deep Dive auf betroffenen Dimensionen
   - AI Adoption Team aufbauen: Rollen, Kapazitaeten, Champion-Netzwerk
-  - Typischer Verlauf: 6 Zyklen / 24 Wochen
+  - Typischer Verlauf: 6 Zyklen / 24 Wochen (Start: Deep Dive Kickoff-Baseline → dann Pulse Checks im 4-Wochen-Rhythmus)
   - KPI-Framework: DORA + CRAFT + Business Impact
 - Interaktion: **Rapid Writing** — "Welche Rolle im AI Adoption Team passt am besten zu dir? Warum?"
 
