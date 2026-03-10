@@ -10,12 +10,12 @@
 # See METHODOLOGY.md Section 1 for details on this distinction.
 #
 # Version: 2.0
-# Last Updated: 2026-02-12
-# Total Questions: 37 (17 Context + 20 Readiness)
-# Estimated Duration: 25-30 minutes
+# Last Updated: 2026-03-10
+# Total Questions: 38 (18 Context + 20 Readiness)
+# Estimated Duration: 28-33 minutes
 # =============================================================================
 
-version: "2.0"
+version: "2.1"
 exploration_type: "context_readiness"
 description:
   de: >-
@@ -846,8 +846,39 @@ questions:
       en: "Immediately → Prioritize quick-win patterns; Long-term → Sustainable transformation"
     order: 17
 
+  - question_key: "ctx_business_pain"
+    section: "context"
+    category: "goals_timeline"
+    question_text:
+      de: "Was ist der konkrete Business-Schmerz, der diese Transformation ausgelöst hat? (z.B. sinkende Marge, zu langsame Delivery, hohe Fluktuation, unzufriedene Kunden)"
+      en: "What is the concrete business pain that triggered this transformation? (e.g. declining margin, slow delivery, high turnover, dissatisfied customers)"
+    answer_type: "free_text"
+    placeholder:
+      de: "Beschreibe in 1-3 Sätzen, welches konkrete Problem gelöst werden soll."
+      en: "Describe in 1-3 sentences what concrete problem needs to be solved."
+    why_important:
+      de: >-
+        Der Business-Schmerz bestimmt, welche CRAFT-Dimensionen priorisiert werden
+        und welchen Reifegrad das Team tatsaechlich braucht, um Wirkung zu erzielen.
+        Ohne diesen Anker fehlt der Transformation die Wirkungsorientierung.
+      en: >-
+        The business pain determines which CRAFT dimensions to prioritize
+        and what maturity level the team actually needs to drive impact.
+        Without this anchor, the transformation lacks outcome orientation.
+    adaptive_impact:
+      de: >-
+        Freitext wird vom AI Transformation Manager interpretiert und mit ctx_main_goal
+        abgeglichen. Weicht der kommunizierte Schmerz vom gewaehlten Hauptziel ab,
+        entsteht eine Klaerungsfrage fuer das naechste Gespraech.
+      en: >-
+        Free text is interpreted by the AI Transformation Manager and cross-referenced
+        with ctx_main_goal. If the stated pain diverges from the chosen main goal,
+        this surfaces a clarification question for the next conversation.
+    discovery_guide_reference: "deliverables/question_banks/business-impact-discovery.md"
+    order: 18
+
   # ===========================================================================
-  # QUESTIONS — READINESS SECTION (18 Questions)
+  # QUESTIONS — READINESS SECTION (20 Questions)
   # ===========================================================================
 
   # ---------------------------------------------------------------------------
@@ -885,7 +916,7 @@ questions:
         score: 0
         order: 4
     weight: 1.5
-    order: 18
+    order: 19
 
   - question_key: "rdy_budget_allocation"
     section: "readiness"
@@ -916,7 +947,7 @@ questions:
         score: 0
         order: 4
     weight: 1.2
-    order: 19
+    order: 20
 
   - question_key: "rdy_transformation_timeline"
     section: "readiness"
@@ -947,7 +978,7 @@ questions:
         score: 20
         order: 4
     weight: 1.0
-    order: 20
+    order: 21
 
   - question_key: "rdy_change_management"
     section: "readiness"
@@ -978,7 +1009,7 @@ questions:
         score: 0
         order: 4
     weight: 1.3
-    order: 21
+    order: 22
 
   # ---------------------------------------------------------------------------
   # Category: skills (4 Questions)
@@ -1012,7 +1043,7 @@ questions:
         score: 20
         order: 4
     weight: 1.2
-    order: 22
+    order: 23
 
   - question_key: "rdy_learning_culture"
     section: "readiness"
@@ -1043,7 +1074,7 @@ questions:
         score: 0
         order: 4
     weight: 1.4
-    order: 23
+    order: 24
 
   - question_key: "rdy_training_capacity"
     section: "readiness"
@@ -1074,7 +1105,7 @@ questions:
         score: 0
         order: 4
     weight: 1.0
-    order: 24
+    order: 25
 
   - question_key: "rdy_technical_literacy"
     section: "readiness"
@@ -1105,7 +1136,7 @@ questions:
         score: 0
         order: 4
     weight: 1.1
-    order: 25
+    order: 26
 
   # ---------------------------------------------------------------------------
   # Category: infrastructure (4 Questions)
@@ -1139,7 +1170,7 @@ questions:
         score: 0
         order: 4
     weight: 1.5
-    order: 26
+    order: 27
 
   - question_key: "rdy_tool_flexibility"
     section: "readiness"
@@ -1170,7 +1201,7 @@ questions:
         score: 0
         order: 4
     weight: 1.2
-    order: 27
+    order: 28
 
   - question_key: "rdy_data_classification"
     section: "readiness"
@@ -1204,7 +1235,7 @@ questions:
         score: 0
         order: 4
     weight: 1.3
-    order: 28
+    order: 29
 
   - question_key: "rdy_security_posture"
     section: "readiness"
@@ -1235,7 +1266,7 @@ questions:
         score: 0
         order: 4
     weight: 1.4
-    order: 29
+    order: 30
 
   # ---------------------------------------------------------------------------
   # Category: culture (4 Questions)
@@ -1272,7 +1303,7 @@ questions:
         score: 0
         order: 4
     weight: 1.5
-    order: 30
+    order: 31
 
   - question_key: "rdy_innovation_time"
     section: "readiness"
@@ -1303,7 +1334,7 @@ questions:
         score: 0
         order: 4
     weight: 1.2
-    order: 31
+    order: 32
 
   - question_key: "rdy_cross_functional"
     section: "readiness"
@@ -1334,7 +1365,7 @@ questions:
         score: 0
         order: 4
     weight: 1.1
-    order: 32
+    order: 33
 
   - question_key: "rdy_process_flexibility"
     section: "readiness"
@@ -1365,7 +1396,7 @@ questions:
         score: 0
         order: 4
     weight: 1.0
-    order: 33
+    order: 34
 
   # ---------------------------------------------------------------------------
   # Category: processes (2 Questions)
@@ -1415,7 +1446,7 @@ questions:
         en: "No significant delays"
         order: 8
     weight: 1.5
-    order: 34
+    order: 35
 
   - question_key: "rdy_process_documentation"
     section: "readiness"
@@ -1449,7 +1480,7 @@ questions:
         score: 0
         order: 4
     weight: 1.2
-    order: 35
+    order: 36
 
   - question_key: "rdy_commercial_flow_alignment"
     section: "readiness"
@@ -1496,7 +1527,7 @@ questions:
         score: 0
         order: 5
     weight: 1.3
-    order: 36
+    order: 37
 
   - question_key: "rdy_contract_transition_readiness"
     section: "readiness"
@@ -1543,7 +1574,7 @@ questions:
         score: 0
         order: 5
     weight: 1.0
-    order: 37
+    order: 38
 
 # =============================================================================
 # SCORING
