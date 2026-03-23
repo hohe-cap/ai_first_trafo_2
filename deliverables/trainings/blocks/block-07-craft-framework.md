@@ -8,7 +8,7 @@
 
 ## Show & Tell (5 Min)
 
-- Zeitersparnis-Reports: Welches Team hat die meiste Zeit gespart? (20 XP)
+- Zeitersparnis-Reports: Welches Team hat die meiste Zeit gespart?
 
 ## Connection (5 Min)
 

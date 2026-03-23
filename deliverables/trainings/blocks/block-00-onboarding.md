@@ -42,8 +42,6 @@ Fuer Teilnehmer, die beim Smoke-Test nicht weiterkommen oder Score < 12.
 - VS Code installieren + Extensions (GitHub Copilot, Continue.dev)
 - Erster Chat mit MS Copilot Chat: "Erklaere mir, was du bist"
 - Begriffe klaeren: Prompt, Token, Kontext, Halluzination
-- Buddy-Zuweisung: Jeder Starter bekommt einen Fast-Track-Buddy
-
 ---
 
 ## Smoke-Test (5 Min, Teilnehmer selbststaendig)
@@ -77,17 +75,17 @@ Fuer Teilnehmer, die beim Smoke-Test nicht weiterkommen oder Score < 12.
 
 ---
 
-## Buddy-System
+## Lern-Buddy (ab Block 3, freiwillig)
 
-Das Buddy-System wird in der Starter-Kit-Session eingerichtet und laeuft das gesamte Training.
+Das Buddy-System startet bewusst **nicht** im Onboarding, sondern wird ab Block 3 als freiwillige Option angeboten. Der Grund: In den ersten 2-3 Wochen lernen sich die Teilnehmer in ihren Teams kennen und entwickeln ein Gefuehl dafuer, mit wem die Chemie oder der inhaltliche Kontext stimmt — innerhalb oder ausserhalb des eigenen Teams.
 
-- **Woechentliches Buddy Check-in (15 Min, selbstorganisiert):** Zwischen jedem Block tauschen sich Buddy-Paare aus: *"Was hast du diese Woche probiert? Wo war ich nuetzlich?"* — kein Pflichtformat, aber strukturierter Impuls.
+- **Einfuehrung in Block 3:** Trainer bietet Lern-Buddies als Option an: *"Ihr kennt euch jetzt. Wer moechte sich einen Lern-Partner suchen — jemand, mit dem ihr zwischen den Sessions ausprobiert, diskutiert, euch gegenseitig pusht? Innerhalb oder ausserhalb eures Teams, ganz frei."*
 
-- **Expert Sidekick (ab Block 3):** Bei Team-Challenges kann ein deutlich erfahrenerer Teilnehmer die Rolle des *Expert Sidekick* uebernehmen: er coacht sein Team aktiv statt nur mitzumachen. Bewertung: Qualitaet der Unterstuetzung, nicht direkt der Team-Output. Entsprechend Growth XP.
+- **Kein festes Format, kein Zwang:** Buddies organisieren sich selbst — Slack-Nachricht, kurzer Call, gemeinsames Ausprobieren. Es gibt keine Pflicht-Check-ins und kein vorgeschriebenes Format. Was funktioniert, funktioniert.
 
-- **Buddy-Anpassung nach Block 1:** Die Prompt-Kitchen-Uebung (Block 1) zeigt real, wer tatsaechlich fortgeschritten ist — unabhaengig vom Self-Assessment. Trainer beobachtet und notiert kurz. Buddy-Paare koennen nach Block 1 justiert werden, falls Self-Assessment und Realitaet auseinanderklaffen.
+- **Anreiz statt Pflicht:** Buddy-Paare, die gemeinsam im Show & Tell zeigen, bekommen Sichtbarkeit und Anerkennung. Das belohnt die Zusammenarbeit, ohne sie zu erzwingen.
 
-- **Gemeinsame Show & Tell:** Ab Block 3 gelegentlich: *"Buddy-Paar zeigt gemeinsam"* — macht das gegenseitige Lernen sichtbar und erzeugt Verbindung ueber Team-Grenzen hinaus.
+- **Expert Sidekick (ab Block 3):** Bei Team-Challenges kann ein erfahrenerer Teilnehmer die Rolle des *Expert Sidekick* uebernehmen: aktiv coachen statt nur mitmachen.
 
 ---
 

@@ -9,7 +9,7 @@
 ## Show & Tell Eroeffnung (5 Min)
 
 - 2 freiwillige Teilnehmer zeigen ihren Screenshot + 2 Saetze (je 2 Min)
-- Team-XP fuer Teilnahme
+- Vorbereitet im Team-Check-in (15 Min vorher)
 
 ## Connection (5 Min)
 
@@ -22,6 +22,10 @@
   - Few-Shot Prompting (Beispiele geben)
   - Chain-of-Thought ("Denke Schritt fuer Schritt")
   - Iteratives Verfeinern
+- **Prompt-Pitfalls (3 Min):** Drei haeufige Fehler — kurz, mit Live-Beispiel:
+  - *Zu wenig Kontext:* Gleicher Prompt mit und ohne Kontext → Qualitaetsunterschied zeigen
+  - *Zu viel auf einmal:* Ein Mega-Prompt vs. drei gezielte Prompts → AI verliert den Faden
+  - *Sensible Daten:* "Was darf in den Prompt, was nicht?" — Kurzer Hinweis auf Datenschutz und Sicherheitsstufen. Faustregel: *Wuerdest du es an einen externen Berater schicken? Dann darf es in den Prompt. Sonst nicht.*
 - Interaktion: **Rapid Writing** — "Schreibe in 60 Sek den Prompt fuer: Erstelle ein Architektur-Review"
 
 ## Concrete Practice (25 Min)
@@ -37,7 +41,7 @@
 ## Conclusion (5 Min)
 
 - **Each Teach:** Jeder sagt 1 Satz: "Mein wichtigster Prompt-Tipp ist..."
-- XP-Update
+- **Persoenliches Ziel setzen:** Jeder traegt im Growth Log ein neues 🎯 Mein Ziel fuer die Woche ein
 
 ---
 

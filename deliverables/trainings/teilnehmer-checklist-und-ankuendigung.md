@@ -37,10 +37,13 @@
 
 #### Daueraufgaben (laufen die gesamte Trainingsdauer)
 
-- [ ] **Growth Log pflegen:** Wöchentlich in der Team-Karte (Mural/Shared Doc) eintragen:
-  - *"Was haben wir diese Woche zum ersten Mal gemacht?"*
-  - *"Was war unser bestes Aha oder lustigstes Fail?"*
-- [ ] **Buddy Check-in** (15 Min/Woche, selbstorganisiert): Austausch im Buddy-Paar zwischen den Blöcken
+- [ ] **Growth Log pflegen:** Wöchentlich in der Team-Karte (Mural) eintragen:
+  - 🎯 *Mein Ziel:* Was will ich diese Woche zum ersten Mal ausprobieren?
+  - ✅ *Gemacht:* Was habe ich tatsächlich getan?
+  - 💡 *Aha / Fail:* Was war mein bestes Aha oder lustigstes Fail?
+  - 🤝 *Ich suche...:* Wobei brauche ich Unterstützung oder einen Sparringspartner?
+- [ ] **Team-Check-in** (ab Block 2): 15 Min vor jedem Block im Team-Breakout treffen. Growth Log besprechen, Show-&-Tell-Beitrag auswählen.
+- [ ] **Lern-Buddy** (ab Block 3, freiwillig): Austausch mit selbstgewaehltem Lern-Partner — innerhalb oder ausserhalb des Teams, Format und Frequenz selbstbestimmt
 - [ ] **Prompt-Library** im Team-Dokument aufbauen und pflegen
 
 #### Pro Block: Transfer-Aufgaben
@@ -62,7 +65,7 @@
 
 - Freiwillig, aber **ausdrücklich erwünscht**
 - Format: 2 Sätze + Screenshot — bestes Ergebnis **oder** lustigster Fail
-- XP gibt es auch (und besonders) für Fails
+- Im Team-Check-in (15 Min vorher) wird gemeinsam entschieden, was geteilt wird
 
 ---
 

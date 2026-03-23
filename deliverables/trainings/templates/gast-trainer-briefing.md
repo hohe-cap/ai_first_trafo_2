@@ -38,7 +38,7 @@ Team-Namen: [werden nach Block 1 ergaenzt]
 
 ## Gamification
 
-Es gibt ein Growth Story System. Wenn du eine Team-Challenge einbaust, koennen Teilnehmer Growth XP bekommen (z.B. 15 XP fuer Teilnahme, mehr fuer dokumentierten Erst-Versuch). Reicht ein kurzer Hinweis an den Haupt-Trainer.
+Es gibt ein Growth Story System — Teams fuehren ein Growth Log im Mural. Wenn du eine Team-Challenge einbaust, koennen Teilnehmer ihre Erfahrungen dort dokumentieren und im naechsten Team-Check-in besprechen. Reicht ein kurzer Hinweis an den Haupt-Trainer.
 
 ---
 

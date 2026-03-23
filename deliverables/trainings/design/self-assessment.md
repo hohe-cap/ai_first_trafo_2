@@ -76,4 +76,4 @@
 | >= 12 | **Fast Track** | Kurzes "Was ist neu?"-Video (10 Min) — direkt zu Block 1 |
 | < 12 | **Starter Kit** | Vorbereitungs-Session (60 Min, optional aber empfohlen) vor Block 1 |
 
-> **Hinweis fuer Trainer:** Der Self-Assessment-Score ist ein Einstiegspunkt, keine endgueltige Einstufung. Nach Block 1 (Prompt Kitchen) koennen Buddy-Paare angepasst werden, wenn Self-Assessment und tatsaechliches Verhalten auseinanderklaffen.
+> **Hinweis fuer Trainer:** Der Self-Assessment-Score ist ein Einstiegspunkt fuer die Team-Zusammensetzung, keine endgueltige Einstufung. Nach Block 1 koennen Teams ggf. justiert werden, wenn Self-Assessment und tatsaechliches Verhalten auseinanderklaffen. Lern-Buddies werden erst ab Block 3 als freiwillige Option angeboten — dann kennen sich die Teilnehmer gut genug, um selbst zu waehlen.

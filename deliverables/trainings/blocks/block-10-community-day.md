@@ -8,7 +8,7 @@
 
 ## Connection (10 Min)
 
-- **Celebration Round:** Gesamt-XP-Stand, Sieger-Team-Ehrung (symbolisch)
+- **Celebration Round:** Growth Story Highlights — Trainer zeigt die besten Wachstumsmomente aus den Growth Logs aller Teams
 - Highlight-Reel: Trainer zeigt die besten Show & Tell Momente, die besten Prompts, die kreativsten Loesungen
 
 ## Concept (10 Min)
@@ -28,7 +28,7 @@ Kein neuer Input — stattdessen: **Teilnehmer-Pitches**
 
 **Persoenlicher Aktionsplan (5 Min):**
 - "Meine 3 naechsten Schritte mit AI"
-- Buddy-Zuweisung: Wer folgt in 4 Wochen nach?
+- Lern-Buddy fuer Follow-up: *"Wer moechte sich fuer die naechsten 4 Wochen einen Buddy nehmen, um dranzubleiben?"*
 
 ## Conclusion (10 Min)
 

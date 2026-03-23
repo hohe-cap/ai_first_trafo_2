@@ -27,7 +27,7 @@
 ## Conclusion (5 Min) — Haupt-Trainer
 
 - **Gallery Walk** (Mural): Alle Team-Interventionen anschauen, Dot-Voting fuer "Beste Idee"
-- XP-Update
+- **Persoenliches Ziel setzen:** Jeder traegt im Growth Log ein neues 🎯 Mein Ziel fuer die Woche ein
 
 ---
 

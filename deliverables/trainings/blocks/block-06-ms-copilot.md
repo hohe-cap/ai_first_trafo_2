@@ -28,7 +28,7 @@ Uebung: Jedes Team bekommt ein Szenario (z.B. "Erstelle aus diesen Meeting-Notiz
 ## Conclusion (5 Min) — Haupt-Trainer
 
 - **Action Plan:** "Welche 3 Office-Aufgaben lasse ich ab jetzt von Copilot unterstuetzen?"
-- XP-Update
+- **Persoenliches Ziel setzen:** Jeder traegt im Growth Log ein neues 🎯 Mein Ziel fuer die Woche ein
 
 ---
 

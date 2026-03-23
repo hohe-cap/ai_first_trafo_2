@@ -14,6 +14,7 @@ Ziel: Von "AI-interessiert, aber unsystematisch" zu "kann AI-Tools produktiv nut
 | Dokument | Inhalt |
 |---|---|
 | [design/konzept.md](design/konzept.md) | Lerndesign, Roter Faden, Gamification, Gast-Trainer-Modell, Teilnehmer als Practice-Experten, Transfer & Messung |
+| [design/growth-log.md](design/growth-log.md) | Growth Log: Konzept, Mural-Templates, Keeper-Rotation, Team-Check-in, 🤝 Unterstuetzungs-Feld, spielerischer Kontext |
 | [design/self-assessment.md](design/self-assessment.md) | Die 4 Self-Assessment-Fragen (MS Forms-Quelle) + Scoring-Logik |
 
 ### Für Trainer (pro Block)

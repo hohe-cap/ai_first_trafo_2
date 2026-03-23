@@ -29,7 +29,7 @@ Jeder Block hat:
 - **Eroeffnung (5 Min):** "Show & Tell" — Teilnehmer zeigen Erfolge, neue Erkenntnisse und Fails aus der Zwischen-Anwendung (ab Block 2). Explizit erwuenscht: *"Das Lustigste, was AI fuer mich falsch gemacht hat"* — schafft Verbindung, nimmt Erwartungsdruck und erzeugt die besten Lacher.
 - **4-Cs-Kern (45 Min):** Connection → Concept → Concrete Practice → Conclusion
 - **Transfer-Auftrag (5 Min):** Konkrete Aufgabe fuer die kommende Woche
-- **Growth XP:** Teams sammeln XP fuer Show & Tell (inkl. Fails), Uebungen, Zwischen-Aufgaben und Wachstumsmomente
+- **Growth Log:** Persoenliche Ziele, Erfahrungen und Unterstuetzungs-Bedarfe sichtbar machen
 
 ---
 
@@ -50,35 +50,30 @@ Was sollen die Teilnehmer NACH dem Training koennen?
 
 ## Gamification: Growth Story System
 
-Das XP-System belohnt **Wachstum, nicht Vorsprung**. Wer von einem niedrigen Niveau aus einen grossen Sprung macht, sammelt mehr XP als wer schon vorne startet und vorne bleibt. Der Fokus liegt auf dem Delta — was neu dazugekommen ist. Ein grosser erster Schritt ist wertvoller als ein kleiner Fortschritt auf hohem Niveau.
+Das Growth Story System belohnt **Wachstum, nicht Vorsprung**. Es gibt bewusst keine Punkte und kein Scoring — der Fokus liegt auf persoenlicher Reflexion und Team-Verbindung statt auf Quantifizierung.
 
 ### Teams
 
-4 feste Teams à 4 Personen (gemischt nach Vorwissen). Teams bekommen Namen (self-assigned in Block 1). Jedes Team fuehrt ein **Growth Log** (Mural-Karte oder Shared Doc) mit drei Feldern:
-- *Wo starten wir?* (Self-Assessment-Score Beginn)
-- *Was haben wir diese Woche zum ersten Mal gemacht?*
-- *Was war unser bestes "Aha" oder lustigstes Fail?*
+4 feste Teams à 4 Personen (gemischt nach Vorwissen). Teams bekommen Namen (self-assigned in Block 1). Jedes Team fuehrt ein **Growth Log** im Mural mit vier persoenlichen Feldern pro Person und einem optionalen Team-Ziel. Ausfuehrliches Konzept, Mural-Templates, Check-in-Ritual und Keeper-Modell: → [design/growth-log.md](growth-log.md)
 
-### Punkte
+**Persoenliche Felder (pro Person, pro Woche):**
+- 🎯 *Mein Ziel:* Was will ich diese Woche zum ersten Mal ausprobieren?
+- ✅ *Gemacht:* Was habe ich tatsaechlich getan?
+- 💡 *Aha / Fail:* Was war mein bestes Aha oder lustigstes Fail?
+- 🤝 *Ich suche...:* Wobei brauche ich Unterstuetzung oder einen Sparringspartner?
 
-| Aktivitaet | Growth XP | Warum |
-|---|---|---|
-| Etwas zum ersten Mal ausprobiert (im Growth Log dokumentiert) | 15 | Wert: neues Terrain betreten |
-| Show & Tell: Eine Niederlage + was dazugelernt wurde | 20 | Wert: Wachstum sichtbar machen |
-| Team-Miniziel aus letztem Block erreicht (selbstgesetzt) | 20 | Wert: eigene Messlatte schlagen |
-| Zwischen-Aufgabe erledigt (pro Person) | 10 | Wert: dranbleiben |
-| Starter uebernimmt etwas, das Fast-Tracker noch nicht probiert hat | 25 | Wert: Richtung umkehren |
-| Buddy-Paar zeigt gemeinsame Loesung im Show & Tell | 15 | Wert: voneinander lernen |
-| Gast-Trainer-Challenge mitgemacht (alle Teams) | 15 | Wert: Mut zeigen |
-| Practice Story Slot — eigene Praxiserfahrung eingebracht (strukturiert, 10 Min) | 30 | Wert: gelebtes Wissen sichtbar machen |
+**Team-Ziel (optional):** Wenn sich das Team auf ein gemeinsames Ziel einigen kann — umso besser. Aber kein Zwang.
 
-### Zielsetzung pro Block
+### Team-Check-in (15 Min vor jedem Block, ab Block 2)
 
-Jedes Team setzt sich zu Beginn jedes Blocks ein Miniziel: *"Was wollen wir heute zum ersten Mal ausprobieren?"* — Ziel erledigt = Growth XP. Das schafft Ownership ohne externen Vergleichsdruck.
+Das tragende Ritual: Teams treffen sich **15 Minuten vor dem offiziellen Block-Beginn** im Breakout Room. Dort besprechen sie ihr Growth Log in drei Runden:
+1. *"Was habe ich gemacht?"* — Reihum Gemacht + Aha/Fail (5 Min)
+2. *"Wer braucht was?"* — 🤝-Feld besprechen, Hilfe anbieten, Verabredungen treffen (5 Min)
+3. *"Was teilen wir?"* — Team waehlt besten Beitrag fuer Show & Tell im Plenum (5 Min)
 
 ### Growth Story statt Leaderboard
 
-Kein Ranking, kein Sieger. Stattdessen wird zu Beginn jedes Blocks der stärkste **Wachstumsmoment der Vorwoche** kurz hervorgehoben (1 Minute, Trainer-Nominierung oder Peer-Tipp). Am Ende des Trainings entsteht eine **Growth Story des gesamten Jahrgangs** — die besten Aha-Momente, die mutigsten Experimente, die lustigsten Fails. Diese kann in der Community-Bibliothek landen.
+Kein Ranking, kein Sieger, keine Punkte. Stattdessen wird zu Beginn jedes Blocks der staerkste **Wachstumsmoment der Vorwoche** kurz hervorgehoben (1 Minute, Trainer-Nominierung oder Peer-Tipp). Am Ende des Trainings entsteht eine **Growth Story des gesamten Jahrgangs** — die besten Aha-Momente, die mutigsten Experimente, die lustigsten Fails. Diese kann in der Community-Bibliothek landen.
 
 ---
 
@@ -180,13 +175,13 @@ Dieser Slot ersetzt oder ergaenzt den Concept-Teil in einem Block — der Traine
 |-------|-----------|-----|
 | 1 Reaction | War das Training relevant und motivierend? | Feedback-Umfrage nach Block 10 + kurzes Pulse nach Block 5 (Halbzeit) |
 | 2 Learning | Koennen TN die Lernziele demonstrieren? | Roadmap-Uebung (Block 9), Pitches (Block 10), Prompt-Library-Qualitaet |
-| 3 Behavior | Wird AI im Arbeitsalltag angewendet? | 4-Wochen-Follow-up mit Buddy, Community-Aktivitaet |
+| 3 Behavior | Wird AI im Arbeitsalltag angewendet? | 4-Wochen-Follow-up (mit Lern-Buddy falls vorhanden), Community-Aktivitaet |
 | 4 Results | Messbarer Impact? | Erste CRAFT-Assessments bei Kunden, AI-Nutzungsquoten im Team |
 
 ## Transfer-Sicherung (70:20:10)
 
 - **10% formal:** Dieses Training (10 Bloecke)
-- **20% sozial:** Growth Story System, Buddy-Pairs mit wöchentlichen Check-ins, Community of Practice (ab Block 10 selbstorganisiert), Show & Tell (inkl. Fails) als Peer-Learning
+- **20% sozial:** Growth Story System, Team-Check-in (15 Min vor jedem Block), optionale Lern-Buddies (ab Block 3, freiwillig, innerhalb oder ausserhalb des Teams), Community of Practice (ab Block 10 selbstorganisiert), Show & Tell (inkl. Fails) als Peer-Learning
 - **70% on-the-job:** Wöchentliche Transfer-Aufgaben mit echten Arbeitsaufgaben, Prompt-Library als lebendes Arbeitsmittel, Walk-the-Talk in jeder Uebung, erste CRAFT-Assessments bei echten Kunden (ab Block 8)
 
 ---
@@ -200,7 +195,7 @@ Dieser Slot ersetzt oder ergaenzt den Concept-Teil in einem Block — der Traine
 | 2 | ICH & AI | Prompt Engineering Praxis | Prompt-Patterns, Prompt-Library | — |
 | 3 | ICH & AI | AI im Code | GitHub Copilot, Code-Generierung | — |
 | 4 | AI & ARBEIT | AI im SDLC | SDLC-Phasen, AI-Interventionen | GAST |
-| 5 | AI & ARBEIT | AI-Patterns, Pitfalls & Teamwork | Fehler, Bias, kollaborative AI-Nutzung | — |
+| 5 | AI & ARBEIT | AI-Teamkollaboration | Kollaborationsmuster (Pilot & Navigator, Diverge & Converge), AI-Silos vermeiden, Team-AI-Vereinbarung | — |
 | 6 | AI & ARBEIT | MS Copilot im Office | Teams, Outlook, Excel, PowerPoint | GAST |
 | 7 | AI & TRAFO | CRAFT-Framework | 5 Dimensionen, Reifestufen, Rollen | — |
 | 8 | AI & TRAFO | CRAFT Explorer & Interventionen | Assessment durchfuehren, Ergebnisse lesen | GAST |
@@ -219,7 +214,7 @@ Dieser Slot ersetzt oder ergaenzt den Concept-Teil in einem Block — der Traine
 - [ ] Smoke-Test-Aufgabe vorbereiten und versenden (5 Tage vor Start)
 - [ ] Starter-Kit-Session planen fuer Teilnehmer mit Tech-Problemen (1 Woche vor Start)
 - [ ] Team-Einteilung (nach Self-Assessment, gemischt nach Vorwissen)
-- [ ] Growth Log-Template einrichten (Mural-Karte oder Shared Doc pro Team)
+- [ ] Growth-Log-Zone im Mural einrichten (Spalte pro Team, Wochen-Karten-Template mit 4 persoenlichen Feldern + optionalem Team-Ziel, Milestone-Marker) → [design/growth-log.md](growth-log.md)
 - [ ] Gast-Trainer briefen → [templates/gast-trainer-briefing.md](../templates/gast-trainer-briefing.md) (min. 2 Wochen vorher)
 - [ ] CRAFT Explorer Demo-Instanz bereitstellen
 - [ ] Uebungs-Szenarien vorbereiten (Case Studies, Code-Challenges, vorgefuellte CRAFT-Ergebnisse)
