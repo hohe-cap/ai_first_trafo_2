@@ -80,6 +80,11 @@ Das AI Transformation Framework adressiert die Lücke zwischen AI-Investment und
 Die zentrale Erkenntnis: 95% der Enterprise-AI-Piloten scheitern nicht an Technologie,
 sondern an fehlender Prozessintegration und Change Management.
 
+**Duale Zielsetzung (durchgängig sichtbar):**
+- **Linse 1 — Business Impact:** Konkretes Business-Problem identifizieren → 2–3 North Star Metrics definieren → in jedem Zyklus messen (Business Problem Check)
+- **Linse 2 — AI-Befähigung:** CRAFT-Dimensionen systematisch aufbauen → CRAFT-Scores als Hebel, der die North Star Metrics bewegt
+- Zusammen: CRAFT verbessern → North Star Metrics bewegen sich → Business-Problem wird gelöst
+
 **Drei Kernprinzipien:**
 - **Value Stream First:** AI-Interventionen dort platzieren wo sie den größten Hebel haben
 - **Human-Centric Change:** Rollenentwicklung und psychologische Sicherheit = gleichberechtigt
@@ -122,20 +127,28 @@ sondern an fehlender Prozessintegration und Change Management.
 - Scoring: Median (Pulse), (Median×0.6)+(Min×0.4) (Deep-Dive)
 - Methodik: `deliverables/question_banks/METHODOLOGY.md`
 
-**Schicht 3: Business Impact (aggregiert, kein eigenes Reporting)**
-- Velocity-Veränderung, Time-to-Market, Qualität (aus L1), Mitarbeiterzufriedenheit
-- Automatisch aus L1+L2 generiert, quartalsweise an Sponsoren
+**Schicht 3: Business Impact (dual: Top-down + Bottom-up)**
+- **Top-down: North Star Metrics** — 2–3 Metriken, die direkt das identifizierte Business-Problem messen (definiert im Business Impact Discovery, vor CRAFT Explorer)
+- **Bottom-up:** Velocity-Veränderung, Time-to-Market, Qualität (aus L1), Mitarbeiterzufriedenheit — automatisch aus L1+L2 generiert
+- North Star Metrics sind Headline im Sponsor-Reporting und im Business Problem Check (Woche 4)
+- Pulse Check enthält übergreifende Business-Outcome-Frage (BO-M1)
 
 ### Iterationsmodell
 
 **4-Wochen-Zyklen:**
-- Woche 1: Orientierung & Planung (Pulse Check falls fällig, Zieldefinition)
+- Woche 1: Orientierung & Planung (**Pulse Check** durchführen, Zieldefinition)
 - Woche 2-3: Umsetzung (Tool-Rollout, Workshops, Skills)
-- Woche 4: Review & Readiness Gate (Erweitern / Vertiefen / Konsolidieren)
+- Woche 4: **Business Problem Check** (North Star Metrics zuerst) → Review & Readiness Gate (Erweitern / Vertiefen / Konsolidieren)
+
+**Business Problem Check (Woche 4, vor Readiness Gate):**
+- North Star Metrics Review: Delta seit letztem Zyklus
+- Interventions-Alignment: Adressieren wir das richtige Problem?
+- Root Cause Check: Symptom vs. tatsächliche Ursache
+- Kurskorrektur bei stagnierenden Metriken
 
 **Readiness Gate Kriterien:**
-- Erweitern → Adoption >60%, DORA stabil, kein Governance-Blocker
-- Vertiefen → Adoption <60% oder DORA-Rückgang, aber positive Trends
+- Erweitern → Adoption >60%, DORA stabil, kein Governance-Blocker, **North Star Metrics positiver Trend**
+- Vertiefen → Adoption <60% oder DORA-Rückgang, oder **North Star stagniert trotz guter CRAFT-Scores**
 - Konsolidieren → Governance-Änderung, Teamumbau, kultureller Widerstand
 
 **Typischer Verlauf (6 Zyklen / 24 Wochen):**
@@ -168,11 +181,12 @@ sondern an fehlender Prozessintegration und Change Management.
 ### Werkzeuge & Deliverables
 
 **Primär:**
+- **Business Impact Discovery:** Gesprächsleitfaden *vor* CRAFT Explorer — identifiziert konkretes Business-Problem, definiert 2–3 North Star Metrics (`deliverables/question_banks/business-impact-discovery.md`)
 - **CRAFT Explorer App:** Web-App für CRAFT Exploration, begleitet durch AI Transformation Manager. Generiert CRAFT-Scores und Radar-Chart
 - **CRAFT Explorer:** Drei-Ebenen-Architektur (Question Banks in `deliverables/question_banks/`)
-  - Ablauf: Deep-Dive (Kickoff-Baseline) → Analyse & Spider-Chart → Interventionen → Pulse Check (quartalsweise) → Deep-Dive bei Bedarf
+  - Ablauf: Deep-Dive (Kickoff-Baseline) → Analyse & Spider-Chart → Interventionen → Pulse Check (jeden 4-Wochen-Zyklus) → Deep-Dive bei Bedarf
   - Ebene 1: Context & Readiness (einmalig, Fakten, 35 Fragen)
-  - Ebene 2: Pulse Check (quartalsweise, 16 Fragen, Spider-Score)
+  - Ebene 2: Pulse Check (jeden 4-Wochen-Zyklus, 16 Fragen + 1 Business-Outcome-Frage, Spider-Score)
   - Ebene 3: Deep-Dives (5×, je 9–10 Fragen, Sub-Topic-Profile, Kickoff-Baseline + on-demand)
   - Durchführung: Team eigenständig. Analyse & nächste Schritte: AI Transformation Manager
   - Design-Methodik: `METHODOLOGY.md` (Scoring, Kalibrierung, Backward Design, Cross-Validation)
@@ -200,7 +214,7 @@ sondern an fehlender Prozessintegration und Change Management.
 ### Typische Use Cases / Anwendungsfälle
 
 **Als AI Transformation Manager:**
-- "Wie messe ich AI-Reife in meinem Team?" → CRAFT Pulse Check, quartalsweise
+- "Wie messe ich AI-Reife in meinem Team?" → CRAFT Pulse Check, jeden 4-Wochen-Zyklus
 - "Wo fange ich an?" → Value Stream Mapping → Top-3-Bottlenecks → AI Intervention Katalog
 - "Mein Team hat Angst vor AI" → Shadow AI Amnestie + Psychological Safety Workshop
 
@@ -257,4 +271,4 @@ sondern an fehlender Prozessintegration und Change Management.
 - Framework Version: 1.0 DRAFT
 - AGENTS.md Version: 1.2
 - CRAFT Explorer Version: 2.1 (Question Banks + METHODOLOGY.md + Challenge Map + Profile-Logik)
-- Letzte Sync mit Vollversion: 2026-03-03
+- Letzte Sync mit Vollversion: 2026-03-25

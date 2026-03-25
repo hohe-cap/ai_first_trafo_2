@@ -1,7 +1,7 @@
 # =============================================================================
-# CRAFT Pulse Check (Ebene 2) — Quarterly Exploration
+# CRAFT Pulse Check (Ebene 2) — Cycle Exploration (every 4-week cycle)
 # =============================================================================
-# Quarterly pulse check (<=15 minutes) for ongoing tracking.
+# Pulse check at the start of every 4-week PDCA cycle (<=15 minutes).
 # Generates Spider Chart (1-5) per CRAFT dimension.
 # Anonymous, segmentable, context-adaptive.
 #
@@ -26,15 +26,17 @@ version: "2.0"
 exploration_type: "pulse_check"
 description:
   de: >-
-    Quartalsweiser Pulse Check. Anonym, segmentierbar, <=15 Minuten.
+    Pulse Check zu Beginn jedes 4-Wochen-Zyklus. Anonym, segmentierbar, <=15 Minuten.
     Erzeugt Spider-Score (1-5) pro CRAFT-Dimension.
     Ist ein Extrakt der Deep-Dive Explorationen (Ebene 3).
+    Auffälligkeiten im Pulse Check triggern bei Bedarf einen Deep-Dive.
   en: >-
-    Quarterly pulse check. Anonymous, segmentable, <=15 minutes.
+    Pulse check at the start of each 4-week cycle. Anonymous, segmentable, <=15 minutes.
     Generates spider score (1-5) per CRAFT dimension.
     Is an extract of the Deep-Dive explorations (Level 3).
+    Anomalies in the pulse check trigger a deep-dive on demand.
 estimated_duration_minutes: 15
-frequency: "quarterly"
+frequency: "every_cycle"
 respondent: "All team members (individual, anonymous)"
 context_dependency: "Filtered by Ebene 1 Context & Readiness Exploration results"
 methodology_reference: "METHODOLOGY.md"
@@ -568,13 +570,13 @@ questions:
     question_text:
       de: "Welche Stufe beschreibt die AI-Integration in eure Team-Workflows am besten?"
       en: "Which level best describes AI integration into your team workflows?"
-    maturity_levels:
+    maturity_levels:Mache mir aus deine Analyse eine übersichtliche HTML Seite.
       1:
-        label: "Exploring"
+        label: "Exploring"Mache mir aus deine Analyse eine übersichtliche HTML Seite.
         de: "AI wird bei uns nicht in Prozesse/Workflows eingebunden."
         en: "AI is not incorporated into our processes/workflows."
       2:
-        label: "Experimenting"
+        label: "Experimenting"Mache mir aus deine Analyse eine übersichtliche HTML Seite.
         de: "Einzelne nutzen AI nebenbei (z.B. Chat), aber es ist kein Teil unserer Team-Workflows."
         en: "Individuals use AI on the side (e.g. chat), but it's not part of our team workflows."
       3:
@@ -785,6 +787,74 @@ questions:
         order: 8
     order: 16
 
+  # ---------------------------------------------------------------------------
+  # BO — Business Outcome (übergreifend, dimensionsunabhängig)
+  # ---------------------------------------------------------------------------
+  - question_key: "BO-M1"
+    dimension: "cross_cutting"
+    question_type: "outcome"
+    question_text:
+      de: >-
+        In welchem Maß hat sich das bei Transformationsstart identifizierte Business-Problem
+        aus eurer Sicht verbessert? (Das Problem wird vom AI Transformation Manager
+        vor der ersten Durchführung eingesetzt, z.B. 'zu langsame Delivery' oder 'hohe Fehlerrate')
+      en: >-
+        To what extent has the business problem identified at transformation start
+        improved from your perspective? (The problem is inserted by the AI Transformation
+        Manager before the first run, e.g. 'too slow delivery' or 'high defect rate')
+    description:
+      de: >-
+        Übergreifende Frage, nicht einer CRAFT-Dimension zugeordnet.
+        Schliesst den Kreis: Löst die Transformation das eigentliche Problem?
+        Ergebnis fliesst in Business Problem Check (Iterations-Review Woche 4)
+        und Sponsor-Reporting ein.
+      en: >-
+        Cross-cutting question, not assigned to a CRAFT dimension.
+        Closes the loop: Is the transformation solving the actual problem?
+        Result feeds into Business Problem Check (iteration review week 4)
+        and sponsor reporting.
+    answer_type: "single_choice"
+    answer_options:
+      - key: "worse"
+        de: "Verschlechtert"
+        en: "Worse"
+        score: 1
+        order: 1
+      - key: "unchanged"
+        de: "Unverändert"
+        en: "Unchanged"
+        score: 2
+        order: 2
+      - key: "slightly_improved"
+        de: "Leicht verbessert"
+        en: "Slightly improved"
+        score: 3
+        order: 3
+      - key: "clearly_improved"
+        de: "Deutlich verbessert"
+        en: "Clearly improved"
+        score: 4
+        order: 4
+      - key: "solved"
+        de: "Gelöst / kein Problem mehr"
+        en: "Solved / no longer a problem"
+        score: 5
+        order: 5
+    customization_note:
+      de: >-
+        Der AI Transformation Manager ersetzt den Platzhalter in der Fragestellung
+        durch das konkrete Business-Problem aus dem Business Impact Discovery.
+        Beispiel: 'In welchem Maß hat sich euer Lead-Time-Problem verbessert?'
+      en: >-
+        The AI Transformation Manager replaces the placeholder in the question
+        with the concrete business problem from the Business Impact Discovery.
+        Example: 'To what extent has your lead time problem improved?'
+    skip_if: "first_pulse_check"
+    skip_reason:
+      de: "Beim ersten Pulse Check noch kein Vergleichspunkt vorhanden."
+      en: "No comparison point available at first pulse check."
+    order: 17
+
 # =============================================================================
 # SCORING
 # =============================================================================
@@ -818,8 +888,8 @@ scoring:
 
   trend:
     description:
-      de: "Quartalsvergleich: Spider-Overlay + Delta-Tabelle"
-      en: "Quarterly comparison: Spider overlay + delta table"
+      de: "Zyklusvergleich: Spider-Overlay + Delta-Tabelle (alle 4 Wochen)"
+      en: "Cycle comparison: Spider overlay + delta table (every 4 weeks)"
 
   hitl_review:
     description:

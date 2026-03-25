@@ -89,9 +89,43 @@ Dann gemeinsam prüfen, ob das Ziel SMART formuliert werden kann:
 
 ---
 
-## Teil 3 — CRAFT-Relevanz-Mapping
+## Teil 3 — North Star Metrics definieren
 
-Sobald der Business-Schmerz und das Ziel bekannt sind, kannst du grob ableiten, welche CRAFT-Dimensionen am relevantesten sind. **Dieses Mapping ist ein Gesprächseinstieg, kein Ergebnis ohne Assessment.**
+Der wichtigste Output dieses Gesprächs: **2–3 North Star Metrics**, die direkt das identifizierte Business-Problem messen — nicht generische Metriken, sondern exakt die Kennzahlen, an denen der Sponsor den Erfolg der Transformation ablesen wird.
+
+### Vorgehensweise
+
+1. **Vom SMART-Ziel (Teil 2) zur Metrik:** Jedes konkretisierte Ziel hat eine natürliche Metrik. Diese wird zur North Star Metric.
+2. **Maximal 3 Metriken:** Mehr verwässert den Fokus. Wenn der Kunde 5 Probleme hat, priorisieren: *"Welches Problem würde euer Management als erstes gelöst sehen wollen?"*
+3. **Baseline erheben oder schätzen:** Ohne Ausgangswert kein Delta. Wenn keine Daten vorhanden: gemeinsam eine qualifizierte Schätzung machen und als "geschätzte Baseline" kennzeichnen.
+4. **Zielwert und Zeitrahmen festlegen:** Jede North Star Metric bekommt einen konkreten Zielwert mit Zeitrahmen.
+
+### Beispiele
+
+| Business-Schmerz | North Star Metric | Baseline (Beispiel) | Ziel |
+|---|---|---|---|
+| Zu langsame Delivery | Median Lead Time for Changes | 3 Wochen | < 10 Tage in 6 Monaten |
+| Hohe Fehlerrate | Change Failure Rate | 18% | < 8% in 6 Monaten |
+| Code Reviews dauern zu lang | Median Code Review Cycle Time | 3–5 Tage | < 24h in 6 Monaten |
+| Fluktuation | Voluntary Attrition Rate + Developer Satisfaction Score | 15% / 55 Punkte | < 10% / > 70 Punkte in 12 Monaten |
+| Sinkende Marge | Effort pro Story Point (Kosten-Proxy) | 8 PT | < 6 PT in 6 Monaten |
+| Onboarding dauert zu lang | Time to Productivity (neue Teammitglieder) | 4 Wochen | < 2 Wochen in 6 Monaten |
+
+### Wohin fließen die North Star Metrics?
+
+- **CRAFT Report:** Prominent auf Seite 1, vor den CRAFT-Dimension-Scores
+- **Iterations-Review (Woche 4 jedes Zyklus):** Werden als erstes besprochen, vor CRAFT-Scores und DORA
+- **KPI-Framework Schicht 3:** Bilden den Top-down-Teil der Business Impact-Messung (siehe Framework Kap. 5)
+- **Pulse Check:** Die übergreifende Business-Outcome-Frage (BO-M1) referenziert die North Star Metrics
+- **Sponsor-Reporting:** Quartalsweise als Headline-Metrik kommuniziert
+
+> **Zusammenfassung für den AI Transformation Manager:** Ohne North Star Metrics wird die Transformation zum Selbstzweck. Die North Star Metrics sind der rote Faden, der sich durch jeden Zyklus, jedes Review und jedes Sponsor-Reporting zieht. Wenn du nur einen Satz aus diesem Dokument mitnimmst: *Jede Intervention muss sich daran messen lassen, ob sie die North Star Metrics bewegt.*
+
+---
+
+## Teil 4 — CRAFT-Relevanz-Mapping
+
+Sobald der Business-Schmerz, das Ziel und die North Star Metrics bekannt sind, kannst du grob ableiten, welche CRAFT-Dimensionen am relevantesten sind. **Dieses Mapping ist ein Gesprächseinstieg, kein Ergebnis ohne Assessment.**
 
 | Business-Schmerz | Primär relevante Dimensionen | Warum |
 |---|---|---|
@@ -112,14 +146,15 @@ Es gibt keine allgemeine Antwort, aber als Orientierung:
 
 ---
 
-## Teil 4 — Überleitung zur Context Exploration
+## Teil 5 — Überleitung zur Context Exploration
 
 Am Ende des Gesprächs:
 
 > *"Das hilft mir sehr. Damit ich euch ein passgenaues Bild geben kann, machen wir jetzt einen strukturierten Context-Check — dauert ~30 Minuten und gibt uns die Grundlage für alles Weitere."*
 
 → Danach: [context-readiness.yaml](context-readiness.yaml) / Context Exploration (Ebene 1)  
-→ Ergebnis der Frage `ctx_business_pain` mit diesem Gespräch abgleichen und in Analyse aufnehmen
+→ Ergebnis der Frage `ctx_business_pain` mit diesem Gespräch abgleichen und in Analyse aufnehmen  
+→ North Star Metrics in den CRAFT Report übernehmen und als Referenz für alle weiteren Zyklen dokumentieren
 
 ---
 

@@ -90,7 +90,7 @@ Vier modulare Engagement-Phasen, die aufeinander aufbauen – aber auch einzeln 
 **Aktivitäten:**
 - Rollout auf 2–4 weitere Teams
 - Champion-Netzwerk aufbauen (1–2 pro Team, 20% dedizierte Kapazität)
-- Pulse Check Zyklus etablieren (quartalsweise)
+- Pulse Check Zyklus etablieren (jeden 4-Wochen-Zyklus)
 - Rollenentwicklung mit HR verankern (AI-erweiterte Skill-Profile)
 - KPI-Dashboard aufsetzen (DORA + CRAFT + Business Impact)
 - Psychological Safety Workshops
@@ -123,7 +123,7 @@ Vier modulare Engagement-Phasen, die aufeinander aufbauen – aber auch einzeln 
 | **Auslastung** | ~10–15% (strategischer Sparringspartner, nicht operative Umsetzung) |
 
 **Aktivitäten:**
-- Quartalsweise CRAFT Pulse Check Analyse und Trendinterpretation
+- CRAFT Pulse Check Analyse und Trendinterpretation (jeden 4-Wochen-Zyklus)
 - Strategisches Coaching des internen AI Transformation Managers
 - Organisationsübergreifendes Champion-Netzwerk moderieren
 - Governance-Monitoring bei sich ändernder Regulierung (EU AI Act, Branchenspezifika)

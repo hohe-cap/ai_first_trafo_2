@@ -128,7 +128,7 @@
 
 > Deshalb gibt es den **CRAFT Explorer** — eine Web-App, die Teams durch die Standortbestimmung führt. Kein PowerPoint-Assessment — eine echte, lauffähige Anwendung.
 
-> Drei Ebenen: Context & Readiness beim Kickoff. Deep-Dives für alle 5 Dimensionen. Und ein Pulse Check — 16 Fragen, unter 15 Minuten, quartalsweise.
+> Drei Ebenen: Context & Readiness beim Kickoff. Deep-Dives für alle 5 Dimensionen. Und ein Pulse Check — 16 Fragen, unter 15 Minuten, jeden 4-Wochen-Zyklus.
 
 > Wichtig: Wir nutzen KEINE Likert-Skalen. Stattdessen konkrete Verhaltensbeschreibungen, die zum Reifegrad passen. Das Team erkennt sich sofort wieder.
 

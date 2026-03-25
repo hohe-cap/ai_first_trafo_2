@@ -35,7 +35,7 @@ Das Context-Profil steuert:
 - 19 Fragen, ~10 Minuten, ausgefüllt durch Engagement Lead.
 - Details → `craft-context-exploration.md`
 
-### Sensor A — Pulse Check (anonym, quartalsweise)
+### Sensor A — Pulse Check (anonym, jeden 4-Wochen-Zyklus)
 - Erfasst **Wahrnehmung, Readiness, Blocker**, Dinge die Tool-Daten nicht zeigen.
 - 15 Minuten, 1 Maturity-Frage + 1–2 MC je Dimension + Segment-Felder.
 - **Context-adaptiv:** Fragen und MC-Optionen werden durch das Context-Profil gefiltert.

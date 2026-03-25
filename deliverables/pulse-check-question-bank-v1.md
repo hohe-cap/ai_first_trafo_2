@@ -9,11 +9,11 @@ Stand: Feb 2026 | Draft
 > | Ebene | Datei | Zweck | Frequenz |
 > |-------|-------|-------|----------|
 > | 1 | [`context-readiness.yaml`](question_banks/context-readiness.yaml) | Kontext & Readiness (35 Fragen) | Einmalig |
-> | 2 | [`pulse-check.yaml`](question_banks/pulse-check.yaml) | CRAFT Pulse Check (16 Fragen) | Quartalsweise |
+> | 2 | [`pulse-check.yaml`](question_banks/pulse-check.yaml) | CRAFT Pulse Check (16 Fragen) | Jeden 4-Wochen-Zyklus |
 > | 3 | `deep-dive-*.yaml` (5 Dateien) | Dimension Deep-Dives (je 10-12 Fragen) | On-Demand |
 
 ## Ziel
-Ein kurzer, quartalsweiser Pulse Check (≤15 Minuten), der:
+Ein kurzer Pulse Check zu Beginn jedes 4-Wochen-Zyklus (≤15 Minuten), der:
 - anonym bleibt (ehrliche Antworten)
 - dennoch eine **organisatorische Verortung** erlaubt (Interventionen richtig platzieren)
 - Trends über Zeit sichtbar macht

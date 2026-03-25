@@ -69,7 +69,7 @@ Der [DORA Report 2024](https://dora.dev/research/2024/dora-report/) belegt: 25% 
 
 Die Chancen sind real, der Druck ist da, und Nicht-Handeln hat einen messbaren Preis. Die logische Folge: AI-Transformation ist keine Option, sondern eine strategische Notwendigkeit.
 
-Aber — und hier beginnt die eigentliche Herausforderung — **die meisten scheitern auf dem Weg dorthin.** Genau dieses Problem adressiert das folgende Framework.
+Aber — und hier beginnt die eigentliche Herausforderung — **die meisten scheitern auf dem Weg dorthin.** Nicht weil AI nicht funktioniert, sondern weil die Verbindung zwischen AI-Potenzial und konkretem Business-Problem fehlt. AI wird zum Selbstzweck, statt spezifische Herausforderungen zu lösen. Genau dieses Problem adressiert das folgende Framework.
 
 ---
 
@@ -77,13 +77,34 @@ Aber — und hier beginnt die eigentliche Herausforderung — **die meisten sche
 
 Die meisten AI-Transformationsinitiativen scheitern nicht an der Technologie, sondern an der Umsetzung. Studien zeigen, dass nur 1% der Organisationen sich als vollständig AI-reif bezeichnen, während gleichzeitig 92% ihre AI-Investitionen erhöhen wollen. Die Lücke zwischen Investment und Impact ist das zentrale Problem.
 
-Das AI Transformation Framework adressiert diese Lücke mit drei Kernprinzipien:
+Das AI Transformation Framework adressiert diese Lücke mit einer **dualen Zielsetzung** und drei Kernprinzipien.
+
+### Duale Zielsetzung: Business-Problem und AI-Fähigkeiten
+
+Jede AI-Transformation hat zwei Motivationen, die sich gegenseitig verstärken. Das Framework macht beide explizit und hält sie durchgängig sichtbar:
+
+| | Linse 1: Business Impact | Linse 2: AI-Befähigung |
+|---|---|---|
+| **Frage** | Welches konkrete Problem wollen wir lösen? | Wie gut können wir AI systematisch nutzen? |
+| **Beispiel** | "Lead Time von 3 Wochen auf 10 Tage senken" | "Von Exploring (Level 1) auf Embedding (Level 3) in Adoption" |
+| **Messung** | North Star Metrics (2–3 Metriken, direkt aus Business-Problem abgeleitet) | CRAFT-Scores (5 Dimensionen × 5 Reifestufen) |
+| **Frequenz** | Jeder 4-Wochen-Zyklus (Business Problem Check) | Jeder 4-Wochen-Zyklus (Pulse Check); Deep-Dive on-demand |
+| **Adressat** | Sponsor / C-Level | AI Adoption Team / Teams |
+
+**Warum beide Linsen nötig sind:**
+- Nur Linse 1 (Business Impact) ohne Linse 2 führt zu Aktionismus: Man jagt Metriken, ohne systematisch AI-Fähigkeiten aufzubauen.
+- Nur Linse 2 (AI-Befähigung) ohne Linse 1 führt zum Selbstzweck: Man verbessert CRAFT-Scores, ohne zu wissen, ob das dem Business hilft.
+- **Zusammen** entsteht der rote Faden: CRAFT-Dimensionen verbessern → North Star Metrics bewegen sich → Business-Problem wird gelöst.
+
+Die North Star Metrics werden im **Business Impact Discovery** (vor dem CRAFT Explorer) definiert: Ein strukturiertes Gespräch, das den konkreten Business-Schmerz identifiziert und in messbare Ziele übersetzt (→ `deliverables/question_banks/business-impact-discovery.md`). Jede Intervention und jedes CRAFT-Dimension-Ziel muss sich an der Frage messen lassen: *Bewegt das unsere North Star Metrics?*
+
+### Kernprinzipien
 
 - **Value Stream First:** Wir beginnen nicht bei Tools, sondern bei den Engpässen im Wertschöpfungsprozess. AI-Interventionen werden dort platziert, wo sie den größten Hebel auf Outcomes haben.
 - **Human-Centric Change:** Technologieeinführung ohne begleitenden Change-Prozess produziert Shelfware. Das Framework behandelt Rollenentwicklung, psychologische Sicherheit und Fähigkeitsaufbau als gleichberechtigte Dimensionen.
 - **Iterativ statt sequenziell:** Komplexe Transformationen lassen sich nicht in linearen Phasen planen. Das Framework arbeitet mit 4-Wochen-Iterationszyklen, in denen alle Dimensionen parallel adressiert werden.
 
-> **Differenzierungsmerkmal:** Anders als reine Technologie-Frameworks (z.B. Tool-Kataloge) oder reine Strategie-Frameworks (z.B. Maturity-Modelle) verbindet das AI Transformation Framework konkrete technische Umsetzung mit systematischem Change Management entlang des gesamten SDLC. Die Rolle des AI Transformation Managers als orchestrierende Kraft ist dabei zentral.
+> **Differenzierungsmerkmal:** Anders als reine Technologie-Frameworks (z.B. Tool-Kataloge) oder reine Strategie-Frameworks (z.B. Maturity-Modelle) verbindet das AI Transformation Framework konkrete technische Umsetzung mit systematischem Change Management entlang des gesamten SDLC. Die duale Zielsetzung — konkreter Business Impact *und* systematischer AI-Fähigkeitsaufbau — stellt sicher, dass die Transformation weder zum Selbstzweck wird noch im Aktionismus versandet. Die Rolle des AI Transformation Managers als orchestrierende Kraft ist dabei zentral.
 
 ---
 
@@ -215,8 +236,8 @@ Eine interaktive Anwendung, die vom AI Transformation Manager begleitet wird. Si
 
 - **Format:** Web-App, flexibel einsetzbar in unterschiedlichen Kontexten (standalone, Teams-Integration, Workshop-Begleitung).
 - **Begleitetes Modell:** Durchführung der Exploration durch das Team, Analyse und Handlungsempfehlungen durch AI Transformation Manager. Keine unbegleitete Auswertung.
-- **Ablauf:** Deep-Dive (Kickoff-Baseline, alle 5 Dimensionen) → Analyse & Spider-Chart → erste Interventionen → Pulse Check (quartalsweise, Trend-Tracking) → Deep-Dive bei Bedarf (on-demand).
-- **Dauer:** ~15–20 Minuten pro Deep-Dive-Dimension (einmalig), ≤15 Minuten pro Pulse Check (quartalsweise).
+- **Ablauf:** Deep-Dive (Kickoff-Baseline, alle 5 Dimensionen) → Analyse & Spider-Chart → erste Interventionen → Pulse Check (jeden 4-Wochen-Zyklus, Trend-Tracking) → Deep-Dive bei Bedarf (on-demand, wenn Pulse Check Auffälligkeiten zeigt).
+- **Dauer:** ~15–20 Minuten pro Deep-Dive-Dimension (einmalig), ≤15 Minuten pro Pulse Check (jeden Zyklus).
 - **Output:** Team-Dashboard mit Scores über die 5 CRAFT-Dimensionen (siehe Kapitel 5), Radar-Chart, Stärken-/Schwächen-Analyse und Handlungsempfehlungen, die gemeinsam in die Roadmap einfließen.
 - **Benchmark:** Anonymisierter Vergleich mit anderen Teams als zusätzlicher Impuls.
 
@@ -227,7 +248,7 @@ Die Standortbestimmung erfolgt über drei aufeinander aufbauende Ebenen. Jede Eb
 | Ebene | Zweck | Frequenz | Respondent | Dauer |
 |-------|-------|----------|------------|-------|
 | **1: Context & Readiness** | Fakten und Rahmenbedingungen erfassen (Branche, Team, Tech-Stack, Budget) | Einmalig (Kickoff) | AI Transformation Manager / Tech Lead (1–2 Personen, nicht anonym) | ~30 Min |
-| **2: Pulse Check** | CRAFT-Spider-Score (1–5) pro Dimension tracken, Trends erkennen | Quartalsweise | Alle Teammitglieder (anonym) | ≤15 Min |
+| **2: Pulse Check** | CRAFT-Spider-Score (1–5) pro Dimension tracken, Trends erkennen | Jeden 4-Wochen-Zyklus (Woche 1) | Alle Teammitglieder (anonym) | ≤15 Min |
 | **3: Deep-Dives** (5×) | Granulare Sub-Topic-Analyse pro Dimension (je 4 Sub-Topics) | 1× Kickoff (Baseline) + on-demand | Alle Teammitglieder (anonym) | ~15–20 Min pro Dimension |
 
 **Beziehung Pulse Check ↔ Deep-Dive:** Der Pulse Check ist ein *Extrakt* der Deep-Dives. Jede Pulse-Check-Maturity-Frage (z.B. C-M1) fasst die 4 Sub-Topics des entsprechenden Deep-Dives zusammen. Deep-Dives liefern das granulare *Warum*, der Pulse Check trackt den *Trend*.
@@ -418,6 +439,15 @@ Konkrete Setup-Anleitungen, die vom IDE-Plugin bis zum LLM-Deployment alles abde
 
 Das Framework arbeitet mit 4-Wochen-Iterationszyklen, die alle 5 Dimensionen berühren, aber mit wechselndem Schwerpunkt. Dies ersetzt das klassische Drei-Wellen-Modell (Foundation → Acceleration → Integration), das in komplexen Konzernumgebungen regelmäßig an der Realität scheitert.
 
+**Verankerung der dualen Zielsetzung im Zyklus:**
+
+Jeder Iterationszyklus verfolgt beide Linsen gleichzeitig (siehe Kapitel 2):
+
+- **Linse 1 (Business Impact):** Im Business Impact Discovery wurden 2–3 **North Star Metrics** definiert, die das konkrete Business-Problem messen. Jeder Zyklus beginnt und endet mit der Frage: *Bewegen sich unsere North Star Metrics?* Der Business Problem Check in Woche 4 ist das formale Instrument dafür.
+- **Linse 2 (AI-Befähigung):** Die **CRAFT-Scores** zeigen, wie gut das Team AI systematisch nutzen kann. Verbesserungen in den CRAFT-Dimensionen sind der *Hebel*, über den sich die North Star Metrics verbessern — aber nur wenn die richtigen Dimensionen adressiert werden.
+
+Die Verbindung: Wenn die North Star Metrics sich nicht bewegen, obwohl CRAFT-Scores steigen, stimmt das Interventions-Portfolio nicht (falsche Dimension, falscher Bottleneck). Wenn die CRAFT-Scores nicht steigen, fehlen Voraussetzungen für Business Impact. Der Iterationszyklus steuert beides.
+
 ```mermaid
 ---
 config:
@@ -475,20 +505,33 @@ flowchart LR
 
 | Woche | Fokus | Aktivitäten |
 |-------|-------|-------------|
-| Woche 1 | Orientierung & Planung | Pulse Check Update (sofern fällig), Review der Ergebnisse aus dem Vorzyklus, Zieldefinition für den neuen Zyklus, Abstimmung mit Sponsoren |
+| Woche 1 | Orientierung & Planung | **Pulse Check** durchführen, Review der Ergebnisse aus dem Vorzyklus (CRAFT-Scores + North Star Metrics), Zieldefinition für den neuen Zyklus, Abstimmung mit Sponsoren |
 | Woche 2–3 | Umsetzung | Tool-Rollout und Konfiguration, Value Stream Workshops, Change-Workshops, Governance-Klärungen, Skill-Building-Sessions |
-| Woche 4 | Review & Anpassung | Retrospektive mit dem Team, Metriken-Review (DORA, Adoption), Readiness Gate Entscheidung, Anpassung des nächsten Zyklus |
+| Woche 4 | Review & Anpassung | **Business Problem Check** (North Star Metrics zuerst), Retrospektive mit dem Team, Metriken-Review (DORA, Adoption), Readiness Gate Entscheidung, Anpassung des nächsten Zyklus |
 
-### 4.2 Readiness Gates
+### 4.2 Business Problem Check (Woche 4)
 
-Nach jedem Zyklus steht eine bewusste Entscheidung: Wird der nächste Zyklus den Scope erweitern (neue Teams, neue SDLC-Phasen), vertiefen (bessere Integration in bestehenden Teams) oder konsolidieren (Stabilisierung, bevor weiter skaliert wird)? Diese Entscheidung trifft das AI Adoption Team gemeinsam mit dem Sponsor.
+Bevor die Readiness-Gate-Entscheidung fällt, wird der **Business Problem Check** durchgeführt. Er stellt sicher, dass die Transformation nicht zum Selbstzweck wird, sondern auf das identifizierte Business-Problem fokussiert bleibt.
+
+**Ablauf (15–20 Min, Teil des Woche-4-Reviews):**
+
+1. **North Star Metrics Review:** Wie haben sich die 2–3 North Star Metrics (definiert im Business Impact Discovery) seit dem letzten Zyklus entwickelt? Delta quantifizieren.
+2. **Interventions-Alignment:** Adressieren die aktuellen Interventionen das identifizierte Business-Problem — oder optimieren wir an der falschen Stelle?
+3. **Root Cause Check:** Gibt es Root Causes hinter dem ursprünglich wahrgenommenen Symptom, die wir noch nicht adressieren? (Beispiel: Das Symptom war "langsame Delivery", aber die Root Cause ist "fehlende Testautomatisierung", nicht "fehlende AI-Tools".)
+4. **Kurskorrektur:** Falls die North Star Metrics stagnieren oder sich verschlechtern: Welche Anpassung ist nötig? Neue Interventionen? Andere CRAFT-Dimension priorisieren? Problem-Definition schärfen?
+
+> **Leitfrage für den AI Transformation Manager:** *"Wenn ich dem Sponsor heute erklären müsste, wie diese Transformation sein Business-Problem löst — was genau würde ich sagen?"* Wenn die Antwort nicht klar und konkret ist, fehlt der rote Faden.
+
+### 4.3 Readiness Gates
+
+Nach dem Business Problem Check steht die Readiness-Gate-Entscheidung: Wird der nächste Zyklus den Scope erweitern (neue Teams, neue SDLC-Phasen), vertiefen (bessere Integration in bestehenden Teams) oder konsolidieren (Stabilisierung, bevor weiter skaliert wird)? Diese Entscheidung trifft das AI Adoption Team gemeinsam mit dem Sponsor.
 
 > **Readiness Gate Kriterien (Beispiele):**
-> - **Erweiterung:** Adoption Rate im Pilot > 60%, DORA-Metriken stabil oder verbessert, kein offener Governance-Blocker.
-> - **Vertiefung:** Adoption Rate < 60% oder DORA-Verschlechterung, aber positive Cultural Readiness Trends.
+> - **Erweiterung:** Adoption Rate im Pilot > 60%, DORA-Metriken stabil oder verbessert, kein offener Governance-Blocker, **North Star Metrics zeigen positiven Trend**.
+> - **Vertiefung:** Adoption Rate < 60% oder DORA-Verschlechterung, aber positive Cultural Readiness Trends. Oder: **North Star Metrics stagnieren trotz guter CRAFT-Scores** (→ falsche Interventionen?).
 > - **Konsolidierung:** Governance-Änderungen stehen an, Teamumbau, oder kultureller Widerstand erfordert zusätzliche Change-Arbeit.
 
-### 4.3 Typischer Verlauf (6 Zyklen / 24 Wochen)
+### 4.4 Typischer Verlauf (6 Zyklen / 24 Wochen)
 
 | Zyklus | Schwerpunkt | Erwartete Ergebnisse |
 |--------|-------------|----------------------|
@@ -521,7 +564,7 @@ Die DORA Metrics sind der Goldstandard für Software Delivery Performance. Sie w
 
 Ein 5-Dimensionen-Modell, zugeschnitten auf den SDLC-Kontext. Jede CRAFT-Dimension korrespondiert direkt mit einer Framework-Dimension (D1–D5) – die Handlungsdimension und ihr KPI-Gegenstück sind deckungsgleich. Das Modell wird über zwei komplementäre Instrumente erhoben:
 
-- **Pulse Check** (quartalsweise): 1 Maturity-Frage pro Dimension → Spider-Score = Median über alle Respondenten (1–5)
+- **Pulse Check** (jeden 4-Wochen-Zyklus): 1 Maturity-Frage pro Dimension → Spider-Score = Median über alle Respondenten (1–5)
 - **Deep-Dives** (Kickoff-Baseline + on-demand): 4 Sub-Topics pro Dimension → Spider-Score = (Median × 0.6) + (Minimum × 0.4)
 
 Die Min-gewichtete Formel der Deep-Dives verhindert, dass kritische Schwächen im Durchschnitt verschwinden. Ein Sub-Topic auf Level 1 bleibt als Blocker sichtbar, egal wie gut die anderen Sub-Topics sind. Alle Maturity-Fragen folgen einem universellen 5-Level-Progressionsmuster mit konkreten Verhaltensbeschreibungen (keine Likert-Skalen), um Vergleichbarkeit über Dimensionen und Zeit zu gewährleisten.
@@ -636,9 +679,23 @@ flowchart TB
 
 #### Schicht 3: Business Impact (für Sponsoren)
 
-Keine eigene Erhebung, sondern Aggregation aus Schicht 1 und 2 in geschäftssprachliche Kennzahlen: Velocity-Veränderung, Time-to-Market-Verbesserung, Qualitätsveränderung (aus Change Failure Rate) und Mitarbeiterzufriedenheit (aus Cultural Readiness). Wird automatisch generiert und quartalsweise an Sponsoren kommuniziert.
+Schicht 3 arbeitet **dual — Top-down und Bottom-up:**
 
-> **Overhead-Minimierung:** Die meisten Metriken werden automatisch aus bestehenden Tools erhoben (CI/CD, Jira, IDE-Telemetrie). Der Pulse Check ist das einzige Element, das aktive Beteiligung erfordert – maximal 15 Minuten, quartalsweise. Kein zusätzliches Reporting-System, keine Excel-Tabellen, keine manuellen KPI-Erhebungen.
+**Top-down: North Star Metrics (primär)**
+
+Die 2–3 North Star Metrics werden im Business Impact Discovery (vor der CRAFT Exploration) gemeinsam mit dem Sponsor definiert. Sie messen direkt das identifizierte Business-Problem und sind die Headline-Metriken im Sponsor-Reporting.
+
+- **Quelle:** Direkt gemessen aus den Systemen, die das Business-Problem abbilden (z.B. CI/CD für Lead Time, HR-System für Attrition, Jira für Cycle Time)
+- **Frequenz:** Zyklisch (alle 4 Wochen im Business Problem Check) + quartalsweise an Sponsoren
+- **Beispiele:** Median Lead Time, Change Failure Rate, Code Review Cycle Time, Developer Satisfaction Score, Effort pro Story Point
+
+**Bottom-up: Aggregierte CRAFT + DORA Kennzahlen (ergänzend)**
+
+Aggregation aus Schicht 1 und 2 in geschäftssprachliche Kennzahlen: Velocity-Veränderung, Time-to-Market-Verbesserung, Qualitätsveränderung (aus Change Failure Rate) und Mitarbeiterzufriedenheit (aus Cultural Readiness). Wird automatisch generiert und quartalsweise an Sponsoren kommuniziert.
+
+**Zusammenspiel:** Die North Star Metrics zeigen, *ob* das Business-Problem gelöst wird. Die Bottom-up-Aggregation zeigt, *warum* (oder warum nicht) — welche CRAFT-Dimensionen und DORA-Metriken die Veränderung treiben. Beide zusammen ergeben das vollständige Bild für Sponsoren.
+
+> **Overhead-Minimierung:** Die meisten Metriken werden automatisch aus bestehenden Tools erhoben (CI/CD, Jira, IDE-Telemetrie). Der Pulse Check ist das einzige Element, das aktive Beteiligung erfordert – maximal 15 Minuten pro Zyklus (alle 4 Wochen). Kein zusätzliches Reporting-System, keine Excel-Tabellen, keine manuellen KPI-Erhebungen. Die North Star Metrics nutzen dieselben Datenquellen, die ohnehin vorhanden sind.
 
 ---
 
@@ -956,7 +1013,7 @@ McKinseys State of AI 2025 belegt, dass Workflow-Redesign unter 25 getesteten At
 Die Autoren des Frameworks bringen 15+ Jahre Erfahrung in Software-Entwicklung, agiler Transformation und Organisationsveränderung in Konzernen mit. Das Framework entstand nicht am Reißbrett, sondern aus der wiederholten Beobachtung, dass reine Tool-Rollouts scheitern, wenn sie nicht von Change Management und Prozessverständnis begleitet werden. Diese Erkenntnis ist nicht AI-spezifisch – sie gilt für jede Technologietransformation, aber sie wird bei AI besonders dramatisch sichtbar, weil die Geschwindigkeit der Veränderung höher ist als je zuvor.
 
 **Argument 4: Das Framework ist so konstruiert, dass es sich selbst validiert.**
-Im Gegensatz zu linearen Transformationsplänen hat unser Ansatz eingebaute Feedback-Schleifen: quartalsweise Pulse Checks messen den Fortschritt, 4-Wochen-Zyklen erzwingen regelmäßige Kurskorrektur, Readiness Gates verhindern voreilige Skalierung. Wenn eine Dimension nicht funktioniert, zeigt das CRAFT-Modell es nach spätestens einem Quartal – und der nächste Zyklus kann anpassen. Das Risiko liegt nicht in einem falschen Gesamtplan, sondern maximal in einem suboptimalen Einzelzyklus.
+Im Gegensatz zu linearen Transformationsplänen hat unser Ansatz eingebaute Feedback-Schleifen: Pulse Checks in jedem 4-Wochen-Zyklus messen den CRAFT-Fortschritt, der Business Problem Check prüft die North Star Metrics, Readiness Gates verhindern voreilige Skalierung. Wenn eine Dimension nicht funktioniert, zeigt das CRAFT-Modell es nach spätestens einem Zyklus – und der nächste Zyklus kann anpassen. Das Risiko liegt nicht in einem falschen Gesamtplan, sondern maximal in einem suboptimalen Einzelzyklus.
 
 **Argument 5: Die Alternative – nichts Neues zu versuchen – ist nachweislich gescheitert.**
 Die 95% Failure Rate (MIT) und die 42% Abbruchquote (S&P Global) zeigen, dass der Status quo nicht funktioniert. Die bestehenden Ansätze – reines Tool-Rollout, generische Maturity Assessments, technologieagnostisches Change Management – produzieren die Ergebnisse, die wir sehen. Ein integrierter Ansatz ist nicht bewiesen besser, aber die fragmentierten Ansätze sind bewiesen unzureichend.

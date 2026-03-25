@@ -69,7 +69,7 @@ Wir sind ehrlich: Wir haben noch keinen vollständigen Pilot abgeschlossen. Aber
 
 **③ Die Alternative ist nachweislich gescheitert.** 95% Failure Rate ([MIT](https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf)), 42% Abbruchquote (S&P Global), 88% verfehlen ihre Ziele (Bain). Reines Tool-Rollout, generische Assessments und technologieagnostisches Change Management produzieren diese Ergebnisse.
 
-**④ Das Framework korrigiert sich selbst.** 4-Wochen-Zyklen, Readiness Gates, quartalsweise Pulse Checks. Wenn etwas nicht funktioniert, sehen wir es nach maximal einem Zyklus – nicht nach 6 Monaten.
+**④ Das Framework korrigiert sich selbst.** 4-Wochen-Zyklen mit Pulse Check und Business Problem Check, Readiness Gates. Wenn etwas nicht funktioniert, sehen wir es nach maximal einem Zyklus – nicht nach 6 Monaten.
 
 **⑤ Wir kennen den Kontext.** 15+ Jahre in Softwareentwicklung und Konzerntransformation, Erfahrung mit 300-Personen-Projekten, deutschem Betriebsrecht und Public-Sector-Compliance. Das Framework ist für die Realität deutscher Konzerne gebaut, nicht für Silicon-Valley-Startups.
 
