@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Block 01 — Analyse der Trainings-Ergebnisse</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700;800&display=swap');
+
+  :root {
+    --navy: #0C1B2E;
+    --navy-light: #162A45;
+    --slate: #2D4A6B;
+    --slate-light: #7B8FA8;
+    --blue: #0070AD;
+    --blue-dark: #005C8F;
+    --blue-light: #0096E0;
+    --cyan: #00DCFA;
+    --emerald: #2BD9AA;
+    --amber: #FFB500;
+    --rose: #FF6673;
+    --violet: #7B61FF;
+    --white: #FFFFFF;
+    --gray-300: #B8C9DC;
+    --gray-400: rgba(123,143,168,0.7);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── Hero ─── */
+  .hero {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 10vw 60px;
+    background: linear-gradient(160deg, var(--navy) 40%, var(--navy-light) 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -120px; top: -120px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0,150,224,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero .tag {
+    font-size: 12px; font-weight: 600; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--blue-light); margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(32px,5vw,56px); font-weight: 800;
+    line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 20px;
+  }
+  .hero .subtitle {
+    font-size: clamp(16px,2vw,20px); color: var(--gray-300);
+    font-weight: 300; max-width: 700px; line-height: 1.6;
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, var(--blue-light), var(--cyan));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .text-gradient-warm {
+    background: linear-gradient(135deg, var(--amber), var(--rose));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .text-gradient-green {
+    background: linear-gradient(135deg, var(--emerald), var(--cyan));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .meta {
+    margin-top: 32px;
+    display: flex; gap: 24px; flex-wrap: wrap;
+  }
+  .meta-item {
+    font-size: 13px; color: var(--slate-light);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .meta-item strong { color: var(--gray-300); font-weight: 500; }
+
+  /* ─── Sections ─── */
+  section {
+    padding: 60px 10vw 70px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  section:last-child { border-bottom: none; }
+
+  .section-tag {
+    font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--blue-light); margin-bottom: 14px;
+  }
+  section h2 {
+    font-size: clamp(24px,3vw,36px); font-weight: 700;
+    line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 24px;
+  }
+  section h3 {
+    font-size: clamp(17px,1.8vw,22px); font-weight: 600;
+    margin-bottom: 12px; margin-top: 32px;
+  }
+  section p, section li {
+    font-size: 15px; color: var(--gray-300); line-height: 1.7;
+  }
+  section ul { padding-left: 20px; margin-bottom: 16px; }
+  section li { margin-bottom: 6px; }
+
+  /* ─── Consensus Table ─── */
+  .consensus-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 32px 0;
+  }
+  .consensus-card {
+    background: var(--navy-light);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 24px;
+    align-items: start;
+    transition: border-color 0.3s;
+  }
+  .consensus-card:hover {
+    border-color: rgba(0,150,224,0.3);
+  }
+  .consensus-rank {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; font-weight: 800; color: var(--white);
+  }
+  .consensus-card:nth-child(1) .consensus-rank { background: linear-gradient(135deg, var(--blue), var(--cyan)); }
+  .consensus-card:nth-child(2) .consensus-rank { background: linear-gradient(135deg, var(--emerald), #1ac0a0); }
+  .consensus-card:nth-child(3) .consensus-rank { background: linear-gradient(135deg, var(--amber), #e0a000); }
+
+  .consensus-title {
+    font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--white);
+  }
+  .consensus-desc {
+    font-size: 14px; color: var(--gray-300); line-height: 1.6; margin-bottom: 12px;
+  }
+  .consensus-meta {
+    display: flex; gap: 16px; flex-wrap: wrap;
+  }
+  .consensus-badge {
+    font-size: 12px; font-weight: 600;
+    padding: 4px 12px; border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+  .badge-freq { background: rgba(0,150,224,0.15); color: var(--blue-light); }
+  .badge-dim { background: rgba(43,217,170,0.15); color: var(--emerald); }
+
+  /* ─── Cluster Cards ─── */
+  .cluster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin: 32px 0;
+  }
+  .cluster-card {
+    background: var(--navy-light);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cluster-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .cluster-card:nth-child(1)::before { background: linear-gradient(90deg, var(--blue), var(--cyan)); }
+  .cluster-card:nth-child(2)::before { background: linear-gradient(90deg, var(--emerald), var(--cyan)); }
+  .cluster-card:nth-child(3)::before { background: linear-gradient(90deg, var(--amber), var(--rose)); }
+  .cluster-card:nth-child(4)::before { background: linear-gradient(90deg, var(--violet), var(--rose)); }
+
+  .cluster-pct {
+    font-size: 32px; font-weight: 800; margin-bottom: 4px;
+  }
+  .cluster-card:nth-child(1) .cluster-pct { color: var(--cyan); }
+  .cluster-card:nth-child(2) .cluster-pct { color: var(--emerald); }
+  .cluster-card:nth-child(3) .cluster-pct { color: var(--amber); }
+  .cluster-card:nth-child(4) .cluster-pct { color: var(--violet); }
+
+  .cluster-name {
+    font-size: 17px; font-weight: 700; margin-bottom: 10px;
+  }
+  .cluster-desc {
+    font-size: 13px; color: var(--gray-300); line-height: 1.6;
+  }
+  .cluster-examples {
+    margin-top: 12px; font-size: 12px; color: var(--slate-light); font-style: italic;
+  }
+
+  /* ─── Gap Cards ─── */
+  .gap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .gap-card {
+    background: rgba(255,102,115,0.04);
+    border: 1px solid rgba(255,102,115,0.15);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .gap-number {
+    font-size: 12px; font-weight: 700; color: var(--rose);
+    letter-spacing: 1px; margin-bottom: 8px;
+  }
+  .gap-title {
+    font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--white);
+  }
+  .gap-desc {
+    font-size: 13px; color: var(--gray-300); line-height: 1.6;
+  }
+
+  /* ─── Question Cards ─── */
+  .question-list {
+    margin: 32px 0;
+    counter-reset: q;
+  }
+  .question-item {
+    counter-increment: q;
+    background: var(--navy-light);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 24px 24px 24px 64px;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .question-item::before {
+    content: counter(q);
+    position: absolute;
+    left: 22px; top: 24px;
+    width: 30px; height: 30px;
+    border-radius: 8px;
+    background: rgba(123,97,255,0.15);
+    color: var(--violet);
+    font-size: 14px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .question-title {
+    font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 6px;
+  }
+  .question-desc {
+    font-size: 13px; color: var(--gray-300); line-height: 1.6;
+  }
+
+  /* ─── Verdict ─── */
+  .verdict {
+    background: linear-gradient(160deg, rgba(0,112,173,0.12), rgba(0,220,250,0.06));
+    border: 1px solid rgba(0,150,224,0.2);
+    border-radius: 16px;
+    padding: 40px;
+    margin: 40px 0 0;
+    position: relative;
+  }
+  .verdict::before {
+    content: '→';
+    position: absolute;
+    left: 40px; top: -18px;
+    font-size: 28px; font-weight: 800;
+    color: var(--cyan);
+    background: var(--navy);
+    padding: 0 12px;
+  }
+  .verdict p {
+    font-size: 17px; font-weight: 400; color: var(--white);
+    line-height: 1.7; max-width: 900px;
+  }
+  .verdict strong { color: var(--cyan); font-weight: 600; }
+
+  /* ─── Strength Bars ─── */
+  .strength-list {
+    margin: 24px 0;
+  }
+  .strength-item {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 14px;
+  }
+  .strength-label {
+    font-size: 14px; font-weight: 500; color: var(--gray-300);
+    min-width: 200px;
+  }
+  .strength-bar-bg {
+    flex: 1; height: 8px; border-radius: 4px;
+    background: rgba(255,255,255,0.06);
+    position: relative; overflow: hidden;
+  }
+  .strength-bar {
+    height: 100%; border-radius: 4px;
+    transition: width 1s ease;
+  }
+  .strength-pct {
+    font-size: 13px; font-weight: 700; min-width: 50px; text-align: right;
+  }
+
+  /* ─── Footer ─── */
+  footer {
+    padding: 40px 10vw;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 12px;
+    color: var(--slate-light);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+  }
+  footer a { color: var(--blue-light); text-decoration: none; }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 768px) {
+    .hero, section { padding-left: 6vw; padding-right: 6vw; }
+    .consensus-card { grid-template-columns: 1fr; }
+    .consensus-rank { width: 44px; height: 44px; font-size: 18px; border-radius: 10px; }
+    .cluster-grid { grid-template-columns: 1fr; }
+    .gap-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ─── Scroll animations ─── */
+  .fade-in {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1; transform: translateY(0);
+  }
+
+  /* ─── CRAFT dimension tag ─── */
+  .dim-tag {
+    display: inline-block;
+    font-size: 11px; font-weight: 700; letter-spacing: 1px;
+    padding: 2px 8px; border-radius: 4px;
+    margin-right: 4px;
+  }
+  .dim-C { background: rgba(255,182,0,0.15); color: var(--amber); }
+  .dim-R { background: rgba(43,217,170,0.15); color: var(--emerald); }
+  .dim-A { background: rgba(0,150,224,0.15); color: var(--blue-light); }
+  .dim-F { background: rgba(0,220,250,0.15); color: var(--cyan); }
+  .dim-T { background: rgba(123,97,255,0.15); color: var(--violet); }
+</style>
+</head>
+<body>
+
+<!-- ════════════ HERO ════════════ -->
+<header class="hero">
+  <div class="tag">AI Transformation Enablement · Block 01</div>
+  <h1>Analyse der <span class="text-gradient">Trainings-Ergebnisse</span></h1>
+  <p class="subtitle">
+    Fragestellung: <em>„Wir wollen AI in unserem Entwicklungsteam einführen, wissen aber nicht wo anfangen. Was sind eure Top‑3‑Empfehlungen — und warum genau diese drei?"</em>
+  </p>
+  <div class="meta">
+    <div class="meta-item">📋 <strong>~15 AI-gestützte Antworten</strong> von ca. 20 Trainingsteilnehmern</div>
+    <div class="meta-item">🔎 <strong>Systematische Muster-Analyse</strong></div>
+    <div class="meta-item">📅 <strong>März 2026</strong></div>
+  </div>
+</header>
+
+<!-- ════════════ KONSENS ════════════ -->
+<section>
+  <div class="fade-in">
+    <div class="section-tag">Synthese</div>
+    <h2>Die konsolidierte <span class="text-gradient">Top-3-Empfehlung</span></h2>
+    <p style="color:var(--gray-300); margin-bottom:8px; font-size:15px;">
+      Über alle Antworten kristallisieren sich drei dominante Empfehlungen heraus, die in verschiedenen Formulierungen bei &gt;65% der Teilnehmer auftauchen:
+    </p>
+  </div>
+
+  <div class="consensus-grid fade-in">
+    <!-- #1 -->
+    <div class="consensus-card">
+      <div class="consensus-rank">1</div>
+      <div>
+        <div class="consensus-title">Problem First, nicht Tool First</div>
+        <div class="consensus-desc">
+          Wertstrom analysieren, Engpässe identifizieren, dann AI gezielt dort platzieren wo der größte Hebel liegt.
+          <br>95% der AI-Piloten scheitern ohne Workflow-Redesign (McKinsey / MIT).
+        </div>
+        <div class="consensus-meta">
+          <span class="consensus-badge badge-freq">~85 % der Antworten</span>
+          <span class="consensus-badge badge-dim"><span class="dim-tag dim-F">F</span> Flow &amp; Process</span>
+        </div>
+      </div>
+    </div>
+    <!-- #2 -->
+    <div class="consensus-card">
+      <div class="consensus-rank">2</div>
+      <div>
+        <div class="consensus-title">Menschen in den Mittelpunkt</div>
+        <div class="consensus-desc">
+          Skills aufbauen, Enablement verankern, psychologische Sicherheit schaffen, gemeinsame Lernroutinen etablieren.
+          <br>93% der Budgets fließen in Tech, nur 7% in Menschen — deshalb scheitern Programme.
+        </div>
+        <div class="consensus-meta">
+          <span class="consensus-badge badge-freq">~75 % der Antworten</span>
+          <span class="consensus-badge badge-dim"><span class="dim-tag dim-R">R</span> Readiness (Human)</span>
+        </div>
+      </div>
+    </div>
+    <!-- #3 -->
+    <div class="consensus-card">
+      <div class="consensus-rank">3</div>
+      <div>
+        <div class="consensus-title">Governance &amp; Leitplanken früh setzen</div>
+        <div class="consensus-desc">
+          Spielregeln definieren, Compliance sichern, klare Grenzen ziehen, Human-in-the-Loop etablieren.
+          <br>Ohne Guardrails entsteht entweder Shadow AI (Chaos) oder Verbote (Stillstand).
+        </div>
+        <div class="consensus-meta">
+          <span class="consensus-badge badge-freq">~65 % der Antworten</span>
+          <span class="consensus-badge badge-dim"><span class="dim-tag dim-C">C</span> Compliance &amp; Governance</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="fade-in" style="font-size:14px; color:var(--slate-light); margin-top:8px;">
+    → Deckt sich exakt mit den CRAFT-Dimensionen <span class="dim-tag dim-F">F</span> <span class="dim-tag dim-R">R</span> <span class="dim-tag dim-C">C</span> — die Teilnehmer identifizieren intuitiv die richtigen Hebel.
+  </p>
+</section>
+
+<!-- ════════════ THEMEN-HÄUFIGKEIT ════════════ -->
+<section>
+  <div class="fade-in">
+    <div class="section-tag">Frequenz-Analyse</div>
+    <h2>Wie oft tauchen Themen auf?</h2>
+  </div>
+  <div class="strength-list fade-in">
+    <div class="strength-item">
+      <span class="strength-label">„Nicht mit Tools starten"</span>
+      <div class="strength-bar-bg"><div class="strength-bar" style="width:85%; background:linear-gradient(90deg,var(--blue),var(--cyan));"></div></div>
+      <span class="strength-pct" style="color:var(--cyan)">~85%</span>
+    </div>
+    <div class="strength-item">
+      <span class="strength-label">Menschen &amp; Change Management</span>
+      <div class="strength-bar-bg"><div class="strength-bar" style="width:75%; background:linear-gradient(90deg,var(--emerald),#1ac0a0);"></div></div>
+      <span class="strength-pct" style="color:var(--emerald)">~75%</span>
+    </div>
+    <div class="strength-item">
+      <span class="strength-label">Governance &amp; Compliance</span>
+      <div class="strength-bar-bg"><div class="strength-bar" style="width:65%; background:linear-gradient(90deg,var(--amber),#e0a000);"></div></div>
+      <span class="strength-pct" style="color:var(--amber)">~65%</span>
+    </div>
+    <div class="strength-item">
+      <span class="strength-label">Piloten &amp; Quick Wins</span>
+      <div class="strength-bar-bg"><div class="strength-bar" style="width:55%; background:linear-gradient(90deg,var(--violet),var(--rose));"></div></div>
+      <span class="strength-pct" style="color:var(--violet)">~55%</span>
+    </div>
+    <div class="strength-item">
+      <span class="strength-label">KPIs &amp; Messbarkeit</span>
+      <div class="strength-bar-bg"><div class="strength-bar" style="width:25%; background:linear-gradient(90deg,var(--rose),#d0505d);"></div></div>
+      <span class="strength-pct" style="color:var(--rose)">~25%</span>
+    </div>
+    <div class="strength-item">
+      <span class="strength-label">Agentic / Autonomie-Denke</span>
+      <div class="strength-bar-bg"><div class="strength-bar" style="width:15%; background:linear-gradient(90deg,var(--slate),var(--slate-light));"></div></div>
+      <span class="strength-pct" style="color:var(--slate-light)">~15%</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ CLUSTER ════════════ -->
+<section>
+  <div class="fade-in">
+    <div class="section-tag">Muster</div>
+    <h2>Vier Antwort-Cluster</h2>
+    <p style="color:var(--gray-300); font-size:15px; margin-bottom:8px;">
+      Die Antworten lassen sich in vier archetypische Denkweisen gruppieren:
+    </p>
+  </div>
+
+  <div class="cluster-grid fade-in">
+    <div class="cluster-card">
+      <div class="cluster-pct">~60%</div>
+      <div class="cluster-name">„Der Klassiker"</div>
+      <div class="cluster-desc">
+        Wertstrom → Governance → Menschen. Gut strukturiert, CRAFT-aligniert, eher prozessorientiert. Solide Basis, aber oft generisch.
+      </div>
+      <div class="cluster-examples">Team ohne Name, Kristina, Hard to find, Bei Null anfangen, M365, Mural-Sticky</div>
+    </div>
+    <div class="cluster-card">
+      <div class="cluster-pct">~20%</div>
+      <div class="cluster-name">„Der Pragmatiker"</div>
+      <div class="cluster-desc">
+        Quick Wins zeigen, schnell starten, Metriken definieren. Fokus auf Machbarkeit, Sichtbarkeit und sofortige Wirkung im Alltag.
+      </div>
+      <div class="cluster-examples">HB, Metriken-Fokus, Kompakt</div>
+    </div>
+    <div class="cluster-card">
+      <div class="cluster-pct">~15%</div>
+      <div class="cluster-name">„Der Disruptor"</div>
+      <div class="cluster-desc">
+        Paradigmenwechsel: Nicht AI als Assistenz, sondern als Delegation. Agentic Development, autonome Ausführung, 2–5× Durchsatz.
+      </div>
+      <div class="cluster-examples">Management Summary, Anthropic-Perspektive</div>
+    </div>
+    <div class="cluster-card">
+      <div class="cluster-pct">~10%</div>
+      <div class="cluster-name">„Der Engagement-Architekt"</div>
+      <div class="cluster-desc">
+        Gamification, Team-Challenges, Champions-Netzwerk, spielerisches Onboarding als primärer Adoptionshebel.
+      </div>
+      <div class="cluster-examples">Gamification / RovoAI-Antwort</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ STÄRKEN ════════════ -->
+<section>
+  <div class="fade-in">
+    <div class="section-tag">Was gut war</div>
+    <h2>Stark vertreten <span class="text-gradient-green">✓</span></h2>
+  </div>
+  <div class="fade-in" style="margin-top:16px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px;">
+      <div style="background:rgba(43,217,170,0.05); border:1px solid rgba(43,217,170,0.15); border-radius:12px; padding:24px;">
+        <div style="font-size:15px; font-weight:700; color:var(--emerald); margin-bottom:8px;">„Nicht mit Tools starten"</div>
+        <div style="font-size:13px; color:var(--gray-300); line-height:1.6;">
+          Fast ein Reflex — zeigt, dass die Botschaft „Value Stream First" breit angekommen ist.
+        </div>
+      </div>
+      <div style="background:rgba(43,217,170,0.05); border:1px solid rgba(43,217,170,0.15); border-radius:12px; padding:24px;">
+        <div style="font-size:15px; font-weight:700; color:var(--emerald); margin-bottom:8px;">Menschen-Zentrierung</div>
+        <div style="font-size:13px; color:var(--gray-300); line-height:1.6;">
+          Fast alle betonen psychologische Sicherheit, Lernteams und Skill-Aufbau als erfolgskritisch.
+        </div>
+      </div>
+      <div style="background:rgba(43,217,170,0.05); border:1px solid rgba(43,217,170,0.15); border-radius:12px; padding:24px;">
+        <div style="font-size:15px; font-weight:700; color:var(--emerald); margin-bottom:8px;">Governance als Enabler</div>
+        <div style="font-size:13px; color:var(--gray-300); line-height:1.6;">
+          Governance wird nicht als Bremse, sondern als Beschleuniger positioniert — gutes Mindset.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ LÜCKEN ════════════ -->
+<section>
+  <div class="fade-in">
+    <div class="section-tag">Was fehlt</div>
+    <h2>Sieben <span class="text-gradient-warm">Blind Spots</span></h2>
+    <p style="color:var(--gray-300); font-size:15px; margin-bottom:8px;">
+      Unterrepräsentierte oder fehlende Aspekte, die ein AI Transformation Manager braucht:
+    </p>
+  </div>
+
+  <div class="gap-grid fade-in">
+    <div class="gap-card">
+      <div class="gap-number"><span class="dim-tag dim-T">T</span> LÜCKE 01</div>
+      <div class="gap-title">Technical Enablement bleibt vage</div>
+      <div class="gap-desc">
+        Kaum jemand adressiert die Tooling-Architektur: Public Cloud vs. Private Cloud vs. Air-gapped?
+        Welches LLM für welchen Kontext? Die 3 CRAFT-Sicherheitsstufen fehlen komplett.
+      </div>
+    </div>
+    <div class="gap-card">
+      <div class="gap-number"><span class="dim-tag dim-A">A</span> LÜCKE 02</div>
+      <div class="gap-title">Konkrete Messbarkeit fehlt</div>
+      <div class="gap-desc">
+        Nur 1–2 Antworten definieren Baselines und Metriken. Die meisten bleiben bei „KPIs definieren"
+        ohne zu sagen <em>welche</em>. DORA-Metriken, Cycle Time, AI-assisted Commits % — fehlen als konkreter Rahmen.
+      </div>
+    </div>
+    <div class="gap-card">
+      <div class="gap-number"><span class="dim-tag dim-C">C</span> LÜCKE 03</div>
+      <div class="gap-title">Shadow AI als Realität ignoriert</div>
+      <div class="gap-desc">
+        Nur 2 Antworten erwähnen Shadow AI. In der Praxis nutzen 30–60% der Entwickler bereits AI-Tools ohne Freigabe.
+        Das Amnestie-Konzept (kanalisieren statt verbieten) taucht kaum auf.
+      </div>
+    </div>
+    <div class="gap-card">
+      <div class="gap-number"><span class="dim-tag dim-A">A</span> LÜCKE 04</div>
+      <div class="gap-title">Skalierung: Vom Pilot zum Standard</div>
+      <div class="gap-desc">
+        Die meisten Antworten enden beim erfolgreichen Piloten. Der Übergang zur breiten Einführung
+        — Readiness Gates, Erweitern / Vertiefen / Konsolidieren — fehlt fast vollständig.
+      </div>
+    </div>
+    <div class="gap-card">
+      <div class="gap-number"><span class="dim-tag dim-R">R</span> LÜCKE 05</div>
+      <div class="gap-title">Champions-Netzwerk unterbelichtet</div>
+      <div class="gap-desc">
+        Nur die Gamification-Antwort behandelt Champions systematisch. CRAFT fordert 1–2 Champions
+        pro Team mit 20% dedizierter Kapazität — dieser strukturelle Vorschlag fehlt.
+      </div>
+    </div>
+    <div class="gap-card">
+      <div class="gap-number"><span class="dim-tag dim-F">F</span> LÜCKE 06</div>
+      <div class="gap-title">SDLC-Vollabdeckung vs. Coding-Fokus</div>
+      <div class="gap-desc">
+        Die meisten Beispiele betreffen Coding &amp; Testing. Requirements, Architecture, Deployment
+        und Operations werden selten adressiert — obwohl dort oft die größten Bottlenecks liegen.
+      </div>
+    </div>
+    <div class="gap-card">
+      <div class="gap-number"><span class="dim-tag dim-T">T</span> LÜCKE 07</div>
+      <div class="gap-title">Assistenz vs. Autonomie</div>
+      <div class="gap-desc">
+        Die Spannung zwischen „AI hilft Entwicklern" und „AI arbeitet für Entwickler" wird nur
+        von 2 Antworten reflektiert. Strategisch hochrelevant, von der Mehrheit nicht adressiert.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ OFFENE FRAGEN ════════════ -->
+<section>
+  <div class="fade-in">
+    <div class="section-tag">Reflexion</div>
+    <h2>Offene <span class="text-gradient">Fragen</span></h2>
+    <p style="color:var(--gray-300); font-size:15px; margin-bottom:8px;">
+      Fragen, die sich aus der Analyse ergeben und für das Training relevant sind:
+    </p>
+  </div>
+
+  <div class="question-list fade-in">
+    <div class="question-item">
+      <div class="question-title">Prompt-Qualität = Antwort-Qualität?</div>
+      <div class="question-desc">
+        Teilnehmer mit aufwändigen Prompts (Constraints, Pre-Mortem, Rollenspiele) erhielten deutlich differenziertere Ergebnisse.
+        Wie stark korreliert Prompt Engineering mit dem AI-Output — und ist das selbst ein Trainings-Insight?
+      </div>
+    </div>
+    <div class="question-item">
+      <div class="question-title">Konformitätsbias der AI-Modelle?</div>
+      <div class="question-desc">
+        Reflektieren die Antworten echte Überzeugung — oder reproduzieren die Modelle primär den aktuellen
+        Beratungs-Konsens („Don't start with tools")? Würden die Teams in der Praxis tatsächlich so handeln?
+      </div>
+    </div>
+    <div class="question-item">
+      <div class="question-title">Wann ist Tool-First doch richtig?</div>
+      <div class="question-desc">
+        Niemand argumentiert explizit <em>für</em> einen Tool-First-Ansatz. Gibt es Situationen
+        (z.B. kleine, agile Teams), in denen „einfach loslegen mit Copilot" tatsächlich der bessere Startpunkt wäre?
+      </div>
+    </div>
+    <div class="question-item">
+      <div class="question-title">Branchenspezifik: Macht das einen Unterschied?</div>
+      <div class="question-desc">
+        Zwei Antworten kontextualisieren (Automobil, Energie) — aber die Empfehlungen identisch.
+        Wie stark müssten die Top-3 je nach CRAFT-Kontext-Profil (Agil vs. Enterprise Reguliert) abweichen?
+      </div>
+    </div>
+    <div class="question-item">
+      <div class="question-title">Die „Agentic-Provokation" — hype oder Paradigma?</div>
+      <div class="question-desc">
+        Ist Agentic SDLC (AI delegieren statt assistieren) nur Vendor-Marketing — oder ein genuiner
+        Paradigmenwechsel, den die Mehrheit noch nicht erfasst hat? Ab welchem Reifegrad wird das relevant?
+      </div>
+    </div>
+    <div class="question-item">
+      <div class="question-title">Gamification: Nachhaltig oder Strohfeuer?</div>
+      <div class="question-desc">
+        Die Gamification-Antwort ist die einzige mit systematischem Adoptions-Mechanismus.
+        Ist das ein blinder Fleck der anderen — oder ist Gamification in der Enterprise-Realität weniger wirksam?
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ FAZIT ════════════ -->
+<section>
+  <div class="fade-in">
+    <div class="section-tag">Fazit</div>
+    <h2>Gesamtbewertung</h2>
+  </div>
+
+  <div class="verdict fade-in">
+    <p>
+      Die Teilnehmer identifizieren die richtigen strategischen Hebel
+      (<strong>Wertstrom</strong>, <strong>Menschen</strong>, <strong>Governance</strong>),
+      bleiben aber bei der <strong>operativen Tiefe</strong> — konkrete Metriken,
+      Tooling-Architektur, Skalierungsmechanik und die Frage
+      <strong>Assistenz vs. Autonomie</strong> — unter dem Niveau,
+      das ein AI Transformation Manager braucht, um beim Kunden wirklich wirksam zu werden.
+    </p>
+  </div>
+
+  <div class="fade-in" style="margin-top:40px;">
+    <h3 style="margin-top:0;">Implikation für das Training</h3>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin-top:16px;">
+      <div style="background:var(--navy-light); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:24px;">
+        <div style="font-size:14px; font-weight:700; color:var(--cyan); margin-bottom:8px;">Strategisches Fundament ✓</div>
+        <div style="font-size:13px; color:var(--gray-300); line-height:1.6;">
+          Das „Warum" und „Was" ist verstanden. Folgeblöcke können darauf aufbauen.
+        </div>
+      </div>
+      <div style="background:var(--navy-light); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:24px;">
+        <div style="font-size:14px; font-weight:700; color:var(--amber); margin-bottom:8px;">Operative Tiefe nachlegen</div>
+        <div style="font-size:13px; color:var(--gray-300); line-height:1.6;">
+          Das „Wie konkret" braucht mehr Arbeit: Metriken, Tooling-Entscheidungen, Skalierungspfade.
+        </div>
+      </div>
+      <div style="background:var(--navy-light); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:24px;">
+        <div style="font-size:14px; font-weight:700; color:var(--violet); margin-bottom:8px;">Prompt-Qualität = Ergebnisqualität</div>
+        <div style="font-size:13px; color:var(--gray-300); line-height:1.6;">
+          Die Korrelation zwischen Prompt-Sophistication und Output-Tiefe ist ein eigenständiges Lernfeld.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>CRAFT AI Transformation Framework · Block 01 Analyse · März 2026</span>
+  <span>Quelle: <a href="block-01-results.md">block-01-results.md</a></span>
+</footer>
+
+<script>
+// Scroll-triggered fade-in
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

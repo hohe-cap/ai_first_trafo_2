@@ -53,4 +53,4 @@
 
 ---
 
-← [Block 1: Kickoff](block-01-kickoff.md) | [Block 3: AI im Code](block-03-ai-im-code.md) →
+← [Block 1: Kickoff](block-01-kickoff.md) | [Block 3: AI als Denkpartner fuer Wissensarbeit](block-03-ai-im-code.md) →

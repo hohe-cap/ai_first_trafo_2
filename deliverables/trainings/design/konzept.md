@@ -152,7 +152,7 @@ Dieser Slot ersetzt oder ergaenzt den Concept-Teil in einem Block — der Traine
 
 | Block | Thema | Moeglicher Practice-Story-Fokus |
 |-------|-------|--------------------------------|
-| Block 3 | AI im Code | "Wie ich Copilot in einem echten PR eingesetzt habe" |
+| Block 3 | AI als Denkpartner fuer Wissensarbeit | "Ich habe mit AI eine Kundenroadmap erstellt" |
 | Block 4 | AI im SDLC | "AI in der Requirements-Phase — ein konkretes Beispiel" |
 | Block 5 | Pitfalls | "Mein bisher schlimmster AI-Fail — und was ich daraus gelernt habe" |
 | Block 7 | CRAFT | "Was mir CRAFT erklaert, das ich bei Kunden schon gesehen habe" |
@@ -193,7 +193,7 @@ Dieser Slot ersetzt oder ergaenzt den Concept-Teil in einem Block — der Traine
 | 0 | Pre | Onboarding & Starter Kit | Vorwissen angleichen | — |
 | 1 | ICH & AI | Kickoff — AI als Denkpartner | MS Copilot Chat, GitHub Copilot, Orientierung | — |
 | 2 | ICH & AI | Prompt Engineering Praxis | Prompt-Patterns, Prompt-Library | — |
-| 3 | ICH & AI | AI im Code | GitHub Copilot, Code-Generierung | — |
+| 3 | ICH & AI | AI als Denkpartner fuer Wissensarbeit | Struktur als Kontext, Roadmap-Deliverable, Special: Copilot fuer Code | — |
 | 4 | AI & ARBEIT | AI im SDLC | SDLC-Phasen, AI-Interventionen | GAST |
 | 5 | AI & ARBEIT | AI-Teamkollaboration | Kollaborationsmuster (Pilot & Navigator, Diverge & Converge), AI-Silos vermeiden, Team-AI-Vereinbarung | — |
 | 6 | AI & ARBEIT | MS Copilot im Office | Teams, Outlook, Excel, PowerPoint | GAST |

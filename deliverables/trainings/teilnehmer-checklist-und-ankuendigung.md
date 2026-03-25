@@ -52,7 +52,7 @@
 |---|---|---|
 | **Block 1** | AI für eine echte Arbeitsaufgabe nutzen. Screenshot oder Fail notieren. 2 Sätze für Show & Tell vorbereiten. | ~30–60 Min |
 | **Block 2** | Prompt-Library um 2 eigene Prompts aus dem Arbeitsalltag erweitern. Testen + dokumentieren. | ~30 Min |
-| **Block 3** | GitHub Copilot für eine echte Projekt-Aufgabe nutzen. Dokumentieren: Was hat funktioniert, was nicht? | ~45 Min |
+| **Block 3** | AI fuer ein echtes Arbeits-Deliverable nutzen (Roadmap, Analyse, Konzept, Workshop-Design). Erst Gliederung definieren, dann AI befuellen lassen. Dokumentieren: Was war gut, was war der schlechteste Satz? | ~30–45 Min |
 | **Block 4** | Eine AI-Intervention **außerhalb** der Coding-Phase ausprobieren (z.B. Meeting-Protokoll, Testfall, Doku). 2 Min Show & Tell vorbereiten. | ~30 Min |
 | **Block 5** | "AI-Review" durchführen: AI erstellt etwas, du prüfst es systematisch. Was war korrekt, was nicht?  *Bonus (Team):* Kurze AI-Zusammenarbeits-Vereinbarung schreiben (max. 1 Seite). | ~30 Min |
 | **Block 6** | MS Copilot für 3 verschiedene Office-Aufgaben nutzen. Zeitersparnis grob schätzen. | ~45 Min |

@@ -24,7 +24,7 @@ Ziel: Von "AI-interessiert, aber unsystematisch" zu "kann AI-Tools produktiv nut
 | [Block 0](blocks/block-00-onboarding.md) | Onboarding & Starter Kit | — |
 | [Block 1](blocks/block-01-kickoff.md) | Kickoff — AI als Denkpartner | — |
 | [Block 2](blocks/block-02-prompt-engineering.md) | Prompt Engineering Praxis | — |
-| [Block 3](blocks/block-03-ai-im-code.md) | AI im Code — GitHub Copilot & Co. | — |
+| [Block 3](blocks/block-03-ai-im-code.md) | AI als Denkpartner fuer Wissensarbeit | — |
 | [Block 4](blocks/block-04-sdlc.md) | AI im SDLC — Von Requirements bis Ops | GAST |
 | [Block 5](blocks/block-05-pitfalls.md) | AI-Patterns, Pitfalls & Teamwork | — |
 | [Block 6](blocks/block-06-ms-copilot.md) | MS Copilot im Arbeitsalltag | GAST |

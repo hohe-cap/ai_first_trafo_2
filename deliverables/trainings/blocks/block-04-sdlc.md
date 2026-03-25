@@ -9,7 +9,7 @@
 
 ## Show & Tell (5 Min)
 
-- 2 Teilnehmer: "Wo hat Copilot versagt und warum?"
+- 2 Teilnehmer: "Ein Deliverable, das ich mit AI entwickelt habe — was war stark, was war generisch?"
 
 ## Connection (5 Min) — Haupt-Trainer
 
@@ -39,4 +39,4 @@
 
 ---
 
-← [Block 3: AI im Code](block-03-ai-im-code.md) | [Block 5: Pitfalls](block-05-pitfalls.md) →
+← [Block 3: AI als Denkpartner fuer Wissensarbeit](block-03-ai-im-code.md) | [Block 5: Pitfalls](block-05-pitfalls.md) →
