@@ -9,6 +9,7 @@ import { JsonStore } from './storage/json-store.js'
 import { sessionRoutes } from './routes/sessions.js'
 import { responseRoutes } from './routes/responses.js'
 import { resultsRoutes } from './routes/results.js'
+import { requireAdmin, isAdminProtected } from './middleware/admin-auth.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -33,6 +34,12 @@ async function start() {
 
   // Health check for load balancers and container orchestration
   fastify.get('/api/health', async () => ({ status: 'ok' }))
+
+  // Admin key verification endpoint
+  fastify.get('/api/admin/verify', { preHandler: [requireAdmin] }, async () => ({ ok: true }))
+
+  // Admin protection status (public — tells frontend whether to show login)
+  fastify.get('/api/admin/status', async () => ({ protected: isAdminProtected() }))
 
   // API routes
   await fastify.register(sessionRoutes, { store })

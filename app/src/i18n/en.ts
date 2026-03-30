@@ -132,6 +132,14 @@ export default {
     severityInfo: 'Info',
     profileNote: 'Context Profile',
   },
+  admin: {
+    title: 'Facilitator Access',
+    description: 'Please enter the admin password to continue.',
+    placeholder: 'Admin password',
+    submit: 'Sign in',
+    error: 'Wrong password. Please try again.',
+    backHome: 'Back to Home',
+  },
   loading: {
     questionBanks: 'Loading question banks...',
     error: 'Error loading question banks',

@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router'
 import { useI18n } from '../i18n'
 import { useAssessmentStore } from '../stores/assessment'
 import { getSession, getSessionResults } from '../api/client'
+import AdminGate from '../components/AdminGate.vue'
 import { localized } from '../utils/localized'
 import type { Session } from '../api/client'
 import type { SessionResult, DiagnosticSummary } from '../types/scoring'
@@ -294,6 +295,7 @@ function exportJSON() {
 </script>
 
 <template>
+  <AdminGate>
   <!-- Loading -->
   <div v-if="loading" class="flex items-center justify-center py-20">
     <p class="text-gray-500 dark:text-gray-400">{{ t('results.loading') }}</p>
@@ -544,4 +546,5 @@ function exportJSON() {
       <span>{{ t('results.calculatedAt') }}: {{ new Date(result.calculated_at).toLocaleString() }}</span>
     </div>
   </div>
+  </AdminGate>
 </template>

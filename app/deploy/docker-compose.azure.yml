@@ -1,0 +1,41 @@
+# Docker Compose for Azure-like deployment (local testing with production settings)
+#
+# Usage:
+#   # Build and start with admin protection:
+#   ADMIN_SECRET=my-secret docker compose -f deploy/docker-compose.azure.yml up -d --build
+#
+#   # Without admin protection (dev mode):
+#   docker compose -f deploy/docker-compose.azure.yml up -d --build
+#
+#   # View logs:
+#   docker compose -f deploy/docker-compose.azure.yml logs -f
+#
+#   # Stop:
+#   docker compose -f deploy/docker-compose.azure.yml down
+
+services:
+  craft-explorer:
+    build:
+      context: ..
+      dockerfile: app/Dockerfile
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOST=0.0.0.0
+      - ADMIN_SECRET=${ADMIN_SECRET:-}
+      - CORS_ORIGIN=${CORS_ORIGIN:-}
+    volumes:
+      - craft-data:/app/server-data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+
+volumes:
+  craft-data:
+    driver: local

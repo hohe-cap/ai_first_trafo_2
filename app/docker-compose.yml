@@ -4,7 +4,9 @@ services:
       context: ..
       dockerfile: app/Dockerfile
     ports:
-      - "3000:3000"
+      - "${PORT:-3000}:3000"
+    environment:
+      - ADMIN_SECRET=${ADMIN_SECRET:-}
     volumes:
       - app-data:/app/server-data
     restart: unless-stopped

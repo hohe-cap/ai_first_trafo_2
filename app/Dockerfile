@@ -46,6 +46,8 @@ ENV NODE_ENV=production
 ENV DATA_DIR=/app/server-data
 ENV PORT=3000
 ENV HOST=0.0.0.0
+# Set ADMIN_SECRET at runtime to protect facilitator area (empty = no protection)
+ENV ADMIN_SECRET=
 
 EXPOSE 3000
 

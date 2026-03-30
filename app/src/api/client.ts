@@ -1,8 +1,15 @@
 const BASE = ''
 
+const STORAGE_KEY = 'craft-admin-key'
+
+function getAdminHeaders(): Record<string, string> {
+  const key = sessionStorage.getItem(STORAGE_KEY)
+  return key ? { 'X-Admin-Key': key } : {}
+}
+
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
   const response = await fetch(`${BASE}${path}`, {
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', ...getAdminHeaders() },
     ...options,
   })
   if (!response.ok) {

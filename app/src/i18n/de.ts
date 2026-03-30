@@ -132,6 +132,14 @@ export default {
     severityInfo: 'Info',
     profileNote: 'Kontext-Profil',
   },
+  admin: {
+    title: 'Facilitator-Zugang',
+    description: 'Bitte Admin-Passwort eingeben, um fortzufahren.',
+    placeholder: 'Admin-Passwort',
+    submit: 'Anmelden',
+    error: 'Falsches Passwort. Bitte erneut versuchen.',
+    backHome: 'Zur Startseite',
+  },
   loading: {
     questionBanks: 'Fragenkataloge werden geladen...',
     error: 'Fehler beim Laden der Fragenkataloge',

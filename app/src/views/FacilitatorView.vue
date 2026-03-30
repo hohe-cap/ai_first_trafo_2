@@ -2,6 +2,7 @@
 import { ref, onMounted, computed, watch } from 'vue'
 import { useI18n } from '../i18n'
 import { useAssessmentStore } from '../stores/assessment'
+import AdminGate from '../components/AdminGate.vue'
 import {
   createSession,
   getSessions,
@@ -299,6 +300,7 @@ onMounted(() => {
 </script>
 
 <template>
+  <AdminGate>
   <div class="mx-auto max-w-4xl px-4 py-8">
     <router-link to="/" class="mb-4 inline-flex items-center gap-1 text-sm text-blue-600 hover:underline dark:text-blue-400">
       &larr; {{ t('facilitator.backHome') }}
@@ -626,4 +628,5 @@ onMounted(() => {
       </div>
     </Teleport>
   </div>
+  </AdminGate>
 </template>

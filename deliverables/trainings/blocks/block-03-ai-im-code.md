@@ -1,149 +1,249 @@
-# Block 3: AI als Denkpartner fuer Wissensarbeit
+# Block 3: Vom Dialog zum System — Kontextmanagement Stufe 3–5
 
-**Phase:** ICH & AI  
-**Dauer:** 60 Min  
-**Lernziel:** Teilnehmer koennen AI als Arbeitspartner fuer typische Wissensarbeit-Deliverables einsetzen (Roadmaps, Analysen, Workshop-Designs) und verstehen das Prinzip "Struktur als Kontext".
+**Phase:** ICH & AI
+**Dauer:** 60 Min (+ 15 Min Team-Check-in davor)
+**Lernziel:** Teilnehmer verstehen den Unterschied zwischen manuell geliefertem und systemisch bereitgestelltem Kontext. Sie erleben, wie System-Kontext (IDE, M365) und agentischer Kontext (Memory, RAG) die Ergebnisqualitaet veraendern — und wissen, wann welche Stufe angemessen ist.
+
+**Voraussetzung:** Block 2 ("Vom Prompt zum Dialog", Stufen 1–3)
 
 ---
 
-## Show & Tell (5 Min)
+## Verbindung zu Block 2
 
-- 2 freiwillige Teams: ein Prompt aus der Prompt-Library, den sie diese Woche tatsaechlich genutzt haben (Vorbereitet im Team-Check-in)
+Block 2 hat die Kontextleiter eingefuehrt und die Stufen 1–3 erfahrbar gemacht:
+- Stufe 1: Die nackte Frage
+- Stufe 2: Strukturierter Prompt (Rolle, Kontext, Gliederung)
+- Stufe 3: Iterativer Dialog
 
-## Connection (5 Min)
+**Block 3 macht den naechsten Sprung:** Von "ich manage den Kontext manuell" zu "das System managed den Kontext fuer mich". Das ist ein qualitativer Unterschied — nicht nur ein quantitativer.
 
-**"Was ist euer Quellcode?"** (Mural, 3 Min)
+---
 
-- Jeder postet eine Sticky Note: *"Was ist das typische Deliverable, das ich fuer Kunden oder Teams erstelle?"*
-  - Beispiele: Roadmap, Workshop-Design, Stakeholder-Analyse, Sprint-Review, Assessment-Ergebnis, Pitch-Deck
-- Trainer clustert kurz und sagt: *"Das ist euer Quellcode. Und AI kann euch dabei helfen — genau wie ein Programmierer, der AI nutzt, um Code zu schreiben. Dazu gleich mehr."*
+## Show & Tell Eroeffnung (5 Min)
 
-## Concept: Struktur ist Kontext (15 Min)
+- Teilnehmer berichten aus dem Transfer-Auftrag:
+  - *"Wo war der Unterschied zwischen Stufe 1 und 3 am groessten?"*
+  - *"Hat jemand erlebt, dass Stufe 3 NICHT besser war als Stufe 2?"*
+  - *"Hat jemand gemerkt, dass zu viel Kontext das Ergebnis verschlechtert hat?"*
+- 1-2 kurze Berichte (vorbereitet im Team-Check-in)
 
-*Trainer-Input mit Live-Demo. Kernbotschaft: Je strukturierter der Input, desto besser der Output — das gilt fuer Code genauso wie fuer Transformation-Deliverables.*
+---
 
-### Das Prinzip: Gliederung zuerst, Inhalt mit AI befuellen
+## Connection: "Der Gedaechtnis-Test" (8 Min)
 
-> "Stellt euch vor, ihr habt einen sehr faehigen, sehr schnellen Junior-Kollegen. Er weiss alles — ueber Change Management, ueber Agilitat, ueber Frameworks. Aber er kennt den Kunden nicht. Er weiss nicht, was heute besprochen wurde. Er versteht eure Absicht nur, wenn ihr sie erklaert."
->
-> "Euer Prompt ist die Aufgabenbeschreibung an diesen Kollegen. Und die Qualitaet seiner Arbeit haengt fast vollstaendig von der Qualitaet dieser Aufgabenbeschreibung ab."
+*Live-Demo im Plenum. Trainer zeigt zwei Szenarien — moeglichst nah beieinander, damit der Kontrast sichtbar wird.*
 
-**Was AI braucht, um gute Wissensarbeit zu liefern:**
+### Szenario A — Blanker Chat
 
-| Was ihr gebt | Was AI liefert | Beispiel |
-|---|---|---|
-| Freier Wunsch ohne Kontext | Generisches Ergebnis, das ueberall passt | "Erstell eine Roadmap" → 08/15-Template |
-| Rolle + Ziel + Einschraenkungen | Passendes Ergebnis fuer eure Situation | "Du bist AI Transformation Manager beim Kunden X. Team ist in der Pilotphase. Erstelle eine 4-Wochen-Roadmap fuer ein Entwicklerteam mit Fokus auf GitHub Copilot." |
-| **Struktur (Gliederung) + Fuell-Auftrag** | Substanzielles Dokument, das ihr verfeinert | Ihr gebt die Kapitel vor — AI fuellt sie mit Inhalt. Ihr reviewed, korrigiert, ergaenzt. |
+Trainer oeffnet einen **neuen** MS Copilot Chat und fragt nach Hilfe bei einem komplexen Thema, z.B.:
 
-*Das Prinzip gilt fuer Code (GitHub Copilot) genauso wie fuer Dokumente — mehr dazu im Special am Ende.*
-
-### Live-Demo: Transformationsroadmap mit MS Copilot Chat (7 Min)
-
-**Trainer demonstriert den Prozess in zwei Schritten:**
-
-**Schritt 1 — Struktur zuerst:**
 ```
-Prompt:
-Ich bin AI Transformation Manager. Mein Kunde hat ein 6-koepfiges
-Entwicklungsteam, das GitHub Copilot einfuehren will. Sie sind in
-Woche 1, haben keine AI-Erfahrung.
-
-Erstelle eine Gliederung fuer eine 4-Wochen-Einfuehrungsroadmap.
-Nur die Kapitel und Sub-Punkte — noch kein Inhalt.
+Hilf mir, ein Review fuer unseren letzten Sprint zu schreiben.
 ```
-→ AI liefert eine Struktur. Trainer kommentiert: *"Gut? Schlecht? Ich aendere Kapitel 3..."*
 
-**Schritt 2 — Inhalt befuellen:**
+→ Die LLM weiss nichts ueber das Projekt, das Team, die Ziele, die Ergebnisse. Sie produziert ein generisches Template.
+
+### Szenario B — System mit Kontext-Infrastruktur
+
+Trainer zeigt eines der folgenden (je nach Verfuegbarkeit):
+
+**Option 1 — GitHub Copilot in VS Code:**
+- Projekt geoeffnet, relevante Dateien sichtbar
+- Gleiche Frage im Copilot Chat → Antwort bezieht sich auf den tatsaechlichen Code, die Projektstruktur, die offenen Issues
+
+**Option 2 — MS Copilot mit M365-Kontext:**
+- Verweis auf ein bestehendes Dokument, eine E-Mail oder ein Meeting-Protokoll
+- *"Fasse die Ergebnisse aus dem letzten Sprint-Review-Meeting zusammen und erstelle einen Statusbericht fuer den Stakeholder"*
+- → Copilot greift auf reale Daten zu (Meeting-Transkript, Dokumente)
+
+**Option 3 — Claude Code mit CLAUDE.md** (fuer Tech-affine Gruppen):
+- Trainer zeigt kurz, wie Claude Code das Projekt "kennt" durch CLAUDE.md, Projektdateien, Memory
+- → Die AI versteht Konventionen, Architektur, Teamregeln — ohne dass man sie erklaert
+
+### Reflexionsfrage
+
+> *"Was ist der Unterschied? In Szenario B habt ihr den Kontext nicht geschrieben. Das System hat ihn bereitgestellt. Die AI wusste schon, wer ihr seid und worum es geht — weil die Infrastruktur das geliefert hat."*
+
+---
+
+## Concept: Stufen 4 & 5 — System-Kontext und agentischer Kontext (10 Min)
+
+*Kurzer Theorie-Input. Kontextleiter im Mural ist sichtbar — Stufen 4 und 5 werden jetzt "aufgedeckt".*
+
+### Stufe 4 — System-Kontext
+
+Die IDE, das Projekt, die Dateien, die Organisationsregeln — Kontext wird durch die **Arbeitsumgebung** geliefert, ohne dass der User ihn pro Anfrage formuliert.
+
+**Beispiele:**
+- **GitHub Copilot** "kennt" den geoeffneten Code, die Projektstruktur, die Imports
+- **MS Copilot im M365-Kontext** "kennt" Mails, Dokumente, Meetings, Kalender (via Microsoft Graph)
+- **Custom Instructions / System Prompts** als "Grundpersoenlichkeit" — z.B. "Du bist Experte fuer agile Transformation und arbeitest im DACH-Raum"
+- **CLAUDE.md / .github/copilot-instructions.md** als projektspezifische Regeln
+
+**Der Shift:** Auf Stufe 1–3 formuliert ihr den Kontext jedes Mal neu. Auf Stufe 4 investiert ihr **einmal** in die Kontext-Infrastruktur — und profitiert bei jeder Anfrage.
+
+### Stufe 5 — Agentischer Kontext
+
+Das System entscheidet **selbst**, welchen Kontext es braucht — und holt ihn sich.
+
+**Mechanismen:**
+- **Memory:** Was hat der User letzte Woche gesagt? Was sind seine Praeferenzen?
+- **RAG (Retrieval Augmented Generation):** Welches Dokument ist relevant fuer diese Frage? → System sucht und findet es selbst
+- **Tool Use:** Ich brauche aktuelle Daten → System durchsucht das Web, ruft APIs auf, liest Dateien
+- **Skills:** Vordefinierte Faehigkeiten, die der Agent bei Bedarf aktiviert
+
+**Der Shift:** Der Mensch definiert nicht mehr den Kontext pro Anfrage, sondern die **Kontext-Infrastruktur**. Er baut das System, das den Kontext managed.
+
+> *"Das ist wie der Unterschied zwischen: Ihr erklaert einem neuen Kollegen jeden Tag aufs Neue, wie euer Projekt funktioniert (Stufe 1–3) — oder ihr gebt ihm Zugang zu Confluence, Jira und dem Team-Kanal, und er findet sich selbst zurecht (Stufe 4–5)."*
+
+### Der Sweet-Spot-Graph (Visualisierung im Mural)
+
+Trainer zeigt die **umgekehrte U-Kurve:**
+
 ```
-Prompt:
-Perfekt. Befuelle jetzt Woche 1 und Woche 2 mit konkreten
-Aktivitaeten, Verantwortlichkeiten und einem Erfolgskriterium
-pro Woche. Halte dich an die Gliederung.
+Ergebnis-    │
+qualitaet    │         ╭──── Sweet Spot ────╮
+             │        ╱                      ╲
+             │       ╱   relevanter Kontext    ╲
+             │      ╱                            ╲
+             │     ╱                              ╲  irrelevanter Kontext
+             │    ╱                                ╲ ueberfordert die LLM
+             │   ╱
+             │  ╱  zu wenig Kontext
+             │ ╱   → generische Antworten
+             │╱
+             └─────────────────────────────────────────
+                          Kontextmenge →
 ```
-→ AI liefert Inhalte. Trainer zeigt: *"Das reviewen wir — was stimmt, was klingt gut aber ist inhaltlich schwach?"*
 
-> **Kernbotschaft:** *"Euer Job ist nicht mehr, den ersten Entwurf zu schreiben. Euer Job ist, die Struktur zu setzen und das Ergebnis kritisch zu reviewen. Das ist eine andere Kompetenz — und eine wichtigere."*
+**Kernbotschaft:**
 
-- **Pitfall: Das unkuratierte Ergebnis:** AI kann plausibell klingende, aber falsche oder banale Inhalte liefern. *"Haettet ihr das so an den Kunden geschickt?"* → Reviewer-Mindset ist Pflicht.
+> *"Mehr Kontext hilft — bis zu einem Punkt. Danach schadet irrelevanter Kontext. Die LLM verliert den Fokus, vernachlaessigt wichtige Informationen, oder produziert schlechtere Ergebnisse. Das Ziel ist nicht maximaler Kontext, sondern **relevanter** Kontext. Und genau das koennen Systeme auf Stufe 4–5 besser als wir manuell: Sie waehlen den relevanten Kontext aus."*
 
-## Concrete Practice: Die 4-Wochen-Roadmap (25 Min)
+### Entscheidungshilfe: Wann welche Stufe?
 
-**Aufgabe: Jedes Team entwickelt mit AI eine Transformations-Miniroadmap**
+| Situation | Empfohlene Stufe |
+|-----------|-----------------|
+| Schnelle Einzelfrage, geringes Risiko | Stufe 1–2 reicht |
+| Wichtiges Deliverable, kundenrelevant | Mindestens Stufe 3 |
+| Wiederkehrende Aufgabe, selbes Muster | Stufe 4 einrichten (Templates, Custom Instructions) |
+| Komplexes Projekt, viele Beteiligte | Stufe 5 evaluieren |
 
-*Das ist bewusst ein Vorgeschmack auf Block 9 (AI Transformation planen) — ihr werdet das Prinzip spaeter mit echten Kundendaten wiederholen. Heute lernt ihr das Handwerkszeug.*
+---
 
-### Fallstudie (fuer alle Teams gleich)
+## Concrete Practice: "System-Kontext erleben" (27 Min)
 
-> *Euer naechster Kunde: Ein 8-koepfiges Scrum-Team in einem mittelstaendischen Beratungsunternehmen. Sie haben MS Copilot Chat schon einige Wochen — aber niemand nutzt es wirklich. Der PO nutzt es gelegentlich fuer E-Mails, alle anderen nicht. Euer Auftrag: Baut eine 4-Wochen-Roadmap, die das Team aktiviert.*
+*Die Uebung bleibt in den festen Teams. Eine Aufgabe, die mit verschiedenen Tools loesbar ist — Business-Teilnehmer nutzen MS Copilot, Dev-Teilnehmer nutzen GitHub Copilot. Die Reflexionsfrage ist fuer alle dieselbe.*
 
-### Ablauf in Breakout Rooms (20 Min)
+### Aufgabe fuer alle Teams
 
-**Phase 1 — Struktur definieren (5 Min, Team ohne AI):**
-- Team diskutiert: Wie soll die Roadmap aufgebaut sein? Welche Kapitel braucht ihr?
-- Erste Gliederung als Sticky Notes im Mural — noch ohne AI
+> *"Erstellt eine 4-Wochen-Pilotplan fuer ein 8-koepfiges Team, das AI in seinen Arbeitsalltag integrieren will. Das Team hat MS Copilot Chat seit 3 Wochen — aber niemand nutzt es wirklich."*
 
-**Phase 2 — AI einsetzen (10 Min, mit MS Copilot Chat):**
-- Team gibt die eigene Gliederung als Kontext in den Prompt
-- AI befuellt die Wochen mit Inhalten
-- Iteration: Mindestens 1x nachbessern oder eine Woche konkretisieren
+*Diese Aufgabe ist bewusst ein Vorgeschmack auf Block 9 (AI Transformation planen). Heute lernt ihr das Handwerk — spaeter wendet ihr es mit echten Kundendaten an.*
 
-**Phase 3 — Review (5 Min):**
-- Was wuerde der Kunde wirklich brauchen? Was ist zu generisch?
-- 1 konkreter Verbesserungsvorschlag, den die Gruppe erarbeitet
-- Ergebnis + bester Prompt als Sticky Note in Mural
+### Phase 1 — Baseline: Manueller Kontext, Stufe 2–3 (8 Min)
 
-### Debrief im Plenum (5 Min)
+Jedes Team erstellt den Pilotplan im **blanken Chat** (neuer Chat, kein Kontext aus vorherigen Sessions):
+- Nutzt die Techniken aus Block 2: Rolle, Rahmenbedingungen, Gliederung vorgeben, iterieren
+- Ergebnis als Sticky Note im Mural posten
+- Qualitaet bewerten: 🔴🟡🟢
 
-- Jedes Team zeigt die Gliederung und nennt: *"Was hat AI gut geliefert, was ist schwach?"*
-- Trainer-Einordnung: *"Das, was ihr gerade gemacht habt, ist Wissensarbeit mit AI. Dasselbe Prinzip laeuft in Block 9, wenn ihr eine echte Roadmap fuer einen echten Kunden skizziert."*
+### Phase 2 — System-Kontext: Stufe 4 erleben (12 Min)
 
-> 💡 **Practice Story-Option:** Wer hat AI schon fuer ein Kundendokument eingesetzt (Roadmap, Assessment, Praesentation)? Guter 10-Min-Slot fuer Block 7 oder 9 (Format: [design/konzept.md](../design/konzept.md#das-practice-story-format-10-min)).
+**Jetzt derselbe Anwendungsfall — aber mit System-Kontext:**
 
-## Conclusion (5 Min)
+**Fuer Business-Teilnehmer (MS Copilot):**
+- Verweist auf ein bestehendes Dokument, eine E-Mail oder ein Meeting-Protokoll: *"Nutze die Infos aus [Dokument X / Meeting Y], um den Pilotplan zu schaerfen"*
+- Oder: Nutzt Custom Instructions / Copilot Agent mit hinterlegtem Kontext
+- Beobachtet: Was aendert sich, wenn Copilot Zugriff auf euren echten Arbeitskontext hat?
 
-- **Commitment Card im Chat:** *"Das naechste Dokument, das ich mit AI-Unterstuetzung erstellen werde, ist..."*
-- **Persoenliches Ziel setzen:** Jeder traegt im Growth Log ein neues 🎯 Mein Ziel fuer die Woche ein
+**Fuer Entwickler (GitHub Copilot):**
+- Oeffnet ein Projekt in VS Code (vorbereitetes Beispiel-Repo oder eigenes Projekt)
+- Fragt GitHub Copilot Chat eine Frage zum Code — erst *ohne* geoeffnete Dateien, dann *mit* relevanten Dateien
+- Nutzt `@workspace` oder Dateireferenzen, um gezielt Kontext zu steuern
+- Beobachtet: Wann hat mehr Kontext geholfen, wann hat es verwirrt?
+
+**Ergebnis:** Zweites Ergebnis als Sticky Note neben das erste im Mural posten. Qualitaet bewerten.
+
+> 💡 **Falls kein M365-Kontext verfuegbar:** Alternative fuer Business-Teilnehmer: Kopiert einen Absatz aus einem echten Projektdokument in den Chat als "manuellen System-Kontext" und vergleicht das Ergebnis mit dem blanken Prompt. Der Effekt ist kleiner, aber sichtbar.
+
+### Phase 3 — Team-Reflexion (7 Min)
+
+*Zurueck im Plenum oder in Breakout Rooms (je nach Gruppengroesse):*
+
+Leitfragen:
+- Was war der **spuerbare Unterschied** zwischen Stufe 2–3 und Stufe 4?
+- Gab es Momente, wo der System-Kontext **stoerend** war — z.B. weil irrelevante Informationen einflossen?
+- Wenn ihr euch auf der Kontextleiter verortet: Wo steht ihr im Arbeitsalltag **aktuell** — und wo **solltet** ihr stehen?
+
+**Team-Artefakt aktualisieren:**
+Jedes Team ergaenzt seine **Kontext-Zutatenliste** aus Block 2 um Erkenntnisse zu System-Kontext:
+- *"Welche Art von System-Kontext wuerde uns im Alltag am meisten helfen?"*
+- Ergebnis als Ergaenzung im Mural
+
+---
+
+## Conclusion: Die Kontextleiter als Entscheidungshilfe (5 Min)
+
+Trainer zeigt die vollstaendige Kontextleiter im Mural und stellt die **Entscheidungsfrage:**
+
+> *"Bevor ihr das naechste Mal einen Prompt schreibt, fragt euch zwei Dinge:*
+> *1. Auf welcher Stufe arbeite ich gerade?*
+> *2. Auf welcher Stufe SOLLTE ich fuer diese Aufgabe arbeiten?"*
+
+**Verortung:** Jeder Teilnehmer aktualisiert seinen Sticky Dot auf der Kontextleiter im Mural — hat sich die Position seit Block 2 verschoben?
+
+**Persoenliches Ziel setzen:** Jeder traegt im Growth Log ein neues 🎯 ein:
+*"Eine wiederkehrende Aufgabe, die ich von Stufe 1–2 auf Stufe 4 bringen will — und mein erster Schritt dafuer."*
 
 ---
 
 ## Transfer-Auftrag
 
-> Nutze AI fuer ein echtes Arbeits-Deliverable: eine Analyse, ein Konzept, ein Workshop-Design, ein Assessment — irgendetwas aus deinem echten Kontext. Geh in zwei Schritten vor: erst die Gliederung definieren (mit oder ohne AI), dann AI den Inhalt befuellen lassen.
+> Identifiziert eine **wiederkehrende Aufgabe** in eurem Arbeitsalltag, bei der ihr aktuell auf Stufe 1–2 arbeitet. Ueberlegt, wie ihr dafuer auf **Stufe 4** kommen koenntet:
+> - Ein Template oder eine Gliederung, die ihr wiederverwendet?
+> - Eine Custom Instruction in MS Copilot?
+> - Ein Copilot Agent mit hinterlegtem Kontext?
+> - Eine Projektstruktur, die GitHub Copilot besseren Kontext gibt?
 >
-> Dokumentiere: Was hat gut funktioniert? Was war der schlechteste Satz, den AI geschrieben hat?
+> **Bringt euren Plan naechste Woche mit.** Nicht die fertige Loesung — den Plan.
+>
+> **Bonus:** Probiert den Sweet-Spot aus: Gebt der AI bewusst einmal *zu viel* Kontext (z.B. ein ganzes Dokument statt der relevanten Abschnitte). Was passiert mit der Ergebnisqualitaet?
 
 **Aufwand:** ~30–45 Min
 
 ---
 
-## Special: Gleiches Prinzip fuer Software-Entwicklung (optional, ~15 Min)
+## Trainer-Notizen
 
-*Dieser Abschnitt ist ein Add-on fuer Teams mit Entwicklern oder fuer alle, die verstehen wollen, wie das Prinzip in der Softwareentwicklung aussieht. Er passt als kurzer Einschub am Ende eines Blocks oder als eigenstaendige Vertiefungssession.*
+### Vorbereitung — KRITISCH
 
-### Natuerliche Sprache als Quellcode
+**Fuer die Live-Demo (Connection) wird mindestens eines benoetigt:**
 
-Was ihr gerade fuer Dokumente gelernt habt, funktioniert fuer Code genauso:
+- [ ] **Option 1 — GitHub Copilot Demo:** Kleines Beispiel-Repo vorbereiten (z.B. eine einfache Anwendung mit 5-10 Dateien). Fragen vorbereiten, die mit und ohne Projekt-Kontext unterschiedliche Antworten liefern.
+- [ ] **Option 2 — MS Copilot M365 Demo:** Testdokument in SharePoint/OneDrive platzieren (z.B. ein fiktives Sprint-Review-Protokoll). Prompt vorbereiten, der mit und ohne Dokumentenverweis getestet wird.
+- [ ] **Option 3 — Claude Code Demo:** CLAUDE.md in einem Projekt zeigen. Gleiche Frage mit und ohne Projektkontext.
 
-- Ein Entwickler beschreibt in natuerlicher Sprache, was er braucht
-- GitHub Copilot generiert Code-Vorschlaege
-- Der Entwickler reviewed, korrigiert, akzeptiert oder lehnt ab
+**Ohne vorbereitete Demo bleibt Stufe 4 theoretisch — das ist der groesste Risikofaktor dieses Blocks.**
 
-*Der Unterschied zum Dokument:* Code ist pruefbar — er laeuft oder er laeuft nicht. Dokumente sind interpretierbar — sie ueberzeugen oder sie ueberzeugen nicht. In beiden Faellen seid ihr verantwortlich fuer das Ergebnis.
+### Weitere Vorbereitung
+- [ ] Sweet-Spot-Kurve als permanentes Element im Mural platzieren
+- [ ] Fallback fuer Phase 2 vorbereiten: Falls M365-Kontext nicht verfuegbar, Textabschnitte aus einem Projektdokument zum Einkopieren bereithalten
+- [ ] Entscheidungshilfe-Tabelle als Handout oder Mural-Element vorbereiten
 
-### Demo-Prinzip (kein VS Code noetig)
+### Beobachtung waehrend der Uebung
+- Wer erlebt einen echten "Aha-Moment" beim Unterschied Stufe 3 vs. 4?
+- Wer ist frustriert, weil der System-Kontext nicht verfuegbar ist? → Individuelles Follow-up anbieten
+- Welche wiederkehrenden Aufgaben nennen die Teams? → Input fuer Block 4 (AI im SDLC)
 
-Ihr koennt das Prinzip auch ohne Entwicklungsumgebung verstehen:
+### Nach Block 3
+- Kontext-Zutatenliste konsolidieren → wird Teil der Prompt-Library
+- Transfer-Plaene einsammeln → im naechsten Team-Check-in nachfragen
+- Kontextleiter-Verortung dokumentieren → zeigt Entwicklung ueber die Bloecke
 
-1. **Eine natuerlichsprachige Aufgabe:** *"Schreibe eine Funktion, die eine Liste von Sprint-Velocities nimmt und den gleitenden Durchschnitt ueber 3 Sprints zurueckgibt."*
-2. **GitHub Copilot Chat** (im Browser oder in VS Code) generiert Code
-3. **Review:** Ist der Code korrekt? Was wuerde ein Entwickler pruefen?
-
-Das Prinzip ist identisch mit eurem Roadmap-Workflow — nur ist die Sprache des Outputs nicht Deutsch, sondern Python oder TypeScript.
-
-**Kernbotschaft fuer AI Transformation Manager:**
-> *"Wenn euer Kunde sagt, GitHub Copilot spart keine Zeit — dann fragt nach: Wie wurde der Prompt formuliert? Was wurde wirklich ausprobiert? Die Qualitaet des Prompts bestimmt die Qualitaet des Ergebnisses. Das gilt fuer Roadmaps genauso wie fuer Code."*
+### Bruecke zu Block 4
+Block 4 (AI im SDLC, Gast-Trainer) schliesst nahtlos an: Die Kontextleiter gibt den Teilnehmern das Werkzeug, um fuer jede SDLC-Phase zu fragen: *"Auf welcher Kontextstufe arbeiten wir hier — und auf welcher sollten wir arbeiten?"*
 
 ---
 
-← [Block 2: Prompt Engineering](block-02-prompt-engineering.md) | [Block 4: AI im SDLC](block-04-sdlc.md) →
+← [Block 2: Vom Prompt zum Dialog](block-02-prompt-engineering.md) | [Block 4: AI im SDLC](block-04-sdlc.md) →

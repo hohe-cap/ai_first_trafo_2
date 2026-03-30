@@ -6,6 +6,7 @@ import type { JsonStore } from '../storage/json-store.js'
 import type { QuestionBank } from '../../src/types/question.js'
 import type { ResponsePayload } from '../../src/types/response.js'
 import { calculateSessionResults } from '../../src/scoring/engine.js'
+import { requireAdmin } from '../middleware/admin-auth.js'
 
 // Map session type to YAML filename
 const TYPE_TO_FILE: Record<string, string> = {
@@ -34,7 +35,7 @@ export async function resultsRoutes(
 
   fastify.get<{ Params: { id: string } }>(
     '/api/sessions/:id/results',
-    { schema: { params: idParamSchema } },
+    { schema: { params: idParamSchema }, preHandler: [requireAdmin] },
     async (request, reply) => {
       const sessionId = request.params.id
 

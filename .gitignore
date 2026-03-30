@@ -74,6 +74,17 @@ logs/
 *.ppt
 ~$*
 
+# Video files
+*.mp4
+*.mp4:Zone.Identifier
+*.mov
+*.avi
+
+# Build artifacts / Installation packages
+installations/
+*.tar.gz
+*.zip
+
 ---
 
 # WICHTIG für Agent Context Setup:
