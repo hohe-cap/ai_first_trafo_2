@@ -42,6 +42,10 @@ COPY --from=build /app/server-dist ./server-dist
 # Copy question bank YAMLs for the server
 COPY --from=build /app/server-data ./server-data
 
+# Pre-create the user-data directories so Docker volume mounts attach cleanly
+# without shadowing the question-bank YAMLs baked into the image above.
+RUN mkdir -p server-data/sessions server-data/responses
+
 ENV NODE_ENV=production
 ENV DATA_DIR=/app/server-data
 ENV PORT=3000

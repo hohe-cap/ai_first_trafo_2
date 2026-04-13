@@ -164,7 +164,8 @@ else
   warn "Set with: --admin-secret YOUR_SECRET"
 fi
 
-az container create \
+log "Creating container instance"
+MSYS_NO_PATHCONV=1 az container create \
   --resource-group "$RESOURCE_GROUP" \
   --name "$CONTAINER_NAME" \
   --image "$ACR_SERVER/$IMAGE_NAME:$IMAGE_TAG" \
@@ -182,17 +183,14 @@ az container create \
   --azure-file-volume-account-name "$STORAGE_ACCOUNT" \
   --azure-file-volume-account-key "$STORAGE_KEY" \
   --azure-file-volume-share-name "$FILE_SHARE_NAME" \
-  --azure-file-volume-mount-path /app/server-data \
+  --azure-file-volume-mount-path "/app/server-data" \
   --output none
 
 ok "Container deployed."
 
 # ─── Step 6: Get URL ───
 
-FQDN=$(az container show \
-  --resource-group "$RESOURCE_GROUP" \
-  --name "$CONTAINER_NAME" \
-  --query "ipAddress.fqdn" -o tsv)
+FQDN=$(az container show -g "$RESOURCE_GROUP" -n "$CONTAINER_NAME" --query "ipAddress.fqdn" -o tsv)
 
 STATE=$(az container show \
   --resource-group "$RESOURCE_GROUP" \

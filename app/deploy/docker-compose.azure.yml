@@ -27,7 +27,11 @@ services:
       - ADMIN_SECRET=${ADMIN_SECRET:-}
       - CORS_ORIGIN=${CORS_ORIGIN:-}
     volumes:
-      - craft-data:/app/server-data
+      # Mount only the user-data subdirectories, NOT the entire server-data folder.
+      # Mounting /app/server-data as a whole would shadow the question-bank YAMLs
+      # that are baked into the image during the Docker build.
+      - craft-data-sessions:/app/server-data/sessions
+      - craft-data-responses:/app/server-data/responses
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
@@ -37,5 +41,7 @@ services:
       retries: 3
 
 volumes:
-  craft-data:
+  craft-data-sessions:
+    driver: local
+  craft-data-responses:
     driver: local
