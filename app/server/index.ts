@@ -14,6 +14,11 @@ import { requireAdmin, isAdminProtected } from './middleware/admin-auth.js'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const DATA_DIR = process.env.DATA_DIR || join(__dirname, '..', 'server-data')
+// QUESTION_BANKS_DIR can be set independently from DATA_DIR.
+// This is critical for Azure Container Instances where the file share is mounted
+// at DATA_DIR, which would shadow the YAMLs baked into the image.
+// Default: DATA_DIR/question-banks (works for docker-compose and local dev).
+const QUESTION_BANKS_DIR = process.env.QUESTION_BANKS_DIR || join(DATA_DIR, 'question-banks')
 const DIST_DIR = process.env.DIST_DIR || join(__dirname, '..', 'dist')
 const PORT = Number(process.env.PORT) || 3000
 const HOST = process.env.HOST || '0.0.0.0'
@@ -30,7 +35,8 @@ async function start() {
   // Initialize storage
   const store = new JsonStore(DATA_DIR)
   await store.init()
-  fastify.log.info(`Data directory: ${DATA_DIR}`)
+  fastify.log.info(`Data directory:          ${DATA_DIR}`)
+  fastify.log.info(`Question banks directory: ${QUESTION_BANKS_DIR}`)
 
   // Health check for load balancers and container orchestration
   fastify.get('/api/health', async () => ({ status: 'ok' }))
@@ -44,12 +50,18 @@ async function start() {
   // API routes
   await fastify.register(sessionRoutes, { store })
   await fastify.register(responseRoutes, { store })
-  await fastify.register(resultsRoutes, { store, dataDir: DATA_DIR })
+  await fastify.register(resultsRoutes, { store, questionBanksDir: QUESTION_BANKS_DIR })
+
+  // Debug endpoint — shows actual server paths (admin-protected)
+  fastify.get('/api/debug/paths', { preHandler: [requireAdmin] }, async () => ({
+    DATA_DIR,
+    QUESTION_BANKS_DIR,
+    DIST_DIR,
+  }))
 
   // Serve question bank YAMLs
-  const questionBanksDir = join(DATA_DIR, 'question-banks')
   await fastify.register(fastifyStatic, {
-    root: questionBanksDir,
+    root: QUESTION_BANKS_DIR,
     prefix: '/data/',
     decorateReply: false,
   })

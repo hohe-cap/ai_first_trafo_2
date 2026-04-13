@@ -153,7 +153,10 @@ ok "File share ready."
 log "Deploying container instance: $CONTAINER_NAME..."
 
 # Build environment variables
-ENV_VARS="NODE_ENV=production DATA_DIR=/app/server-data PORT=3000 HOST=0.0.0.0"
+# DATA_DIR points to the Azure File Share mount (persisted user data).
+# QUESTION_BANKS_DIR stays inside the image — NOT on the volume — so it is
+# never shadowed by the file share mount.
+ENV_VARS="NODE_ENV=production DATA_DIR=/app/user-data QUESTION_BANKS_DIR=/app/server-data/question-banks PORT=3000 HOST=0.0.0.0"
 SECURE_ENV_VARS=""
 
 if [ -n "$ADMIN_SECRET" ]; then
@@ -183,7 +186,7 @@ MSYS_NO_PATHCONV=1 az container create \
   --azure-file-volume-account-name "$STORAGE_ACCOUNT" \
   --azure-file-volume-account-key "$STORAGE_KEY" \
   --azure-file-volume-share-name "$FILE_SHARE_NAME" \
-  --azure-file-volume-mount-path "/app/server-data" \
+  --azure-file-volume-mount-path "/app/user-data" \
   --output none
 
 ok "Container deployed."

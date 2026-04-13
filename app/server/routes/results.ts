@@ -29,9 +29,9 @@ const idParamSchema = {
 
 export async function resultsRoutes(
   fastify: FastifyInstance,
-  opts: { store: JsonStore; dataDir: string },
+  opts: { store: JsonStore; questionBanksDir: string },
 ) {
-  const { store, dataDir } = opts
+  const { store, questionBanksDir } = opts
 
   fastify.get<{ Params: { id: string } }>(
     '/api/sessions/:id/results',
@@ -52,7 +52,7 @@ export async function resultsRoutes(
         return reply.status(400).send({ error: `Unknown session type: ${sessionType}` })
       }
 
-      const yamlPath = join(dataDir, 'question-banks', yamlFile)
+      const yamlPath = join(questionBanksDir, yamlFile)
       let bank: QuestionBank
       try {
         const raw = await readFile(yamlPath, 'utf-8')

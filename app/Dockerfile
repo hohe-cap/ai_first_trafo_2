@@ -45,6 +45,10 @@ COPY --from=build /app/server-data ./server-data
 # Pre-create the user-data directories so Docker volume mounts attach cleanly
 # without shadowing the question-bank YAMLs baked into the image above.
 RUN mkdir -p server-data/sessions server-data/responses
+# Also create /app/user-data for Azure Container Instances:
+# azure-deploy.sh mounts the Azure File Share here so it does not touch
+# server-data/ (and therefore leaves question-banks/ intact in the image).
+RUN mkdir -p user-data/sessions user-data/responses
 
 ENV NODE_ENV=production
 ENV DATA_DIR=/app/server-data

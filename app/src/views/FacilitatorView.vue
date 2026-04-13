@@ -2,6 +2,7 @@
 import { ref, onMounted, computed, watch } from 'vue'
 import { useI18n } from '../i18n'
 import { useAssessmentStore } from '../stores/assessment'
+import { useAdminStore } from '../stores/admin'
 import AdminGate from '../components/AdminGate.vue'
 import {
   createSession,
@@ -15,6 +16,7 @@ import {
 
 const { t } = useI18n()
 const assessmentStore = useAssessmentStore()
+const admin = useAdminStore()
 
 const sessions = ref<Session[]>([])
 const loading = ref(false)
@@ -293,10 +295,21 @@ async function confirmAndExecute() {
 }
 
 onMounted(() => {
-  loadSessions()
-  // Auto-expand all teams initially
-  // Will be populated once sessions are loaded
+  // Sessions can only be fetched after admin auth is confirmed.
+  // If admin.verified is already true (e.g. no auth required or key stored),
+  // load immediately. Otherwise watch for the flag to flip — AdminGate sets it
+  // asynchronously and onMounted races with it.
+  if (admin.verified) {
+    loadSessions()
+  }
 })
+
+watch(
+  () => admin.verified,
+  (verified) => {
+    if (verified) loadSessions()
+  },
+)
 </script>
 
 <template>
