@@ -89,4 +89,6 @@ Das Buddy-System startet bewusst **nicht** im Onboarding, sondern wird ab Block 
 
 ---
 
+**Framework-Referenz:** [AI Transformation Framework — Kap. 2 Executive Summary, Kap. 6 Das AI Adoption Team](../../framework/ai-transformation-framework-craft.md)
+
 → [Block 1: Kickoff](block-01-kickoff.md)

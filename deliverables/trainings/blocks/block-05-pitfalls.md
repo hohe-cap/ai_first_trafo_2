@@ -111,4 +111,6 @@
 
 ---
 
+**Framework-Referenz:** [AI Transformation Framework — Kap. 3.1 Compliance & Governance, Kap. 3.2 Readiness (Human & Cultural)](../../framework/ai-transformation-framework-craft.md)
+
 ← [Block 4: AI im SDLC](block-04-sdlc.md) | [Block 6: MS Copilot im Office](block-06-ms-copilot.md) →

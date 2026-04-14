@@ -21,6 +21,7 @@
 # - Prompt library as technical infrastructure lives HERE (not in Adoption)
 # - SDLC-phase AI coverage from a process view lives in Flow (F)
 # - Usage depth & frequency live in Adoption (A)
+# Framework Reference: [AI Transformation Framework — Kap. 3.5 Technical Enablement](../../framework/ai-transformation-framework-craft.md)
 #
 # Version: 2.0
 # Last Updated: 2026-02-12

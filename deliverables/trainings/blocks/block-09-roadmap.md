@@ -57,4 +57,6 @@ Interaktion: **Rapid Writing** — "Welche Rolle im AI Adoption Team passt am be
 
 ---
 
+**Framework-Referenz:** [AI Transformation Framework — Kap. 7 AI Adoption Roadmap, Kap. 4 Iterationsmodell & Readiness Gates](../../framework/ai-transformation-framework-craft.md)
+
 ← [Block 8: CRAFT Explorer](block-08-craft-explorer.md) | [Block 10: Community Day](block-10-community-day.md) →

@@ -40,4 +40,6 @@ Uebung: Jedes Team bekommt ein Szenario (z.B. "Erstelle aus diesen Meeting-Notiz
 
 ---
 
+**Framework-Referenz:** [AI Transformation Framework — Kap. 3.3 Adoption & Usage, Kap. 3.5 Technical Enablement](../../framework/ai-transformation-framework-craft.md)
+
 ← [Block 5: Pitfalls](block-05-pitfalls.md) | [Block 7: CRAFT-Framework](block-07-craft-framework.md) →

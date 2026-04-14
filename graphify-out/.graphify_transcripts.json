@@ -1,0 +1,2 @@
+  warning: could not transcribe deliverables/presentation/AI_Transformation_Framework_Multimedia.mp4: Video transcription requires faster-whisper. Run: pip install 'graphifyy[video]'
+[]

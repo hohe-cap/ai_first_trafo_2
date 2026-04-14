@@ -49,4 +49,6 @@ Spider-Chart lesen und Handlungsempfehlungen ableiten
 
 ---
 
+**Framework-Referenz:** [AI Transformation Framework — Kap. 3 Drei-Ebenen-Architektur, Kap. 5 KPI-Framework](../../framework/ai-transformation-framework-craft.md)
+
 ← [Block 7: CRAFT-Framework](block-07-craft-framework.md) | [Block 9: Transformation planen](block-09-roadmap.md) →

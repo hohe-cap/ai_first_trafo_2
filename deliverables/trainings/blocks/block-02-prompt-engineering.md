@@ -205,4 +205,6 @@ Auch wenn Kontext die Qualitaet steigert: sensible Daten, vertrauliche Kundeninf
 
 ---
 
+**Framework-Referenz:** [AI Transformation Framework — Kap. 3.2 Readiness (Human & Cultural), Kap. 3.5 Technical Enablement](../../framework/ai-transformation-framework-craft.md)
+
 ← [Block 1: Kickoff](block-01-kickoff.md) | [Block 3: Vom Dialog zum System](block-03-ai-im-code.md) →

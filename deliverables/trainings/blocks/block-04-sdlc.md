@@ -39,4 +39,6 @@
 
 ---
 
+**Framework-Referenz:** [AI Transformation Framework — Kap. 3.4 Flow & Process Integration, AI Intervention Katalog](../../framework/ai-transformation-framework-craft.md)
+
 ← [Block 3: AI als Denkpartner fuer Wissensarbeit](block-03-ai-im-code.md) | [Block 5: Pitfalls](block-05-pitfalls.md) →

@@ -50,4 +50,6 @@ Interaktion: **Jigsaw** — 5 Breakout-Gruppen, jede liest 1 Dimension (vorberei
 
 ---
 
+**Framework-Referenz:** [AI Transformation Framework — Kap. 3 Framework-Architektur: CRAFT-Dimensionen, Kap. 11 Systematische Abgrenzung](../../framework/ai-transformation-framework-craft.md)
+
 ← [Block 6: MS Copilot im Office](block-06-ms-copilot.md) | [Block 8: CRAFT Explorer](block-08-craft-explorer.md) →

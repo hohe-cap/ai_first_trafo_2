@@ -227,4 +227,6 @@ Genau das werden wir in den nächsten 10 Wochen leben. Nicht theoretisch — pra
 
 ---
 
+**Framework-Referenz:** [AI Transformation Framework — Kap. 3 CRAFT-Dimensionen, Kap. 4 Iterationsmodell](../../framework/ai-transformation-framework-craft.md)
+
 ← [Block 0: Onboarding](block-00-onboarding.md) | [Block 2: Prompt Engineering](block-02-prompt-engineering.md) →

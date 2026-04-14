@@ -246,4 +246,6 @@ Block 4 (AI im SDLC, Gast-Trainer) schliesst nahtlos an: Die Kontextleiter gibt 
 
 ---
 
+**Framework-Referenz:** [AI Transformation Framework — Kap. 3.3 Adoption & Usage, Kap. 3.5 Technical Enablement](../../framework/ai-transformation-framework-craft.md)
+
 ← [Block 2: Vom Prompt zum Dialog](block-02-prompt-engineering.md) | [Block 4: AI im SDLC](block-04-sdlc.md) →

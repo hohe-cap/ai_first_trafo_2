@@ -47,4 +47,6 @@ Kein neuer Input — stattdessen: **Teilnehmer-Pitches**
 
 ---
 
+**Framework-Referenz:** [AI Transformation Framework — Kap. 6 Das AI Adoption Team & Champion-Netzwerk](../../framework/ai-transformation-framework-craft.md)
+
 ← [Block 9: Transformation planen](block-09-roadmap.md)
