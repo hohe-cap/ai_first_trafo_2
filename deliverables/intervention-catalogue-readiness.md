@@ -89,6 +89,7 @@ Mindestens so wichtig wie der absolute Score ist der **Vergleich mit anderen Dim
 | R-PS-1 | **Shadow AI Amnestie** | Team-Event (60 Min). Leadership erklärt: "Wir bestrafen nicht, wir kanalisieren." Bestehende Shadow-AI-Nutzung wird erfasst, offizielle Wege geöffnet. Kein Reporting individueller Nutzung | 1 Woche Vorbereitung, Leadership-Commitment nötig | Sofort reduziertes Risiko. Vertrauen wächst in 1–2 Zyklen |
 | R-PS-2 | **Leadership Goes First** | Manager nutzt AI sichtbar in Meetings — Meeting-Zusammenfassung, Agenda-Vorbereitung, Entscheidungsvorlagen. Keine Delegation an andere, selbst machen und zeigen | Sofort umsetzbar, kein Budget | Signal-Wirkung in 2–3 Wochen |
 | R-PS-3 | **Experimentier-Budget** | Jede:r bekommt 2h/Woche offiziell für AI-Experimentieren. Im Sprint eingeplant, nicht "wenn Zeit ist". Ergebnis: kurze Sharing-Notiz (3 Sätze) im Team-Channel | Management-Entscheidung + Sprint-Planung | 1 Zyklus für erste Wirkung |
+| R-PS-7 | **Westrum Culture Kurzdiagnostik** | 15-Min-Team-Survey mit 6 Westrum-Items (Informationsfluss, Risikoverteilung, Brückenbau, Umgang mit Überbringern schlechter Nachrichten, Fehlerreaktion, Umgang mit Neuem). Ergebnis: Kulturtyp-Einordnung (pathologisch / bürokratisch / generativ). Zeigt dem AI Transformation Manager, ob niedriger Safety-Score ein kulturelles Tiefenproblem ist oder durch gezielte Maßnahmen lösbar | Survey-Vorlage + 30 Min Auswertung | 1 Woche — schärfste Diagnose für R-M-SAFETY-Tiefscore |
 
 **Erfolgsindikatoren:**
 - Teammitglieder teilen AI-Erfahrungen proaktiv (nicht nur auf Nachfrage)
@@ -102,6 +103,7 @@ Mindestens so wichtig wie der absolute Score ist der **Vergleich mit anderen Dim
 | R-PS-4 | **Fail Forward Sessions** | Monatliches 30-Min-Format: Team teilt AI-Fails & Learnings. Kein Blame, nur Lernen. Moderiert durch Champion. Format: "Ich habe X probiert, es hat nicht funktioniert weil Y, ich habe Z gelernt" | 1h Vorbereitung/Monat | Normalisierung von Scheitern in 2–3 Zyklen |
 | R-PS-5 | **AI-Experimente in Retros** | Fester Retro-Punkt: "Was haben wir mit AI probiert? Was haben wir gelernt?" Nicht optional, sondern Standard-Agenda | Sofort umsetzbar | Systematische Verankerung in 1–2 Zyklen |
 | R-PS-6 | **Teamvereinbarung AI-Umgang** | Team erarbeitet gemeinsam 5–7 Regeln für den Umgang mit AI. Z.B. "Wir reviewen AI-Output wie menschlichen Code", "Wir teilen Prompts offen" | 1h Workshop | Sofortige Klarheit, wirkt 2–3 Zyklen |
+| R-PS-8 | **Kulturwechsel-Workshop: Von Bürokratisch zu Generativ** | Halbtages-Workshop (4h) basierend auf Westrum-Diagnose (R-PS-7). Voraussetzung: Kurzdiagnostik hat ergeben, dass das Team bürokratisch organisiert ist. Inhalt: (1) Westrum-Modell transparent machen — Team sieht sich selbst im Spiegel, (2) konkrete bürokratische Verhaltensweisen im Team benennen (anonym), (3) je Verhalten: Was wäre das generative Äquivalent?, (4) 3 verbindliche Team-Verhaltensänderungen als Vereinbarung verschriftlichen. Kein Blame, sondern systemische Perspektive: "Die Kultur ist das Ergebnis unserer bisherigen Anreize" | 1 Tag Vorbereitung + 4h Durchführung durch Change & People Lead | Stärkste Einzelintervention für kulturell bedingte Safety-Probleme. Wirkung in 2–3 Zyklen sichtbar |
 
 #### Stufe 4+: "Aktive Ermutigung, Fehler als Lernen, Sharing-Sessions existieren"
 
@@ -219,6 +221,7 @@ Die Diagnostik-Fragen aus dem Deep-Dive zeigen nicht nur _wie schlecht_ ein Scor
 | **"Unklar, wofür AI sinnvoll ist"** | Fehlende Use Cases für eigene Arbeit | R-SK-1 (Rollenspezifische Playbooks) + R-SK-3 (Micro-Learnings) | Hoch |
 | **"Misstrauen gegenüber AI-Qualität"** | Negative Erfahrung oder fehlendes Verständnis für Grenzen | R-SK-2 (Pair-Prompting) + R-PS-4 (Fail Forward) | Mittel — baut sich durch Erfahrung ab |
 | **"Technische Hürden"** | Zugang, Performance, Tool-Probleme | **→ Weiterleitung an Dimension T** — kein R-Problem | Hoch, aber anderer Katalog |
+| **"Das wird hier nicht wirklich gewollt / Das ist nur ein Projekt"** | Pathologische oder bürokratische Organisationskultur — Misstrauen gegenüber dem Vorhaben selbst | R-PS-7 (Westrum Culture Kurzdiagnostik) → R-PS-8 (Kulturwechsel-Workshop) falls bürokratisch, oder **Eskalation an Sponsor** falls pathologisch (ohne Kulturwechsel oben sind alle anderen Maßnahmen wirkungslos) | Sehr hoch — tiefste Ursache |
 | **"Nichts hemmt mich"** | Kein Blocker, guter Zustand | Keine Intervention nötig. Person als potenziellen Champion identifizieren | Beobachten |
 
 ### 4.2 Enablement-Hebel (R-MC-ENABLEMENT)
@@ -268,6 +271,7 @@ Die offene Frage R-PQ ("Was müsste passieren, damit du dich sicher fühlst, AI 
 | **Zeit & Erlaubnis** | "Wenn ich Zeit dafür hätte", "Wenn mein Manager das ok findet" | R-PS-3 + R-PS-2 (Experimentier-Budget + Leadership Goes First) |
 | **Qualität & Vertrauen** | "Wenn die Ergebnisse zuverlässiger wären", "Wenn ich verstehe, wann AI falsch liegt" | R-SK-6 (Workshop zu AI-Grenzen) + R-PS-4 (Fail Forward) |
 | **Infrastruktur** | "Wenn die Tools schneller wären", "Wenn ich Zugang hätte" | **→ Dimension T** |
+| **Kulturelle Grundhaltung** | "Hier wird Innovation bestraft, nicht belohnt", "Wer Fehler macht, bekommt das zu spüren", "Das hängt vom Projekt ab, nicht vom Team", "Bei uns zählt nur Liefern, nicht Lernen" | R-PS-7 (Westrum Culture Kurzdiagnostik) → R-PS-8 (Kulturwechsel-Workshop). Dieser Cluster ist der stärkste Indikator für bürokratische oder pathologische Kultur (Westrum). Ohne Kulturarbeit verpuffen alle anderen Interventionen |
 
 ---
 
@@ -371,6 +375,43 @@ Readiness existiert nicht isoliert. Ein niedriger R-Score kann Symptom eines Pro
 
 ---
 
+### R-PS-7: Westrum Culture Kurzdiagnostik
+
+**Kurzbeschreibung:** 15-minütiger Team-Survey auf Basis von Ron Westrum's Organizational Culture Model (1988/2004), das in der DORA-Forschung als stärkster Prädiktor für Software-Delivery-Performance identifiziert wurde. Zeigt ob ein niedriger R-M-SAFETY-Score auf ein kulturelles Tiefenproblem hindeutet.
+
+**Westrum's drei Kulturtypen (vereinfacht):**
+
+| Dimension | Pathologisch (Machtorientiert) | Bürokratisch (Regelorientiert) | Generativ (Leistungsorientiert) |
+|---|---|---|---|
+| Informationsfluss | Wird zurückgehalten | Wird ignoriert | Wird aktiv gesucht |
+| Fehlerreaktion | Sündenbock-Suche | Nachsicht (wenn Regeln befolgt) | Ursachenanalyse (Inquiry) |
+| Risiken | Auf Personen abgewälzt | Engverantwortlich | Geteilt |
+| Überbringer schlechter Nachrichten | Werden bestraft | Toleriert | Trainiert/Geschätzt |
+| Neues / Experimente | Werden unterdrückt | Erzeugen Probleme | Werden umgesetzt |
+| Zusammenarbeit über Grenzen | Entmutigt | Erlaubt, aber eng | Aktiv gefördert |
+
+**Verbindung zur DORA-Forschung:** Generative Westrum-Kultur korreliert mit hoher Deployment Frequency, niedrigem Change Failure Rate und schneller Recovery Time. Dieselbe Kultur ist Voraussetzung für offenen AI-Austausch (R-M-SAFETY).
+
+**Voraussetzungen:**
+- Anonymes Survey-Tool verfügbar (z.B. Mentimeter, MS Forms)
+- Team versteht, dass Ergebnisse nicht bewertet werden (Selbst-Diagnose, kein Reporting)
+
+**Durchführung:**
+1. Survey vorbereiten (1h): 6 Items à 7-Punkt-Likert-Skala basierend auf Westrum-Dimensionen oben — angepasst auf AI-Kontext (z.B. "Wenn jemand ein Problem mit einem AI-Tool meldet, wird das...")
+2. Team-Event (15 Min anonym): Survey ausfüllen
+3. Auswertung (30 Min, AI Transformation Manager + Change Lead): Median-Score je Dimension → Kulturtyp bestimmen
+4. Transparenz mit Team (30 Min): Ergebnisse zurückspiegeln ohne Schuldzuweisung. "Das ist ein Systembefund, kein Personenbefund."
+5. Interpretation: Pathologisch → Sponsor-Eskalation + Governance; Bürokratisch → R-PS-8; Generativ → Safety ist kein Kultturproblem, andere Ursache suchen
+
+**Fallstricke:**
+- Survey muss wirklich anonym sein — bei kleinen Teams (<6 Personen) Clustering vermeiden
+- Ergebnisse nicht in Leistungsbeurteilungen oder Management-Reports weitergeben
+- Kurzdiagnostik ersetzt kein vollständiges Culture Assessment — zeigt Richtung, keine Tiefenanalyse
+
+**Messbare Wirkung:** Klarheit über Ursache des Safety-Problems. Reduziert Interventions-Zeitverschwendung durch falsche Maßnahmen.
+
+---
+
 ### R-SU-1: Champion identifizieren & mandatieren
 
 **Kurzbeschreibung:** Formale Benennung von 1–2 AI Champions pro Team mit dediziertem Zeitbudget.
@@ -411,8 +452,8 @@ Für die schnelle Auswahl: Welche Interventionen bringen den größten Hebel bei
 | R-SU-1 Champion mandatieren | Mittel | Sehr hoch | **Priorität** — Voraussetzung für Skalierung |
 | R-PS-3 Experimentier-Budget | Niedrig (Entscheidung), Hoch (Kapazität) | Hoch | **Strategisch** — Management muss entscheiden |
 | R-RE-4 Lernpfade pro Rolle | Hoch | Hoch | **Strategisch** — nachhaltig, aber braucht Vorlauf |
-| R-RE-6 HR-Integration | Hoch | Sehr hoch | **Strategisch** — nachhaltigste Wirkung, längster Vorlauf |
-
+| R-RE-6 HR-Integration | Hoch | Sehr hoch | **Strategisch** — nachhaltigste Wirkung, längster Vorlauf || R-PS-7 | Westrum Culture Kurzdiagnostik | Sehr niedrig | Hoch (als Diagnose) | **Quick Win** — schärfste Diagnose bei Safety-Tiefscore, sofort einsetzen |
+| R-PS-8 | Kulturwechsel-Workshop: Bürokratisch → Generativ | Mittel | Sehr hoch | **Priorität** — stärkste Einzelintervention wenn Westrum-Diagnose bürokratisch ergibt |
 ---
 
 ## 9. Anhang
@@ -435,6 +476,9 @@ Für die schnelle Auswahl: Welche Interventionen bringen den größten Hebel bei
 - Deep-Dive Readiness: `deliverables/question_banks/deep-dive-readiness.yaml`
 - Scoring-Methodik: `deliverables/question_banks/METHODOLOGY.md`
 - Rollenentwicklungsmodell: Framework Kap. 2.2 (Tabelle)
+- **Westrum, R. (2004):** "A typology of organisational cultures." Quality & Safety in Health Care, 13(Suppl 2), ii22–ii27. — Original-Quelle der drei Kulturtypen
+- **DORA / Google Cloud (2023):** State of DevOps Report — Westrum generative culture als stärkster kultureller Prädiktor für Software Delivery Performance: https://dora.dev/research/
+- **Forsgren, N., Humble, J., Kim, G. (2018):** Accelerate — Kap. 3 (Measuring Culture) — praktische Anwendung des Westrum-Modells in Software-Teams
 
 ---
 

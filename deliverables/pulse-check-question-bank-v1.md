@@ -124,7 +124,7 @@ Ein kurzer Pulse Check zu Beginn jedes 4-Wochen-Zyklus (≤15 Minuten), der:
 - 4: agentisch (teilautonom), mit Review/Gates
 - 5: multi-agentisch (mehrere Agenten), end-to-end Aufgaben
 
-**A-MC2:** „In welchen SDLC-Phasen nutzt du AI heute?" (Mehrfachauswahl)
+**A-MC2:** „In welchen SDLC-Phasen nutzt ihr AI heute – soweit du das beurteilen kannst?" (Mehrfachauswahl)
 - Requirements / Design / Coding / Code Review / Testing / Docs / Ops / Incident / Security / keine
 
 **A-MC3:** „Nutzt du aktuell nicht-freigegebene Tools (Shadow AI) für Arbeitszwecke?"

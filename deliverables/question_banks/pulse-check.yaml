@@ -473,11 +473,10 @@ questions:
     dimension: "A"
     question_type: "diagnostic"
     question_text:
-      de: "In welchen SDLC-Phasen nutzt du AI heute?"
-      en: "In which SDLC phases do you use AI today?"
+      de: "In welchen SDLC-Phasen nutzt ihr AI heute – soweit du das beurteilen kannst?"
+      en: "In which SDLC phases does your team use AI today – as far as you can tell?"
     answer_type: "multiple_choice"
     allow_multiple: true
-    max_selections: 3
     answer_options:
       - key: "requirements"
         de: "Requirements"

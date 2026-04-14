@@ -745,8 +745,8 @@ questions:
     question_type: context
     sub_topic: null
     question_text:
-      de: In welchen SDLC-Phasen nutzt du AI heute? (Mehrfachauswahl)
-      en: In which SDLC phases do you use AI today? (Multiple selection)
+      de: In welchen SDLC-Phasen nutzt ihr AI heute – soweit du das beurteilen kannst?
+      en: In which SDLC phases does your team use AI today – as far as you can tell?
     why_important:
       de: SDLC-Abdeckung zeigt Adoptionsbreite. Nur-Coding ist suboptimal — AI kann in allen Phasen Wert schaffen.
       en: SDLC coverage shows adoption breadth. Coding-only is suboptimal — AI can create value in all phases.
