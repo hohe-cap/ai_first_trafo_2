@@ -697,6 +697,48 @@ Aggregation aus Schicht 1 und 2 in geschäftssprachliche Kennzahlen: Velocity-Ve
 
 > **Overhead-Minimierung:** Die meisten Metriken werden automatisch aus bestehenden Tools erhoben (CI/CD, Jira, IDE-Telemetrie). Der Pulse Check ist das einzige Element, das aktive Beteiligung erfordert – maximal 15 Minuten pro Zyklus (alle 4 Wochen). Kein zusätzliches Reporting-System, keine Excel-Tabellen, keine manuellen KPI-Erhebungen. Die North Star Metrics nutzen dieselben Datenquellen, die ohnehin vorhanden sind.
 
+### 5.4 Wirkmodell: Kausalkette von CRAFT zu Business Impact
+
+CRAFT-Dimensionen verbessern sich nicht im Selbstzweck — sie sollen messbare Business-Outcomes bewegen. Die entscheidende Frage: *Welche Dimension bewegt welche Metrik, auf welchem Weg, und in welchem Zeitrahmen?* Das Wirkmodell macht diese Kausalkette explizit.
+
+#### Die drei Rollen der CRAFT-Dimensionen
+
+| Rolle | Dimensionen | Funktion in der Kausalkette |
+|---|---|---|
+| **Primäre Value Driver** | **F** (Flow), **A** (Adoption) | Erzeugen direkt messbare Delivery-Outcomes. DORA-Verbesserungen und North Star-Bewegungen laufen primär über F und A. |
+| **Voraussetzung** | **R** (Readiness) | Bestimmt, ob F und A nachhaltig wirken. Adoption ohne psychologische Sicherheit bleibt oberflächlich und episodisch. |
+| **Freischalter** | **C** (Compliance), **T** (Technical) | Müssen ein Mindest-Level erreichen, damit die Value Driver greifen. Ihr eigenes Business-Impact-Potenzial ist gering — ihr Blockade-Potenzial ist hoch. |
+
+**Konsequenz für die Praxis:** C und T sind prioritär zu adressieren, wenn sie gerade aktiv blockieren — nicht als Selbstzweck. R ist eine Daueraufgabe, die A absichert. Der eigentliche Hebel auf Lead Time, CFR und North Stars liegt in F und A.
+
+#### Wirkmodell-Tabelle
+
+| Dimension | Operativer Hebel | Lead Indicator | Typische North-Star-Wirkung | Zeitverzug | Bedingung |
+|---|---|---|---|---|---|
+| **F – Flow** | SDLC-Bottlenecks + AI-Interventionen → Wartezeiten sinken | Flow Efficiency ↑, Cycle Time per Phase ↓ | Lead Time, CFR, Cycle Time (direkte Wirkung) | 1–2 Zyklen | A ≥ Level 2 |
+| **A – Adoption** | AI-Nutzung setzt Kapazität frei, SDLC-Phasen-Abdeckung wächst | DAU/Team ↑, AI-assisted Commits % ↑ | Lead Time, Effort/Story Point, Dev Satisfaction | 1–3 Zyklen | F ≥ Level 2 |
+| **R – Readiness** | Psychologische Sicherheit + Skill-Aufbau machen Adoption nachhaltig | Skill-Rating ↑, Champion-Aktivität ↑ | Developer Satisfaction → Attrition (langfristig) | 2–4 Zyklen | Immer nötig |
+| **C – Compliance** | Governance-Blocker beseitigen, freigegebene Tools ermöglichen breite Nutzung | Approved-Tool-Count ↑, Shadow-AI-Rate ↓ | Unblocks A + T; kein eigenständiger North-Star-Effekt | 1–2 Zyklen | Wenn C aktiv blockiert |
+| **T – Technical** | Tools verfügbar, integriert, sicher | Tool Availability Score, Integration Depth | Unblocks A + F; kein eigenständiger North-Star-Effekt | Relativ sofort | Wenn T aktiv fehlt |
+
+#### Hypothesen-Pflicht pro Intervention
+
+Jede Intervention muss vor dem Start eine explizite Hypothese haben:
+
+> *„Wenn wir [Intervention X] in Dimension [D] durchführen, dann verbessert sich [Lead Indicator] von [Ist] auf [Ziel] innerhalb [T] Wochen, weil [Wirkmechanismus], was danach [North Star Metric] um [Delta] bewegen sollte. Wenn das nicht eintritt, prüfen wir [Confounders / Pivot]."*
+
+Diese Hypothesen werden im **Business Problem Check (Woche 4)** überprüft — nicht um recht zu behalten, sondern um die tatsächliche Kausalkette zu verstehen und Interventionen ggf. zu pivoten.
+
+#### Wann die Kopplung schwach ist
+
+Die Verbindung CRAFT → Business-Wert ist nicht deterministisch. In diesen Situationen ist Vorsicht geboten:
+
+- **Externe Dominanz:** Marktveränderungen, Teamumbau oder neue Anforderungen können North-Star-Metriken stärker beeinflussen als jede Intervention. Immer auf Confounders prüfen.
+- **Zu frühes Reifegrad:** Level 1→2 erzeugt kaum messbaren Business-Impact. Zuverlässige DORA-Verbesserung beginnt ab **Level 3 (Embedding) auf F und A**.
+- **Adoption ohne Flow-Integration:** Wenn A steigt, F aber auf Level 1 bleibt, verbessern Entwickler ihre persönliche Effizienz — ohne dass der Produktivitätsgewinn im Lead-Time-Delta landet.
+
+> **Vollständiges Wirkmodell und Hypothesen-Template:** `deliverables/question_banks/business-impact-discovery.md`, Teil 3b.
+
 ---
 
 ## 6. Das AI Adoption Team

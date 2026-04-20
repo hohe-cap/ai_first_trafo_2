@@ -123,26 +123,84 @@ Der wichtigste Output dieses Gesprächs: **2–3 North Star Metrics**, die direk
 
 ---
 
+## Teil 3b — Wirkmodell: Wie CRAFT-Dimensionen Business-Wert erzeugen
+
+> **Warum dieser Schritt?** Im ersten Teil hast du den Business-Schmerz lokalisiert und in Teil 3 North Star Metrics definiert. Jetzt die entscheidende Frage: *Hat CRAFT überhaupt etwas damit zu tun?* Die Antwort ist: manchmal direkt, manchmal mittelbar, manchmal kaum. Dieser Abschnitt macht das explizit.
+
+### Die drei Rollen im Wirkmodell
+
+Nicht alle 5 CRAFT-Dimensionen erzeugen direkt Business-Wert. Sie spielen unterschiedliche Rollen in der Kausalkette — eine Unterscheidung, die in der Praxis oft fehlt:
+
+| Rolle | Dimensionen | Was sie tun |
+|---|---|---|
+| **Primäre Value Driver** | **F** (Flow), **A** (Adoption) | Erzeugen direkt messbare Delivery-Outcomes. Wenn DORA und North Stars sich bewegen sollen, müssen F und A steigen. |
+| **Voraussetzung** | **R** (Readiness) | Bestimmt, ob F und A nachhaltig wirken. Adoption ohne psychologische Sicherheit bleibt oberflächlich. |
+| **Freischalter** | **C** (Compliance), **T** (Technical) | Müssen ein Mindest-Level erreichen, damit die Value Driver überhaupt greifen können. Ihr directes Business-Impact-Potenzial ist gering — ihr Blockade-Potenzial ist hoch. |
+
+### Wirkmodell je Dimension
+
+| Dimension | Rolle | Operativer Hebel | Lead Indicator (frühes Signal) | Bewegt typischerweise | Zeitverzug | Direkt nur wenn... |
+|---|---|---|---|---|---|---|
+| **F – Flow** | Value Driver | SDLC-Bottlenecks werden identifiziert und mit AI-Interventionen adressiert. Wartezeiten sinken. | Flow Efficiency ↑, Cycle Time per Phase ↓, Anzahl AI-Interventionen pro SDLC-Phase | Lead Time for Changes, Change Failure Rate, Cycle Time (direkt) | 1–2 Zyklen | A ≥ Level 2 (es muss jemand die Tools nutzen) |
+| **A – Adoption** | Value Driver | AI-Nutzung im Arbeitsalltag setzt Entwicklerkapazität frei. Mehr Phases des SDLC werden abgedeckt. | DAU/Team ↑, AI-assisted Commits % ↑, SDLC-Phasen-Abdeckung | Lead Time, Effort/Story Point, Developer Satisfaction | 1–3 Zyklen | F ≥ Level 2 (Adoption ohne Prozessintegration ist Fremdkörper) |
+| **R – Readiness** | Voraussetzung | Psychologische Sicherheit und Skill-Aufbau machen Adoption nachhaltig statt episodisch. | Skill Self-Rating ↑, Champion-Aktivität ↑, Training-Abschlüsse | Developer Satisfaction → Attrition-Rate (langfristig) | 2–4 Zyklen | Immer nötig, Wirkung aber verzögert |
+| **C – Compliance** | Freischalter | Governance-Blocker werden beseitigt. Freigegebene Tools ermöglichen breite Nutzung. | Approved-Tool-Count ↑, Shadow-AI-Rate ↓, Approval-Time ↓ | Unblocks A und T; kein eigener North-Star-Effekt | 1–2 Zyklen (danach wirken andere) | C blockt gerade aktiv (sonst keine Intervention nötig) |
+| **T – Technical** | Freischalter | Tools sind verfügbar, integriert und sicher nutzbar. | Tool Availability Score, Integration Depth (chat → IDE → workflow) | Unblocks A und F; kein eigener North-Star-Effekt | Relativ sofort (Tools sind da oder nicht) | T fehlt gerade als Bottleneck |
+
+> **Kernaussage:** Wenn du Lead Time senken willst, musst du F und A verbessern. Wenn dein Team psychologisch nicht bereit ist, wird A nicht nachhaltig. Wenn Compliance blockiert oder Tools fehlen, kommen F und A nicht ins Laufen. **C und T lösen das Problem nicht — sie ermöglichen, dass F und A es lösen.**
+
+### Hypothesen-Template: CRAFT → Intervention → North Star
+
+Für jede Intervention im Zyklus sollte folgende Hypothese explizit formuliert werden, bevor die Maßnahme startet:
+
+```
+Wenn wir [Intervention X] in Dimension [D] durchführen,
+dann verbessert sich [Lead Indicator L] von [Ist] auf [Ziel] innerhalb [T] Wochen,
+weil [Wirkmechanismus],
+was danach [North Star Metric N] um [erwartetes Delta] bewegen sollte.
+Wenn das nicht eintritt, prüfen wir [Confounders / Pivot].
+```
+
+**Beispiel:**
+> Wenn wir einen Value Stream Mapping Workshop für das Backend-Team (F-Intervention) durchführen,  
+> dann sinkt die Cycle Time für Code Review von 5 Tagen auf 2 Tage innerhalb 2 Zyklen,  
+> weil wir den Wartezeit-Bottleneck vor Review sichtbar machen und mit AI-Assisted Review adressieren,  
+> was danach die Lead Time for Changes (North Star) um ca. 30% senken sollte.  
+> Wenn das nicht eintritt, prüfen wir ob Adoption (A) oder Readiness (R) der eigentliche Blocker ist.
+
+> **Wichtiger Hinweis:** Diese Hypothesen sind nicht Verträge, sondern Lerninstrumente. Die relevante Frage in Woche 4 (Business Problem Check) ist nicht "haben wir recht behalten?", sondern "was haben wir über die tatsächliche Kausalkette gelernt?". Externe Einflussfaktoren (Teamumbau, Marktveränderungen, neue Anforderungen) können die Kette stören — das ist kein Scheitern, sondern Information.
+
+### Limitation: Wann CRAFT-Verbesserung Business-Wert *nicht* direkt erklärt
+
+In drei Fällen ist die Kopplung schwach oder nicht nachweisbar:
+
+1. **Externe Dominanz:** Business-Metriken werden von Markt, Sales oder Org-Umbau dominiert. CRAFT erklärt dann nur einen kleinen Anteil.
+2. **Reifegradsprünge brauchen Zeit:** Level 1→2 bringt kaum messbaren Business-Impact. Erst ab Level 3 (Embedding) werden DORA-Metriken zuverlässig bewegt.
+3. **Adoption ohne Flow-Integration:** Wenn A steigt, F aber auf Level 1 bleibt, nutzen Entwickler AI als Einzelkämpfer — ohne Prozesseinbettung landet der Produktivitätsgewinn nicht im Lead Time-Delta.
+
+**Alternative wenn Kopplung unklar ist:** North Stars vorerst provisorisch aufnehmen und erst nach 2 Zyklen mit echten Daten eine Kausalkette rekonstruieren ("Retrospektives Wirkmodell").
+
+---
+
 ## Teil 4 — CRAFT-Relevanz-Mapping
 
-Sobald der Business-Schmerz, das Ziel und die North Star Metrics bekannt sind, kannst du grob ableiten, welche CRAFT-Dimensionen am relevantesten sind. **Dieses Mapping ist ein Gesprächseinstieg, kein Ergebnis ohne Assessment.**
+Ergänzend zum Wirkmodell (Teil 3b) zeigt dieses Mapping, welche Dimensionen je nach Business-Schmerz prioritär adressiert werden sollten. **Ausgangspunkt sind immer die Primary Value Driver F und A — Compliance/Technical sind Voraussetzungen, keine Ziele.**
 
-| Business-Schmerz | Primär relevante Dimensionen | Warum |
+| Business-Schmerz | Primär relevante Dimensionen | Wirkmechanismus |
 |---|---|---|
-| Zu langsame Delivery | **Flow (F)**, Adoption (A) | Bottlenecks im Value Stream + AI-Nutzung in SDLC-Phasen |
-| Hohe Fehlerrate / Tech Debt | **Adoption (A)**, Technical (T) | AI-unterstütztes Testing, Code Review, Refactoring |
-| Governance blockiert / Shadow AI | **Compliance (C)**, Readiness (R) | Fehlende Policies + Angst/Ablehnung im Team |
-| Team-Widerstand / Angst | **Readiness (R)** | Psychological Safety, Rollenentwicklung |
-| Kosten / Effizienz | **Flow (F)**, Adoption (A) | VSM zeigt Waste; AI reduziert manuellen Aufwand |
-| Tool-Chaos / fehlende Infrastruktur | **Technical (T)**, Compliance (C) | Tool-Katalog + Sicherheitsstufen |
-| Skalierung / Wachstum | Alle 5, aber **Adoption (A)** priorisieren | Breite Nutzung vor Tiefe |
+| Zu langsame Delivery | **F** → A → (R) | VSM identifiziert Bottlenecks; AI-Interventionen adressieren Wartezeiten; Adoption setzt Kapazität frei |
+| Hohe Fehlerrate / Tech Debt | **A** → F → T | AI-assisted Testing/Review erhöht Qualität; muss in Prozess eingebettet sein (F) |
+| Governance blockiert / Shadow AI | **C** (Freischalter!) → dann A, F | C-Blocker beseitigen, damit Value Driver wirken können |
+| Team-Widerstand / Angst | **R** (Voraussetzung!) → dann A | Readiness sicherstellen, sonst kollabiert Adoption |
+| Kosten / Effizienz | **F** → A | Flow Efficiency-Analyse zeigt Waste; AI reduziert manuellen Aufwand in den identifizierten Phasen |
+| Tool-Chaos / fehlende Infrastruktur | **T** (Freischalter!) → dann A, F | T-Blocker beseitigen; kein direkter Business Impact durch T allein |
+| Skalierung / Wachstum | **A** priorisieren, **F** absichern | Breite Nutzung vor Tiefe; Prozessintegration verhindert, dass Skalierung in Chaos endet |
 
 **Welcher Reifegrad ist nötig für messbare Wirkung?**
 
-Es gibt keine allgemeine Antwort, aber als Orientierung:
-- Für **kurzfristige Quick Wins** (< 3 Monate): Level 2 (Experimenting) auf relevanten Dimensionen reicht
-- Für **messbare DORA-Verbesserung**: Level 3 (Embedding) auf Flow + Adoption nötig
-- Für **strategische AI-Transformation**: Level 4 (Scaling) auf allen 5 Dimensionen mittelfristig anstreben
+- Für **kurzfristige Quick Wins** (< 3 Monate): F und A auf Level 2 (Experimenting) — erste messbare Signale möglich
+- Für **zuverlässige DORA-Verbesserung**: F und A auf Level 3 (Embedding) — ab hier bewegen sich Lead Time und CFR konsistent
+- Für **strategische AI-Transformation**: F und A auf Level 4 (Scaling), R auf Level 3+ — nachhaltiger, skalierbarer Effekt
 
 ---
 

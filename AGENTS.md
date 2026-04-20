@@ -84,6 +84,7 @@ sondern an fehlender Prozessintegration und Change Management.
 - **Linse 1 — Business Impact:** Konkretes Business-Problem identifizieren → 2–3 North Star Metrics definieren → in jedem Zyklus messen (Business Problem Check)
 - **Linse 2 — AI-Befähigung:** CRAFT-Dimensionen systematisch aufbauen → CRAFT-Scores als Hebel, der die North Star Metrics bewegt
 - Zusammen: CRAFT verbessern → North Star Metrics bewegen sich → Business-Problem wird gelöst
+- **Wirkmodell (explizite Kausalkette):** F+A sind die primären Value Driver; R ist Voraussetzung; C+T sind Freischalter (nicht eigenständige Value Driver). Detailliert in `business-impact-discovery.md` Teil 3b + Framework Kap. 5.4
 
 **Drei Kernprinzipien:**
 - **Value Stream First:** AI-Interventionen dort platzieren wo sie den größten Hebel haben
