@@ -85,6 +85,9 @@ installations/
 *.tar.gz
 *.zip
 
+# Graphify generated output (knowledge graph artifacts)
+graphify-out/
+
 ---
 
 # WICHTIG für Agent Context Setup:
