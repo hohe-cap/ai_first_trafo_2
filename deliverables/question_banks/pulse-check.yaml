@@ -570,13 +570,13 @@ questions:
     question_text:
       de: "Welche Stufe beschreibt die AI-Integration in eure Team-Workflows am besten?"
       en: "Which level best describes AI integration into your team workflows?"
-    maturity_levels:Mache mir aus deine Analyse eine übersichtliche HTML Seite.
+    maturity_levels:
       1:
-        label: "Exploring"Mache mir aus deine Analyse eine übersichtliche HTML Seite.
+        label: "Exploring"
         de: "AI wird bei uns nicht in Prozesse/Workflows eingebunden."
         en: "AI is not incorporated into our processes/workflows."
       2:
-        label: "Experimenting"Mache mir aus deine Analyse eine übersichtliche HTML Seite.
+        label: "Experimenting"
         de: "Einzelne nutzen AI nebenbei (z.B. Chat), aber es ist kein Teil unserer Team-Workflows."
         en: "Individuals use AI on the side (e.g. chat), but it's not part of our team workflows."
       3:
