@@ -2,7 +2,7 @@
 
 **Ein iteratives Framework zur AI Transformation im Software Development Life Cycle**
 
-Version 1.0 | Februar 2026 | DRAFT
+Version 1.0 | April 2026 | DRAFT
 Autor: Jan | AI Transformation Management
 
 ---
@@ -15,9 +15,9 @@ Autor: Jan | AI Transformation Management
 
 1. [Warum AI-Transformation?](#1-warum-ai-transformation)
 2. [Executive Summary](#2-executive-summary)
-3. [Framework-Architektur: CRAFT-Dimensionen & Iterativer Prozess](#3-framework-architektur-craft-dimensionen--iterativer-prozess)
-4. [Iterationsmodell](#4-iterationsmodell)
-5. [KPI-Framework: Outcome statt Output](#5-kpi-framework-outcome-statt-output)
+3. [Die 5 CRAFT-Dimensionen](#3-die-5-craft-dimensionen)
+4. [Discover & Iterate: Das Betriebssystem der Transformation](#4-discover--iterate-das-betriebssystem-der-transformation) — 4.1 CRAFT Explorer · 4.2 Drei-Ebenen-Architektur · 4.3 Kontext-Profile · 4.4 Pulse Check · 4.5 Zyklus-Struktur · 4.6 Business Problem Check · 4.7 Readiness Gates · 4.8 Typischer Verlauf
+5. [KPI-Framework: Outcome statt Output](#5-kpi-framework-outcome-statt-output) — 5.1 Delivery Outcomes · 5.2 AI Maturity · 5.3 Business Impact · 5.4 Wirkmodell
 6. [Das AI Adoption Team](#6-das-ai-adoption-team)
 7. [Die AI Adoption Roadmap (Kundenergebnis)](#7-die-ai-adoption-roadmap-kundenergebnis)
 8. [Engagement-Architektur: Vom Framework zur Wirkung](#8-engagement-architektur-vom-framework-zur-wirkung)
@@ -108,11 +108,9 @@ Die North Star Metrics werden im **Business Impact Discovery** (vor dem CRAFT Ex
 
 ---
 
-## 3. Framework-Architektur: CRAFT-Dimensionen & Iterativer Prozess
+## 3. Die 5 CRAFT-Dimensionen
 
-Das Framework besteht aus zwei Ebenen: fünf inhaltlichen **CRAFT-Dimensionen** (was wir steuern und messen) und einem **iterativen Prozessrahmen** (wie wir arbeiten). Die Dimensionen sind gleichzeitig aktiv – jede hat zu jedem Zeitpunkt eine Intensität (von Monitoring bis Deep Work), aber keine ist jemals abgeschlossen. Der Prozessrahmen „Discover & Navigate" bildet das Betriebssystem: er steuert die 4-Wochen-Iterationszyklen und stellt über den CRAFT Explorer Pulse Check sicher, dass alle Dimensionen kontinuierlich gemessen und adressiert werden (siehe Kapitel 4).
-
-### Die 5 CRAFT-Dimensionen
+Die fünf CRAFT-Dimensionen sind der inhaltliche Kern des Frameworks — sie definieren, was wir steuern, messen und weiterentwickeln. Alle Dimensionen sind gleichzeitig aktiv: Jede hat zu jedem Zeitpunkt eine Intensität (von Monitoring bis Deep Work), aber keine ist jemals abgeschlossen. Wie wir innerhalb dieser Dimensionen arbeiten und messen — der Betriebsprozess **Discover & Iterate** mit seinen Instrumenten und 4-Wochen-Zyklen — ist in Kapitel 4 beschrieben.
 
 | Dim. | CRAFT | Name | Fokus | Verantwortung |
 |------|-------|------|-------|---------------|
@@ -225,52 +223,6 @@ flowchart TB
     style TEAM fill:#fff5f5,stroke:#e53e3e,color:#742a2a
     style CORE fill:#1a365d,stroke:#2d4a7a,color:#ffffff
 ```
-
-### Iterativer Prozessrahmen: Discover & Navigate
-
-Der Prozessrahmen ist das Betriebssystem der Transformation. Er ersetzt die klassische einmalige Bestandsaufnahme durch eine kontinuierliche Standortbestimmung und folgt einem PDCA-Zyklus (Plan – Do – Check – Adjust) in 4-Wochen-Iterationen (siehe Kapitel 4). Wir sprechen bewusst von **Exploration** statt Assessment — der Prozess ist ein gemeinsames Erkunden, keine Prüfung. Werkzeuge dafür sind der **CRAFT Explorer** (App) und der **Pulse Check** als regelmäßiger Durchlauf.
-
-#### CRAFT Explorer (App)
-
-Eine interaktive Anwendung, die vom AI Transformation Manager begleitet wird. Sie ist bewusst nicht als Audit konzipiert, sondern als gemeinsames Explorations-Werkzeug. Teams führen die Erhebung eigenständig durch; Analyse, Auswertung und Ableitung der nächsten Schritte erfolgen immer durch den AI Transformation Manager.
-
-- **Format:** Web-App, flexibel einsetzbar in unterschiedlichen Kontexten (standalone, Teams-Integration, Workshop-Begleitung).
-- **Begleitetes Modell:** Durchführung der Exploration durch das Team, Analyse und Handlungsempfehlungen durch AI Transformation Manager. Keine unbegleitete Auswertung.
-- **Ablauf:** Deep-Dive (Kickoff-Baseline, alle 5 Dimensionen) → Analyse & Spider-Chart → erste Interventionen → Pulse Check (jeden 4-Wochen-Zyklus, Trend-Tracking) → Deep-Dive bei Bedarf (on-demand, wenn Pulse Check Auffälligkeiten zeigt).
-- **Dauer:** ~15–20 Minuten pro Deep-Dive-Dimension (einmalig), ≤15 Minuten pro Pulse Check (jeden Zyklus).
-- **Output:** Team-Dashboard mit Scores über die 5 CRAFT-Dimensionen (siehe Kapitel 5), Radar-Chart, Stärken-/Schwächen-Analyse und Handlungsempfehlungen, die gemeinsam in die Roadmap einfließen.
-- **Benchmark:** Anonymisierter Vergleich mit anderen Teams als zusätzlicher Impuls.
-
-#### Drei-Ebenen-Explorations-Architektur
-
-Die Standortbestimmung erfolgt über drei aufeinander aufbauende Ebenen. Jede Ebene hat einen eigenen Zweck, Respondenten-Kreis und Rhythmus:
-
-| Ebene | Zweck | Frequenz | Respondent | Dauer |
-|-------|-------|----------|------------|-------|
-| **1: Context & Readiness** | Fakten und Rahmenbedingungen erfassen (Branche, Team, Tech-Stack, Budget) | Einmalig (Kickoff) | AI Transformation Manager / Tech Lead (1–2 Personen, nicht anonym) | ~30 Min |
-| **2: Pulse Check** | CRAFT-Spider-Score (1–5) pro Dimension tracken, Trends erkennen | Jeden 4-Wochen-Zyklus (Woche 1) | Alle Teammitglieder (anonym) | ≤15 Min |
-| **3: Deep-Dives** (5×) | Granulare Sub-Topic-Analyse pro Dimension (je 4 Sub-Topics) | 1× Kickoff (Baseline) + on-demand | Alle Teammitglieder (anonym) | ~15–20 Min pro Dimension |
-
-**Beziehung Pulse Check ↔ Deep-Dive:** Der Pulse Check ist ein *Extrakt* der Deep-Dives. Jede Pulse-Check-Maturity-Frage (z.B. C-M1) fasst die 4 Sub-Topics des entsprechenden Deep-Dives zusammen. Deep-Dives liefern das granulare *Warum*, der Pulse Check trackt den *Trend*.
-
-> **Design-Methodik:** Alle Explorations-Prinzipien (Scoring-Formeln, Kalibrierungsregeln, Visualisierung, Anonymität) sind in `deliverables/question_banks/METHODOLOGY.md` dokumentiert. Die YAML-Dateien in `deliverables/question_banks/` sind die Source of Truth für alle Fragen. Die Fragen folgen dem **Backward-Design-Ansatz** (Wiggins & McTighe, 2005): Ausgehend von typischen Herausforderungen pro Dimension werden diagnostische Signale identifiziert und die Fragen so konstruiert, dass sie diese Herausforderungen aufdecken. Die systematische Challenge-Herausforderungs-Analyse ist in `deliverables/question_banks/CHALLENGE-MAP.md` dokumentiert.
-
-#### Kontext-Profile
-
-Organisationen unterscheiden sich fundamental in ihren Rahmenbedingungen — eine agile Digital-Agentur hat andere Herausforderungen als eine regulierte Bank. Um die Interpretation der CRAFT-Scores zu kontextualisieren, nutzt das Framework vier archetypisierte Kontext-Profile:
-
-| Profil | Kennzeichen | Typische Schwerpunkte |
-|--------|-------------|----------------------|
-| **Agil & Offen** | Flache Hierarchien, Cloud-native, wenig Regulierung | Policy-Vakuum, Shadow AI, fehlende Messbarkeit |
-| **Enterprise Reguliert** | Starke Regulierung, komplexe Governance, große IT | Governance-Bottleneck, Compliance-Angst, Manager als Bremse |
-| **Public Sector** | Betriebsrat, Datenschutz, lange Entscheidungswege | Breite Hürden über alle Dimensionen, Tool-Mangel, Existenzangst |
-| **Konzern Liberal** | Große Organisation, aber innovationsfreundlich | Coding-Only-Adoption, Stagnation bei oberflächlicher Nutzung |
-
-**Anwendungsprinzip:** Dieselben Fragen werden allen Teams gestellt (Vergleichbarkeit). Das Profil beeinflusst ausschließlich die **Interpretation** der Ergebnisse — welche Herausforderungen bei niedrigen Scores am wahrscheinlichsten sind und welche Interventionen am wirksamsten. Die vollständige Profil-Relevanz-Matrix für alle 30 typischen Herausforderungen ist in `deliverables/question_banks/CHALLENGE-MAP.md` dokumentiert.
-
-#### Pulse Check Inhalte
-
-Der Pulse Check erfasst pro CRAFT-Dimension 2–3 Fragen: 1 Maturity-Frage (5-Level, konkrete Verhaltensbeschreibungen von *Exploring* bis *Evolving*) + 1–2 MC-Diagnostik-Fragen (erklären das Warum). Keine Likert-Skalen — jede Maturity-Stufe beschreibt konkretes Verhalten, nicht Zustimmungsgrade. Beispiel: „Ich weiß nicht, welche AI-Tools ich nutzen darf" (Level 1) vs. „Compliance ist in meinen Workflow integriert" (Level 5).
 
 ### 3.1 Dimension 1: Compliance & Governance (C)
 
@@ -435,9 +387,55 @@ Konkrete Setup-Anleitungen, die vom IDE-Plugin bis zum LLM-Deployment alles abde
 
 ---
 
-## 4. Iterationsmodell
+## 4. Discover & Iterate: Das Betriebssystem der Transformation
 
-Das Framework arbeitet mit 4-Wochen-Iterationszyklen, die alle 5 Dimensionen berühren, aber mit wechselndem Schwerpunkt. Dies ersetzt das klassische Drei-Wellen-Modell (Foundation → Acceleration → Integration), das in komplexen Konzernumgebungen regelmäßig an der Realität scheitert.
+Discover & Iterate ist der operative Prozessrahmen, der die 5 CRAFT-Dimensionen (Kapitel 3) in einen kontinuierlichen Verbesserungsrhythmus überführt. Er ersetzt die klassische einmalige Bestandsaufnahme durch eine kontinuierliche Standortbestimmung und folgt dem **PDCA-Prinzip** (Plan – Do – Check – Adjust): Der Pulse Check liefert das **Plan**-Instrument (Woche 1 jedes Zyklus), die Umsetzungsphase ist das **Do** (Woche 2–3), der Business Problem Check mit Readiness Gate ist **Check & Adjust** (Woche 4). Die Drei-Ebenen-Explorations-Architektur liefert die Datenbasis für jeden Zyklus.
+
+Wir sprechen bewusst von **Exploration** statt Assessment — der Prozess ist ein gemeinsames Erkunden, keine Prüfung.
+
+### 4.1 CRAFT Explorer (App)
+
+Eine interaktive Anwendung, die vom AI Transformation Manager begleitet wird. Sie ist bewusst nicht als Audit konzipiert, sondern als gemeinsames Explorations-Werkzeug. Teams führen die Erhebung eigenständig durch; Analyse, Auswertung und Ableitung der nächsten Schritte erfolgen immer durch den AI Transformation Manager.
+
+- **Format:** Web-App, flexibel einsetzbar in unterschiedlichen Kontexten (standalone, Teams-Integration, Workshop-Begleitung).
+- **Begleitetes Modell:** Durchführung der Exploration durch das Team, Analyse und Handlungsempfehlungen durch AI Transformation Manager. Keine unbegleitete Auswertung.
+- **Ablauf:** Deep-Dive (Kickoff-Baseline, alle 5 Dimensionen) → Analyse & Spider-Chart → erste Interventionen → Pulse Check (jeden 4-Wochen-Zyklus, Trend-Tracking) → Deep-Dive bei Bedarf (on-demand, wenn Pulse Check Auffälligkeiten zeigt).
+- **Dauer:** ~15–20 Minuten pro Deep-Dive-Dimension (einmalig), ≤15 Minuten pro Pulse Check (jeden Zyklus).
+- **Output:** Team-Dashboard mit Scores über die 5 CRAFT-Dimensionen (siehe Kapitel 5), Radar-Chart, Stärken-/Schwächen-Analyse und Handlungsempfehlungen, die gemeinsam in die Roadmap einfließen.
+- **Benchmark:** Anonymisierter Vergleich mit anderen Teams als zusätzlicher Impuls.
+
+### 4.2 Drei-Ebenen-Explorations-Architektur
+
+Die Standortbestimmung erfolgt über drei aufeinander aufbauende Ebenen. Jede Ebene hat einen eigenen Zweck, Respondenten-Kreis und Rhythmus:
+
+| Ebene | Zweck | Frequenz | Respondent | Dauer |
+|-------|-------|----------|------------|-------|
+| **1: Context & Readiness** | Fakten und Rahmenbedingungen erfassen (Branche, Team, Tech-Stack, Budget) | Einmalig (Kickoff) | AI Transformation Manager / Tech Lead (1–2 Personen, nicht anonym) | ~30 Min |
+| **2: Pulse Check** | CRAFT-Spider-Score (1–5) pro Dimension tracken, Trends erkennen | Jeden 4-Wochen-Zyklus (Woche 1) | Alle Teammitglieder (anonym) | ≤15 Min |
+| **3: Deep-Dives** (5×) | Granulare Sub-Topic-Analyse pro Dimension (je 4 Sub-Topics) | 1× Kickoff (Baseline) + on-demand | Alle Teammitglieder (anonym) | ~15–20 Min pro Dimension |
+
+**Beziehung Pulse Check ↔ Deep-Dive:** Der Pulse Check ist ein *Extrakt* der Deep-Dives. Jede Pulse-Check-Maturity-Frage (z.B. C-M1) fasst die 4 Sub-Topics des entsprechenden Deep-Dives zusammen. Deep-Dives liefern das granulare *Warum*, der Pulse Check trackt den *Trend*.
+
+> **Design-Methodik:** Alle Explorations-Prinzipien (Scoring-Formeln, Kalibrierungsregeln, Visualisierung, Anonymität) sind in `deliverables/question_banks/METHODOLOGY.md` dokumentiert. Die YAML-Dateien in `deliverables/question_banks/` sind die Source of Truth für alle Fragen. Die Fragen folgen dem **Backward-Design-Ansatz** (Wiggins & McTighe, 2005): Ausgehend von typischen Herausforderungen pro Dimension werden diagnostische Signale identifiziert und die Fragen so konstruiert, dass sie diese Herausforderungen aufdecken. Die systematische Challenge-Herausforderungs-Analyse ist in `deliverables/question_banks/CHALLENGE-MAP.md` dokumentiert.
+
+### 4.3 Kontext-Profile
+
+Organisationen unterscheiden sich fundamental in ihren Rahmenbedingungen — eine agile Digital-Agentur hat andere Herausforderungen als eine regulierte Bank. Um die Interpretation der CRAFT-Scores zu kontextualisieren, nutzt das Framework vier archetypisierte Kontext-Profile:
+
+| Profil | Kennzeichen | Typische Schwerpunkte |
+|--------|-------------|----------------------|
+| **Agil & Offen** | Flache Hierarchien, Cloud-native, wenig Regulierung | Policy-Vakuum, Shadow AI, fehlende Messbarkeit |
+| **Enterprise Reguliert** | Starke Regulierung, komplexe Governance, große IT | Governance-Bottleneck, Compliance-Angst, Manager als Bremse |
+| **Public Sector** | Betriebsrat, Datenschutz, lange Entscheidungswege | Breite Hürden über alle Dimensionen, Tool-Mangel, Existenzangst |
+| **Konzern Liberal** | Große Organisation, aber innovationsfreundlich | Coding-Only-Adoption, Stagnation bei oberflächlicher Nutzung |
+
+**Anwendungsprinzip:** Dieselben Fragen werden allen Teams gestellt (Vergleichbarkeit). Das Profil beeinflusst ausschließlich die **Interpretation** der Ergebnisse — welche Herausforderungen bei niedrigen Scores am wahrscheinlichsten sind und welche Interventionen am wirksamsten. Die vollständige Profil-Relevanz-Matrix für alle 30 typischen Herausforderungen ist in `deliverables/question_banks/CHALLENGE-MAP.md` dokumentiert.
+
+### 4.4 Pulse Check Inhalte
+
+Der Pulse Check erfasst pro CRAFT-Dimension 2–3 Fragen: 1 Maturity-Frage (5-Level, konkrete Verhaltensbeschreibungen von *Exploring* bis *Evolving*) + 1–2 MC-Diagnostik-Fragen (erklären das Warum). Keine Likert-Skalen — jede Maturity-Stufe beschreibt konkretes Verhalten, nicht Zustimmungsgrade. Beispiel: „Ich weiß nicht, welche AI-Tools ich nutzen darf" (Level 1) vs. „Compliance ist in meinen Workflow integriert" (Level 5).
+
+---
 
 **Verankerung der dualen Zielsetzung im Zyklus:**
 
@@ -501,7 +499,7 @@ flowchart LR
     style P3 fill:#e2e8f0,stroke:#4a5568,color:#1a202c
 ```
 
-### 4.1 Zyklus-Struktur (4 Wochen)
+### 4.5 Zyklus-Struktur (4 Wochen)
 
 | Woche | Fokus | Aktivitäten |
 |-------|-------|-------------|
@@ -509,7 +507,7 @@ flowchart LR
 | Woche 2–3 | Umsetzung | Tool-Rollout und Konfiguration, Value Stream Workshops, Change-Workshops, Governance-Klärungen, Skill-Building-Sessions |
 | Woche 4 | Review & Anpassung | **Business Problem Check** (North Star Metrics zuerst), Retrospektive mit dem Team, Metriken-Review (DORA, Adoption), Readiness Gate Entscheidung, Anpassung des nächsten Zyklus |
 
-### 4.2 Business Problem Check (Woche 4)
+### 4.6 Business Problem Check (Woche 4)
 
 Bevor die Readiness-Gate-Entscheidung fällt, wird der **Business Problem Check** durchgeführt. Er stellt sicher, dass die Transformation nicht zum Selbstzweck wird, sondern auf das identifizierte Business-Problem fokussiert bleibt.
 
@@ -522,7 +520,7 @@ Bevor die Readiness-Gate-Entscheidung fällt, wird der **Business Problem Check*
 
 > **Leitfrage für den AI Transformation Manager:** *"Wenn ich dem Sponsor heute erklären müsste, wie diese Transformation sein Business-Problem löst — was genau würde ich sagen?"* Wenn die Antwort nicht klar und konkret ist, fehlt der rote Faden.
 
-### 4.3 Readiness Gates
+### 4.7 Readiness Gates
 
 Nach dem Business Problem Check steht die Readiness-Gate-Entscheidung: Wird der nächste Zyklus den Scope erweitern (neue Teams, neue SDLC-Phasen), vertiefen (bessere Integration in bestehenden Teams) oder konsolidieren (Stabilisierung, bevor weiter skaliert wird)? Diese Entscheidung trifft das AI Adoption Team gemeinsam mit dem Sponsor.
 
@@ -531,7 +529,7 @@ Nach dem Business Problem Check steht die Readiness-Gate-Entscheidung: Wird der 
 > - **Vertiefung:** Adoption Rate < 60% oder DORA-Verschlechterung, aber positive Cultural Readiness Trends. Oder: **North Star Metrics stagnieren trotz guter CRAFT-Scores** (→ falsche Interventionen?).
 > - **Konsolidierung:** Governance-Änderungen stehen an, Teamumbau, oder kultureller Widerstand erfordert zusätzliche Change-Arbeit.
 
-### 4.4 Typischer Verlauf (6 Zyklen / 24 Wochen)
+### 4.8 Typischer Verlauf (6 Zyklen / 24 Wochen)
 
 | Zyklus | Schwerpunkt | Erwartete Ergebnisse |
 |--------|-------------|----------------------|
@@ -545,9 +543,9 @@ Nach dem Business Problem Check steht die Readiness-Gate-Entscheidung: Wird der 
 
 Das Mess-System folgt drei Prinzipien: Outcomes messen statt Output zählen, auf etablierte Metriken aufbauen statt neue erfinden, und minimalen Overhead erzeugen durch automatisierte Erhebung wo immer möglich.
 
-### 5.1 Drei-Schichten-Architektur
+Das KPI-System ist in drei aufeinander aufbauende Schichten gegliedert: Delivery Outcomes (was liefern wir?), AI Maturity (wie gut nutzen wir AI?), und Business Impact (lösen wir das richtige Problem?). Die Schichten sind unabhängig erhebbar, entfalten aber ihren vollen Erklärungswert erst zusammen.
 
-#### Schicht 1: Delivery Outcomes (DORA + Value Stream)
+### 5.1 Schicht 1: Delivery Outcomes (DORA + Value Stream)
 
 Die DORA Metrics sind der Goldstandard für Software Delivery Performance. Sie werden vor und während der Transformation erhoben, um den Delta sichtbar zu machen. Ergänzt um Value-Stream-spezifische Metriken:
 
@@ -560,7 +558,7 @@ Die DORA Metrics sind der Goldstandard für Software Delivery Performance. Sie w
 | Cycle Time (E2E) | Von Anforderung bis Produktion | Aus Jira / Azure DevOps / GitLab |
 | Flow Efficiency | Aktive Bearbeitung vs. Wartezeit | Aus Value Stream Mapping + Tool-Daten |
 
-#### Schicht 2: AI Maturity – Das CRAFT-Modell
+### 5.2 Schicht 2: AI Maturity – Das CRAFT-Modell
 
 Ein 5-Dimensionen-Modell, zugeschnitten auf den SDLC-Kontext. Jede CRAFT-Dimension korrespondiert direkt mit einer Framework-Dimension (D1–D5) – die Handlungsdimension und ihr KPI-Gegenstück sind deckungsgleich. Das Modell wird über zwei komplementäre Instrumente erhoben:
 
@@ -677,7 +675,7 @@ flowchart TB
 | F – Flow | Anteil SDLC-Phasen mit definierten AI-Interventionen, Flow Efficiency (aktiv vs. Wartezeit), CI/CD-Integration, **Commercial Flow Alignment Score** (Vertragsmodell-Kompatibilität) | Pulse Check + Pipeline-Daten + Context Readiness |
 | T – Technical | Tool Availability Score, Integration Depth (standalone vs. IDE-integriert vs. Workflow-integriert), Modellabdeckung pro SDLC-Phase, **supported usage mode** (welche Modi sind offiziell/technisch möglich) | Automatisch + Pulse Check |
 
-#### Schicht 3: Business Impact (für Sponsoren)
+### 5.3 Schicht 3: Business Impact (für Sponsoren)
 
 Schicht 3 arbeitet **dual — Top-down und Bottom-up:**
 
@@ -900,7 +898,7 @@ Das Framework hat vier strukturelle Eigenschaften, die das Investitionsrisiko sy
 Der Pulse Check liefert alle 4 Wochen objektive Evidenz über den Fortschritt — keine Selbsteinschätzung des Beraters, sondern anonyme Team-Daten und automatisierte DORA-Metriken. Wenn eine Dimension stagniert, wird das nach spätestens einem Zyklus sichtbar.
 
 **2. Readiness Gates als Stop/Go-Mechanik**
-Nach jedem 4-Wochen-Zyklus steht eine bewusste Entscheidung (vgl. Kap. 4.2): Erweitern, Vertiefen oder Konsolidieren. Das verhindert die klassische Falle, zu schnell zu skalieren, bevor der Boden bereitet ist. Es verhindert aber auch, dass Engagement-Phasen sich endlos fortsetzen ohne Ergebnis.
+Nach jedem 4-Wochen-Zyklus steht eine bewusste Entscheidung (vgl. Kap. 4.7): Erweitern, Vertiefen oder Konsolidieren. Das verhindert die klassische Falle, zu schnell zu skalieren, bevor der Boden bereitet ist. Es verhindert aber auch, dass Engagement-Phasen sich endlos fortsetzen ohne Ergebnis.
 
 **3. Kosten-Risiko-Asymmetrie der Discovery**
 Die Discovery-Phase (8-12 PT) ist die kleinste Investition mit dem größten Informationsgewinn. Nach 2-3 Wochen weiß die Organisation: Wo stehen wir? Wo sind die größten Hebel? Lohnt sich ein Pilot? Die Ergebnisse (CRAFT Report, Quick Wins) haben unabhängig von der Folgeentscheidung eigenständigen Wert.
@@ -931,8 +929,8 @@ Das Framework ist mehr als ein Strategiepapier. Folgende konkrete Werkzeuge und 
 
 | Werkzeug | Beschreibung | Status | Priorität |
 |----------|--------------|--------|-----------|
-| CRAFT Explorer App | Web-basierte App für CRAFT Explorer (Deep-Dive + Pulse Check), begleitet durch AI Transformation Manager. Generiert CRAFT-Scores und Radar-Chart als Grundlage für gemeinsame Roadmap-Ableitung | Zu entwickeln | Hoch |
-| CRAFT Explorer | Drei-Ebenen-Fragenarchitektur (Context & Readiness + Pulse Check + 5 Deep-Dives) mit Design-Methodik. 7 YAML-Dateien + METHODOLOGY.md in `deliverables/question_banks/` | **v2.0 fertig** | Hoch |
+| CRAFT Explorer App | Web-basierte App für CRAFT Explorer (Deep-Dive + Pulse Check), begleitet durch AI Transformation Manager. Generiert CRAFT-Scores und Radar-Chart als Grundlage für gemeinsame Roadmap-Ableitung. Stack: Vue 3 + Vite + TypeScript + Tailwind CSS + Chart.js. | **MVP fertig** | Hoch |
+| CRAFT Explorer | Drei-Ebenen-Fragenarchitektur (Context & Readiness + Pulse Check + 5 Deep-Dives) mit Design-Methodik. 7 YAML-Dateien + METHODOLOGY.md in `deliverables/question_banks/` | **v2.1 fertig** | Hoch |
 | Challenge Map | Systematische Herausforderungs-Analyse: 30 typische Herausforderungen (6 pro CRAFT-Dimension) mit Root Causes, diagnostischen Signalen, Kausalketten und Profil-Relevanz-Matrix. Basis für Backward Design der Fragen. `deliverables/question_banks/CHALLENGE-MAP.md` | **v1.0 fertig** | Hoch |
 | AI Intervention Katalog | Kuratierte Zuordnung von SDLC-Phasen zu AI-Lösungen mit Tooling-Alternativen pro Sicherheitsstufe | Entwurf vorhanden | Hoch |
 | Interventionskatalog Readiness (R) | Score-basierte Interventionsempfehlungen für Dimension R mit Diagnostik-Mapping, Steckbriefen und Priorisierungsmatrix. `deliverables/intervention-catalogue-readiness.md` | **v1.0 DRAFT** | Hoch |
@@ -1118,7 +1116,7 @@ Nicht alle Werkzeuge müssen gleichzeitig fertig sein. Der kritische Pfad für e
 ### 12.2 Offene Entscheidungen
 
 - **CRAFT-Validierung:** Das Modell ist ein Entwurf, kein validiertes Instrument. Für interne Nutzung akzeptabel, für externe Vermarktung bräuchte es Pilotierung und Kalibrierung mit realen Daten. Der Pilot (B3) ist die Validierungsgelegenheit.
-- **App-Technologie:** Web-App (React) für maximale Flexibilität vs. Teams-Integration für schnellere Adoption im Konzernumfeld? Empfehlung: Web-App mit Teams-Embedding als Option. Aber: Nicht vor dem Pilot investieren – Google/MS Forms reicht für die Validierung.
+- **App-Technologie:** Entschieden: Web-App auf Basis Vue 3 + Vite + TypeScript + Tailwind CSS + Chart.js, deployed via Docker (air-gapped-fähig). Teams-Embedding bleibt als spätere Option offen.
 - **Lizenzmodell:** Open Framework (Glaubwürdigkeit, Community-Aufbau) vs. proprietäres Beratungsprodukt (Revenue) vs. Hybrid (Framework offen, Werkzeuge und Begleitung als Service)? Empfehlung: Hybrid – aber erst entscheiden, wenn Pilot-Ergebnisse vorliegen.
 - **Community-Modell:** Interne CoP zuerst, externes CoE erst bei nachgewiesener Wirksamkeit.
 
@@ -1134,5 +1132,5 @@ Nicht alle Werkzeuge müssen gleichzeitig fertig sein. Der kritische Pfad für e
 
 ---
 
-*AI Transformation Framework – powered by CRAFT – Version 1.0 DRAFT*
+*AI Transformation Framework – powered by CRAFT – Version 1.0 DRAFT | April 2026*
 *© 2026 | AI Transformation Management*
