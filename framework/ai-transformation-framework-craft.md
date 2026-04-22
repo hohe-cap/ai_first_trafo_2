@@ -331,20 +331,9 @@ Jeder Eintrag im Katalog enthält: konkretes Tooling mit Alternativen für versc
 
 #### Commercial Flow Alignment
 
-Ein oft übersehener, aber strukturell kritischer Aspekt der Flow-Dimension: Der kommerzielle Rahmen, in dem Teams arbeiten, kann AI-Transformation systematisch blockieren.
+Ein oft übersehener Flow-Constraint: Das Vertragsmodell, in dem Teams arbeiten, kann AI-Transformation systematisch blockieren. Unter Time & Material-Verträgen führt AI-Effizienz unmittelbar zu weniger abrechenbaren Stunden — Champions-Kapazität, Tooling-Investitionen und VSM-Workshops lassen sich kaum begründen. Dieses **T&M-Paradoxon** ist eine unterschätzte strukturelle Ursache für das Scheitern von AI-Initiativen.
 
-**Das T&M-Paradoxon:**
-
-Unter Time & Material-Verträgen führt AI-Effizienz unmittelbar zu weniger abrechenbaren Stunden. Dieser Mechanismus erzeugt systemische Fehlanreize:
-
-- **Champions-Kapazität** (20% dedizierte Zeit) ist gegenüber dem Kunden kaum begründbar
-- **Tooling-Investitionen** ohne direkten Stunden-ROI werden intern nicht genehmigt
-- **VSM-Workshops und Change-Aufwände** lassen sich ohne explizite Kunden-Anforderung nicht verbuchen
-- **Shadow AI** entsteht, weil offizielle Adoption die Stundenzahl sichtbar reduziert
-
-Das MIT NANDA-Datenpunkt „95% Piloten scheitern" hat hier eine oft unbeachtete Ursache: nicht fehlende Technologie, sondern strukturell falsch ausgerichtete Geschäftsmodelle.
-
-**Vertragsmodell-Kompatibilitätsmatrix:**
+**Vertragsmodell-Kompatibilität:**
 
 | Vertragsmodell | Incentive-Alignment | AI-Transformation-Readiness |
 |----------------|---------------------|---------------------------------|
@@ -353,24 +342,7 @@ Das MIT NANDA-Datenpunkt „95% Piloten scheitern" hat hier eine oft unbeachtete
 | Hybrid (T&M + Success Bonus) | ✅ Teilweise aligned | Mittel-Hoch |
 | Outcome-Based / Gainsharing | ✅✅ Belohnt Effizienz direkt | Hoch — optimaler Rahmen |
 
-**Aufgabe des Value Stream Coach — Commercial Flow Check:**
-
-Im Kickoff jeder Transformation wird das Vertragsmodell als Flow-Constraint bewertet. Bei T&M-Identifikation gibt es drei Interventionspfade:
-
-1. **Innovation Budget:** Dediziertes „AI Transformation Budget" außerhalb T&M mit dem Kunden verhandeln — oft einfacher als direkte Vertragsumstellung
-2. **Vertragsrunde als Opportunity:** Nächste Vertragsverlängerung aktiv für Modell-Wechsel nutzen; Gainsharing-Pilot als „risikominimale Einstiegsoption" positionieren
-3. **Transparenz-Strategie:** Effizienzgewinne explizit sichtbar machen — Kunden, die die AI-Vorteile konkret sehen, sind häufig offen für Modellwechsel
-
-**Erweiterung des AI Intervention Katalogs:**
-
-Commercial Flow Interventionen werden als übergeordnete Kategorie im Katalog geführt:
-
-| Intervention | Trigger | Verantwortung |
-|---|---|---|
-| Contract Model Review + Empfehlung | Kickoff, immer | Value Stream Coach |
-| Kunden-Workshop „AI-First Commercial Models" | T&M + Awareness-Lücke beim Kunden | AI Transformation Manager |
-| Gainsharing Pilot Design | T&M > 12 Monate, Effizienzgewinne messbar | Value Stream Coach + AI Transformation Manager |
-| Innovation Budget Verhandlung | T&M + kurzfristiger Investitionsbedarf | AI Transformation Manager + Sponsor |
+**Commercial Flow Check (Value Stream Coach):** Im Kickoff wird das Vertragsmodell als Flow-Constraint bewertet. Bei T&M gibt es drei Pfade: (1) **Innovation Budget** — dediziertes AI-Budget außerhalb T&M verhandeln, (2) **Vertragsrunde als Opportunity** — nächste Verlängerung für Modellwechsel nutzen, (3) **Transparenz-Strategie** — Effizienzgewinne explizit sichtbar machen, damit Kunden offen für Modellwechsel werden. Detaillierte Interventionssteckbriefe und Katalog-Erweiterung: `deliverables/craft-service-offerings.md`.
 
 ### 3.5 Dimension 5: Technical Enablement (T)
 
@@ -817,6 +789,8 @@ Der Übergang von einem erfolgreichen Pilot zu einer breiten Adoption ist der sc
 
 ## 8. Engagement-Architektur: Vom Framework zur Wirkung
 
+> **Hinweis zur Lesart:** Dieses Kapitel beschreibt, wie das Framework in der Beratungspraxis eingesetzt wird. Es wechselt bewusst von der konzeptionellen Beschreibung zur Anwendungsperspektive — die Zielgruppe sind Sponsoren und Projektteams zu Beginn einer Zusammenarbeit.
+
 Die vorherigen Kapitel beschreiben *was* wir steuern (CRAFT-Dimensionen), *wie* wir arbeiten (Iterationsmodell) und *wie* wir messen (KPI-Framework). Dieses Kapitel beantwortet die vier Fragen, die jeder Sponsor und jedes Projektteam stellt, bevor eine Transformation beginnt: Was gewinnen wir? Wie arbeiten wir zusammen? Was kostet das? Und wie halten wir das Risiko gering?
 
 ### 8.1 Value Proposition: Was die Organisation gewinnt
@@ -897,7 +871,7 @@ flowchart LR
 
 In diesem Modell verschiebt sich die Rolle vom operativen Enabler zum strategischen Partner: weniger Workshops, mehr Coaching. Weniger direkte Umsetzung, mehr Sparring und Qualitätssicherung. Die Intensität sinkt, der strategische Hebel steigt.
 
-> **Marketing-Aspekt:** Der modulare Aufbau erleichtert den Einstieg. Eine Organisation kann mit einer Discovery beginnen (geringes Commitment, hoher Informationsgewinn) und bei Erfolg natürlich in die nächste Phase wachsen. Das reduziert die Einstiegshürde und die Abschlussgröße des ersten Engagements — und erhöht die Wahrscheinlichkeit einer langfristigen Partnerschaft durch nachgewiesene Wirksamkeit.
+> **Engagement-Logik:** Der modulare Aufbau erleichtert den Einstieg. Eine Organisation kann mit einer Discovery beginnen (geringes Commitment, hoher Informationsgewinn) und bei Erfolg natürlich in die nächste Phase wachsen. Das reduziert die Einstiegshürde und die Abschlussgröße des ersten Engagements — und erhöht die Wahrscheinlichkeit einer langfristigen Partnerschaft durch nachgewiesene Wirksamkeit.
 
 ### 8.3 Investitionsschutz: Warum das Risiko kontrollierbar ist
 
@@ -1013,11 +987,7 @@ Dieses Kapitel beantwortet drei Fragen: Was übernehmen wir von bestehenden Mode
 
 ### 11.1 Das Kernproblem: Adoption ohne Transformation
 
-Die Datenlage ist eindeutig und ernüchternd. Die [MIT NANDA-Studie „The GenAI Divide"](https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf) (2025) zeigt: Während über 80% der Organisationen AI-Tools pilotiert haben, erreichen nur 5% der Enterprise-AI-Initiativen die Produktionsreife mit messbarem P&L-Impact. S&P Global berichtet, dass 42% der Unternehmen 2025 die Mehrheit ihrer AI-Initiativen eingestellt haben – ein Anstieg von 17% im Vorjahr. [McKinseys State of AI Survey](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) (2025) bestätigt: Über 80% der Organisationen sehen keinen messbaren EBIT-Impact durch AI. Bains Studie von 2024 beziffert die allgemeine Transformations-Failure-Rate sogar auf 88%.
-
-Die Ursachen sind dabei konsistent über alle Studien hinweg: es sind keine Technologieprobleme, sondern Transformationsprobleme. MIT identifiziert „brittle workflows" und fehlende kontextuelle Lernfähigkeit als Hauptblocker. [McKinsey zeigt](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-how-organizations-are-rewiring-to-capture-value), dass Workflow-Redesign unter 25 getesteten Attributen den stärksten Effekt auf EBIT-Impact hat – stärker als Tooling, Talent oder Budget. Und die [NTT DATA-Analyse](https://www.nttdata.com/global/en/insights/focus/2024/between-70-85p-of-genai-deployment-efforts-are-failing) betont, dass Change Fatigue und fehlendes Vertrauen die menschliche Seite der Gleichung dominieren.
-
-Genau in diese Lücke – zwischen Tool-Adoption und tatsächlicher Wertschöpfung – zielt unser Framework.
+Die empirische Datenlage zeigt konsistent: 80–95% der AI-Initiativen scheitern nicht an Technologie, sondern an fehlender Prozessanpassung, Change Management und cross-funktionaler Koordination (→ vollständige Datenlage mit Quellenangaben: Kap. 1.3 und 1.4). Workflow-Redesign ist empirisch der stärkste Hebel auf EBIT-Impact — stärker als Tooling, Talent oder Budget (McKinsey State of AI 2025). Genau in diese Lücke zwischen Tool-Adoption und tatsächlicher Wertschöpfung zielt unser Framework.
 
 ### 11.2 Was wir übernehmen und warum
 

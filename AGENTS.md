@@ -1,6 +1,6 @@
 # AI-First Transformation Project - Agent Instructions
 
-**Version:** 1.2 | **Last Updated:** 2026-02-24
+**Version:** 1.3 | **Last Updated:** 2026-04-22
 
 ---
 
@@ -270,6 +270,6 @@ sondern an fehlender Prozessintegration und Change Management.
 
 **Version-Info:**
 - Framework Version: 1.0 DRAFT
-- AGENTS.md Version: 1.2
+- AGENTS.md Version: 1.3
 - CRAFT Explorer Version: 2.1 (Question Banks + METHODOLOGY.md + Challenge Map + Profile-Logik)
-- Letzte Sync mit Vollversion: 2026-03-25
+- Letzte Sync mit Vollversion: 2026-04-22 (Improvement-Roadmap Phasen 3–5 abgeschlossen)
