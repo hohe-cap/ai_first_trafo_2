@@ -57,48 +57,45 @@
 
 ---
 
-## Phase 3: Redundanzen reduzieren
+## Phase 3: Redundanzen reduzieren ✅ Erledigt (2026-04-22)
 
 > Ziel: Jedes Konzept wird 1× definiert und danach referenziert. Wiederholung nur wenn sie dem Leser an dieser Stelle wirklich hilft.
 
-### 3.1 Duale Zielsetzung konsolidieren
+### 3.1 Duale Zielsetzung konsolidieren ✅
 **Ist:** 3× nahezu gleich erklärt (Kap. 2, Kap. 4, Kap. 5 Schicht 3)
-**Soll:** 1× vollständig in Kap. 2, danach kurze Rückverweise ("vgl. duale Zielsetzung, Kap. 2")
+**Umgesetzt:**
+- Kap. 4 (nach 4.4): 8-Zeilen-Block auf 2 Sätze gekürzt, Verweis "(→ vgl. Kap. 2)" ergänzt
+- Kap. 5.3 Zusammenspiel: "(→ duale Zielsetzung, Kap. 2)" ergänzt, 1 Satz gestrichen
 
-### 3.2 Failure-Rate-Statistiken entduplizieren
+### 3.2 Failure-Rate-Statistiken entduplizieren ✅
 **Ist:** "95% Failure Rate" / "80-95% scheitern" erscheint in Kap. 1.3, 2, 8.2, 11.1
-**Soll:** Vollständig in Kap. 1 (dort gehören die Zahlen hin), Kap. 11 darf sie im Abgrenzungskontext nochmal nutzen. Kap. 2 und 8 referenzieren nur.
+**Umgesetzt:**
+- Kap. 1.4: Zahl (80–95%) explizit ergänzt mit Verweis "(→ vollständige Datenlage: Kap. 11.1)"
+- Kap. 8.1: Explizite Quellennennung (MIT NANDA, S&P, RAND) durch "(→ Datenlage vollständig: Kap. 11.1)" ersetzt
+- Kap. 11.1: Vollständige Analyse bleibt als primäre Auswertungsstelle
 
-### 3.3 CRAFT-Dimensionen-Auflistung entduplizieren
-**Ist:** Dimensionen werden in Kap. 3 (Tabelle) und Kap. 5.1 Schicht 2 (Liste) aufgelistet
-**Soll:** Kap. 5 referenziert die Dimensionsdefinition aus Kap. 3 und beschreibt nur das Scoring
+### 3.3 CRAFT-Dimensionen-Auflistung entduplizieren ✅
+**Ist:** Dimensionen werden in Kap. 3 (Tabelle) und Kap. 5.2 Schicht 2 (Liste) aufgelistet
+**Umgesetzt:** Einleitungssatz vor Dimensionsliste in Kap. 5.2 ergänzt: "(→ vollständige Beschreibung: Kap. 3)"
 
-### 3.4 Pulse-Check-Beschreibung konsolidieren
-**Ist:** 3× beschrieben (Kap. 3 Drei-Ebenen-Tabelle, Kap. 3 Pulse-Check-Inhalte, Kap. 5)
-**Soll:** 1× vollständig in der Explorations-Architektur, Kap. 5 referenziert nur die Scoring-Logik
+### 3.4 Pulse-Check-Beschreibung konsolidieren ✅
+**Ist:** 3× beschrieben (Kap. 4.2 Drei-Ebenen-Tabelle, Kap. 4.4 Pulse-Check-Inhalte, Kap. 5.2)
+**Umgesetzt:** Kap. 5.2-Bullets: Format-Beschreibung durch Verweise "(→ Kap. 4.4)" und "(→ Kap. 4.2)" ersetzt; nur Scoring-Formeln verbleiben
 
 ---
 
-## Phase 4: Fehlende Elemente ergänzen
+## Phase 4: Fehlende Elemente ergänzen ✅ Erledigt (2026-04-22)
 
 > Neue Inhalte, die das Framework runder machen.
 
-### 4.1 Glossar
-- [ ] Anhang mit Definitionen: SDLC, DORA, VSM, PDCA, T&M, MCP, DPA, CoP, CoE, LLM, etc.
-- [ ] Kurz halten (1-Zeiler pro Begriff)
+### 4.1 Glossar ✅
+**Umgesetzt:** Neuer Anhang "Anhang: Glossar" am Ende des Dokuments (vor dem Copyright-Block). 20 Begriffe alphabetisch mit 1-Zeiler-Definitionen: ADKAR, Air-gapped, BR, CFR, CoE, CoP, CRAFT, DAU, DORA, DPA, EBIT, EU AI Act, IDE, LLM, MCP, PDCA, ROI, SDLC, Shadow AI, T&M, VSM.
 
-### 4.2 Dimensionsbezogene Reifestufen-Tabelle
-**Problem:** Die 5 Reifestufen (Exploring → Evolving) sind generisch beschrieben. Was "Exploring" bei Compliance bedeutet vs. bei Adoption, bleibt abstrakt.
+### 4.2 Dimensionsbezogene Reifestufen-Tabelle ✅
+**Umgesetzt:** Neue Tabelle "Dimensionsspezifische Reifestufen" (5 Dimensionen × 5 Stufen) nach der generischen CRAFT-Reifestufen-Tabelle in Kap. 5.2 eingefügt. Je 1 konkreter Satz pro Zelle — beschreibt, was die Stufe in der Praxis bedeutet (nicht abstrakt).
 
-**Zu diskutieren:**
-- Tabelle: 5 Dimensionen × 5 Stufen mit je 1 konkretem Satz
-- Aufwand: Mittel (muss inhaltlich sorgfältig sein, da die Question Banks darauf aufbauen)
-- Alternative: Verweis auf Deep-Dive-Fragen, die genau das operationalisieren
-
-### 4.3 Kern-Differenzierung nach vorne ziehen
-**Problem:** Kap. 11.3 ("Warum reicht keines allein?") erklärt die drei Ebenen (Technik, Change, Value Stream), die kein einzelnes Modell abdeckt. Das ist die stärkste Positionierungsaussage — aber erst auf Seite 30+.
-
-**Soll:** Essenz (5-6 Sätze) in Kap. 2 (Executive Summary) als Absatz vor oder nach den Kernprinzipien. Kap. 11 bleibt als tiefe Analyse.
+### 4.3 Kern-Differenzierung nach vorne ziehen ✅
+**Umgesetzt:** Das bestehende "Differenzierungsmerkmal"-Callout in Kap. 2 wurde zu "Positionierung" ausgebaut und enthält nun die drei kritischen Ebenen explizit: (1) Maturity-Modelle bleiben abstrakt, (2) Change-Frameworks sind technologie-agnostisch, (3) VSM/DORA sagen nicht wie man Bottlenecks mit AI löst. Kap. 11 bleibt als vollständige Analyse, mit Verweis "(→ Kap. 11)".
 
 ---
 

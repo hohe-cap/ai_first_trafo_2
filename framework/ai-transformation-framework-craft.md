@@ -69,7 +69,7 @@ Der [DORA Report 2024](https://dora.dev/research/2024/dora-report/) belegt: 25% 
 
 Die Chancen sind real, der Druck ist da, und Nicht-Handeln hat einen messbaren Preis. Die logische Folge: AI-Transformation ist keine Option, sondern eine strategische Notwendigkeit.
 
-Aber — und hier beginnt die eigentliche Herausforderung — **die meisten scheitern auf dem Weg dorthin.** Nicht weil AI nicht funktioniert, sondern weil die Verbindung zwischen AI-Potenzial und konkretem Business-Problem fehlt. AI wird zum Selbstzweck, statt spezifische Herausforderungen zu lösen. Genau dieses Problem adressiert das folgende Framework.
+Aber — und hier beginnt die eigentliche Herausforderung — **die meisten scheitern auf dem Weg dorthin.** Studien beziffern die Failure Rate auf 80–95% (→ vollständige Datenlage: Kap. 11.1). Nicht weil AI nicht funktioniert, sondern weil die Verbindung zwischen AI-Potenzial und konkretem Business-Problem fehlt. AI wird zum Selbstzweck, statt spezifische Herausforderungen zu lösen. Genau dieses Problem adressiert das folgende Framework.
 
 ---
 
@@ -104,7 +104,7 @@ Die North Star Metrics werden im **Business Impact Discovery** (vor dem CRAFT Ex
 - **Human-Centric Change:** Technologieeinführung ohne begleitenden Change-Prozess produziert Shelfware. Das Framework behandelt Rollenentwicklung, psychologische Sicherheit und Fähigkeitsaufbau als gleichberechtigte Dimensionen.
 - **Iterativ statt sequenziell:** Komplexe Transformationen lassen sich nicht in linearen Phasen planen. Das Framework arbeitet mit 4-Wochen-Iterationszyklen, in denen alle Dimensionen parallel adressiert werden.
 
-> **Differenzierungsmerkmal:** Anders als reine Technologie-Frameworks (z.B. Tool-Kataloge) oder reine Strategie-Frameworks (z.B. Maturity-Modelle) verbindet das AI Transformation Framework konkrete technische Umsetzung mit systematischem Change Management entlang des gesamten SDLC. Die duale Zielsetzung — konkreter Business Impact *und* systematischer AI-Fähigkeitsaufbau — stellt sicher, dass die Transformation weder zum Selbstzweck wird noch im Aktionismus versandet. Die Rolle des AI Transformation Managers als orchestrierende Kraft ist dabei zentral.
+> **Positionierung:** Die bestehenden Ansätze adressieren jeweils nur eine von drei kritischen Ebenen — und das ist das Problem: **(1)** AI Maturity Modelle (MITRE, Gartner, EY) messen den organisationalen Reifegrad, aber sie gehen nicht in den SDLC hinein und bleiben für ein Team, das am Montag anfangen will, abstrakt. **(2)** Change-Frameworks (Kotter, ADKAR) sind technologie-agnostisch und ignorieren die Besonderheiten von AI: die Geschwindigkeit der Tool-Evolution, den Angst-Komplex „KI ersetzt meinen Job" und EU AI Act-Anforderungen. **(3)** Value-Stream-Frameworks (Lean VSM, DORA) messen Prozesseffizienz exzellent, aber nicht wie man Bottlenecks mit AI löst oder das Team dabei mitnimmt. Das AI Transformation Framework verbindet alle drei Ebenen in einem operativ nutzbaren System: SDLC-Tiefe mit Tool-Alternativen pro Sicherheitsstufe, AI-spezifisches Change Management und Value Stream als Entscheidungsgrundlage für Interventionen. Die duale Zielsetzung — konkreter Business Impact *und* systematischer AI-Fähigkeitsaufbau — stellt sicher, dass die Transformation weder zum Selbstzweck wird noch im Aktionismus versandet. (→ vollständige Abgrenzungsanalyse: Kap. 11)
 
 ---
 
@@ -437,14 +437,9 @@ Der Pulse Check erfasst pro CRAFT-Dimension 2–3 Fragen: 1 Maturity-Frage (5-Le
 
 ---
 
-**Verankerung der dualen Zielsetzung im Zyklus:**
+**Verankerung der dualen Zielsetzung im Zyklus (→ vgl. Kap. 2):**
 
-Jeder Iterationszyklus verfolgt beide Linsen gleichzeitig (siehe Kapitel 2):
-
-- **Linse 1 (Business Impact):** Im Business Impact Discovery wurden 2–3 **North Star Metrics** definiert, die das konkrete Business-Problem messen. Jeder Zyklus beginnt und endet mit der Frage: *Bewegen sich unsere North Star Metrics?* Der Business Problem Check in Woche 4 ist das formale Instrument dafür.
-- **Linse 2 (AI-Befähigung):** Die **CRAFT-Scores** zeigen, wie gut das Team AI systematisch nutzen kann. Verbesserungen in den CRAFT-Dimensionen sind der *Hebel*, über den sich die North Star Metrics verbessern — aber nur wenn die richtigen Dimensionen adressiert werden.
-
-Die Verbindung: Wenn die North Star Metrics sich nicht bewegen, obwohl CRAFT-Scores steigen, stimmt das Interventions-Portfolio nicht (falsche Dimension, falscher Bottleneck). Wenn die CRAFT-Scores nicht steigen, fehlen Voraussetzungen für Business Impact. Der Iterationszyklus steuert beides.
+Woche 1 beginnt mit dem Review beider Linsen aus dem Vorzyklus: North Star Metrics (Linse 1) und CRAFT-Scores aus dem Pulse Check (Linse 2). Woche 4 prüft im Business Problem Check, ob CRAFT-Fortschritte die North Star Metrics tatsächlich bewegen — stagnieren die Metriken trotz steigender CRAFT-Scores, stimmt das Interventionsportfolio nicht.
 
 ```mermaid
 ---
@@ -562,10 +557,12 @@ Die DORA Metrics sind der Goldstandard für Software Delivery Performance. Sie w
 
 Ein 5-Dimensionen-Modell, zugeschnitten auf den SDLC-Kontext. Jede CRAFT-Dimension korrespondiert direkt mit einer Framework-Dimension (D1–D5) – die Handlungsdimension und ihr KPI-Gegenstück sind deckungsgleich. Das Modell wird über zwei komplementäre Instrumente erhoben:
 
-- **Pulse Check** (jeden 4-Wochen-Zyklus): 1 Maturity-Frage pro Dimension → Spider-Score = Median über alle Respondenten (1–5)
-- **Deep-Dives** (Kickoff-Baseline + on-demand): 4 Sub-Topics pro Dimension → Spider-Score = (Median × 0.6) + (Minimum × 0.4)
+- **Pulse Check** (→ Format und Inhalt: Kap. 4.4): Spider-Score = Median über alle Respondenten (1–5)
+- **Deep-Dives** (→ Format und Inhalt: Kap. 4.2): Spider-Score = (Median × 0.6) + (Minimum × 0.4)
 
 Die Min-gewichtete Formel der Deep-Dives verhindert, dass kritische Schwächen im Durchschnitt verschwinden. Ein Sub-Topic auf Level 1 bleibt als Blocker sichtbar, egal wie gut die anderen Sub-Topics sind. Alle Maturity-Fragen folgen einem universellen 5-Level-Progressionsmuster mit konkreten Verhaltensbeschreibungen (keine Likert-Skalen), um Vergleichbarkeit über Dimensionen und Zeit zu gewährleisten.
+
+Die leitende Frage pro Dimension im Scoring-Kontext (→ vollständige Beschreibung: Kap. 3):
 
 - **C – Compliance & Governance (D1):** Sind regulatorische Leitplanken etabliert und werden sie eingehalten?
 - **R – Readiness, Human & Cultural (D2):** Können und wollen die Menschen AI effektiv und kritisch nutzen?
@@ -665,6 +662,18 @@ flowchart TB
 | 4 | Scaling | AI ist Teil des Standardprozesses, messbare Outcome-Verbesserungen, Skalierung auf weitere Teams läuft. |
 | 5 | Evolving | Kontinuierliche Optimierung, AI treibt Prozessinnovation, Team gestaltet aktiv neue Arbeitsweisen. |
 
+#### Dimensionsspezifische Reifestufen
+
+Die generischen Bezeichnungen bedeuten je Dimension Unterschiedliches. Die folgende Tabelle macht konkret, was jede Stufe in der Praxis aussieht — als Orientierung für die Einschätzung und als Grundlage für die Deep-Dive-Fragen:
+
+| Dimension | Exploring (1) | Experimenting (2) | Embedding (3) | Scaling (4) | Evolving (5) |
+|-----------|--------------|------------------|--------------|------------|-------------|
+| **C – Compliance** | Keine AI-Policy vorhanden; Tooling-Entscheidungen werden individuell getroffen. | Erste Policy-Entwürfe; Betriebsrat informiert, aber noch nicht formal eingebunden. | Klare Policy für Stufe-1/2-Tools; Betriebsrats-Vereinbarung unterzeichnet; Entscheidungsbaum für Tool-Auswahl vorhanden. | Alle drei Sicherheitsstufen abgedeckt; EU AI Act Requirements dokumentiert; Governance-Prozesse weitgehend standardisiert. | Governance evoliert proaktiv mit neuer Regulatorik; Teams führen selbst Compliance-Checks durch; Governance ist Enabler, nicht Bremse. |
+| **R – Readiness** | Einzelne Enthusiasten; Team ist skeptisch oder passiv; kein strukturierter Skill-Aufbau. | Erste Schulungen durchgeführt; ein Champion identifiziert; Shadow AI wird diskutiert, aber noch nicht kanalisiert. | Alle Teammitglieder haben AI-Grundkompetenz; Champion aktiv und vernetzt; psychologische Sicherheit ist messbar positiv. | Skill-Entwicklung ist Teil des Onboarding; Champion-Netzwerk trägt sich selbst; Team entwickelt eigene Best Practices. | Team mentort andere Teams; AI-Kompetenz ist in Rollenprofilen verankert; kontinuierliche Lernkultur ohne externes Zutun. |
+| **A – Adoption** | Vereinzelte Nutzung (<20 % DAU/Team); primär Chat-Modus, außerhalb des Workflows. | 20–40 % DAU/Team; erste IDE-Integration; AI-Nutzung auf 1–2 SDLC-Phasen beschränkt. | 40–70 % DAU/Team; IDE-integriert; mind. 3 SDLC-Phasen abgedeckt; Shadow AI rückläufig. | >70 % DAU/Team; alle relevanten SDLC-Phasen abgedeckt; agentische Nutzungsmuster entstehen. | AI-Nutzung ist selbstverständlich; Team experimentiert mit neuen Usage Modes und optimiert kontinuierlich. |
+| **F – Flow** | Keine AI-Interventionen im SDLC definiert; Bottlenecks unbekannt oder unbearbeitet. | Value Stream kartiert; Top-3-Bottlenecks identifiziert; erste AI-Interventionen ad hoc erprobt. | Top-3-Bottlenecks haben definierte AI-Interventionen; Flow Efficiency messbar verbessert; CI/CD partiell AI-integriert. | Alle relevanten SDLC-Phasen mit AI-Interventionen belegt; Commercial Flow Alignment geklärt; Flow Efficiency deutlich gestiegen. | Team identifiziert selbst neue Bottlenecks und entwickelt AI-Interventionen; AI treibt aktiv Prozessinnovation. |
+| **T – Technical** | Kein standardisiertes Tooling; jeder nutzt andere Tools; keine zentrale Infrastruktur. | Erste Tool-Auswahl getroffen; IDE-Plugin installiert; Nutzung auf Public-Cloud-Tools beschränkt. | Standardisiertes Stufe-1-Tooling; IDE-Integration vollständig; erste Stufe-2-Optionen pilotiert. | Tooling für alle drei Sicherheitsstufen verfügbar; MCP-Server und Prompt-Libraries etabliert; Monitoring aktiv. | Tooling-Architektur evoliert mit dem Markt; Team entwickelt eigene Integrations-Patterns und teilt sie proaktiv. |
+
 #### CRAFT Metriken pro Dimension
 
 | Dimension | Metriken | Erhebungsart |
@@ -691,7 +700,7 @@ Die 2–3 North Star Metrics werden im Business Impact Discovery (vor der CRAFT 
 
 Aggregation aus Schicht 1 und 2 in geschäftssprachliche Kennzahlen: Velocity-Veränderung, Time-to-Market-Verbesserung, Qualitätsveränderung (aus Change Failure Rate) und Mitarbeiterzufriedenheit (aus Cultural Readiness). Wird automatisch generiert und quartalsweise an Sponsoren kommuniziert.
 
-**Zusammenspiel:** Die North Star Metrics zeigen, *ob* das Business-Problem gelöst wird. Die Bottom-up-Aggregation zeigt, *warum* (oder warum nicht) — welche CRAFT-Dimensionen und DORA-Metriken die Veränderung treiben. Beide zusammen ergeben das vollständige Bild für Sponsoren.
+**Zusammenspiel (→ duale Zielsetzung, Kap. 2):** Die North Star Metrics zeigen, *ob* das Business-Problem gelöst wird. Die Bottom-up-Aggregation zeigt, *warum* — welche CRAFT-Dimensionen und DORA-Metriken die Veränderung treiben. Beide ergeben das vollständige Bild für Sponsoren.
 
 > **Overhead-Minimierung:** Die meisten Metriken werden automatisch aus bestehenden Tools erhoben (CI/CD, Jira, IDE-Telemetrie). Der Pulse Check ist das einzige Element, das aktive Beteiligung erfordert – maximal 15 Minuten pro Zyklus (alle 4 Wochen). Kein zusätzliches Reporting-System, keine Excel-Tabellen, keine manuellen KPI-Erhebungen. Die North Star Metrics nutzen dieselben Datenquellen, die ohnehin vorhanden sind.
 
@@ -818,7 +827,7 @@ Die Wertversprechen des Frameworks lassen sich auf drei Ebenen formulieren:
 Die empirische Basis ist belastbar (vgl. Kapitel 1): 55% schnellere Task-Completion, 25%+ AI-generierter Code bei Vorreitern, messbare DORA-Verbesserungen bei korrekt integrierter AI. Das Framework stellt sicher, dass diese Potenziale nicht nur als Einzeleffekte verpuffen, sondern systematisch im gesamten SDLC realisiert werden.
 
 **Ebene 2: Reduziertes Transformationsrisiko**
-Die Failure Rate von AI-Initiativen liegt bei 80-95% (MIT NANDA, S&P Global, RAND). Das Framework adressiert die drei empirisch identifizierten Hauptursachen: fehlende Prozessanpassung (Dimension F: Value Stream First), fehlendes Change Management (Dimension R: Human-Centric) und fehlende cross-funktionale Koordination (AI Adoption Team mit Readiness Gates).
+Die empirische Failure Rate liegt bei 80–95% (→ Datenlage vollständig: Kap. 11.1). Das Framework adressiert die drei empirisch identifizierten Hauptursachen: fehlende Prozessanpassung (Dimension F: Value Stream First), fehlendes Change Management (Dimension R: Human-Centric) und fehlende cross-funktionale Koordination (AI Adoption Team mit Readiness Gates).
 
 **Ebene 3: Befähigung statt Abhängigkeit**
 Das Engagement-Modell ist auf Wissenstransfer ausgelegt. Jede Phase baut interne Kompetenz auf: Champions werden ausgebildet, Playbooks werden übergeben, das KPI-System läuft autonom. Das Ziel ist nicht maximale Beratungsdauer, sondern maximale Selbststeuerungsfähigkeit der Organisation.
@@ -1129,6 +1138,36 @@ Nicht alle Werkzeuge müssen gleichzeitig fertig sein. Der kritische Pfad für e
 | CRAFT-Scoring liefert keine aussagekräftigen Ergebnisse | Mittel | Mittel | Pulse Check als explorativ framen, nicht als KPI. Kalibrierung nach Zyklus 2 einplanen. Zur Not auf reine DORA-Metriken + qualitatives Feedback zurückfallen. |
 | Framework wird als „zu akademisch" wahrgenommen | Mittel | Mittel | Pitch auf konkrete Pain Points und Werkzeuge fokussieren, nicht auf Framework-Architektur. „Wir helfen euch, eure Bottlenecks zu lösen" statt „Wir haben ein 5-Dimensionen-Modell". |
 | Tool-Landschaft ändert sich schneller als der Katalog | Hoch | Niedrig | Katalog als lebendes Dokument mit quartalsweisem Review-Zyklus. Champions als Sensor-Netzwerk für neue Tools. |
+
+---
+
+## Anhang: Glossar
+
+Kurzdefinitionen der im Framework verwendeten Fachbegriffe (alphabetisch):
+
+| Begriff | Definition |
+|---------|-----------|
+| **ADKAR** | Awareness, Desire, Knowledge, Ability, Reinforcement — Change-Management-Modell von Prosci für individuelle Verhaltensänderung. |
+| **Air-gapped** | Netzwerkisoliertes Deployment ohne Verbindung zur öffentlichen Cloud; entspricht Sicherheitsstufe 3 im Framework (z.B. Ollama lokal). |
+| **BR (Betriebsrat)** | Gesetzlich vorgeschriebenes Arbeitnehmervertretungsgremium in deutschen Unternehmen mit Mitbestimmungsrechten bei der Einführung von Technologien und Überwachungssystemen. |
+| **CFR (Change Failure Rate)** | DORA-Metrik: Anteil der Deployments, die einen Ausfall oder eine manuelle Korrektur nach sich ziehen. |
+| **CoE (Center of Excellence)** | Formelle Organisationseinheit, die Best Practices, Standards und Wissen zu einem Thema entwickelt und unternehmenweit verbreitet. |
+| **CoP (Community of Practice)** | Informelles Netzwerk von Praktikern, die Erfahrungen und Wissen zu einem gemeinsamen Themenfeld teilen und weiterentwickeln. |
+| **CRAFT** | Compliance, Readiness, Adoption, Flow, Technical — die fünf Dimensionen dieses Frameworks. |
+| **DAU (Daily Active Users)** | Anzahl der täglich aktiven Nutzer einer Anwendung oder eines Tools; im Framework: DAU/Team-Ratio als Adoption-Metrik. |
+| **DORA** | DevOps Research and Assessment — Forschungsprogramm (heute bei Google), das vier Schlüsselmetriken für Software-Delivery-Performance definiert: Deployment Frequency, Lead Time for Changes, Change Failure Rate, Time to Restore. |
+| **DPA (Data Processing Agreement)** | Datenverarbeitungsvertrag gemäß DSGVO, der die Auftragsverarbeitung zwischen Auftraggeber und Dienstleister regelt; Voraussetzung für den Einsatz von Cloud-AI-Tools. |
+| **EBIT** | Earnings Before Interest and Taxes — operatives Ergebnis vor Zinsen und Steuern; im Framework als Business-Impact-Bezugsgröße (McKinsey State of AI 2025). |
+| **EU AI Act** | EU-Verordnung zur Regulierung von KI-Systemen (in Kraft seit 2024); risikobasierter Ansatz mit Pflichten für Hochrisiko-AI-Systeme; relevant für Dimension C. |
+| **IDE (Integrated Development Environment)** | Entwicklungsumgebung mit Code-Editor, Debugging und Build-Tools (z.B. VS Code, JetBrains); Integrationstiefe ist eine T-Metrik. |
+| **LLM (Large Language Model)** | Auf großen Textmengen trainiertes KI-Modell, das natürliche Sprache versteht und generiert (z.B. GPT-4o, Claude, Llama, Mistral). |
+| **MCP (Model Context Protocol)** | Offenes Protokoll für die standardisierte Integration von AI-Modellen mit externen Werkzeugen, Datenquellen und Systemen. |
+| **PDCA** | Plan-Do-Check-Act — Deming'scher Verbesserungskreis; im Framework operationalisiert als: Woche 1 = Plan, Woche 2–3 = Do, Woche 4 = Check + Adjust. |
+| **ROI (Return on Investment)** | Verhältnis von erzieltem Nutzen zu investierten Kosten; im Framework Bestandteil des Business Case und der Ergebnismatrix (Kap. 8.4). |
+| **SDLC (Software Development Life Cycle)** | Gesamter Prozess der Software-Entwicklung von der Anforderungsanalyse (Requirements) über Design, Entwicklung, Testing und Deployment bis zum Betrieb (Operations). |
+| **Shadow AI** | Nicht offiziell genehmigte Nutzung von AI-Tools durch Mitarbeiter; Risiko: Datenlecks und Compliance-Verstöße; Framework-Ansatz: Kanalisierung statt Verbot (→ Shadow AI Amnestie, Dimension R). |
+| **T&M (Time & Material)** | Vertragsmodell, bei dem tatsächlicher Aufwand und Material fakturiert werden — im Gegensatz zu Festpreisverträgen; relevant für Commercial Flow Alignment (Dimension F). |
+| **VSM (Value Stream Mapping)** | Lean-Methode zur Visualisierung und Analyse des gesamten Wertschöpfungsprozesses inklusive Wartezeiten und Übergaben; Herzstück von Dimension F. |
 
 ---
 
