@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRAFT AI Transformation Framework — Executive Deck v2 (Dark)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+  :root {
+    --navy: #0C1B2E;
+    --navy-light: #162A45;
+    --slate: #2D4A6B;
+    --slate-light: #7B8FA8;
+    --blue: #0070AD;
+    --blue-dark: #005C8F;
+    --blue-light: #0096E0;
+    --cyan: #00DCFA;
+    --emerald: #2BD9AA;
+    --amber: #FFB500;
+    --rose: #FF6673;
+    --violet: #7B61FF;
+    --white: #FFFFFF;
+
+    --gray-50: rgba(255,255,255,0.04);
+    --gray-100: rgba(255,255,255,0.05);
+    --gray-200: rgba(255,255,255,0.10);
+    --gray-300: #B8C9DC;
+    --gray-400: rgba(123, 143, 168, 0.7);
+    --gray-600: rgba(184, 201, 220, 0.85);
+    --gray-700: rgba(255,255,255,0.92);
+    --gray-800: #162A45;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .presentation {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 80px 100px;
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+    overflow-y: auto;
+  }
+
+  .slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+  }
+
+  .slide.exit-left {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+
+  /* Navigation */
+  .nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 72px;
+    background: rgba(12, 27, 46, 0.95);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 0 40px;
+    z-index: 100;
+  }
+
+  .nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.05);
+    color: var(--white);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 120px;
+    justify-content: center;
+  }
+
+  .nav-btn:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.25);
+  }
+
+  .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+  .nav-btn.primary { background: var(--blue); border-color: var(--blue); }
+  .nav-btn.primary:hover { background: var(--blue-dark); }
+
+  .slide-counter {
+    font-size: 13px;
+    color: var(--slate-light);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    transition: width 0.4s ease;
+    z-index: 101;
+  }
+
+  /* Typography */
+  .slide-tag {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue-light);
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    font-size: clamp(16px, 2vw, 22px);
+    color: var(--gray-300);
+    font-weight: 300;
+    line-height: 1.5;
+    max-width: 700px;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--blue-light), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-warm {
+    background: linear-gradient(135deg, var(--amber), var(--rose));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-accent { background: linear-gradient(135deg, var(--blue-light), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .text-accent-warm { background: linear-gradient(135deg, var(--amber), var(--rose)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  /* Layout helpers */
+  .slide-content {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+  }
+
+  .slide-content.left { text-align: left; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 32px;
+    text-align: left;
+  }
+
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+    text-align: left;
+  }
+
+  /* Cards */
+  .card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 28px;
+    transition: all 0.3s;
+  }
+
+  .card:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+  }
+
+  .card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  .card p { font-size: 14px; color: var(--gray-300); line-height: 1.6; }
+  .card h3 { font-size: 18px; margin-bottom: 8px; }
+
+  /* Stats */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 36px;
+  }
+
+  .stat {
+    text-align: center;
+    padding: 24px 16px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+  }
+
+  .stat-number {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label { font-size: 13px; color: var(--slate-light); line-height: 1.4; }
+  .stat-source { font-size: 11px; color: rgba(100, 116, 139, 0.7); margin-top: 6px; }
+
+  /* Dimension cards */
+  .dim-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 22px 26px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    transition: all 0.3s;
+  }
+
+  .dim-card:hover { background: rgba(255,255,255,0.06); transform: translateX(4px); }
+
+  .dim-letter {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .dim-info h3 { margin-bottom: 4px; font-size: 17px; }
+  .dim-info p { font-size: 13.5px; color: var(--gray-300); line-height: 1.5; }
+
+  /* Cycle diagram */
+  .cycle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 32px 0;
+    flex-wrap: wrap;
+  }
+
+  .cycle-step {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 24px 28px;
+    text-align: center;
+    min-width: 180px;
+    flex: 1;
+    max-width: 240px;
+  }
+
+  .cycle-step h3 { font-size: 15px; margin-bottom: 6px; }
+  .cycle-step p { font-size: 13px; color: var(--gray-300); line-height: 1.5; }
+  .cycle-arrow { font-size: 24px; color: var(--slate-light); flex-shrink: 0; }
+  .cycle-step .week {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--blue-light);
+    margin-bottom: 8px;
+  }
+
+  /* Gate cards */
+  .gate-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 24px;
+  }
+
+  .gate-card {
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .gate-card h3 { font-size: 16px; margin-bottom: 6px; }
+  .gate-card p { font-size: 12px; line-height: 1.5; opacity: 0.85; }
+  .gate-card .gate-icon { font-size: 28px; margin-bottom: 10px; }
+
+  /* Team roles */
+  .role-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .role-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 20px 16px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .role-card:hover { background: rgba(255,255,255,0.07); transform: translateY(-3px); }
+  .role-icon { font-size: 32px; margin-bottom: 12px; }
+  .role-card h3 { font-size: 14px; margin-bottom: 6px; line-height: 1.3; }
+  .role-card p { font-size: 12px; color: var(--gray-300); line-height: 1.4; }
+
+  .role-card .dim-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+
+  /* Layers */
+  .layer-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 28px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .layer {
+    border-radius: 14px;
+    padding: 22px 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .layer-num { font-size: 28px; font-weight: 800; opacity: 0.6; flex-shrink: 0; width: 40px; }
+  .layer-content h3 { font-size: 16px; margin-bottom: 4px; }
+  .layer-content p { font-size: 13px; line-height: 1.5; }
+
+  /* Timeline */
+  .timeline {
+    display: flex;
+    gap: 0;
+    margin-top: 28px;
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 5%;
+    right: 5%;
+    height: 2px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .timeline-item {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    padding: 0 12px;
+  }
+
+  .timeline-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin: 33px auto 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .timeline-item h4 { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+  .timeline-item p { font-size: 12px; color: var(--gray-300); line-height: 1.4; }
+  .timeline-item .phase { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--blue-light); }
+
+  /* Quote */
+  blockquote {
+    border-left: 3px solid var(--blue);
+    padding-left: 20px;
+    margin: 20px 0;
+    font-style: italic;
+    color: var(--gray-300);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  blockquote cite {
+    display: block;
+    font-style: normal;
+    font-size: 12px;
+    color: var(--slate-light);
+    margin-top: 8px;
+  }
+
+  /* CTA */
+  .cta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 32px;
+    text-align: left;
+  }
+
+  .cta-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 28px;
+    transition: all 0.3s;
+  }
+
+  .cta-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-3px); }
+  .cta-card .cta-num { font-size: 36px; font-weight: 700; color: var(--blue); margin-bottom: 12px; }
+  .cta-card h3 { font-size: 17px; margin-bottom: 6px; }
+  .cta-card p { font-size: 13px; color: var(--gray-300); line-height: 1.5; }
+  .cta-card .cta-detail { font-size: 12px; color: var(--slate-light); margin-top: 10px; }
+
+  /* Radar chart */
+  .radar-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .radar-wrap svg text {
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+  /* Feature list */
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .feature-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+    font-size: 14px;
+    color: var(--gray-300);
+    line-height: 1.5;
+  }
+
+  .feature-list li:last-child { border-bottom: none; }
+
+  .feature-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  /* Dual lens layout */
+  .dual-lens {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 28px;
+    text-align: left;
+  }
+
+  .lens-card {
+    border-radius: 18px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .lens-card .lens-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .lens-card h3 { font-size: 20px; margin-bottom: 12px; }
+  .lens-card p { font-size: 13.5px; line-height: 1.6; }
+
+  .lens-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-top: 12px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .lens-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+
+  .lens-connector {
+    margin-top: 20px;
+    padding: 18px 24px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--gray-300);
+  }
+
+  /* Capgemini branding */
+  .brand-logo {
+    position: fixed;
+    top: 20px;
+    right: 32px;
+    z-index: 102;
+    width: 130px;
+    height: auto;
+    opacity: 0.7;
+  }
+
+  .brand-logo svg { width: 100%; height: auto; display: block; }
+
+  .brand-footer {
+    position: fixed;
+    bottom: 74px;
+    left: 40px;
+    right: 40px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: rgba(123, 143, 168, 0.5);
+    z-index: 99;
+    pointer-events: none;
+  }
+
+  /* Color utilities */
+  .bg-blue { background: rgba(0, 112, 173, 0.15); color: var(--blue-light); }
+  .bg-emerald { background: rgba(43, 217, 170, 0.15); color: var(--emerald); }
+  .bg-amber { background: rgba(255, 181, 0, 0.15); color: var(--amber); }
+  .bg-rose { background: rgba(255, 102, 115, 0.15); color: var(--rose); }
+  .bg-violet { background: rgba(123, 97, 255, 0.15); color: var(--violet); }
+  .bg-cyan { background: rgba(0, 220, 250, 0.15); color: var(--cyan); }
+
+  .border-blue { border-color: rgba(0, 112, 173, 0.3) !important; }
+  .border-emerald { border-color: rgba(43, 217, 170, 0.3) !important; }
+  .border-amber { border-color: rgba(255, 181, 0, 0.3) !important; }
+  .border-rose { border-color: rgba(255, 102, 115, 0.3) !important; }
+  .border-violet { border-color: rgba(123, 97, 255, 0.3) !important; }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .slide { padding: 40px 40px 100px; }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .role-grid { grid-template-columns: repeat(3, 1fr); }
+    .three-col, .two-col, .cta-grid, .gate-grid, .dual-lens { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="brand-logo">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1.067 -1.067 161.582 37.69" aria-label="Capgemini">
+    <path style="fill:#fff;fill-rule:evenodd" d="m 153.2175,21.2782 c 3.4962,0 6.1962,-2.8462 6.2312,-6.225 -0.245,-1.475 -0.7625,-4.2037 -4.585,-4.2037 -4.19,0 -5.5762,5.8487 -8.985,9.6237 -0.2737,2.1438 -2.305,4.0625 -4.8387,4.385 0.62,0.6488 2.0025,1.0013 3.6525,1.0013 3.0175,0 6.67,-0.9088 8.5837,-2.7988 -2.5537,0.035 -4.1937,-1.6062 -4.355,-3.8762 1.245,1.5087 2.6513,2.0937 4.2963,2.0937"/>
+    <path style="fill:#fff;fill-rule:evenodd" d="m 126.3725,11.972 c 0,-1.86 -0.1125,-3.1 -1.3288,-3.1 -0.5562,0 -0.825,0.1125 -1.3087,0.2725 0.43,6.28 -0.9913,11.8125 -2.7238,11.8125 -2.2712,0 -1.1387,-13.4625 -5.9475,-13.4625 -4.4387,0 -5.0787,10.7475 -5.5812,10.7475 -0.3425,0 -0.395,-2.8225 -0.3763,-4.9763 0.1863,-1.03 0.2888,-1.9575 0.2888,-2.6612 0,-1 -0.41,-2.7288 -2.6813,-1.865 0.079,7.6862 -1.46,12.3287 -3.1937,12.3287 -2.5388,0 -2.5675,-6.9675 -2.5675,-8.8862 0,-1.875 0.1362,-4.38 -2.6513,-3.4913 -0.415,6.7038 -2.1737,11.7625 -3.2812,11.7625 -1.6513,0 -1.3188,-11.5812 -4.8888,-11.5812 -3.2125,0 -4.2037,10.9712 -4.8725,10.9712 -1.1962,0 0.3763,-12.3487 -4.2625,-12.3487 -2.4312,0 -3.3987,4.1212 -4.3512,8.735 -0.185,0.8937 -0.375,0.9237 -0.41,-0.087 -0.024,-0.8588 -0.029,-1.7238 -0.019,-2.5825 1.1663,-4.6388 -0.2587,-6.3525 -2.4075,-5.1175 0.6938,8.56 -3.2375,12.7437 -6.25,12.7437 -1.0887,0 -1.9487,-0.4637 -2.5875,-1.1962 3.6125,-2.2163 5.2188,-4.76 5.2188,-7.2463 0,-2.69 -1.5475,-4.2425 -4.1163,-4.2425 -3.5837,0 -5.59,3.6913 -5.59,6.8313 0,1.6887 0.3175,3.125 0.835,4.3062 -1.2312,0.5863 -2.3925,1.0938 -3.4725,1.5863 -0.098,-3.2275 -0.4587,-6.615 -0.7362,-9.745 -1.91,-0.5275 -2.4663,0.39 -2.6125,2.0887 -0.3425,3.8775 -1.7775,6.285 -3.0475,6.285 -0.9525,0 -1.5375,-1.1625 -1.6063,-2.3975 -0.3562,-6.2162 4.6875,-7.945 7.3288,-7.0412 0.5475,-1.3725 -0.054,-2.3588 -2.4363,-2.3588 -2.8862,0 -5.0437,1.7538 -6.6262,4.0038 -1.0538,1.5 -2.275,2.5637 -3.8963,3.8487 0.044,-0.3662 0.064,-0.7375 0.064,-1.1037 0,-4.38 -2.3738,-6.3038 -4.6388,-6.3038 -1.875,0 -3.0562,1.1225 -3.74,2.8513 -0.1662,-1.7338 -0.5125,-2.48 -1.5187,-2.48 -0.43,0 -1.03,0.1212 -1.67,0.4337 0.2925,0.9675 0.405,3.1113 0.405,4.5175 0,5.2675 -1.5088,7.6313 -2.9588,7.6313 -1.66,0 -1.9237,-6.25 -2.065,-8.6813 -0.2587,-0.098 -0.5325,-0.1512 -0.8112,-0.1512 -1.5038,0 -1.6988,2.0162 -2.07,3.8712 -0.41,2.0563 -1.5913,4.6388 -3.345,4.6388 -1.0588,0 -1.7238,-1.02 -1.8063,-2.8563 -0.1712,-3.725 2.93,-8.14 7.7788,-6.7675 0.6337,-1.4837 -0.3625,-2.6125 -2.3738,-2.6125 -3.545,0 -6.475,2.6513 -7.7537,5.7913 -1.2988,2.8812 -3.57,7.11 -8.1888,7.11 C 6.26,21.7975 3.76,18.95 3.76,12.9787 c 0,-5.1462 3.2462,-10.035 6.7087,-10.035 2.4213,0 2.9838,2.3838 2.7688,4.62 1.255,1.005 3.31,0.067 3.31,-2.4462 0,-1.7338 -1.4063,-4.6738 -5.9513,-4.6738 C 4.9712,0.4437 0,6.055 0,13.4225 0,20.5612 3.6225,24.78 8.75,24.78 c 3.2375,0 6.2887,-1.845 8.3937,-5.2538 0.5325,2.9838 2.5638,4.2388 4.0863,4.2388 2.4662,0 4.0775,-1.5975 4.9562,-3.755 0.5475,2.1625 1.7038,3.765 3.6288,3.765 1.3525,0 2.4112,-0.6888 3.2075,-1.7875 -0.3175,7.5187 -0.7125,12.3137 3.73,11.3725 -0.6875,-2.1388 -0.9075,-6.0313 -0.9075,-9.5275 0,-9.565 1.5775,-12.7138 3.555,-12.7138 1.435,0 1.8987,1.825 1.8987,3.7738 0,1.045 -0.1025,2.2462 -0.3662,3.325 -2.4313,1.5337 -4.37,2.745 -4.37,4.2825 0,1.2162 0.9037,1.3275 1.685,1.3275 1.865,0 4.1112,-1.83 5.3512,-5.2825 1.0838,-0.6588 2.1725,-1.4113 3.2125,-2.4363 -0.034,0.3513 -0.054,0.7025 -0.054,1.0638 0,3.4275 1.4987,5.5037 3.8962,5.5037 1.88,0 3.2863,-1.3337 4.2825,-3.33 0.064,1.1513 0.1025,2.2113 0.1175,3.1825 -3.8087,1.7638 -8.0225,3.55 -8.0225,8.5213 0,2.5725 1.855,4.5062 4.2725,4.5062 5.3075,0 6.5188,-5.6 6.5675,-12.1087 1.7288,-0.7475 3.0125,-1.3238 4.4975,-2.0613 1.2688,1.5925 2.9975,2.3888 4.58,2.3888 2.9925,0 5.2438,-1.5875 7.05,-4.805 0.3175,2.4462 0.9525,4.805 2.2563,4.805 2.3725,0 2.8562,-12.4125 4.6187,-12.4125 1.3525,0 0.245,13.4275 3.8138,13.4275 3.0562,0 3.6275,-11.8163 5.1175,-11.8163 1.055,0 1.1325,10.8013 4.4625,10.8013 1.6362,0 3.4137,-1.9688 4.3012,-6.09 0.42,2.745 1.8025,6.09 4.5075,6.09 1.5775,0 2.935,-1.5975 3.9838,-3.7163 0.2887,2.1825 0.9037,3.7163 2.1,3.7163 3.11,0 3.0075,-12.3838 5.4687,-12.3838 1.9188,0 1.3288,12.3838 5.8988,12.3838 2.1725,0 3.2025,-1.8513 3.8187,-4.18 0.8388,3.4225 2.2013,4.18 3.315,4.18 0.7075,0 1.245,-0.25 1.9488,-1.085 -3.5363,-1.5325 -3.2375,-7.1138 -3.2375,-10.7175 m -74.8438,21.27 c -1.0987,0 -1.68,-1.045 -1.68,-2.2225 0,-3.1788 2.3338,-4.8625 5.205,-6.3125 -0.1275,6.9425 -1.7437,8.535 -3.525,8.535 m 14.2775,-22.51 c 1.0688,0 1.6788,0.9812 1.5713,2.3925 -0.1213,1.655 -1.3275,3.555 -3.4275,5.0437 -1.0938,-3.115 -0.2775,-7.4362 1.8562,-7.4362 M 99.6722,6.035 c 1.0162,-0.034 1.7287,-0.9075 1.7337,-1.9475 0.01,-1.04 -0.6987,-1.8613 -1.7187,-1.8225 -1.02,0.035 -1.85,0.9087 -1.855,1.9487 -0.01,1.04 0.82,1.855 1.84,1.8213 m 25.3325,0.5275 c 0.9275,-0.034 1.685,-0.8638 1.685,-1.855 0,-0.9913 -0.7425,-1.7675 -1.67,-1.7388 -0.9288,0.034 -1.685,0.8688 -1.69,1.86 -0.01,0.9913 0.7475,1.7675 1.675,1.7338 m 34.4387,8.2425 c -0.079,-3.9263 -1.9437,-7.2363 -4.825,-9.8788 -2.1875,-1.9962 -4.785,-3.515 -7.5087,-4.6575 -0.215,-0.092 -0.44,-0.1812 -0.66,-0.2687 -3.3538,4.0187 -14.965,7.0162 -14.965,15.44 0,3.29 2.08,6.3712 5.1312,7.6075 1.7725,0.6687 3.54,0.7025 5.3125,0.1062 1.5775,-0.5175 2.8713,-1.4937 3.95,-2.68 3.4088,-3.775 4.795,-9.6187 8.98,-9.6187 3.8275,0 4.345,2.7237 4.59,4.1987 0,-0.01 0,-0.1075 -0.01,-0.2487"/>
+  </svg>
+</div>
+<div class="brand-footer">
+  <span>CRAFT AI Transformation Framework &mdash; Executive Deck</span>
+  <span>Company Confidential &copy; Capgemini 2026. All rights reserved.</span>
+</div>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="presentation" id="presentation">
+
+  <!-- ==================== SLIDE 1: TITLE ==================== -->
+  <div class="slide active" data-slide="0">
+    <div class="slide-content">
+      <div class="slide-tag">AI Transformation Framework</div>
+      <h1>
+        <span class="text-accent">CRAFT</span><br>
+        AI Transformation<br>Framework
+      </h1>
+      <p class="subtitle" style="margin: 20px auto 0;">
+        Vom AI-Tool-Rollout zur messbaren Wertsch&ouml;pfung im Software Development Life Cycle.
+      </p>
+      <div style="margin-top: 40px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <span style="font-size: 13px; padding: 8px 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: var(--gray-300);">
+          <strong style="color: var(--amber);">C</strong>ompliance
+        </span>
+        <span style="font-size: 13px; padding: 8px 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: var(--gray-300);">
+          <strong style="color: var(--emerald);">R</strong>eadiness
+        </span>
+        <span style="font-size: 13px; padding: 8px 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: var(--gray-300);">
+          <strong style="color: var(--amber);">A</strong>doption
+        </span>
+        <span style="font-size: 13px; padding: 8px 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: var(--gray-300);">
+          <strong style="color: var(--cyan);">F</strong>low
+        </span>
+        <span style="font-size: 13px; padding: 8px 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: var(--gray-300);">
+          <strong style="color: var(--violet);">T</strong>echnical Enablement
+        </span>
+      </div>
+      <p style="margin-top: 48px; font-size: 13px; color: var(--slate-light);">Capgemini &middot; Version 2.0 &middot; 2026</p>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 2: DUALE ZIELSETZUNG (NEU) ==================== -->
+  <div class="slide" data-slide="1">
+    <div class="slide-content">
+      <div class="slide-tag">Duale Zielsetzung</div>
+      <h2>Zwei Fragen, die zusammen<br><span class="text-accent">den Unterschied machen</span></h2>
+      <p style="font-size: 15px; color: var(--gray-300); margin-bottom: 4px;">
+        Jede AI-Transformation hat zwei Motivationen. CRAFT macht beide explizit &mdash; und h&auml;lt sie in jedem Zyklus sichtbar.
+      </p>
+
+      <div class="dual-lens">
+        <!-- Linse 1 -->
+        <div class="lens-card" style="background: rgba(0,112,173,0.06); border: 1px solid rgba(0,112,173,0.25);">
+          <div class="lens-label" style="color: var(--blue-light);">&#9312; Business Impact</div>
+          <h3 style="color: var(--white); font-size: 18px;">Welches konkrete Problem<br>wollen wir l&ouml;sen?</h3>
+          <div class="lens-row">
+            <div class="lens-dot" style="background: var(--blue-light);"></div>
+            <div style="color: var(--gray-300);">Konkretes Business-Problem identifizieren: z.&thinsp;B. <em>&bdquo;Lead Time von 3 Wochen auf 10 Tage senken&ldquo;</em></div>
+          </div>
+          <div class="lens-row">
+            <div class="lens-dot" style="background: var(--blue-light);"></div>
+            <div style="color: var(--gray-300);">2&ndash;3 <strong style="color: var(--white);">individuelle Business Impact Metriken</strong> definieren, die direkt das Problem messen</div>
+          </div>
+          <div class="lens-row">
+            <div class="lens-dot" style="background: var(--blue-light);"></div>
+            <div style="color: var(--gray-300);">Jeden Zyklus pr&uuml;fen: <strong style="color: var(--white);">Business Impact Check</strong> (Woche&nbsp;4)</div>
+          </div>
+          <div style="margin-top: 16px; padding: 10px 14px; background: rgba(0,112,173,0.1); border-radius: 8px; font-size: 12px; color: var(--blue-light);">
+            Adressat: Sponsor / C-Level
+          </div>
+        </div>
+
+        <!-- Linse 2 -->
+        <div class="lens-card" style="background: rgba(43,217,170,0.05); border: 1px solid rgba(43,217,170,0.22);">
+          <div class="lens-label" style="color: var(--emerald);">&#9313; AI-Bef&auml;higung</div>
+          <h3 style="color: var(--white); font-size: 18px;">Wie gut k&ouml;nnen wir AI<br>systematisch nutzen?</h3>
+          <div class="lens-row">
+            <div class="lens-dot" style="background: var(--emerald);"></div>
+            <div style="color: var(--gray-300);">CRAFT-Scores &uuml;ber 5 Dimensionen &times; 5 Reifestufen</div>
+          </div>
+          <div class="lens-row">
+            <div class="lens-dot" style="background: var(--emerald);"></div>
+            <div style="color: var(--gray-300);">Jeden 4-Wochen-Zyklus: <strong style="color: var(--white);">Pulse Check</strong> (Spider-Chart als Kompass)</div>
+          </div>
+          <div class="lens-row">
+            <div class="lens-dot" style="background: var(--emerald);"></div>
+            <div style="color: var(--gray-300);">Granular per Deep-Dive: <em>Warum</em> stagniert eine Dimension?</div>
+          </div>
+          <div style="margin-top: 16px; padding: 10px 14px; background: rgba(43,217,170,0.08); border-radius: 8px; font-size: 12px; color: var(--emerald);">
+            Adressat: AI Adoption Team / Entwicklungsteams
+          </div>
+        </div>
+      </div>
+
+      <div class="lens-connector" style="max-width: 860px; margin: 16px auto 0;">
+        <span style="color: var(--white); font-weight: 600;">Zusammen entsteht der rote Faden:</span><br>
+        CRAFT-Dimensionen verbessern &nbsp;&rarr;&nbsp; Business Impact Metriken bewegen sich &nbsp;&rarr;&nbsp; Business-Problem wird gel&ouml;st.<br>
+        <span style="font-size: 12px; color: var(--slate-light); margin-top: 6px; display: block;">
+          Nur Linse&nbsp;1 ohne Linse&nbsp;2 f&uuml;hrt zu Aktionismus. Nur Linse&nbsp;2 ohne Linse&nbsp;1 f&uuml;hrt zum Selbstzweck.
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 3: EVIDENCE ==================== -->
+  <div class="slide" data-slide="3">
+    <div class="slide-content">
+      <div class="slide-tag">Studien zur AI-Transformation</div>
+      <h2>Was die Daten zeigen:<br><span class="text-accent-warm">AI-Transformation scheitert &mdash; und das hat Muster</span></h2>
+      <p class="subtitle" style="margin: 0 auto 8px;">Das Ergebnis ist branchenweit sichtbar &mdash; und der Schaden gr&ouml;&szlig;er als erwartet:</p>
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="stat-number" style="background: linear-gradient(135deg, var(--rose), var(--amber)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">95%</div>
+          <div class="stat-label">der Enterprise-AI-Piloten<br>ohne messbaren P&amp;L-Impact</div>
+          <div class="stat-source">MIT NANDA, 2025</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number" style="background: linear-gradient(135deg, var(--rose), var(--amber)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">42%</div>
+          <div class="stat-label">der Unternehmen haben 2025<br>AI-Initiativen eingestellt</div>
+          <div class="stat-source">S&amp;P Global, 2025</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number" style="background: linear-gradient(135deg, var(--rose), var(--amber)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">80%+</div>
+          <div class="stat-label">der AI-Projekte scheitern &mdash;<br>2&times; so oft wie Non-AI-IT</div>
+          <div class="stat-source">RAND Corporation</div>
+        </div>
+        <div class="stat" style="border-color: rgba(255,102,115,0.25); background: rgba(255,102,115,0.04);">
+          <div class="stat-number" style="background: linear-gradient(135deg, var(--rose), var(--violet)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">&minus;7%</div>
+          <div class="stat-label">Stabilit&auml;t sinkt bei 25&thinsp;% mehr<br>AI-Nutzung ohne Prozessanpassung</div>
+          <div class="stat-source">DORA Report, 2024</div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; text-align: left;">
+        <blockquote style="margin: 0;">
+          Workflow-Redesign hat den st&auml;rksten Effekt auf EBIT-Impact unter 25 getesteten Attributen &mdash; st&auml;rker als Tooling, Talent oder Budget.
+          <cite>McKinsey, State of AI 2025</cite>
+        </blockquote>
+        <div style="padding: 16px 20px; border-left: 3px solid var(--rose); background: rgba(255,102,115,0.05); border-radius: 0 10px 10px 0;">
+          <p style="font-size: 13.5px; color: var(--gray-300); line-height: 1.6; font-style: italic;">
+            AI auf bestehende Prozesse zu schrauben, ohne Workflows anzupassen, <strong style="color: var(--rose);">verschlechtert die Delivery Performance aktiv</strong>. Das ist keine Theorie &mdash; es ist gemessene Realit&auml;t.
+          </p>
+          <cite style="font-size: 11px; color: var(--slate-light); display: block; margin-top: 6px; font-style: normal;">DORA Report 2024</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 4: THREE KEY PRINCIPLES ==================== -->
+  <div class="slide" data-slide="3">
+    <div class="slide-content">
+      <div class="slide-tag">Unsere &Uuml;berzeugung</div>
+      <h2>Drei Prinzipien, die den<br><span class="text-accent">Unterschied machen</span></h2>
+      <div class="three-col" style="margin-top: 36px;">
+        <div class="card" style="border-top: 3px solid var(--cyan);">
+          <div class="card-icon bg-cyan" style="font-size: 28px;">&#8644;</div>
+          <h3>Value Stream First</h3>
+          <p>Wir starten bei den Engp&auml;ssen im Wertsch&ouml;pfungsprozess &mdash; nicht bei den Tools. AI-Interventionen werden dort platziert, wo sie den gr&ouml;&szlig;ten Hebel auf die individuellen Business Impact Metriken haben.</p>
+        </div>
+        <div class="card" style="border-top: 3px solid var(--emerald);">
+          <div class="card-icon bg-emerald" style="font-size: 28px;">&#9825;</div>
+          <h3>Human-Centric Change</h3>
+          <p>Technologie ohne Change-Prozess produziert Shelfware. Rollenentwicklung, psychologische Sicherheit und F&auml;higkeitsaufbau sind gleichberechtigte Dimensionen &mdash; kein Appendix.</p>
+        </div>
+        <div class="card" style="border-top: 3px solid var(--blue);">
+          <div class="card-icon bg-blue" style="font-size: 28px;">&#10227;</div>
+          <h3>Iterativ statt sequenziell</h3>
+          <p>Keine linearen Phasen. 4-Wochen-Zyklen mit Readiness Gates. Alle 5 Dimensionen gleichzeitig aktiv &mdash; mit wechselndem Schwerpunkt. Business Impact Check h&auml;lt den Fokus auf dem echten Problem.</p>
+        </div>
+      </div>
+      <div style="margin-top: 28px; padding: 16px 28px; background: rgba(0,112,173,0.06); border: 1px solid rgba(0,112,173,0.2); border-radius: 12px; text-align: center; max-width: 820px; margin-left: auto; margin-right: auto;">
+        <p style="font-size: 14px; color: var(--gray-300); line-height: 1.6;">
+          Diese drei Prinzipien sind kein Wunschdenken &mdash; <strong style="color: var(--white);">CRAFT</strong> ist das Framework, das sie operationalisiert: <strong style="color: var(--blue-light);">5 messbare Dimensionen</strong>, klare Rollen, 4-Wochen-Zyklen.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 5: 5 DIMENSIONS ==================== -->
+  <div class="slide" data-slide="4">
+    <div class="slide-content left">
+      <div class="slide-tag">Framework-Architektur</div>
+      <h2>Die 5 CRAFT-Dimensionen</h2>
+      <p class="subtitle" style="margin-bottom: 24px;">Die Operationalisierung der drei Prinzipien &mdash; gleichzeitig aktiv, nie abgeschlossen, jede mit klarer Verantwortung.</p>
+
+      <div class="dim-card border-amber">
+        <div class="dim-letter bg-amber">C</div>
+        <div class="dim-info">
+          <h3>Compliance &amp; Governance</h3>
+          <p>Was darf das Team? Was muss es? &mdash; AI Policies, Betriebsrat, EU AI Act, 3 Sicherheitsstufen. <em>Freischalter, kein eigenst&auml;ndiger Value Driver.</em></p>
+        </div>
+      </div>
+      <div class="dim-card border-emerald">
+        <div class="dim-letter bg-emerald">R</div>
+        <div class="dim-info">
+          <h3>Readiness &mdash; Human &amp; Cultural</h3>
+          <p>K&ouml;nnen und wollen die Menschen AI nutzen? &mdash; Skills, Psychological Safety, Rollenentwicklung, Champions. <em>Voraussetzung f&uuml;r Adoption.</em></p>
+        </div>
+      </div>
+      <div class="dim-card border-amber">
+        <div class="dim-letter bg-amber">A</div>
+        <div class="dim-info">
+          <h3>Adoption &amp; Usage</h3>
+          <p>Wird AI tats&auml;chlich genutzt &mdash; breit &uuml;ber den SDLC? &mdash; DAU, Nutzungstiefe, Shadow AI &rarr; Managed AI. <em>Prim&auml;rer Value Driver.</em></p>
+        </div>
+      </div>
+      <div class="dim-card border-blue">
+        <div class="dim-letter bg-cyan">F</div>
+        <div class="dim-info">
+          <h3>Flow &amp; Process Integration</h3>
+          <p>Wo sind die echten Bottlenecks &mdash; und wo hat AI den gr&ouml;&szlig;ten Hebel? &mdash; Value Stream Mapping, AI Intervention Katalog. <em>Prim&auml;rer Value Driver.</em></p>
+        </div>
+      </div>
+      <div class="dim-card border-violet">
+        <div class="dim-letter bg-violet">T</div>
+        <div class="dim-info">
+          <h3>Technical Enablement</h3>
+          <p>Welches Setup braucht das Team konkret? &mdash; IDE-Integration, LLM-Deployment, Prompt Libraries, MCP-Server. <em>Freischalter, kein eigenst&auml;ndiger Value Driver.</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 7: CRAFT EXPLORER ==================== -->
+  <div class="slide" data-slide="6">
+    <div class="slide-content">
+      <div class="slide-tag">CRAFT Explorer</div>
+      <h2>Standortbestimmung &mdash;<br><span class="text-accent">Navigation, kein Audit</span></h2>
+
+      <div class="two-col" style="margin-top: 28px; align-items: start;">
+        <div style="text-align: left;">
+          <p style="font-size: 14px; color: var(--gray-300); line-height: 1.6; margin-bottom: 16px;">
+            Der <strong style="color: var(--white);">CRAFT Explorer</strong> wird vom AI Transformation Manager begleitet. Der Prozess beginnt mit der Kl&auml;rung des Business-Problems &mdash; erst dann folgt die CRAFT-Exploration.
+          </p>
+
+          <!-- Process flow: Business Impact Discovery → CRAFT Explorer -->
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px;">
+            <div style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: rgba(0,112,173,0.08); border: 1px solid rgba(0,112,173,0.2); border-radius: 10px;">
+              <span style="font-size: 18px;">&#9312;</span>
+              <div>
+                <div style="font-size: 12px; font-weight: 700; color: var(--blue-light); letter-spacing: 1px; text-transform: uppercase;">Business Impact Discovery</div>
+                <div style="font-size: 12px; color: var(--gray-300);">30&thinsp;Min &middot; Einmalig &middot; Business-Problem &amp; 2&ndash;3 individuelle Impact-Metriken definieren</div>
+              </div>
+            </div>
+            <div style="text-align: center; font-size: 16px; color: var(--slate-light);">&#8595;</div>
+            <div style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: rgba(123,97,255,0.07); border: 1px solid rgba(123,97,255,0.2); border-radius: 10px;">
+              <span style="font-size: 18px;">&#9313;</span>
+              <div>
+                <div style="font-size: 12px; font-weight: 700; color: var(--violet); letter-spacing: 1px; text-transform: uppercase;">Deep-Dive (Kickoff-Baseline)</div>
+                <div style="font-size: 12px; color: var(--gray-300);">Granulare Sub-Topic-Analyse aller 5 CRAFT-Dimensionen &middot; Einmalig</div>
+              </div>
+            </div>
+            <div style="text-align: center; font-size: 16px; color: var(--slate-light);">&#8595;</div>
+            <div style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: rgba(0,112,173,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px;">
+              <span style="font-size: 18px;">&#9314;</span>
+              <div>
+                <div style="font-size: 12px; font-weight: 700; color: var(--blue-light); letter-spacing: 1px; text-transform: uppercase;">Pulse Check (jeden 4-Wochen-Zyklus)</div>
+                <div style="font-size: 12px; color: var(--gray-300);">15&thinsp;Min &middot; Anonym &middot; Spider-Score (1&ndash;5) pro Dimension. Trackt Trend.</div>
+              </div>
+            </div>
+          </div>
+
+          <ul class="feature-list">
+            <li>
+              <div class="feature-icon bg-cyan">&#9878;</div>
+              <div><strong style="color: var(--white);">Spider-Chart + Analyse</strong> &mdash; Auswertung durch AI Transformation Manager. Business Impact Metriken &amp; CRAFT-Scores gemeinsam betrachten.</div>
+            </li>
+            <li>
+              <div class="feature-icon bg-emerald">&#9881;</div>
+              <div><strong style="color: var(--white);">Context Exploration</strong> &mdash; Einmaliger Kickoff, 30&thinsp;Min. Rahmenbedingungen &rarr; steuert adaptive Filterung.</div>
+            </li>
+          </ul>
+        </div>
+        <div class="radar-wrap">
+          <svg viewBox="0 0 300 280" width="100%" style="max-width: 340px;">
+            <g transform="translate(150, 135)">
+              <g stroke="rgba(255,255,255,0.18)" fill="none" stroke-width="1">
+                <polygon points="0,-120 114,-37 70,97 -70,97 -114,-37" opacity="0.3"/>
+                <polygon points="0,-96 91,-30 56,78 -56,78 -91,-30" opacity="0.3"/>
+                <polygon points="0,-72 68,-22 42,58 -42,58 -68,-22" opacity="0.3"/>
+                <polygon points="0,-48 46,-15 28,39 -28,39 -46,-15" opacity="0.3"/>
+                <polygon points="0,-24 23,-7 14,19 -14,19 -23,-7" opacity="0.3"/>
+              </g>
+              <g stroke="rgba(255,255,255,0.28)" stroke-width="0.5">
+                <line x1="0" y1="0" x2="0" y2="-120"/>
+                <line x1="0" y1="0" x2="114" y2="-37"/>
+                <line x1="0" y1="0" x2="70" y2="97"/>
+                <line x1="0" y1="0" x2="-70" y2="97"/>
+                <line x1="0" y1="0" x2="-114" y2="-37"/>
+              </g>
+              <polygon
+                points="0,-60 68,-22 21,29 -28,39 -68,-22"
+                fill="rgba(0, 112, 173, 0.15)"
+                stroke="var(--blue)"
+                stroke-width="2.5"
+              />
+              <circle cx="0" cy="-60" r="5" fill="var(--amber)"/>
+              <circle cx="68" cy="-22" r="5" fill="var(--emerald)"/>
+              <circle cx="21" cy="29" r="5" fill="var(--amber)"/>
+              <circle cx="-28" cy="39" r="5" fill="var(--cyan)"/>
+              <circle cx="-68" cy="-22" r="5" fill="var(--violet)"/>
+            </g>
+            <text x="150" y="12" text-anchor="middle" font-size="11" font-weight="600" fill="#FFB500">Compliance 2.5</text>
+            <text x="282" y="102" text-anchor="end" font-size="11" font-weight="600" fill="#2BD9AA">Readiness 3.0</text>
+            <text x="232" y="245" text-anchor="middle" font-size="11" font-weight="600" fill="#FFB500">Adoption 1.5</text>
+            <text x="68" y="245" text-anchor="middle" font-size="11" font-weight="600" fill="#00DCFA">Flow 2.0</text>
+            <text x="18" y="102" text-anchor="start" font-size="11" font-weight="600" fill="#7B61FF">Technical 3.5</text>
+            <text x="150" y="272" text-anchor="middle" font-size="11" fill="rgba(123, 143, 168, 0.7)">Beispiel: Typisches Team in Zyklus 1</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 8: KPI 3 LAYERS ==================== -->
+  <div class="slide" data-slide="7">
+    <div class="slide-content">
+      <div class="slide-tag">Messsystem</div>
+      <h2>Drei Schichten &mdash; <span class="text-accent">Outcome statt Output</span></h2>
+      <p class="subtitle" style="margin: 0 auto;">So wenig Datenerhebung wie m&ouml;glich, so viel wie n&ouml;tig. Automatisiert wo immer m&ouml;glich.</p>
+
+      <div class="layer-stack">
+        <div class="layer" style="background: rgba(0, 220, 250, 0.06); border: 1px solid rgba(0, 220, 250, 0.2);">
+          <div class="layer-num" style="color: var(--cyan);">L1</div>
+          <div class="layer-content">
+            <h3 style="color: var(--cyan);">Delivery Outcomes (DORA + Value Stream)</h3>
+            <p style="color: var(--gray-300);">Deployment Frequency, Lead Time, Change Failure Rate, MTTR, Cycle Time, Flow Efficiency. <strong>Automatisch</strong> aus CI/CD und Ticket-System.</p>
+          </div>
+        </div>
+        <div class="layer" style="background: rgba(0, 112, 173, 0.06); border: 1px solid rgba(0, 112, 173, 0.2);">
+          <div class="layer-num" style="color: var(--blue);">L2</div>
+          <div class="layer-content">
+            <h3 style="color: var(--blue);">AI Maturity &mdash; CRAFT-Scores</h3>
+            <p style="color: var(--gray-300);">5 Dimensionen &times; 5 Stufen via <strong>CRAFT Explorer Pulse Check</strong> (15&thinsp;Min., jeden 4-Wochen-Zyklus). Spider-Diagramm + Diagnostik. Einzige aktive Erhebung.</p>
+          </div>
+        </div>
+        <div class="layer" style="background: rgba(123, 97, 255, 0.06); border: 1px solid rgba(123, 97, 255, 0.2);">
+          <div class="layer-num" style="color: var(--violet);">L3</div>
+          <div class="layer-content">
+            <h3 style="color: var(--violet);">Business Impact (Sponsoren-Reporting)</h3>
+            <p style="color: var(--gray-300);">
+              <strong style="color: var(--white);">Individuelle Business Impact Metriken</strong> (definiert vor Zyklus&nbsp;1 im Business Impact Discovery) als Headline &mdash; erg&auml;nzt durch Velocity, Time-to-Market und Qualit&auml;t aus L1+L2. Automatisch generiert.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 9: PDCA CYCLE (UPDATED) ==================== -->
+  <div class="slide" data-slide="8">
+    <div class="slide-content">
+      <div class="slide-tag">Iterationsmodell</div>
+      <h2>4 Wochen. <span class="text-accent">Plan. Do. Check. Adjust.</span></h2>
+      <p class="subtitle" style="margin: 0 auto;">Alle 5 Dimensionen werden in jedem Zyklus ber&uuml;hrt. Woche&nbsp;4 stellt sicher: Wir l&ouml;sen das richtige Problem.</p>
+
+      <div class="cycle-container">
+        <div class="cycle-step" style="border-top: 3px solid var(--blue);">
+          <div class="week">Woche 1</div>
+          <h3 style="color: var(--blue);">Plan</h3>
+          <p>Pulse Check Review, CRAFT-Scores + Business Impact Metriken aus dem Vorzyklus, Zieldefinition, Zyklus-Backlog</p>
+        </div>
+        <div class="cycle-arrow">&rarr;</div>
+        <div class="cycle-step" style="border-top: 3px solid var(--emerald);">
+          <div class="week">Woche 2&ndash;3</div>
+          <h3 style="color: var(--emerald);">Do</h3>
+          <p>1&ndash;3 Interventionen: Tool-Rollout, Workshops, Governance, Skills &mdash; ausgerichtet auf die definierten Impact-Metriken</p>
+        </div>
+        <div class="cycle-arrow">&rarr;</div>
+        <div class="cycle-step" style="border-top: 3px solid var(--amber);">
+          <div class="week">Woche 4</div>
+          <h3 style="color: var(--amber);">Check &amp; Adjust</h3>
+          <p><strong style="color: var(--amber);">Business Impact Check</strong> zuerst: Impact-Metriken &Delta;, richtige Interventionen?, Kurskorrektur? &rarr; dann Readiness Gate</p>
+        </div>
+        <div class="cycle-arrow" style="font-size: 20px;">&#10227;</div>
+      </div>
+
+      <!-- Business Impact Check Box -->
+      <div style="margin: 0 auto 20px; max-width: 820px; padding: 16px 22px; background: rgba(255,181,0,0.05); border: 1px solid rgba(255,181,0,0.2); border-radius: 12px; text-align: left; display: flex; gap: 16px; align-items: flex-start;">
+        <div style="font-size: 22px; margin-top: 2px;">&#9679;</div>
+        <div>
+          <div style="font-size: 13px; font-weight: 700; color: var(--amber); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px;">Business Impact Check (Woche 4, 15&ndash;20 Min.)</div>
+          <div style="font-size: 13px; color: var(--gray-300); line-height: 1.5;">
+            Wie haben sich die individuellen Business Impact Metriken entwickelt? &middot; Adressieren wir das richtige Problem? &middot; Liegt die Ursache tiefer als gedacht? &middot; Was muss angepasst werden?
+          </div>
+          <div style="margin-top: 8px; font-style: italic; font-size: 12px; color: var(--slate-light);">
+            Leitfrage: &bdquo;Wenn ich dem Sponsor heute erkl&auml;ren m&uuml;sste, wie diese Transformation sein Business-Problem l&ouml;st &mdash; was w&uuml;rde ich sagen?&ldquo;
+          </div>
+        </div>
+      </div>
+
+      <div class="gate-grid">
+        <div class="gate-card" style="background: rgba(43, 217, 170, 0.06); border: 1px solid rgba(43, 217, 170, 0.2);">
+          <div class="gate-icon">&#9650;</div>
+          <h3 style="color: var(--emerald);">Erweitern</h3>
+          <p style="color: var(--gray-300);">Adoption &gt;60%, DORA stabil, <strong style="color: var(--emerald);">Business Impact Metriken positiver Trend</strong>. Neue Teams einbeziehen.</p>
+        </div>
+        <div class="gate-card" style="background: rgba(0, 112, 173, 0.06); border: 1px solid rgba(0, 112, 173, 0.2);">
+          <div class="gate-icon">&#9660;</div>
+          <h3 style="color: var(--blue);">Vertiefen</h3>
+          <p style="color: var(--gray-300);">Adoption ok, aber Impact-Metriken stagnieren &mdash; <strong style="color: var(--blue);">falsche Interventionen?</strong> Oder Flow/Skills fehlen.</p>
+        </div>
+        <div class="gate-card" style="background: rgba(255, 181, 0, 0.06); border: 1px solid rgba(255, 181, 0, 0.2);">
+          <div class="gate-icon">&#9724;</div>
+          <h3 style="color: var(--amber);">Konsolidieren</h3>
+          <p style="color: var(--gray-300);">Governance-&Auml;nderung oder kultureller Widerstand. Stabilisieren, bevor skaliert wird.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 10: TEAM ==================== -->
+  <div class="slide" data-slide="9">
+    <div class="slide-content">
+      <div class="slide-tag">Organisation</div>
+      <h2>Das AI Adoption Team</h2>
+      <p class="subtitle" style="margin: 0 auto 8px;">
+        Nach Kotters <em>Guiding Coalition</em>: Position Power, Expertise, Credibility, Leadership. Change-Management nach ADKAR.
+      </p>
+
+      <div class="role-grid">
+        <div class="role-card">
+          <div class="role-icon">&#9733;</div>
+          <h3>AI Transformation Manager</h3>
+          <p>Orchestriert alle 5 Dimensionen, steuert Zyklen, h&auml;lt Business Impact Metriken im Fokus</p>
+          <div class="dim-tag" style="background: rgba(0,112,173,0.15); color: var(--blue-light);">Alle Dim. &middot; 100%</div>
+        </div>
+        <div class="role-card">
+          <div class="role-icon">&#9881;</div>
+          <h3>Technical AI Lead</h3>
+          <p>Tool-Landschaft, Infrastruktur, Playbooks</p>
+          <div class="dim-tag" style="background: rgba(123,97,255,0.15); color: var(--violet);">T &middot; 50&ndash;100%</div>
+        </div>
+        <div class="role-card">
+          <div class="role-icon">&#9878;</div>
+          <h3>Value Stream Coach</h3>
+          <p>VSM, DORA-Metriken, Bottleneck-Analyse</p>
+          <div class="dim-tag" style="background: rgba(0,220,250,0.15); color: var(--cyan);">F &middot; 50&ndash;80%</div>
+        </div>
+        <div class="role-card">
+          <div class="role-icon">&#9829;</div>
+          <h3>Change &amp; People Lead</h3>
+          <p>Psychological Safety, Rollen, Champions</p>
+          <div class="dim-tag" style="background: rgba(43,217,170,0.15); color: var(--emerald);">R &middot; 50&ndash;80%</div>
+        </div>
+        <div class="role-card">
+          <div class="role-icon">&#9874;</div>
+          <h3>Governance Liaison</h3>
+          <p>Datenschutz, Betriebsrat, EU AI Act</p>
+          <div class="dim-tag" style="background: rgba(255,181,0,0.15); color: var(--amber);">C &middot; 20&ndash;40%</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 28px; padding: 18px 24px; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 8px; display: flex; gap: 20px; align-items: center; justify-content: center; flex-wrap: wrap;">
+        <div style="text-align: center;">
+          <div style="font-size: 13px; font-weight: 600; color: var(--blue); margin-bottom: 2px;">+ Champion-Netzwerk</div>
+          <div style="font-size: 12px; color: var(--gray-300);">1&ndash;2 pro Team &middot; 20% dedizierte Kapazit&auml;t</div>
+        </div>
+        <div style="width: 1px; height: 30px; background: var(--gray-200);"></div>
+        <div style="text-align: center;">
+          <div style="font-size: 13px; font-weight: 600; color: var(--blue); margin-bottom: 2px;">+ Executive Sponsor</div>
+          <div style="font-size: 12px; color: var(--gray-300);">Budget, Blocker entfernen, kulturelle Legitimit&auml;t</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 11: TIMELINE ==================== -->
+  <div class="slide" data-slide="10">
+    <div class="slide-content">
+      <div class="slide-tag">Regelzeitraum</div>
+      <h2>6 Zyklen &middot; 24 Wochen</h2>
+      <p class="subtitle" style="margin: 0 auto;">Vom Pilot zur Institutionalisierung &mdash; datengetrieben, nicht optimistisch geplant.</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="phase">Vor Zyklus 1</div>
+          <div class="timeline-dot" style="background: var(--blue-light);"></div>
+          <h4>Business Impact Discovery</h4>
+          <p>Business-Problem sch&auml;rfen, 2&ndash;3 individuelle Impact-Metriken definieren. Baseline erheben.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="phase">Zyklus 1&ndash;2</div>
+          <div class="timeline-dot" style="background: var(--blue);"></div>
+          <h4>Foundation &amp; Pilot</h4>
+          <p>1 Team. Governance, erster Pulse Check, erste AI-Tools, Shadow AI Amnestie.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="phase">Zyklus 3&ndash;4</div>
+          <div class="timeline-dot" style="background: var(--emerald);"></div>
+          <h4>Value Stream Deep Dive</h4>
+          <p>2&ndash;3 Teams. VSM abgeschlossen, Top-3-Bottlenecks adressiert, Champion-Netzwerk aktiv.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="phase">Zyklus 5&ndash;6</div>
+          <div class="timeline-dot" style="background: var(--violet);"></div>
+          <h4>Skalierung &amp; Institutionalisierung</h4>
+          <p>Organisation. Learnings transferiert, Impact-Metriken nachweislich bewegt, Rollen in HR integriert.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 36px; padding: 20px 28px; background: rgba(255, 102, 115, 0.05); border: 1px solid rgba(255, 102, 115, 0.18); border-radius: 10px; max-width: 760px; margin-left: auto; margin-right: auto;">
+        <h3 style="font-size: 14px; color: var(--rose); margin-bottom: 6px;">H&auml;ufigste Falle bei Skalierung</h3>
+        <p style="font-size: 13px; color: var(--gray-300); line-height: 1.6;">
+          Ein erfolgreicher Pilot wird sofort auf 20 Teams ausgerollt. Ohne schrittweise Ausweitung mit Readiness Gates &mdash; und ohne Pr&uuml;fung, ob die Business Impact Metriken mitgezogen haben &mdash; scheitert die Skalierung regelm&auml;&szlig;ig.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 12: CLOSING ==================== -->
+  <div class="slide" data-slide="11">
+    <div class="slide-content">
+      <div class="slide-tag">N&auml;chster Schritt</div>
+      <h2>Bereit f&uuml;r den <span class="text-accent">ersten Schritt?</span></h2>
+
+      <p style="font-size: clamp(16px, 1.8vw, 20px); color: var(--gray-300); line-height: 1.6; max-width: 680px; margin: 16px auto 32px;">
+        Starten Sie mit einem <strong style="color: var(--white);">Business Impact Discovery</strong>: Welches konkrete Problem wollen Sie l&ouml;sen? Welche Metriken zeigen uns, dass wir es gel&ouml;st haben? Erst danach folgt der CRAFT Explorer Deep-Dive.
+      </p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 820px; margin: 0 auto 24px; text-align: left;">
+        <div style="padding: 22px 26px; background: rgba(0,112,173,0.05); border: 1px solid rgba(0,112,173,0.18); border-radius: 14px;">
+          <div style="font-size: 20px; margin-bottom: 8px;">&#9312;</div>
+          <h3 style="font-size: 16px; margin-bottom: 6px; color: var(--blue-light);">Business Impact Discovery</h3>
+          <p style="font-size: 13px; color: var(--gray-300); line-height: 1.5;">Business-Problem + individuelle Impact-Metriken definieren. ~30&thinsp;Min mit AI Transformation Manager.</p>
+        </div>
+        <div style="padding: 22px 26px; background: rgba(43,217,170,0.04); border: 1px solid rgba(43,217,170,0.15); border-radius: 14px;">
+          <div style="font-size: 20px; margin-bottom: 8px;">&#9313;</div>
+          <h3 style="font-size: 16px; margin-bottom: 6px; color: var(--emerald);">CRAFT Explorer Kickoff</h3>
+          <p style="font-size: 13px; color: var(--gray-300); line-height: 1.5;">Deep-Dive &uuml;ber alle 5 Dimensionen. Spider-Chart + erste Interventionen gemeinsam ableiten.</p>
+        </div>
+      </div>
+
+      <div style="padding: 24px 32px; background: rgba(0,112,173,0.04); border: 1px solid rgba(0,112,173,0.15); border-radius: 12px; text-align: center; max-width: 700px; margin: 0 auto;">
+        <h3 style="font-size: 18px; margin-bottom: 8px;">Prozess, Menschen und Governance &mdash; zusammen.</h3>
+        <p style="font-size: 14px; color: var(--gray-300); line-height: 1.6;">
+          Die wenigen Organisationen, die AI-Transformation wirklich zum Fliegen bringen, haben eines gemeinsam: Sie bewegen alle drei Hebel gleichzeitig &mdash; und sie wissen vom ersten Tag an, welches Business-Problem sie l&ouml;sen.<br>
+          <strong style="color: var(--blue);">CRAFT gibt Ihnen den Rahmen daf&uuml;r.</strong>
+        </p>
+      </div>
+
+      <p style="margin-top: 32px; font-size: 13px; color: var(--slate-light);">
+        CRAFT AI Transformation Framework &middot; Capgemini &middot; v2.0 &middot; 2026
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Navigation -->
+<div class="nav">
+  <button class="nav-btn" id="prevBtn" onclick="navigate(-1)" disabled>
+    <span>&larr;</span> Zur&uuml;ck
+  </button>
+  <span class="slide-counter">
+    <span id="currentSlide">1</span> / <span id="totalSlides">12</span>
+  </span>
+  <button class="nav-btn primary" id="nextBtn" onclick="navigate(1)">
+    Weiter <span>&rarr;</span>
+  </button>
+</div>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+
+  document.getElementById('totalSlides').textContent = total;
+
+  function navigate(dir) {
+    const next = current + dir;
+    if (next < 0 || next >= total) return;
+
+    const currentSlide = slides[current];
+    const nextSlide = slides[next];
+
+    currentSlide.classList.remove('active');
+    if (dir > 0) currentSlide.classList.add('exit-left');
+
+    nextSlide.style.transition = 'none';
+    nextSlide.style.transform = dir > 0 ? 'translateX(60px)' : 'translateX(-60px)';
+    nextSlide.style.opacity = '0';
+    nextSlide.offsetHeight;
+    nextSlide.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    nextSlide.classList.add('active');
+    nextSlide.style.transform = '';
+    nextSlide.style.opacity = '';
+
+    setTimeout(() => {
+      currentSlide.classList.remove('exit-left');
+      currentSlide.style.transform = '';
+      currentSlide.style.opacity = '';
+    }, 500);
+
+    current = next;
+    updateUI();
+  }
+
+  function updateUI() {
+    document.getElementById('currentSlide').textContent = current + 1;
+    document.getElementById('prevBtn').disabled = current === 0;
+    document.getElementById('nextBtn').disabled = current === total - 1;
+    const progress = ((current + 1) / total) * 100;
+    document.getElementById('progressBar').style.width = progress + '%';
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); navigate(1); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); navigate(-1); }
+  });
+
+  let touchStartX = 0;
+  document.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; });
+  document.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].screenX;
+    if (Math.abs(diff) > 50) navigate(diff > 0 ? 1 : -1);
+  });
+
+  updateUI();
+</script>
+
+</body>
+</html>
