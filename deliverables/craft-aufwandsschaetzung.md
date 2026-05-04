@@ -38,7 +38,7 @@ Die Aufwandsangaben in **Personentagen (PT)** beziehen sich auf die externe Bera
 
 ## Paket A: AI Transformation Kompass
 
-**Ziel:** Ziele und North Star Metrics definieren, Ist-Zustand erheben, konkrete Interventions-Empfehlungen ableiten.
+**Ziel:** Ziele und Business-Impact-Kennzahlen definieren, Ist-Zustand erheben, konkrete Interventions-Empfehlungen ableiten.
 
 **Ergebnis:** CRAFT-Radar, Value Stream Map mit priorisierten Bottlenecks, Interventions-Empfehlungen, grober Fahrplan.
 
@@ -48,7 +48,7 @@ Die Aufwandsangaben in **Personentagen (PT)** beziehen sich auf die externe Bera
 
 | #   | Aktivität                                    | Beschreibung                                                                                                                                            |       S       |       M       |       L       |
 | --- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------: | :------------: | :------------: |
-| 1.1 | **Kickoff & Business Impact Discovery** | Business-Problem scharf machen, 2–3 North Star Metrics definieren (messbar, terminiert), Transformations-Sponsor bestätigen                           |      1 PT      |      1 PT      |     1,5 PT     |
+| 1.1 | **Kickoff & Business Impact Discovery** | Business-Problem scharf machen, 2–3 Business-Impact-Kennzahlen definieren (messbar, terminiert), Transformations-Sponsor bestätigen                           |      1 PT      |      1 PT      |     1,5 PT     |
 | 1.2 | **Stakeholder-Analyse & Mapping**       | Stakeholder-Karte aufbauen, Einfluss-/Interesse-Matrix, Kommunikationsplan Entwurf                                                                      |     0,5 PT     |      1 PT      |     1,5 PT     |
 | 1.3 | **Stakeholder-Interviews**              | 3–5 Schlüsselpersonen (Sponsor, Betriebsrat, Tech Lead, Team Lead, Entwickler) — strukturierte Einzelgespräche, Bedenken und Erwartungen aufnehmen  |      1 PT      |     1,5 PT     |      2 PT      |
 | 1.4 | **ADKAR Awareness-Diagnose**            | Veränderungsbereitschaft einschätzen, Widerstandspotenziale und Quick Wins auf Kultur-Ebene identifizieren, Kern-Kommunikationsbotschaften entwickeln |     0,5 PT     |     0,5 PT     |      1 PT      |
@@ -115,7 +115,7 @@ Die Aufwandsangaben in **Personentagen (PT)** beziehen sich auf die externe Bera
 | #    | Aktivität                       | Beschreibung                                                                                                       |   S   |   M   |   L   |
 | ---- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------ | :----: | :----: | :----: |
 | C.8  | **Pulse Check**            | CRAFT Pulse Check durchführen (16 Fragen + Business Outcome Frage), Scores auswerten, Trend visualisieren         | 0,5 PT | 0,5 PT | 0,5 PT |
-| C.9  | **Business Problem Check** | North Star Metrics reviewen: Delta seit letztem Zyklus, Interventions-Alignment prüfen, Kurskorrektur wenn nötig | 0,5 PT | 0,5 PT | 0,5 PT |
+| C.9  | **Business Problem Check** | Business-Impact-Kennzahlen reviewen: Delta seit letztem Zyklus, Interventions-Alignment prüfen, Kurskorrektur wenn nötig | 0,5 PT | 0,5 PT | 0,5 PT |
 | C.10 | **Readiness Gate**         | Entscheidung Erweitern / Vertiefen / Konsolidieren, Zyklus-Review mit Sponsor und Team                             | 0,5 PT | 0,5 PT | 0,5 PT |
 
 #### Aufwand pro Zyklus & für 2 Zyklen
@@ -165,7 +165,7 @@ Die Aufwandsangaben in **Personentagen (PT)** beziehen sich auf die externe Bera
 | E.4 | **ADKAR Reinforcement — Pilotteam**                 | Erfolge sichtbar machen und feiern, Best Practices und Use Cases dokumentieren, Eigenständigkeit sichern, Rückfall-Prophylaxe       |       1 PT       |      1,5 PT      |       2 PT       |
 | E.5 | **Stakeholder-Kommunikation & Management-Reporting** | Automatisiertes DORA + CRAFT Dashboard aufsetzen, Management-Reporting etablieren, Quartalsbericht Sponsor                            |      1,5 PT      |       2 PT       |       3 PT       |
 | E.6 | **HR-Verankerung**                                   | AI-erweiterte Skill-Profile definieren, Lernpfade mit L&D verankern, neue Rollenbilder kommunizieren                                  |       1 PT       |       1 PT       |      1,5 PT      |
-| E.7 | **Abschlussbericht & Übergabe**                     | ROI-Nachweis (North Star Metrics Delta, DORA-Verbesserungen), Skalierungs-Playbook, Übergabe an interne AI Transformation Capability |      1,5 PT      |       2 PT       |      2,5 PT      |
+| E.7 | **Abschlussbericht & Übergabe**                     | ROI-Nachweis (Business-Impact-Kennzahlen-Delta, DORA-Verbesserungen), Skalierungs-Playbook, Übergabe an interne AI Transformation Capability |      1,5 PT      |       2 PT       |      2,5 PT      |
 | E.8 | **Pulse Checks × 2 + Readiness Gates**              | Zwei weitere Pulse Checks + Business Problem Checks + Readiness Gate Entscheidungen                                                   |       1 PT       |       1 PT       |      1,5 PT      |
 |     | **Summe Zyklen 5–6**                                |                                                                                                                                       | **11,5 PT** | **15,5 PT** | **22,5 PT** |
 

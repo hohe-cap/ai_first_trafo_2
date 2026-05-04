@@ -81,9 +81,9 @@ Die zentrale Erkenntnis: 95% der Enterprise-AI-Piloten scheitern nicht an Techno
 sondern an fehlender Prozessintegration und Change Management.
 
 **Duale Zielsetzung (durchgängig sichtbar):**
-- **Linse 1 — Business Impact:** Konkretes Business-Problem identifizieren → 2–3 North Star Metrics definieren → in jedem Zyklus messen (Business Problem Check)
-- **Linse 2 — AI-Befähigung:** CRAFT-Dimensionen systematisch aufbauen → CRAFT-Scores als Hebel, der die North Star Metrics bewegt
-- Zusammen: CRAFT verbessern → North Star Metrics bewegen sich → Business-Problem wird gelöst
+- **Linse 1 — Business Impact:** Konkretes Business-Problem identifizieren → 2–3 Business-Impact-Kennzahlen definieren → in jedem Zyklus messen (Business Problem Check)
+- **Linse 2 — AI-Befähigung:** CRAFT-Dimensionen systematisch aufbauen → CRAFT-Scores als Hebel, der die Business-Impact-Kennzahlen bewegt
+- Zusammen: CRAFT verbessern → Business-Impact-Kennzahlen bewegen sich → Business-Problem wird gelöst
 - **Wirkmodell (explizite Kausalkette):** F+A sind die primären Value Driver; R ist Voraussetzung; C+T sind Freischalter (nicht eigenständige Value Driver). Detailliert in `business-impact-discovery.md` Teil 3b + Framework Kap. 5.4
 
 **Drei Kernprinzipien:**
@@ -129,9 +129,9 @@ sondern an fehlender Prozessintegration und Change Management.
 - Methodik: `deliverables/question_banks/METHODOLOGY.md`
 
 **Schicht 3: Business Impact (dual: Top-down + Bottom-up)**
-- **Top-down: North Star Metrics** — 2–3 Metriken, die direkt das identifizierte Business-Problem messen (definiert im Business Impact Discovery, vor CRAFT Explorer)
+- **Top-down: Business-Impact-Kennzahlen** — 2–3 Metriken, die direkt das identifizierte Business-Problem messen (definiert im Business Impact Discovery, vor CRAFT Explorer)
 - **Bottom-up:** Velocity-Veränderung, Time-to-Market, Qualität (aus L1), Mitarbeiterzufriedenheit — automatisch aus L1+L2 generiert
-- North Star Metrics sind Headline im Sponsor-Reporting und im Business Problem Check (Woche 4)
+- Business-Impact-Kennzahlen sind Headline im Sponsor-Reporting und im Business Problem Check (Woche 4)
 - Pulse Check enthält übergreifende Business-Outcome-Frage (BO-M1)
 
 ### Iterationsmodell
@@ -139,17 +139,17 @@ sondern an fehlender Prozessintegration und Change Management.
 **4-Wochen-Zyklen:**
 - Woche 1: Orientierung & Planung (**Pulse Check** durchführen, Zieldefinition)
 - Woche 2-3: Umsetzung (Tool-Rollout, Workshops, Skills)
-- Woche 4: **Business Problem Check** (North Star Metrics zuerst) → Review & Readiness Gate (Erweitern / Vertiefen / Konsolidieren)
+- Woche 4: **Business Problem Check** (Business-Impact-Kennzahlen zuerst) → Review & Readiness Gate (Erweitern / Vertiefen / Konsolidieren)
 
 **Business Problem Check (Woche 4, vor Readiness Gate):**
-- North Star Metrics Review: Delta seit letztem Zyklus
+- Business-Impact-Kennzahlen Review: Delta seit letztem Zyklus
 - Interventions-Alignment: Adressieren wir das richtige Problem?
 - Root Cause Check: Symptom vs. tatsächliche Ursache
 - Kurskorrektur bei stagnierenden Metriken
 
 **Readiness Gate Kriterien:**
-- Erweitern → Adoption >60%, DORA stabil, kein Governance-Blocker, **North Star Metrics positiver Trend**
-- Vertiefen → Adoption <60% oder DORA-Rückgang, oder **North Star stagniert trotz guter CRAFT-Scores**
+- Erweitern → Adoption >60%, DORA stabil, kein Governance-Blocker, **Business-Impact-Kennzahlen positiver Trend**
+- Vertiefen → Adoption <60% oder DORA-Rückgang, oder **Business-Impact-Kennzahlen stagnieren trotz guter CRAFT-Scores**
 - Konsolidieren → Governance-Änderung, Teamumbau, kultureller Widerstand
 
 **Typischer Verlauf (6 Zyklen / 24 Wochen):**
@@ -182,7 +182,7 @@ sondern an fehlender Prozessintegration und Change Management.
 ### Werkzeuge & Deliverables
 
 **Primär:**
-- **Business Impact Discovery:** Gesprächsleitfaden *vor* CRAFT Explorer — identifiziert konkretes Business-Problem, definiert 2–3 North Star Metrics (`deliverables/question_banks/business-impact-discovery.md`)
+- **Business Impact Discovery:** Gesprächsleitfaden *vor* CRAFT Explorer — identifiziert konkretes Business-Problem, definiert 2–3 Business-Impact-Kennzahlen (`deliverables/question_banks/business-impact-discovery.md`)
 - **CRAFT Explorer App:** Web-App für CRAFT Exploration, begleitet durch AI Transformation Manager. Generiert CRAFT-Scores und Radar-Chart
 - **CRAFT Explorer:** Drei-Ebenen-Architektur (Question Banks in `deliverables/question_banks/`)
   - Ablauf: Deep-Dive (Kickoff-Baseline) → Analyse & Spider-Chart → Interventionen → Pulse Check (jeden 4-Wochen-Zyklus) → Deep-Dive bei Bedarf
@@ -194,6 +194,8 @@ sondern an fehlender Prozessintegration und Change Management.
   - Fragen folgen **Backward Design** (Wiggins & McTighe 2005): Vom Herausforderungs-Katalog rückwärts zur Frage
   - **Kontext-Profile:** 4 Archetypen (Agil, Enterprise Reguliert, Public Sector, Konzern Liberal) — gleiche Fragen, profil-gewichtete Interpretation
   - **Challenge Map:** 30 typische Herausforderungen (6 pro Dimension), Profil-Relevanz-Matrix, Kausalketten → `CHALLENGE-MAP.md`
+- **Zyklus-Entscheidungs-Guide:** Dreischichtiger Entscheidungsprozess für Woche 4 — von der Readiness Gate zur konkreten Intervention (Strukturblocker → Dimension via Wirkmodell-Triage → Sub-Topic via Min-Regel → ADKAR-Phase → Intervention). Mit Entscheidungsbaum, Szenarien, Checkliste (`deliverables/craft-cycle-decision-guide.md`)
+- **Interventionskatalog Dimension R:** Score → Konkrete Interventionen mit ADKAR-Tag, Aufwand, Wirkung, Steckbriefen. Aktuell: R vollständig (`deliverables/intervention-catalogue-readiness.md`). A, F, C, T in Planung.
 - **AI Intervention Katalog:** SDLC-Phase → AI-Lösungen mit Tool-Alternativen pro Sicherheitsstufe
 - **Value Stream Mapping Template:** 2-Tages-Workshop-Material (Kurzformat 4h verfügbar)
 - **Governance Starter Kit:** Policy-Vorlagen, Entscheidungsbaum, Betriebsrats-Leitfaden
@@ -272,4 +274,4 @@ sondern an fehlender Prozessintegration und Change Management.
 - Framework Version: 1.0 DRAFT
 - AGENTS.md Version: 1.3
 - CRAFT Explorer Version: 2.1 (Question Banks + METHODOLOGY.md + Challenge Map + Profile-Logik)
-- Letzte Sync mit Vollversion: 2026-04-22 (Improvement-Roadmap Phasen 3–5 abgeschlossen)
+- Letzte Sync mit Vollversion: 2026-04-28 (Kap. 4.8 Zyklus-Entscheidungs-Framework + Zyklus-Entscheidungs-Guide als Deliverable)

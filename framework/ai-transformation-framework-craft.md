@@ -16,7 +16,7 @@ Autor: Jan | AI Transformation Management
 1. [Warum AI-Transformation?](#1-warum-ai-transformation)
 2. [Executive Summary](#2-executive-summary)
 3. [Die 5 CRAFT-Dimensionen](#3-die-5-craft-dimensionen)
-4. [Discover & Iterate: Das Betriebssystem der Transformation](#4-discover--iterate-das-betriebssystem-der-transformation) — 4.1 CRAFT Explorer · 4.2 Drei-Ebenen-Architektur · 4.3 Kontext-Profile · 4.4 Pulse Check · 4.5 Zyklus-Struktur · 4.6 Business Problem Check · 4.7 Readiness Gates · 4.8 Typischer Verlauf
+4. [Discover & Iterate: Das Betriebssystem der Transformation](#4-discover--iterate-das-betriebssystem-der-transformation) — 4.1 CRAFT Explorer · 4.2 Drei-Ebenen-Architektur · 4.3 Kontext-Profile · 4.4 Pulse Check · 4.5 Zyklus-Struktur · 4.6 Business Problem Check · 4.7 Readiness Gates · 4.8 Zyklus-Entscheidungs-Framework · 4.9 Typischer Verlauf
 5. [KPI-Framework: Outcome statt Output](#5-kpi-framework-outcome-statt-output) — 5.1 Delivery Outcomes · 5.2 AI Maturity · 5.3 Business Impact · 5.4 Wirkmodell
 6. [Das AI Adoption Team](#6-das-ai-adoption-team)
 7. [Die AI Adoption Roadmap (Kundenergebnis)](#7-die-ai-adoption-roadmap-kundenergebnis)
@@ -87,16 +87,16 @@ Jede AI-Transformation hat zwei Motivationen, die sich gegenseitig verstärken. 
 |---|---|---|
 | **Frage** | Welches konkrete Problem wollen wir lösen? | Wie gut können wir AI systematisch nutzen? |
 | **Beispiel** | "Lead Time von 3 Wochen auf 10 Tage senken" | "Von Exploring (Level 1) auf Embedding (Level 3) in Adoption" |
-| **Messung** | North Star Metrics (2–3 Metriken, direkt aus Business-Problem abgeleitet) | CRAFT-Scores (5 Dimensionen × 5 Reifestufen) |
+| **Messung** | Business-Impact-Kennzahlen (2–3 Metriken, direkt aus Business-Problem abgeleitet) | CRAFT-Scores (5 Dimensionen × 5 Reifestufen) |
 | **Frequenz** | Jeder 4-Wochen-Zyklus (Business Problem Check) | Jeder 4-Wochen-Zyklus (Pulse Check); Deep-Dive on-demand |
 | **Adressat** | Sponsor / C-Level | AI Adoption Team / Teams |
 
 **Warum beide Linsen nötig sind:**
 - Nur Linse 1 (Business Impact) ohne Linse 2 führt zu Aktionismus: Man jagt Metriken, ohne systematisch AI-Fähigkeiten aufzubauen.
 - Nur Linse 2 (AI-Befähigung) ohne Linse 1 führt zum Selbstzweck: Man verbessert CRAFT-Scores, ohne zu wissen, ob das dem Business hilft.
-- **Zusammen** entsteht der rote Faden: CRAFT-Dimensionen verbessern → North Star Metrics bewegen sich → Business-Problem wird gelöst.
+- **Zusammen** entsteht der rote Faden: CRAFT-Dimensionen verbessern → Business-Impact-Kennzahlen bewegen sich → Business-Problem wird gelöst.
 
-Die North Star Metrics werden im **Business Impact Discovery** (vor dem CRAFT Explorer) definiert: Ein strukturiertes Gespräch, das den konkreten Business-Schmerz identifiziert und in messbare Ziele übersetzt (→ `deliverables/question_banks/business-impact-discovery.md`). Jede Intervention und jedes CRAFT-Dimension-Ziel muss sich an der Frage messen lassen: *Bewegt das unsere North Star Metrics?*
+Die Business-Impact-Kennzahlen werden im **Business Impact Discovery** (vor dem CRAFT Explorer) definiert: Ein strukturiertes Gespräch, das den konkreten Business-Schmerz identifiziert und in messbare Ziele übersetzt (→ `deliverables/question_banks/business-impact-discovery.md`). Jede Intervention und jedes CRAFT-Dimension-Ziel muss sich an der Frage messen lassen: *Bewegt das unsere Business-Impact-Kennzahlen?*
 
 ### Kernprinzipien
 
@@ -411,7 +411,7 @@ Der Pulse Check erfasst pro CRAFT-Dimension 2–3 Fragen: 1 Maturity-Frage (5-Le
 
 **Verankerung der dualen Zielsetzung im Zyklus (→ vgl. Kap. 2):**
 
-Woche 1 beginnt mit dem Review beider Linsen aus dem Vorzyklus: North Star Metrics (Linse 1) und CRAFT-Scores aus dem Pulse Check (Linse 2). Woche 4 prüft im Business Problem Check, ob CRAFT-Fortschritte die North Star Metrics tatsächlich bewegen — stagnieren die Metriken trotz steigender CRAFT-Scores, stimmt das Interventionsportfolio nicht.
+Woche 1 beginnt mit dem Review beider Linsen aus dem Vorzyklus: Business-Impact-Kennzahlen (Linse 1) und CRAFT-Scores aus dem Pulse Check (Linse 2). Woche 4 prüft im Business Problem Check, ob CRAFT-Fortschritte die Business-Impact-Kennzahlen tatsächlich bewegen — stagnieren die Metriken trotz steigender CRAFT-Scores, stimmt das Interventionsportfolio nicht.
 
 ```mermaid
 ---
@@ -470,9 +470,9 @@ flowchart LR
 
 | Woche | Fokus | Aktivitäten |
 |-------|-------|-------------|
-| Woche 1 | Orientierung & Planung | **Pulse Check** durchführen, Review der Ergebnisse aus dem Vorzyklus (CRAFT-Scores + North Star Metrics), Zieldefinition für den neuen Zyklus, Abstimmung mit Sponsoren |
+| Woche 1 | Orientierung & Planung | **Pulse Check** durchführen, Review der Ergebnisse aus dem Vorzyklus (CRAFT-Scores + Business-Impact-Kennzahlen), Zieldefinition für den neuen Zyklus, Abstimmung mit Sponsoren |
 | Woche 2–3 | Umsetzung | Tool-Rollout und Konfiguration, Value Stream Workshops, Change-Workshops, Governance-Klärungen, Skill-Building-Sessions |
-| Woche 4 | Review & Anpassung | **Business Problem Check** (North Star Metrics zuerst), Retrospektive mit dem Team, Metriken-Review (DORA, Adoption), Readiness Gate Entscheidung, Anpassung des nächsten Zyklus |
+| Woche 4 | Review & Anpassung | **Business Problem Check** (Business-Impact-Kennzahlen zuerst), Retrospektive mit dem Team, Metriken-Review (DORA, Adoption), Readiness Gate Entscheidung, Anpassung des nächsten Zyklus |
 
 ### 4.6 Business Problem Check (Woche 4)
 
@@ -480,10 +480,10 @@ Bevor die Readiness-Gate-Entscheidung fällt, wird der **Business Problem Check*
 
 **Ablauf (15–20 Min, Teil des Woche-4-Reviews):**
 
-1. **North Star Metrics Review:** Wie haben sich die 2–3 North Star Metrics (definiert im Business Impact Discovery) seit dem letzten Zyklus entwickelt? Delta quantifizieren.
+1. **Business-Impact-Kennzahlen Review:** Wie haben sich die 2–3 Business-Impact-Kennzahlen (definiert im Business Impact Discovery) seit dem letzten Zyklus entwickelt? Delta quantifizieren.
 2. **Interventions-Alignment:** Adressieren die aktuellen Interventionen das identifizierte Business-Problem — oder optimieren wir an der falschen Stelle?
 3. **Root Cause Check:** Gibt es Root Causes hinter dem ursprünglich wahrgenommenen Symptom, die wir noch nicht adressieren? (Beispiel: Das Symptom war "langsame Delivery", aber die Root Cause ist "fehlende Testautomatisierung", nicht "fehlende AI-Tools".)
-4. **Kurskorrektur:** Falls die North Star Metrics stagnieren oder sich verschlechtern: Welche Anpassung ist nötig? Neue Interventionen? Andere CRAFT-Dimension priorisieren? Problem-Definition schärfen?
+4. **Kurskorrektur:** Falls die Business-Impact-Kennzahlen stagnieren oder sich verschlechtern: Welche Anpassung ist nötig? Neue Interventionen? Andere CRAFT-Dimension priorisieren? Problem-Definition schärfen?
 
 > **Leitfrage für den AI Transformation Manager:** *"Wenn ich dem Sponsor heute erklären müsste, wie diese Transformation sein Business-Problem löst — was genau würde ich sagen?"* Wenn die Antwort nicht klar und konkret ist, fehlt der rote Faden.
 
@@ -492,11 +492,48 @@ Bevor die Readiness-Gate-Entscheidung fällt, wird der **Business Problem Check*
 Nach dem Business Problem Check steht die Readiness-Gate-Entscheidung: Wird der nächste Zyklus den Scope erweitern (neue Teams, neue SDLC-Phasen), vertiefen (bessere Integration in bestehenden Teams) oder konsolidieren (Stabilisierung, bevor weiter skaliert wird)? Diese Entscheidung trifft das AI Adoption Team gemeinsam mit dem Sponsor.
 
 > **Readiness Gate Kriterien (Beispiele):**
-> - **Erweiterung:** Adoption Rate im Pilot > 60%, DORA-Metriken stabil oder verbessert, kein offener Governance-Blocker, **North Star Metrics zeigen positiven Trend**.
-> - **Vertiefung:** Adoption Rate < 60% oder DORA-Verschlechterung, aber positive Cultural Readiness Trends. Oder: **North Star Metrics stagnieren trotz guter CRAFT-Scores** (→ falsche Interventionen?).
+> - **Erweiterung:** Adoption Rate im Pilot > 60%, DORA-Metriken stabil oder verbessert, kein offener Governance-Blocker, **Business-Impact-Kennzahlen zeigen positiven Trend**.
+> - **Vertiefung:** Adoption Rate < 60% oder DORA-Verschlechterung, aber positive Cultural Readiness Trends. Oder: **Business-Impact-Kennzahlen stagnieren trotz guter CRAFT-Scores** (→ falsche Interventionen?).
 > - **Konsolidierung:** Governance-Änderungen stehen an, Teamumbau, oder kultureller Widerstand erfordert zusätzliche Change-Arbeit.
 
-### 4.8 Typischer Verlauf (6 Zyklen / 24 Wochen)
+### 4.8 Zyklus-Entscheidungs-Framework: Von der Readiness Gate zur konkreten Intervention
+
+Das Readiness Gate beantwortet die Makro-Frage: *Erweitern, Vertiefen oder Konsolidieren?* Die anschließende operative Frage — *an welcher Dimension, welchem Sub-Topic und welcher konkreten Intervention arbeiten wir jetzt?* — folgt einem dreischichtigen Entscheidungsprozess.
+
+**Schicht 1: Strukturelle Blocker zuerst**
+
+Bevor Dimensionen oder Interventionen gewählt werden, prüfen ob eine Rahmenbedingung alle Interventionen unterlaufen würde:
+
+| Signal | Konsequenz |
+|---|---|
+| Betriebsrat des Kunden blockiert aktiv | Governance Phase-0 — alle anderen Schritte warten |
+| Tool-Zugang gesperrt (Dimension T) | Dimension T zuerst — R-Interventionen verpuffen ohne Werkzeug |
+| R-Score < 2.0 | Dimension R als Voraussetzung — F und A können ohne Readiness-Basis nicht skalieren |
+| KPIs sinken trotz steigender CRAFT-Scores | Neues Value Stream Mapping — es wird am falschen Bottleneck gearbeitet |
+
+**Schicht 2: Welche Dimension? (Wirkmodell-Triage)**
+
+Wenn mehrere Dimensionen schwach sind, gibt das Wirkmodell (→ Kap. 5.4) die Priorität vor:
+
+```
+R (Voraussetzung) → C + T (Freischalter) → F + A (Value Driver)
+```
+
+Nicht die Dimension mit dem niedrigsten absoluten Score wählen, sondern die Dimension, die aktuell andere blockiert. Mehr A-Investition bei niedrigem R hilft nicht — das Team kann nicht offen adopten, was es noch nicht sicher nutzen kann.
+
+**Schicht 3: Sub-Topic und Intervention**
+
+Wenn die Dimension feststeht:
+
+- **Sub-Topic:** Immer das schwächste. Die Min-Gewichtung der Deep-Dive-Formel `(Median × 0.6) + (Min × 0.4)` macht dies sichtbar — der Blocker liegt hier, auch wenn der Gesamt-Score es überdeckt.
+- **ADKAR-Phase bestimmen:** Der Sub-Topic-Score zeigt *was* schwach ist. Die ADKAR-Phase (A/D/K/Ab/R) zeigt *warum* — und damit welcher Interventionstyp wirkt. Gleicher Score, andere ADKAR-Phase → komplett andere Intervention.
+- **Maximal 2–3 Interventionen** pro Zyklus aus dem Interventionskatalog der gewählten Dimension. Quick Win zuerst in frühen Zyklen; strategische Interventionen (HR-Integration, Champion-Netzwerk) erst wenn Vertrauen aufgebaut ist.
+
+> **Operative Referenz:** Vollständiger Entscheidungsbaum mit Entscheidungsmatrizen, ADKAR-Mapping, Szenarien und Woche-4-Checkliste: `deliverables/craft-cycle-decision-guide.md`
+
+---
+
+### 4.9 Typischer Verlauf (6 Zyklen / 24 Wochen)
 
 | Zyklus | Schwerpunkt | Erwartete Ergebnisse |
 |--------|-------------|----------------------|
@@ -660,9 +697,9 @@ Die generischen Bezeichnungen bedeuten je Dimension Unterschiedliches. Die folge
 
 Schicht 3 arbeitet **dual — Top-down und Bottom-up:**
 
-**Top-down: North Star Metrics (primär)**
+**Top-down: Business-Impact-Kennzahlen (primär)**
 
-Die 2–3 North Star Metrics werden im Business Impact Discovery (vor der CRAFT Exploration) gemeinsam mit dem Sponsor definiert. Sie messen direkt das identifizierte Business-Problem und sind die Headline-Metriken im Sponsor-Reporting.
+Die 2–3 Business-Impact-Kennzahlen werden im Business Impact Discovery (vor der CRAFT Exploration) gemeinsam mit dem Sponsor definiert. Sie messen direkt das identifizierte Business-Problem und sind die Headline-Metriken im Sponsor-Reporting.
 
 - **Quelle:** Direkt gemessen aus den Systemen, die das Business-Problem abbilden (z.B. CI/CD für Lead Time, HR-System für Attrition, Jira für Cycle Time)
 - **Frequenz:** Zyklisch (alle 4 Wochen im Business Problem Check) + quartalsweise an Sponsoren
@@ -672,9 +709,9 @@ Die 2–3 North Star Metrics werden im Business Impact Discovery (vor der CRAFT 
 
 Aggregation aus Schicht 1 und 2 in geschäftssprachliche Kennzahlen: Velocity-Veränderung, Time-to-Market-Verbesserung, Qualitätsveränderung (aus Change Failure Rate) und Mitarbeiterzufriedenheit (aus Cultural Readiness). Wird automatisch generiert und quartalsweise an Sponsoren kommuniziert.
 
-**Zusammenspiel (→ duale Zielsetzung, Kap. 2):** Die North Star Metrics zeigen, *ob* das Business-Problem gelöst wird. Die Bottom-up-Aggregation zeigt, *warum* — welche CRAFT-Dimensionen und DORA-Metriken die Veränderung treiben. Beide ergeben das vollständige Bild für Sponsoren.
+**Zusammenspiel (→ duale Zielsetzung, Kap. 2):** Die Business-Impact-Kennzahlen zeigen, *ob* das Business-Problem gelöst wird. Die Bottom-up-Aggregation zeigt, *warum* — welche CRAFT-Dimensionen und DORA-Metriken die Veränderung treiben. Beide ergeben das vollständige Bild für Sponsoren.
 
-> **Overhead-Minimierung:** Die meisten Metriken werden automatisch aus bestehenden Tools erhoben (CI/CD, Jira, IDE-Telemetrie). Der Pulse Check ist das einzige Element, das aktive Beteiligung erfordert – maximal 15 Minuten pro Zyklus (alle 4 Wochen). Kein zusätzliches Reporting-System, keine Excel-Tabellen, keine manuellen KPI-Erhebungen. Die North Star Metrics nutzen dieselben Datenquellen, die ohnehin vorhanden sind.
+> **Overhead-Minimierung:** Die meisten Metriken werden automatisch aus bestehenden Tools erhoben (CI/CD, Jira, IDE-Telemetrie). Der Pulse Check ist das einzige Element, das aktive Beteiligung erfordert – maximal 15 Minuten pro Zyklus (alle 4 Wochen). Kein zusätzliches Reporting-System, keine Excel-Tabellen, keine manuellen KPI-Erhebungen. Die Business-Impact-Kennzahlen nutzen dieselben Datenquellen, die ohnehin vorhanden sind.
 
 ### 5.4 Wirkmodell: Kausalkette von CRAFT zu Business Impact
 
@@ -684,11 +721,11 @@ CRAFT-Dimensionen verbessern sich nicht im Selbstzweck — sie sollen messbare B
 
 | Rolle | Dimensionen | Funktion in der Kausalkette |
 |---|---|---|
-| **Primäre Value Driver** | **F** (Flow), **A** (Adoption) | Erzeugen direkt messbare Delivery-Outcomes. DORA-Verbesserungen und North Star-Bewegungen laufen primär über F und A. |
+| **Primäre Value Driver** | **F** (Flow), **A** (Adoption) | Erzeugen direkt messbare Delivery-Outcomes. DORA-Verbesserungen und Business-Impact-Kennzahlen-Bewegungen laufen primär über F und A. |
 | **Voraussetzung** | **R** (Readiness) | Bestimmt, ob F und A nachhaltig wirken. Adoption ohne psychologische Sicherheit bleibt oberflächlich und episodisch. |
 | **Freischalter** | **C** (Compliance), **T** (Technical) | Müssen ein Mindest-Level erreichen, damit die Value Driver greifen. Ihr eigenes Business-Impact-Potenzial ist gering — ihr Blockade-Potenzial ist hoch. |
 
-**Konsequenz für die Praxis:** C und T sind prioritär zu adressieren, wenn sie gerade aktiv blockieren — nicht als Selbstzweck. R ist eine Daueraufgabe, die A absichert. Der eigentliche Hebel auf Lead Time, CFR und North Stars liegt in F und A.
+**Konsequenz für die Praxis:** C und T sind prioritär zu adressieren, wenn sie gerade aktiv blockieren — nicht als Selbstzweck. R ist eine Daueraufgabe, die A absichert. Der eigentliche Hebel auf Lead Time, CFR und Business-Impact-Kennzahlen liegt in F und A.
 
 #### Wirkmodell-Tabelle
 
@@ -704,7 +741,7 @@ CRAFT-Dimensionen verbessern sich nicht im Selbstzweck — sie sollen messbare B
 
 Jede Intervention muss vor dem Start eine explizite Hypothese haben:
 
-> *„Wenn wir [Intervention X] in Dimension [D] durchführen, dann verbessert sich [Lead Indicator] von [Ist] auf [Ziel] innerhalb [T] Wochen, weil [Wirkmechanismus], was danach [North Star Metric] um [Delta] bewegen sollte. Wenn das nicht eintritt, prüfen wir [Confounders / Pivot]."*
+> *„Wenn wir [Intervention X] in Dimension [D] durchführen, dann verbessert sich [Lead Indicator] von [Ist] auf [Ziel] innerhalb [T] Wochen, weil [Wirkmechanismus], was danach [Business-Impact-Kennzahl] um [Delta] bewegen sollte. Wenn das nicht eintritt, prüfen wir [Confounders / Pivot]."*
 
 Diese Hypothesen werden im **Business Problem Check (Woche 4)** überprüft — nicht um recht zu behalten, sondern um die tatsächliche Kausalkette zu verstehen und Interventionen ggf. zu pivoten.
 
@@ -1032,7 +1069,7 @@ McKinseys State of AI 2025 belegt, dass Workflow-Redesign unter 25 getesteten At
 Die Autoren des Frameworks bringen 15+ Jahre Erfahrung in Software-Entwicklung, agiler Transformation und Organisationsveränderung in Konzernen mit. Das Framework entstand nicht am Reißbrett, sondern aus der wiederholten Beobachtung, dass reine Tool-Rollouts scheitern, wenn sie nicht von Change Management und Prozessverständnis begleitet werden. Diese Erkenntnis ist nicht AI-spezifisch – sie gilt für jede Technologietransformation, aber sie wird bei AI besonders dramatisch sichtbar, weil die Geschwindigkeit der Veränderung höher ist als je zuvor.
 
 **Argument 4: Das Framework ist so konstruiert, dass es sich selbst validiert.**
-Im Gegensatz zu linearen Transformationsplänen hat unser Ansatz eingebaute Feedback-Schleifen: Pulse Checks in jedem 4-Wochen-Zyklus messen den CRAFT-Fortschritt, der Business Problem Check prüft die North Star Metrics, Readiness Gates verhindern voreilige Skalierung. Wenn eine Dimension nicht funktioniert, zeigt das CRAFT-Modell es nach spätestens einem Zyklus – und der nächste Zyklus kann anpassen. Das Risiko liegt nicht in einem falschen Gesamtplan, sondern maximal in einem suboptimalen Einzelzyklus.
+Im Gegensatz zu linearen Transformationsplänen hat unser Ansatz eingebaute Feedback-Schleifen: Pulse Checks in jedem 4-Wochen-Zyklus messen den CRAFT-Fortschritt, der Business Problem Check prüft die Business-Impact-Kennzahlen, Readiness Gates verhindern voreilige Skalierung. Wenn eine Dimension nicht funktioniert, zeigt das CRAFT-Modell es nach spätestens einem Zyklus – und der nächste Zyklus kann anpassen. Das Risiko liegt nicht in einem falschen Gesamtplan, sondern maximal in einem suboptimalen Einzelzyklus.
 
 **Argument 5: Die Alternative – nichts Neues zu versuchen – ist nachweislich gescheitert.**
 Die 95% Failure Rate (MIT) und die 42% Abbruchquote (S&P Global) zeigen, dass der Status quo nicht funktioniert. Die bestehenden Ansätze – reines Tool-Rollout, generische Maturity Assessments, technologieagnostisches Change Management – produzieren die Ergebnisse, die wir sehen. Ein integrierter Ansatz ist nicht bewiesen besser, aber die fragmentierten Ansätze sind bewiesen unzureichend.

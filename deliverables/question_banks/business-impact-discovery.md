@@ -89,20 +89,20 @@ Dann gemeinsam prüfen, ob das Ziel SMART formuliert werden kann:
 
 ---
 
-## Teil 3 — North Star Metrics definieren
+## Teil 3 — Business-Impact-Kennzahlen definieren
 
-Der wichtigste Output dieses Gesprächs: **2–3 North Star Metrics**, die direkt das identifizierte Business-Problem messen — nicht generische Metriken, sondern exakt die Kennzahlen, an denen der Sponsor den Erfolg der Transformation ablesen wird.
+Der wichtigste Output dieses Gesprächs: **2–3 Business-Impact-Kennzahlen**, die direkt das identifizierte Business-Problem messen — nicht generische Metriken, sondern exakt die Kennzahlen, an denen der Sponsor den Erfolg der Transformation ablesen wird.
 
 ### Vorgehensweise
 
-1. **Vom SMART-Ziel (Teil 2) zur Metrik:** Jedes konkretisierte Ziel hat eine natürliche Metrik. Diese wird zur North Star Metric.
+1. **Vom SMART-Ziel (Teil 2) zur Metrik:** Jedes konkretisierte Ziel hat eine natürliche Metrik. Diese wird zur Business-Impact-Kennzahl.
 2. **Maximal 3 Metriken:** Mehr verwässert den Fokus. Wenn der Kunde 5 Probleme hat, priorisieren: *"Welches Problem würde euer Management als erstes gelöst sehen wollen?"*
 3. **Baseline erheben oder schätzen:** Ohne Ausgangswert kein Delta. Wenn keine Daten vorhanden: gemeinsam eine qualifizierte Schätzung machen und als "geschätzte Baseline" kennzeichnen.
-4. **Zielwert und Zeitrahmen festlegen:** Jede North Star Metric bekommt einen konkreten Zielwert mit Zeitrahmen.
+4. **Zielwert und Zeitrahmen festlegen:** Jede Business-Impact-Kennzahl bekommt einen konkreten Zielwert mit Zeitrahmen.
 
 ### Beispiele
 
-| Business-Schmerz | North Star Metric | Baseline (Beispiel) | Ziel |
+| Business-Schmerz | Business-Impact-Kennzahl | Baseline (Beispiel) | Ziel |
 |---|---|---|---|
 | Zu langsame Delivery | Median Lead Time for Changes | 3 Wochen | < 10 Tage in 6 Monaten |
 | Hohe Fehlerrate | Change Failure Rate | 18% | < 8% in 6 Monaten |
@@ -111,21 +111,21 @@ Der wichtigste Output dieses Gesprächs: **2–3 North Star Metrics**, die direk
 | Sinkende Marge | Effort pro Story Point (Kosten-Proxy) | 8 PT | < 6 PT in 6 Monaten |
 | Onboarding dauert zu lang | Time to Productivity (neue Teammitglieder) | 4 Wochen | < 2 Wochen in 6 Monaten |
 
-### Wohin fließen die North Star Metrics?
+### Wohin fließen die Business-Impact-Kennzahlen?
 
 - **CRAFT Report:** Prominent auf Seite 1, vor den CRAFT-Dimension-Scores
 - **Iterations-Review (Woche 4 jedes Zyklus):** Werden als erstes besprochen, vor CRAFT-Scores und DORA
 - **KPI-Framework Schicht 3:** Bilden den Top-down-Teil der Business Impact-Messung (siehe Framework Kap. 5)
-- **Pulse Check:** Die übergreifende Business-Outcome-Frage (BO-M1) referenziert die North Star Metrics
+- **Pulse Check:** Die übergreifende Business-Outcome-Frage (BO-M1) referenziert die Business-Impact-Kennzahlen
 - **Sponsor-Reporting:** Quartalsweise als Headline-Metrik kommuniziert
 
-> **Zusammenfassung für den AI Transformation Manager:** Ohne North Star Metrics wird die Transformation zum Selbstzweck. Die North Star Metrics sind der rote Faden, der sich durch jeden Zyklus, jedes Review und jedes Sponsor-Reporting zieht. Wenn du nur einen Satz aus diesem Dokument mitnimmst: *Jede Intervention muss sich daran messen lassen, ob sie die North Star Metrics bewegt.*
+> **Zusammenfassung für den AI Transformation Manager:** Ohne Business-Impact-Kennzahlen wird die Transformation zum Selbstzweck. Die Business-Impact-Kennzahlen sind der rote Faden, der sich durch jeden Zyklus, jedes Review und jedes Sponsor-Reporting zieht. Wenn du nur einen Satz aus diesem Dokument mitnimmst: *Jede Intervention muss sich daran messen lassen, ob sie die Business-Impact-Kennzahlen bewegt.*
 
 ---
 
 ## Teil 3b — Wirkmodell: Wie CRAFT-Dimensionen Business-Wert erzeugen
 
-> **Warum dieser Schritt?** Im ersten Teil hast du den Business-Schmerz lokalisiert und in Teil 3 North Star Metrics definiert. Jetzt die entscheidende Frage: *Hat CRAFT überhaupt etwas damit zu tun?* Die Antwort ist: manchmal direkt, manchmal mittelbar, manchmal kaum. Dieser Abschnitt macht das explizit.
+> **Warum dieser Schritt?** Im ersten Teil hast du den Business-Schmerz lokalisiert und in Teil 3 Business-Impact-Kennzahlen definiert. Jetzt die entscheidende Frage: *Hat CRAFT überhaupt etwas damit zu tun?* Die Antwort ist: manchmal direkt, manchmal mittelbar, manchmal kaum. Dieser Abschnitt macht das explizit.
 
 ### Die drei Rollen im Wirkmodell
 
@@ -133,7 +133,7 @@ Nicht alle 5 CRAFT-Dimensionen erzeugen direkt Business-Wert. Sie spielen unters
 
 | Rolle | Dimensionen | Was sie tun |
 |---|---|---|
-| **Primäre Value Driver** | **F** (Flow), **A** (Adoption) | Erzeugen direkt messbare Delivery-Outcomes. Wenn DORA und North Stars sich bewegen sollen, müssen F und A steigen. |
+| **Primäre Value Driver** | **F** (Flow), **A** (Adoption) | Erzeugen direkt messbare Delivery-Outcomes. Wenn DORA und Business-Impact-Kennzahlen sich bewegen sollen, müssen F und A steigen. |
 | **Voraussetzung** | **R** (Readiness) | Bestimmt, ob F und A nachhaltig wirken. Adoption ohne psychologische Sicherheit bleibt oberflächlich. |
 | **Freischalter** | **C** (Compliance), **T** (Technical) | Müssen ein Mindest-Level erreichen, damit die Value Driver überhaupt greifen können. Ihr directes Business-Impact-Potenzial ist gering — ihr Blockade-Potenzial ist hoch. |
 
@@ -149,7 +149,7 @@ Nicht alle 5 CRAFT-Dimensionen erzeugen direkt Business-Wert. Sie spielen unters
 
 > **Kernaussage:** Wenn du Lead Time senken willst, musst du F und A verbessern. Wenn dein Team psychologisch nicht bereit ist, wird A nicht nachhaltig. Wenn Compliance blockiert oder Tools fehlen, kommen F und A nicht ins Laufen. **C und T lösen das Problem nicht — sie ermöglichen, dass F und A es lösen.**
 
-### Hypothesen-Template: CRAFT → Intervention → North Star
+### Hypothesen-Template: CRAFT → Intervention → Business-Impact-Kennzahlen
 
 Für jede Intervention im Zyklus sollte folgende Hypothese explizit formuliert werden, bevor die Maßnahme startet:
 
@@ -157,7 +157,7 @@ Für jede Intervention im Zyklus sollte folgende Hypothese explizit formuliert w
 Wenn wir [Intervention X] in Dimension [D] durchführen,
 dann verbessert sich [Lead Indicator L] von [Ist] auf [Ziel] innerhalb [T] Wochen,
 weil [Wirkmechanismus],
-was danach [North Star Metric N] um [erwartetes Delta] bewegen sollte.
+was danach [Business-Impact-Kennzahl N] um [erwartetes Delta] bewegen sollte.
 Wenn das nicht eintritt, prüfen wir [Confounders / Pivot].
 ```
 
@@ -165,7 +165,7 @@ Wenn das nicht eintritt, prüfen wir [Confounders / Pivot].
 > Wenn wir einen Value Stream Mapping Workshop für das Backend-Team (F-Intervention) durchführen,  
 > dann sinkt die Cycle Time für Code Review von 5 Tagen auf 2 Tage innerhalb 2 Zyklen,  
 > weil wir den Wartezeit-Bottleneck vor Review sichtbar machen und mit AI-Assisted Review adressieren,  
-> was danach die Lead Time for Changes (North Star) um ca. 30% senken sollte.  
+> was danach die Lead Time for Changes (unsere Business-Impact-Kennzahl) um ca. 30% senken sollte.  
 > Wenn das nicht eintritt, prüfen wir ob Adoption (A) oder Readiness (R) der eigentliche Blocker ist.
 
 > **Wichtiger Hinweis:** Diese Hypothesen sind nicht Verträge, sondern Lerninstrumente. Die relevante Frage in Woche 4 (Business Problem Check) ist nicht "haben wir recht behalten?", sondern "was haben wir über die tatsächliche Kausalkette gelernt?". Externe Einflussfaktoren (Teamumbau, Marktveränderungen, neue Anforderungen) können die Kette stören — das ist kein Scheitern, sondern Information.
@@ -178,7 +178,7 @@ In drei Fällen ist die Kopplung schwach oder nicht nachweisbar:
 2. **Reifegradsprünge brauchen Zeit:** Level 1→2 bringt kaum messbaren Business-Impact. Erst ab Level 3 (Embedding) werden DORA-Metriken zuverlässig bewegt.
 3. **Adoption ohne Flow-Integration:** Wenn A steigt, F aber auf Level 1 bleibt, nutzen Entwickler AI als Einzelkämpfer — ohne Prozesseinbettung landet der Produktivitätsgewinn nicht im Lead Time-Delta.
 
-**Alternative wenn Kopplung unklar ist:** North Stars vorerst provisorisch aufnehmen und erst nach 2 Zyklen mit echten Daten eine Kausalkette rekonstruieren ("Retrospektives Wirkmodell").
+**Alternative wenn Kopplung unklar ist:** Business-Impact-Kennzahlen vorerst provisorisch aufnehmen und erst nach 2 Zyklen mit echten Daten eine Kausalkette rekonstruieren ("Retrospektives Wirkmodell").
 
 ---
 
@@ -212,7 +212,7 @@ Am Ende des Gesprächs:
 
 → Danach: [context-readiness.yaml](context-readiness.yaml) / Context Exploration (Ebene 1)  
 → Ergebnis der Frage `ctx_business_pain` mit diesem Gespräch abgleichen und in Analyse aufnehmen  
-→ North Star Metrics in den CRAFT Report übernehmen und als Referenz für alle weiteren Zyklen dokumentieren
+→ Business-Impact-Kennzahlen in den CRAFT Report übernehmen und als Referenz für alle weiteren Zyklen dokumentieren
 
 ---
 

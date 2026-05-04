@@ -84,7 +84,7 @@ Jede Phase-Beschreibung bekommt einen Abschnitt `Aktive Rollen` mit: wer, was ko
 
 ### B.1 Business Impact Discovery
 - [ ] Verweis auf `business-impact-discovery.md` — wie führt man dieses Gespräch?
-- [ ] Ergebnis: 2–3 North Star Metrics, die das Business-Problem messen
+- [ ] Ergebnis: 2–3 Business-Impact-Kennzahlen, die das Business-Problem messen
 - [ ] Typische Fallstricke: Metriken, die sich nicht messen lassen; Sponsor hat kein klares Problem
 
 ### B.2 Kontext-Analyse
@@ -108,7 +108,7 @@ Jede Phase-Beschreibung bekommt einen Abschnitt `Aktive Rollen` mit: wer, was ko
 ### C.1 Phase 1 ausarbeiten — Guiding Coalition
 - [ ] Wie identifiziert man die richtigen Personen für die Coalition? (Machtposition, Glaubwürdigkeit, Offenheit)
 - [ ] Konkrete Gesprächsleitfragen für das erste Coalition-Gespräch
-- [ ] Kotter-Link: Urgency erzeugen — ohne Drama, mit echter Datenlage (North Star + CRAFT-Kontext)
+- [ ] Kotter-Link: Urgency erzeugen — ohne Drama, mit echter Datenlage (Business-Impact-Kennzahlen + CRAFT-Kontext)
 - [ ] ADKAR-Diagnose: Ist Awareness da? Wenn nicht — was fehlt konkret?
 - [ ] **Aktive Rollen:** ATM führt (alle Gespräche), Change & People Lead begleitet optional; Governance Liaison liefert vorab Compliance-Kontext
 - [ ] Dauer/Timing: ~1 Woche, 3–5 Gespräche à 45 Min
@@ -140,7 +140,7 @@ Jede Phase-Beschreibung bekommt einen Abschnitt `Aktive Rollen` mit: wer, was ko
 - [ ] Durchführungshinweise: Wer macht es? (Team eigenständig) Was ist Rolle des ATM dabei?
 - [ ] Ergebnis-Workshop: Wie liest man den Spider-Chart gemeinsam? Was ist ein gutes vs. schlechtes Ergebnis?
 - [ ] Übersetzung Ergebnisse → Interventionen: Welche 2–3 Prioritäten folgen daraus?
-- [ ] Verbindung zu North Star Metrics: "Was bewegt unsere Top-Priorität auf unserem Ziel?"
+- [ ] Verbindung zu Business-Impact-Kennzahlen: "Was bewegt unsere Top-Priorität auf unserem Ziel?"
 - [ ] ADKAR-Diagnose nach Deep Dive: Hat das Team jetzt Knowledge? Was fehlt noch?
 - [ ] **Aktive Rollen:** ATM moderiert Ergebnis-Workshop; Value Stream Coach interpretiert Flow-Dimension und leitet erste VSM-Hypothesen ab; Technical AI Lead bewertet T-Score und schlägt konkretes Tooling vor; Change & People Lead liest R-Score und identifiziert Psychological-Safety-Bedarf
 
@@ -176,7 +176,7 @@ Jede Phase-Beschreibung bekommt einen Abschnitt `Aktive Rollen` mit: wer, was ko
 - [ ] Entscheidungslogik: Erweitern / Vertiefen / Konsolidieren (vgl. Framework Kap. 4.7)
 - [ ] Wer entscheidet? In welchem Setting? Mit welchen Daten?
 - [ ] Kotter-Link: Skalierung über Champion-Netzwerk und Volunteer Army
-- [ ] **Aktive Rollen:** ATM bereitet Gate vor, alle Rollen liefern Dimensionsfeedback; Sponsor trifft Entscheidung auf Basis CRAFT-Score + North Star Delta
+- [ ] **Aktive Rollen:** ATM bereitet Gate vor, alle Rollen liefern Dimensionsfeedback; Sponsor trifft Entscheidung auf Basis CRAFT-Score + Business-Impact-Kennzahlen-Delta
 
 ### F.2 Skalierungsschritte
 - [ ] Nächste Teams onboarden: Wie nutzt man das Referenzteam als Lernquelle?
