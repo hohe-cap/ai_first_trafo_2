@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Transformation Roadmap — 8 Monate</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+  :root {
+    --navy:       #0C1B2E;
+    --navy-light: #162A45;
+    --slate:      #2D4A6B;
+    --slate-light:#7B8FA8;
+    --blue:       #0070AD;
+    --blue-dark:  #005C8F;
+    --blue-light: #0096E0;
+    --cyan:       #00DCFA;
+    --emerald:    #2BD9AA;
+    --amber:      #FFB500;
+    --rose:       #FF6673;
+    --violet:     #7B61FF;
+    --white:      #FFFFFF;
+    --gray-300:   #B8C9DC;
+    --gray-400:   rgba(123,143,168,0.7);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .presentation { width: 100vw; height: 100vh; position: relative; }
+
+  .slide {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    padding: 56px 80px 90px;
+    opacity: 0; transform: translateX(60px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+    pointer-events: none;
+    overflow-y: auto;
+  }
+  .slide.active   { opacity: 1; transform: translateX(0);    pointer-events: all; }
+  .slide.exit-left{ opacity: 0; transform: translateX(-60px);}
+
+  /* Nav */
+  .nav {
+    position: fixed; bottom: 0; left: 0; right: 0; height: 68px;
+    background: rgba(12,27,46,0.96); backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; padding: 0 40px; z-index: 100;
+  }
+  .nav-btn {
+    display: flex; align-items: center; gap: 8px; padding: 10px 24px;
+    border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05);
+    color: var(--white); font-family: inherit; font-size: 14px; font-weight: 500;
+    border-radius: 8px; cursor: pointer; transition: all 0.2s;
+    min-width: 120px; justify-content: center;
+  }
+  .nav-btn:hover   { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); }
+  .nav-btn:disabled{ opacity: 0.3; cursor: not-allowed; }
+  .nav-btn.primary { background: var(--blue); border-color: var(--blue); }
+  .nav-btn.primary:hover { background: var(--blue-dark); }
+  .slide-counter { font-size: 13px; color: var(--slate-light); font-variant-numeric: tabular-nums; min-width: 60px; text-align: center; }
+
+  /* Progress */
+  .progress-bar {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    transition: width 0.4s ease; z-index: 101;
+  }
+
+  /* Typography */
+  .slide-tag { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--blue-light); margin-bottom: 14px; }
+  h1 { font-size: clamp(34px,4.8vw,58px); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 20px; }
+  h2 { font-size: clamp(24px,3vw,40px); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px; }
+  h3 { font-size: clamp(14px,1.7vw,20px); font-weight: 600; line-height: 1.3; margin-bottom: 8px; }
+  .subtitle { font-size: clamp(14px,1.6vw,18px); color: var(--gray-300); font-weight: 300; line-height: 1.6; max-width: 720px; }
+
+  .text-accent      { background: linear-gradient(135deg, var(--blue-light), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .text-accent-warm { background: linear-gradient(135deg, var(--amber), var(--rose));      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .text-green       { background: linear-gradient(135deg, var(--emerald), var(--cyan));    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  /* Layout */
+  .slide-content { width: 100%; max-width: 1160px; }
+  .two-col   { display: grid; grid-template-columns: 1fr 1fr;       gap: 28px; margin-top: 24px; text-align: left; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr;   gap: 18px; margin-top: 24px; text-align: left; }
+
+  /* Card */
+  .card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 22px; transition: all 0.3s; }
+  .card:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.15); transform: translateY(-2px); }
+  .card p { font-size: 13px; color: var(--gray-300); line-height: 1.6; }
+  .card h3 { font-size: 15px; margin-bottom: 7px; }
+  .card-icon { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 19px; margin-bottom: 12px; }
+
+  /* Table */
+  .craft-table { width: 100%; border-collapse: collapse; margin-top: 18px; font-size: 12.5px; }
+  .craft-table th { background: rgba(0,112,173,0.25); color: var(--cyan); padding: 10px 14px; text-align: left; font-size: 10.5px; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid rgba(0,150,224,0.3); font-weight: 600; }
+  .craft-table td { padding: 9px 14px; border-bottom: 1px solid rgba(255,255,255,0.06); color: var(--gray-300); vertical-align: top; line-height: 1.5; }
+  .craft-table tr:hover td { background: rgba(255,255,255,0.03); color: var(--white); }
+  .craft-table .hl  { color: var(--cyan); font-weight: 600; }
+  .craft-table .warn{ color: var(--amber); font-weight: 600; }
+  .craft-table .ok  { color: var(--emerald); font-weight: 600; }
+
+  /* Badge */
+  .badge { display: inline-block; font-size: 10.5px; font-weight: 700; padding: 3px 9px; border-radius: 20px; margin: 2px; letter-spacing: 0.5px; }
+
+  /* Feature list */
+  .feat-list { list-style: none; padding: 0; margin: 0; }
+  .feat-list li { display: flex; gap: 10px; align-items: flex-start; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.07); font-size: 13px; color: var(--gray-300); line-height: 1.5; }
+  .feat-list li:last-child { border-bottom: none; }
+  .fi { width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; }
+
+  /* Layer stack */
+  .layer-stack { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+  .layer { border-radius: 12px; padding: 16px 22px; display: flex; align-items: center; gap: 16px; }
+  .layer-num { font-size: 24px; font-weight: 800; opacity: 0.55; flex-shrink: 0; width: 34px; }
+  .layer-content h3 { font-size: 14px; margin-bottom: 3px; }
+  .layer-content p  { font-size: 12px; color: var(--gray-300); line-height: 1.5; }
+
+  /* Timeline */
+  .timeline { display: flex; gap: 0; margin-top: 24px; position: relative; }
+  .timeline::before { content: ''; position: absolute; top: 36px; left: 4%; right: 4%; height: 2px; background: rgba(255,255,255,0.1); }
+  .tl-item { flex: 1; text-align: center; padding: 0 8px; }
+  .tl-dot  { width: 14px; height: 14px; border-radius: 50%; margin: 30px auto 12px; position: relative; z-index: 1; }
+  .tl-item h4 { font-size: 12px; font-weight: 600; margin-bottom: 3px; }
+  .tl-item p  { font-size: 11px; color: var(--gray-300); line-height: 1.4; }
+  .tl-label   { font-size: 9.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--blue-light); margin-bottom: 0; }
+
+  /* Phase row */
+  .phase-row { display: flex; gap: 14px; align-items: flex-start; padding: 12px 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; margin-bottom: 8px; transition: all 0.2s; }
+  .phase-row:hover { background: rgba(255,255,255,0.06); }
+  .phase-tag { font-size: 9.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--blue-light); background: rgba(0,150,224,0.1); border: 1px solid rgba(0,150,224,0.2); border-radius: 5px; padding: 3px 9px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; min-width: 96px; text-align: center; }
+  .phase-row p { font-size: 13px; color: var(--gray-300); line-height: 1.5; }
+  .phase-row strong { color: var(--white); }
+
+  blockquote { border-left: 3px solid var(--blue); padding-left: 16px; margin: 16px 0; font-style: italic; color: var(--gray-300); font-size: 13.5px; line-height: 1.65; }
+
+  /* Warning box */
+  .warn-box { background: rgba(255,181,0,0.08); border: 1px solid rgba(255,181,0,0.3); border-radius: 10px; padding: 14px 18px; margin-top: 16px; font-size: 13px; color: var(--gray-300); line-height: 1.6; }
+  .warn-box strong { color: var(--amber); }
+
+  /* Footer brand */
+  .brand-footer { position: fixed; bottom: 70px; left: 40px; right: 40px; display: flex; justify-content: space-between; font-size: 11px; color: rgba(123,143,168,0.45); z-index: 99; pointer-events: none; }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="presentation" id="presentation">
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 1  —  TITEL
+  ══════════════════════════════════════════ -->
+  <div class="slide active" data-slide="0">
+    <div class="slide-content" style="text-align:center;">
+      <div class="slide-tag">CRAFT AI Transformation Framework</div>
+      <h1>AI Transformation<br><span class="text-accent">Roadmap</span></h1>
+      <p class="subtitle" style="margin: 0 auto 40px;">Konkrete 8-Monats-Perspektive für ein internationales, sicherheitsklassifiziertes Projekt — vom dedizierten AI-Projektteam zur skalierten Organisation</p>
+      <div style="display:flex; gap:40px; justify-content:center; flex-wrap:wrap; margin-bottom:48px;">
+        <div style="text-align:center;">
+          <div style="font-size:38px; font-weight:800; color:var(--cyan);">8</div>
+          <div style="font-size:11px; color:var(--gray-400); letter-spacing:1px; text-transform:uppercase;">Monate</div>
+        </div>
+        <div style="width:1px; background:rgba(255,255,255,0.1);"></div>
+        <div style="text-align:center;">
+          <div style="font-size:38px; font-weight:800; color:var(--cyan);">6</div>
+          <div style="font-size:11px; color:var(--gray-400); letter-spacing:1px; text-transform:uppercase;">Phasen</div>
+        </div>
+        <div style="width:1px; background:rgba(255,255,255,0.1);"></div>
+        <div style="text-align:center;">
+          <div style="font-size:38px; font-weight:800;" class="text-accent-warm">30%</div>
+          <div style="font-size:11px; color:var(--gray-400); letter-spacing:1px; text-transform:uppercase;">Ziel Automatisierung</div>
+        </div>
+        <div style="width:1px; background:rgba(255,255,255,0.1);"></div>
+        <div style="text-align:center;">
+          <div style="font-size:38px; font-weight:800; color:var(--emerald);">300+</div>
+          <div style="font-size:11px; color:var(--gray-400); letter-spacing:1px; text-transform:uppercase;">Personen</div>
+        </div>
+      </div>
+      <p style="font-size:12px; color:var(--gray-400);">Mai – Dezember 2026 · public-1 · Gemma 4 / Qwen 3.6 · Air-gapped</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 2  —  AUF EINEN BLICK
+  ══════════════════════════════════════════ -->
+  <div class="slide" data-slide="1">
+    <div class="slide-content">
+      <div class="slide-tag">Überblick</div>
+      <h2>Auf einen <span class="text-accent">Blick</span></h2>
+      <table class="craft-table">
+        <thead>
+          <tr><th>Phase</th><th>Zeitraum</th><th>Aktivitäten</th><th>Output / Ziel</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="hl">Findung Sprint 1</td>
+            <td>Mai, Wo. 1–2</td>
+            <td>Ziel mit Manager klären · Governance public-1 · Team freistellen · Ticket-Baseline erheben</td>
+            <td>Schriftliches Ziel, Governance-Status, Team steht, Baseline vorhanden</td>
+          </tr>
+          <tr>
+            <td class="hl">Findung Sprint 2</td>
+            <td>Mai, Wo. 3–4</td>
+            <td>Kickoff AI-Projektteam · CRAFT Deep-Dive · Tooling-Setup · Value Stream Snapshot</td>
+            <td>CRAFT-Baseline (Spider-Chart), lauffähiges Tooling, PoC-Scope fixiert</td>
+          </tr>
+          <tr>
+            <td class="hl">Pilotzyklus 1</td>
+            <td>Juni</td>
+            <td>Pipeline Ticketkategorie #1 bauen und mit echten Tickets testen · erste Ergebnisse an Sponsor</td>
+            <td>Validierte Pipeline, messbare Automatisierungsrate, Readiness Gate</td>
+          </tr>
+          <tr>
+            <td class="hl">Pilotzyklus 2</td>
+            <td>Juli</td>
+            <td>Pipeline #1 stabilisieren · Pipeline #2 starten · Playbooks schreiben · Koordinatoren definieren</td>
+            <td>Zwei Pipelines, replizierbare Playbooks, Skalierungsplan konkret</td>
+          </tr>
+          <tr>
+            <td class="hl">Skalierung</td>
+            <td>Aug – Okt</td>
+            <td>Projektteam kehrt in Teams zurück (embedded Change Agents) · Koordinatoren begleiten Teams · Tooling-Rollout</td>
+            <td>300+ Personen aktiv, Automatisierung läuft in mehreren Teams</td>
+          </tr>
+          <tr>
+            <td class="hl">Konsolidierung</td>
+            <td>Nov – Dez</td>
+            <td>Finale Messung · CRAFT Pulse Check alle Teams · Management-Report & Präsentation</td>
+            <td>Nachweis 30%-Ziel, Roadmap 2027</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 3  —  AUSGANGSSITUATION
+  ══════════════════════════════════════════ -->
+  <div class="slide" data-slide="2">
+    <div class="slide-content">
+      <div class="slide-tag">Ausgangssituation</div>
+      <h2>Rahmenbedingungen <span class="text-accent">& Kontext</span></h2>
+      <div class="two-col" style="align-items:start;">
+        <div>
+          <table class="craft-table">
+            <thead><tr><th>Dimension</th><th>Ist-Stand</th></tr></thead>
+            <tbody>
+              <tr><td class="hl">Team</td><td>300+ Personen, international · Entwickler + BAs + Architekten</td></tr>
+              <tr><td class="hl">Sicherheit</td><td>Air-gapped · Einstufung <strong style="color:var(--amber);">public-1</strong></td></tr>
+              <tr><td class="hl">Modelle</td><td>Gemma 4, Qwen 3.6 · lokal via Ollama · eigene Hardware</td></tr>
+              <tr><td class="hl">Tools</td><td>Continue.dev / Cline · OpenCode · IDE-Integration</td></tr>
+              <tr><td class="hl">AI-Reifegrad</td><td>Vorarbeiten vorhanden — Verteilung noch nicht erfasst</td></tr>
+              <tr><td class="hl">Management</td><td>Ausdrückliches Commitment · Budgetzusage · 30%-Ziel</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <div class="warn-box">
+            <strong>⚠ public-1: Der kritische Pfad</strong><br>
+            Die Einstufung bestimmt, welche Ticket-Inhalte das Modell verarbeiten darf. Das muss vor jeder anderen Aktivität geklärt sein — sonst entfällt die Hälfte der Automatisierungskandidaten.
+          </div>
+          <div style="margin-top:18px;">
+            <div class="phase-row">
+              <div class="phase-tag">Stärke</div>
+              <p>Gemma 4 und Qwen 3.6 sind <strong>leistungsfähige Modelle</strong> für Code- und Workflow-Automatisierung. Air-gapped ist kein Nachteil — es ist der definierte Rahmen.</p>
+            </div>
+            <div class="phase-row">
+              <div class="phase-tag">Risiko</div>
+              <p>Noch keine Baseline-Daten zu Tickettypen und Lead Times. Ohne Baseline ist kein Delta messbar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 4  —  DAS 30%-ZIEL
+  ══════════════════════════════════════════ -->
+  <div class="slide" data-slide="3">
+    <div class="slide-content">
+      <div class="slide-tag">Zielpräzisierung</div>
+      <h2>Was bedeutet <span class="text-accent-warm">30% automatisiert</span>?</h2>
+      <div class="two-col" style="align-items:start;">
+        <div>
+          <blockquote>„Was gilt als automatisiert — vollständig ohne menschliche Prüfung, oder AI hat die Arbeit gemacht und ein Mensch hat bestätigt?"</blockquote>
+          <div style="margin-top:14px;">
+            <div class="phase-row">
+              <div class="phase-tag" style="background:rgba(255,102,115,0.12); border-color:rgba(255,102,115,0.3); color:var(--rose);">Variante A</div>
+              <p><strong>Vollautonome Pipeline</strong> — Ticket rein, Code geschrieben, Tests grün, Ticket geschlossen. Ohne Mensch. Realistisch für <em>spezifische Kategorien</em>, nicht für alles.</p>
+            </div>
+            <div class="phase-row" style="margin-top:0;">
+              <div class="phase-tag" style="background:rgba(43,217,170,0.1); border-color:rgba(43,217,170,0.25); color:var(--emerald);">Variante B</div>
+              <p><strong>AI-gestützte Bearbeitung</strong> — AI übernimmt >70% der Arbeit, Mensch validiert. Breiterer Scope erreichbar.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--blue-light); margin-bottom:10px;">Automationskanditaten mit Gemma 4 / Qwen 3.6</div>
+          <table class="craft-table" style="margin-top:0;">
+            <thead><tr><th>Ticketkategorie</th><th>Potenzial</th></tr></thead>
+            <tbody>
+              <tr><td>Dependency-Updates</td><td class="ok">Sehr hoch</td></tr>
+              <tr><td>Dokumentations-Tickets</td><td class="ok">Sehr hoch</td></tr>
+              <tr><td>Test-Generierung</td><td class="ok">Hoch</td></tr>
+              <tr><td>Kleine Bugfixes mit Testfehler</td><td class="ok">Hoch</td></tr>
+              <tr><td>Config / Infra-Routineänderungen</td><td class="ok">Hoch</td></tr>
+              <tr><td>Komplexe Feature-Tickets</td><td class="warn">Nicht im Scope</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:11.5px; color:var(--gray-400); margin-top:10px;">Diese Kategorien machen in typischen Projekten 25–40 % des Ticketvolumens aus. Baseline-Erhebung bestätigt die genaue Zahl.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 5  —  AI-PROJEKTTEAM KONZEPT
+  ══════════════════════════════════════════ -->
+  <div class="slide" data-slide="4">
+    <div class="slide-content">
+      <div class="slide-tag">Das AI-Projektteam</div>
+      <h2>Operativer Kern & <span class="text-accent">Wissenstransfer-Einheit</span></h2>
+      <div class="two-col" style="align-items:start;">
+        <div>
+          <div style="background:rgba(0,150,224,0.08); border:1px solid rgba(0,150,224,0.2); border-radius:12px; padding:18px 20px; margin-bottom:14px;">
+            <div style="font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--blue-light); margin-bottom:10px;">Funktion A — Operativer Pilot</div>
+            <ul class="feat-list">
+              <li><div class="fi" style="background:rgba(0,150,224,0.15);">🔧</div><div>Arbeitet an <strong>realen Tickets</strong> mit AI-Tooling — keine Demos, echte Arbeit</div></li>
+              <li><div class="fi" style="background:rgba(0,150,224,0.15);">⚙️</div><div>Baut End-to-End-Automatisierungspipelines für definierte Ticketkategorien</div></li>
+              <li><div class="fi" style="background:rgba(0,150,224,0.15);">📊</div><div>Liefert messbare Short-Term Wins, die die Organisation überzeugen</div></li>
+            </ul>
+          </div>
+          <div style="background:rgba(43,217,170,0.07); border:1px solid rgba(43,217,170,0.2); border-radius:12px; padding:18px 20px;">
+            <div style="font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--emerald); margin-bottom:10px;">Funktion B — Enablement Hub</div>
+            <ul class="feat-list">
+              <li><div class="fi" style="background:rgba(43,217,170,0.12);">📚</div><div>Entwickelt replizierbare <strong>Playbooks und Prompt-Bibliotheken</strong></div></li>
+              <li><div class="fi" style="background:rgba(43,217,170,0.12);">🔄</div><div>Bereitet die Rückkehr in Herkunftsteams als embedded Change Agents vor</div></li>
+              <li><div class="fi" style="background:rgba(43,217,170,0.12);">🌐</div><div>Baut Tooling-Infrastruktur, die alle Teams nutzen können</div></li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--blue-light); margin-bottom:10px;">Zusammensetzung</div>
+          <div class="phase-row"><div class="phase-tag">Selektion</div><p>AI-affin, technisch erfahren, peer-vertrauenswürdig — keine Einsteiger, keine Skeptiker</p></div>
+          <div class="phase-row"><div class="phase-tag">Kapazität</div><p><strong>100% freigestellt</strong> für die Projektdauer — kein Teilzeit-Kompromiss (s. nächste Folie)</p></div>
+          <div class="phase-row"><div class="phase-tag">Dauer</div><p>Explizit befristet: ~10–14 Wochen · Auflösungsplan ist Teil des Kickoffs</p></div>
+          <div class="phase-row"><div class="phase-tag">Impact</div><p>Herkunftsteams verlieren Kapazität — muss eingeplant werden. Das ist die Investition, kein Versehen.</p></div>
+          <div class="warn-box" style="margin-top:14px; font-size:12px;">
+            <strong>Kritisch:</strong> Der Endpunkt wird von Tag 1 kommuniziert. Das Team weiß: Sie kehren zurück — als die kompetentesten AI-Praktiker im Projekt.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 6  —  100% FREISTELLUNG
+  ══════════════════════════════════════════ -->
+  <div class="slide" data-slide="5">
+    <div class="slide-content">
+      <div class="slide-tag">Kapazitätsentscheidung</div>
+      <h2>100% Freistellung — <span class="text-accent-warm">kein Kompromiss</span></h2>
+      <div class="two-col" style="align-items:start;">
+        <div>
+          <div class="layer-stack">
+            <div class="layer" style="background:rgba(255,102,115,0.1); border:1px solid rgba(255,102,115,0.2);">
+              <div class="layer-num" style="color:var(--rose);">✗</div>
+              <div class="layer-content">
+                <h3 style="color:var(--rose);">20% Champions scheitern systematisch</h3>
+                <p>Das Tagesgeschäft gewinnt immer. Champions mit geteilter Aufmerksamkeit lernen halb, liefern halb, und die Skalierung kollabiert.</p>
+              </div>
+            </div>
+            <div class="layer" style="background:rgba(43,217,170,0.08); border:1px solid rgba(43,217,170,0.2);">
+              <div class="layer-num" style="color:var(--emerald);">✓</div>
+              <div class="layer-content">
+                <h3 style="color:var(--emerald);">100% = echtes Lernen, echte Multiplikation</h3>
+                <p>10–14 Wochen all-in bedeutet: Diese Personen sind danach die kompetentesten AI-Praktiker im Projekt — peer-vertrauenswürdig und operativ erfahren.</p>
+              </div>
+            </div>
+            <div class="layer" style="background:rgba(0,150,224,0.08); border:1px solid rgba(0,150,224,0.2);">
+              <div class="layer-num" style="color:var(--blue-light);">→</div>
+              <div class="layer-content">
+                <h3>Rückkehr als embedded Change Agents</h3>
+                <p>Die Skalierung passiert nicht durch Workshops oder Decks — sondern durch Menschen, die es selbst gemacht haben und jetzt in den Teams sitzen.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--blue-light); margin-bottom:12px;">Was das Management entscheiden muss</div>
+          <ul class="feat-list">
+            <li><div class="fi" style="background:rgba(255,181,0,0.15);">📋</div><div><strong>Freistellung formell genehmigen</strong> — inkl. Budget für die Kapazitätslücke in den Herkunftsteams</div></li>
+            <li><div class="fi" style="background:rgba(255,181,0,0.15);">👥</div><div><strong>Scope-Anpassung in Herkunftsteams</strong> — wer übernimmt was temporär? Transparent kommunizieren.</div></li>
+            <li><div class="fi" style="background:rgba(255,181,0,0.15);">⏱</div><div><strong>Zeitrahmen fixieren</strong> — Projektteam-Mitglieder kennen ihren Rückkehrtermin vom ersten Tag</div></li>
+            <li><div class="fi" style="background:rgba(255,181,0,0.15);">📣</div><div><strong>Signal an die Organisation</strong> — wer freigestellt wird, sendet eine klare Botschaft: das hier ist ernst</div></li>
+          </ul>
+          <blockquote style="margin-top:16px;">"Halbe Freistellungen produzieren halbfertige Pipelines und keine skalierbare Transformation."</blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 7  —  AI ADOPTION TEAM SKALIERUNG
+  ══════════════════════════════════════════ -->
+  <div class="slide" data-slide="6">
+    <div class="slide-content">
+      <div class="slide-tag">Skalierung</div>
+      <h2>AI Adoption Team — <span class="text-accent">Drei Ebenen</span></h2>
+      <div class="three-col" style="align-items:start;">
+        <div class="card" style="border-top:3px solid var(--blue-light);">
+          <div class="card-icon" style="background:rgba(0,150,224,0.15);">🎯</div>
+          <h3>AI Transformation Manager</h3>
+          <p style="color:var(--gray-300);">100% · Orchestrierung, Sponsor-Kommunikation, Qualitätssicherung über alle Teams · Hält den Gesamtüberblick durch alle Phasen</p>
+          <div style="margin-top:10px;"><span class="badge" style="background:rgba(0,112,173,0.2); color:var(--blue-light); border:1px solid rgba(0,112,173,0.3);">Durchgängig</span></div>
+        </div>
+        <div class="card" style="border-top:3px solid var(--cyan);">
+          <div class="card-icon" style="background:rgba(0,220,250,0.1);">🔗</div>
+          <h3>AI Transformation Koordinatoren</h3>
+          <p style="color:var(--gray-300);">40–60% · Entstehen aus dem AI-Projektteam · Begleiten je 1–2 Teams durch ihre ersten Zyklen · Führen Pulse Checks durch</p>
+          <div style="margin-top:10px;"><span class="badge" style="background:rgba(0,220,250,0.1); color:var(--cyan); border:1px solid rgba(0,220,250,0.2);">Ab Monat 4</span></div>
+        </div>
+        <div class="card" style="border-top:3px solid var(--emerald);">
+          <div class="card-icon" style="background:rgba(43,217,170,0.1);">🌱</div>
+          <h3>Champions (je Team)</h3>
+          <p style="color:var(--gray-300);">Peer-vertrauenswürdig · Operativ erfahren aus dem Projektteam · Mit Playbooks ausgestattet · Erste Anlaufstelle im Team</p>
+          <div style="margin-top:10px;"><span class="badge" style="background:rgba(43,217,170,0.1); color:var(--emerald); border:1px solid rgba(43,217,170,0.2);">Ab Rückkehr</span></div>
+        </div>
+      </div>
+      <div style="margin-top:22px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:18px 22px;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--blue-light); margin-bottom:10px;">Wie die Koordinatoren entstehen</div>
+        <p style="font-size:13px; color:var(--gray-300); line-height:1.6;">Die 2–3 fähigsten und kommunikativsten Personen aus dem AI-Projektteam kehren nicht vollständig in ihre alten Rollen zurück — sie übernehmen die Koordinatoren-Rolle für die Skalierungsphase. Diese Entscheidung wird in <strong style="color:var(--white);">Pilotzyklus 2</strong> getroffen und kommuniziert.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 8  —  ZEITPLAN ÜBERSICHT
+  ══════════════════════════════════════════ -->
+  <div class="slide" data-slide="7">
+    <div class="slide-content">
+      <div class="slide-tag">Zeitplan</div>
+      <h2>8 Monate — <span class="text-accent">3 Hauptphasen</span></h2>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-label">Mai</div>
+          <div class="tl-dot" style="background:var(--blue-light); box-shadow:0 0 12px rgba(0,150,224,0.6);"></div>
+          <h4>Findungsphase</h4>
+          <p>2 × 2-Wochen-Sprints · Governance · Deep-Dive · Tooling</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-label">Juni</div>
+          <div class="tl-dot" style="background:var(--cyan); box-shadow:0 0 12px rgba(0,220,250,0.5);"></div>
+          <h4>Pilotzyklus 1</h4>
+          <p>Pipeline #1 bauen · echte Tickets · erste Messung</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-label">Juli</div>
+          <div class="tl-dot" style="background:var(--cyan); box-shadow:0 0 12px rgba(0,220,250,0.5);"></div>
+          <h4>Pilotzyklus 2</h4>
+          <p>Pipeline #2 · Playbooks · Koordinatoren definieren</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-label">Aug – Okt</div>
+          <div class="tl-dot" style="background:var(--emerald); box-shadow:0 0 12px rgba(43,217,170,0.5);"></div>
+          <h4>Skalierung</h4>
+          <p>Team kehrt zurück · Koordinatoren aktiv · Rollout alle Teams</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-label">Nov – Dez</div>
+          <div class="tl-dot" style="background:var(--amber); box-shadow:0 0 12px rgba(255,181,0,0.5);"></div>
+          <h4>Konsolidierung</h4>
+          <p>Finale Messung · Management-Präsentation · 2027</p>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px;">
+        <div style="background:rgba(0,150,224,0.07); border:1px solid rgba(0,150,224,0.2); border-radius:10px; padding:14px 18px;">
+          <div style="font-size:10.5px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--blue-light); margin-bottom:6px;">Warum 2-Wochen-Sprints am Start?</div>
+          <p style="font-size:12.5px; color:var(--gray-300); line-height:1.5;">Die Findungsphase muss schnell sein. Governance klären, Team formieren, Baseline erheben — das darf nicht 4 Wochen dauern. 2 komprimierte Sprints erzeugen Momentum und zeigen sofort: Diese Transformation ist ernst gemeint.</p>
+        </div>
+        <div style="background:rgba(43,217,170,0.06); border:1px solid rgba(43,217,170,0.2); border-radius:10px; padding:14px 18px;">
+          <div style="font-size:10.5px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--emerald); margin-bottom:6px;">Business Problem Check — Woche 4 jedes Zyklus</div>
+          <p style="font-size:12.5px; color:var(--gray-300); line-height:1.5;">Jeder Zyklus endet mit einer expliziten Messung: Bewegen wir die Business-Impact-Kennzahlen? Wenn nicht — Kurskorrektur, kein blinder Weiterlauf. Die Roadmap passt sich an Daten an, nicht an Pläne.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 9  —  FINDUNGSPHASE DETAIL
+  ══════════════════════════════════════════ -->
+  <div class="slide" data-slide="8">
+    <div class="slide-content">
+      <div class="slide-tag">Findungsphase — Mai</div>
+      <h2>Sprint 1 + Sprint 2 — <span class="text-accent">Fundament legen</span></h2>
+      <div class="two-col" style="align-items:start;">
+        <div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--blue-light); margin-bottom:10px;">Sprint 1 — Wochen 1–2</div>
+          <div class="phase-row"><div class="phase-tag">Tag 1–2</div><p><strong>Manager-Gespräch:</strong> 30%-Ziel präzisieren · Ticketkategorien schriftlich fixieren</p></div>
+          <div class="phase-row"><div class="phase-tag">Tag 1–3</div><p><strong>Governance starten:</strong> Was darf unter public-1 ins Modell? Wer entscheidet?</p></div>
+          <div class="phase-row"><div class="phase-tag">Tag 3–7</div><p><strong>Team zusammenstellen:</strong> Kandidaten ansprechen · 100% Freistellung mit Management klären</p></div>
+          <div class="phase-row"><div class="phase-tag">Tag 3–10</div><p><strong>Baseline erheben:</strong> Ticketvolumen nach Typ · aktuelle Lead Times · Fehlerquoten</p></div>
+          <div class="phase-row"><div class="phase-tag">Tag 14</div><p><strong>Business Problem Check:</strong> Ist das Ziel klar? Governance-Status? Team steht?</p></div>
+        </div>
+        <div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--cyan); margin-bottom:10px;">Sprint 2 — Wochen 3–4 <span style="font-weight:400; color:var(--gray-400);">(inkl. Deep-Dive — erster Zyklus!)</span></div>
+          <div class="phase-row"><div class="phase-tag" style="color:var(--cyan); background:rgba(0,220,250,0.08); border-color:rgba(0,220,250,0.2);">Tag 15–17</div><p><strong>Kickoff-Workshop AI-Projektteam:</strong> Vision · Auflösungsplan kommunizieren · Shadow AI Amnestie</p></div>
+          <div class="phase-row"><div class="phase-tag" style="color:var(--cyan); background:rgba(0,220,250,0.08); border-color:rgba(0,220,250,0.2);">Tag 17–20</div><p><strong>CRAFT Deep-Dive</strong> (alle 5 Dimensionen) — nicht Pulse-Check. Kickoff-Baseline für den gesamten Verlauf.</p></div>
+          <div class="phase-row"><div class="phase-tag" style="color:var(--cyan); background:rgba(0,220,250,0.08); border-color:rgba(0,220,250,0.2);">Tag 17–20</div><p><strong>Tooling-Setup:</strong> IDE-Integration · Continue.dev/Cline · Modell-Anbindung · erste Tests</p></div>
+          <div class="phase-row"><div class="phase-tag" style="color:var(--cyan); background:rgba(0,220,250,0.08); border-color:rgba(0,220,250,0.2);">Tag 22–28</div><p><strong>Value Stream Snapshot:</strong> Wie fließen Ziel-Tickets heute? Wo sind die Wartezeiten?</p></div>
+          <div class="phase-row"><div class="phase-tag" style="color:var(--cyan); background:rgba(0,220,250,0.08); border-color:rgba(0,220,250,0.2);">Tag 28</div><p><strong>Business Problem Check:</strong> Passt Scope noch? Erste Hypothese für Pipeline #1 formuliert?</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 10  —  PILOTZYKLUS 1+2
+  ══════════════════════════════════════════ -->
+  <div class="slide" data-slide="9">
+    <div class="slide-content">
+      <div class="slide-tag">Pilotphase — Juni / Juli</div>
+      <h2>Pilotzyklus 1 + 2 — <span class="text-accent">Pipelines bauen</span></h2>
+      <div class="two-col" style="align-items:start;">
+        <div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--blue-light); margin-bottom:10px;">Pilotzyklus 1 — Juni (4 Wochen)</div>
+          <ul class="feat-list">
+            <li><div class="fi" style="background:rgba(0,150,224,0.15);">🔧</div><div>Pulse Check (1. regulärer — 4 Wochen nach Deep-Dive) · Zieldefinition Zyklus</div></li>
+            <li><div class="fi" style="background:rgba(0,150,224,0.15);">⚙️</div><div>Pipeline Ticketkategorie #1: Architektur · Prompt-Engineering · Workflow</div></li>
+            <li><div class="fi" style="background:rgba(0,150,224,0.15);">🧪</div><div>Echte Tickets durch Pipeline laufen lassen (kontrolliert) · Qualität messen</div></li>
+            <li><div class="fi" style="background:rgba(0,150,224,0.15);">📣</div><div>Quick Win kommunizieren — erste Ergebniszahlen an Sponsor, auch wenn noch nicht perfekt</div></li>
+            <li><div class="fi" style="background:rgba(0,150,224,0.15);">🔍</div><div><strong>Business Problem Check Wo. 4:</strong> Automatisierungsrate? Qualität? Gate-Entscheidung</div></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--cyan); margin-bottom:10px;">Pilotzyklus 2 — Juli (4 Wochen)</div>
+          <ul class="feat-list">
+            <li><div class="fi" style="background:rgba(0,220,250,0.1);">🔁</div><div>Pipeline #1 stabilisieren — Edge Cases, Fehlerrate senken</div></li>
+            <li><div class="fi" style="background:rgba(0,220,250,0.1);">⚙️</div><div>Pipeline Ticketkategorie #2: PoC starten</div></li>
+            <li><div class="fi" style="background:rgba(0,220,250,0.1);">📚</div><div><strong>Playbook-Sprint:</strong> Was ist replizierbar? Dokumentation für andere Teams</div></li>
+            <li><div class="fi" style="background:rgba(0,220,250,0.1);">👥</div><div>Koordinatoren-Kandidaten identifizieren · Rückkehr-Plan konkretisieren</div></li>
+            <li><div class="fi" style="background:rgba(0,220,250,0.1);">🔍</div><div><strong>Business Problem Check Wo. 4 (Meilenstein):</strong> Auf Kurs für 30%?</div></li>
+          </ul>
+        </div>
+      </div>
+      <div style="background:rgba(43,217,170,0.06); border:1px solid rgba(43,217,170,0.2); border-radius:10px; padding:14px 20px; margin-top:18px; display:flex; gap:14px; align-items:center;">
+        <div style="font-size:22px;">💡</div>
+        <p style="font-size:13px; color:var(--gray-300); line-height:1.5;">Nach Pilotzyklus 2 ist klar: Welche Ticketkategorien sind automatisierbar, mit welcher Qualität, und wie sieht die replizierbare Pipeline aus. Das ist die Grundlage der Skalierung.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 11  —  SKALIERUNGSPHASE
+  ══════════════════════════════════════════ -->
+  <div class="slide" data-slide="10">
+    <div class="slide-content">
+      <div class="slide-tag">Skalierung — August bis Oktober</div>
+      <h2>Wissen verteilt sich — <span class="text-accent">Transformation in der Fläche</span></h2>
+      <div class="two-col" style="align-items:start;">
+        <div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--blue-light); margin-bottom:10px;">Monat 4 — Transfermonat (August)</div>
+          <ul class="feat-list">
+            <li><div class="fi" style="background:rgba(0,150,224,0.15);">↩</div><div>AI-Projektteam kehrt <strong>schrittweise</strong> in Herkunftsteams zurück</div></li>
+            <li><div class="fi" style="background:rgba(0,150,224,0.15);">🔗</div><div>Koordinatoren-Rollen beginnen: je 1–2 Teams zugewiesen</div></li>
+            <li><div class="fi" style="background:rgba(0,150,224,0.15);">🚀</div><div>Kickoff-Workshop je Team (Kurzformat 2h mit Peer als Co-Moderator)</div></li>
+            <li><div class="fi" style="background:rgba(0,150,224,0.15);">📊</div><div>CRAFT Pulse Check in jedem neuen Team als Baseline</div></li>
+            <li><div class="fi" style="background:rgba(0,150,224,0.15);">⚙️</div><div>Pipelines integrieren: Tooling-Rollout, IDE-Setup für neue Teams</div></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--emerald); margin-bottom:10px;">Monate 5–6 — Scaling läuft (Sep/Okt)</div>
+          <ul class="feat-list">
+            <li><div class="fi" style="background:rgba(43,217,170,0.12);">🔄</div><div>Laufende 4-Wochen-Zyklen mit Pulse Check und Business Problem Check</div></li>
+            <li><div class="fi" style="background:rgba(43,217,170,0.12);">🎯</div><div>ATM orchestriert Gesamtbild · hält Sponsor-Kommunikation aufrecht</div></li>
+            <li><div class="fi" style="background:rgba(43,217,170,0.12);">🛡</div><div>Nachzügler-Teams adressieren: Was blockiert? Widerstand? Technische Hürden?</div></li>
+            <li><div class="fi" style="background:rgba(43,217,170,0.12);">📈</div><div>Automatisierungsrate aggregieren: Wie entwickelt sich die Gesamtquote?</div></li>
+          </ul>
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:14px 16px; margin-top:14px;">
+            <p style="font-size:12.5px; color:var(--gray-300); line-height:1.5;">Die Skalierung funktioniert nicht durch Top-Down-Anweisung. Sie funktioniert durch <strong style="color:var(--white);">Peers, die es selbst gemacht haben</strong> und jetzt neben ihren Kollegen sitzen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 12  —  KRITISCHE ABHÄNGIGKEITEN
+  ══════════════════════════════════════════ -->
+  <div class="slide" data-slide="11">
+    <div class="slide-content">
+      <div class="slide-tag">Risiko-Radar</div>
+      <h2>Kritische <span class="text-accent-warm">Abhängigkeiten</span></h2>
+      <table class="craft-table">
+        <thead>
+          <tr><th>#</th><th>Abhängigkeit</th><th>Auswirkung wenn offen</th><th>Wann klären</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="warn">1</td>
+            <td><strong style="color:var(--white);">Governance public-1:</strong> Welche Daten darf das Modell verarbeiten?</td>
+            <td>Ticket-Automatisierung blockiert — kein PoC möglich</td>
+            <td class="warn">Sprint 1, Tag 1</td>
+          </tr>
+          <tr>
+            <td class="warn">2</td>
+            <td><strong style="color:var(--white);">Definition "automatisiertes Ticket"</strong> schriftlich mit Management</td>
+            <td>Kein messbares Ziel, Erwartungsmanagement scheitert</td>
+            <td class="warn">Sprint 1, Woche 1</td>
+          </tr>
+          <tr>
+            <td class="warn">3</td>
+            <td><strong style="color:var(--white);">100% Freistellung</strong> AI-Projektteam — Management-Entscheidung</td>
+            <td>Team mit halber Kapazität, Skalierung kollabiert</td>
+            <td class="warn">Sprint 1, Woche 1–2</td>
+          </tr>
+          <tr>
+            <td style="color:var(--blue-light);">4</td>
+            <td><strong style="color:var(--white);">Kapazitätsplanung Herkunftsteams</strong> — wer übernimmt was?</td>
+            <td>Freistellung erzeugt unkontrollierten Druck in Teams</td>
+            <td>Sprint 1, Woche 2</td>
+          </tr>
+          <tr>
+            <td style="color:var(--blue-light);">5</td>
+            <td><strong style="color:var(--white);">Baseline-Daten</strong> vorhanden (Ticketvolumen, Lead Times)</td>
+            <td>Kein Delta messbar — kein Fortschritt nachweisbar</td>
+            <td>Sprint 1, Woche 2–3</td>
+          </tr>
+          <tr>
+            <td style="color:var(--blue-light);">6</td>
+            <td><strong style="color:var(--white);">Koordinatoren-Rollen besetzt</strong> (aus Projektteam)</td>
+            <td>Skalierung scheitert, ATM als Engpass für 300+ Personen</td>
+            <td>Pilotzyklus 2</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SLIDE 13  —  SOFORTMASSNAHMEN
+  ══════════════════════════════════════════ -->
+  <div class="slide" data-slide="12">
+    <div class="slide-content">
+      <div class="slide-tag">Jetzt handeln</div>
+      <h2>Sofortmaßnahmen — <span class="text-accent">nächste 2 Wochen</span></h2>
+      <div class="two-col" style="align-items:start;">
+        <div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--amber); margin-bottom:10px;">Diese Woche</div>
+          <div class="phase-row" style="border-left:3px solid var(--amber);">
+            <div class="phase-tag" style="background:rgba(255,181,0,0.1); border-color:rgba(255,181,0,0.3); color:var(--amber);">Priorität 1</div>
+            <p><strong>Manager-Gespräch führen:</strong> 30%-Ziel präzisieren · Ticketkategorien + Automatisierungsdefinition schriftlich festhalten</p>
+          </div>
+          <div class="phase-row" style="border-left:3px solid var(--amber);">
+            <div class="phase-tag" style="background:rgba(255,181,0,0.1); border-color:rgba(255,181,0,0.3); color:var(--amber);">Priorität 2</div>
+            <p><strong>Governance-Klärung starten:</strong> Wer entscheidet unter public-1, welche Daten ins Modell dürfen?</p>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--blue-light); margin-bottom:10px;">Nächste Woche</div>
+          <div class="phase-row">
+            <div class="phase-tag">Priorität 3</div>
+            <p><strong>AI-Projektteam-Kandidaten ansprechen:</strong> AI-affin · erfahren · kommunikationsstark · Peer-Vertrauen</p>
+          </div>
+          <div class="phase-row">
+            <div class="phase-tag">Priorität 4</div>
+            <p><strong>Management-Entscheidung einholen:</strong> 100% Freistellung + Kapazitätsplanung Herkunftsteams</p>
+          </div>
+          <div class="phase-row">
+            <div class="phase-tag">Priorität 5</div>
+            <p><strong>Baseline-Erhebung starten:</strong> Ticketvolumen nach Typ · Lead Times · Fehlerquoten</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:20px; background:rgba(0,150,224,0.07); border:1px solid rgba(0,150,224,0.2); border-radius:10px; padding:16px 20px; display:flex; gap:16px; align-items:center;">
+        <div style="font-size:24px;">⚡</div>
+        <p style="font-size:13px; color:var(--gray-300); line-height:1.5;">Die Transformation beginnt mit dem Manager-Gespräch — nicht mit dem Tool-Rollout. <strong style="color:var(--white);">Ohne präzises Ziel gibt es keine messbare Transformation.</strong> Das ist der einzige wirkliche Startpunkt.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /presentation -->
+
+<!-- Footer -->
+<div class="brand-footer">
+  <span>AI Transformation Roadmap · [Projektname] · Mai–Dezember 2026</span>
+  <span>CRAFT Framework v1.0 · public-1 · Entwurf</span>
+</div>
+
+<!-- Navigation -->
+<nav class="nav">
+  <button class="nav-btn" id="prevBtn" onclick="navigate(-1)" disabled>← Zurück</button>
+  <span class="slide-counter" id="slideCounter">1 / 13</span>
+  <button class="nav-btn primary" id="nextBtn" onclick="navigate(1)">Weiter →</button>
+</nav>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.slide');
+  const total  = slides.length;
+
+  function navigate(dir) {
+    slides[current].classList.remove('active');
+    slides[current].classList.add('exit-left');
+    setTimeout(() => slides[current < total ? current : total - 1].classList.remove('exit-left'), 500);
+    current = Math.max(0, Math.min(total - 1, current + dir));
+    slides[current].classList.add('active');
+    document.getElementById('slideCounter').textContent = `${current + 1} / ${total}`;
+    document.getElementById('progressBar').style.width  = `${((current + 1) / total) * 100}%`;
+    document.getElementById('prevBtn').disabled = current === 0;
+    document.getElementById('nextBtn').disabled = current === total - 1;
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown')  navigate(1);
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')    navigate(-1);
+  });
+
+  // init progress
+  document.getElementById('progressBar').style.width = `${(1 / total) * 100}%`;
+</script>
+</body>
+</html>

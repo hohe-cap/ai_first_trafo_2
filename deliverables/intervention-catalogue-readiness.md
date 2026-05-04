@@ -302,137 +302,403 @@ Readiness existiert nicht isoliert. Ein niedriger R-Score kann Symptom eines Pro
 
 ## 7. Interventions-Steckbriefe (Detailbeschreibungen)
 
+> **Steckbrief-Aufbau:** Jeder Steckbrief folgt dem gleichen Template. Die Felder sind bewusst vollständig — nicht jedes Feld ist immer gleich relevant, aber alle sind beim Interventions-Design nützlich.
+
+---
+
 ### R-PS-1: Shadow AI Amnestie
 
-**Kurzbeschreibung:** Offizielle Erklärung, dass bestehende informelle AI-Nutzung nicht bestraft wird. Stattdessen wird sie erfasst und in offizielle Kanäle überführt.
+**ADKAR (primär / sekundär):** Desire / Awareness
+**Sinnvoll bei Reifegrad:** 1–2 (Exploring / Experimenting)
+**Aufwand:** Mittel (1 Woche Vorbereitung, Leadership-Commitment nötig)
 
-**Voraussetzungen:**
-- Leadership-Commitment (muss von oben kommen, nicht vom AI Transformation Manager)
-- Governance hat mindestens Stufe 1 Tools freigegeben (sonst gibt es keine offiziellen Kanäle)
+**Kurzbeschreibung**
 
-**Durchführung:**
-1. Vorbereitung (1 Woche): Leadership-Briefing, Kommunikation vorbereiten, offizielle Tool-Liste bereitstellen
-2. Team-Event (60 Min): Leadership erklärt die Amnestie, zeigt offizielle Alternativen, beantwortet Fragen
-3. Erfassung (1 Woche): Anonyme Umfrage "Welche AI-Tools nutzt du heute?" — nur zur Bedarfsermittlung, nicht zur Kontrolle
-4. Follow-up (2 Wochen): Offizielle Wege für die häufigsten Shadow-AI-Use-Cases bereitstellen
+Offizielle Erklärung der Führungskraft, dass bestehende informelle AI-Nutzung nicht bestraft wird. Shadow AI wird kanalisiert statt verboten: bestehende Nutzung wird erfasst, offizielle Wege werden geöffnet. Kern-Botschaft: "Wir wissen, dass ihr AI schon nutzt — gut so. Wir helfen euch, es richtig zu machen."
 
-**Fallstricke:**
-- Amnestie ohne echte Alternativen ist wertlos → Dimension T muss mindestens Basis-Tooling bereitstellen
-- Amnestie darf nicht als Kontroll-Instrument wahrgenommen werden → Kommunikation ist entscheidend
-- Einmalige Aktion reicht nicht → regelmäßig wiederholen, dass die Kultur sich geändert hat
+**Typische Erkennungszeichen**
 
-**Messbare Wirkung:** Shadow-AI-Rate sinkt bei gleichzeitig steigender offizieller Tool-Nutzung (messbar über Dimension A)
+- Team nutzt AI-Tools über private Accounts (ChatGPT, Claude.ai) oder persönliche Lizenzen
+- "Darf ich das eigentlich?" ist eine häufig gestellte Frage — oder wird nicht gestellt, weil die Antwort bekannt scheint
+- Es gibt keine offizielle AI-Nutzungsstatistik, aber die Team-Outputs sind unerwartet gut
+- R-MC-BLOCKER: "Unklar ob erlaubt" oder "Das wird hier nicht wirklich gewollt" dominieren
+- Pulse Check zeigt A-Score (Adoption) niedrig, obwohl T-Infrastruktur vorhanden
+
+**Voraussetzungen (ohne die es nicht funktioniert)**
+
+- **Leadership-Commitment:** Muss von der direkten Führungskraft oder höher kommen — nicht vom AI Transformation Manager. Ohne das ist es keine Amnestie, sondern ein Zettel.
+- **Mindestens ein offiziell freigegebenes AI-Tool verfügbar** (Stufe 1 aus Tooling-Architektur) — ohne Alternative zur Shadow-Nutzung ist die Amnestie inhaltsleer.
+- **C (Compliance) hat Grundfreigabe erteilt** — ohne rechtliche Basis fehlt der Amnestie der Rückhalt. Governance Starter Kit als Vorbereitung.
+- **Keine pathologische Westrum-Kultur** (R-PS-7 durchführen wenn unklar) — in einer Kultur wo Fehler bestraft werden, ist eine Amnestie nicht glaubwürdig.
+
+**Konkrete Durchführung (Zeitplan im 4-Wochen-Zyklus)**
+
+1. **Woche 1, Tag 1–2 — Leadership-Briefing vorbereiten** (AI Transformation Manager, 2h): 1-Pager für Führungskraft: "Was ist Shadow AI, warum tritt es auf, was wollen wir damit tun und wie?" Wichtig: Führungskraft muss den Rahmen verstehen, nicht nur die Botschaft liefern.
+2. **Woche 1, Tag 3–5 — Kommunikation vorbereiten** (AI Transformation Manager + Governance, 3h): Einladungstext, offizielle Tool-Liste, FAQ "Was ist erlaubt?" (→ C-Dimension). Tool-Zugänge sicherstellen bevor Event.
+3. **Woche 2 — Team-Event (60 Min):** Führungskraft spricht selbst — nicht delegieren. Struktur: (a) "Wir wissen, dass viele von euch AI schon nutzen — gut so." (b) "Wir kanalisieren das, strafen nicht." (c) Offizielle Tools vorstellen + Zugang zeigen. (d) FAQ, offene Fragen. Kein Finger-Pointing, keine Frage nach Namen.
+4. **Woche 2 danach — Anonyme Bestandsaufnahme (optional, 15 Min Survey):** "Welche AI-Tools nutzt du heute?" — nur für Bedarfsplanung, nicht Kontrolle. Ergebnisse nur in aggregierter Form verwenden.
+5. **Woche 3–4 — Follow-up:** Häufigste Shadow-AI-Use-Cases offiziell ermöglichen. Lücken (fehlende Tools, Zugangsrechte) an Dimension T weitermelden.
+
+**Minimalvariante (wenn Ressourcen knapp sind)**
+
+Führungskraft spricht im nächsten Team-Meeting 5 Minuten: "AI aktiv ausprobieren ist erlaubt und erwünscht — nutzt [Tool X]. Was ihr bisher privat gemacht habt: kein Problem." Kein Survey, kein separates Event. Reicht als erstes Signal, genügt aber nicht als nachhaltige Intervention — Wiederholung in den nächsten Sprint Reviews einplanen.
+
+**Fallstricke / Zu vermeiden wenn...**
+
+- **Amnestie ohne echte Tool-Alternative:** "Ihr dürft, aber es gibt nichts Offizielles." Das verstärkt Shadow AI und die Frustration.
+- **Survey wird als Kontroll-Instrument wahrgenommen:** Sobald Antworten nicht wirklich anonym sind, zerstört das Vertrauen — schlimmer als keine Amnestie.
+- **Führungskraft delegiert die Kommunikation** an AI Transformation Manager: Signalwirkung verloren. Muss von der Führungskraft selbst kommen.
+- **Zu vermeiden bei Reifegrad 3+:** Das Team hat bereits offene Nutzung — eine formale Amnestie wirkt dann rückwärtsgewandt.
+- **Nicht starten wenn pathologische Westrum-Kultur** vorliegt (Ergebnis R-PS-7 = pathologisch): Erst Sponsor-Eskalation, dann Amnestie — sonst wird die Erklärung nicht geglaubt.
+
+**Wechselwirkung mit anderen Dimensionen**
+
+| Dimension | Wirkrichtung | Konkret |
+|---|---|---|
+| **C (Compliance)** | Voraussetzung | Ohne Governance-Basis ist die Amnestie rechtlich hohl. C und R-PS-1 müssen synchron laufen — idealerweise Governance Starter Kit parallel. |
+| **T (Technical)** | Voraussetzung | Nur wirksam wenn offiziell lizenzierte Tools bereitstehen. Amnestie ohne Tool-Alternativen ist leere Rhetorik. |
+| **A (Adoption)** | Positive Wirkung | Shadow AI wird zu messbarer offizieller Adoption. Der DAU/Team-Score steigt nach einer erfolgreichen Amnestie sichtbar in 1–2 Zyklen. |
+| **F (Flow)** | Indirekte Wirkung | Wenn AI aus dem Verborgenen in offizielle Workflows kommt, können Prozesse um AI herum designt werden (Vorbereitung für VSM). |
+
+**Kombiniert gut mit / Passt nicht zu**
+
+| Kombination | Typ | Begründung |
+|---|---|---|
+| R-PS-2 (Leadership Goes First) | ✅ Verstärkt | Verstärkt das Signal der Amnestie durch sichtbares Vorleben |
+| T-Katalog Tool-Bereitstellung | ✅ Voraussetzung | Macht die Amnestie konkret nutzbar |
+| C-Katalog Governance Starter Kit | ✅ Voraussetzung | Gibt der Amnestie den rechtlichen Rückhalt |
+| R-PS-8 (Kulturwechsel-Workshop) | ⚠️ Sequenziell | Nicht parallel. Zuerst Amnestie als Vertrauensaufbau (Zyklus 1), dann Kulturarbeit (Zyklus 2+). |
+| R-M-SAFETY bereits > 3 | ❌ Nicht nötig | Das Problem ist dann nicht fehlende Erlaubnis — andere Diagnostik nötig. |
+
+**Messbare Wirkung / Erfolgskriterien**
+
+- Shadow-AI-Rate sinkt, offizielle Tool-Nutzung steigt gleichzeitig (messbar über Dimension A, DAU/Team)
+- Keine Berichte mehr über Sanktionen bei AI-Nutzung in den nächsten 2 Zyklen
+- R-M-SAFETY Score steigt um mindestens 0.5 Stufen im nächsten Pulse Check
+- Teamgespräche beinhalten AI-Nutzung offen (qualitativ, beobachtbar in Retros)
 
 ---
 
 ### R-SK-1: Rollenspezifische Prompt Playbooks
 
-**Kurzbeschreibung:** Konkrete, sofort nutzbare Prompt-Vorlagen für typische Aufgaben jeder Rolle im Team.
+**ADKAR (primär / sekundär):** Knowledge / Ability
+**Sinnvoll bei Reifegrad:** 1–3 (Exploring bis Embedding früh) — bei Stufe 4+ kontraproduktiv
+**Aufwand:** Niedrig (4–8h Erststellung durch Champion oder Technical Lead)
 
-**Voraussetzungen:**
-- Mindestens ein AI-Tool ist offiziell verfügbar
-- Champion oder Technical Lead, der die Playbooks erstellt
+**Kurzbeschreibung**
 
-**Durchführung:**
-1. Use Cases sammeln (2h): Pro Rolle die 3–5 häufigsten Aufgaben identifizieren (z.B. Dev: Code Review, Bug Analysis, Test Writing; QA: Testfall-Erstellung, Testdaten; PO: Story Refinement, Akzeptanzkriterien)
-2. Prompts entwickeln (2–3 Tage): Pro Use Case ein konkretes Prompt-Template mit Beispiel-Input und erwarteter Output
-3. Format: Problem → Kontext-Setup → Prompt → Variationen → "Was tun wenn es nicht klappt"
-4. Veröffentlichen (Wiki, Confluence, oder Git-Repo) und im Team vorstellen (30 Min)
-5. Iterieren: Feedback nach 2 Wochen einholen, Playbooks aktualisieren
+Konkrete, sofort nutzbare Prompt-Vorlagen für typische Aufgaben jeder Rolle im Team. Nicht generisch ("Hilf mir beim Coden"), sondern aus echten Team-Use-Cases extrahiert — mit Kontext-Setup, Variationen und Troubleshooting-Hinweisen. Senkt die Einstiegshürde für AI-Nutzung massiv und schafft eine gemeinsame Qualitätsbasis.
 
-**Fallstricke:**
-- Zu generische Prompts ("Schreibe besseren Code") → müssen aus echten Team-Aufgaben kommen
-- Einmal erstellt und nie aktualisiert → quartalsweisen Review-Zyklus einplanen
-- Playbooks ohne Pair-Prompting → viele Menschen lernen besser durch Zeigen als durch Lesen
+**Typische Erkennungszeichen**
 
-**Messbare Wirkung:** Nutzung der Playbooks (Views/Downloads), R-M-SKILL Score, Adoption Rate (Dimension A)
+- "Ich weiß nicht womit ich anfangen soll" ist häufigstes Feedback nach Tool-Rollout
+- AI wird nur für triviale Tasks genutzt (E-Mails umschreiben, Text kürzen), nicht für Kernaufgaben
+- Hohe Varianz in AI-Ergebnisqualität im Team — manche bekommen gute Ergebnisse, andere nicht
+- Neue Teammitglieder müssen AI-Nutzung jedes Mal neu von vorne lernen
+- R-MC-BLOCKER: "Unklar, wofür AI sinnvoll ist" und "Fehlende Skills" dominieren
+
+**Voraussetzungen (ohne die es nicht funktioniert)**
+
+- Mindestens ein offizielles AI-Tool verfügbar und zugänglich (sonst gibt es nichts zum Promten)
+- Champion oder Technical Lead mit 4–8h für die Erststellung — kein reines Management-Deliverable
+- Klare Rollendefinitionen im Team (wer macht was: Dev, QA, PO, Ops?)
+- Ablageort vorhanden und erreichbar: Wiki, Confluence, Git-Repo oder Shared Drive — nicht auf dem Laptop des Champions
+
+**Konkrete Durchführung (Zeitplan im 4-Wochen-Zyklus)**
+
+1. **Woche 1 — Use Cases sammeln (2–3h):** Pro Rolle 5–7 häufigste Aufgaben brainstormen. Methode: 30-Min-Interview mit 1–2 Personen pro Rolle. Frage: "Was machst du täglich/wöchentlich, das repetitiv und textlastig ist?" Alternativ: kurze Team-Umfrage (3 Fragen, 5 Min).
+2. **Woche 1–2 — Prompts entwickeln (4–6h):** Pro Use Case strukturiertes Template:
+   - **Problem:** Was will ich lösen?
+   - **Kontext-Setup:** Was muss AI mitgegeben werden? (Technologie-Stack, Format, Zielgruppe)
+   - **Prompt-Vorlage:** Text mit `{{Platzhaltern}}`
+   - **Beispiel-Input + erwarteter Output** (konkretes Beispiel aus dem Team-Kontext)
+   - **Variationen:** 2–3 Anpassungen für häufige Abweichungen
+   - **"Was tun wenn es nicht klappt":** 1–2 Troubleshooting-Hinweise
+3. **Woche 2 — Review-Runde (1h):** Champion + Technical Lead testen alle Prompts live. Schwache raus, gute verfeinern. Qualitätskriterium: "Kann ein:e Neue:r im Team diesen Prompt ohne Erklärung verwenden?"
+4. **Woche 2 — Veröffentlichung + Vorstellung (30–45 Min):** Team-Meeting — Champion zeigt 3 Prompts live, nicht als Schulung, sondern als "Schau was ich gemacht habe, probiert es aus." Ablageort kommunizieren.
+5. **Woche 3–4 — Feedback-Loop:** Team-Channel für Prompt-Verbesserungen einrichten. Wer hat was ausprobiert? Was funktioniert besser?
+6. **Nach Zyklus 1 — Iteration:** Quartalsweiser Review (2h). Veraltete Prompts raus, neue Use Cases rein, Tool-Änderungen einarbeiten.
+
+**Minimalvariante (wenn Ressourcen knapp sind)**
+
+Top-3 Prompts für die häufigste Rolle, handgeschrieben in 1h. Kein Template, keine Variationen. Format: Problem → Prompt → Beispiel. Direkt im Team-Channel teilen — nicht im Wiki verstecken. Reicht als Einstieg; Vollversion in Zyklus 2 nachholen.
+
+**Fallstricke / Zu vermeiden wenn...**
+
+- **Zu generische Prompts** ("Schreibe besseren Code") → kein Mehrwert gegenüber dem, was alle schon wissen. Prompts müssen aus echten Team-Aufgaben kommen.
+- **Einmal erstellt und nie aktualisiert:** AI-Tools ändern sich schnell, veraltete Prompts frustieren. Quartalsweisen Review-Zyklus fest einplanen.
+- **Playbook ohne Vorstellung:** Wenn es nur im Wiki landet und nicht aktiv gezeigt wird, weiß nach 2 Wochen niemand mehr davon.
+- **Ohne Pair-Prompting-Begleitung (R-SK-2):** Viele Menschen lernen durch Sehen, nicht durch Lesen. Playbooks allein ändern Verhalten nicht.
+- **Zu viele Rollen auf einmal:** Lieber 1 Rolle vollständig als 5 Rollen oberflächlich. Das schwächste Playbook zieht den Gesamteindruck runter.
+- **Zu vermeiden bei Reifegrad 4+:** Teams haben eigene, oft bessere Prompts. Das Playbook wirkt dann bevormundend — eher auf Community-Beiträge setzen (R-SK-4).
+
+**Wechselwirkung mit anderen Dimensionen**
+
+| Dimension | Wirkrichtung | Konkret |
+|---|---|---|
+| **F (Flow)** | Input nötig | Playbooks sollten an SDLC-Phasen ausgerichtet sein. Value Stream Coach gibt Input: Welche Phasen sind Bottleneck? Dort ansetzen. |
+| **T (Technical)** | Tool-Abhängigkeit | Prompts sind tool-spezifisch. Wenn T wechselt (neues Modell, neues Tool), müssen Playbooks aktualisiert werden. |
+| **A (Adoption)** | Stärkste Einzelwirkung | Gut gemachte Playbooks sind der stärkste einzelne Adoption-Hebel in der ersten Phase (Reifegrad 1–2). DAU/Team steigt messbar. |
+
+**Kombiniert gut mit / Passt nicht zu**
+
+| Kombination | Typ | Begründung |
+|---|---|---|
+| R-SK-2 (Pair-Prompting) | ✅ Synergie | Playbooks sind das Material für Pair-Prompting-Sessions — ideal zusammen |
+| R-SK-5 (AI-Challenge der Woche) | ✅ Synergie | Playbook-Prompts als Basis für Challenges nutzen — steigert Sichtbarkeit |
+| R-SK-4 (Prompt-Review in PRs) | ✅ Iteration | PRs als Feedback-Kanal für Playbook-Verbesserungen nutzen |
+| R-PS-1 (Shadow AI Amnestie) | ⚠️ Sequenziell | Erst Desire aufbauen (Amnestie), dann Knowledge (Playbooks). Nicht parallel starten. |
+| Reifegrad 4+ Teams | ❌ Nicht passend | Community-Contribution statt Top-Down-Playbook — sonst bevormundend |
+
+**Messbare Wirkung / Erfolgskriterien**
+
+- Nutzung der Playbooks: Views/Downloads im Wiki steigen über 4 Wochen an (nicht nur in Woche 1)
+- Mehr als 50% des Teams können mindestens einen rollenspezifischen AI-Use-Case benennen
+- R-M-SKILL Score steigt um mindestens 0.5 Stufen im nächsten Pulse Check
+- Adoption Rate (Dimension A, AI-assisted Commits %) steigt messbar
 
 ---
 
 ### R-RE-1: "Meine Rolle 2026" Workshop
 
-**Kurzbeschreibung:** Moderierter 2h-Workshop, in dem jedes Teammitglied erarbeitet, wie sich seine Rolle mit AI verändert.
+**ADKAR (primär / sekundär):** Desire / Awareness
+**Sinnvoll bei Reifegrad:** 1–2, insbesondere wenn R-M-ROLE < 2.5
+**Aufwand:** Mittel (1 Tag Vorbereitung + 2h Durchführung)
 
-**Voraussetzungen:**
-- Rollenentwicklungsmodell aus dem Framework als Input
-- Moderation durch Change & People Lead oder externen Coach
-- Raum für offenen Austausch (keine Management-Beobachtung)
+**Kurzbeschreibung**
 
-**Durchführung:**
-1. Einstieg (15 Min): Rollenentwicklungsmodell vorstellen (→ Framework Kap. 2.2)
-2. Einzelarbeit (20 Min): "Meine 3 häufigsten Aufgaben" → "Was davon kann AI?" → "Was bleibt bei mir?"
-3. Kleingruppen (30 Min): Austausch zu dritt, gemeinsame Muster erkennen
-4. Plenum (30 Min): Ergebnisse sammeln, Ängste benennen dürfen, Chancen identifizieren
-5. Persönliche Entwicklungs-Skizze (15 Min): Jede:r notiert 2–3 Punkte: "Das will ich als nächstes lernen / stärken"
-6. Abschluss (10 Min): Nächste Schritte, Lernpfade zeigen, Champion als Ansprechpartner benennen
+Moderierter 2h-Workshop, in dem jedes Teammitglied individuell erarbeitet, wie sich seine Rolle mit AI verändert — was AI übernimmt, was uniquely human bleibt, und was als nächstes gelernt werden soll. Adressiert den häufigsten und stärksten Blocker: Existenzangst. Ersetzt Spekulation durch konkrete Reflexion und ein persönliches Entwicklungs-Vorhaben.
 
-**Fallstricke:**
-- Workshop als einmalige Aktion → Follow-up durch Job Crafting Gespräche (R-RE-3) sicherstellen
-- Ängste werden benannt, aber nicht adressiert → Leadership muss verbindlich reagieren
-- Zu abstrakt → immer mit konkreten Beispielen aus dem Team-Kontext arbeiten
+**Typische Erkennungszeichen**
 
-**Messbare Wirkung:** R-M-ROLE Score, qualitatives Feedback aus Retros, reduzierte Angst-Aussagen in Surveys
+- "AI nimmt mir meinen Job weg" taucht in Retros oder informellen Gesprächen auf
+- Passiver Widerstand: Leute kommen zwar zu AI-Events, experimentieren aber nicht selbstständig
+- Hohe Abwesenheitsquote bei AI-Veranstaltungen — das Thema wird vermieden
+- Konkrete Frage "Was soll ich denn jetzt noch machen?" bleibt unbeantwortet
+- R-MC-BLOCKER: "Sorge um meine Rolle / meinen Arbeitsplatz" dominiert (>30% der Antworten)
+
+**Voraussetzungen (ohne die es nicht funktioniert)**
+
+- **Rollenentwicklungsmodell aus Framework Kap. 2.2** bekannt beim Change & People Lead (als Navigationshilfe, nicht als Folie)
+- **Moderation durch Change & People Lead oder externen Coach** — nicht durch Manager oder Technical Lead (Interessenskonflikt: wer bewertet, kann nicht gleichzeitig sicheren Raum halten)
+- **R-M-SAFETY > 1.5:** Ohne Grundsicherheit werden echte Ängste nicht geäußert — alles bleibt oberflächlich. Erst R-PS-1/R-PS-2 durchführen.
+- **Keine laufende Reorganisation oder Stellenabbau-Diskussion** im Unternehmen — dann sind Rollenängste durch externe Faktoren dominiert und nicht durch Workshop adressierbar.
+- **Management ist NICHT im Raum** — kritisch für psychologische Sicherheit.
+
+**Konkrete Durchführung (Zeitplan im 4-Wochen-Zyklus)**
+
+1. **Woche 1 — Vorbereitung (2–3h, Change & People Lead):** Rollenentwicklungsmodell auf Team-Kontext anpassen. 2–3 konkrete Beispiele für "Rolle vor/nach AI" aus ähnlichen Teams recherchieren. Workshop-Materialien vorbereiten (Karteikarten oder digitales Canvas-Template in Miro/FigJam).
+2. **Woche 2 — Workshop (2h, ohne Management):**
+   - **Einstieg (15 Min):** Rollenentwicklungsmodell kurz zeigen. Botschaft: "Das ist eine Navigationshilfe, kein Bedrohungsszenario."
+   - **Einzelarbeit (20 Min):** Jede:r schreibt auf 3 Karten: "Was mache ich täglich?" → "Was davon kann AI übernehmen?" → "Was will ich stattdessen mehr machen?"
+   - **Kleingruppen à 3 Personen (30 Min):** Karten vergleichen, Gemeinsamkeiten markieren. Ängste explizit benennen dürfen — kein Optimismus-Zwang.
+   - **Plenum (30 Min):** Muster aus Kleingruppen teilen, offene Ängste adressieren, Leadership-Signal einfordern ("Was braucht ihr von der Führung?")
+   - **Persönliche Entwicklungs-Skizze (15 Min):** Jede:r notiert 2–3 Punkte: "Das will ich als nächstes lernen / stärken."
+   - **Abschluss (10 Min):** Verfügbare Lernpfade zeigen, Champion als Ansprechpartner benennen.
+3. **Woche 2, Tag nach Workshop — Ergebnis-Brief an Führungskraft (1h, Change & People Lead):** Anonymisierte Muster aus dem Workshop. Konkrete Bitte: Welches Leadership-Signal ist nötig? Was muss die Führungskraft committen?
+4. **Woche 3 — Leadership-Follow-up:** R-RE-2 (Skill-Shift-Narrativ) durch Führungskraft kommunizieren — als direkte Reaktion auf den Workshop.
+5. **Woche 3–4 — 1:1-Nachfolge:** R-RE-3 (Job Crafting Gespräche) für alle Teilnehmer initiieren.
+
+**Minimalvariante (wenn Moderationsressource fehlt)**
+
+45-Min informelles Team-Gespräch beim Team-Lunch. Führungskraft gibt 3 Minuten Statement: "Was ich glaube, was sich ändert." Dann offene Diskussion. Ohne Canvas, ohne Stille-Arbeit. Verliert die Tiefe der Einzelreflexion — aber besser als nichts. Follow-up durch R-RE-3 dennoch sicherstellen.
+
+**Fallstricke / Zu vermeiden wenn...**
+
+- **R-M-SAFETY < 1.5:** Ohne Grundsicherheit werden echte Ängste nicht geäußert — alles bleibt oberflächlich oder performativ positiv. Erst Safety-Interventionen (R-PS-1, R-PS-2).
+- **Management ist im Raum:** Menschen öffnen sich nicht über Jobängste in Gegenwart von Vorgesetzten. Grundsätzlich vermeiden.
+- **Als Einmalereignis ohne Follow-up:** Workshop ohne anschließende Job Crafting Gespräche (R-RE-3) und Leadership-Signal (R-RE-2) verpufft in 2 Wochen — oder schlimmer: Ängste wurden geäußert, aber nichts passiert → Vertrauensverlust.
+- **Während laufender Reorg oder M&A:** Rollenängste sind dann durch externe Faktoren dominiert, die AI-Transformation-Rahmen nicht lösen kann.
+- **Zu abstrakt:** Immer mit konkreten Beispielen aus dem eigenen Team-Kontext arbeiten — nicht mit abstrakten Szenarien aus anderen Branchen.
+
+**Wechselwirkung mit anderen Dimensionen**
+
+| Dimension | Wirkrichtung | Konkret |
+|---|---|---|
+| **A (Adoption)** | Stärkste indirekte Wirkung | Wenn Rollenangst reduziert ist, steigt Experimentierbereitschaft messbar — Adoption folgt. |
+| **C (Compliance)** | Unterstützend | Governance-Klarheit (was ist erlaubt?) reduziert Rollenangst. Gut wenn C-Dimension parallel fortschreitet. |
+| **F (Flow)** | Vorbereitend | Wenn Teammitglieder ihre Rolle im Workflow sehen, steigt Bereitschaft für Prozessänderungen (VSM-Vorbereitung). |
+| **R-M-SAFETY** | Abhängigkeit | Workshop funktioniert nur bei Safety > 1.5. Umgekehrt: ein gut durchgeführter Workshop erhöht Safety durch Klarheit. |
+
+**Kombiniert gut mit / Passt nicht zu**
+
+| Kombination | Typ | Begründung |
+|---|---|---|
+| R-RE-2 (Skill-Shift-Narrativ) | ✅ Follow-up | Leadership-Signal direkt nach Workshop senden — verstärkt und konkretisiert die Workshop-Erkenntnisse |
+| R-RE-3 (Job Crafting Gespräche) | ✅ Follow-up | 1:1-Gespräche in Woche 3–4 als individuellen Nachfolge-Schritt |
+| R-SU-1 (Champion mandatieren) | ✅ Synergie | Workshop als Identifikationsmoment für potenzielle Champions nutzen |
+| R-M-SAFETY < 1.5 | ❌ Blockiert | Erst Safety herstellen (R-PS-1, R-PS-2), dann dieser Workshop |
+| Ohne geplantes Follow-up | ❌ Gefährlich | Workshop ohne Nachfolge → geäußerte Ängste bleiben unbeantwortet → Vertrauensverlust |
+
+**Messbare Wirkung / Erfolgskriterien**
+
+- R-M-ROLE Score steigt um mindestens 0.5 Stufen im nächsten Pulse Check
+- Jedes Teammitglied kann in 2 Sätzen beschreiben, wie sich seine Rolle mit AI verändert (qualitativ, in Retros beobachtbar)
+- Keine Aussagen mehr wie "AI nimmt mir meinen Job weg" in Retros oder Surveys — oder deutlich seltener
+- Qualitatives Retro-Feedback: Workshop-Teilnehmer nennen konkrete Lernvorhaben
 
 ---
 
 ### R-PS-7: Westrum Culture Kurzdiagnostik
 
-**Kurzbeschreibung:** 15-minütiger Team-Survey auf Basis von Ron Westrum's Organizational Culture Model (1988/2004), das in der DORA-Forschung als stärkster Prädiktor für Software-Delivery-Performance identifiziert wurde. Zeigt ob ein niedriger R-M-SAFETY-Score auf ein kulturelles Tiefenproblem hindeutet.
+**ADKAR (primär / sekundär):** Awareness / — (reine Diagnostik, keine direkte Change-Intervention)
+**Sinnvoll bei Reifegrad:** 1–3, wenn R-M-SAFETY niedrig und Ursache unklar — als diagnostisches Werkzeug einsetzen, nicht als Interventionsinstrument
+**Aufwand:** Sehr niedrig (1h Survey-Vorbereitung, 15 Min Team, 30 Min Auswertung)
 
-**Westrum's drei Kulturtypen (vereinfacht):**
+**Kurzbeschreibung**
 
-| Dimension | Pathologisch (Machtorientiert) | Bürokratisch (Regelorientiert) | Generativ (Leistungsorientiert) |
+15-minütiger anonymer Team-Survey auf Basis von Ron Westrum's Organizational Culture Model (1988/2004). Das Modell wurde in der DORA-Forschung als stärkster kultureller Prädiktor für Software-Delivery-Performance identifiziert. Diagnostiziert ob ein niedriger R-M-SAFETY-Score auf ein kulturelles Tiefenproblem (pathologisch/bürokratisch) oder auf andere, leichter lösbare Ursachen hindeutet. Verhindert, dass der AI Transformation Manager wertvolle Interventions-Zeit mit falschen Maßnahmen verbringt.
+
+**Westrum's drei Kulturtypen**
+
+| Dimension | Pathologisch | Bürokratisch | Generativ |
 |---|---|---|---|
-| Informationsfluss | Wird zurückgehalten | Wird ignoriert | Wird aktiv gesucht |
-| Fehlerreaktion | Sündenbock-Suche | Nachsicht (wenn Regeln befolgt) | Ursachenanalyse (Inquiry) |
+| Informationsfluss | Zurückgehalten | Ignoriert | Aktiv gesucht |
+| Fehlerreaktion | Sündenbock | Nachsicht (bei Regelkonformität) | Ursachenanalyse |
 | Risiken | Auf Personen abgewälzt | Engverantwortlich | Geteilt |
-| Überbringer schlechter Nachrichten | Werden bestraft | Toleriert | Trainiert/Geschätzt |
-| Neues / Experimente | Werden unterdrückt | Erzeugen Probleme | Werden umgesetzt |
-| Zusammenarbeit über Grenzen | Entmutigt | Erlaubt, aber eng | Aktiv gefördert |
+| Überbringer schlechter Nachrichten | Bestraft | Toleriert | Geschätzt |
+| Experimente | Unterdrückt | Erzeugen Probleme | Umgesetzt |
+| Zusammenarbeit | Entmutigt | Erlaubt, aber eng | Aktiv gefördert |
 
-**Verbindung zur DORA-Forschung:** Generative Westrum-Kultur korreliert mit hoher Deployment Frequency, niedrigem Change Failure Rate und schneller Recovery Time. Dieselbe Kultur ist Voraussetzung für offenen AI-Austausch (R-M-SAFETY).
+**Typische Erkennungszeichen (wann diese Diagnostik einsetzen)**
 
-**Voraussetzungen:**
-- Anonymes Survey-Tool verfügbar (z.B. Mentimeter, MS Forms)
-- Team versteht, dass Ergebnisse nicht bewertet werden (Selbst-Diagnose, kein Reporting)
+- R-M-SAFETY Score < 2.5, aber die Blocker-Diagnostik zeigt kein klares, lösbares Muster
+- "Das wird hier nicht wirklich gewollt" oder "Das hängt vom Projekt/Manager ab" taucht in R-PQ auf
+- AI Transformation Manager hat das Gefühl: "Es liegt nicht an Tools, Skills oder Governance — da ist etwas Tieferes"
+- Mehrere Interventionen wurden durchgeführt und zeigen keine Wirkung — trotz guter Ausführung
+- Gerüchte über Bestrafung von AI-Nutzung oder Experimentieren kursieren
 
-**Durchführung:**
-1. Survey vorbereiten (1h): 6 Items à 7-Punkt-Likert-Skala basierend auf Westrum-Dimensionen oben — angepasst auf AI-Kontext (z.B. "Wenn jemand ein Problem mit einem AI-Tool meldet, wird das...")
-2. Team-Event (15 Min anonym): Survey ausfüllen
-3. Auswertung (30 Min, AI Transformation Manager + Change Lead): Median-Score je Dimension → Kulturtyp bestimmen
-4. Transparenz mit Team (30 Min): Ergebnisse zurückspiegeln ohne Schuldzuweisung. "Das ist ein Systembefund, kein Personenbefund."
-5. Interpretation: Pathologisch → Sponsor-Eskalation + Governance; Bürokratisch → R-PS-8; Generativ → Safety ist kein Kultturproblem, andere Ursache suchen
+**Voraussetzungen (ohne die es nicht funktioniert)**
 
-**Fallstricke:**
-- Survey muss wirklich anonym sein — bei kleinen Teams (<6 Personen) Clustering vermeiden
-- Ergebnisse nicht in Leistungsbeurteilungen oder Management-Reports weitergeben
-- Kurzdiagnostik ersetzt kein vollständiges Culture Assessment — zeigt Richtung, keine Tiefenanalyse
+- **Anonymes Survey-Tool verfügbar** (MS Forms, Mentimeter, Typeform) — Anonymität ist nicht verhandelbar
+- **Team > 5 Personen:** Unter 5 Personen ist keine echte Anonymität gewährleistet
+- **Team versteht:** Ergebnisse sind Selbstdiagnostik, kein HR-Bericht, kein Performance-Input — explizit kommunizieren bevor Survey
+- **Change & People Lead und AI Transformation Manager** haben Zeit für gemeinsame Auswertung (30 Min) und Rückspiegel-Session (30 Min mit Team)
 
-**Messbare Wirkung:** Klarheit über Ursache des Safety-Problems. Reduziert Interventions-Zeitverschwendung durch falsche Maßnahmen.
+**Konkrete Durchführung (Zeitplan im 4-Wochen-Zyklus)**
+
+1. **Woche 1 — Survey vorbereiten (1h, Change & People Lead):** 6 Items à 7-Punkt-Likert-Skala, je 1 Item pro Westrum-Dimension. Formulierung: auf AI-Kontext angepasst. Beispiel-Item: *"Wenn ich ein Problem mit einem AI-Tool oder -Prozess melde, wird das bei uns üblicherweise..."* (1 = ignoriert oder als Fehler gesehen, 7 = aktiv aufgegriffen und gelöst). Anonymisierung in Survey-Tool prüfen.
+2. **Woche 1 oder 2 — Team-Survey (15 Min anonym):** In bestehendem Meeting-Slot einbetten. Keine Diskussion während Ausfüllens. Moderator verlässt den Raum (oder deaktiviert Kamera im Remote-Setting).
+3. **Woche 2 — Auswertung (30 Min, AI Transformation Manager + Change Lead, ohne Team):** Median pro Item berechnen. < 3 pro Item = Tendenz pathologisch. 3–5 = bürokratisch. > 5 = generativ. Kulturtyp für das gesamte Team bestimmen (Mehrheitsmuster).
+4. **Woche 2 — Ergebnis zurückspiegeln (30 Min mit Team):** Kulturtyp zeigen. Systemische Sprache: *"Das ist ein Organisationsbefund, kein Personenbefund."* Kein Blame. Frage: *"Erkennt ihr das wieder? Was hat diese Muster erzeugt?"* Reaktionen sammeln (anonym per Sticky Notes / Mentimeter).
+5. **Woche 3 — Entscheidung und nächster Schritt:**
+   - **Pathologisch** → Sponsor-Eskalation. Alle anderen Interventionen sind ohne strukturellen Kulturwandel wirkungsarm. Kommunizieren: "Wir brauchen hier Unterstützung von oben."
+   - **Bürokratisch** → R-PS-8 (Kulturwechsel-Workshop) in Zyklus 2 einplanen.
+   - **Generativ** → Safety-Problem liegt woanders (T, C, individuelle Situation). Andere Ursache suchen.
+
+**Minimalvariante (wenn kein anonymes Survey-Tool verfügbar)**
+
+Informelle Beobachtung durch AI Transformation Manager: 6 Westrum-Dimensionen als Beobachtungsraster bei 2–3 Team-Meetings. Subjektive Einschätzung ohne Datengrundlage, geringere Verlässlichkeit. Gut als erster Eindruck vor dem formalen Survey, nicht als Ersatz.
+
+**Fallstricke / Zu vermeiden wenn...**
+
+- **Teams < 5–6 Personen:** Antworten können individuell zugeordnet werden — Anonymität nicht gewährleistet, Ergebnisse werden verfälscht oder Survey wird sabotiert.
+- **Ergebnisse in Management-Reporting aufnehmen:** Sofortige Vertrauenszerstörung. Ergebnisse gehören dem Team.
+- **Als Einzel-Instrument ohne Folgeaktion:** "Wir haben gemessen — und jetzt?" Survey ohne Reaktion = Vertrauensverlust. Immer mit Entscheidung verknüpfen.
+- **Team gerade in akuter Krise (Deadline, Reorganisation):** Ergebnisse sind dann situationsverzerrt, nicht strukturell interpretierbar.
+- **Wenn bereits bekannt, dass Kultur generativ ist:** Keine neue Information — Zeitverschwendung.
+
+**Wechselwirkung mit anderen Dimensionen**
+
+| Dimension | Wirkrichtung | Konkret |
+|---|---|---|
+| **Alle Dimensionen** | Meta-Kontext | Westrum-Kulturtyp ist der übergeordnete Kontext für alle CRAFT-Interventionen. In einer pathologischen Kultur sind alle Maßnahmen wirkungsschwächer. |
+| **A (Adoption)** | Prädiktiv | Generative Kultur korreliert direkt mit DORA-Metriken und Adoption-Bereitschaft (DORA State of DevOps 2023). |
+| **C (Compliance)** | Kontextuell | In bürokratischen Kulturen wird Compliance oft als Verbotskultur gelebt statt als Enabler — C-Interventionen müssen das berücksichtigen. |
+| **R-M-SAFETY** | Diagnose | Erklärt warum Safety niedrig ist — ohne diese Diagnose können Maßnahmen am Problem vorbeigehen. |
+
+**Kombiniert gut mit / Passt nicht zu**
+
+| Kombination | Typ | Begründung |
+|---|---|---|
+| R-PS-8 (Kulturwechsel-Workshop) | ✅ Direkte Folge | Direkte Folgemaßnahme wenn Ergebnis = bürokratisch |
+| R-PS-1 (Shadow AI Amnestie) | ✅ Validierung | Amnestie zeigt nach Wochen ob kulturelle Öffnung beginnt — Westrum gibt den Interpretationsrahmen |
+| Jede andere Diagnostik | ✅ Kontext-Layer | "Wir haben Safety-Score X und Westrum-Typ Y — das erklärt / erklärt nicht das Muster" |
+| Als Einzel-Maßnahme | ❌ Unvollständig | Survey ohne Folgeentscheidung = Vertrauensverlust |
+| Teams < 5 Personen | ❌ Anonymitätsproblem | Formales Survey nicht anwendbar; informelle Beobachtung als Ersatz |
+
+**Messbare Wirkung / Erfolgskriterien**
+
+- Klarheit über Ursache des Safety-Problems: AI Transformation Manager kennt den Kulturtyp und kann gezielt intervenieren
+- Entscheidung in Woche 3 ist getroffen und kommuniziert (Sponsor-Eskalation / R-PS-8 / alternative Diagnostik)
+- Reduziert Interventions-Zeitverschwendung durch falsche Maßnahmen — mittelfristig messbar durch höhere Interventions-Trefferquote
 
 ---
 
 ### R-SU-1: Champion identifizieren & mandatieren
 
-**Kurzbeschreibung:** Formale Benennung von 1–2 AI Champions pro Team mit dediziertem Zeitbudget.
+**ADKAR (primär / sekundär):** Reinforcement / Ability
+**Sinnvoll bei Reifegrad:** 2–3 (Experimenting / Embedding früh) — bei Reifegrad 1 zuerst Safety und erste Skills aufbauen
+**Aufwand:** Mittel (1 Woche Vorbereitung + laufende 30 Min/Woche Champion-Anbindung)
 
-**Voraussetzungen:**
-- Management-Commitment für Zeitbudget (mindestens 20% = 1 Tag/Woche)
-- Freiwillige aus dem Team (nicht verordnet)
+**Kurzbeschreibung**
 
-**Durchführung:**
-1. Kandidaten identifizieren (1 Woche): Wer nutzt AI bereits aktiv? Wer hilft anderen informell? Diagnostik R-MC-BLOCKER = "Nichts hemmt mich" → potenzielle Champions
-2. Gespräch mit Kandidaten: Rolle erklären, Erwartungen klären, Zeitbudget zusichern
-3. Formale Benennung: Manager, Champion und AI Transformation Manager unterschreiben Vereinbarung (Rolle, Zeitbudget, Erwartungen, Dauer)
-4. Champion Onboarding: Kickoff-Gespräch mit AI Transformation Manager, Zugang zu Champion-Netzwerk, Einführung in Tools und Ressourcen
-5. Erste Office Hours nach 2 Wochen starten
+Formale Benennung von 1–2 AI Champions pro Team mit dediziertem Zeitbudget (20% = 1 Tag/Woche). Champions sind der skalierungskritische Multiplikator des Frameworks: Sie überbrücken den AI Transformation Manager und die tägliche Team-Realität. Ohne Champions skaliert keine Transformation. Die kritische Differenz zu informellen Helfern: **mandatierte Zeit und formale Legitimation** — beides muss schriftlich vereinbart sein.
 
-**Fallstricke:**
-- Zeitbudget wird zugesagt, aber im Sprint nicht berücksichtigt → Sprint-Kapazität reduzieren
-- Champion wird "von oben bestimmt" → Freiwilligkeit ist kritisch für Glaubwürdigkeit
-- Champion ohne Anbindung an AI Transformation Manager → isoliert, verliert Motivation
+**Typische Erkennungszeichen**
 
-**Messbare Wirkung:** Champion ist benannt und hat nachweislich dedizierte Zeit. R-M-SUPPORT Score steigt. Team hat Anlaufstelle.
+- Alle AI-Fragen landen beim AI Transformation Manager oder Technical Lead — keine laterale Unterstützung im Team
+- AI-Impulse sterben zwischen Zyklen, weil niemand "am Ball bleibt"
+- Informelle Helfer existieren, aber sie brennen aus — keine Zeit, kein Mandat, keine Anerkennung
+- Office Hours wurden gestartet, aber niemand kommt (kein bekannter Anker im Team)
+- Team wächst oder neue Leute kommen: AI-Onboarding ist ungeklärt und unstrukturiert
+
+**Voraussetzungen (ohne die es nicht funktioniert)**
+
+- **Management-Commitment für 20% Zeitbudget** — das ist die kritischste Voraussetzung. Nicht 5%, nicht "wenn Zeit ist", nicht als Zusatzaufgabe. 1 Tag/Woche muss im Sprint als reduzierte Kapazität eingeplant sein. Ohne das ist diese Intervention von Beginn an zum Scheitern verurteilt.
+- **Freiwillige Kandidaten vorhanden** — nicht verordnet. Verordnete Champions verlieren Glaubwürdigkeit im Team sofort.
+- **R-M-SAFETY > 1.5:** Ohne Grundsicherheit will niemand sichtbar Champion sein — Zielscheibe für Widerstand ohne Team-Rückhalt.
+- **AI Transformation Manager hat Kapazität** für regelmäßigen Champion-Austausch (mind. 30 Min/Woche) — isolierte Champions verlieren Richtung und Motivation in 4–6 Wochen.
+
+**Konkrete Durchführung (Zeitplan im 4-Wochen-Zyklus)**
+
+1. **Woche 1 — Kandidaten identifizieren (1h):** Wer nutzt AI bereits aktiv? Wer hilft anderen informell? Diagnostik: R-MC-BLOCKER "Nichts hemmt mich" → potenzielle Champions. Informelles Gespräch mit 2–3 Kandidaten: "Du hast das Zeug dazu — Interesse und Kapazität?" Kein Druck.
+2. **Woche 1 — Gespräch mit Führungskraft (30 Min):** Zeitbudget einfordern — explizit: "20% Sprint-Kapazität, nicht Zusatzaufgabe." Führungskraft muss Sprint-Planung anpassen. Keine Zusage ohne konkreten Kapazitäts-Beschluss.
+3. **Woche 2 — Formale Benennung (30 Min):** Dreier-Gespräch: Manager + Champion + AI Transformation Manager. Schriftliche Vereinbarung: Rolle (was tut ein Champion?), Zeitbudget (konkret: X Stunden/Woche), Erwartungen (Office Hours, Onboarding, Community), Dauer (mindestens 1 Quartal, dann Review).
+4. **Woche 2–3 — Champion Onboarding (4–6h, R-SU-6 als Grundlage):** Kickoff mit AI Transformation Manager (2h): Rolle, Ressourcen, Netzwerk. Einführung in Tools, Prompt-Bibliothek, interne Kommunikationskanäle. Erste Office Hours gemeinsam vorbereiten.
+5. **Woche 3–4 — Erste Office Hours starten:** Niedrigschwellig ankündigen: "Ich bin da für Fragen, 30 Min, Slot X." Erwartung: 2–3 Teilnehmer bei erstem Mal reicht. Kein Erfolgsdruck beim Start.
+6. **Laufend — Wöchentlicher Check-in:** 30 Min AI Transformation Manager ↔ Champion. Community of Practice anschließen (R-SU-5) sobald mehrere Champions im Unternehmen vorhanden.
+
+**Minimalvariante (wenn Management Zeitbudget nicht freigibt)**
+
+1 Champion mit 10% formaler Zeit + expliziter Erlaubnis: "Du darfst das machen, wir rechnen das an." Überbrückt 1–2 Zyklen. Ohne vollständiges Zeitbudget verliert der Champion in 6–8 Wochen die Kapazität — keine dauerhafte Lösung. Ziel: In Zyklus 2 auf 20% erhöhen, Argumente sammeln (Nutzungszahlen aus A-Dimension).
+
+**Fallstricke / Zu vermeiden wenn...**
+
+- **Zeitbudget zugesagt, Sprint-Kapazität nicht angepasst:** Champion nimmt AI-Arbeit als Überstunden. Burnout in 4–6 Wochen, Intervention scheitert sichtbar — kostet mehr Vertrauen als keine Intervention.
+- **Champion "von oben bestimmt":** "Du bist jetzt Champion." → Keine Legitimität im Team, kein Vertrauen, keine Glaubwürdigkeit.
+- **Champion ohne regelmäßige AI Transformation Manager-Anbindung:** Isoliert, verliert Motivation und Richtung nach 4–6 Wochen. Wöchentlicher Check-in ist nicht optional.
+- **Start bei R-M-SAFETY < 1.5:** Champion wird zum Zielscheibe für passive Widerständler — sichtbar und ohne Rückhalt. Erst Safety herstellen.
+- **Zu viele Erwartungen zu früh:** Champion soll nicht gleichzeitig Office Hours halten, Playbooks schreiben, Onboardings machen und CoP organisieren. Phasierung: Erst Office Hours (Monat 1), dann Playbooks (Monat 2), dann CoP (Monat 3+).
+
+**Wechselwirkung mit anderen Dimensionen**
+
+| Dimension | Wirkrichtung | Konkret |
+|---|---|---|
+| **Alle Dimensionen** | Multiplikator | Champions sind das Bindeglied zwischen ATM und täglicher Team-Realität. Sie skalieren alle anderen CRAFT-Interventionen. |
+| **A (Adoption)** | Stärkster Einzel-Faktor | Tägliche Präsenz des Champions treibt Adoption nach der ersten Welle. Ohne Champion stagniert A-Score nach dem initialen Push. |
+| **T (Technical)** | Feedback-Schleife | Champions sind die erste Eskalationsstelle für Tool-Probleme — wichtige Rückmeldung für Technical Lead. |
+| **F (Flow)** | Prozesseinbettung | Champions können AI-Interventionen in tägliche Prozesse einweben — was der ATM aus Distanz nicht kann. |
+| **R-M-SAFETY** | Abhängigkeit | Champion braucht Safety > 1.5 um wirkungsvoll zu sein. Umgekehrt: aktiver Champion erhöht Safety durch Vorbildwirkung. |
+
+**Kombiniert gut mit / Passt nicht zu**
+
+| Kombination | Typ | Begründung |
+|---|---|---|
+| R-SU-6 (Champion Onboarding Kit) | ✅ Voraussetzung | Strukturierter Start für neue Champions — direkt nach Benennung einsetzen |
+| R-SU-2 (AI Office Hours) | ✅ Direkte Aufgabe | Champion führt Office Hours durch — ist die sichtbarste erste Aktivität |
+| R-SK-1 (Prompt Playbooks) | ✅ Aufgabe | Champion erstellt und pflegt Playbooks — natürlicher Verantwortungsbereich |
+| R-SU-5 (Community of Practice) | ✅ Nächster Schritt | CoP vernetzt Champions teamübergreifend — sobald >1 Champion vorhanden |
+| Reifegrad 1 (Exploring) | ❌ Zu früh | Erst Safety und erste Erfahrungen aufbauen — sonst wird der Champion in einem feindlichen Umfeld verbrannt |
+| Ohne Management-Commitment für Zeitbudget | ❌ Doomed to fail | Ohne formale Zeit ist diese Intervention von Beginn an wirkungslos und kostet Glaubwürdigkeit |
+
+**Messbare Wirkung / Erfolgskriterien**
+
+- Champion ist namentlich bekannt, hat schriftliche Vereinbarung, und Sprint-Kapazität ist nachweislich reduziert
+- Office Hours werden von mindestens 30% des Teams genutzt (innerhalb von 2 Zyklen)
+- R-M-SUPPORT Score steigt um mindestens 0.5 Stufen im nächsten Pulse Check
+- Neue Teammitglieder bewerten AI-Onboarding positiv (qualitatives Feedback)
+- AI Transformation Manager berichtet weniger direkte operative Anfragen aus dem Team
 
 ---
 

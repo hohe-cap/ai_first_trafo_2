@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRAFT Applied Guide — Erstellungs-Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=IM+Fell+English:ital@0;1&family=Ubuntu:wght@300;400;500;700&display=swap');
+
+:root {
+  --bg:         #0A0101;
+  --bg-surface: #130202;
+  --bg-card:    rgba(100,0,0,0.15);
+  --bg-card2:   rgba(80,0,0,0.10);
+  --border:     rgba(180,0,0,0.25);
+  --border2:    rgba(200,0,0,0.12);
+  --blood:      #8B0000;
+  --blood-light:#C41E3A;
+  --crimson:    #DC143C;
+  --gore:       #FF2020;
+  --rust:       #7D1616;
+  --maroon:     #4A0000;
+  --white:      #FAE8E8;
+  --gray-300:   #D4ABAB;
+  --gray-400:   rgba(190,130,130,0.7);
+  --gray-muted: rgba(160,80,80,0.55);
+  --amber-warm: #D4680A;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--white);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* blood drip at top */
+body::before {
+  content: '';
+  position: fixed;
+  top: 3px; left: 0; right: 0; height: 60px;
+  background: linear-gradient(180deg,
+    rgba(139,0,0,0.3) 0%,
+    rgba(139,0,0,0.08) 60%,
+    transparent 100%);
+  z-index: 50;
+  pointer-events: none;
+}
+
+.presentation { width: 100vw; height: 100vh; position: relative; }
+
+.slide {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  padding: 60px 80px 100px;
+  opacity: 0; transform: translateX(60px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+  overflow-y: auto;
+}
+.slide.active { opacity: 1; transform: translateX(0); pointer-events: all; }
+.slide.exit-left { opacity: 0; transform: translateX(-60px); }
+
+/* Background texture */
+.slide::after {
+  content: '';
+  position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(80,0,0,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 10% 10%, rgba(100,0,0,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 90% 90%, rgba(60,0,0,0.06) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+.slide > * { position: relative; z-index: 1; }
+
+/* Navigation */
+.nav {
+  position: fixed; bottom: 0; left: 0; right: 0; height: 72px;
+  background: rgba(10,1,1,0.97);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(139,0,0,0.35);
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; padding: 0 40px; z-index: 100;
+}
+.nav-btn {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 24px;
+  border: 1px solid rgba(139,0,0,0.4);
+  background: rgba(100,0,0,0.15);
+  color: var(--gray-300);
+  font-family: inherit; font-size: 14px; font-weight: 500;
+  border-radius: 8px; cursor: pointer;
+  transition: all 0.2s; min-width: 120px; justify-content: center;
+}
+.nav-btn:hover { background: rgba(139,0,0,0.3); border-color: var(--blood-light); color: var(--white); }
+.nav-btn:disabled { opacity: 0.25; cursor: not-allowed; }
+.nav-btn.primary { background: var(--blood); border-color: var(--blood); color: var(--white); }
+.nav-btn.primary:hover { background: var(--blood-light); border-color: var(--blood-light); }
+.slide-counter { font-size: 13px; color: var(--gray-400); font-variant-numeric: tabular-nums; letter-spacing: 1px; }
+
+/* Progress bar */
+.progress-bar {
+  position: fixed; top: 0; left: 0; height: 3px;
+  background: linear-gradient(90deg, var(--rust), var(--blood), var(--crimson), var(--gore));
+  transition: width 0.4s ease; z-index: 101;
+  box-shadow: 0 0 8px rgba(220,20,60,0.6);
+}
+
+/* Typography */
+.slide-tag {
+  font-family: 'Cinzel', serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--blood-light); margin-bottom: 16px;
+}
+h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(32px,4.5vw,58px); font-weight: 900; line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 20px;
+}
+h2 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(22px,3vw,38px); font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 16px;
+}
+h3 { font-size: clamp(15px,1.8vw,21px); font-weight: 600; line-height: 1.3; margin-bottom: 10px; }
+.subtitle { font-size: clamp(15px,1.8vw,20px); color: var(--gray-300); font-weight: 300; line-height: 1.6; max-width: 740px; }
+
+/* Gradient text */
+.text-accent {
+  background: linear-gradient(135deg, var(--blood-light), var(--crimson), var(--gore));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.text-accent-warm {
+  background: linear-gradient(135deg, var(--amber-warm), #FF4500);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+/* Slide content */
+.slide-content { width: 100%; max-width: 1200px; text-align: center; }
+.slide-content.left { text-align: left; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 28px; text-align: left; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 28px; text-align: left; }
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border2);
+  border-radius: 14px; padding: 24px; transition: all 0.3s;
+}
+.card:hover { background: rgba(120,0,0,0.2); border-color: var(--border); transform: translateY(-2px); }
+.card-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 14px; }
+.card p { font-size: 13px; color: var(--gray-300); line-height: 1.6; }
+.card h3 { font-size: 16px; margin-bottom: 8px; color: var(--white); }
+
+/* Dim cards */
+.dim-card {
+  background: var(--bg-card2);
+  border: 1px solid var(--border2);
+  border-radius: 14px; padding: 18px 22px;
+  display: flex; gap: 18px; align-items: flex-start;
+  margin-bottom: 10px; transition: all 0.3s;
+}
+.dim-card:hover { background: rgba(100,0,0,0.22); transform: translateX(4px); border-color: rgba(180,0,0,0.3); }
+.dim-letter {
+  width: 46px; height: 46px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cinzel', serif; font-size: 20px; font-weight: 900;
+  flex-shrink: 0;
+}
+.dim-info h3 { margin-bottom: 3px; font-size: 15px; }
+.dim-info p { font-size: 12.5px; color: var(--gray-300); line-height: 1.5; }
+
+/* Layer stack */
+.layer-stack { display: flex; flex-direction: column; gap: 14px; margin-top: 24px; max-width: 820px; margin-left: auto; margin-right: auto; }
+.layer { border-radius: 12px; padding: 20px 24px; display: flex; align-items: center; gap: 18px; }
+.layer-num { font-family: 'Cinzel', serif; font-size: 26px; font-weight: 900; opacity: 0.6; flex-shrink: 0; width: 40px; }
+.layer-content h3 { font-size: 15px; margin-bottom: 3px; }
+.layer-content p { font-size: 12.5px; line-height: 1.5; color: var(--gray-300); }
+
+/* Feature list */
+.feature-list { list-style: none; padding: 0; margin: 0; }
+.feature-list li { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid rgba(139,0,0,0.18); font-size: 13.5px; color: var(--gray-300); line-height: 1.5; }
+.feature-list li:last-child { border-bottom: none; }
+.feature-icon { width: 26px; height: 26px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+
+/* Cycle */
+.cycle-container { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 24px 0; flex-wrap: wrap; }
+.cycle-step { background: var(--bg-card); border: 1px solid var(--border2); border-radius: 14px; padding: 18px 20px; text-align: center; min-width: 130px; flex: 1; max-width: 200px; }
+.cycle-step h3 { font-size: 13px; margin-bottom: 5px; }
+.cycle-step p { font-size: 12px; color: var(--gray-300); line-height: 1.4; }
+.cycle-step .step-label { font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+.cycle-arrow { font-size: 20px; color: var(--blood-light); flex-shrink: 0; }
+
+/* Timeline */
+.timeline { display: flex; gap: 0; margin-top: 24px; position: relative; }
+.timeline::before { content: ''; position: absolute; top: 38px; left: 5%; right: 5%; height: 2px; background: rgba(139,0,0,0.3); }
+.timeline-item { flex: 1; text-align: center; position: relative; padding: 0 10px; }
+.timeline-dot { width: 14px; height: 14px; border-radius: 50%; margin: 31px auto 14px; position: relative; z-index: 1; }
+.timeline-item h4 { font-size: 12px; font-weight: 600; margin-bottom: 3px; }
+.timeline-item p { font-size: 11px; color: var(--gray-300); line-height: 1.4; }
+.timeline-item .phase { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--blood-light); }
+
+/* Table */
+.blood-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 12.5px; }
+.blood-table th {
+  font-family: 'Cinzel', serif;
+  background: rgba(100,0,0,0.3); color: var(--gore);
+  padding: 10px 14px; text-align: left; font-size: 11px; letter-spacing: 1px;
+  border-bottom: 1px solid rgba(180,0,0,0.4);
+}
+.blood-table td { padding: 9px 14px; border-bottom: 1px solid rgba(100,0,0,0.15); color: var(--gray-300); vertical-align: top; }
+.blood-table tr:hover td { background: rgba(100,0,0,0.1); color: var(--white); }
+.blood-table .highlight { color: var(--crimson); font-weight: 600; }
+.blood-table .role-dot { display: inline-block; font-size: 15px; }
+
+/* Color utility */
+.bg-blood   { background: rgba(139,0,0,0.25);  color: var(--gore); }
+.bg-crimson { background: rgba(196,30,58,0.2); color: var(--crimson); }
+.bg-rust    { background: rgba(125,22,22,0.3); color: #E07070; }
+.bg-maroon  { background: rgba(74,0,0,0.35);   color: #C06060; }
+.bg-amber   { background: rgba(212,104,10,0.2); color: var(--amber-warm); }
+
+/* Checklist */
+.checklist { list-style: none; text-align: left; margin-top: 16px; }
+.checklist li { padding: 8px 0; border-bottom: 1px solid rgba(100,0,0,0.15); font-size: 13.5px; color: var(--gray-300); display: flex; gap: 10px; line-height: 1.5; }
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before { content: '☐'; color: var(--blood-light); flex-shrink: 0; font-size: 16px; }
+
+/* Badge */
+.badge {
+  display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px;
+  border-radius: 20px; margin: 2px; letter-spacing: 0.5px;
+}
+
+/* ADKAR pill */
+.adkar-row { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.adkar-pill {
+  padding: 6px 18px; border-radius: 24px; font-size: 12px; font-weight: 600; letter-spacing: 1px;
+  border: 1px solid; text-transform: uppercase;
+}
+
+blockquote {
+  border-left: 3px solid var(--blood);
+  padding-left: 18px; margin: 18px 0;
+  font-family: 'IM Fell English', serif;
+  font-style: italic; color: var(--gray-300); font-size: 14px; line-height: 1.7;
+  text-align: left;
+}
+blockquote cite { display: block; font-style: normal; font-size: 11px; color: var(--gray-muted); margin-top: 6px; font-family: 'Ubuntu', sans-serif; }
+</style>
+</head>
+<body>
+
+<!-- Progress bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="presentation" id="presentation">
+
+  <!-- ═══ SLIDE 1: TITLE ═══ -->
+  <div class="slide active" data-slide="0">
+    <div class="slide-content">
+      <div class="slide-tag">AI Transformation · Companion Guide</div>
+      <h1>CRAFT <span class="text-accent">Applied Guide</span></h1>
+      <p class="subtitle" style="margin: 0 auto;">Erstellungs-Roadmap — Schritt für Schritt zum operativen Leitfaden für AI Transformation Manager</p>
+      <div style="margin-top: 48px; display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;">
+        <div style="text-align: center;">
+          <div style="font-family: 'Cinzel', serif; font-size: 28px; font-weight: 900; color: var(--crimson);">7</div>
+          <div style="font-size: 11px; color: var(--gray-400); letter-spacing: 1px; text-transform: uppercase;">Phasen</div>
+        </div>
+        <div style="width: 1px; background: rgba(139,0,0,0.3);"></div>
+        <div style="text-align: center;">
+          <div style="font-family: 'Cinzel', serif; font-size: 28px; font-weight: 900; color: var(--crimson);">3</div>
+          <div style="font-size: 11px; color: var(--gray-400); letter-spacing: 1px; text-transform: uppercase;">Methoden</div>
+        </div>
+        <div style="width: 1px; background: rgba(139,0,0,0.3);"></div>
+        <div style="text-align: center;">
+          <div style="font-family: 'Cinzel', serif; font-size: 28px; font-weight: 900; color: var(--crimson);">5</div>
+          <div style="font-size: 11px; color: var(--gray-400); letter-spacing: 1px; text-transform: uppercase;">Rollen</div>
+        </div>
+      </div>
+      <p style="margin-top: 52px; font-size: 12px; color: var(--gray-muted);">Zielgruppe: AI Transformation Manager · Change & People Lead · April 2026</p>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 2: ZIEL & ABGRENZUNG ═══ -->
+  <div class="slide" data-slide="1">
+    <div class="slide-content">
+      <div class="slide-tag">Zielsetzung</div>
+      <h2>Was ist der <span class="text-accent">Applied Guide</span>?</h2>
+      <div class="two-col" style="margin-top: 28px; align-items: start;">
+        <div>
+          <blockquote>
+            Das Framework beschreibt <em>Was & Warum</em>. Der Guide beschreibt <em>Wie & Wann</em>.
+          </blockquote>
+          <ul class="feature-list" style="margin-top: 12px;">
+            <li>
+              <div class="feature-icon bg-blood">🎯</div>
+              <div><strong style="color: var(--white);">Zielgruppe</strong> — AI Transformation Manager, Change &amp; People Lead</div>
+            </li>
+            <li>
+              <div class="feature-icon bg-crimson">📋</div>
+              <div><strong style="color: var(--white);">Format</strong> — Handlungsanleitung mit konkreten Schritten, Fragen, Workshop-Designs</div>
+            </li>
+            <li>
+              <div class="feature-icon bg-rust">📁</div>
+              <div><strong style="color: var(--white);">Output</strong> — <code style="font-size: 11px; color: var(--gore);">deliverables/craft-applied-guide.md</code></div>
+            </li>
+            <li>
+              <div class="feature-icon bg-maroon">⏱</div>
+              <div><strong style="color: var(--white);">Zeithorizont</strong> — 0–12 Wochen / Zyklus 1–3</div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div style="background: rgba(100,0,0,0.15); border: 1px solid rgba(139,0,0,0.3); border-radius: 14px; padding: 20px;">
+            <div style="font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blood-light); margin-bottom: 12px;">Abnahme-Kriterien</div>
+            <ul class="checklist">
+              <li>Ein erfahrener ATM kann den Guide ohne weitere Erklärung nutzen</li>
+              <li>Jeder Schritt beantwortet: Was? Warum? Mit welchem Werkzeug? Wie lange?</li>
+              <li>ADKAR-Diagnose ist an jeder Stelle des Guides anwendbar</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 3: DREI-EBENEN-METHODIK ═══ -->
+  <div class="slide" data-slide="2">
+    <div class="slide-content">
+      <div class="slide-tag">Methodisches Fundament</div>
+      <h2>Drei Methoden — <span class="text-accent">ein Modell</span></h2>
+      <div class="layer-stack">
+        <div class="layer" style="background: rgba(100,0,0,0.12); border: 1px solid rgba(160,0,0,0.3);">
+          <div class="layer-num" style="color: var(--gore);">1</div>
+          <div class="layer-content">
+            <h3 style="color: var(--gore);">PDCA / CRAFT — Gesamtsteuerung</h3>
+            <p>Wohin gehen wir? Was messen wir? Wann skalieren? — Roter Faden und Zyklusstruktur des gesamten Guides</p>
+          </div>
+        </div>
+        <div class="layer" style="background: rgba(80,0,0,0.12); border: 1px solid rgba(130,0,0,0.25);">
+          <div class="layer-num" style="color: var(--crimson);">2</div>
+          <div class="layer-content">
+            <h3 style="color: var(--crimson);">Kotter 8 Accelerators — Organisations-Change</h3>
+            <p>Wie bewegen wir die Organisation? Wer trägt die Veränderung? — Phasen 1–3 und Skalierung</p>
+          </div>
+        </div>
+        <div class="layer" style="background: rgba(60,0,0,0.12); border: 1px solid rgba(100,0,0,0.2);">
+          <div class="layer-num" style="color: var(--blood-light);">3</div>
+          <div class="layer-content">
+            <h3 style="color: var(--blood-light);">ADKAR (Prosci) — Individual-Change</h3>
+            <p>Wo steht jede einzelne Person? Was braucht sie jetzt? — Durchgängig als Diagnose-Linse bei <em>jeder</em> Interaktion</p>
+          </div>
+        </div>
+      </div>
+      <blockquote style="margin: 20px auto 0; max-width: 700px; text-align: center; border-left: none; border-top: 1px solid rgba(139,0,0,0.25); padding: 14px 0 0; font-size: 13px;">
+        ADKAR ist keine Sequenz — es ist eine Diagnosefrage: <em>„Fehlt dieser Person Awareness, Desire, Knowledge, Ability oder Reinforcement?"</em>
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 4: GUIDE-PHASEN-ÜBERSICHT ═══ -->
+  <div class="slide" data-slide="3">
+    <div class="slide-content">
+      <div class="slide-tag">Struktur</div>
+      <h2>Die <span class="text-accent">7 Phasen</span> des Guides</h2>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 22px; text-align: left;">
+        <div class="card" style="border-top: 3px solid var(--blood);">
+          <div style="font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--blood-light); margin-bottom: 6px;">Pre-Work</div>
+          <h3 style="font-size: 13px; margin-bottom: 6px;">Business Impact Discovery</h3>
+          <p style="font-size: 11.5px;">Business-Impact-Kennzahlen, Kontext-Analyse, Team aufbauen</p>
+          <div style="margin-top: 10px;"><span class="badge" style="background: rgba(139,0,0,0.2); color: var(--blood-light); border: 1px solid rgba(139,0,0,0.3);">ADKAR: —</span></div>
+        </div>
+        <div class="card" style="border-top: 3px solid var(--crimson);">
+          <div style="font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--blood-light); margin-bottom: 6px;">Phase 1</div>
+          <h3 style="font-size: 13px; margin-bottom: 6px;">Guiding Coalition</h3>
+          <p style="font-size: 11.5px;">Urgency erzeugen · richtige Personen finden</p>
+          <div style="margin-top: 10px;"><span class="badge" style="background: rgba(139,0,0,0.2); color: var(--blood-light); border: 1px solid rgba(139,0,0,0.3);">Awareness</span></div>
+        </div>
+        <div class="card" style="border-top: 3px solid var(--gore);">
+          <div style="font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--blood-light); margin-bottom: 6px;">Phase 2</div>
+          <h3 style="font-size: 13px; margin-bottom: 6px;">Key-Player-Gespräche</h3>
+          <p style="font-size: 11.5px;">Stakeholder-Map · Early Adopter kartieren · Champions finden</p>
+          <div style="margin-top: 10px;"><span class="badge" style="background: rgba(139,0,0,0.2); color: var(--blood-light); border: 1px solid rgba(139,0,0,0.3);">Desire</span></div>
+        </div>
+        <div class="card" style="border-top: 3px solid var(--rust);">
+          <div style="font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--blood-light); margin-bottom: 6px;">Phase 3</div>
+          <h3 style="font-size: 13px; margin-bottom: 6px;">Kickoff-Workshop</h3>
+          <p style="font-size: 11.5px;">Vision entwickeln · Shadow AI Amnestie einleiten</p>
+          <div style="margin-top: 10px;"><span class="badge" style="background: rgba(139,0,0,0.2); color: var(--blood-light); border: 1px solid rgba(139,0,0,0.3);">Desire → Knowledge</span></div>
+        </div>
+        <div class="card" style="border-top: 3px solid var(--blood);">
+          <div style="font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--blood-light); margin-bottom: 6px;">Phase 4</div>
+          <h3 style="font-size: 13px; margin-bottom: 6px;">Erster Deep Dive</h3>
+          <p style="font-size: 11.5px;">CRAFT Baseline · Spider-Chart · Interventionen</p>
+          <div style="margin-top: 10px;"><span class="badge" style="background: rgba(139,0,0,0.2); color: var(--blood-light); border: 1px solid rgba(139,0,0,0.3);">Knowledge</span></div>
+        </div>
+        <div class="card" style="border-top: 3px solid var(--crimson);">
+          <div style="font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--blood-light); margin-bottom: 6px;">Phase 5</div>
+          <h3 style="font-size: 13px; margin-bottom: 6px;">Erste CRAFT-Zyklen</h3>
+          <p style="font-size: 11.5px;">Tooling · Quick Wins · Champion-Aktivierung</p>
+          <div style="margin-top: 10px;"><span class="badge" style="background: rgba(139,0,0,0.2); color: var(--blood-light); border: 1px solid rgba(139,0,0,0.3);">Ability</span></div>
+        </div>
+        <div class="card" style="border-top: 3px solid var(--gore);">
+          <div style="font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--blood-light); margin-bottom: 6px;">Phase 6</div>
+          <h3 style="font-size: 13px; margin-bottom: 6px;">Business Problem Check</h3>
+          <p style="font-size: 11.5px;">Business-Impact-Kennzahlen messen · Quick Wins feiern</p>
+          <div style="margin-top: 10px;"><span class="badge" style="background: rgba(139,0,0,0.2); color: var(--blood-light); border: 1px solid rgba(139,0,0,0.3);">Reinforcement</span></div>
+        </div>
+        <div class="card" style="border-top: 3px solid var(--rust);">
+          <div style="font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--blood-light); margin-bottom: 6px;">Phase 7+</div>
+          <h3 style="font-size: 13px; margin-bottom: 6px;">Readiness Gate & Skalierung</h3>
+          <p style="font-size: 11.5px;">Erweitern / Vertiefen / Konsolidieren · CoE</p>
+          <div style="margin-top: 10px;"><span class="badge" style="background: rgba(139,0,0,0.2); color: var(--blood-light); border: 1px solid rgba(139,0,0,0.3);">Reinforcement institutionalisieren</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 5: ROLLEN-AKTIVITÄTS-MATRIX ═══ -->
+  <div class="slide" data-slide="4">
+    <div class="slide-content left">
+      <div class="slide-tag">Team-Orchestrierung</div>
+      <h2>Rollen-Aktivitäts-<span class="text-accent">Matrix</span></h2>
+      <p style="font-size: 13px; color: var(--gray-300); margin-bottom: 14px;">● Führt &nbsp;○ Unterstützt &nbsp;— Nur informiert</p>
+      <table class="blood-table">
+        <thead>
+          <tr>
+            <th>Rolle</th>
+            <th>Pre</th><th>P1</th><th>P2</th><th>P3</th><th>P4</th><th>P5</th><th>P6</th><th>P7+</th>
+            <th style="text-align: left;">Schwerpunkt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="highlight">AI Transformation Manager</td>
+            <td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td>
+            <td style="font-size: 11.5px;">Orchestrierung durchgängig</td>
+          </tr>
+          <tr>
+            <td class="highlight">Change &amp; People Lead</td>
+            <td>○</td><td>●</td><td>●</td><td>●</td><td>○</td><td>○</td><td>○</td><td>○</td>
+            <td style="font-size: 11.5px;">Change Foundation (P1–3)</td>
+          </tr>
+          <tr>
+            <td class="highlight">Governance Liaison</td>
+            <td>●</td><td>○</td><td>—</td><td>—</td><td>○</td><td>—</td><td>—</td><td>○</td>
+            <td style="font-size: 11.5px;">Frühzeitig klären, dann Monitoring</td>
+          </tr>
+          <tr>
+            <td class="highlight">Value Stream Coach</td>
+            <td>○</td><td>—</td><td>—</td><td>—</td><td>●</td><td>○</td><td>●</td><td>●</td>
+            <td style="font-size: 11.5px;">Deep Dive + Business Check</td>
+          </tr>
+          <tr>
+            <td class="highlight">Technical AI Lead</td>
+            <td>○</td><td>—</td><td>—</td><td>—</td><td>○</td><td>●</td><td>—</td><td>●</td>
+            <td style="font-size: 11.5px;">Tooling-Phasen</td>
+          </tr>
+          <tr>
+            <td class="highlight">Champions</td>
+            <td>—</td><td>○</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td>
+            <td style="font-size: 11.5px;">Ab Phase 2 zentral (20%-Budget!)</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top: 14px; display: flex; gap: 16px; flex-wrap: wrap;">
+        <div style="font-size: 12px; color: var(--gray-400);">⚠️ Mindestbesetzung Pilot:</div>
+        <span class="badge" style="background: rgba(139,0,0,0.2); color: var(--gore); border: 1px solid rgba(139,0,0,0.3);">ATM</span>
+        <span class="badge" style="background: rgba(139,0,0,0.2); color: var(--gore); border: 1px solid rgba(139,0,0,0.3);">1+ Champion</span>
+        <span class="badge" style="background: rgba(139,0,0,0.2); color: var(--gore); border: 1px solid rgba(139,0,0,0.3);">Sponsor-Zugang</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 6: PRE-WORK ═══ -->
+  <div class="slide" data-slide="5">
+    <div class="slide-content">
+      <div class="slide-tag">Phase B</div>
+      <h2><span class="text-accent">Pre-Work</span> — Bevor der erste Termin stattfindet</h2>
+      <div class="three-col" style="margin-top: 20px;">
+        <div class="card" style="border-top: 3px solid var(--blood);">
+          <div class="card-icon bg-blood">🔍</div>
+          <h3>Business Impact Discovery</h3>
+          <p>Gesprächsleitfaden vor CRAFT Explorer — 2–3 Business-Impact-Kennzahlen definieren, Business-Problem konkretisieren</p>
+          <p style="margin-top: 8px; font-size: 11px; color: var(--gore);">⚠ Fallstricke: Metriken die sich nicht messen lassen; Sponsor ohne klares Problem</p>
+        </div>
+        <div class="card" style="border-top: 3px solid var(--crimson);">
+          <div class="card-icon bg-crimson">🗺</div>
+          <h3>Kontext-Analyse</h3>
+          <p>Kontext-Profil vorläufig bestimmen (Agil / Enterprise Reguliert / Public Sector / Konzern Liberal)</p>
+          <p style="margin-top: 8px; font-size: 11.5px; color: var(--gray-300);">+ Commercial Flow Check: T&amp;M oder Festpreis? + Governance-Status</p>
+        </div>
+        <div class="card" style="border-top: 3px solid var(--rust);">
+          <div class="card-icon bg-rust">👥</div>
+          <h3>AI Adoption Team aufbauen</h3>
+          <p>Wer ist verfügbar? Wer fehlt? Rollen mit Zeitbudgets klären</p>
+          <ul class="feature-list" style="margin-top: 10px; font-size: 12px;">
+            <li><div class="feature-icon bg-blood">✓</div><div>Mindestbesetzung für Pilot definieren</div></li>
+            <li><div class="feature-icon bg-blood">✓</div><div>Rollen-Aktivitäts-Matrix besprechen</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 7: CHANGE FOUNDATION (P1–P3) ═══ -->
+  <div class="slide" data-slide="6">
+    <div class="slide-content left">
+      <div class="slide-tag">Phase C · ADKAR: Awareness → Desire</div>
+      <h2>Change <span class="text-accent">Foundation</span> — Phasen 1 bis 3</h2>
+      <div class="three-col" style="margin-top: 18px;">
+        <div class="dim-card" style="flex-direction: column;">
+          <div style="display: flex; gap: 14px; align-items: center; margin-bottom: 10px;">
+            <div class="dim-letter bg-blood" style="font-size: 16px;">P1</div>
+            <div>
+              <h3 style="font-size: 14px;">Guiding Coalition</h3>
+              <div style="font-size: 10px; color: var(--blood-light);">~1 Woche · 3–5 Gespräche à 45 Min</div>
+            </div>
+          </div>
+          <p style="font-size: 12px; color: var(--gray-300);">Richtige Personen finden (Macht + Glaubwürdigkeit + Offenheit). Urgency erzeugen mit echter Datenlage. ADKAR-Check: Ist Awareness da?</p>
+          <div style="margin-top: 8px; font-size: 11px; color: var(--gray-400);">👤 ATM führt · C&amp;P begleitet optional</div>
+        </div>
+        <div class="dim-card" style="flex-direction: column;">
+          <div style="display: flex; gap: 14px; align-items: center; margin-bottom: 10px;">
+            <div class="dim-letter bg-crimson" style="font-size: 16px;">P2</div>
+            <div>
+              <h3 style="font-size: 14px;">Key-Player-Gespräche</h3>
+              <div style="font-size: 10px; color: var(--blood-light);">Stakeholder-Map · Champions identifizieren</div>
+            </div>
+          </div>
+          <p style="font-size: 12px; color: var(--gray-300);">Early Adopter, Skeptiker, stille Blocker kartieren. 1:1-Leitfäden: Was treibt diese Person? Was sind ihre Ängste?</p>
+          <div style="margin-top: 8px; font-size: 11px; color: var(--gray-400);">👤 ATM = strategische Stakeholder · C&amp;P = Team</div>
+        </div>
+        <div class="dim-card" style="flex-direction: column;">
+          <div style="display: flex; gap: 14px; align-items: center; margin-bottom: 10px;">
+            <div class="dim-letter bg-rust" style="font-size: 16px;">P3</div>
+            <div>
+              <h3 style="font-size: 14px;">Kickoff-Workshop</h3>
+              <div style="font-size: 10px; color: var(--blood-light);">2–4h · Vision entwickeln (nicht präsentieren!)</div>
+            </div>
+          </div>
+          <p style="font-size: 12px; color: var(--gray-300);">AI-Landscape im Team, Shadow AI Amnestie, gemeinsames Problem. Übungen: Tool-Demo, "Day in the Life", Concern-Harvesting.</p>
+          <div style="margin-top: 8px; font-size: 11px; color: var(--gray-400);">👤 ATM moderiert · C&amp;P co-moderiert · Champions sichtbar</div>
+        </div>
+      </div>
+      <div class="adkar-row" style="margin-top: 16px;">
+        <span class="adkar-pill" style="border-color: var(--blood); color: var(--blood-light); background: rgba(100,0,0,0.1);">A — Awareness</span>
+        <span style="color: var(--gray-400);">→</span>
+        <span class="adkar-pill" style="border-color: var(--crimson); color: var(--crimson); background: rgba(196,30,58,0.1);">D — Desire</span>
+        <span style="color: var(--gray-400);">→</span>
+        <span class="adkar-pill" style="border-color: var(--gore); color: var(--gore); background: rgba(255,32,32,0.08);">K — Knowledge (beginnt)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 8: CRAFT EXPLORER INTEGRATION ═══ -->
+  <div class="slide" data-slide="7">
+    <div class="slide-content">
+      <div class="slide-tag">Phase D · ADKAR: Knowledge</div>
+      <h2>Erster <span class="text-accent">Deep Dive</span> — CRAFT Baseline</h2>
+      <div class="two-col" style="align-items: start;">
+        <div>
+          <ul class="feature-list">
+            <li>
+              <div class="feature-icon bg-blood">🎙</div>
+              <div><strong style="color: var(--white);">Vorbereitung</strong> — Erkläre dem Team: kein Assessment, sondern gemeinsame Orientierung</div>
+            </li>
+            <li>
+              <div class="feature-icon bg-crimson">📊</div>
+              <div><strong style="color: var(--white);">Durchführung</strong> — Team eigenständig; ATM ist nicht der Bewerter, sondern Moderator des Ergebnis-Workshops</div>
+            </li>
+            <li>
+              <div class="feature-icon bg-rust">🕸</div>
+              <div><strong style="color: var(--white);">Ergebnis-Workshop</strong> — Spider-Chart gemeinsam lesen: Was ist gut? Was fehlt? 2–3 Prioritäten ableiten</div>
+            </li>
+            <li>
+              <div class="feature-icon bg-maroon">🎯</div>
+              <div><strong style="color: var(--white);">Business-Impact-Kennzahlen-Verbindung</strong> — "Was bewegt unsere Top-Priorität auf unserem Ziel?"</div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div style="background: rgba(80,0,0,0.15); border: 1px solid rgba(139,0,0,0.25); border-radius: 14px; padding: 20px;">
+            <div style="font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blood-light); margin-bottom: 14px;">Aktive Rollen</div>
+            <div class="dim-card" style="margin-bottom: 8px; padding: 12px 16px;">
+              <div class="dim-letter bg-blood" style="width: 36px; height: 36px; font-size: 12px;">ATM</div>
+              <div class="dim-info"><h3 style="font-size: 13px;">Moderiert Ergebnis-Workshop</h3></div>
+            </div>
+            <div class="dim-card" style="margin-bottom: 8px; padding: 12px 16px;">
+              <div class="dim-letter bg-crimson" style="width: 36px; height: 36px; font-size: 12px;">VSC</div>
+              <div class="dim-info"><h3 style="font-size: 13px;">Interpretiert F-Score, VSM-Hypothesen</h3></div>
+            </div>
+            <div class="dim-card" style="margin-bottom: 8px; padding: 12px 16px;">
+              <div class="dim-letter bg-rust" style="width: 36px; height: 36px; font-size: 12px;">TAL</div>
+              <div class="dim-info"><h3 style="font-size: 13px;">Bewertet T-Score, schlägt Tooling vor</h3></div>
+            </div>
+            <div class="dim-card" style="padding: 12px 16px;">
+              <div class="dim-letter bg-maroon" style="width: 36px; height: 36px; font-size: 12px;">C&P</div>
+              <div class="dim-info"><h3 style="font-size: 13px;">Liest R-Score, identifiziert Psychological Safety-Bedarf</h3></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 9: ERSTE ZYKLEN ═══ -->
+  <div class="slide" data-slide="8">
+    <div class="slide-content">
+      <div class="slide-tag">Phase E · ADKAR: Ability → Reinforcement</div>
+      <h2>Erste <span class="text-accent">CRAFT-Zyklen</span> — Vom Wissen zum Tun</h2>
+      <div class="two-col" style="align-items: start; margin-top: 22px;">
+        <div>
+          <h3 style="font-size: 15px; color: var(--crimson); margin-bottom: 12px;">Phase 5 — Tooling &amp; Quick Wins</h3>
+          <ul class="feature-list">
+            <li><div class="feature-icon bg-blood">▶</div><div>Ersten Zyklus operativ starten: Pulse Check, Zieldefinition, Tool-Einführung</div></li>
+            <li><div class="feature-icon bg-blood">🏆</div><div>Champions aktivieren — 20%-Budget konsequent einsetzen</div></li>
+            <li><div class="feature-icon bg-blood">⚡</div><div>Quick-Win-Kandidaten: Code Review mit AI, Doku-Generierung</div></li>
+            <li><div class="feature-icon bg-blood">📅</div><div>ATM-Wochenrhythmus definieren (Was in Woche 1, 2, 3?)</div></li>
+          </ul>
+          <div style="margin-top: 12px; font-size: 12px; color: var(--gray-400);">👤 Technical AI Lead übernimmt Tooling-Rollout · Champions = erste Anlaufstelle</div>
+        </div>
+        <div>
+          <h3 style="font-size: 15px; color: var(--gore); margin-bottom: 12px;">Phase 6 — Business Problem Check</h3>
+          <ul class="feature-list">
+            <li><div class="feature-icon bg-crimson">📈</div><div>Business-Impact-Kennzahlen-Delta messen: Was hat sich seit letztem Zyklus verändert?</div></li>
+            <li><div class="feature-icon bg-crimson">📣</div><div>Ergebnisse kommunizieren — Sponsor vs. Team (verschiedene Formate!)</div></li>
+            <li><div class="feature-icon bg-crimson">🎉</div><div>Short-term Wins: Erfolge mit Personen verbinden, nicht mit Tools</div></li>
+            <li><div class="feature-icon bg-crimson">🔄</div><div>Stolperstein: Was tun wenn Quick Wins ausbleiben? → Diagnose, nicht Panik</div></li>
+          </ul>
+          <div style="margin-top: 12px; font-size: 12px; color: var(--gray-400);">👤 ATM + VSC führen Check · Champions kommunizieren Erfolge Peer-zu-Peer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 10: SKALIERUNG ═══ -->
+  <div class="slide" data-slide="9">
+    <div class="slide-content">
+      <div class="slide-tag">Phase F · ADKAR: Reinforcement institutionalisieren</div>
+      <h2>Readiness Gate &amp; <span class="text-accent">Skalierung</span></h2>
+      <div class="three-col" style="margin-top: 20px;">
+        <div class="card" style="border-top: 3px solid var(--gore); text-align: center;">
+          <div style="font-family: 'Cinzel', serif; font-size: 24px; font-weight: 900; color: var(--gore); margin-bottom: 10px;">ERWEITERN</div>
+          <p style="font-size: 12.5px; text-align: left;">Adoption &gt;60% · DORA stabil · kein Governance-Blocker · <strong style="color: var(--white);">Business-Impact-Kennzahlen positiver Trend</strong></p>
+          <p style="margin-top: 10px; font-size: 11.5px; color: var(--gray-400); text-align: left;">→ Nächste 2–3 Teams onboarden. Pilot-Team-Champions übernehmen Peer-Onboarding.</p>
+        </div>
+        <div class="card" style="border-top: 3px solid var(--crimson); text-align: center;">
+          <div style="font-family: 'Cinzel', serif; font-size: 24px; font-weight: 900; color: var(--crimson); margin-bottom: 10px;">VERTIEFEN</div>
+          <p style="font-size: 12.5px; text-align: left;">Adoption &lt;60% oder DORA-Rückgang oder <strong style="color: var(--white);">Business-Impact-Kennzahlen stagnieren trotz guter CRAFT-Scores</strong></p>
+          <p style="margin-top: 10px; font-size: 11.5px; color: var(--gray-400); text-align: left;">→ Root Cause Check: Symptom vs. tatsächliche Ursache. Interventionsauswahl prüfen.</p>
+        </div>
+        <div class="card" style="border-top: 3px solid var(--blood); text-align: center;">
+          <div style="font-family: 'Cinzel', serif; font-size: 24px; font-weight: 900; color: var(--blood-light); margin-bottom: 10px;">KONSOLIDIEREN</div>
+          <p style="font-size: 12.5px; text-align: left;">Governance-Änderung · Teamumbau · kultureller Widerstand</p>
+          <p style="margin-top: 10px; font-size: 11.5px; color: var(--gray-400); text-align: left;">→ Innehalten und stabilisieren. Kein Skalieren unter instabilen Bedingungen.</p>
+        </div>
+      </div>
+      <div style="margin-top: 16px; background: rgba(80,0,0,0.1); border: 1px solid rgba(139,0,0,0.2); border-radius: 10px; padding: 14px 20px; font-size: 13px; color: var(--gray-300);">
+        🩸 <strong style="color: var(--white);">Entscheidung:</strong> ATM bereitet Gate vor · alle Rollen liefern Dimensionsfeedback · <strong style="color: var(--gore);">Sponsor trifft Entscheidung</strong> auf Basis CRAFT-Score + Business-Impact-Kennzahlen-Delta
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 11: WERKZEUGE & TEMPLATES ═══ -->
+  <div class="slide" data-slide="10">
+    <div class="slide-content">
+      <div class="slide-tag">Phase G · Anhang</div>
+      <h2>Werkzeuge &amp; <span class="text-accent">Templates</span></h2>
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 22px;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border2); border-radius: 12px; padding: 18px 14px; text-align: center;">
+          <div style="font-size: 28px; margin-bottom: 10px;">🩺</div>
+          <h3 style="font-size: 13px; margin-bottom: 6px;">ADKAR Diagnose-Tool</h3>
+          <p style="font-size: 11px; color: var(--gray-300);">Checkliste pro Person / Phase + Interventionen pro Stufe</p>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border2); border-radius: 12px; padding: 18px 14px; text-align: center;">
+          <div style="font-size: 28px; margin-bottom: 10px;">🗺</div>
+          <h3 style="font-size: 13px; margin-bottom: 6px;">Stakeholder-Map</h3>
+          <p style="font-size: 11px; color: var(--gray-300);">Name · Rolle · ADKAR-Status · Einfluss · Strategie (1 Seite)</p>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border2); border-radius: 12px; padding: 18px 14px; text-align: center;">
+          <div style="font-size: 28px; margin-bottom: 10px;">💬</div>
+          <h3 style="font-size: 13px; margin-bottom: 6px;">Gesprächsleitfäden</h3>
+          <p style="font-size: 11px; color: var(--gray-300);">Coalition (P1) · Key-Player 1:1 (P2) · ADKAR-Diagnose (durchgängig)</p>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border2); border-radius: 12px; padding: 18px 14px; text-align: center;">
+          <div style="font-size: 28px; margin-bottom: 10px;">🎨</div>
+          <h3 style="font-size: 13px; margin-bottom: 6px;">Workshop-Designs</h3>
+          <p style="font-size: 11px; color: var(--gray-300);">Kickoff 2–4h · Deep-Dive-Ergebnis 1–2h · Pulse Check Review 30min</p>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border2); border-radius: 12px; padding: 18px 14px; text-align: center;">
+          <div style="font-size: 28px; margin-bottom: 10px;">📅</div>
+          <h3 style="font-size: 13px; margin-bottom: 6px;">ATM-Wochenplan</h3>
+          <p style="font-size: 11px; color: var(--gray-300);">Exemplarischer Plan für Zyklus 1–2: Was macht der ATM wann?</p>
+        </div>
+      </div>
+      <div style="margin-top: 20px; background: rgba(80,0,0,0.1); border: 1px solid rgba(139,0,0,0.2); border-radius: 10px; padding: 12px 18px; font-size: 12.5px; color: var(--gray-300);">
+        ℹ️ Templates entstehen parallel zu Phasen C–F, sobald klar ist was gebraucht wird. Inline in den Phasen oder als gesonderter Anhang.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 12: ZEITAUFWAND ═══ -->
+  <div class="slide" data-slide="11">
+    <div class="slide-content">
+      <div class="slide-tag">Arbeitsplanung</div>
+      <h2>Geschätzter <span class="text-accent">Aufwand</span> je Roadmap-Phase</h2>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 24px;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border2); border-radius: 12px; padding: 18px; text-align: center;">
+          <div style="font-family: 'Cinzel', serif; font-size: 32px; font-weight: 900; color: var(--blood-light);">15<span style="font-size: 16px;">min</span></div>
+          <div style="font-size: 12px; font-weight: 600; color: var(--white); margin: 6px 0;">Phase A</div>
+          <p style="font-size: 11px; color: var(--gray-300);">Konzept &amp; Struktur klären</p>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border2); border-radius: 12px; padding: 18px; text-align: center;">
+          <div style="font-family: 'Cinzel', serif; font-size: 32px; font-weight: 900; color: var(--crimson);">20<span style="font-size: 16px;">min</span></div>
+          <div style="font-size: 12px; font-weight: 600; color: var(--white); margin: 6px 0;">Phase B</div>
+          <p style="font-size: 11px; color: var(--gray-300);">Pre-Work Kapitel</p>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border2); border-radius: 12px; padding: 18px; text-align: center;">
+          <div style="font-family: 'Cinzel', serif; font-size: 32px; font-weight: 900; color: var(--gore);">45<span style="font-size: 16px;">min</span></div>
+          <div style="font-size: 12px; font-weight: 600; color: var(--white); margin: 6px 0;">Phase C</div>
+          <p style="font-size: 11px; color: var(--gray-300);">Change Foundation (3 Phasen + Workshop-Design)</p>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border2); border-radius: 12px; padding: 18px; text-align: center;">
+          <div style="font-family: 'Cinzel', serif; font-size: 32px; font-weight: 900; color: var(--blood-light);">20<span style="font-size: 16px;">min</span></div>
+          <div style="font-size: 12px; font-weight: 600; color: var(--white); margin: 6px 0;">Phase D</div>
+          <p style="font-size: 11px; color: var(--gray-300);">CRAFT Explorer Integration</p>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border2); border-radius: 12px; padding: 18px; text-align: center;">
+          <div style="font-family: 'Cinzel', serif; font-size: 32px; font-weight: 900; color: var(--crimson);">30<span style="font-size: 16px;">min</span></div>
+          <div style="font-size: 12px; font-weight: 600; color: var(--white); margin: 6px 0;">Phase E</div>
+          <p style="font-size: 11px; color: var(--gray-300);">Erste Zyklen</p>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border2); border-radius: 12px; padding: 18px; text-align: center;">
+          <div style="font-family: 'Cinzel', serif; font-size: 32px; font-weight: 900; color: var(--gore);">20<span style="font-size: 16px;">min</span></div>
+          <div style="font-size: 12px; font-weight: 600; color: var(--white); margin: 6px 0;">Phase F</div>
+          <p style="font-size: 11px; color: var(--gray-300);">Skalierung</p>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border2); border-radius: 12px; padding: 18px; text-align: center;">
+          <div style="font-family: 'Cinzel', serif; font-size: 32px; font-weight: 900; color: var(--blood-light);">45<span style="font-size: 16px;">min</span></div>
+          <div style="font-size: 12px; font-weight: 600; color: var(--white); margin: 6px 0;">Phase G</div>
+          <p style="font-size: 11px; color: var(--gray-300);">Werkzeuge &amp; Templates</p>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border2); border-radius: 12px; padding: 18px; text-align: center;">
+          <div style="font-family: 'Cinzel', serif; font-size: 32px; font-weight: 900; color: var(--crimson);">15<span style="font-size: 16px;">min</span></div>
+          <div style="font-size: 12px; font-weight: 600; color: var(--white); margin: 6px 0;">Phase H</div>
+          <p style="font-size: 11px; color: var(--gray-300);">Review &amp; Konsistenz-Check</p>
+        </div>
+      </div>
+      <div style="margin-top: 18px; font-family: 'Cinzel', serif; font-size: 18px; color: var(--gray-300);">
+        Gesamt: <span style="color: var(--gore); font-weight: 900;">~3,5 Stunden</span> im Dialog
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SLIDE 13: CLOSING / NEXT STEPS ═══ -->
+  <div class="slide" data-slide="12">
+    <div class="slide-content">
+      <div class="slide-tag">Nächste Schritte</div>
+      <h2>Jetzt <span class="text-accent">loslegen</span></h2>
+      <p class="subtitle" style="margin: 12px auto 0; max-width: 680px;">Inhalte entstehen im Dialog — Phase für Phase, direkt in <code style="font-size: 14px; color: var(--gore); background: rgba(100,0,0,0.15); padding: 2px 8px; border-radius: 4px;">craft-applied-guide.md</code></p>
+      <div class="cycle-container" style="margin-top: 32px;">
+        <div class="cycle-step" style="border-top: 3px solid var(--blood);">
+          <div class="step-label" style="color: var(--blood-light);">Start</div>
+          <h3 style="color: var(--gore);">Phase A</h3>
+          <p>Scope &amp; Struktur bestätigen</p>
+        </div>
+        <div class="cycle-arrow">→</div>
+        <div class="cycle-step" style="border-top: 3px solid var(--crimson);">
+          <div class="step-label" style="color: var(--blood-light);">Dann</div>
+          <h3 style="color: var(--crimson);">Phase B</h3>
+          <p>Pre-Work Kapitel schreiben</p>
+        </div>
+        <div class="cycle-arrow">→</div>
+        <div class="cycle-step" style="border-top: 3px solid var(--gore);">
+          <div class="step-label" style="color: var(--blood-light);">Kern</div>
+          <h3 style="color: var(--gore);">C → F</h3>
+          <p>Phasen reviewen &amp; schreiben</p>
+        </div>
+        <div class="cycle-arrow">→</div>
+        <div class="cycle-step" style="border-top: 3px solid var(--rust);">
+          <div class="step-label" style="color: var(--blood-light);">Parallel</div>
+          <h3 style="color: #E07070;">Phase G</h3>
+          <p>Templates entwickeln</p>
+        </div>
+        <div class="cycle-arrow">→</div>
+        <div class="cycle-step" style="border-top: 3px solid var(--maroon);">
+          <div class="step-label" style="color: var(--blood-light);">Abschluss</div>
+          <h3 style="color: #C06060;">Phase H</h3>
+          <p>Review &amp; Cross-Check</p>
+        </div>
+      </div>
+      <blockquote style="max-width: 660px; margin: 28px auto 0; text-align: center; border-left: none; border-top: 1px solid rgba(139,0,0,0.25); padding-top: 16px;">
+        Pro Phase: Inhalte im Dialog entwickeln → direkt schreiben → reviewen → weiter.
+        <cite>craft-applied-guide-roadmap.md · April 2026</cite>
+      </blockquote>
+    </div>
+  </div>
+
+</div>
+
+<!-- Navigation bar -->
+<div class="nav">
+  <button class="nav-btn" id="prevBtn" onclick="navigate(-1)" disabled>← Zurück</button>
+  <span class="slide-counter">
+    <span id="currentSlide">1</span> / <span id="totalSlides"></span>
+  </span>
+  <button class="nav-btn primary" id="nextBtn" onclick="navigate(1)">Weiter →</button>
+</div>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  document.getElementById('totalSlides').textContent = total;
+
+  function navigate(dir) {
+    const next = current + dir;
+    if (next < 0 || next >= total) return;
+    const cur = slides[current];
+    const nxt = slides[next];
+    cur.classList.remove('active');
+    if (dir > 0) cur.classList.add('exit-left');
+    nxt.style.transition = 'none';
+    nxt.style.transform = dir > 0 ? 'translateX(60px)' : 'translateX(-60px)';
+    nxt.style.opacity = '0';
+    nxt.offsetHeight;
+    nxt.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    nxt.classList.add('active');
+    nxt.style.transform = '';
+    nxt.style.opacity = '';
+    setTimeout(() => { cur.classList.remove('exit-left'); }, 500);
+    current = next;
+    updateUI();
+  }
+
+  function updateUI() {
+    document.getElementById('currentSlide').textContent = current + 1;
+    document.getElementById('prevBtn').disabled = current === 0;
+    document.getElementById('nextBtn').disabled = current === total - 1;
+    document.getElementById('progressBar').style.width = ((current + 1) / total * 100) + '%';
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); navigate(1); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); navigate(-1); }
+  });
+
+  let touchStartX = 0;
+  document.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX);
+  document.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].screenX;
+    if (Math.abs(diff) > 50) navigate(diff > 0 ? 1 : -1);
+  });
+
+  updateUI();
+</script>
+</body>
+</html>
