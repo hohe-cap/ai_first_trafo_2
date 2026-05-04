@@ -33,6 +33,11 @@ Bei Dokumentations-Änderungen am AI Transformation Framework:
 - Vollversion: `framework/ai-transformation-framework-craft.md`
 - Der Digest muss unter 2KB bleiben für optimale Performance
 
+### Change & People Lead Arbeit
+Für Aufgaben zu Dimension R (Readiness), Dimension A (Adoption), Pulse Check Auswertung, Interventionskatalog und ADKAR:
+- Verwende den Skill `.claude/skills/change-people-lead/SKILL.md`
+- Trigger-Phrasen: Pulse Check auswerten, Intervention planen, Readiness Score, Adoption Score, Shadow AI Amnestie, Champion-Aufbau, Westrum Culture, ADKAR
+
 ### Pull Request Reviews
 Bei PR-Reviews prüfe gegen:
 - Konventionen aus AGENTS.md (Commits, Datei-Organisation)
