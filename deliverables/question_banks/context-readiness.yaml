@@ -10,13 +10,16 @@
 # See METHODOLOGY.md Section 1 for details on this distinction.
 # Framework Reference: [AI Transformation Framework — Kap. 3 Kontext-Profile & Drei-Ebenen-Architektur](../../framework/ai-transformation-framework-craft.md)
 #
-# Version: 2.0
-# Last Updated: 2026-03-10
-# Total Questions: 38 (18 Context + 20 Readiness)
-# Estimated Duration: 28-33 minutes
+# Version: 2.2
+# Last Updated: 2026-04-28
+# Total Questions: 41 (19 Context + 22 Readiness)
+# Estimated Duration: 32-38 minutes
+# Changes v2.2: Added ctx_works_council, rdy_ai_strategy_communication,
+#               rdy_transformation_history to improve ADKAR-Diagnose
+#               and systemic condition coverage.
 # =============================================================================
 
-version: "2.1"
+version: "2.2"
 exploration_type: "context_readiness"
 description:
   de: >-
@@ -27,7 +30,7 @@ description:
     One-time exploration at the start of a transformation engagement.
     Captures project context and diagnoses transformation readiness
     as foundation for adaptive pulse checks and targeted interventions.
-estimated_duration_minutes: 30
+estimated_duration_minutes: 33
 frequency: "once_at_kickoff"
 respondent: "AI Transformation Manager / Technical Lead (1-2 persons, not anonymous)"
 methodology_reference: "METHODOLOGY.md"
@@ -43,7 +46,7 @@ sections:
     description:
       de: "Projektrahmen, Business-Kontext, Tech-Stack und Arbeitsweise"
       en: "Project framework, business context, tech stack and working methods"
-    estimated_duration_minutes: 10
+    estimated_duration_minutes: 11
     purpose:
       de: >-
         Bestimmt Compliance-Tier, Tech-Pattern und Culture-Pattern.
@@ -59,7 +62,7 @@ sections:
     description:
       de: "Leadership, Skills, Infrastruktur, Kultur und Prozesse"
       en: "Leadership, skills, infrastructure, culture and processes"
-    estimated_duration_minutes: 20
+    estimated_duration_minutes: 22
     purpose:
       de: >-
         Diagnostiziert Transformations-Readiness ueber 5 Dimensionen.
@@ -96,17 +99,19 @@ categories:
       de: "Business-Kontext & Compliance"
       en: "Business Context & Compliance"
     description:
-      de: "Branche, Regulierung, Datenverarbeitung, Vertragsmodell"
-      en: "Industry, regulation, data processing, contract model"
+      de: "Branche, Regulierung, Datenverarbeitung, Vertragsmodell, Betriebsrat"
+      en: "Industry, regulation, data processing, contract model, works council"
     why_important:
       de: >-
         Regulatorische Anforderungen und Vertragsmodelle definieren die
         Grenzen des Moeglichen. Banking braucht andere Strategien als Startups.
-        Das Vertragsmodell bestimmt Incentive-Alignment.
+        Das Vertragsmodell bestimmt Incentive-Alignment. Der Betriebsrat
+        des Kunden kann AI-Tool-Entscheidungen strukturell beeinflussen.
       en: >-
         Regulatory requirements and contract models define the boundaries
         of what's possible. Banking needs different strategies than startups.
-        The contract model determines incentive alignment.
+        The contract model determines incentive alignment. The client's
+        works council can structurally influence AI tool decisions.
     order: 2
 
   - key: "tech_landscape"
@@ -167,15 +172,19 @@ categories:
       de: "Leadership & Commitment"
       en: "Leadership & Commitment"
     description:
-      de: "Executive Sponsorship, Budget, Change Management Ressourcen"
-      en: "Executive sponsorship, budget, change management resources"
+      de: "Executive Sponsorship, Budget, Change Management Ressourcen, Kommunikation"
+      en: "Executive sponsorship, budget, change management resources, communication"
     why_important:
       de: >-
         Ohne Top-Level-Support scheitern 70% aller Transformationsprojekte
         innerhalb des ersten Jahres (Kotter, Prosci).
+        Fehlende Kommunikation der AI-Strategie nach unten ist die haeufigste
+        erste ADKAR-Blockade (Awareness-Gap).
       en: >-
         Without top-level support, 70% of transformation projects fail
         within the first year (Kotter, Prosci).
+        Missing downward communication of AI strategy is the most common
+        first ADKAR barrier (Awareness gap).
     weight_in_readiness_score: 0.25
     order: 6
 
@@ -221,15 +230,19 @@ categories:
       de: "Kultur & Mindset"
       en: "Culture & Mindset"
     description:
-      de: "Fehlertoleranz, Innovationszeit, Prozessflexibilität"
-      en: "Failure tolerance, innovation time, process flexibility"
+      de: "Fehlertoleranz, Transformationshistorie, Innovationszeit, Prozessflexibilität"
+      en: "Failure tolerance, transformation history, innovation time, process flexibility"
     why_important:
       de: >-
         Psychologische Sicherheit und Experimentierfreiheit sind die
         staerksten Praediktoren fuer erfolgreiche AI-Adoption.
+        Die Transformationshistorie bestimmt kollektive Skepsis oder Aufgeschlossenheit
+        (ADKAR Desire-Baseline).
       en: >-
         Psychological safety and freedom to experiment are the
         strongest predictors of successful AI adoption.
+        Transformation history determines collective skepticism or openness
+        (ADKAR Desire baseline).
     weight_in_readiness_score: 0.15
     order: 9
 
@@ -258,7 +271,7 @@ categories:
     order: 10
 
 # =============================================================================
-# QUESTIONS — CONTEXT SECTION (17 Questions)
+# QUESTIONS — CONTEXT SECTION (19 Questions)
 # =============================================================================
 questions:
 
@@ -383,7 +396,7 @@ questions:
     order: 4
 
   # ---------------------------------------------------------------------------
-  # Category: business_context (4 Questions)
+  # Category: business_context (5 Questions)
   # ---------------------------------------------------------------------------
   - question_key: "ctx_industry"
     section: "context"
@@ -526,6 +539,50 @@ questions:
       en: "Mission-Critical → Structured rollout, risk management; Experimental → Fast rollout"
     order: 8
 
+  - question_key: "ctx_works_council"
+    section: "context"
+    category: "business_context"
+    question_text:
+      de: "Welchen Einfluss hat der Betriebsrat / die Mitarbeitervertretung des Kunden auf AI-Tool-Entscheidungen?"
+      en: "What influence does the client's works council / employee representation have on AI tool decisions?"
+    why_important:
+      de: >-
+        Ein aktiv blockierender Betriebsrat ist ein struktureller Blocker,
+        der alle ADKAR-Phasen unterlaufen kann — unabhaengig von Skills,
+        Desire oder Infrastruktur. Fruehzeitige Einbindung (Phase 0) ist
+        die einzige belastbare Strategie.
+      en: >-
+        An actively blocking works council is a structural blocker that
+        can undermine all ADKAR phases — independent of skills, desire
+        or infrastructure. Early involvement (Phase 0) is the only
+        reliable strategy.
+    answer_type: "single_choice"
+    answer_options:
+      - key: "not_relevant"
+        de: "Nicht relevant (kein BR vorhanden / Kundenprojekt ohne BR-Einfluss auf AI-Tools)"
+        en: "Not relevant (no works council / client project without WC influence on AI tools)"
+        order: 1
+      - key: "supportive"
+        de: "Unterstützend — BR ist proaktiv eingebunden und befürwortet AI"
+        en: "Supportive — WC is proactively involved and endorses AI"
+        order: 2
+      - key: "informed"
+        de: "Informiert — BR kennt die Initiative, aber ohne aktive Rolle"
+        en: "Informed — WC knows the initiative but has no active role"
+        order: 3
+      - key: "cautious"
+        de: "Vorsichtig — BR-Einbindung ist erforderlich, Prozess läuft noch"
+        en: "Cautious — WC involvement required, process still ongoing"
+        order: 4
+      - key: "blocking"
+        de: "Blockierend — BR schränkt AI-Nutzung aktiv ein"
+        en: "Blocking — WC is actively restricting AI usage"
+        order: 5
+    adaptive_impact:
+      de: "blocking → Governance Starter Kit als Phase-0 priorisieren, vor allen anderen Dimensionen; cautious → Compliance-Pfad in Woche 1 klären; not_relevant/supportive → Standard-Vorgehen"
+      en: "blocking → Prioritize Governance Starter Kit as Phase-0, before all other dimensions; cautious → clarify compliance path in week 1; not_relevant/supportive → standard approach"
+    order: 9
+
   # ---------------------------------------------------------------------------
   # Category: tech_landscape (3 Questions)
   # ---------------------------------------------------------------------------
@@ -577,7 +634,7 @@ questions:
     adaptive_impact:
       de: "Bestimmt Tech-Pattern für Tool-Empfehlungen (z.B. Python → Copilot + Cursor + Ruff)"
       en: "Determines tech pattern for tool recommendations (e.g. Python → Copilot + Cursor + Ruff)"
-    order: 9
+    order: 10
 
   - question_key: "ctx_legacy_percentage"
     section: "context"
@@ -610,7 +667,7 @@ questions:
     adaptive_impact:
       de: "Hoch/Überwiegend → Tech-Debt-Reduktion priorisieren; Kein Legacy → Advanced AI Patterns"
       en: "High/Mostly → Prioritize tech debt reduction; No legacy → Advanced AI patterns"
-    order: 10
+    order: 11
 
   - question_key: "ctx_deployment_frequency"
     section: "context"
@@ -643,7 +700,7 @@ questions:
         de: "Seltener"
         en: "Less frequently"
         order: 5
-    order: 11
+    order: 12
 
   # ---------------------------------------------------------------------------
   # Category: ways_of_working (3 Questions)
@@ -676,7 +733,7 @@ questions:
         de: "Ad-hoc / kein formaler Prozess"
         en: "Ad-hoc / no formal process"
         order: 5
-    order: 12
+    order: 13
 
   - question_key: "ctx_collaboration_model"
     section: "context"
@@ -705,7 +762,7 @@ questions:
     adaptive_impact:
       de: "Remote/Async → AI-Pairing-Tools wichtiger; Office → In-Person + AI Hybrid"
       en: "Remote/Async → AI pairing tools more important; Office → In-person + AI hybrid"
-    order: 13
+    order: 14
 
   - question_key: "ctx_contract_model"
     section: "context"
@@ -750,10 +807,10 @@ questions:
     adaptive_impact:
       de: "T&M → Shadow-AI-Risiko prüfen, Gainsharing-Modelle empfehlen"
       en: "T&M → Check shadow AI risk, recommend gainsharing models"
-    order: 14
+    order: 15
 
   # ---------------------------------------------------------------------------
-  # Category: goals_timeline (3 Questions)
+  # Category: goals_timeline (4 Questions)
   # ---------------------------------------------------------------------------
   - question_key: "ctx_main_goal"
     section: "context"
@@ -786,7 +843,7 @@ questions:
     adaptive_impact:
       de: "Bestimmt Fokus-Metriken: Velocity → DORA; Qualität → Bug Density; Kosten → Effort/Story Point"
       en: "Determines focus metrics: Velocity → DORA; Quality → Bug density; Cost → Effort/story point"
-    order: 15
+    order: 16
 
   - question_key: "ctx_ai_budget"
     section: "context"
@@ -816,7 +873,7 @@ questions:
         de: "Enterprise (>100 EUR/Monat, mehrere Tools)"
         en: "Enterprise (>100 EUR/month, multiple tools)"
         order: 5
-    order: 16
+    order: 17
 
   - question_key: "ctx_timeline"
     section: "context"
@@ -845,7 +902,7 @@ questions:
     adaptive_impact:
       de: "Sofort → Quick-Win-Patterns priorisieren; Langfristig → Nachhaltige Transformation"
       en: "Immediately → Prioritize quick-win patterns; Long-term → Sustainable transformation"
-    order: 17
+    order: 18
 
   - question_key: "ctx_business_pain"
     section: "context"
@@ -876,14 +933,14 @@ questions:
         with ctx_main_goal. If the stated pain diverges from the chosen main goal,
         this surfaces a clarification question for the next conversation.
     discovery_guide_reference: "deliverables/question_banks/business-impact-discovery.md"
-    order: 18
+    order: 19
 
   # ===========================================================================
-  # QUESTIONS — READINESS SECTION (20 Questions)
+  # QUESTIONS — READINESS SECTION (22 Questions)
   # ===========================================================================
 
   # ---------------------------------------------------------------------------
-  # Category: leadership (4 Questions)
+  # Category: leadership (5 Questions)
   # ---------------------------------------------------------------------------
   - question_key: "rdy_executive_sponsorship"
     section: "readiness"
@@ -917,7 +974,7 @@ questions:
         score: 0
         order: 4
     weight: 1.5
-    order: 19
+    order: 20
 
   - question_key: "rdy_budget_allocation"
     section: "readiness"
@@ -948,7 +1005,7 @@ questions:
         score: 0
         order: 4
     weight: 1.2
-    order: 20
+    order: 21
 
   - question_key: "rdy_transformation_timeline"
     section: "readiness"
@@ -979,7 +1036,7 @@ questions:
         score: 20
         order: 4
     weight: 1.0
-    order: 21
+    order: 22
 
   - question_key: "rdy_change_management"
     section: "readiness"
@@ -1010,7 +1067,48 @@ questions:
         score: 0
         order: 4
     weight: 1.3
-    order: 22
+    order: 23
+
+  - question_key: "rdy_ai_strategy_communication"
+    section: "readiness"
+    category: "leadership"
+    question_text:
+      de: "Wurde eine klare AI-Vision oder -Strategie von Leadership aktiv an alle Mitarbeitenden kommuniziert?"
+      en: "Has a clear AI vision or strategy been actively communicated by leadership to all employees?"
+    why_important:
+      de: >-
+        Fehlende Awareness ist die haeufigste erste ADKAR-Blockade: Teams wissen nicht
+        warum die Transformation passiert und koennen kein Desire entwickeln.
+        Ein Sponsor allein genuegt nicht — die Botschaft muss die Teams erreichen.
+      en: >-
+        Missing awareness is the most common first ADKAR barrier: teams don't know
+        why the transformation is happening and cannot develop desire.
+        A sponsor alone is not enough — the message must reach the teams.
+    answer_type: "single_choice"
+    answer_options:
+      - key: "active_communication"
+        de: "Ja, aktiv kommuniziert (Town Hall, Memo, regelmäßige Updates an alle)"
+        en: "Yes, actively communicated (town hall, memo, regular updates to all)"
+        score: 100
+        order: 1
+      - key: "partial"
+        de: "Teilweise — in einzelnen Bereichen oder Projekten kommuniziert"
+        en: "Partial — communicated in selected areas or projects"
+        score: 60
+        order: 2
+      - key: "leadership_only"
+        de: "Nur im Führungskreis — Teams wurden nicht aktiv einbezogen"
+        en: "Leadership only — teams have not been actively informed"
+        score: 20
+        order: 3
+      - key: "none"
+        de: "Keine Kommunikation — kein Bewusstsein außerhalb einzelner Personen"
+        en: "No communication — no awareness beyond individual persons"
+        score: 0
+        order: 4
+    adkar_phase: "A"
+    weight: 1.2
+    order: 24
 
   # ---------------------------------------------------------------------------
   # Category: skills (4 Questions)
@@ -1044,7 +1142,7 @@ questions:
         score: 20
         order: 4
     weight: 1.2
-    order: 23
+    order: 25
 
   - question_key: "rdy_learning_culture"
     section: "readiness"
@@ -1075,7 +1173,7 @@ questions:
         score: 0
         order: 4
     weight: 1.4
-    order: 24
+    order: 26
 
   - question_key: "rdy_training_capacity"
     section: "readiness"
@@ -1106,7 +1204,7 @@ questions:
         score: 0
         order: 4
     weight: 1.0
-    order: 25
+    order: 27
 
   - question_key: "rdy_technical_literacy"
     section: "readiness"
@@ -1137,7 +1235,7 @@ questions:
         score: 0
         order: 4
     weight: 1.1
-    order: 26
+    order: 28
 
   # ---------------------------------------------------------------------------
   # Category: infrastructure (4 Questions)
@@ -1171,7 +1269,7 @@ questions:
         score: 0
         order: 4
     weight: 1.5
-    order: 27
+    order: 29
 
   - question_key: "rdy_tool_flexibility"
     section: "readiness"
@@ -1202,7 +1300,7 @@ questions:
         score: 0
         order: 4
     weight: 1.2
-    order: 28
+    order: 30
 
   - question_key: "rdy_data_classification"
     section: "readiness"
@@ -1236,7 +1334,7 @@ questions:
         score: 0
         order: 4
     weight: 1.3
-    order: 29
+    order: 31
 
   - question_key: "rdy_security_posture"
     section: "readiness"
@@ -1267,10 +1365,10 @@ questions:
         score: 0
         order: 4
     weight: 1.4
-    order: 30
+    order: 32
 
   # ---------------------------------------------------------------------------
-  # Category: culture (4 Questions)
+  # Category: culture (5 Questions)
   # ---------------------------------------------------------------------------
   - question_key: "rdy_failure_tolerance"
     section: "readiness"
@@ -1304,7 +1402,55 @@ questions:
         score: 0
         order: 4
     weight: 1.5
-    order: 31
+    order: 33
+
+  - question_key: "rdy_transformation_history"
+    section: "readiness"
+    category: "culture"
+    question_text:
+      de: "Hat das Team oder die Organisation bereits größere Transformationsinitiativen erlebt (AI, Agile, Digital Transformation)?"
+      en: "Has the team or organization previously gone through major transformation initiatives (AI, Agile, Digital Transformation)?"
+    why_important:
+      de: >-
+        Gescheiterte fruehére Transformationen erzeugen kollektive Skepsis
+        (ADKAR Desire-Blocker), die unabhaengig von Skills und Tools wirkt.
+        Erfolgreiche Erfahrungen koennen als positiver Anker genutzt werden.
+        Diese Baseline bestimmt mit welchem Vertrauen das Team in die
+        Transformation startet — unabhaengig vom aktuellen CRAFT-Score.
+      en: >-
+        Failed prior transformations create collective skepticism
+        (ADKAR Desire blocker) that works independently of skills and tools.
+        Successful experiences can be used as positive anchors.
+        This baseline determines the trust level the team brings into the
+        transformation — independent of the current CRAFT score.
+    answer_type: "single_choice"
+    answer_options:
+      - key: "successful"
+        de: "Ja, und wurde als erfolgreich wahrgenommen — gute Basis für erneute Transformation"
+        en: "Yes, and perceived as successful — good foundation for renewed transformation"
+        score: 100
+        order: 1
+      - key: "mixed"
+        de: "Ja, mit gemischten Ergebnissen — Skepsis vorhanden, aber kein aktiver Widerstand"
+        en: "Yes, with mixed results — skepticism present but no active resistance"
+        score: 60
+        order: 2
+      - key: "failed"
+        de: "Ja, und wurde als gescheitert wahrgenommen — erhöhte Skepsis und Desire-Blockaden wahrscheinlich"
+        en: "Yes, and perceived as failed — increased skepticism and desire blockers likely"
+        score: 20
+        order: 3
+      - key: "first_time"
+        de: "Nein, das ist die erste größere Transformation — kein Vorwissen, aber auch kein Ballast"
+        en: "No, this is the first major transformation — no prior experience, but also no baggage"
+        score: 50
+        order: 4
+    adkar_phase: "D"
+    adaptive_impact:
+      de: "failed → Desire-Interventionen priorisieren (R-RE-1, R-PS-1), Vertrauen zuerst aufbauen; successful → als positiven Anker in Kommunikation nutzen; first_time → Erwartungsmanagement: klare Quick Wins in Zyklus 1"
+      en: "failed → Prioritize desire interventions (R-RE-1, R-PS-1), build trust first; successful → use as positive anchor in communication; first_time → expectation management: clear quick wins in cycle 1"
+    weight: 1.3
+    order: 34
 
   - question_key: "rdy_innovation_time"
     section: "readiness"
@@ -1335,7 +1481,7 @@ questions:
         score: 0
         order: 4
     weight: 1.2
-    order: 32
+    order: 35
 
   - question_key: "rdy_cross_functional"
     section: "readiness"
@@ -1366,7 +1512,7 @@ questions:
         score: 0
         order: 4
     weight: 1.1
-    order: 33
+    order: 36
 
   - question_key: "rdy_process_flexibility"
     section: "readiness"
@@ -1397,10 +1543,10 @@ questions:
         score: 0
         order: 4
     weight: 1.0
-    order: 34
+    order: 37
 
   # ---------------------------------------------------------------------------
-  # Category: processes (2 Questions)
+  # Category: processes (4 Questions)
   # ---------------------------------------------------------------------------
   - question_key: "rdy_workflow_bottlenecks"
     section: "readiness"
@@ -1447,7 +1593,7 @@ questions:
         en: "No significant delays"
         order: 8
     weight: 1.5
-    order: 35
+    order: 38
 
   - question_key: "rdy_process_documentation"
     section: "readiness"
@@ -1481,7 +1627,7 @@ questions:
         score: 0
         order: 4
     weight: 1.2
-    order: 36
+    order: 39
 
   - question_key: "rdy_commercial_flow_alignment"
     section: "readiness"
@@ -1528,7 +1674,7 @@ questions:
         score: 0
         order: 5
     weight: 1.3
-    order: 37
+    order: 40
 
   - question_key: "rdy_contract_transition_readiness"
     section: "readiness"
@@ -1575,7 +1721,7 @@ questions:
         score: 0
         order: 5
     weight: 1.0
-    order: 38
+    order: 41
 
 # =============================================================================
 # SCORING
@@ -1602,6 +1748,9 @@ scoring:
       - name: "incentive_alignment"
         description: "aligned / misaligned / neutral"
         derived_from: ["ctx_contract_model"]
+      - name: "governance_risk"
+        description: "low / medium / high — based on works council stance and alignment"
+        derived_from: ["ctx_works_council", "rdy_commercial_flow_alignment"]
 
   readiness:
     description:
@@ -1615,6 +1764,17 @@ scoring:
       Readiness = (Leadership x 0.25) + (Skills x 0.20) +
                   (Infrastructure x 0.25) + (Culture x 0.15) +
                   (Processes x 0.15)
+    adkar_mapping:
+      description: >-
+        Readiness-Kategorien koennen als ADKAR-Diagnose-Linse gelesen werden.
+        Ein niedriger Score in einer Kategorie zeigt wo ADKAR-Blockaden
+        am wahrscheinlichsten sind.
+      mapping:
+        awareness: ["rdy_ai_strategy_communication", "rdy_ai_exposure"]
+        desire: ["rdy_learning_culture", "rdy_failure_tolerance", "rdy_transformation_history"]
+        knowledge: ["rdy_technical_literacy", "rdy_ai_exposure"]
+        ability: ["rdy_training_capacity", "rdy_api_access", "rdy_tool_flexibility"]
+        reinforcement: ["rdy_innovation_time", "rdy_change_management", "rdy_commercial_flow_alignment"]
     interpretation:
       ready:
         threshold: 70
