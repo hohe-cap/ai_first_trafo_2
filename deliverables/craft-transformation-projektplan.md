@@ -99,20 +99,22 @@ Das Core Team koordiniert das Gesamtprojekt — ohne Linienverantwortung, aber m
 | **Technical AI Lead** | ✅ besetzt | Tooling, Modell-Anbindung, IDE-Integration, technische Begleitung | 50–100% |
 | **Change & People Lead** | ⚠️ **offen — höchste Priorität** | R-Dimension: Psychological Safety, ADKAR-Begleitung, Champion-Aufbau, Widerstand | 50–80% |
 
-> **Zur Change & People Lead Rolle:** Diese Position ist die größte aktuelle Lücke des Projekts. Psychological Safety, ADKAR-Begleitung und Champion-Onboarding sind der häufigste Scheiterpunkt von AI Transformationen — nicht Technologie. Wer diese Rolle besetzt, kann bei ausreichend Kapazität auch Stream C gründen und führen. Die Core-Team-Mitgliedschaft hat dabei Priorität vor der Stream-Leitung.
+> **Zur Change & People Lead Rolle:** Diese Position ist die größte aktuelle Lücke des Projekts. Psychological Safety, ADKAR-Begleitung und Champion-Onboarding sind der häufigste Scheiterpunkt von AI Transformationen — nicht Technologie. Die R-Dimension ist im Stream "AI Transformation Core" verankert, der alle CRAFT-Dimensionen übergreifend koordiniert. Die Core-Team-Mitgliedschaft hat Priorität vor jeder Stream-Leitung.
 
-### 2.2 Die 4 Streams
+### 2.2 Die 6 Streams
 
-Die inhaltliche Arbeit der Transformation ist in vier Streams organisiert, die parallel laufen und alle fünf CRAFT-Dimensionen abdecken.
+Die inhaltliche Arbeit der Transformation ist in sechs Streams organisiert, die parallel laufen und alle fünf CRAFT-Dimensionen abdecken.
 
-| Stream | CRAFT-Dimensionen | Schwerpunkt | Besetzung |
+| Stream | CRAFT | Schwerpunkt | Besetzung |
 |---|---|---|---|
-| **A — AI Adoption Program** | A, T | Nutzungsförderung, DAU-Messung, SDLC-Phasenabdeckung, Tooling-Rollout | ✅ |
-| **B — AI Integration in SDLC** | F, T | Value Stream Mapping, Bottleneck-Analyse, AI-Interventionen nach SDLC-Phase | ✅ |
-| **C — Human Readiness & Change** | R | Psychological Safety, ADKAR-Begleitung, Champion-Aufbau, Shadow AI Amnestie | ⚠️ offen — kann durch Change & People Lead aus Core Team gegründet werden |
-| **D — AI & Governance** | C, T | EU AI Act, Betriebsrat, Datenschutz, public-1-Grenzen, Policy-Rahmen | ⚠️ Bestehende Compliance-Funktion einbinden |
+| **AI-Adoption Program** | T, A | Tooling-Rollout, Nutzungsförderung, DAU-Messung, SDLC-Phasenabdeckung | ✅ |
+| **AI-Integration in SDLC** | T, A, F | Value Stream Mapping, Bottleneck-Analyse, Prozessintegration, AI-Interventionen je SDLC-Phase | ✅ |
+| **AI Transformation Core** | C, R, A, F, T | Change Management, ADKAR, Psychological Safety, Champion-Aufbau, übergreifende Zyklussteuerung | ⚠️ Change & People Lead offen |
+| **AI-Integration in IT-Systeme** | T | Systemintegration, Infrastruktur, API-Anbindung, technische Architektur | ⚠️ offen |
+| **AI Integration in BVA** | T, A | AI-Rollout und Nutzungsförderung im BVA-Kontext, Tooling-Adaption, Adoption-Messung | ⚠️ offen |
+| **AI-Compliance** | C | EU AI Act, Betriebsrat, Datenschutz, public-1-Grenzen, Policy-Rahmen, Governance-Monitoring | ⚠️ Compliance-Funktion einbinden |
 
-> **Häufigste Fehlerquelle:** Technical (Stream A + B) wird besetzt, Stream C (Human Readiness) und Stream B (Flow) werden vergessen. Das Ergebnis: gute Tools, die niemand nutzt, an den falschen Stellen.
+> **Häufigste Fehlerquelle:** Technical (Adoption, SDLC, IT-Systeme) wird besetzt, der AI Transformation Core (Change, R-Dimension) und AI-Compliance werden vergessen. Das Ergebnis: gute Tools, die niemand nutzt, in nicht freigegebenen Kontexten.
 
 ### 2.3 Champion-Netzwerk: Zwei Ebenen
 
@@ -432,6 +434,5 @@ Die Breitenspur ist kein Warte-Saal. Sie erzeugt Nachfrage für die Tiefenspur. 
 - [ ] Change & People Lead Rolle besetzen
 - [ ] 30%-Ziel mit Management operationalisieren
 - [ ] Governance-Check public-1 abschließen
-- [ ] Stream C Entscheidung (eigener Stream vs. Core-Team-Rolle reicht)
 - [ ] CRAFT Dashboard Integration (Prototyp vorhanden)
 - [ ] Tier-2-Champions in Nicht-Pilot-Teams identifizieren
