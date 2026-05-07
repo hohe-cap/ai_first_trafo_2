@@ -822,6 +822,63 @@ Der Übergang von einem erfolgreichen Pilot zu einer breiten Adoption ist der sc
 
 > **Kritischer Erfolgsfaktor Skalierung:** Die häufigste Falle: Ein erfolgreicher Pilot wird als Beweis genommen, dass die Transformation „funktioniert", und sofort auf 20 Teams ausgerollt. Ohne die schrittweise Ausweitung mit Readiness Gates und Champion-Transfer scheitert die Skalierung regelmäßig an mangelnder Betreuungskapazität und fehlendem kontextuellem Verständnis.
 
+### 7.3 Dual-Track-Modell: Tiefe und Breite parallel
+
+Das sequenzielle Skalierungsmodell (Kap. 7.2) adressiert die *Tiefe* — wie Teams schrittweise in den vollen CRAFT-Prozess geführt werden. Es löst aber nicht das Problem der *Breite*: Die Mehrheit der Teams wartet bis Zyklus 3–4, bevor überhaupt etwas passiert. In größeren Organisationen bedeutet das 4–6 Monate ohne sichtbaren Fortschritt für den Großteil der Organisation.
+
+Das Dual-Track-Modell löst dieses Spannungsfeld, indem es ab Phase 2 zwei explizit getrennte Spuren parallel betreibt:
+
+| | Tiefenspur | Breitenspur |
+|---|---|---|
+| **Zielgruppe** | 2 Pilotteams | Alle übrigen Teams |
+| **Prozess** | Voller CRAFT-Prozess, 4-Wochen-Zyklen | Pre-kuratiertes "AI Basics Paket" |
+| **Aufwand** | Hoch — Deep-Dive, Champions, Dashboard | Niedrig — 1–2h pro Team pro Monat |
+| **Inhalt** | Individuell auf Bottleneck zugeschnitten | Aus Pilot-Learnings destillierte Nuggets |
+| **Ownership** | AI Adoption Team + Champions | Champions als Multiplikatoren |
+| **Messung** | CRAFT Score, DORA, Business Problem Check | Lightweight Pulse (2–3 Fragen) |
+
+**Der Verbindungsmechanismus: Schritt 6 als Quelle**
+
+Schritt 6 der Tiefenspur (KI-gestützte Hebelanalyse) produziert direkt die Inhalte der Breitenspur: Was im Pilot validiert und governance-gecheckt ist, wird als "AI Basics Nugget" für alle übrigen Teams aufbereitet — ohne neuen Freigabeprozess, ohne neue Infrastruktur.
+
+```
+Tiefenspur:  Schritt 6 (Hebelanalyse) ──→ validierte Quick Wins ──→ Breitenspur-Nuggets
+                                                                        │
+                                                            Alle übrigen Teams (ab Phase 2)
+```
+
+**Awareness & Desire: Die menschliche Begleitschicht der Breitenspur**
+
+Das Risiko der Breitenspur liegt nicht in falschen Interventionen, sondern in falscher Reihenfolge: Wer technische Nuggets ausrollt, bevor Awareness und Desire entstanden sind, erzeugt Druck statt Neugier — und reproduziert genau den "Tool-First"-Fehler, den das Framework auf Dimensions-Ebene bereits adressiert.
+
+Die Breitenspur braucht deshalb zwei Kommunikationsformate, die **vor und neben** den fachlichen Inhalten wirken:
+
+*Schicht A — Awareness (Warum passiert das? Was bedeutet das für mich?)*
+
+- **Pilot Story** (alle 4 Wochen, async, 5 Min.): Eine Person aus dem Pilotteam erzählt authentisch — was ausprobiert wurde, was funktionierte und was nicht. Keine Hochglanz-Kommunikation, kein Management-Statement. Peer-to-Peer, nicht poliert. Direkte Wirkung: "Das ist real, das ist menschlich, das kann auch ich versuchen."
+- **"Was bedeutet das für uns?"**: Nach jeder Pilot Story eine einzige Reflexionsfrage ins Team. Keine Antwortpflicht — nur Raum zum Nachdenken.
+
+*Schicht D — Desire (Ich will dabei sein — aus eigenem Antrieb)*
+
+- **Shadow AI Amnestie** (einmalig zum Breitenspur-Start, danach offen): Explizite Einladung, bestehende AI-Nutzung — auch private, auch unkonforme — ohne Bewertung zu teilen. Ziel: Kanalisierung statt Verbot, und Signal dass die Organisation sicher ist für Ehrlichkeit.
+- **AI Coffee Chat** (monatlich, optional, 30 Min.): Champion lädt ein — keine Slides, keine Agenda. Nur Fragen: "Was bewegt euch? Was habt ihr ausprobiert? Was macht euch Sorgen?" Bewusst ohne Outcome-Erwartung.
+
+Bewusst vermieden: Verpflichtende Trainings ohne Opt-out (erzeugt Widerstand), Erfolgs-Marketing (schafft Druck statt Neugier), frühe Messung individueller Nutzung (zerstört psychologische Sicherheit).
+
+> **ADKAR-Verankerung:** Pilot Stories adressieren Awareness. Shadow AI Amnestie und Coffee Chats adressieren Desire. Erst wenn beides wirkt, landen die technischen Nuggets (Knowledge) auf fruchtbarem Boden. Die Reihenfolge ist nicht optional — sie ist der Mechanismus.
+
+**Drei Guardrails**
+
+1. **Governance pre-cleared:** Nur Interventionen, die im Pilot bereits freigegeben wurden (Compliance, Datenschutz, Betriebsrat). Keine neuen Einzelfallentscheidungen nötig.
+2. **Wirklich niedrigschwellig:** Nicht nur leicht zu erklären, sondern leicht anzuwenden — ohne Prozessanpassung oder neue Infrastruktur.
+3. **"Fundament, nicht Ziel"-Framing:** Teams müssen verstehen, dass die Breitenspur Awareness und erste Fähigkeiten aufbaut — nicht die Tiefenspur ersetzt. Wer die Nuggets gemacht hat, ist nicht fertig transformiert.
+
+> **Abgrenzung zum "Tool-First"-Risiko:** Das Framework warnt explizit vor AI-Rollouts ohne Bottleneck-Analyse (Value Stream First). Die Breitenspur umgeht dieses Risiko, weil ihre Interventionen bereits aus einer Bottleneck-Analyse (Pilotteam) destilliert wurden — die Kausalität bleibt erhalten, sie gilt nur für mehr Teams gleichzeitig.
+
+**Breitenspur wächst mit der Tiefenspur**
+
+Die Breitenspur ist kein statisches Paket. Mit jedem neuen Pilot-Zyklus entstehen neue validierte Nuggets, die in die Breitenspur einfließen. Ab Zyklus 3 können Breitenspur-Teams mit signifikantem Interesse aktiv in die Tiefenspur wechseln — die Breitenspur wirkt als Awareness- und Motivationsfilter, der die Tiefenspur mit den richtigen Teams versorgt.
+
 ---
 
 ## 8. Engagement-Architektur: Vom Framework zur Wirkung
