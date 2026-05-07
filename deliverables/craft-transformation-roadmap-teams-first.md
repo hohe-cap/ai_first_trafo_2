@@ -69,99 +69,75 @@ Dieses Ziel ist strategisch und oft unterschätzt. Die Transformation ist nicht 
 - Ein Kollege im gleichen Team, der ein Problem mit AI löst, wirkt mehr als ein externer Change Agent.
 - Feedback-Loops sind direkt: wenn ein Tool nicht funktioniert, zeigt sich das sofort im realen Kontext.
 - Psychological Safety bleibt im vertrauten Team erhalten.
-- Das AI Adoption Team ist keine Projektstruktur — es ist eine koordinierende Querschnittsfunktion.
+- Das AI Transformation Projekt ist keine Projektstruktur — es ist eine koordinierende Querschnittsfunktion.
 
 ---
 
-## AI Adoption Team — Warum, Was, Wer
+## AI Transformation Projekt — Core Team & Streams
 
-### Warum brauchen wir ein AI Adoption Team?
+### AI Transformation Core Team (Lead: AI Transformation Manager)
 
-AI Transformation ist kein Projekt mit definierbarem Ende. Sie ist eine parallele Betriebsform, die neben dem laufenden Entwicklungsbetrieb läuft — und genau deshalb braucht sie eine dedizierte koordinierende Struktur.
+Das Core Team trägt die Koordination des Gesamtprojekts. Es ist die Weiterentwicklung der früheren "AI Adoption Team"-Idee — nicht als dediziertes Projektteam, sondern als koordinierende Querschnittsfunktion ohne Linienverantwortung. Der Unterschied zur alten Struktur: Die inhaltliche Arbeit der Transformation ist jetzt in klar abgegrenzte Streams organisiert.
 
-Ohne diese Struktur entstehen bekannte Muster:
-
-- **Unkontrollierte Einzelinitiativen** — jedes Team macht sein eigenes Ding, Shadow AI wird zum Standard, Governance-Risiken häufen sich
-- **Fehlende Messung** — niemand aggregiert, ob die Transformation wirkt; das 30%-Ziel bleibt unbeweisbar
-- **Kein gemeinsames Lernen** — was Team A herausfindet, hilft Team B nie, weil es keinen Kanal gibt
-- **Governance-Lücken** — technische und fachliche Aktivitäten passieren ohne Abstimmung mit Compliance, was zu Rückrufen und Vertrauensverlust führt
-- **Fehlende Verbindung zum Business-Ziel** — operative Aktivitäten in den Teams (Tools, Prozesse) entkoppeln sich von den Metriken, die das Management interessieren
-
-Das AI Adoption Team ist die Antwort auf genau diese Muster. Es ist kein Linienhierarchie-Element, sondern eine **koordinierende Querschnittsfunktion** — für die Dauer der Transformation.
-
----
-
-### Was ist seine Aufgabe?
-
-Das AI Adoption Team hat drei Kernaufgaben:
-
-**1. Transformation steuern**
+**Aufgaben des Core Teams:**
 - CRAFT-Zyklen taktieren: alle 4 Wochen Pulse Check + Business Problem Check + Readiness Gate
-- Interventionen auswählen, priorisieren und in Teams einbringen
-- Kurskorrektur wenn Metriken stagnieren oder Blocker auftauchen
+- Sponsor-Kommunikation und Business-Impact-Kennzahlen verantworten
+- Streams koordinieren und gemeinsames Lernen ermöglichen
+- Kurskorrektur wenn Metriken stagnieren oder Blocker entstehen
 
-**2. Business-Verbindung halten**
-- Sponsor-Kommunikation: was wurde erreicht, was kommt als nächstes
-- Business-Impact-Kennzahlen definieren und laufend messen
-- Sicherstellen, dass operative Aktivitäten das tatsächliche Business-Problem adressieren
-
-**3. Teams verbinden und gemeinsames Lernen ermöglichen**
-- Champions-Netzwerk aufbauen und pflegen (je 1 Champion pro Team)
-- Was ein Team lernt, fließt zum nächsten — strukturiert, nicht zufällig
-- Interventionskatalog pflegen: was hat wo gewirkt?
+Ohne diese koordinierende Struktur entstehen bekannte Muster: unkontrollierte Einzelinitiativen, fehlende Messung, kein gemeinsames Lernen, Governance-Lücken und die Entkopplung der operativen Aktivitäten vom Business-Ziel.
 
 ---
 
-### Welche fachlichen Dimensionen müssen verankert sein?
+### Die 4 AI Streams
 
-Das CRAFT Framework benennt 5 Dimensionen, die bei jeder AI Transformation gleichzeitig aktiv sein müssen. Das AI Adoption Team muss alle 5 abdecken — nicht jede Person jede Dimension, aber jede Dimension muss eine klare Heimat haben:
+Die inhaltliche Arbeit der Transformation ist in vier Streams organisiert, die parallel laufen und alle fünf CRAFT-Dimensionen abdecken:
 
-| Dimension | Inhalt | Verantwortung im Team |
-|---|---|---|
-| **C — Compliance & Governance** | EU AI Act, Betriebsrat, Datenschutz, public-1-Grenzen, Policy-Rahmen | Governance Liaison |
-| **R — Readiness (Human & Cultural)** | Rollenentwicklung, Psychological Safety, Shadow AI Amnestie, Champion-Aufbau, ADKAR | People & Staffing Lead |
-| **A — Adoption & Usage** | Nutzungsmessung (DAU), AI-Tiefe je Team, SDLC-Phasenabdeckung, Adoption-Tracking | AI Transformation Manager |
-| **F — Flow & Process Integration** | Value Stream Mapping, Bottleneck-Analyse, AI-Interventionen nach SDLC-Phase | Value Stream Coach |
-| **T — Technical Enablement** | Tools, Modell-Anbindung, IDE-Integration, Prompt Libraries, Pipeline-Architektur | Technical AI Lead |
+| Stream | CRAFT-Dimensionen | Schwerpunkt |
+|--------|-------------------|-------------|
+| **A) AI-Adoption Program** | A, T | Nutzungsförderung, DAU-Messung, SDLC-Phasenabdeckung, Tooling-Rollout |
+| **B) AI-Integration in SDLC** | F, T | Value Stream Mapping, Bottleneck-Analyse, AI-Interventionen nach SDLC-Phase |
+| **C) AI Transformation and Change** | R | Psychological Safety, ADKAR-Begleitung, Champion-Aufbau, Shadow AI Amnestie — **NEU, größte aktuelle Lücke** |
+| **D) AI-Integration in IT und BVA** | C, T | EU AI Act, Betriebsrat, Datenschutz, public-1-Grenzen, Policy-Rahmen |
 
-> Die häufigste Fehlerquelle in AI-Transformationen: Dimension T wird besetzt, Dimension R und F werden vergessen. Das Ergebnis: gute Tools, die niemand nutzt, an den falschen Stellen.
+> **Hinweis zu Dimension C:** Compliance & Governance ist in Stream D verankert. Eine Betrachtung als eigenständiger Querschnittsstream wäre bei stark regulierten Umgebungen oder komplexer Betriebsratsanbindung möglich — die Entscheidung steht noch aus.
+
+> Die häufigste Fehlerquelle in AI-Transformationen: Technical wird besetzt, Stream C (Human Readiness) und Stream B (Flow) werden vergessen. Das Ergebnis: gute Tools, die niemand nutzt, an den falschen Stellen.
 
 ---
 
 ### Was haben wir — was brauchen wir noch?
 
-**Besetzt:**
+**Besetzt (Core Team):**
 
-| Person | Rolle im AI Adoption Team | CRAFT-Dimension(en) | Anmerkung |
-|---|---|---|---|
-| AI Transformation Managment | Orchestrierung, Zyklus-Steuerung, Messung, Sponsor-Kommunikation | A (primär), F (Support) | — |
-| Org-Enablering | Organisatorische Anbindung, Raum schaffen, Kapazitäten freischaufeln, Management-/Sponsor-Interface | Enabler-Funktion (keine CRAFT-Dimension direkt, aber Voraussetzung für alle) | Deckt die Dimension R **nicht** ab — ist Org-Enabler, nicht Change & People Lead |
-| Technical AI Experience | Tooling, Modell-Anbindung, IDE-Integration, technische Teambegleitung | T (primär), A (Support: wie wird AI konkret im SDLC eingesetzt?) | Adoption-Mitgestaltung möglich, Technical bleibt Kern |
+| Person | Rolle | Stream / Dimension |
+|--------|-------|--------------------|
+| AI Transformation Manager | Core Team Lead, Orchestrierung, Zyklus-Steuerung, Messung, Sponsor-Kommunikation | Core + Stream A & B (Support) |
+| Org-Enabler | Organisatorische Anbindung, Raum schaffen, Kapazitäten freischaufeln, Management-/Sponsor-Interface | Enabler-Funktion (Voraussetzung für alle Streams) |
+| Technical AI Lead | Tooling, Modell-Anbindung, IDE-Integration, technische Teambegleitung | T (primär) → Stream A & B |
 
 **Offen:**
 
-| Rolle | CRAFT-Dimension | Priorität | Mögliche Lösung |
-|---|---|---|---|
-| **Change & People Fokus** | R — Readiness (Human & Cultural) | **Hoch — größte aktuelle Lücke.** Psychological Safety, ADKAR-Begleitung, Champion-Onboarding, Umgang mit Widerstand: das sind keine Nebenaufgaben, sondern der häufigste Scheiterpunkt von AI Transformationen | Interne Person mit Change-Management-Erfahrung identifizieren; alternativ externe Begleitung für die Pilotphase |
-| **Governance / Data Fokus** | C — Compliance & Governance | Kritisch für public-1 — muss vor Phase 1 geklärt sein | Keine neue Stelle nötig — bestehende Compliance-/Datenschutzfunktion in der Organisation einbinden und als Liaison benennen; Ansprechpartner sind bereits bekannt |
-
-**Zum Stand Dimension F:**
-Flow & Process Integration wird durch den ATM mit abgedeckt (Value Stream Snapshot, Bottleneck-Analyse). Für die Pilotphase mit 1–2 Teams ausreichend. Bei Skalierung auf weitere Teams neu bewerten.
+| Stream | Priorität | Mögliche Lösung |
+|--------|-----------|-----------------|
+| **Stream C — AI Transformation and Change** | **Hoch — größte aktuelle Lücke.** Psychological Safety, ADKAR-Begleitung, Champion-Onboarding, Umgang mit Widerstand sind der häufigste Scheiterpunkt von AI Transformationen | Interne Person mit Change-Management-Erfahrung; alternativ externe Begleitung für die Pilotphase |
+| **Stream D — Governance-Anteil** | Kritisch für public-1 — muss vor Phase 1 geklärt sein | Keine neue Stelle nötig — bestehende Compliance-/Datenschutzfunktion einbinden, Ansprechpartner bekannt |
 
 **Rollenpapier-Empfehlung:**
-Das Rollenpapier (1 Seite) sollte explizit festhalten, wer welche Dimension verantwortet. Es verhindert Doppelzuständigkeiten und schafft Klarheit darüber, wo Entscheidungen getroffen werden — nicht als Hierarchiedokument, sondern als Arbeitsverteilung im Sinne des Frameworks.
+Das Rollenpapier (1 Seite, CRAFT-basiert) hält fest, wer welchen Stream verantwortet. Es verhindert Doppelzuständigkeiten und schafft Klarheit — nicht als Hierarchiedokument, sondern als Arbeitsverteilung im Sinne des Frameworks.
 
-> Das Rollenpapier sollte als "CRAFT Adoption Team Setup" verankert werden — als Methodik-Anforderung des Frameworks.
+> Das Rollenpapier sollte als Methodik-Anforderung des Frameworks verankert werden.
 
 ---
 
 ## Roadmap
 
-### PHASE 0 — AI Adoption Team konstituieren
+### PHASE 0 — AI Transformation Projekt konstituieren
 **Zeitraum:** Sofort / KW 18–19 (~1 Woche)  
 **Ziel:** Klare Struktur, bevor die Transformation startet
 
-- Rollenpapier erstellen (1 Seite, CRAFT-basiert) — wer entscheidet was
+- Rollenpapier erstellen (1 Seite, CRAFT-basiert) — wer entscheidet was, welcher Stream trägt welche Dimension
+- Core Team konstituieren, Streams benennen
 - **Manager-Gespräch: 30%-Ziel operationalisieren**
   - Welche Ticketkategorien sind gemeint?
   - Was gilt als "automatisiert bearbeitet"?
@@ -177,11 +153,11 @@ Das Rollenpapier (1 Seite) sollte explizit festhalten, wer welche Dimension vera
 **Zeitraum:** KW 19–20 (~2 Wochen)  
 **Ziel:** Verstehen wo wir stehen, bevor wir loslaufen
 
-- **Context Assessment mit allen 4 Kandidatenteams**
-  - Je 45–60 min Gespräch mit Software Lead + 1–2 Personen
-  - Fragen aus CRAFT Context Readiness (Ebene 1)
-  - Parallel: kurze Selbsteinschätzung per Pulse Check
+- **Leicht-Assessment mit allen 4 Kandidatenteams**
+  - Kurze Selbsteinschätzung per Pulse Check (~15 min) — kein vollständiger Deep-Dive
+  - Optional: 30-min Gespräch mit Software Lead zur Vertiefung
   - Ziel: Reifegrad einschätzen, Offenheit ertasten, potenzielle Champions identifizieren
+  - **Kein CRAFT Deep-Dive auf Vorrat** — der Deep-Dive kostet 2–3h pro Team, weckt Erwartungen und wird nur mit den ausgewählten Startteams in Phase 2 durchgeführt
 
 - **Ticketkategorien-Analyse (parallel)**
   - VSM-Blick: Welche Ticket-Typen gibt es?
@@ -189,7 +165,7 @@ Das Rollenpapier (1 Seite) sollte explizit festhalten, wer welche Dimension vera
   - Volumenschätzung: Wie viel % des Gesamtvolumens?
   - Ergebnis: konkrete Basis für 30%-Gespräch mit Manager
 
-- **Startteam-Auswahl: 1–2 Teams**
+- **Startteam-Auswahl: 2 Teams (fest)**
 
   Auswahlkriterien (transparent, nicht politisch):
   - Höchster CRAFT-Score in Readiness & Technical
@@ -197,15 +173,15 @@ Das Rollenpapier (1 Seite) sollte explizit festhalten, wer welche Dimension vera
   - Potenzielle Champions erkennbar
   - Tickets aus automatisierbaren Kategorien vorhanden
 
-  Ergebnis im AI Adoption Team abstimmen + kurze Information an Sponsor (1 Seite)
+  Ergebnis im AI Transformation Projekt abstimmen + kurze Information an Sponsor (1 Seite)
 
 ---
 
-### PHASE 2 — Kickoff mit Startteams
+### PHASE 2 — Kickoff mit den 2 Startteams
 **Zeitraum:** KW 21 (~1 Woche)  
 **Ziel:** Commitment, Baseline, erste Richtung
 
-- **CRAFT Deep-Dive je Startteam** (2–3h Workshop)
+- **CRAFT Deep-Dive je Startteam** (2–3h Workshop) — nur mit den 2 ausgewählten Teams
   - Alle 5 Dimensionen, Spider-Chart als Output
   - Shadow AI Amnestie: "Was nutzt ihr schon?" — offen, keine Konsequenzen, Erkenntnisinteresse
   - Hypothesen für erste Interventionen entwickeln
@@ -215,7 +191,7 @@ Das Rollenpapier (1 Seite) sollte explizit festhalten, wer welche Dimension vera
   - 1 Person pro Team, die Lust hat tiefer reinzugehen
   - Commitment: ~20–30% für AI-Themen im eigenen Team
   - Bleibt im Team — kein Herauslösen, Rolle als Peer
-  - Direkter Kanal zum AI Adoption Team
+  - Direkter Kanal zum AI Transformation Projekt
 
 - **Tooling-Setup** (Technical AI Lead führt durch)
   - Continue.dev / Cline, Modell-Anbindung
@@ -237,12 +213,12 @@ Das Rollenpapier (1 Seite) sollte explizit festhalten, wer welche Dimension vera
 **Woche 2–3: Teams arbeiten**
 - Teams nutzen AI-Tooling an echten Tickets
 - Champions als erste Anlaufstelle im Team
-- ATM: wöchentlicher kurzer Check-in mit Champions (Champions sind die Brücke, kein direktes Hineinarbeiten in Teams)
+- ATM: wöchentlicher kurzer Check-in mit Champions (Champions sind die Brücke zum AI Transformation Projekt — kein direktes Hineinarbeiten in Teams)
 
 **Woche 4: Business Problem Check**
 - Kennzahlen: Was hat sich gemessen verändert?
 - CRAFT Pulse Check (16 Fragen, ~15 min)
-- AI Adoption Team: Was lernen wir aus beiden Teams?
+- AI Transformation Projekt Core Team: Was lernen wir aus beiden Teams?
 - Readiness Gate: Erweitern / Vertiefen / Konsolidieren
 - Kurzes Update an Sponsor (1–2 Slides)
 
@@ -268,7 +244,7 @@ Wenn Interventionen oder Rollen diskutiert werden: Bezug auf das CRAFT Framework
 Das Klärungsgespräch zum 30%-Ziel ist keine administrative Pflicht. Wer die KPIs definiert, steuert die Wahrnehmung des Erfolgs. Der ATM ist der Autor der Messung.
 
 **Champions als strukturelle Verbindung zu den Teams**
-Der Einfluss des AI Adoption Teams in den Teams läuft über die Champions — nicht über direkte Präsenz. Wenn diese Beziehungen früh aufgebaut werden, entstehen direkte Kontakte in jedem Team. Das ist strukturelle Stärke, die keine kontinuierliche Intervention erfordert.
+Der Einfluss des AI Transformation Projekts in den Teams läuft über die Champions — nicht über direkte Präsenz. Wenn diese Beziehungen früh aufgebaut werden, entstehen direkte Kontakte in jedem Team. Das ist strukturelle Stärke, die keine kontinuierliche Intervention erfordert.
 
 ---
 
