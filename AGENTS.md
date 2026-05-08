@@ -147,6 +147,8 @@ sondern an fehlender Prozessintegration und Change Management.
 - Root Cause Check: Symptom vs. tatsächliche Ursache
 - Kurskorrektur bei stagnierenden Metriken
 
+**Governance-Gate vor Pilot-Start (kritischer Pfad):** Governance (Betriebsrat, Datenschutz, Tool-Freigabe) muss als sequenzielle Voraussetzung VOR dem ersten Pilot-Kickoff stehen — nicht als parallel laufende Aktivität. Kein Pilot ohne Klärung welche Daten/Inhalte durch welche Modelle fließen dürfen.
+
 **Readiness Gate Kriterien:**
 - Erweitern → Adoption >60%, DORA stabil, kein Governance-Blocker, **Business-Impact-Kennzahlen positiver Trend**
 - Vertiefen → Adoption <60% oder DORA-Rückgang, oder **Business-Impact-Kennzahlen stagnieren trotz guter CRAFT-Scores**
@@ -166,10 +168,10 @@ sondern an fehlender Prozessintegration und Change Management.
 - **Change & People Lead** (50-80%, Psychological Safety, Champions)
 - **Governance Liaison** (20-40%, Datenschutz, Betriebsrat, EU AI Act)
 
-**Champion-Netzwerk:**
-- 1-2 Personen pro Team als Multiplikatoren
-- Mind. 20% dedizierte Kapazität (kritisch!)
-- Direkter Zugang zum AI Transformation Manager
+**Champion-Netzwerk (zwei Ebenen, bleiben in ihren Teams):**
+- **Tier 1** (Pilotteams): 20–30% Kapazität, tiefer CRAFT-Prozess, erstellt Pilot Stories für Breitenspur
+- **Tier 2** (Nicht-Pilot-Teams): ~10% Kapazität, verteilt Nuggets/Stories, moderiert Coffee Chats
+- Nicht nominieren — ansprechen und fragen; Direktkanal zu AI Transformation Manager
 
 ### Kern-Differenzierung zu anderen Frameworks
 
@@ -274,4 +276,4 @@ sondern an fehlender Prozessintegration und Change Management.
 - Framework Version: 1.0 DRAFT
 - AGENTS.md Version: 1.3
 - CRAFT Explorer Version: 2.1 (Question Banks + METHODOLOGY.md + Challenge Map + Profile-Logik)
-- Letzte Sync mit Vollversion: 2026-04-28 (Kap. 4.8 Zyklus-Entscheidungs-Framework + Zyklus-Entscheidungs-Guide als Deliverable)
+- Letzte Sync mit Vollversion: 2026-05-08 (Governance-Gate als kritischer Pfad + Pilotteam-Auswahlkriterien + Zweistufiges Champion-Netzwerk Tier 1/2 + Dual-Track/Breitenspur mit ADKAR + Zwei-Tier-Struktur in Kap. 6.1 + 7.3)

@@ -511,6 +511,10 @@ Bevor Dimensionen oder Interventionen gewählt werden, prüfen ob eine Rahmenbed
 | R-Score < 2.0 | Dimension R als Voraussetzung — F und A können ohne Readiness-Basis nicht skalieren |
 | KPIs sinken trotz steigender CRAFT-Scores | Neues Value Stream Mapping — es wird am falschen Bottleneck gearbeitet |
 
+> **Governance-Gate vor dem ersten Pilot — kritischer Pfad, nicht parallele Aktivität:** Die Tabelle oben beschreibt Governance als zyklische Entscheidungsfrage. In der Praxis gilt eine schärfere Regel: Governance muss **vor dem ersten Pilot-Kickoff** als sequenzielle Voraussetzung behandelt werden — nicht als Dimension, die parallel läuft und sich schon klären wird. Die zentrale Frage: Welche Daten und Inhalte dürfen unter welchen Bedingungen durch welche Modelle fließen? Solange diese Frage offen ist, darf kein Pilot starten — denn jede Intervention, die ohne Governance-Freigabe begonnen wird, muss entweder gestoppt oder nachträglich freigegeben werden. Beides kostet mehr als ein vorab durchgeführter Klärungsprozess.
+>
+> **Konsequenz für den AI Transformation Manager:** Im Kickoff den Governance-Check explizit beauftragen, eine Deadline setzen und ihn als Blocker für den Pilot-Start kennzeichnen. Betriebsrat, Datenschutz und Tool-Freigabe sind keine begleitenden Aktivitäten — sie entscheiden, ob der Pilot überhaupt starten kann.
+
 **Schicht 2: Welche Dimension? (Wirkmodell-Triage)**
 
 Wenn mehrere Dimensionen schwach sind, gibt das Wirkmodell (→ Kap. 5.4) die Priorität vor:
@@ -775,7 +779,25 @@ Kotter definiert vier Kerncharakteristiken für eine wirksame Guiding Coalition:
 
 #### Champion-Netzwerk (erweiterte Coalition)
 
-1–2 Personen pro Team, die als Multiplikatoren wirken. Sie sind Kotters „Volunteer Army" – nicht Teil des Kernteams, aber direkt angebunden. Champions bringen die Realität aus den Teams zurück und tragen Impulse hinein. Voraussetzung: mindestens 20% dedizierte Kapazität und direkter Zugang zum AI Transformation Manager.
+Champions sind Kotters „Volunteer Army" — nicht Teil des Kernteams, aber direkt angebunden. Sie bringen die Realität aus den Teams zurück und tragen Impulse hinein. Entscheidend: Champions werden **nicht herausgezogen** — sie bleiben als Peers in ihren Teams. Ein Kollege, der ein Problem mit AI löst, wirkt mehr als ein externer Change Agent.
+
+Im Dual-Track-Modell (→ Kap. 7.3) differenziert sich das Champion-Netzwerk in zwei Ebenen mit unterschiedlichen Aufgaben und Kapazitätsanforderungen:
+
+**Tier 1 — Pilot-Champions (Tiefenspur)**
+- 1 Person pro Pilotteam
+- ~20–30% dedizierte Kapazität für AI-Themen im eigenen Team
+- Direkter Kanal zum AI Adoption Team
+- Erstellen alle 4 Wochen eine **Pilot Story** (authentisch, peer-to-peer, 5 Min. async): was ausprobiert wurde, was funktioniert hat, was nicht. Input für die Breitenspur.
+
+**Tier 2 — Breitenspur-Champions (Nicht-Pilot-Teams)**
+- 1 Person pro Nicht-Pilot-Team als Ansprechpartner und Multiplikator
+- ~10% Kapazität — deutlich geringer als Tier 1
+- Empfangen Pilot Stories und Nuggets von Tier-1-Champions
+- Moderieren monatliche **AI Coffee Chats** im eigenen Team (optional, 30 Min., keine Agenda)
+- Senden Reflexionsfrage nach jeder Pilot Story ins Team
+- Rückkanal: sammeln Fragen und Stimmungen, geben sie ans AI Adoption Team weiter
+
+> **Recruiting-Prinzip:** Champions nicht nominieren — ansprechen und fragen. Wer kein intrinsisches Interesse mitbringt, funktioniert als Transmissionsriemen, nicht als Multiplikator. Tier-1-Champions werden beim Pilot-Kickoff identifiziert; Tier-2-Champions in Phase 1 über Leicht-Assessment und Early-Adopter-Beobachtung.
 
 ### 6.2 Ideal- vs. Mindestbesetzung
 
@@ -822,6 +844,17 @@ Der Übergang von einem erfolgreichen Pilot zu einer breiten Adoption ist der sc
 
 > **Kritischer Erfolgsfaktor Skalierung:** Die häufigste Falle: Ein erfolgreicher Pilot wird als Beweis genommen, dass die Transformation „funktioniert", und sofort auf 20 Teams ausgerollt. Ohne die schrittweise Ausweitung mit Readiness Gates und Champion-Transfer scheitert die Skalierung regelmäßig an mangelnder Betreuungskapazität und fehlendem kontextuellem Verständnis.
 
+#### Pilotteam-Auswahl: Kriterien, keine Lotterie
+
+Die Auswahl des ersten Pilotteams ist eine strategische Entscheidung — transparent kommuniziert, nicht politisch. Vier Kriterien erhöhen die Erfolgswahrscheinlichkeit signifikant:
+
+1. **CRAFT-Readiness erkennbar:** Ein Leicht-Assessment (Pulse Check mit allen Kandidatenteams, ~15 Min.) zeigt, welche Teams bereits höhere Scores in Dimension R (Readiness) und T (Technical) haben. Die Bereitschaft ist vorhanden — sie muss nicht erst aufgebaut werden.
+2. **Führungssignal vorhanden:** Der Team Lead oder Software Lead signalisiert aktiv Interesse. Ohne dieses Signal bleibt jede Intervention im passiven Widerstand stecken. Bereitschaft kann man nicht verordnen.
+3. **Potential für Tier-1-Champions erkennbar:** Im Team gibt es Early Adopters — Personen mit Neugier, Vertrauen bei den Kollegen und Bereitschaft für ein dediziertes AI-Commitment (~20–30% Kapazität). Ohne diesen Anker bleibt die Transformation außerhalb des Teams.
+4. **Automatisierbare Arbeit im Backlog:** Es gibt konkrete Ticket-Typen, bei denen AI-Unterstützung plausibel wirkt — z.B. Dependency-Updates, Testgenerierung, Dokumentation, wiederkehrende Bugfixes. Ein Team ohne automatisierbare Arbeit produziert keine messbaren Quick Wins.
+
+> **Praktische Regel:** Keinen vollständigen CRAFT Deep-Dive mit allen Kandidatenteams vor der Auswahl durchführen. Ein Deep-Dive dauert 2–3 Stunden, weckt Erwartungen und bindet Kapazität — auch bei Teams, die letztlich nicht ausgewählt werden. Stattdessen: Leicht-Assessment (~15 Min. Pulse Check) mit allen Kandidaten, Deep-Dive nur mit den bereits ausgewählten Teams.
+
 ### 7.3 Dual-Track-Modell: Tiefe und Breite parallel
 
 Das sequenzielle Skalierungsmodell (Kap. 7.2) adressiert die *Tiefe* — wie Teams schrittweise in den vollen CRAFT-Prozess geführt werden. Es löst aber nicht das Problem der *Breite*: Die Mehrheit der Teams wartet bis Zyklus 3–4, bevor überhaupt etwas passiert. In größeren Organisationen bedeutet das 4–6 Monate ohne sichtbaren Fortschritt für den Großteil der Organisation.
@@ -834,7 +867,7 @@ Das Dual-Track-Modell löst dieses Spannungsfeld, indem es ab Phase 2 zwei expli
 | **Prozess** | Voller CRAFT-Prozess, 4-Wochen-Zyklen | Pre-kuratiertes "AI Basics Paket" |
 | **Aufwand** | Hoch — Deep-Dive, Champions, Dashboard | Niedrig — 1–2h pro Team pro Monat |
 | **Inhalt** | Individuell auf Bottleneck zugeschnitten | Aus Pilot-Learnings destillierte Nuggets |
-| **Ownership** | AI Adoption Team + Champions | Champions als Multiplikatoren |
+| **Ownership** | AI Adoption Team + Tier-1-Champions (tief) | Tier-2-Champions als Multiplikatoren (leicht) |
 | **Messung** | CRAFT Score, DORA, Business Problem Check | Lightweight Pulse (2–3 Fragen) |
 
 **Der Verbindungsmechanismus: Schritt 6 als Quelle**
@@ -866,6 +899,21 @@ Die Breitenspur braucht deshalb zwei Kommunikationsformate, die **vor und neben*
 Bewusst vermieden: Verpflichtende Trainings ohne Opt-out (erzeugt Widerstand), Erfolgs-Marketing (schafft Druck statt Neugier), frühe Messung individueller Nutzung (zerstört psychologische Sicherheit).
 
 > **ADKAR-Verankerung:** Pilot Stories adressieren Awareness. Shadow AI Amnestie und Coffee Chats adressieren Desire. Erst wenn beides wirkt, landen die technischen Nuggets (Knowledge) auf fruchtbarem Boden. Die Reihenfolge ist nicht optional — sie ist der Mechanismus.
+
+**Das Champion-Netzwerk als tragende Struktur: Zwei Ebenen**
+
+Die Breitenspur funktioniert nicht über Massenansprache — sie funktioniert über Peers. Der entscheidende Mechanismus ist ein zweistufiges Champion-Netzwerk, das Tiefe und Breite verbindet:
+
+| | Tier-1-Champions (Tiefenspur) | Tier-2-Champions (Breitenspur) |
+|---|---|---|
+| **Herkunft** | 1 Person pro Pilotteam | 1 Person pro Nicht-Pilot-Team |
+| **Kapazität** | ~20–30% für AI-Themen | ~10% — deutlich geringer |
+| **Aufgabe** | Tiefe Begleitung im Pilotteam, alle 4 Wochen eine Pilot Story erstellen | Nuggets und Pilot Stories empfangen, weitergeben, Coffee Chats moderieren |
+| **Verbindung** | Direkter Kanal zum AI Adoption Team | Empfänger von Tier-1-Inhalten, Rückkanal für Fragen |
+
+Die Pilot Story ist das zentrale Verbindungselement: Tier-1-Champions erzählen — authentisch, peer-to-peer, unpoliert — was ihr Team ausprobiert hat, was funktioniert hat und was nicht. Tier-2-Champions tragen diese Stories in ihre Teams und stellen eine einzige Reflexionsfrage dazu. Keine Pflicht zur Antwort, nur Raum zum Nachdenken.
+
+> **Recruiting-Prinzip:** Champions werden nicht nominiert — sie werden gefragt. Wer kein intrinsisches Interesse mitbringt, wird zur Last statt zur Brücke. Tier-2-Champions werden am besten in Phase 1 identifiziert, wenn die Early Adopter in den Nicht-Pilot-Teams ohnehin sichtbar werden.
 
 **Drei Guardrails**
 
