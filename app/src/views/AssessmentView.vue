@@ -147,7 +147,7 @@ async function handleFinish() {
         @update:otherText="handleOtherText"
       />
       <PowerfulQuestion
-        v-else-if="store.currentQuestion.question_type === 'powerful_question'"
+        v-else-if="store.currentQuestion.question_type === 'powerful_question' || store.currentQuestion.answer_type === 'free_text'"
         :question="store.currentQuestion"
         :modelValue="(currentAnswer as string) ?? ''"
         :locale="(locale as Locale)"

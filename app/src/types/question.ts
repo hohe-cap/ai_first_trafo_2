@@ -21,7 +21,7 @@ export interface AnswerOption {
 }
 
 export type QuestionType = 'maturity' | 'diagnostic' | 'powerful_question' | 'context'
-export type AnswerType = 'single_choice' | 'multiple_choice'
+export type AnswerType = 'single_choice' | 'multiple_choice' | 'free_text'
 
 export interface Question {
   question_key: string

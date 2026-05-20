@@ -16,7 +16,9 @@
       "Bash(npm run build:*)",
       "Bash(wc:*)",
       "Bash(curl:*)",
-      "Bash(npx vite build:*)"
+      "Bash(npx vite build:*)",
+      "Bash(git *)"
     ]
-  }
+  },
+  "spinnerTipsEnabled": false
 }
