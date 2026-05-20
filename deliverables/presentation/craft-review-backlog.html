@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRAFT — Offene Themen & nächste Schritte</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700;800&display=swap');
+
+  :root {
+    --navy:        #0C1B2E;
+    --navy-light:  #162A45;
+    --slate:       #2D4A6B;
+    --slate-light: #7B8FA8;
+    --blue:        #0070AD;
+    --blue-dark:   #005C8F;
+    --blue-light:  #0096E0;
+    --cyan:        #00DCFA;
+    --emerald:     #2BD9AA;
+    --amber:       #FFB500;
+    --rose:        #FF6673;
+    --violet:      #7B61FF;
+    --white:       #FFFFFF;
+    --gray-300:    #B8C9DC;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Ubuntu', -apple-system, sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    min-height: 100vh;
+    padding-bottom: 60px;
+  }
+
+  /* ── Header ── */
+  .page-header {
+    padding: 48px 64px 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    background: linear-gradient(180deg, rgba(0,112,173,0.08) 0%, transparent 100%);
+    position: relative;
+  }
+  .page-header .eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--blue-light); margin-bottom: 12px;
+  }
+  .page-header h1 {
+    font-size: clamp(28px, 4vw, 46px); font-weight: 800;
+    line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 12px;
+  }
+  .grad-blue { background: linear-gradient(135deg, var(--blue-light), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .page-header .meta {
+    display: flex; gap: 24px; align-items: center; flex-wrap: wrap;
+    font-size: 13px; color: var(--slate-light); margin-top: 8px;
+  }
+  .meta-pill {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px; padding: 4px 14px; font-size: 12px;
+  }
+  .progress-bar-top {
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+  }
+
+  /* ── Board Layout ── */
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 36px 64px;
+    max-width: 1400px;
+  }
+  .board-col {}
+  .col-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 18px; padding-bottom: 14px;
+    border-bottom: 2px solid rgba(255,255,255,0.08);
+  }
+  .col-icon { font-size: 18px; }
+  .col-title {
+    font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .col-count {
+    margin-left: auto; font-size: 12px; font-weight: 600;
+    background: rgba(255,255,255,0.08); border-radius: 12px;
+    padding: 2px 9px; color: var(--slate-light);
+  }
+
+  /* ── Task Cards ── */
+  .task-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 16px; padding: 22px 22px 18px;
+    margin-bottom: 16px;
+    transition: all 0.25s;
+    position: relative;
+  }
+  .task-card:hover {
+    background: rgba(255,255,255,0.065);
+    border-color: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+  }
+  .task-top {
+    display: flex; align-items: flex-start;
+    justify-content: space-between; gap: 10px;
+    margin-bottom: 10px;
+  }
+  .task-priority {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 3px 9px;
+    border-radius: 20px; white-space: nowrap; flex-shrink: 0;
+  }
+  .priority-high {
+    background: rgba(255,102,115,0.18); color: var(--rose);
+    border: 1px solid rgba(255,102,115,0.35);
+  }
+  .priority-mid {
+    background: rgba(255,181,0,0.15); color: var(--amber);
+    border: 1px solid rgba(255,181,0,0.3);
+  }
+  .task-title {
+    font-size: 15px; font-weight: 700; line-height: 1.35;
+    color: var(--white); margin-bottom: 10px;
+  }
+  .task-quote {
+    font-size: 12.5px; color: var(--slate-light); line-height: 1.55;
+    font-style: italic; padding: 8px 12px;
+    background: rgba(255,255,255,0.03);
+    border-left: 2px solid rgba(255,255,255,0.12);
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 14px;
+  }
+  .task-next {
+    background: rgba(0,150,224,0.08);
+    border: 1px solid rgba(0,150,224,0.2);
+    border-radius: 10px; padding: 10px 14px;
+  }
+  .task-next-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--blue-light); margin-bottom: 5px;
+  }
+  .task-next p {
+    font-size: 12.5px; color: var(--gray-300); line-height: 1.5;
+  }
+  .task-next p strong { color: var(--white); }
+
+  /* ── Column accent colors ── */
+  .col-framework .col-title { color: var(--violet); }
+  .col-framework .col-header { border-color: rgba(123,97,255,0.3); }
+  .col-framework .task-card { border-left: 3px solid rgba(123,97,255,0.35); }
+
+  .col-tooling .col-title { color: var(--cyan); }
+  .col-tooling .col-header { border-color: rgba(0,220,250,0.3); }
+  .col-tooling .task-card { border-left: 3px solid rgba(0,220,250,0.3); }
+
+  .col-gtm .col-title { color: var(--emerald); }
+  .col-gtm .col-header { border-color: rgba(43,217,170,0.3); }
+  .col-gtm .task-card { border-left: 3px solid rgba(43,217,170,0.3); }
+
+  /* ── Background ── */
+  .bg-glow {
+    position: fixed; border-radius: 50%; filter: blur(120px);
+    pointer-events: none; z-index: 0;
+  }
+  .bg-glow-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(0,112,173,0.1), transparent); top: -200px; right: -100px; }
+  .bg-glow-2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(123,97,255,0.06), transparent); bottom: -150px; left: -100px; }
+
+  .page-header, .board { position: relative; z-index: 1; }
+
+  /* ── Footer ── */
+  .page-footer {
+    padding: 24px 64px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 12px; color: var(--slate-light);
+    position: relative; z-index: 1;
+    max-width: 1400px;
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-glow bg-glow-1"></div>
+<div class="bg-glow bg-glow-2"></div>
+
+<!-- ── Header ── -->
+<header class="page-header">
+  <div class="progress-bar-top"></div>
+  <div class="eyebrow">CRAFT Framework · Review-Feedback</div>
+  <h1>Offene Themen &amp; <span class="grad-blue">nächste Schritte</span></h1>
+  <div class="meta">
+    <span>9 offene Punkte</span>
+    <span class="meta-pill">🔴 4× Hoch</span>
+    <span class="meta-pill">🟡 5× Mittel</span>
+    <span class="meta-pill">3 Bereiche</span>
+  </div>
+</header>
+
+<!-- ── Board ── -->
+<main class="board">
+
+  <!-- ══════════════════════════
+       SPALTE 1: Framework & Design
+  ══════════════════════════════ -->
+  <div class="board-col col-framework">
+    <div class="col-header">
+      <span class="col-icon">🔷</span>
+      <span class="col-title">Framework &amp; Design</span>
+      <span class="col-count">4</span>
+    </div>
+
+    <!-- Task 1 -->
+    <div class="task-card">
+      <div class="task-top">
+        <div class="task-title">CRAFT-Messzyklus mit Delivery verknüpfen</div>
+        <span class="task-priority priority-high">Hoch</span>
+      </div>
+      <div class="task-quote">
+        „Aufpassen, dass wir nicht in einen 'wir haben CRAFT Scores um Fragen zu stellen, um CRAFT Scores zu verbessern' Zyklus fallen. Ggf. Verknüpfung mit Delivery Metriken (z.B. Cycle Time)"
+      </div>
+      <div class="task-next">
+        <div class="task-next-label">Nächster Schritt</div>
+        <p>Cycle Time + Lead Time als <strong>Pflicht-Metriken im Business Problem Check (Woche 4)</strong> verankern. CRAFT Score gilt nur als Hebel, nie als Ziel. CRAFT-Score ↑ muss Delivery-Metrik ↓ bewegen — sonst falsche Maßnahme.</p>
+      </div>
+    </div>
+
+    <!-- Task 2 -->
+    <div class="task-card">
+      <div class="task-top">
+        <div class="task-title">Zielgruppen-Steuerung klären</div>
+        <span class="task-priority priority-high">Hoch</span>
+      </div>
+      <div class="task-quote">
+        „Sollen alle Fragen von allen aus einer Zielgruppe beantwortet werden oder die Justierung durch ein 'CRAFT-Kernteam' im Engagement gemacht werden, z.B. zum angepeilten Business Impact?"
+      </div>
+      <div class="task-next">
+        <div class="task-next-label">Nächster Schritt</div>
+        <p><strong>Hybrid-Modell</strong> dokumentieren: Team → Pulse Check anonym (Breite), CRAFT-Kernteam → Interpretation + Zielgewichtung (Tiefe). Entscheidungsregel: wer interpretiert, wer befüllt.</p>
+      </div>
+    </div>
+
+    <!-- Task 3 -->
+    <div class="task-card">
+      <div class="task-top">
+        <div class="task-title">Multi-Modell-Ansatz entwickeln</div>
+        <span class="task-priority priority-mid">Mittel</span>
+      </div>
+      <div class="task-quote">
+        „Eine Kombi aus unterschiedlichen Modellen statt eines — one-never-fits-all"
+      </div>
+      <div class="task-next">
+        <div class="task-next-label">Nächster Schritt</div>
+        <p>Modell-Auswahl-Leitfaden pro <strong>Kontext-Archetyp</strong> erstellen (Agil, Enterprise Reguliert, Public Sector, Konzern Liberal). Welches LLM / welche Tool-Kombi passt zu welchem Kontext?</p>
+      </div>
+    </div>
+
+    <!-- Task 4 -->
+    <div class="task-card">
+      <div class="task-top">
+        <div class="task-title">Rechtssicherheit &amp; Kontextprüfung</div>
+        <span class="task-priority priority-mid">Mittel</span>
+      </div>
+      <div class="task-quote">
+        „Wie wasserdicht ist das Framework, kann JEDER Kontext das einfach mal ausfüllen? Rechtliche Beschränkungen?"
+      </div>
+      <div class="task-next">
+        <div class="task-next-label">Nächster Schritt</div>
+        <p>Governance Liaison einbinden: <strong>Checkliste für regulierte Kontexte</strong> erstellen (Public Sector, Banking, Healthcare). Welche Fragen sind in welchem Kontext nicht zulässig? Opt-out-Mechanismus für sensible Fragen dokumentieren.</p>
+      </div>
+    </div>
+
+  </div><!-- /col-framework -->
+
+
+  <!-- ══════════════════════════
+       SPALTE 2: Tooling & Hosting
+  ══════════════════════════════ -->
+  <div class="board-col col-tooling">
+    <div class="col-header">
+      <span class="col-icon">🛠</span>
+      <span class="col-title">Tooling &amp; Hosting</span>
+      <span class="col-count">3</span>
+    </div>
+
+    <!-- Task 5 -->
+    <div class="task-card">
+      <div class="task-top">
+        <div class="task-title">Interventionskatalog vervollständigen</div>
+        <span class="task-priority priority-high">Hoch</span>
+      </div>
+      <div class="task-quote">
+        „Konkrete Handlungsvorschläge pro Schritt"
+      </div>
+      <div class="task-next">
+        <div class="task-next-label">Nächster Schritt</div>
+        <p>Interventionskatalog für alle 5 CRAFT-Dimensionen aufbauen. <strong>Aktueller Stand: R fertig</strong> (intervention-catalogue-readiness.md). A, F, C, T fehlen noch. Priorisierung: A + F als nächste, da höchster Impact-Hebel laut Wirkmodell.</p>
+      </div>
+    </div>
+
+    <!-- Task 6 -->
+    <div class="task-card">
+      <div class="task-top">
+        <div class="task-title">Tool-Begleitung pro Trainings-Schritt</div>
+        <span class="task-priority priority-high">Hoch</span>
+      </div>
+      <div class="task-quote">
+        „Toolbegleitung (bspw das von heute) für die einzelnen Schritte zur a) besseren Unterstützung des Teams sowie b) zur besseren Messbarkeit im Projekt"
+      </div>
+      <div class="task-next">
+        <div class="task-next-label">Nächster Schritt</div>
+        <p>Pro Trainingsblock (Understand / Plan / Create) <strong>konkretes Tool-Template + Prompt-Library</strong> ergänzen — wie Block 08 heute. Messbarkeit: je Block ein messbarer Output definieren (z.B. challenge-context.md → task-brief.md → Deliverable).</p>
+      </div>
+    </div>
+
+    <!-- Task 7 -->
+    <div class="task-card">
+      <div class="task-top">
+        <div class="task-title">Zentrales Capgemini-Hosting</div>
+        <span class="task-priority priority-mid">Mittel</span>
+      </div>
+      <div class="task-quote">
+        „Zentrales Capgemini Hosting wäre schön"
+      </div>
+      <div class="task-next">
+        <div class="task-next-label">Nächster Schritt</div>
+        <p>IT-Anforderungen für CRAFT Explorer App klären. <strong>Docker-Image ist vorhanden</strong> (air-gapped-fähig). IT-Request für internen Server oder Capgemini Azure-Tenant stellen. Authentifizierung über bestehende Capgemini SSO?</p>
+      </div>
+    </div>
+
+  </div><!-- /col-tooling -->
+
+
+  <!-- ══════════════════════════
+       SPALTE 3: Go-to-Market
+  ══════════════════════════════ -->
+  <div class="board-col col-gtm">
+    <div class="col-header">
+      <span class="col-icon">📣</span>
+      <span class="col-title">Go-to-Market</span>
+      <span class="col-count">2</span>
+    </div>
+
+    <!-- Task 8 -->
+    <div class="task-card">
+      <div class="task-top">
+        <div class="task-title">Erfahrungsberichte &amp; Case Studies</div>
+        <span class="task-priority priority-high">Hoch</span>
+      </div>
+      <div class="task-quote">
+        „Ihr sagt ihr habt angefangen das in konkreten Engagements einzusetzen. Her mit den Erfahrungsberichten und Erkenntnissen. Wie seid ihr vorgegangen, wie habt ihr EMs/Kunden überzeugt es auszuprobieren, wer waren die ersten Teilnehmer (unsere Leute/Kunde)?"
+      </div>
+      <div class="task-next">
+        <div class="task-next-label">Nächster Schritt</div>
+        <p>2 Pilot-Teams für <strong>30-min Interview</strong> anfragen. Format: Wie war der Einstieg? Was hat der EM gesagt? Wer hat teilgenommen? Was hat überrascht? Output: <strong>2-Pager Case Study</strong> pro Engagement — bis zur nächsten Runde fertig. Nächste Präsentation startet damit.</p>
+      </div>
+    </div>
+
+    <!-- Task 9 -->
+    <div class="task-card">
+      <div class="task-top">
+        <div class="task-title">Business Case &amp; Marketing-Paket</div>
+        <span class="task-priority priority-mid">Mittel</span>
+      </div>
+      <div class="task-quote">
+        „Business Case und Marketing Slides"
+      </div>
+      <div class="task-next">
+        <div class="task-next-label">Nächster Schritt</div>
+        <p>ROI-Kalkulation auf Basis <strong>Cycle Time-Verbesserung</strong> erstellen (McKinsey-Daten als Referenz vorhanden). Ergebnisse aus Piloten als konkreten Input nutzen. Zwei Formate: <strong>Exec 1-Pager</strong> (Business Case) + <strong>3-Slide-Deck</strong> (Sales Pitch) für EMs.</p>
+      </div>
+    </div>
+
+  </div><!-- /col-gtm -->
+
+</main><!-- /board -->
+
+<footer class="page-footer">
+  <span>CRAFT Framework · Review-Feedback · Stand: Mai 2026</span>
+  <span style="display:flex; gap:16px;">
+    <span>🔴 Hoch = Blockt oder verfälscht Ergebnis</span>
+    <span>🟡 Mittel = Verbessert Qualität und Reichweite</span>
+  </span>
+</footer>
+
+</body>
+</html>
