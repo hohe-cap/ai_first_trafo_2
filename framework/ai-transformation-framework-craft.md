@@ -17,7 +17,7 @@ Autor: Jan | AI Transformation Management
 2. [Executive Summary](#2-executive-summary)
 3. [Die 5 CRAFT-Dimensionen](#3-die-5-craft-dimensionen)
 4. [Discover & Iterate: Das Betriebssystem der Transformation](#4-discover--iterate-das-betriebssystem-der-transformation) — 4.1 CRAFT Explorer · 4.2 Drei-Ebenen-Architektur · 4.3 Kontext-Profile · 4.4 Pulse Check · 4.5 Zyklus-Struktur · 4.6 Business Problem Check · 4.7 Readiness Gates · 4.8 Zyklus-Entscheidungs-Framework · 4.9 Typischer Verlauf
-5. [KPI-Framework: Outcome statt Output](#5-kpi-framework-outcome-statt-output) — 5.1 Delivery Outcomes · 5.2 AI Maturity · 5.3 Business Impact · 5.4 Wirkmodell
+5. [KPI-Framework: Outcome statt Output](#5-kpi-framework-outcome-statt-output) — 5.1 Level 1: Delivery Outcomes · 5.2 Level 2: AI Maturity · 5.3 Wirkmodell
 6. [Das AI Adoption Team](#6-das-ai-adoption-team)
 7. [Die AI Adoption Roadmap (Kundenergebnis)](#7-die-ai-adoption-roadmap-kundenergebnis)
 8. [Engagement-Architektur: Vom Framework zur Wirkung](#8-engagement-architektur-vom-framework-zur-wirkung)
@@ -41,6 +41,15 @@ AI in der Softwareentwicklung ist kein Zukunftsversprechen mehr. Die Produktivit
 - **Zufriedenheit und Flow:** 60–75% der Copilot-Nutzer berichten höhere Arbeitszufriedenheit; 73% geben an, besser im Flow zu bleiben, und 87% sparen mentale Energie bei repetitiven Aufgaben. ([GitHub Research, 2022](https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/))
 
 Die Implikation: AI-gestützte Entwicklung ist nicht inkrementell besser – sie verändert fundamental, wie schnell Teams iterieren, lernen und liefern können.
+
+### 1.1b Paradigmenwechsel: Von Autocomplete zu agentischer AI
+
+2025 markiert einen qualitativen Sprung: AI-Werkzeuge sind nicht mehr nur Eingabehilfen, die eine Zeile Code vervollständigen. **AI Agents** lesen heute ganze Codebasen, planen Änderungen, schreiben Code, führen Tests aus und korrigieren Fehler — eigenständig. Tools wie Claude Code, GitHub Copilot Workspace und Cursor zeigen: Das ist kein besseres Autocomplete — es ist ein neues Arbeitsmodell.
+
+Dieser Paradigmenwechsel hat zwei Konsequenzen für die AI-Transformation:
+
+1. **Die Produktivitätspotenziale vervielfachen sich.** Wenn AI nicht nur einzelne Zeilen, sondern ganze Arbeitspakete übernehmen kann, verschiebt sich die Rolle des Entwicklers fundamental — von der Code-Erstellung zur Code-Orchestrierung und -Qualitätssicherung.
+2. **Die Anforderungen an Governance, Prozesse und Skills steigen proportional.** Agentische AI, die eigenständig handelt, braucht klarere Leitplanken, bessere Qualitäts-Gates und neue Fähigkeiten im Team. Ohne angepasste Prozesse und Change Management wird der Paradigmenwechsel zum Risiko statt zum Hebel.
 
 ### 1.2 Der Leidensdruck ist jetzt
 
@@ -69,7 +78,13 @@ Der [DORA Report 2024](https://dora.dev/research/2024/dora-report/) belegt: 25% 
 
 Die Chancen sind real, der Druck ist da, und Nicht-Handeln hat einen messbaren Preis. Die logische Folge: AI-Transformation ist keine Option, sondern eine strategische Notwendigkeit.
 
-Aber — und hier beginnt die eigentliche Herausforderung — **die meisten scheitern auf dem Weg dorthin.** Studien beziffern die Failure Rate auf 80–95% (→ vollständige Datenlage: Kap. 11.1). Nicht weil AI nicht funktioniert, sondern weil die Verbindung zwischen AI-Potenzial und konkretem Business-Problem fehlt. AI wird zum Selbstzweck, statt spezifische Herausforderungen zu lösen. Genau dieses Problem adressiert das folgende Framework.
+Aber — und hier beginnt die eigentliche Herausforderung — **die meisten scheitern auf dem Weg dorthin.** Die Datenlage ist eindeutig:
+
+- **95%** der Enterprise-AI-Piloten bleiben ohne messbaren P&L-Impact ([MIT NANDA, 2025](https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf))
+- **42%** der Unternehmen haben 2025 die Mehrheit ihrer AI-Initiativen eingestellt — vs. 17% in 2024 (S&P Global Market Intelligence, 2025)
+- **80%+** der AI-Projekte scheitern — doppelt so häufig wie Non-AI-IT-Projekte. Kernursache: fehlende cross-funktionale Koordination (RAND Corporation)
+
+Nicht weil AI nicht funktioniert, sondern weil die Verbindung zwischen AI-Potenzial und konkretem Business-Problem fehlt. AI wird zum Selbstzweck, statt spezifische Herausforderungen zu lösen. Genau dieses Problem adressiert das folgende Framework.
 
 ---
 
@@ -100,9 +115,9 @@ Die Business-Impact-Kennzahlen werden im **Business Impact Discovery** (vor dem 
 
 ### Kernprinzipien
 
-- **Value Stream First:** Wir beginnen nicht bei Tools, sondern bei den Engpässen im Wertschöpfungsprozess. AI-Interventionen werden dort platziert, wo sie den größten Hebel auf Outcomes haben.
-- **Human-Centric Change:** Technologieeinführung ohne begleitenden Change-Prozess produziert Shelfware. Das Framework behandelt Rollenentwicklung, psychologische Sicherheit und Fähigkeitsaufbau als gleichberechtigte Dimensionen.
-- **Iterativ statt sequenziell:** Komplexe Transformationen lassen sich nicht in linearen Phasen planen. Das Framework arbeitet mit 4-Wochen-Iterationszyklen, in denen alle Dimensionen parallel adressiert werden.
+- **Value Stream / Workflow First:** Wir beginnen nicht bei Tools, sondern bei den Engpässen im Wertschöpfungsprozess. AI-Interventionen werden dort platziert, wo sie den größten Hebel auf die Business-Impact-Metriken haben. Workflow-Redesign ist der stärkste EBIT-Hebel (McKinsey 2025).
+- **Human-Centric Change:** Technologieeinführung ohne begleitenden Change-Prozess produziert Shelfware. Das Framework behandelt Rollenentwicklung, psychologische Sicherheit und Fähigkeitsaufbau als gleichberechtigte Dimensionen — nicht als Appendix. Wir nutzen ADKAR als bewährtes Change-Modell: Awareness → Desire → Knowledge → Ability → Reinforcement.
+- **Iterativ begleitet mit Metriken:** Komplexe Transformationen lassen sich nicht in linearen Phasen planen. Das Framework arbeitet mit 4-Wochen-Iterationszyklen, in denen alle 5 CRAFT-Dimensionen gleichzeitig aktiv sind — mit wechselndem Schwerpunkt. Der Business Impact Check hält den Fokus auf dem echten Problem.
 
 > **Positionierung:** Die bestehenden Ansätze adressieren jeweils nur eine von drei kritischen Ebenen — und das ist das Problem: **(1)** AI Maturity Modelle (MITRE, Gartner, EY) messen den organisationalen Reifegrad, aber sie gehen nicht in den SDLC hinein und bleiben für ein Team, das am Montag anfangen will, abstrakt. **(2)** Change-Frameworks (Kotter, ADKAR) sind technologie-agnostisch und ignorieren die Besonderheiten von AI: die Geschwindigkeit der Tool-Evolution, den Angst-Komplex „KI ersetzt meinen Job" und EU AI Act-Anforderungen. **(3)** Value-Stream-Frameworks (Lean VSM, DORA) messen Prozesseffizienz exzellent, aber nicht wie man Bottlenecks mit AI löst oder das Team dabei mitnimmt. Das AI Transformation Framework verbindet alle drei Ebenen in einem operativ nutzbaren System: SDLC-Tiefe mit Tool-Alternativen pro Sicherheitsstufe, AI-spezifisches Change Management und Value Stream als Entscheidungsgrundlage für Interventionen. Die duale Zielsetzung — konkreter Business Impact *und* systematischer AI-Fähigkeitsaufbau — stellt sicher, dass die Transformation weder zum Selbstzweck wird noch im Aktionismus versandet. (→ vollständige Abgrenzungsanalyse: Kap. 11)
 
@@ -116,7 +131,7 @@ Die fünf CRAFT-Dimensionen sind der inhaltliche Kern des Frameworks — sie def
 |------|-------|------|-------|---------------|
 | D1 | **C** | Compliance & Governance | Regulatorische Leitplanken, Policies, Betriebsrats-Einbindung, EU AI Act | Governance & Compliance Liaison |
 | D2 | **R** | Readiness (Human & Cultural) | Rollenentwicklung, Skill-Aufbau, psychologische Sicherheit, Champion-Netzwerk | Change & People Lead |
-| D3 | **A** | Adoption & Usage | Tatsächliche Nutzung im Arbeitsalltag, Verbreitung über SDLC-Phasen, Shadow AI Kanalisierung | AI Transformation Manager |
+| D3 | **A** | Adoption & Usage | Tatsächliche Nutzung im Arbeitsalltag, Verbreitung über SDLC-Phasen, Shadow AI Kanalisierung | AI Transformation Lead |
 | D4 | **F** | Flow & Process Integration | SDLC-Analyse, Bottleneck-Identifikation, AI-Intervention-Matching, Workflow-Einbettung | Value Stream Coach |
 | D5 | **T** | Technical Enablement | Tool-Bereitstellung, LLM-Deployment, IDE-Integration, Infrastruktur | Technical AI Lead |
 
@@ -192,12 +207,11 @@ flowchart TB
     D4 -.- D5
     D5 -.- D1
 
-    subgraph MEASURE["📊 KPI: DREI-SCHICHTEN-ARCHITEKTUR"]
+    subgraph MEASURE["📊 KPI: ZWEI-LEVEL-ARCHITEKTUR"]
         direction LR
-        M1["<b>Schicht 1</b><br/>DORA Metrics<br/><i>Delivery Outcomes</i>"]
-        M2["<b>Schicht 2</b><br/>CRAFT-Modell<br/><i>AI Maturity</i>"]
-        M3["<b>Schicht 3</b><br/>Business Impact<br/><i>EBIT, Time-to-Market</i>"]
-        M1 --> M2 --> M3
+        M1["<b>Level 1</b><br/>Delivery Outcomes<br/><i>Business Impact + DORA</i>"]
+        M2["<b>Level 2</b><br/>CRAFT-Scores<br/><i>AI Maturity</i>"]
+        M1 --- M2
     end
 
     CENTER --> MEASURE
@@ -265,7 +279,7 @@ Aktive Definition, wie sich Rollen weiterentwickeln – nicht ob, sondern wie:
 
 #### Champion-Netzwerk
 
-Pro Team werden 1–2 Personen als AI Champions identifiziert. Sie sind keine formalen Führungskräfte, sondern Multiplikatoren aus den Teams heraus. Entscheidend: Champions bekommen dedizierte Zeit (mindestens 20% ihrer Kapazität) und direkten Zugang zum AI Transformation Manager. Ohne Zeitbudget wird die Rolle nicht ernst genommen.
+Pro Team werden 1–2 Personen als AI Champions identifiziert. Sie sind keine formalen Führungskräfte, sondern Multiplikatoren aus den Teams heraus. Entscheidend: Champions bekommen dedizierte Zeit (mindestens 20% ihrer Kapazität) und direkten Zugang zum AI Transformation Lead. Ohne Zeitbudget wird die Rolle nicht ernst genommen.
 
 #### Psychological Safety Workshop
 
@@ -367,10 +381,10 @@ Wir sprechen bewusst von **Exploration** statt Assessment — der Prozess ist ei
 
 ### 4.1 CRAFT Explorer (App)
 
-Eine interaktive Anwendung, die vom AI Transformation Manager begleitet wird. Sie ist bewusst nicht als Audit konzipiert, sondern als gemeinsames Explorations-Werkzeug. Teams führen die Erhebung eigenständig durch; Analyse, Auswertung und Ableitung der nächsten Schritte erfolgen immer durch den AI Transformation Manager.
+Eine interaktive Anwendung, die vom AI Transformation Lead begleitet wird. Sie ist bewusst nicht als Audit konzipiert, sondern als gemeinsames Explorations-Werkzeug. Teams führen die Erhebung eigenständig durch; Analyse, Auswertung und Ableitung der nächsten Schritte erfolgen immer durch den AI Transformation Lead.
 
 - **Format:** Web-App, flexibel einsetzbar in unterschiedlichen Kontexten (standalone, Teams-Integration, Workshop-Begleitung).
-- **Begleitetes Modell:** Durchführung der Exploration durch das Team, Analyse und Handlungsempfehlungen durch AI Transformation Manager. Keine unbegleitete Auswertung.
+- **Begleitetes Modell:** Durchführung der Exploration durch das Team, Analyse und Handlungsempfehlungen durch AI Transformation Lead. Keine unbegleitete Auswertung.
 - **Ablauf:** Deep-Dive (Kickoff-Baseline, alle 5 Dimensionen) → Analyse & Spider-Chart → erste Interventionen → Pulse Check (jeden 4-Wochen-Zyklus, Trend-Tracking) → Deep-Dive bei Bedarf (on-demand, wenn Pulse Check Auffälligkeiten zeigt).
 - **Dauer:** ~15–20 Minuten pro Deep-Dive-Dimension (einmalig), ≤15 Minuten pro Pulse Check (jeden Zyklus).
 - **Output:** Team-Dashboard mit Scores über die 5 CRAFT-Dimensionen (siehe Kapitel 5), Radar-Chart, Stärken-/Schwächen-Analyse und Handlungsempfehlungen, die gemeinsam in die Roadmap einfließen.
@@ -382,7 +396,7 @@ Die Standortbestimmung erfolgt über drei aufeinander aufbauende Ebenen. Jede Eb
 
 | Ebene | Zweck | Frequenz | Respondent | Dauer |
 |-------|-------|----------|------------|-------|
-| **1: Context & Readiness** | Fakten und Rahmenbedingungen erfassen (Branche, Team, Tech-Stack, Budget) | Einmalig (Kickoff) | AI Transformation Manager / Tech Lead (1–2 Personen, nicht anonym) | ~30 Min |
+| **1: Context & Readiness** | Fakten und Rahmenbedingungen erfassen (Branche, Team, Tech-Stack, Budget) | Einmalig (Kickoff) | AI Transformation Lead / Tech Lead (1–2 Personen, nicht anonym) | ~30 Min |
 | **2: Pulse Check** | CRAFT-Spider-Score (1–5) pro Dimension tracken, Trends erkennen | Jeden 4-Wochen-Zyklus (Woche 1) | Alle Teammitglieder (anonym) | ≤15 Min |
 | **3: Deep-Dives** (5×) | Granulare Sub-Topic-Analyse pro Dimension (je 4 Sub-Topics) | 1× Kickoff (Baseline) + on-demand | Alle Teammitglieder (anonym) | ~15–20 Min pro Dimension |
 
@@ -485,7 +499,7 @@ Bevor die Readiness-Gate-Entscheidung fällt, wird der **Business Problem Check*
 3. **Root Cause Check:** Gibt es Root Causes hinter dem ursprünglich wahrgenommenen Symptom, die wir noch nicht adressieren? (Beispiel: Das Symptom war "langsame Delivery", aber die Root Cause ist "fehlende Testautomatisierung", nicht "fehlende AI-Tools".)
 4. **Kurskorrektur:** Falls die Business-Impact-Kennzahlen stagnieren oder sich verschlechtern: Welche Anpassung ist nötig? Neue Interventionen? Andere CRAFT-Dimension priorisieren? Problem-Definition schärfen?
 
-> **Leitfrage für den AI Transformation Manager:** *"Wenn ich dem Sponsor heute erklären müsste, wie diese Transformation sein Business-Problem löst — was genau würde ich sagen?"* Wenn die Antwort nicht klar und konkret ist, fehlt der rote Faden.
+> **Leitfrage für den AI Transformation Lead:** *"Wenn ich dem Sponsor heute erklären müsste, wie diese Transformation sein Business-Problem löst — was genau würde ich sagen?"* Wenn die Antwort nicht klar und konkret ist, fehlt der rote Faden.
 
 ### 4.7 Readiness Gates
 
@@ -513,11 +527,11 @@ Bevor Dimensionen oder Interventionen gewählt werden, prüfen ob eine Rahmenbed
 
 > **Governance-Gate vor dem ersten Pilot — kritischer Pfad, nicht parallele Aktivität:** Die Tabelle oben beschreibt Governance als zyklische Entscheidungsfrage. In der Praxis gilt eine schärfere Regel: Governance muss **vor dem ersten Pilot-Kickoff** als sequenzielle Voraussetzung behandelt werden — nicht als Dimension, die parallel läuft und sich schon klären wird. Die zentrale Frage: Welche Daten und Inhalte dürfen unter welchen Bedingungen durch welche Modelle fließen? Solange diese Frage offen ist, darf kein Pilot starten — denn jede Intervention, die ohne Governance-Freigabe begonnen wird, muss entweder gestoppt oder nachträglich freigegeben werden. Beides kostet mehr als ein vorab durchgeführter Klärungsprozess.
 >
-> **Konsequenz für den AI Transformation Manager:** Im Kickoff den Governance-Check explizit beauftragen, eine Deadline setzen und ihn als Blocker für den Pilot-Start kennzeichnen. Betriebsrat, Datenschutz und Tool-Freigabe sind keine begleitenden Aktivitäten — sie entscheiden, ob der Pilot überhaupt starten kann.
+> **Konsequenz für den AI Transformation Lead:** Im Kickoff den Governance-Check explizit beauftragen, eine Deadline setzen und ihn als Blocker für den Pilot-Start kennzeichnen. Betriebsrat, Datenschutz und Tool-Freigabe sind keine begleitenden Aktivitäten — sie entscheiden, ob der Pilot überhaupt starten kann.
 
 **Schicht 2: Welche Dimension? (Wirkmodell-Triage)**
 
-Wenn mehrere Dimensionen schwach sind, gibt das Wirkmodell (→ Kap. 5.4) die Priorität vor:
+Wenn mehrere Dimensionen schwach sind, gibt das Wirkmodell (→ Kap. 5.3) die Priorität vor:
 
 ```
 R (Voraussetzung) → C + T (Freischalter) → F + A (Value Driver)
@@ -532,6 +546,25 @@ Wenn die Dimension feststeht:
 - **Sub-Topic:** Immer das schwächste. Die Min-Gewichtung der Deep-Dive-Formel `(Median × 0.6) + (Min × 0.4)` macht dies sichtbar — der Blocker liegt hier, auch wenn der Gesamt-Score es überdeckt.
 - **ADKAR-Phase bestimmen:** Der Sub-Topic-Score zeigt *was* schwach ist. Die ADKAR-Phase (A/D/K/Ab/R) zeigt *warum* — und damit welcher Interventionstyp wirkt. Gleicher Score, andere ADKAR-Phase → komplett andere Intervention.
 - **Maximal 2–3 Interventionen** pro Zyklus aus dem Interventionskatalog der gewählten Dimension. Quick Win zuerst in frühen Zyklen; strategische Interventionen (HR-Integration, Champion-Netzwerk) erst wenn Vertrauen aufgebaut ist.
+
+**Schicht 4: Mensch-AI-Kollaboration bei der Analyse**
+
+Die Analyse der CRAFT-Scores und die Ableitung von Interventionen erfolgt als Mensch-AI-Kollaboration — das AI Adoption Team gemeinsam mit KI-gestützten Analysewerkzeugen:
+
+1. **Schwachstellen & Wirkmodell:** Welche Dimension hat den größten Hebel auf die Business-Impact-Metriken?
+2. **Cross-Validation der Muster:** z.B. T hoch, A niedrig → Tool vorhanden, Adoption fehlt. Oder: R niedrig bei hohem T → psychologische Barriere trotz technischer Verfügbarkeit.
+3. **Interventionskatalog-Match:** Passende Maßnahmen aus dem Interventionskatalog — gefiltert nach Dimension, ADKAR-Phase und Aufwand.
+
+**Schicht 5: Operative vs. systemische Verteilung**
+
+Die identifizierten Interventionen werden auf zwei Pfade verteilt:
+
+| Pfad | Zielgruppe | Inhalt | Zeithorizont |
+|------|-----------|--------|--------------|
+| **Team in Transformation** | Pilotteam(s) | Diskutiert & priorisiert max. 2–3 operative Interventionen für den Zyklus. PDCA Woche 2–3, Check Woche 4. | Innerhalb des Zyklus |
+| **Management (systemisch)** | Sponsoren, HR, IT-Governance | Strukturelle & organisatorische Themen, die das Team allein nicht lösen kann: Ressourcen & Kapazität, Governance-Entscheidungen, kultureller Widerstand (strukturell). | Rückkopplung in nächsten Zyklus |
+
+KI schlägt vor — Menschen entscheiden. Operatives → Team. Systemisches → Management.
 
 > **Operative Referenz:** Vollständiger Entscheidungsbaum mit Entscheidungsmatrizen, ADKAR-Mapping, Szenarien und Woche-4-Checkliste: `deliverables/craft-cycle-decision-guide.md`
 
@@ -549,11 +582,23 @@ Wenn die Dimension feststeht:
 
 ## 5. KPI-Framework: Outcome statt Output
 
-Das Mess-System folgt drei Prinzipien: Outcomes messen statt Output zählen, auf etablierte Metriken aufbauen statt neue erfinden, und minimalen Overhead erzeugen durch automatisierte Erhebung wo immer möglich.
+Das Mess-System folgt drei Prinzipien: Outcomes messen statt Output zählen, auf etablierte Metriken aufbauen statt neue erfinden, und minimalen Overhead erzeugen durch automatisierte Erhebung wo immer möglich. **Pull statt Push:** Sponsoren, Teams und das AI Adoption Team holen sich eine Live-Sicht auf die Daten — kein periodisches Folien-Reporting.
 
-Das KPI-System ist in drei aufeinander aufbauende Schichten gegliedert: Delivery Outcomes (was liefern wir?), AI Maturity (wie gut nutzen wir AI?), und Business Impact (lösen wir das richtige Problem?). Die Schichten sind unabhängig erhebbar, entfalten aber ihren vollen Erklärungswert erst zusammen.
+Das KPI-System ist in zwei Level gegliedert: Level 1 misst den Business Value (Delivery Outcomes + individuelle Business-Impact-Kennzahlen), Level 2 misst den Hebel (AI Maturity via CRAFT-Scores). Die Level sind unabhängig erhebbar, entfalten aber ihren vollen Erklärungswert erst zusammen.
 
-### 5.1 Schicht 1: Delivery Outcomes (DORA + Value Stream)
+### 5.1 Level 1: Delivery Outcomes — sichert den Business Value
+
+Level 1 vereint die individuellen Business-Impact-Kennzahlen mit den etablierten Delivery-Metriken. Hier zeigt sich, ob die Transformation das richtige Problem löst.
+
+**Individuelle Business-Impact-Kennzahlen (primär)**
+
+Die 2–3 Business-Impact-Kennzahlen werden im Business Impact Discovery (vor der CRAFT Exploration) gemeinsam mit dem Sponsor definiert. Sie messen direkt das identifizierte Business-Problem und sind die Headline-Metriken im Sponsor-Reporting.
+
+- **Quelle:** Direkt gemessen aus den Systemen, die das Business-Problem abbilden (z.B. CI/CD für Lead Time, HR-System für Attrition, Jira für Cycle Time)
+- **Frequenz:** Zyklisch (alle 4 Wochen im Business Problem Check) + quartalsweise an Sponsoren
+- **Beispiele:** Median Lead Time, Change Failure Rate, Code Review Cycle Time, Developer Satisfaction Score, Effort pro Story Point
+
+**DORA Metrics + Value Stream (ergänzend)**
 
 Die DORA Metrics sind der Goldstandard für Software Delivery Performance. Sie werden vor und während der Transformation erhoben, um den Delta sichtbar zu machen. Ergänzt um Value-Stream-spezifische Metriken:
 
@@ -566,7 +611,9 @@ Die DORA Metrics sind der Goldstandard für Software Delivery Performance. Sie w
 | Cycle Time (E2E) | Von Anforderung bis Produktion | Aus Jira / Azure DevOps / GitLab |
 | Flow Efficiency | Aktive Bearbeitung vs. Wartezeit | Aus Value Stream Mapping + Tool-Daten |
 
-### 5.2 Schicht 2: AI Maturity – Das CRAFT-Modell
+**Bottom-up-Aggregation für Sponsoren:** Zusätzlich zur direkten Messung der Business-Impact-Kennzahlen werden DORA- und CRAFT-Daten automatisch in geschäftssprachliche Kennzahlen aggregiert: Velocity-Veränderung, Time-to-Market-Verbesserung, Qualitätsveränderung und Mitarbeiterzufriedenheit. So entsteht das vollständige Bild: Die Business-Impact-Kennzahlen zeigen, *ob* das Problem gelöst wird. Die Aggregation zeigt, *warum*.
+
+### 5.2 Level 2: AI Maturity (CRAFT-Scores) — misst den Hebel
 
 Ein 5-Dimensionen-Modell, zugeschnitten auf den SDLC-Kontext. Jede CRAFT-Dimension korrespondiert direkt mit einer Framework-Dimension (D1–D5) – die Handlungsdimension und ihr KPI-Gegenstück sind deckungsgleich. Das Modell wird über zwei komplementäre Instrumente erhoben:
 
@@ -697,27 +744,9 @@ Die generischen Bezeichnungen bedeuten je Dimension Unterschiedliches. Die folge
 | F – Flow | Anteil SDLC-Phasen mit definierten AI-Interventionen, Flow Efficiency (aktiv vs. Wartezeit), CI/CD-Integration, **Commercial Flow Alignment Score** (Vertragsmodell-Kompatibilität) | Pulse Check + Pipeline-Daten + Context Readiness |
 | T – Technical | Tool Availability Score, Integration Depth (standalone vs. IDE-integriert vs. Workflow-integriert), Modellabdeckung pro SDLC-Phase, **supported usage mode** (welche Modi sind offiziell/technisch möglich) | Automatisch + Pulse Check |
 
-### 5.3 Schicht 3: Business Impact (für Sponsoren)
-
-Schicht 3 arbeitet **dual — Top-down und Bottom-up:**
-
-**Top-down: Business-Impact-Kennzahlen (primär)**
-
-Die 2–3 Business-Impact-Kennzahlen werden im Business Impact Discovery (vor der CRAFT Exploration) gemeinsam mit dem Sponsor definiert. Sie messen direkt das identifizierte Business-Problem und sind die Headline-Metriken im Sponsor-Reporting.
-
-- **Quelle:** Direkt gemessen aus den Systemen, die das Business-Problem abbilden (z.B. CI/CD für Lead Time, HR-System für Attrition, Jira für Cycle Time)
-- **Frequenz:** Zyklisch (alle 4 Wochen im Business Problem Check) + quartalsweise an Sponsoren
-- **Beispiele:** Median Lead Time, Change Failure Rate, Code Review Cycle Time, Developer Satisfaction Score, Effort pro Story Point
-
-**Bottom-up: Aggregierte CRAFT + DORA Kennzahlen (ergänzend)**
-
-Aggregation aus Schicht 1 und 2 in geschäftssprachliche Kennzahlen: Velocity-Veränderung, Time-to-Market-Verbesserung, Qualitätsveränderung (aus Change Failure Rate) und Mitarbeiterzufriedenheit (aus Cultural Readiness). Wird automatisch generiert und quartalsweise an Sponsoren kommuniziert.
-
-**Zusammenspiel (→ duale Zielsetzung, Kap. 2):** Die Business-Impact-Kennzahlen zeigen, *ob* das Business-Problem gelöst wird. Die Bottom-up-Aggregation zeigt, *warum* — welche CRAFT-Dimensionen und DORA-Metriken die Veränderung treiben. Beide ergeben das vollständige Bild für Sponsoren.
-
 > **Overhead-Minimierung:** Die meisten Metriken werden automatisch aus bestehenden Tools erhoben (CI/CD, Jira, IDE-Telemetrie). Der Pulse Check ist das einzige Element, das aktive Beteiligung erfordert – maximal 15 Minuten pro Zyklus (alle 4 Wochen). Kein zusätzliches Reporting-System, keine Excel-Tabellen, keine manuellen KPI-Erhebungen. Die Business-Impact-Kennzahlen nutzen dieselben Datenquellen, die ohnehin vorhanden sind.
 
-### 5.4 Wirkmodell: Kausalkette von CRAFT zu Business Impact
+### 5.3 Wirkmodell: Kausalkette von CRAFT zu Business Impact
 
 CRAFT-Dimensionen verbessern sich nicht im Selbstzweck — sie sollen messbare Business-Outcomes bewegen. Die entscheidende Frage: *Welche Dimension bewegt welche Metrik, auf welchem Weg, und in welchem Zeitrahmen?* Das Wirkmodell macht diese Kausalkette explizit.
 
@@ -763,7 +792,7 @@ Die Verbindung CRAFT → Business-Wert ist nicht deterministisch. In diesen Situ
 
 ## 6. Das AI Adoption Team
 
-Angelehnt an Kotters Konzept der Guiding Coalition ist das AI Adoption Team das organisatorische Rückgrat der Transformation. Es ist heterogen zusammengesetzt, um alle Facetten (Technik, Mensch, Prozess, Governance) abzudecken, und arbeitet unter Leitung des AI Transformation Managers mit expliziter Unterstützung des Senior Managements.
+Angelehnt an Kotters Konzept der Guiding Coalition ist das AI Adoption Team das organisatorische Rückgrat der Transformation. Es ist heterogen zusammengesetzt, um alle Facetten (Technik, Mensch, Prozess, Governance) abzudecken, und arbeitet unter Leitung des AI Transformation Leads mit expliziter Unterstützung des Senior Managements.
 
 Kotter definiert vier Kerncharakteristiken für eine wirksame Guiding Coalition: Position Power (Entscheidungsbefugnis), Expertise (Fachkompetenz), Credibility (Glaubwürdigkeit) und Leadership (Fähigkeit, andere mitzunehmen). Das AI Adoption Team bildet alle vier ab.
 
@@ -771,7 +800,7 @@ Kotter definiert vier Kerncharakteristiken für eine wirksame Guiding Coalition:
 
 | Rolle | Verantwortung | Kotter-Dimension | Kapazität |
 |-------|---------------|------------------|-----------|
-| AI Transformation Manager (Leitung) | Orchestrierung aller 5 Dimensionen, Steuerung der Iterationszyklen, Verbindung zum Senior Management, Coaching der Champions | Leadership + Credibility | 100% |
+| AI Transformation Lead (Leitung) | Orchestrierung aller 5 Dimensionen, Steuerung der Iterationszyklen, Verbindung zum Senior Management, Coaching der Champions | Leadership + Credibility | 100% |
 | Technical AI Lead | Tool-Landschaft und Infrastruktur, Pflege des AI Intervention Katalogs, LLM-Bewertung, technische Playbooks | Expertise | 50–100% |
 | Value Stream Coach | Value Stream Mapping, DORA-Metriken-Interpretation, Verbindung zwischen AI-Intervention und Wertschöpfung | Expertise | 50–80% |
 | Change & People Lead | Psychological Safety Workshops, Rollenentwicklung, Champion-Coaching, Skill-Aufbau | Leadership | 50–80% |
@@ -783,33 +812,33 @@ Champions sind Kotters „Volunteer Army" — nicht Teil des Kernteams, aber dir
 
 Im Dual-Track-Modell (→ Kap. 7.3) differenziert sich das Champion-Netzwerk in zwei Ebenen mit unterschiedlichen Aufgaben und Kapazitätsanforderungen:
 
-**Tier 1 — Pilot-Champions (Tiefenspur)**
+**Tier 1 — AI Team Champions (Tiefenspur)**
 - 1 Person pro Pilotteam
 - ~20–30% dedizierte Kapazität für AI-Themen im eigenen Team
 - Direkter Kanal zum AI Adoption Team
 - Erstellen alle 4 Wochen eine **Pilot Story** (authentisch, peer-to-peer, 5 Min. async): was ausprobiert wurde, was funktioniert hat, was nicht. Input für die Breitenspur.
 
-**Tier 2 — Breitenspur-Champions (Nicht-Pilot-Teams)**
+**Tier 2 — AI Organisations Champions (Nicht-Pilot-Teams)**
 - 1 Person pro Nicht-Pilot-Team als Ansprechpartner und Multiplikator
 - ~10% Kapazität — deutlich geringer als Tier 1
-- Empfangen Pilot Stories und Nuggets von Tier-1-Champions
+- Empfangen Pilot Stories und Nuggets von AI Team Champions
 - Moderieren monatliche **AI Coffee Chats** im eigenen Team (optional, 30 Min., keine Agenda)
 - Senden Reflexionsfrage nach jeder Pilot Story ins Team
 - Rückkanal: sammeln Fragen und Stimmungen, geben sie ans AI Adoption Team weiter
 
-> **Recruiting-Prinzip:** Champions nicht nominieren — ansprechen und fragen. Wer kein intrinsisches Interesse mitbringt, funktioniert als Transmissionsriemen, nicht als Multiplikator. Tier-1-Champions werden beim Pilot-Kickoff identifiziert; Tier-2-Champions in Phase 1 über Leicht-Assessment und Early-Adopter-Beobachtung.
+> **Recruiting-Prinzip:** Champions nicht nominieren — ansprechen und fragen. Wer kein intrinsisches Interesse mitbringt, funktioniert als Transmissionsriemen, nicht als Multiplikator. AI Team Champions werden beim Pilot-Kickoff identifiziert; AI Organisations Champions in Phase 1 über Leicht-Assessment und Early-Adopter-Beobachtung.
 
 ### 6.2 Ideal- vs. Mindestbesetzung
 
 | Szenario | Besetzung | Einschränkungen |
 |----------|-----------|-----------------|
 | Idealbesetzung (ab 5 Teams / 50+ Personen) | Alle 5 Kernrollen + Champion-Netzwerk | Volle Abdeckung aller Dimensionen |
-| Standardbesetzung (2–4 Teams) | AI Transformation Manager (100%), Technical AI Lead (50%), Change & People Lead (50%), Governance Liaison (on demand) | Value Stream Coaching wird vom AI Transformation Manager mit abgedeckt |
-| Mindestbesetzung (1 Pilot-Team) | AI Transformation Manager (50–100%) + 1–2 Champions im Team | Governance und technische Tiefe müssen extern zugekauft oder eskaliert werden |
+| Standardbesetzung (2–4 Teams) | AI Transformation Lead (100%), Technical AI Lead (50%), Change & People Lead (50%), Governance Liaison (on demand) | Value Stream Coaching wird vom AI Transformation Lead mit abgedeckt |
+| Mindestbesetzung (1 Pilot-Team) | AI Transformation Lead (50–100%) + 1–2 Champions im Team | Governance und technische Tiefe müssen extern zugekauft oder eskaliert werden |
 
-### 6.3 Die Rolle des AI Transformation Managers
+### 6.3 Die Rolle des AI Transformation Leads
 
-Dies ist die Schlüsselrolle des gesamten Frameworks. Der AI Transformation Manager ist kein Projektmanager und kein Agile Coach – er ist ein Brückenbauer zwischen allen Dimensionen mit einem einzigartigen Kompetenzprofil:
+Dies ist die Schlüsselrolle des gesamten Frameworks. Der AI Transformation Lead ist kein Projektmanager und kein Agile Coach – er ist ein Brückenbauer zwischen allen Dimensionen mit einem einzigartigen Kompetenzprofil:
 
 - **Technische Tiefe:** Versteht AI-Tools, LLM-Grundlagen und Infrastruktur-Entscheidungen ausreichend, um mit Technical Leads auf Augenhöhe zu sprechen.
 - **Change-Kompetenz:** Kann Workshops moderieren, mit Widerständen umgehen und psychologische Sicherheit schaffen.
@@ -817,7 +846,7 @@ Dies ist die Schlüsselrolle des gesamten Frameworks. Der AI Transformation Mana
 - **Stakeholder-Management:** Kann mit C-Level, Betriebsrat und Entwicklerteams gleichermaßen kommunizieren.
 - **Iterative Steuerung:** Beherrscht agile Methoden und kann Transformationszyklen adaptiv steuern.
 
-> **Organisatorische Verankerung:** Die Rolle des AI Transformation Managers soll innerhalb der Organisation institutionalisiert und gestärkt werden – mit eigenem Ausbildungspfad, klarem Karrierepfad und Sichtbarkeit im Senior Management. Es handelt sich nicht um eine temporäre Projektrolle, sondern um eine dauerhafte Transformationskompetenz.
+> **Organisatorische Verankerung:** Die Rolle des AI Transformation Leads soll innerhalb der Organisation institutionalisiert und gestärkt werden – mit eigenem Ausbildungspfad, klarem Karrierepfad und Sichtbarkeit im Senior Management. Es handelt sich nicht um eine temporäre Projektrolle, sondern um eine dauerhafte Transformationskompetenz.
 
 ---
 
@@ -850,7 +879,7 @@ Die Auswahl des ersten Pilotteams ist eine strategische Entscheidung — transpa
 
 1. **CRAFT-Readiness erkennbar:** Ein Leicht-Assessment (Pulse Check mit allen Kandidatenteams, ~15 Min.) zeigt, welche Teams bereits höhere Scores in Dimension R (Readiness) und T (Technical) haben. Die Bereitschaft ist vorhanden — sie muss nicht erst aufgebaut werden.
 2. **Führungssignal vorhanden:** Der Team Lead oder Software Lead signalisiert aktiv Interesse. Ohne dieses Signal bleibt jede Intervention im passiven Widerstand stecken. Bereitschaft kann man nicht verordnen.
-3. **Potential für Tier-1-Champions erkennbar:** Im Team gibt es Early Adopters — Personen mit Neugier, Vertrauen bei den Kollegen und Bereitschaft für ein dediziertes AI-Commitment (~20–30% Kapazität). Ohne diesen Anker bleibt die Transformation außerhalb des Teams.
+3. **Potential für AI Team Champions erkennbar:** Im Team gibt es Early Adopters — Personen mit Neugier, Vertrauen bei den Kollegen und Bereitschaft für ein dediziertes AI-Commitment (~20–30% Kapazität). Ohne diesen Anker bleibt die Transformation außerhalb des Teams.
 4. **Automatisierbare Arbeit im Backlog:** Es gibt konkrete Ticket-Typen, bei denen AI-Unterstützung plausibel wirkt — z.B. Dependency-Updates, Testgenerierung, Dokumentation, wiederkehrende Bugfixes. Ein Team ohne automatisierbare Arbeit produziert keine messbaren Quick Wins.
 
 > **Praktische Regel:** Keinen vollständigen CRAFT Deep-Dive mit allen Kandidatenteams vor der Auswahl durchführen. Ein Deep-Dive dauert 2–3 Stunden, weckt Erwartungen und bindet Kapazität — auch bei Teams, die letztlich nicht ausgewählt werden. Stattdessen: Leicht-Assessment (~15 Min. Pulse Check) mit allen Kandidaten, Deep-Dive nur mit den bereits ausgewählten Teams.
@@ -867,7 +896,7 @@ Das Dual-Track-Modell löst dieses Spannungsfeld, indem es ab Phase 2 zwei expli
 | **Prozess** | Voller CRAFT-Prozess, 4-Wochen-Zyklen | Pre-kuratiertes "AI Basics Paket" |
 | **Aufwand** | Hoch — Deep-Dive, Champions, Dashboard | Niedrig — 1–2h pro Team pro Monat |
 | **Inhalt** | Individuell auf Bottleneck zugeschnitten | Aus Pilot-Learnings destillierte Nuggets |
-| **Ownership** | AI Adoption Team + Tier-1-Champions (tief) | Tier-2-Champions als Multiplikatoren (leicht) |
+| **Ownership** | AI Adoption Team + AI Team Champions (tief) | AI Organisations Champions als Multiplikatoren (leicht) |
 | **Messung** | CRAFT Score, DORA, Business Problem Check | Lightweight Pulse (2–3 Fragen) |
 
 **Der Verbindungsmechanismus: Schritt 6 als Quelle**
@@ -904,16 +933,16 @@ Bewusst vermieden: Verpflichtende Trainings ohne Opt-out (erzeugt Widerstand), E
 
 Die Breitenspur funktioniert nicht über Massenansprache — sie funktioniert über Peers. Der entscheidende Mechanismus ist ein zweistufiges Champion-Netzwerk, das Tiefe und Breite verbindet:
 
-| | Tier-1-Champions (Tiefenspur) | Tier-2-Champions (Breitenspur) |
+| | AI Team Champions (Tiefenspur) | AI Organisations Champions (Breitenspur) |
 |---|---|---|
 | **Herkunft** | 1 Person pro Pilotteam | 1 Person pro Nicht-Pilot-Team |
 | **Kapazität** | ~20–30% für AI-Themen | ~10% — deutlich geringer |
 | **Aufgabe** | Tiefe Begleitung im Pilotteam, alle 4 Wochen eine Pilot Story erstellen | Nuggets und Pilot Stories empfangen, weitergeben, Coffee Chats moderieren |
 | **Verbindung** | Direkter Kanal zum AI Adoption Team | Empfänger von Tier-1-Inhalten, Rückkanal für Fragen |
 
-Die Pilot Story ist das zentrale Verbindungselement: Tier-1-Champions erzählen — authentisch, peer-to-peer, unpoliert — was ihr Team ausprobiert hat, was funktioniert hat und was nicht. Tier-2-Champions tragen diese Stories in ihre Teams und stellen eine einzige Reflexionsfrage dazu. Keine Pflicht zur Antwort, nur Raum zum Nachdenken.
+Die Pilot Story ist das zentrale Verbindungselement: AI Team Champions erzählen — authentisch, peer-to-peer, unpoliert — was ihr Team ausprobiert hat, was funktioniert hat und was nicht. AI Organisations Champions tragen diese Stories in ihre Teams und stellen eine einzige Reflexionsfrage dazu. Keine Pflicht zur Antwort, nur Raum zum Nachdenken.
 
-> **Recruiting-Prinzip:** Champions werden nicht nominiert — sie werden gefragt. Wer kein intrinsisches Interesse mitbringt, wird zur Last statt zur Brücke. Tier-2-Champions werden am besten in Phase 1 identifiziert, wenn die Early Adopter in den Nicht-Pilot-Teams ohnehin sichtbar werden.
+> **Recruiting-Prinzip:** Champions werden nicht nominiert — sie werden gefragt. Wer kein intrinsisches Interesse mitbringt, wird zur Last statt zur Brücke. AI Organisations Champions werden am besten in Phase 1 identifiziert, wenn die Early Adopter in den Nicht-Pilot-Teams ohnehin sichtbar werden.
 
 **Drei Guardrails**
 
@@ -1035,14 +1064,14 @@ Jede Phase liefert abgeschlossene Deliverables. Selbst wenn eine Organisation na
 
 ### 8.4 Ergebnismatrix: Was Sie in welcher Phase erwarten können
 
-Die folgende Matrix verbindet jede Engagement-Phase mit konkreten, messbaren Ergebnissen — zugeordnet zu den drei KPI-Schichten (vgl. Kap. 5):
+Die folgende Matrix verbindet jede Engagement-Phase mit konkreten, messbaren Ergebnissen — zugeordnet zu den zwei KPI-Leveln (vgl. Kap. 5):
 
-| Phase | Delivery Outcomes (Schicht 1) | AI Maturity (Schicht 2) | Business Impact (Schicht 3) |
-|-------|-------------------------------|------------------------|----------------------------|
-| **Discovery** | DORA-Baseline erhoben | CRAFT-Scores als Ausgangspunkt, Stärken/Schwächen identifiziert | Business Case für Pilot quantifiziert |
-| **Pilot** | DORA-Delta messbar (Ziel: stabil oder verbessert), Flow Efficiency sichtbar | CRAFT-Score Verbesserung in mind. 2 Dimensionen | Quick Wins realisiert, Pilot-ROI dokumentiert |
-| **Embed & Scale** | DORA-Verbesserung über 2-4 Teams, Cycle Time Reduktion | CRAFT-Score >=3 in allen Dimensionen (Embedding-Level) | Velocity-Steigerung, Time-to-Market-Verbesserung quantifiziert |
-| **Continuous Partnership** | Kontinuierliche DORA-Optimierung, organisationsweite Benchmarks | CRAFT-Scores auf Scaling/Evolving-Level (4-5) | Strategische AI-Reife als Wettbewerbsvorteil, AI treibt Prozessinnovation |
+| Phase | Level 1: Delivery Outcomes (Business Value) | Level 2: AI Maturity (CRAFT-Scores) |
+|-------|----------------------------------------------|--------------------------------------|
+| **Discovery** | DORA-Baseline erhoben, Business Case für Pilot quantifiziert | CRAFT-Scores als Ausgangspunkt, Stärken/Schwächen identifiziert |
+| **Pilot** | DORA-Delta messbar (Ziel: stabil oder verbessert), Flow Efficiency sichtbar, Quick Wins realisiert, Pilot-ROI dokumentiert | CRAFT-Score Verbesserung in mind. 2 Dimensionen |
+| **Embed & Scale** | DORA-Verbesserung über 2-4 Teams, Cycle Time Reduktion, Velocity-Steigerung und Time-to-Market-Verbesserung quantifiziert | CRAFT-Score >=3 in allen Dimensionen (Embedding-Level) |
+| **Continuous Partnership** | Kontinuierliche DORA-Optimierung, organisationsweite Benchmarks, strategische AI-Reife als Wettbewerbsvorteil | CRAFT-Scores auf Scaling/Evolving-Level (4-5), AI treibt Prozessinnovation |
 
 > **Operative Details** (Personentage, Preismodell, Add-ons, Kontext-Profil-Empfehlungen) sind im separaten Service-Dokument detailliert: `deliverables/craft-service-offerings.md`. Das ermöglicht eine unabhängige Aktualisierung operativer Parameter, ohne die Framework-Dokumentation zu verändern.
 
@@ -1054,7 +1083,7 @@ Das Framework ist mehr als ein Strategiepapier. Folgende konkrete Werkzeuge und 
 
 | Werkzeug | Beschreibung | Status | Priorität |
 |----------|--------------|--------|-----------|
-| CRAFT Explorer App | Web-basierte App für CRAFT Explorer (Deep-Dive + Pulse Check), begleitet durch AI Transformation Manager. Generiert CRAFT-Scores und Radar-Chart als Grundlage für gemeinsame Roadmap-Ableitung. Stack: Vue 3 + Vite + TypeScript + Tailwind CSS + Chart.js. | **MVP fertig** | Hoch |
+| CRAFT Explorer App | Web-basierte App für CRAFT Explorer (Deep-Dive + Pulse Check), begleitet durch AI Transformation Lead. Generiert CRAFT-Scores und Radar-Chart als Grundlage für gemeinsame Roadmap-Ableitung. Stack: Vue 3 + Vite + TypeScript + Tailwind CSS + Chart.js. | **MVP fertig** | Hoch |
 | CRAFT Explorer | Drei-Ebenen-Fragenarchitektur (Context & Readiness + Pulse Check + 5 Deep-Dives) mit Design-Methodik. 7 YAML-Dateien + METHODOLOGY.md in `deliverables/question_banks/` | **v2.1 fertig** | Hoch |
 | Challenge Map | Systematische Herausforderungs-Analyse: 30 typische Herausforderungen (6 pro CRAFT-Dimension) mit Root Causes, diagnostischen Signalen, Kausalketten und Profil-Relevanz-Matrix. Basis für Backward Design der Fragen. `deliverables/question_banks/CHALLENGE-MAP.md` | **v1.0 fertig** | Hoch |
 | AI Intervention Katalog | Kuratierte Zuordnung von SDLC-Phasen zu AI-Lösungen mit Tooling-Alternativen pro Sicherheitsstufe | Entwurf vorhanden | Hoch |
@@ -1063,7 +1092,7 @@ Das Framework ist mehr als ein Strategiepapier. Folgende konkrete Werkzeuge und 
 | Governance Starter Kit | Policy-Vorlagen, Entscheidungsbaum, Betriebsrats-Leitfaden | Teilweise vorhanden | Hoch |
 | Technical Playbooks | Setup-Anleitungen pro Sicherheitsstufe (IDE bis LLM-Deployment) | Teilweise vorhanden | Mittel |
 | Rollenentwicklungs-Framework | Neue Skill-Profile, Lernpfade, angepasste Bewertungskriterien | Zu entwickeln | Mittel |
-| AI Transformation Manager Handbuch | Aufgabenprofil, Kompetenzen, Ausbildungspfad, Rollenabgrenzung | Zu entwickeln | Hoch |
+| AI Transformation Lead Handbuch | Aufgabenprofil, Kompetenzen, Ausbildungspfad, Rollenabgrenzung | Zu entwickeln | Hoch |
 | Champion Onboarding Kit | Einführungsmaterialien, Kommunikationsvorlagen, Zeitbudget-Vereinbarung | Zu entwickeln | Mittel |
 | Psychological Safety Workshop Design | Moderationsleitfaden, Übungen, Ergebnisvorlagen | Zu entwickeln | Mittel |
 | KPI Dashboard Template | Automatisierte Aggregation von DORA + CRAFT für Sponsoren-Reporting | Zu entwickeln | Mittel |
@@ -1144,7 +1173,7 @@ Wir erfinden nicht neu, was bereits validiert ist. Die folgende Tabelle zeigt f�
 | **OWASP AIMA** | Security-Governance als durchgängige Dimension, Risikokategorisierung | Fokussierung auf AI-System-Entwicklung (wir nutzen AI, wir entwickeln sie nicht primär) | OWASP adressiert Organisationen, die AI-Systeme bauen. Wir adressieren Teams, die AI-Werkzeuge im SDLC einsetzen. Der Governance-Bedarf überlappt, aber der Kontext ist verschieden. |
 | **Kotter 8 Accelerators** | Guiding Coalition → AI Adoption Team, Volunteer Army → Champion-Netzwerk, Dual Operating System, nicht-lineares Change-Modell | Urgency-Erzeugung als Startpunkt (in AI-Kontext bereits vorhanden), Vision-Kommunikation als Phase (bei uns kontinuierlich) | Kotter liefert die Change-Architektur, aber keine Technologie-Brücke. Wir ergänzen die fehlende Verbindung zwischen Change-Theorie und konkreter AI-Tool-Integration. |
 | **Prosci ADKAR** | Individuelle Change-Perspektive als Ergänzung zur Team-Ebene, Reinforcement-Prinzip | ADKAR als primäres Steuerungsmodell (zu linear für unseren Kontext) | ADKAR beschreibt den individuellen Change-Pfad gut, aber steuert keine Team-Transformation und keine technische Dimension. Wir nutzen es als Linse für die Human-Dimension, nicht als Framework-Gerüst. |
-| **DORA Metrics** | Alle 4 Kern-Metriken als Delivery-Outcome-Schicht, automatisierte Erhebungslogik | DORA als alleiniges Erfolgskriterium | DORA misst Delivery Performance, aber nicht AI-Reife, nicht kulturelle Readiness, nicht Value Stream Effizienz. Deshalb unsere Drei-Schichten-KPI-Architektur. |
+| **DORA Metrics** | Alle 4 Kern-Metriken als Delivery-Outcome-Komponente in Level 1, automatisierte Erhebungslogik | DORA als alleiniges Erfolgskriterium | DORA misst Delivery Performance, aber nicht AI-Reife, nicht kulturelle Readiness, nicht Value Stream Effizienz. Deshalb unsere Zwei-Level-KPI-Architektur. |
 | **Lean Value Stream Mapping** | VSM-Methodik, Waste-Kategorien, Flow-Efficiency-Konzept | Manufacturing-Kontext, physische Wertstrom-Metaphern | Lean VSM ist für Fabriken entwickelt. Unsere Adaption für den SDLC berücksichtigt die Besonderheiten von Wissensarbeit: unsichtbare Queues, Kontextwechsel, kognitive Last. |
 | **SAFe** | Portfolio-Skalierungslogik, PI-Planning-Rhythmik als Referenz für Iterationszyklen | Gesamtes SAFe-Framework als Voraussetzung, Zertifizierungs-Ökosystem | SAFe ist ein massives Betriebssystem für agile Skalierung. Unser Framework soll auch in Organisationen funktionieren, die kein SAFe nutzen. |
 
@@ -1192,7 +1221,7 @@ Um die Abgrenzung greifbar zu machen, hier eine vereinfachte Positionierungsmatr
 | Value Stream Fokus | ❌ Nicht adressiert | ⚠️ Implizit | ❌ Nicht adressiert | ✅ Herzstück (Dimension F) |
 | Governance (EU AI Act, BR) | ⚠️ Generisch | ⚠️ Nur eigene Plattform | ❌ Nicht adressiert | ✅ Deutsche Konzern-Realität |
 | Iteratives Vorgehen | ❌ Einmalig/jährlich | ⚠️ Continuous Deployment | ⚠️ Phasenmodelle | ✅ 4-Wochen-Zyklen mit Gates |
-| Messbarkeit | ⚠️ Maturity Score | ⚠️ Tool-Telemetrie | ❌ Qualitativ | ✅ DORA + CRAFT + Business Impact (3 Schichten) |
+| Messbarkeit | ⚠️ Maturity Score | ⚠️ Tool-Telemetrie | ❌ Qualitativ | ✅ DORA + Business Impact + CRAFT (2 Level) |
 | Selbststeuerungsfähig | ⚠️ Assessment als Service | ⚠️ Vendor Lock-in | ✅ Prinzipien übertragbar | ✅ Navigator App + Playbooks |
 | Validierungsstand | ✅ Breit validiert | ✅ Produktreif | ✅ Jahrzehnte Forschung | ⚠️ Theoretisch fundiert, Pilot ausstehend |
 
@@ -1231,7 +1260,7 @@ Nicht alle Werkzeuge müssen gleichzeitig fertig sein. Der kritische Pfad für e
 | # | Arbeitspaket | Beschreibung | Aufwand |
 |---|-------------|-------------|---------|
 | C1 | CRAFT Explorer App (MVP) | Basierend auf Pilot-Learnings: Fragebogen-Design finalisieren, Scoring-Logik kalibrieren, Web-App bauen. | 4–6 Wochen |
-| C2 | AI Transformation Manager Handbuch | Rollenbeschreibung, Ausbildungspfad, Werkzeugkoffer – informiert durch echte Pilot-Erfahrung. | 2–3 Wochen |
+| C2 | AI Transformation Lead Handbuch | Rollenbeschreibung, Ausbildungspfad, Werkzeugkoffer – informiert durch echte Pilot-Erfahrung. | 2–3 Wochen |
 | C3 | Pitch-Material & Case Study | Pilot-Ergebnisse aufbereiten für interne Vermarktung und Kundengespräche. | 1–2 Wochen |
 
 ### 12.2 Offene Entscheidungen

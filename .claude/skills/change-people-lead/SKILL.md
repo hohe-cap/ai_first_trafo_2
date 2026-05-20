@@ -186,13 +186,15 @@ Anwendungsfall: Eine neue Intervention soll dokumentiert werden, oder eine beste
 
 ---
 
-## Dimension A (Adoption) — Light Support
+## Dimension A (Adoption) — Weiterleitung
 
-> **Status:** Kein Interventionskatalog für A vorhanden. Arbeite mit:
-> - `deliverables/question_banks/deep-dive-adoption.yaml` (Fragen und Sub-Topics)
-> - Framework-Wissen aus `AGENTS.md` (CRAFT-Dimension A: DAU/Team, AI-assisted Commits %, SDLC-Phasen-Abdeckung)
+> **Dedizierter Skill vorhanden:** Für Dimension A (Adoption & Usage) existiert der Skill **`adoption-coach`** mit vollständiger SDLC-Rollen-Matrix, Interventions-Seed-Liste und Workflow-Unterstützung.
+>
+> Bei A-Fragen: Diesen Skill schließen und den `adoption-coach`-Skill laden. Dort sind A-spezifische Workflows (Auswertung, Interventionsplanung, Katalogaufbau) vollständig dokumentiert.
 
-Bei A-Fragen: Lade den Adoption-YAML, leite Sub-Topics und Diagnostik-Antworten ab, und entwickle Interventionen **ad-hoc nach dem gleichen Muster wie bei R** — mit explizitem Hinweis, dass kein validierter Katalog existiert.
+**Übergangs-Muster R→A (in diesem Skill behandeln):**
+- Wenn R-Intervention (z.B. R-PS-1 Shadow AI Amnestie) zu mehr Adoption führen soll → hier bleiben, auf A-Knock-on-Effekt hinweisen
+- Wenn Frage primär zu A-Score, SDLC-Phasen oder rollenspezifischen Aktivitäten → zu `adoption-coach` weiterleiten
 
 ---
 

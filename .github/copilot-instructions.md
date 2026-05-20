@@ -34,9 +34,24 @@ Bei Dokumentations-Änderungen am AI Transformation Framework:
 - Der Digest muss unter 2KB bleiben für optimale Performance
 
 ### Change & People Lead Arbeit
-Für Aufgaben zu Dimension R (Readiness), Dimension A (Adoption), Pulse Check Auswertung, Interventionskatalog und ADKAR:
+Für Aufgaben zu Dimension R (Readiness), Pulse Check Auswertung, Interventionskatalog R und ADKAR:
 - Verwende den Skill `.claude/skills/change-people-lead/SKILL.md`
-- Trigger-Phrasen: Pulse Check auswerten, Intervention planen, Readiness Score, Adoption Score, Shadow AI Amnestie, Champion-Aufbau, Westrum Culture, ADKAR
+- Trigger-Phrasen: Pulse Check auswerten, Intervention planen, Readiness Score, Shadow AI Amnestie, Champion-Aufbau, Westrum Culture, ADKAR
+
+### Adoption Coach Arbeit
+Für Aufgaben zu Dimension A (AI Adoption & Usage), SDLC-Phasen-Abdeckung, rollenspezifische Adoption-Aktivitäten und Interventionskatalog A:
+- Verwende den Skill `.claude/skills/adoption-coach/SKILL.md`
+- Trigger-Phrasen: A-Score auswerten, Adoption stagniert, SDLC-Abdeckung, rollenspezifische Use Cases, Adoption Developer/QA/PO/DevOps, Prompt Library, DAU/Team, Interventionskatalog A erstellen
+
+### Governance Liaison Arbeit
+Für Aufgaben zu Dimension C (Compliance & Governance), Compliance-Fragen beim AI-Einsatz, Interventionskatalog C und Explorer-Auswertungen:
+- Verwende den Skill `.claude/skills/governance-liaison/SKILL.md`
+- Trigger-Phrasen: C-Score auswerten, Compliance-Blocker, Policy-Vakuum, Governance-Bottleneck, Betriebsrat, Datenklassifizierung, EU AI Act, Interventionskatalog C erstellen, Tool-Freigabe, Shadow AI Regulierung
+
+### Value Stream Specialist Arbeit
+Für Aufgaben zu Dimension F (Flow & Process Integration), Value Stream Mapping, Lead Time / Cycle Time, DORA-Metriken und AI-Intervention-Ableitung:
+- Verwende den Skill `.claude/skills/value-stream-specialist/SKILL.md`
+- Trigger-Phrasen: Value Stream Mapping, VSM Workshop, Lead Time, Cycle Time, Bottleneck, DORA, Flow Efficiency, F-Score auswerten, Process Mining, Interventionskatalog F erstellen
 
 ### Pull Request Reviews
 Bei PR-Reviews prüfe gegen:

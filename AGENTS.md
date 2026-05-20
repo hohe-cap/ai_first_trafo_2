@@ -84,12 +84,12 @@ sondern an fehlender Prozessintegration und Change Management.
 - **Linse 1 — Business Impact:** Konkretes Business-Problem identifizieren → 2–3 Business-Impact-Kennzahlen definieren → in jedem Zyklus messen (Business Problem Check)
 - **Linse 2 — AI-Befähigung:** CRAFT-Dimensionen systematisch aufbauen → CRAFT-Scores als Hebel, der die Business-Impact-Kennzahlen bewegt
 - Zusammen: CRAFT verbessern → Business-Impact-Kennzahlen bewegen sich → Business-Problem wird gelöst
-- **Wirkmodell (explizite Kausalkette):** F+A sind die primären Value Driver; R ist Voraussetzung; C+T sind Freischalter (nicht eigenständige Value Driver). Detailliert in `business-impact-discovery.md` Teil 3b + Framework Kap. 5.4
+- **Wirkmodell (explizite Kausalkette):** F+A sind die primären Value Driver; R ist Voraussetzung; C+T sind Freischalter (nicht eigenständige Value Driver). Detailliert in `business-impact-discovery.md` Teil 3b + Framework Kap. 5.3
 
 **Drei Kernprinzipien:**
-- **Value Stream First:** AI-Interventionen dort platzieren wo sie den größten Hebel haben
-- **Human-Centric Change:** Rollenentwicklung und psychologische Sicherheit = gleichberechtigt
-- **Iterativ statt sequenziell:** 4-Wochen-Zyklen, alle Dimensionen parallel
+- **Value Stream / Workflow First:** AI-Interventionen dort platzieren wo sie den größten Hebel auf die Business-Impact-Metriken haben. Workflow-Redesign = stärkster EBIT-Hebel (McKinsey 2025)
+- **Human-Centric Change:** Rollenentwicklung und psychologische Sicherheit = gleichberechtigt. ADKAR als Change-Modell (Awareness → Desire → Knowledge → Ability → Reinforcement)
+- **Iterativ begleitet mit Metriken:** 4-Wochen-Zyklen, alle 5 Dimensionen gleichzeitig aktiv, Business Impact Check hält Fokus
 
 ### Die 5 CRAFT-Dimensionen (gleichzeitig aktiv, NICHT sequenziell)
 
@@ -97,7 +97,7 @@ sondern an fehlender Prozessintegration und Change Management.
 |------|------|-------|---------------|
 | **C** | Compliance & Governance | EU AI Act, Betriebsrat, Policies, 3 Sicherheitsstufen | Governance Liaison |
 | **R** | Readiness (Human & Cultural) | Rollenentwicklung, Champions, Psychological Safety, Shadow AI Amnestie | Change & People Lead |
-| **A** | Adoption & Usage | DAU/Team, AI-assisted Commits %, SDLC-Phasen-Abdeckung, Nutzungstiefe | AI Transformation Manager |
+| **A** | Adoption & Usage | DAU/Team, AI-assisted Commits %, SDLC-Phasen-Abdeckung, Nutzungstiefe | AI Transformation Lead |
 | **F** | Flow & Process Integration | Value Stream Mapping, Bottleneck-Analyse, AI Intervention Katalog, **Commercial Flow Alignment** (Vertragsmodell-Kompatibilität) | Value Stream Coach |
 | **T** | Technical Enablement | Tools, LLM-Deployment, IDE-Integration, MCP-Server, Prompt Libraries | Technical AI Lead |
 
@@ -114,25 +114,19 @@ sondern an fehlender Prozessintegration und Change Management.
 4. **Scaling** - Teil des Standardprozesses, messbare Outcomes, Skalierung läuft
 5. **Evolving** - Kontinuierliche Optimierung, AI treibt Prozessinnovation
 
-### KPI-Framework: Drei-Schichten-Architektur
+### KPI-Framework: Zwei-Level-Architektur
 
-**Schicht 1: Delivery Outcomes (DORA + Value Stream)**
-- Deployment Frequency, Lead Time for Changes, Change Failure Rate, Time to Restore
-- Cycle Time (E2E), Flow Efficiency (aktiv vs. Wartezeit)
+**Level 1: Delivery Outcomes — sichert den Business Value**
+- **Individuelle Business-Impact-Kennzahlen** (2–3 Metriken, direkt aus Business-Problem) + DORA (Deployment Frequency, Lead Time, Change Failure Rate, Time to Restore) + Value Stream (Cycle Time, Flow Efficiency)
 - Automatisch aus CI/CD und Jira/Azure DevOps erhebbar
+- Pull statt Push: Live-Sicht für Sponsoren, Teams & Adoption Team
 
-**Schicht 2: AI Maturity (CRAFT-Scores)**
+**Level 2: AI Maturity (CRAFT-Scores) — misst den Hebel**
 - Pro Dimension 1 Maturity-Score (1-5, Exploring → Evolving) via Pulse Check
 - Deep-Dives: 4 Sub-Topics pro Dimension, Min-gewichtete Aggregation
 - Max. 15 Minuten Aufwand pro Team (Pulse Check), anonymer Benchmark verfügbar
 - Scoring: Median (Pulse), (Median×0.6)+(Min×0.4) (Deep-Dive)
 - Methodik: `deliverables/question_banks/METHODOLOGY.md`
-
-**Schicht 3: Business Impact (dual: Top-down + Bottom-up)**
-- **Top-down: Business-Impact-Kennzahlen** — 2–3 Metriken, die direkt das identifizierte Business-Problem messen (definiert im Business Impact Discovery, vor CRAFT Explorer)
-- **Bottom-up:** Velocity-Veränderung, Time-to-Market, Qualität (aus L1), Mitarbeiterzufriedenheit — automatisch aus L1+L2 generiert
-- Business-Impact-Kennzahlen sind Headline im Sponsor-Reporting und im Business Problem Check (Woche 4)
-- Pulse Check enthält übergreifende Business-Outcome-Frage (BO-M1)
 
 ### Iterationsmodell
 
@@ -162,36 +156,36 @@ sondern an fehlender Prozessintegration und Change Management.
 ### AI Adoption Team (nach Kotter 8 Accelerators)
 
 **Kernrollen:**
-- **AI Transformation Manager** (100%, orchestriert alle 5 Dimensionen) - Schlüsselrolle
-- **Technical AI Lead** (50-100%, Infrastruktur, Tool-Katalog)
-- **Value Stream Coach** (50-80%, DORA-Interpretation, VSM-Workshops)
-- **Change & People Lead** (50-80%, Psychological Safety, Champions)
-- **Governance Liaison** (20-40%, Datenschutz, Betriebsrat, EU AI Act)
+- **AI Transformation Lead** (100%, orchestriert alle 5 Dimensionen) - Schlüsselrolle, nicht teilbar
+- **Technical AI Lead** (50-100%, Infrastruktur, Tool-Katalog, Fokus T & A)
+- **Value Stream Coach** (50-80%, DORA-Interpretation, VSM-Workshops, Fokus F)
+- **Change & People Lead** (50-80%, Psychological Safety, Champions, Fokus R & A)
+- **Governance Liaison** (20-40%, Datenschutz, Betriebsrat, EU AI Act, Fokus C)
 
 **Champion-Netzwerk (zwei Ebenen, bleiben in ihren Teams):**
-- **Tier 1** (Pilotteams): 20–30% Kapazität, tiefer CRAFT-Prozess, erstellt Pilot Stories für Breitenspur
-- **Tier 2** (Nicht-Pilot-Teams): ~10% Kapazität, verteilt Nuggets/Stories, moderiert Coffee Chats
-- Nicht nominieren — ansprechen und fragen; Direktkanal zu AI Transformation Manager
+- **AI Team Champions** (Pilotteams): 20–30% Kapazität, tiefer CRAFT-Prozess, erstellt Pilot Stories für Breitenspur
+- **AI Organisations Champions** (Nicht-Pilot-Teams): ~10% Kapazität, verteilt Nuggets/Stories, moderiert Coffee Chats
+- Nicht nominieren — ansprechen und fragen; Direktkanal zu AI Transformation Lead
 
 ### Kern-Differenzierung zu anderen Frameworks
 
-- **Value Stream First, nicht Tool First:** AI-Interventionen folgen Bottleneck-Analyse
-- **Human-Centric Change = gleichberechtigte Dimension:** Nicht Appendix, sondern Kern
-- **Iterativ statt sequenziell:** Alle 5 Dimensionen parallel in 4-Wochen-Zyklen
+- **Value Stream / Workflow First, nicht Tool First:** AI-Interventionen folgen Bottleneck-Analyse
+- **Human-Centric Change = gleichberechtigte Dimension:** Nicht Appendix, sondern Kern (ADKAR als Change-Modell)
+- **Iterativ begleitet mit Metriken:** Alle 5 Dimensionen parallel in 4-Wochen-Zyklen mit Business Impact Check
 - **SDLC-Vollabdeckung:** Requirements bis Operations, nicht nur Coding-Phase
-- **Messbarkeit:** DORA + CRAFT + Business Impact, automatisiert wo möglich
+- **Messbarkeit:** Zwei-Level-KPI (Delivery Outcomes + CRAFT-Scores), automatisiert wo möglich
 
 ### Werkzeuge & Deliverables
 
 **Primär:**
 - **Business Impact Discovery:** Gesprächsleitfaden *vor* CRAFT Explorer — identifiziert konkretes Business-Problem, definiert 2–3 Business-Impact-Kennzahlen (`deliverables/question_banks/business-impact-discovery.md`)
-- **CRAFT Explorer App:** Web-App für CRAFT Exploration, begleitet durch AI Transformation Manager. Generiert CRAFT-Scores und Radar-Chart
+- **CRAFT Explorer App:** Web-App für CRAFT Exploration, begleitet durch AI Transformation Lead. Generiert CRAFT-Scores und Radar-Chart
 - **CRAFT Explorer:** Drei-Ebenen-Architektur (Question Banks in `deliverables/question_banks/`)
   - Ablauf: Deep-Dive (Kickoff-Baseline) → Analyse & Spider-Chart → Interventionen → Pulse Check (jeden 4-Wochen-Zyklus) → Deep-Dive bei Bedarf
   - Ebene 1: Context & Readiness (einmalig, Fakten, 35 Fragen)
   - Ebene 2: Pulse Check (jeden 4-Wochen-Zyklus, 16 Fragen + 1 Business-Outcome-Frage, Spider-Score)
   - Ebene 3: Deep-Dives (5×, je 9–10 Fragen, Sub-Topic-Profile, Kickoff-Baseline + on-demand)
-  - Durchführung: Team eigenständig. Analyse & nächste Schritte: AI Transformation Manager
+  - Durchführung: Team eigenständig. Analyse & nächste Schritte: AI Transformation Lead
   - Design-Methodik: `METHODOLOGY.md` (Scoring, Kalibrierung, Backward Design, Cross-Validation)
   - Fragen folgen **Backward Design** (Wiggins & McTighe 2005): Vom Herausforderungs-Katalog rückwärts zur Frage
   - **Kontext-Profile:** 4 Archetypen (Agil, Enterprise Reguliert, Public Sector, Konzern Liberal) — gleiche Fragen, profil-gewichtete Interpretation
@@ -213,12 +207,12 @@ sondern an fehlender Prozessintegration und Change Management.
 - **AI Maturity:** MITRE AI MM (6 Säulen, 20 Dim.), SEI/Accenture AAMM, Gartner, EY.ai
 - **Change Management:** Kotter 8 Accelerators (Guiding Coalition), Prosci ADKAR
 - **Delivery & Value Stream:** DORA Metrics, Lean VSM, SAFe
-- **Empirie:** MIT NANDA (95% Pilot-Failure), McKinsey State of AI 2025 (Workflow-Redesign = stärkster EBIT-Hebel)
+- **Empirie:** MIT NANDA (95% Pilot-Failure), McKinsey State of AI 2025 (Workflow-Redesign = stärkster EBIT-Hebel), S&P Global 2025 (42% AI-Initiativen eingestellt), RAND Corporation (80%+ AI-Projekte scheitern)
 - **Survey-Design:** Wiggins & McTighe (Backward Design), DeVellis (Scale Development), Tourangeau (Survey Response Psychology)
 
 ### Typische Use Cases / Anwendungsfälle
 
-**Als AI Transformation Manager:**
+**Als AI Transformation Lead:**
 - "Wie messe ich AI-Reife in meinem Team?" → CRAFT Pulse Check, jeden 4-Wochen-Zyklus
 - "Wo fange ich an?" → Value Stream Mapping → Top-3-Bottlenecks → AI Intervention Katalog
 - "Mein Team hat Angst vor AI" → Shadow AI Amnestie + Psychological Safety Workshop
@@ -274,6 +268,6 @@ sondern an fehlender Prozessintegration und Change Management.
 
 **Version-Info:**
 - Framework Version: 1.0 DRAFT
-- AGENTS.md Version: 1.3
+- AGENTS.md Version: 1.4
 - CRAFT Explorer Version: 2.1 (Question Banks + METHODOLOGY.md + Challenge Map + Profile-Logik)
-- Letzte Sync mit Vollversion: 2026-05-08 (Governance-Gate als kritischer Pfad + Pilotteam-Auswahlkriterien + Zweistufiges Champion-Netzwerk Tier 1/2 + Dual-Track/Breitenspur mit ADKAR + Zwei-Tier-Struktur in Kap. 6.1 + 7.3)
+- Letzte Sync mit Vollversion: 2026-05-12 (Rolle AI Transformation Lead, Zwei-Level-KPI, Kernprinzipien-Update, Champion-Bezeichnungen AI Team/Organisations Champions, Agentisches Paradigma, Neue Quellen S&P/RAND, Analyse-Logik Team/Mgmt in Kap. 4.8)
